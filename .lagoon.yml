@@ -1,0 +1,43 @@
+docker-compose-yaml: docker-compose.yml
+
+tasks:
+  post-rollout:
+
+environments:
+  production:
+    routes:
+      - app:
+        - "www.yourvictoria.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+        - "yourvictoria.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+    monitoring_urls:
+      - "www.vic.gov.au"
+  master:
+    routes:
+      - app:
+        - "staging.yourvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+
+        - "www.staging.yourvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+  develop:
+      routes:
+        - app:
+          - "develop.yourvictoria.vic.gov.au":
+              tls-acme: 'false'
+              insecure: Allow
+              hsts: max-age=31536000
+        - app:
+          - "www.develop.yourvictoria.vic.gov.au":
+              tls-acme: 'false'
+              insecure: Allow
+              hsts: max-age=31536000
