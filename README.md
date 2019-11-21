@@ -1,69 +1,47 @@
-# yourvictoria-vic-gov-au
+<!-- GENERATED_DOCS -->
+# @dpc-sdp/ripple-map
 
-> Nuxt.js client for yourvictoria-vic-gov-au
+> An interactive map component
 
-- [Prerequisites](#prerequisites)
-- [Local environment setup](#local-environment-setup)
-- [Development Guide](#development-guide)
+--------------------------------------------------------------------------------
 
-## Prerequisites
+## Install
 
-Please have the *latest* stable versions of the following on your machine
-
-- node
-- npm
-
-## Local environment setup
-
-### Run server
-
-``` bash
-# install dependencies
-npm install
-
-# Start the local dev server
-npm run dev
+```shell
+npm install @dpc-sdp/ripple-map --save
 ```
 
-Local URL -- [http://localhost:3000](http://localhost:3000)
+--------------------------------------------------------------------------------
 
-### Lint code
+## Dependency graph
 
-``` bash
-# Boolean check if code conforms to linting rules - uses sass-lint, eslint & markdownlint
-npm run lint
+```shell
+@dpc-sdp/ripple-map
+├── @dpc-sdp/ripple-global
+├── ol
+└── ol-ext
 ```
 
-### Test
+--------------------------------------------------------------------------------
 
-``` bash
-# We uses Jest for unit test and end to end test
-npm test
+## Import
+
+```js
+import { RplMap } from '@dpc-sdp/ripple-map'
 ```
 
-## Development Guide
+--------------------------------------------------------------------------------
 
-Basically, custom dev work only happens in two files:
+## Usage and Tests
 
-- [assets/_theme.scss](assets/_theme.scss)
-- [assets/_custom.scss](assets/_custom.scss)
+See [Storybook/Molecules/Map/Map with no data](https://ripple.sdp.vic.gov.au/?path=/story/molecules-map--map-with-no-data).
 
-For more Ripple document, please check [https://github.com/dpc-sdp/ripple/](https://github.com/dpc-sdp/ripple/blob/production/README.md).
+See [Storybook/Molecules/Map/Map with free wifi data](https://ripple.sdp.vic.gov.au/?path=/story/molecules-map--map-with-free-wifi-data).
 
-### Custom variables
+--------------------------------------------------------------------------------
 
-We are using Ripple pattern library [https://ripple.sdp.vic.gov.au/](https://ripple.sdp.vic.gov.au/) in this project.
+## License
 
-You can orveride [Ripple](https://github.com/dpc-sdp/ripple) scss variables in
-[assets/_theme.scss](assets/_theme.scss) such as colour.
+Licensed under the Apache-2.0 License.
 
-Currently all scss variables with `!default` in Ripple can be overridden.
-We will build a guide of variables in future. But for now, you can check [Ripple packages](https://github.com/dpc-sdp/ripple/blob/master/packages/components) scss files if you want to go deep.
-
-### Custom scss
-
-You can orveride styles in [assets/_custom.scss](assets/_custom.scss) by adding any site specific styles.
-
-### Custom static files
-
-For custom images, favicons, analytics JavaScript files, you can replace them in [static](static) directory.
+<!-- /GENERATED_DOCS -->
