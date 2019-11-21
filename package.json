@@ -1,11 +1,11 @@
 {
-  "name": "@dpc-sdp/ripple-map",
+  "name": "@dpc-sdp/yourvictoria-vic-gov-au",
   "version": "1.4.0",
   "description": "An interactive map component",
   "license": "Apache-2.0",
   "main": "index.js",
   "homepage": "https://ripple.sdp.vic.gov.au",
-  "repository": "https://github.com/dpc-sdp/ripple/tree/master/packages/components/Molecules/Map",
+  "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au",
   "publishConfig": {
     "access": "public"
   },
