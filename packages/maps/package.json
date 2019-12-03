@@ -1,0 +1,15 @@
+{
+  "name": "@dpc-sdp/yourvic-maps",
+  "version": "1.0.0",
+  "description": "Collection of Maps for yourvictoria.vic.gov.au",
+  "main": "index.js",
+  "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au/tree/master/packages/maps",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@dpc-sdp/ripple-button": "^1.4.0",
+    "@dpc-sdp/ripple-global": "^1.4.0",
+    "@dpc-sdp/ripple-icon": "^1.4.0",
+    "@dpc-sdp/ripple-link": "^1.4.0",
+    "@dpc-sdp/ripple-markup": "^1.4.0"
+  }
+}
