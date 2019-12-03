@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import ButtonClose from '../ButtonClose'
+import ButtonClose from './ButtonClose'
 import Vue from 'vue'
 
 const DEFAULT_MAX_HEIGHT_PX = 300

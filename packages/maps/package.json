@@ -10,7 +10,8 @@
     "@dpc-sdp/ripple-global": "^1.4.0",
     "@dpc-sdp/ripple-icon": "^1.4.0",
     "@dpc-sdp/ripple-link": "^1.4.0",
-    "@dpc-sdp/ripple-markup": "^1.4.0"
+    "@dpc-sdp/ripple-markup": "^1.4.0",
+    "@dpc-sdp/yourvic-map-core": "^1.0.3"
   },
   "gitHead": "ade96a3b26d212314ef0487bbda84821f26edc7c"
 }
