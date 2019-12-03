@@ -32,8 +32,8 @@
 // Props set in ~/modules/nuxt-tide-landing-page/lib/config/tide.config.js
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import TideMapTablist from './TideMapTablist'
-import { RplMap } from '@dpc-sdp/ripple-map'
-import ol from '@dpc-sdp/ripple-map/lib/ol'
+import { RplMap } from '@dpc-sdp/yourvic-map-core'
+import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
 const { createImageIconStyle } = ol
 
