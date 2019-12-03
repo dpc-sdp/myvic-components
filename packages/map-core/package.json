@@ -1,11 +1,12 @@
 {
   "name": "@dpc-sdp/yourvic-map-core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Core functions of map for yourvictoria.vic.gov.au",
   "main": "index.js",
   "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au/tree/master/packages/map-core",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@dpc-sdp/ripple-global": "^1.4.0"
-  }
+  },
+  "gitHead": "8b0d54b397b3fc62e4b6e6130e170abccdb507bc"
 }
