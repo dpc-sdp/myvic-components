@@ -1,11 +1,11 @@
-import FireMap from "./FireMap.vue";
+import FireMap from './FireMap.vue'
 
 const install = Vue => {
-  Vue.component("FireMap", FireMap);
-};
+  Vue.component('FireMap', FireMap)
+}
 
 export default {
   install
-};
+}
 
-export { FireMap };
+export { FireMap }
