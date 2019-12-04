@@ -1,0 +1,51 @@
+{
+  "name": "@dpc-sdp/storybook",
+  "description": "Storybook instance for yourvictoria component testing",
+  "version": "1.4.0",
+  "private": true,
+  "scripts": {
+    "start": "start-storybook -p 6006 -s ./static",
+    "build-storybook": "cross-env NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public"
+  },
+  "dependencies": {
+    "@dpc-sdp/ripple-global": "^1.4.0",
+    "@dpc-sdp/ripple-markup": "^1.4.0",
+    "@dpc-sdp/yourvic-map-core": "1.0.4",
+    "@storybook/vue": "^5.2.8",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^5.2.1",
+    "@storybook/addon-backgrounds": "^5.2.1",
+    "@storybook/addon-docs": "^5.2.1",
+    "@storybook/addon-knobs": "^5.2.1",
+    "@storybook/addon-storyshots": "^5.2.1",
+    "@storybook/addon-viewport": "^5.2.1",
+    "@storybook/vue": "^5.2.1",
+    "axe-core": "^3.2.2",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "eslint-loader": "^2.1.2",
+    "file-loader": "^4.0.0",
+    "glob-fs": "^0.1.7",
+    "jest-vue-preprocessor": "^1.5.0",
+    "node-sass": "^4.12.0",
+    "sass-lint": "^1.12.1",
+    "sass-loader": "^7.1.0",
+    "svg-sprite-loader": "^3.7.3",
+    "svgo": "^1.2.2",
+    "svgo-loader": "^2.2.1",
+    "twig": "^1.13.3",
+    "url-loader": "^2.0.1",
+    "vue-loader": "^15.7.0",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "browserslist": [
+    "> 1%",
+    "IE 11",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
