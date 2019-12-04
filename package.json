@@ -48,6 +48,14 @@
   "scripts": {
     "publish": "lerna publish",
     "start:storybook": "cd src && yarn start",
-    "build:storybook": "cd src && yarn build-storybook"
+    "build:storybook": "cd src && yarn build-storybook",
+    "lint": "sass-lint && yarn lint:es",
+    "lint:es": "eslint --ext .js,.vue . --max-warnings 0",
+    "lint:fix": "eslint --ext .js,.vue . --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run lint"
+    }
   }
 }

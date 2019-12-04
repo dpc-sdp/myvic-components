@@ -19,10 +19,6 @@ module.exports = async ({ config, mode }) => {
     return rule;
   });
 
-  console.log('vincent:')
-  console.log(resolve("storybook-components"));
-  console.log(resolve("node_modules"));
-
   config.module.rules.push(
     {
       test: /\.(scss|css)$/,
