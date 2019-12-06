@@ -292,7 +292,7 @@ const customMethods = {
 }
 
 export default {
-  name: 'TideMapPreventionFamilyViolence',
+  name: 'SVicPreventionFamilyViolence',
   components: {
     RplMarkup,
     RplMap,

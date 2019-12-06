@@ -5,7 +5,7 @@
 import TideMapPreventionFamilyViolence from './TideMapPreventionFamilyViolence.vue'
 
 const install = Vue => {
-  Vue.component('tideMapPreventionFamilyViolence', TideMapPreventionFamilyViolence)
+  Vue.component('s-vic-prevention-family-violence', TideMapPreventionFamilyViolence)
 }
 
 export default {
