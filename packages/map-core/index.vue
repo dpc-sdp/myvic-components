@@ -99,7 +99,7 @@ const methods = {
       style: (this.customMethods && this.customMethods.themeFeatureStyleFunction) ? this.customMethods.themeFeatureStyleFunction : this.themeFeatureStyleFunction,
       opacity: 1,
       source: themeSource,
-      renderMode: 'vector'
+      renderMode: 'hybrid'
     })
   },
   addPopupOverlay () {
