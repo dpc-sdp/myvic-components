@@ -9,7 +9,7 @@ module.exports = {
         components: [
           {
             case: 'myvic_vicfreewifi',
-            component: 'yourvic-free-wifi-map',
+            component: 'yourvic-vic-free-wifi-map',
             ssr: false,
             props: {
               title: 'field_paragraph_title',

@@ -1,22 +1,22 @@
 <template>
   <div class="yourvic-map-project-card" v-on:click="cardClicked">
-    <YourvicMapCard :item="project">
+    <YourVicMapCard :item="project">
       <ul>
         <li v-for="(category, index) in project.categories" :key="index">
           <span>{{category.title}}</span>
         </li>
       </ul>
-    </YourvicMapCard>
+    </YourVicMapCard>
   </div>
 </template>
 
 <script>
-import YourvicMapCard from './YourvicMapCard'
+import YourVicMapCard from './YourVicMapCard'
 
 export default {
-  name: 'YourvicMapProjectCard',
+  name: 'YourVicMapProjectCard',
   components: {
-    YourvicMapCard
+    YourVicMapCard
   },
   props: {
     project: Object

@@ -24,7 +24,7 @@
           <div class="yourvic-map__container__expand-btn-container" >
             <yourvicMapExpandButton :expanded="expanded" @click="toggleExpand"/>
           </div>
-          <yourvic-map-core :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
+          <yourvic-map :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
 
         </div>
         <div class="yourvic-map__sidebar-container">
@@ -50,10 +50,10 @@
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplButton from '@dpc-sdp/ripple-button'
 import { RplTextIcon } from '@dpc-sdp/ripple-icon'
-import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
+import { YourVicMap } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
-import YourvicMapSidebarHome from './YourvicMapSidebarHome'
-import YourvicMapExpandButton from './YourvicMapExpandButton'
+import YourVicMapSidebarHome from './YourVicMapSidebarHome'
+import YourVicMapExpandButton from './YourVicMapExpandButton'
 import { emptyArray, toggleFullScreen, isFullscreen } from './helper'
 const { createImageIconStyle } = ol
 
@@ -292,12 +292,12 @@ const customMethods = {
 }
 
 export default {
-  name: 'YourvicMapPreventionFamilyViolence',
+  name: 'YourVicMapPreventionFamilyViolence',
   components: {
     RplMarkup,
-    YourvicMapCore,
-    YourvicMapExpandButton,
-    YourvicMapSidebarHome,
+    YourVicMap,
+    YourVicMapExpandButton,
+    YourVicMapSidebarHome,
     RplTextIcon,
     RplButton
   },
@@ -433,8 +433,8 @@ export default {
   .yourvic-map__container__expand-btn-container {
     display: none;
   }
-  // Hack to make the map fullscreen. Note that this referes to yourvic-map-core.
-  .yourvic-map-core {
+  // Hack to make the map fullscreen
+  .yourvic-map {
     height: 100%;
     &__map {
       height: 100%;

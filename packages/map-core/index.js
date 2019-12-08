@@ -1,4 +1,4 @@
-import YourvicMapCore from './index.vue'
+import YourVicMap from './index.vue'
 
-export { YourvicMapCore }
-export default YourvicMapCore
+export { YourVicMap }
+export default YourVicMap

@@ -31,8 +31,8 @@
 // from Drupal, used for now to display the Free Wifi map.
 // Props set in ~/modules/nuxt-yourvic-landing-page/lib/config/tide.config.js
 import RplMarkup from '@dpc-sdp/ripple-markup'
-import YourvicMapTablist from './YourvicMapTablist'
-import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
+import YourVicMapTablist from './YourVicMapTablist'
+import { RplMap } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
 const { createImageIconStyle } = ol
@@ -211,15 +211,15 @@ const customMethods = {
 }
 
 export default {
-  name: 'YourvicFreeWifiMap',
+  name: 'YourVicFreeWifiMap',
   props: {
     title: String,
     description: String
   },
   components: {
     RplMarkup,
-    YourvicMapTablist,
-    YourvicMapCore
+    YourVicMapTablist,
+    RplMap
   },
   data: function () {
     return {

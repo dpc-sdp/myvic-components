@@ -23,7 +23,7 @@
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 export default {
-  name: 'YourvicMapCard',
+  name: 'YourVicMapCard',
   components: {
     RplIcon
   },

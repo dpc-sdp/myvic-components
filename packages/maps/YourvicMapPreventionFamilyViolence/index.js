@@ -2,14 +2,14 @@
 // Provide a plugin which others can use it in Nuxt as no ssr mode.
 // Usage in Nuxt: https://nuxtjs.org/guide/plugins/#client-side-only
 
-import YourvicMapPreventionFamilyViolence from './YourvicMapPreventionFamilyViolence.vue'
+import YourVicMapPreventionFamilyViolence from './YourVicMapPreventionFamilyViolence.vue'
 
 const install = Vue => {
-  Vue.component('YourvicMapPreventionFamilyViolence', YourvicMapPreventionFamilyViolence)
+  Vue.component('YourVicMapPreventionFamilyViolence', YourVicMapPreventionFamilyViolence)
 }
 
 export default {
   install
 }
 
-export { YourvicMapPreventionFamilyViolence }
+export { YourVicMapPreventionFamilyViolence }
