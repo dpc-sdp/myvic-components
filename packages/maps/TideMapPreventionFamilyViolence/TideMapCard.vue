@@ -1,16 +1,16 @@
 <template>
   <a @click="cardClicked">
-    <div class="tide-map-card">
-      <div class="tide-map-card__header">
+    <div class="yourvic-map-card">
+      <div class="yourvic-map-card__header">
         <rpl-icon
           v-if="isArea"
-          class="tide-map-card__marker"
+          class="yourvic-map-card__marker"
           symbol="map_marker"
           color="mid_neutral_1"
           size="m"
         />
-        <span class="tide-map-card__title">{{item.title}}</span>
-        <div class="tide-map-card__arrow">
+        <span class="yourvic-map-card__title">{{item.title}}</span>
+        <div class="yourvic-map-card__arrow">
           <rpl-icon symbol="arrow_right_secondary" color="dark_neutral" size="s"/>
         </div>
       </div>
@@ -23,7 +23,7 @@
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 export default {
-  name: 'TideMapCard',
+  name: 'YourVicMapCard',
   components: {
     RplIcon
   },
@@ -43,7 +43,7 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-.tide-map-card {
+.yourvic-map-card {
   cursor: pointer;
   margin-top: $rpl-space;
   margin-bottom: $rpl-space;
@@ -54,23 +54,23 @@ export default {
   &:hover, &:focus {
     @include rpl_dropshadow;
   }
-  .tide-map-card__header {
+  .yourvic-map-card__header {
     display: flex;
     align-items: top;
     color: rpl-color('primary');
   }
-  .tide-map-card__marker {
+  .yourvic-map-card__marker {
     margin-right: $rpl-space-2;
     margin-top: $rpl-space-2;
   }
-  .tide-map-card__arrow {
+  .yourvic-map-card__arrow {
     padding-left: $rpl-space-2;
     // This makes the arrow float right
     margin-left: auto;
     margin-right: $rpl-space;
     order: 2;
   }
-  .tide-map-card__title {
+  .yourvic-map-card__title {
     font-weight: bold;
   }
 }

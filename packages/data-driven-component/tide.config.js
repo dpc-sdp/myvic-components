@@ -9,7 +9,7 @@ module.exports = {
         components: [
           {
             case: 'myvic_vicfreewifi',
-            component: 'tide-vic-free-wifi-map',
+            component: 'yourvic-vic-free-wifi-map',
             ssr: false,
             props: {
               title: 'field_paragraph_title',
@@ -17,7 +17,7 @@ module.exports = {
             }
           }, {
             case: 'myvic_family_violence_women_programs',
-            component: 'tide-map-prevention-family-violence',
+            component: 'yourvic-map-prevention-family-violence',
             ssr: false,
             props: {
               title: 'field_paragraph_title',

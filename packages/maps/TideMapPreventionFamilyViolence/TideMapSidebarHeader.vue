@@ -1,8 +1,8 @@
 <template>
-  <div class="tide-map-sidebar-header">
-    <div class="tide-map-sidebar-header__ribbon"></div>
-    <div class="tide-map-sidebar-header__content">
-      <a v-if="showBackButton || showHomeButton" class="tide-map-sidebar-header__btn" v-on:click="clickBack">
+  <div class="yourvic-map-sidebar-header">
+    <div class="yourvic-map-sidebar-header__ribbon"></div>
+    <div class="yourvic-map-sidebar-header__content">
+      <a v-if="showBackButton || showHomeButton" class="yourvic-map-sidebar-header__btn" v-on:click="clickBack">
         <rpl-text-label
           text="Back"
           iconColor="primary"
@@ -13,7 +13,7 @@
       </a>
       <h1>{{title}}</h1>
       <p>{{description}}</p>
-      <a v-if="showViewAllButton" class="tide-map-sidebar-header__btn" v-on:click="clickViewAll">
+      <a v-if="showViewAllButton" class="yourvic-map-sidebar-header__btn" v-on:click="clickViewAll">
         <rpl-text-label
           iconColor="primary"
           theme="dark"
@@ -29,7 +29,7 @@
 import { RplTextLabel } from '@dpc-sdp/ripple-link'
 
 export default {
-  name: 'TideMapSidebarHeader',
+  name: 'YourVicMapSidebarHeader',
   components: {
     RplTextLabel
   },
@@ -65,18 +65,18 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-.tide-map-sidebar-header {
+.yourvic-map-sidebar-header {
   background-color: rpl-color('extra_dark_neutral');
-  .tide-map-sidebar-header__ribbon {
+  .yourvic-map-sidebar-header__ribbon {
     height: $rpl-space;
     background-color: rpl-color('primary');
   }
-  .tide-map-sidebar-header__content {
+  .yourvic-map-sidebar-header__content {
     padding: $rpl-space-2;
     padding-left: $rpl-space-4;
     padding-right: $rpl-space-4;
     color: rpl-color('white');
-    .tide-map-sidebar-header__btn {
+    .yourvic-map-sidebar-header__btn {
       // This is to make the button click hitbox to only be as big as the content
       display: inline-block;
       cursor: pointer;

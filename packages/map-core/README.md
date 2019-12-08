@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/ripple-map
+# @dpc-sdp/yourvic-map
 
 > An interactive map component
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-map --save
+npm install @dpc-sdp/yourvic-map --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ npm install @dpc-sdp/ripple-map --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-map
+@dpc-sdp/yourvic-map
 ├── @dpc-sdp/ripple-global
 ├── ol
 └── ol-ext
@@ -27,7 +27,7 @@ npm install @dpc-sdp/ripple-map --save
 ## Import
 
 ```js
-import { RplMap } from '@dpc-sdp/ripple-map'
+import { YourVicMap } from '@dpc-sdp/yourvic-map'
 ```
 
 --------------------------------------------------------------------------------

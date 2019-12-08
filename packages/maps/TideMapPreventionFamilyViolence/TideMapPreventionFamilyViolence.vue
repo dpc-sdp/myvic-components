@@ -1,12 +1,12 @@
 <template>
-  <div class="tide-map">
-    <h2 v-if="title" class="tide-map__title">{{title}}</h2>
+  <div class="yourvic-map">
+    <h2 v-if="title" class="yourvic-map__title">{{title}}</h2>
     <RplMarkup v-if="description" :html="description"/>
     <p
       class="rpl-visually-hidden"
     >The following is an interactive map component, showing the location of programs being run in support of the Prevention of Family Violence initiative.</p>
     <div>
-      <div ref="tideMapContainer" class="tide-map__container">
+      <div ref="yourvicMapContainer" class="yourvic-map__container">
         <div :class="expandedMapClass">
           <rpl-button
             class="full-screen-btn"
@@ -21,14 +21,14 @@
               :text="buttonText"
             />
           </rpl-button>
-          <div class="tide-map__container__expand-btn-container" >
-            <tideMapExpandButton :expanded="expanded" @click="toggleExpand"/>
+          <div class="yourvic-map__container__expand-btn-container" >
+            <yourvicMapExpandButton :expanded="expanded" @click="toggleExpand"/>
           </div>
-          <rpl-map :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
+          <yourvic-map :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
 
         </div>
-        <div class="tide-map__sidebar-container">
-          <tideMapSidebarHome
+        <div class="yourvic-map__sidebar-container">
+          <yourvicMapSidebarHome
             :categories="allCategories"
             :areas="allAreas"
             :projects="projects"
@@ -46,14 +46,14 @@
 <script>
 // This component is referenced by the Data-Driven Component
 // from Drupal, used for now to display the Free Wifi map.
-// Props set in ~/modules/nuxt-tide-landing-page/lib/config/tide.config.js
+// Props set in tide.config.js within the data-driven-component package in this monorepo
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplButton from '@dpc-sdp/ripple-button'
 import { RplTextIcon } from '@dpc-sdp/ripple-icon'
-import { RplMap } from '@dpc-sdp/yourvic-map-core'
+import { YourVicMap } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
-import TideMapSidebarHome from './TideMapSidebarHome'
-import TideMapExpandButton from './TideMapExpandButton'
+import YourVicMapSidebarHome from './YourVicMapSidebarHome'
+import YourVicMapExpandButton from './YourVicMapExpandButton'
 import { emptyArray, toggleFullScreen, isFullscreen } from './helper'
 const { createImageIconStyle } = ol
 
@@ -292,12 +292,12 @@ const customMethods = {
 }
 
 export default {
-  name: 'TideMapPreventionFamilyViolence',
+  name: 'YourVicMapPreventionFamilyViolence',
   components: {
     RplMarkup,
-    RplMap,
-    TideMapExpandButton,
-    TideMapSidebarHome,
+    YourVicMap,
+    YourVicMapExpandButton,
+    YourVicMapSidebarHome,
     RplTextIcon,
     RplButton
   },
@@ -345,7 +345,7 @@ export default {
       this.refreshMapSize()
     },
     refreshMapSize () {
-      // Not sure why, but the rpl map api has a watch on the refreshOn prop. This watch method triggers a map resize when the refreshOn prop is set to true.
+      // Not sure why, but the yourvic map api has a watch on the refreshOn prop. This watch method triggers a map resize when the refreshOn prop is set to true.
       // Toggling it off an on with a timeout seems to consistently trigger the method and resize the map - Yay.
       this.refreshOn = false
       setTimeout(() => (this.refreshOn = true), 100)
@@ -434,7 +434,7 @@ export default {
     display: none;
   }
   // Hack to make the map fullscreen
-  .rpl-map {
+  .yourvic-map {
     height: 100%;
     &__map {
       height: 100%;
@@ -448,7 +448,7 @@ export default {
 
 /* Do the following when small(narrow) screen */
 @media (max-width: 768px) {
-  .tide-map__container {
+  .yourvic-map__container {
     .rpl-text-label--emphasis.rpl-text-label--small {
       font-size: 0.75rem;
     }

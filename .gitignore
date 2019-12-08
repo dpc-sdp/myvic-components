@@ -3,6 +3,7 @@ node_modules
 
 # Temporary files.
 npm-debug.log
+yarn-error.log
 .nuxt
 dist
 
@@ -13,3 +14,4 @@ coverage
 
 
 /src/public
+

@@ -1,6 +1,6 @@
 <template>
      <div class="fire-map">
-         <rpl-map
+         <yourvic-map
          :center="getCenter"
          :baseMapUrl="baseMapUrl"
          :customMethods="customMethods"
@@ -10,7 +10,7 @@
  </template>
 
 <script>
-import { RplMap } from '@dpc-sdp/yourvic-map-core'
+import { YourVicMap } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
 const { createImageIconStyle } = ol
@@ -183,7 +183,7 @@ const customMethods = {
 export default {
   name: 'FireMap',
   components: {
-    RplMap
+    YourVicMap
   },
   data: function () {
     return {

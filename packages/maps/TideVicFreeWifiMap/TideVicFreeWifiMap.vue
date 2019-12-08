@@ -1,7 +1,7 @@
 <template>
-  <div class="tide-map">
+  <div class="yourvic-map">
     <h2 v-if="title"
-      class="tide-map__title">{{title}}</h2>
+      class="yourvic-map__title">{{title}}</h2>
     <RplMarkup
       v-if="description"
       :html="description" />
@@ -11,7 +11,7 @@
     <p class="rpl-visually-hidden">
       The following is an interactive map component, showing free WiFi access points across Victoria - in Melbourne CBD, Ballarat, and Bendigo. The CBD has access points along major roads and in train stations, Bendigo in its town centre and Ballarat in the town centre and surrounding Lake Wendouree.
     </p>
-    <tide-map-tablist
+    <yourvic-map-tablist
       title="<strong>#VicFreeWiFi</strong> Coverage Map"
       :tabs="tabs"
       @update="updateTab" />
@@ -29,9 +29,9 @@
 <script>
 // This component is referenced by the Data-Driven Component
 // from Drupal, used for now to display the Free Wifi map.
-// Props set in ~/modules/nuxt-tide-landing-page/lib/config/tide.config.js
+// Props set in ~/modules/nuxt-yourvic-landing-page/lib/config/tide.config.js
 import RplMarkup from '@dpc-sdp/ripple-markup'
-import TideMapTablist from './TideMapTablist'
+import YourVicMapTablist from './YourVicMapTablist'
 import { RplMap } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
@@ -211,14 +211,14 @@ const customMethods = {
 }
 
 export default {
-  name: 'TideVicFreeWifiMap',
+  name: 'YourVicFreeWifiMap',
   props: {
     title: String,
     description: String
   },
   components: {
     RplMarkup,
-    TideMapTablist,
+    YourVicMapTablist,
     RplMap
   },
   data: function () {

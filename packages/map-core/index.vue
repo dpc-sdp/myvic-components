@@ -1,15 +1,15 @@
 <template>
-  <div class="rpl-map">
+  <div class="yourvic-map">
     <div
       id="map-popup"
-      class="rpl-map__popup ol-popup"
+      class="yourvic-map__popup ol-popup"
       ref="mapPopup">
       <map-indicator
         :selectedFeature="feature"
         :mapElement="$refs.map" />
     </div>
-    <div class="rpl-map__container">
-      <div class="rpl-map__map" id="map" ref="map">
+    <div class="yourvic-map__container">
+      <div class="yourvic-map__map" id="map" ref="map">
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@ let map,
  *      return new ol.style.Style({})
  *    }
  * }
- * <rpl-map :customMethods="myMethods" />
+ * <yourvic-map :customMethods="myMethods" />
  */
 const methods = {
   createMap () {
@@ -205,7 +205,7 @@ const methods = {
 }
 
 export default {
-  name: 'RplMap',
+  name: 'YourVicMap',
   props: {
     // Default center/zoom on state of Victoria
     center: {
@@ -288,20 +288,20 @@ export default {
   // The map should be displayed in a 16:9 aspect ratio
   // Accomplished using this technique:
   // https://css-tricks.com/aspect-ratio-boxes/
-  // But we can't use the technique on .rpl-map itself, because
-  // OpenLayers uses .rpl-map's height value to draw the map.
+  // But we can't use the technique on .yourvic-map itself, because
+  // OpenLayers uses .yourvic-map's height value to draw the map.
   // height: 0 means no map at all. By setting height: 0 and
-  // padding-top: (9/16)% on .rpl-map__container, the map
+  // padding-top: (9/16)% on .yourvic-map__container, the map
   // itself can be height auto which OL picks up correctly.
 
-  $rpl-map-aspect-ratio: (
+  $yourvic-map-aspect-ratio: (
     xs: (8/10) * 100%,
     s: (9/16) * 100%
   );
 
-  $rpl-map-popup-width: rem(300px) !default; // consider increasing this
+  $yourvic-map-popup-width: rem(300px) !default; // consider increasing this
 
-  .rpl-map {
+  .yourvic-map {
     &__map {
       width: 100%;
       height: 100%;
@@ -316,7 +316,7 @@ export default {
       position: relative;
       height: 0;
       // https://css-tricks.com/aspect-ratio-boxes/
-      @each $bp, $val in $rpl-map-aspect-ratio {
+      @each $bp, $val in $yourvic-map-aspect-ratio {
         @include rpl_breakpoint($bp) {
           padding-top: $val;
         }

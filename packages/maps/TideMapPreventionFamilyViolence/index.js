@@ -2,14 +2,14 @@
 // Provide a plugin which others can use it in Nuxt as no ssr mode.
 // Usage in Nuxt: https://nuxtjs.org/guide/plugins/#client-side-only
 
-import TideMapPreventionFamilyViolence from './TideMapPreventionFamilyViolence.vue'
+import YourVicMapPreventionFamilyViolence from './YourVicMapPreventionFamilyViolence.vue'
 
 const install = Vue => {
-  Vue.component('tideMapPreventionFamilyViolence', TideMapPreventionFamilyViolence)
+  Vue.component('YourVicMapPreventionFamilyViolence', YourVicMapPreventionFamilyViolence)
 }
 
 export default {
   install
 }
 
-export { TideMapPreventionFamilyViolence }
+export { YourVicMapPreventionFamilyViolence }

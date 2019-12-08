@@ -1,7 +1,7 @@
-import TideVicFreeWifiMap from './TideVicFreeWifiMap'
-import TideMapPreventionFamilyViolence from './TideMapPreventionFamilyViolence'
+import YourVicVicFreeWifiMap from './YourVicFreeWifiMap'
+import YourVicMapPreventionFamilyViolence from './YourVicMapPreventionFamilyViolence'
 import FireMap from './FireMap'
 
-export { TideVicFreeWifiMap }
-export { TideMapPreventionFamilyViolence }
+export { YourVicVicFreeWifiMap }
+export { YourVicMapPreventionFamilyViolence }
 export { FireMap }

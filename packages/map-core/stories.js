@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/vue'
-import RplMap from './index.vue'
+import YourVicMap from './index.vue'
 
 storiesOf('Molecules/Map', module)
   .add('Map with no data', () => ({
-    components: { RplMap },
-    template: `<rpl-map
+    components: { YourVicMap },
+    template: `<yourvic-map
       :baseMapUrl="baseMapUrl" />`,
     data () {
       return {

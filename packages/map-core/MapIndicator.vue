@@ -1,16 +1,16 @@
 <template>
   <div
     v-if="show"
-    id="rpl-map-popup-content"
-    class="rpl-map-indicator">
-    <div class="rpl-map-indicator__close">
+    id="yourvic-map-popup-content"
+    class="yourvic-map-indicator">
+    <div class="yourvic-map-indicator__close">
       <button-close
         :id="'tabs-close-button'"
         :size="'small'"
         @click="close"/>
     </div>
     <div
-      class="rpl-map-indicator__inner"
+      class="yourvic-map-indicator__inner"
       :ref="'contentElement'"
       :style="{
         maxHeight: this.maxHeight,
@@ -20,20 +20,20 @@
         <div
           v-for="(feature, index) in selectedFeature"
           :key="index"
-          class="rpl-map-indicator__feature-multiple">
-          <h5 class="rpl-map-indicator__title">{{ feature.title }}</h5>
-          <div class="rpl-map-indicator__content">
-            <div class="rpl-map-indicator__readmore" @click="readMoreMultiClick(index)" v-html="showDescOpenMuliText(index)" ></div>
-            <div class="rpl-map-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
+          class="yourvic-map-indicator__feature-multiple">
+          <h5 class="yourvic-map-indicator__title">{{ feature.title }}</h5>
+          <div class="yourvic-map-indicator__content">
+            <div class="yourvic-map-indicator__readmore" @click="readMoreMultiClick(index)" v-html="showDescOpenMuliText(index)" ></div>
+            <div class="yourvic-map-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
           </div>
           <hr v-if="index !== selectedFeature.length - 1" />
         </div>
       </template>
       <div v-else>
-        <h5 class="rpl-map-indicator__title">{{ selectedFeature.title }}</h5>
-        <div class="rpl-map-indicator__content">
-          <div class="rpl-map-indicator__readmore" @click="readMoreClick" v-html="this.descOpenText" ></div>
-          <div class="rpl-map-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
+        <h5 class="yourvic-map-indicator__title">{{ selectedFeature.title }}</h5>
+        <div class="yourvic-map-indicator__content">
+          <div class="yourvic-map-indicator__readmore" @click="readMoreClick" v-html="this.descOpenText" ></div>
+          <div class="yourvic-map-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  .rpl-map-indicator {
+  .yourvic-map-indicator {
     $root: &;
     background-color: rpl-color('white');
     border-radius: rem(5px);

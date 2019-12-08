@@ -1,6 +1,6 @@
 <template>
-  <div class="tide-map-sidebar-home" ref="scrollElement">
-    <tideMapSidebarHeader
+  <div class="YourVic-map-sidebar-home" ref="scrollElement">
+    <YourVicMapSidebarHeader
       :title="headerTitle"
       :description="headerDescription"
       :showBackButton="showBackButton"
@@ -9,9 +9,9 @@
       v-on:home-clicked="clickHome"
       v-on:view-all-clicked="clickViewAll"
     />
-    <div class="tide-map-sidebar-home__content">
+    <div class="YourVic-map-sidebar-home__content">
       <div v-if="showProjects">
-        <tideMapProjectCard
+        <YourVicMapProjectCard
           v-for="(proj, index) in projectsToShow"
           @click="setProject"
           :key="index"
@@ -20,7 +20,7 @@
       </div>
 
       <div v-if="showHome">
-        <tideMapCategoriesPage
+        <YourVicMapCategoriesPage
           :items="items"
           :isArea="!state.showCategories"
           v-on:clickShowArea="clickShowArea"
@@ -30,7 +30,7 @@
       </div>
 
       <div v-if="showSingleProject">
-        <tideMapProjectDetails
+        <YourVicMapProjectDetails
           :project="selectedProject"
           @click="itemClicked"
         />
@@ -40,21 +40,21 @@
 </template>
 
 <script>
-import TideMapCard from './TideMapCard'
-import TideMapProjectCard from './TideMapProjectCard'
-import TideMapProjectDetails from './TideMapProjectDetails'
-import TideMapSidebarHeader from './TideMapSidebarHeader'
-import TideMapCategoriesPage from './TideMapCategoriesPage'
+import YourVicMapCard from './YourVicMapCard'
+import YourVicMapProjectCard from './YourVicMapProjectCard'
+import YourVicMapProjectDetails from './YourVicMapProjectDetails'
+import YourVicMapSidebarHeader from './YourVicMapSidebarHeader'
+import YourVicMapCategoriesPage from './YourVicMapCategoriesPage'
 import { sortByTitle } from './helper'
 
 export default {
-  name: 'TideMapSidebarHome',
+  name: 'YourVicMapSidebarHome',
   components: {
-    TideMapCard,
-    TideMapProjectDetails,
-    TideMapSidebarHeader,
-    TideMapCategoriesPage,
-    TideMapProjectCard
+    YourVicMapCard,
+    YourVicMapProjectDetails,
+    YourVicMapSidebarHeader,
+    YourVicMapCategoriesPage,
+    YourVicMapProjectCard
   },
   props: {
     categories: Array,
@@ -241,13 +241,13 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-$tide-map-sidebar-home-background-color: rpl-color('mid_neutral_2') !default;
+$yourvic-map-sidebar-home-background-color: rpl-color('mid_neutral_2') !default;
 
-.tide-map-sidebar-home {
+.yourvic-map-sidebar-home {
   height: 100%;
   overflow: auto;
-  background-color: $tide-map-sidebar-home-background-color;
-  .tide-map-sidebar-home__content {
+  background-color: $yourvic-map-sidebar-home-background-color;
+  .yourvic-map-sidebar-home__content {
     padding: $rpl-space-4;
     padding-top: $rpl-space-2;
   }

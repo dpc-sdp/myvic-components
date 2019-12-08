@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { TideVicFreeWifiMap, TideMapPreventionFamilyViolence } from '@dpc-sdp/yourvic-maps'
+import { YourVicVicFreeWifiMap, YourVicMapPreventionFamilyViolence } from '@dpc-sdp/yourvic-maps'
 
-Vue.use(TideVicFreeWifiMap)
-Vue.use(TideMapPreventionFamilyViolence)
+Vue.use(YourVicVicFreeWifiMap)
+Vue.use(YourVicMapPreventionFamilyViolence)

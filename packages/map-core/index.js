@@ -1,4 +1,4 @@
-import RplMap from './index.vue'
+import YourVicMap from './index.vue'
 
-export { RplMap }
-export default RplMap
+export { YourVicMap }
+export default YourVicMap

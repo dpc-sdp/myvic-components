@@ -16,7 +16,7 @@
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 export default {
-  name: 'TideMapExpandButton',
+  name: 'YourVicMapExpandButton',
   props: {
     expanded: Boolean
   },

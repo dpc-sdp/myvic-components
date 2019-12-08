@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="tide-map-categories-page__menu">
-      <rpl-text-label class="tide-map-categories-page__header-btn" size="small" emphasis >
+    <div class="yourvic-map-categories-page__menu">
+      <rpl-text-label class="yourvic-map-categories-page__header-btn" size="small" emphasis >
         Browse by {{isArea ? 'area' : 'category'}}
       </rpl-text-label>
-      <a class="tide-map-categories-page__other-btn" @click="clickShowOther">
+      <a class="yourvic-map-categories-page__other-btn" @click="clickShowOther">
         <rpl-text-label
           iconColor="primary"
           :underline="true"
@@ -15,7 +15,7 @@
         </rpl-text-label>
       </a>
     </div>
-    <tideMapCard
+    <yourvicMapCard
       v-for="(item, index) in items"
       @click="setCategory"
       :key="index"
@@ -27,13 +27,13 @@
 
 <script>
 import { RplTextLabel } from '@dpc-sdp/ripple-link'
-import TideMapCard from './TideMapCard'
+import YourVicMapCard from './YourVicMapCard'
 
 export default {
-  name: 'TideMapCategoriesPage',
+  name: 'YourVicMapCategoriesPage',
   components: {
     RplTextLabel,
-    TideMapCard
+    YourVicMapCard
   },
   props: {
     items: Array,
@@ -58,9 +58,9 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-.tide-map-categories-page__menu {
+.yourvic-map-categories-page__menu {
   display: flex;
-  .tide-map-categories-page__header-btn {
+  .yourvic-map-categories-page__header-btn {
     &:hover, &:focus {
       color: rpl-color('extra_dark_neutral');
       text-decoration: none;
@@ -68,7 +68,7 @@ export default {
       cursor: default;
     }
   }
-  .tide-map-categories-page__other-btn {
+  .yourvic-map-categories-page__other-btn {
     .rpl-text-label {
       border-bottom-color: rpl-color('secondary') !important;
     }

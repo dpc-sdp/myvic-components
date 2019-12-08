@@ -1,22 +1,22 @@
 <template>
-  <div class="tide-map-project-card" v-on:click="cardClicked">
-    <tideMapCard :item="project">
+  <div class="yourvic-map-project-card" v-on:click="cardClicked">
+    <YourVicMapCard :item="project">
       <ul>
         <li v-for="(category, index) in project.categories" :key="index">
           <span>{{category.title}}</span>
         </li>
       </ul>
-    </tideMapCard>
+    </YourVicMapCard>
   </div>
 </template>
 
 <script>
-import TideMapCard from './TideMapCard'
+import YourVicMapCard from './YourVicMapCard'
 
 export default {
-  name: 'TideMapProjectCard',
+  name: 'YourVicMapProjectCard',
   components: {
-    TideMapCard
+    YourVicMapCard
   },
   props: {
     project: Object
@@ -33,7 +33,7 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-.tide-map-project-card {
+.yourvic-map-project-card {
   ul {
     list-style-type: none;
     margin: 0;

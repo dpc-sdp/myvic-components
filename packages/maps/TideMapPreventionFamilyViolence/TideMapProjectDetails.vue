@@ -1,5 +1,5 @@
 <template>
-  <div class="tide-map-project-details">
+  <div class="yourvic-map-project-details">
     <h3>Program</h3>
     <p>{{project.program}}</p>
     <h3>Provided by</h3>
@@ -7,33 +7,33 @@
     <h3>Project details</h3>
     <p>{{project.details}}</p>
     <h3>{{categoriesHeader}}</h3>
-    <tideMapCard
+    <YourVicMapCard
       v-for="(category, index) in project.categories"
       :key="'c' + index"
       :item="category"
       @click="itemClicked"
     />
     <h3>{{deliveredHeader}}</h3>
-    <tideMapCard
+    <YourVicMapCard
       v-for="(area, index) in project.areas"
       :key="'a' + index"
       :isArea="true"
       :item="area"
       @click="itemClicked"
     />
-    <rpl-button class="tide-map-project-details__more-btn" theme="primary" :href="project.href">Find out more</rpl-button>
+    <rpl-button class="yourvic-map-project-details__more-btn" theme="primary" :href="project.href">Find out more</rpl-button>
   </div>
 </template>
 
 <script>
-import TideMapCard from './TideMapCard'
+import YourVicMapCard from './YourVicMapCard'
 import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
-  name: 'TideMapProjectDetails',
+  name: 'YourVicMapProjectDetails',
   components: {
     RplButton,
-    TideMapCard
+    YourVicMapCard
   },
   props: {
     project: Object
@@ -62,8 +62,8 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-.tide-map-project-details {
-  .tide-map-project-details__more-btn.rpl-button {
+.yourvic-map-project-details {
+  .yourvic-map-project-details__more-btn.rpl-button {
     margin-top: $rpl-space-2;
     width: 100%;
   }
