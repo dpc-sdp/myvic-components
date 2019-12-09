@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "start-storybook -p 6006 -s ./static",
-    "build-storybook": "cross-env NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public"
+    "build-storybook": "NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public"
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "^1.4.0",
