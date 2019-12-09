@@ -29,6 +29,9 @@ module.exports = async ({ config, mode }) => {
         resolve("../packages"),
         resolve("storybook-components"),
         resolve("storybook-components/scss")
+      ],
+      exclude: [
+        resolve("../node_modules/ol")
       ]
     },
     {

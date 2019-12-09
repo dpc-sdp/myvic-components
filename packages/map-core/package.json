@@ -6,7 +6,9 @@
   "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au/tree/master/packages/map-core",
   "license": "Apache-2.0",
   "dependencies": {
-    "@dpc-sdp/ripple-global": "^1.4.0"
+    "@dpc-sdp/ripple-global": "^1.4.0",
+    "ol": "^6.1.1",
+    "ol-ext": "^3.1.7"
   },
   "gitHead": "ade96a3b26d212314ef0487bbda84821f26edc7c"
 }
