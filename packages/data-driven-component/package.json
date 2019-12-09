@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/yourvic-data-driven-component",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "module.js",
   "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au/tree/master/packages/data-driven-component",
   "license": "Apache-2.0",
