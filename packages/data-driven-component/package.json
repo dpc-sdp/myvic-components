@@ -1,11 +1,11 @@
 {
   "name": "@dpc-sdp/yourvic-data-driven-component",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "module.js",
   "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au/tree/master/packages/data-driven-component",
   "license": "Apache-2.0",
   "dependencies": {
-    "@dpc-sdp/yourvic-maps": "1.0.7",
+    "@dpc-sdp/yourvic-maps": "1.0.8",
     "path": "^0.12.7"
   },
   "gitHead": "ade96a3b26d212314ef0487bbda84821f26edc7c"
