@@ -22,6 +22,7 @@
     "axe-core": "^3.2.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.9.0",
     "babel-plugin-dynamic-import-node": "^2.3.0",
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-preset-vue": "^2.0.2",
@@ -37,6 +38,9 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0",
     "husky": "^3.0.0",
+    "jest": "^24.9.0",
+    "jest-canvas-mock": "^2.2.0",
+    "jest-css-modules": "^2.1.0",
     "lerna": "^3.0.0",
     "markdown-loader-jest": "^0.1.1",
     "mockdate": "^2.0.3",
@@ -51,11 +55,13 @@
     "build:storybook": "cd src && yarn build-storybook",
     "lint": "sass-lint && yarn lint:es",
     "lint:es": "eslint --ext .js,.vue . --max-warnings 0",
-    "lint:fix": "eslint --ext .js,.vue . --fix"
+    "lint:fix": "eslint --ext .js,.vue . --fix",
+    "test:unit": "jest --colors"
   },
   "husky": {
     "hooks": {
       "pre-push": "yarn run lint"
     }
-  }
+  },
+  "dependencies": {}
 }

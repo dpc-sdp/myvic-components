@@ -13,6 +13,7 @@ module.exports = process.env.CYPRESS_ENV
     ],
     plugins: [
       '@babel/plugin-syntax-dynamic-import',
+      'transform-vue-jsx',
       '@babel/plugin-transform-runtime'
     ],
     env: {
