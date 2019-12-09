@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RippleStoryshots Molecules/Map Map with family violence data 1`] = `
+exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
 <div
   class="yourvic-map"
 >
@@ -590,7 +590,7 @@ exports[`RippleStoryshots Molecules/Map Map with family violence data 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
+exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
 <div
   class="free-wifi-map demo-content"
 >
@@ -610,7 +610,7 @@ exports[`RippleStoryshots Molecules/Map Map with free wifi data 1`] = `
 </div>
 `;
 
-exports[`RippleStoryshots Molecules/Map Map with no data 1`] = `
+exports[`YourvicStoryshots Molecules/Map Map with no data 1`] = `
 <div
   class="yourvic-map-core"
 >
