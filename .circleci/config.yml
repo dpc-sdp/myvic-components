@@ -1,0 +1,76 @@
+version: 2.0
+
+jobs:
+  build:
+    context: Ripple
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          CIRCLE_TEST_REPORTS: test-results
+    working_directory: ~/app
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          key: v2-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - packages/data-driven-component/node_modules
+            - packages/map-core/node_modules
+            - packages/maps/node_modules
+            - ~/.cache
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
+
+  test:
+    context: Ripple
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          CIRCLE_TEST_REPORTS: test-results
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run:
+          name: Lint code.
+          command: yarn lint --format ./node_modules/eslint-junit/index.js 
+          environment:
+             ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
+      - run:
+          name: Unit tests
+          command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: test-results/unit/    
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build      
+      - test:
+          requires:
+            - build  
+
