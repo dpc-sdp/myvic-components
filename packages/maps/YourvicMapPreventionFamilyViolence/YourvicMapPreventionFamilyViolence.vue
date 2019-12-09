@@ -143,7 +143,7 @@ const customMethods = {
       })
 
       if (councils) {
-        const areas = councils.split('\r\n')
+        const areas = councils.split('|')
         areas.forEach(a => {
           // Don't want to add empty values
           if (!a || !a.trim()) {
