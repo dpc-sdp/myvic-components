@@ -39,7 +39,7 @@ export default {
 <style lang="scss">
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
-.tide-map-container__expand-btn-container {
+.yourvic-map-container__expand-btn-container {
   button {
     // padding: 0 !important;
     font-size: 1.5em;

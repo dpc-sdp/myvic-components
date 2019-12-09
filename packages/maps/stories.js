@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import SVicFreeWifiMap from './storybook-components/MapVicFreeWifi'
-import SVicPreventionFamilyViolence from './TideMapPreventionFamilyViolence/TideMapPreventionFamilyViolence'
+import SVicPreventionFamilyViolence from './YourVicMapPreventionFamilyViolence/YourVicMapPreventionFamilyViolence'
 
 storiesOf('Molecules/Map', module)
   .add('Map with free wifi data', () => ({

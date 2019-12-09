@@ -15,7 +15,7 @@
       title="<strong>#VicFreeWiFi</strong> Coverage Map"
       :tabs="tabs"
       @update="updateTab" />
-    <rpl-map
+    <yourvic-map
       role="tabpanel"
       :center="getCenter"
       :zoom="getZoom"
