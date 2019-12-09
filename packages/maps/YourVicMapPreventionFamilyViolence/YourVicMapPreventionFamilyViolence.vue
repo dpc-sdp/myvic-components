@@ -24,7 +24,7 @@
           <div class="yourvic-map__container__expand-btn-container" >
             <yourvicMapExpandButton :expanded="expanded" @click="toggleExpand"/>
           </div>
-          <yourvic-map :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
+          <yourvic-map-core :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
 
         </div>
         <div class="yourvic-map__sidebar-container">
@@ -50,10 +50,10 @@
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplButton from '@dpc-sdp/ripple-button'
 import { RplTextIcon } from '@dpc-sdp/ripple-icon'
-import { YourVicMap } from '@dpc-sdp/yourvic-map-core'
+import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
-import YourVicMapSidebarHome from './YourVicMapSidebarHome'
-import YourVicMapExpandButton from './YourVicMapExpandButton'
+import YourvicMapSidebarHome from './YourvicMapSidebarHome'
+import YourvicMapExpandButton from './YourvicMapExpandButton'
 import { emptyArray, toggleFullScreen, isFullscreen } from './helper'
 const { createImageIconStyle } = ol
 
@@ -292,12 +292,12 @@ const customMethods = {
 }
 
 export default {
-  name: 'YourVicMapPreventionFamilyViolence',
+  name: 'YourvicMapPreventionFamilyViolence',
   components: {
     RplMarkup,
-    YourVicMap,
-    YourVicMapExpandButton,
-    YourVicMapSidebarHome,
+    YourvicMapCore,
+    YourvicMapExpandButton,
+    YourvicMapSidebarHome,
     RplTextIcon,
     RplButton
   },
@@ -323,7 +323,7 @@ export default {
   },
   computed: {
     expandedMapClass () {
-      return this.expanded ? 'tide-map__map-container map-expanded' : 'tide-map__map-container'
+      return this.expanded ? 'yourvic-map__map-container map-expanded' : 'yourvic-map__map-container'
     }
   },
   mounted () {
@@ -351,7 +351,7 @@ export default {
       setTimeout(() => (this.refreshOn = true), 100)
     },
     toggleMapFullScreen () {
-      toggleFullScreen(this.$refs.tideMapContainer)
+      toggleFullScreen(this.$refs.yourvicMapContainer)
       this.isFullScreen = !this.isFullScreen
       this.refreshMapSize()
     },
@@ -377,7 +377,7 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-.tide-map {
+.yourvic-map {
   &__title {
     @include rpl_mobile_padding;
 
@@ -393,30 +393,30 @@ export default {
 }
 
 /* Do the following when large (wide) screen */
-.tide-map__container:fullscreen {
-  .tide-map__sidebar-container,
-  .tide-map__map-container {
+.yourvic-map__container:fullscreen {
+  .yourvic-map__sidebar-container,
+  .yourvic-map__map-container {
     height: 100vh;
   }
 }
-.tide-map__container {
+.yourvic-map__container {
   width: 100%;
   display: flex;
-  .tide-map__sidebar-container {
+  .yourvic-map__sidebar-container {
     width: 450px;
     min-width: 450px;
     margin-right: 0 !important;
     float: left !important;
     order: 1;
   }
-  .tide-map__map-container {
+  .yourvic-map__map-container {
     width: 100%;
     margin-left: 0 !important;
     order: 2;
     position: relative;
   }
-  .tide-map__sidebar-container,
-  .tide-map__map-container {
+  .yourvic-map__sidebar-container,
+  .yourvic-map__map-container {
     height: 600px;
   }
   .full-screen-btn {
@@ -430,11 +430,11 @@ export default {
       width: $rpl-space-2 !important;
     }
   }
-  .tide-map__container__expand-btn-container {
+  .yourvic-map__container__expand-btn-container {
     display: none;
   }
-  // Hack to make the map fullscreen
-  .yourvic-map {
+  // Hack to make the map fullscreen. Note that this referes to yourvic-map-core.
+  .yourvic-map-core {
     height: 100%;
     &__map {
       height: 100%;
@@ -456,7 +456,7 @@ export default {
     &:fullscreen .rpl-text-label--emphasis.rpl-text-label--small {
       font-size: 0.875rem;
     }
-    .tide-map__container__expand-btn-container {
+    .yourvic-map__container__expand-btn-container {
       position: absolute;
       z-index: 1000;
       bottom: $rpl-space-2;
@@ -464,26 +464,26 @@ export default {
       display: block;
     }
   }
-  .tide-map__container,
-  .tide-map__container:fullscreen {
+  .yourvic-map__container,
+  .yourvic-map__container:fullscreen {
     .full-screen-btn {
       font-size: 1rem;
       padding-top: $rpl-space-2;
       padding-bottom: $rpl-space-2;
     }
     display: block;
-    .tide-map__sidebar-container {
+    .yourvic-map__sidebar-container {
       height: 70vh;
       min-width: 0px;
     }
-    .tide-map__map-container {
+    .yourvic-map__map-container {
       height: 30vh;
       &.map-expanded {
         height: 60vh;
       }
     }
-    .tide-map__sidebar-container,
-    .tide-map__map-container {
+    .yourvic-map__sidebar-container,
+    .yourvic-map__map-container {
       width: 100% !important;
       float: none !important;
     }

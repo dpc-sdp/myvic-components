@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/yourvic-map
+# @dpc-sdp/yourvic-map-core
 
 > An interactive map component
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-map --save
+npm install @dpc-sdp/yourvic-map-core --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ npm install @dpc-sdp/yourvic-map --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-map
+@dpc-sdp/yourvic-map-core
 ├── @dpc-sdp/ripple-global
 ├── ol
 └── ol-ext
@@ -27,16 +27,8 @@ npm install @dpc-sdp/yourvic-map --save
 ## Import
 
 ```js
-import { YourVicMap } from '@dpc-sdp/yourvic-map'
+import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
 ```
-
---------------------------------------------------------------------------------
-
-## Usage and Tests
-
-See [Storybook/Molecules/Map/Map with no data](https://ripple.sdp.vic.gov.au/?path=/story/molecules-map--map-with-no-data).
-
-See [Storybook/Molecules/Map/Map with free wifi data](https://ripple.sdp.vic.gov.au/?path=/story/molecules-map--map-with-free-wifi-data).
 
 --------------------------------------------------------------------------------
 

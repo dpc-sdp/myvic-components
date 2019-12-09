@@ -1,6 +1,6 @@
 <template>
      <div class="fire-map">
-         <yourvic-map
+         <yourvic-map-core
          :center="getCenter"
          :baseMapUrl="baseMapUrl"
          :customMethods="customMethods"
@@ -10,7 +10,7 @@
  </template>
 
 <script>
-import { YourVicMap } from '@dpc-sdp/yourvic-map-core'
+import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
 const { createImageIconStyle } = ol
@@ -183,7 +183,7 @@ const customMethods = {
 export default {
   name: 'FireMap',
   components: {
-    YourVicMap
+    YourvicMapCore
   },
   data: function () {
     return {

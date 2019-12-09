@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'YourVicMapTablist',
+  name: 'YourvicMapTablist',
   props: {
     title: String,
     tabs: Array

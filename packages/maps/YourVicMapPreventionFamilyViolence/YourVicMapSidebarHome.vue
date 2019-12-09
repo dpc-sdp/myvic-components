@@ -1,6 +1,6 @@
 <template>
-  <div class="YourVic-map-sidebar-home" ref="scrollElement">
-    <YourVicMapSidebarHeader
+  <div class="yourvic-map-sidebar-home" ref="scrollElement">
+    <YourvicMapSidebarHeader
       :title="headerTitle"
       :description="headerDescription"
       :showBackButton="showBackButton"
@@ -9,9 +9,9 @@
       v-on:home-clicked="clickHome"
       v-on:view-all-clicked="clickViewAll"
     />
-    <div class="YourVic-map-sidebar-home__content">
+    <div class="yourvic-map-sidebar-home__content">
       <div v-if="showProjects">
-        <YourVicMapProjectCard
+        <YourvicMapProjectCard
           v-for="(proj, index) in projectsToShow"
           @click="setProject"
           :key="index"
@@ -20,7 +20,7 @@
       </div>
 
       <div v-if="showHome">
-        <YourVicMapCategoriesPage
+        <YourvicMapCategoriesPage
           :items="items"
           :isArea="!state.showCategories"
           v-on:clickShowArea="clickShowArea"
@@ -30,7 +30,7 @@
       </div>
 
       <div v-if="showSingleProject">
-        <YourVicMapProjectDetails
+        <YourvicMapProjectDetails
           :project="selectedProject"
           @click="itemClicked"
         />
@@ -40,21 +40,21 @@
 </template>
 
 <script>
-import YourVicMapCard from './YourVicMapCard'
-import YourVicMapProjectCard from './YourVicMapProjectCard'
-import YourVicMapProjectDetails from './YourVicMapProjectDetails'
-import YourVicMapSidebarHeader from './YourVicMapSidebarHeader'
-import YourVicMapCategoriesPage from './YourVicMapCategoriesPage'
+import YourvicMapCard from './YourvicMapCard'
+import YourvicMapProjectCard from './YourvicMapProjectCard'
+import YourvicMapProjectDetails from './YourvicMapProjectDetails'
+import YourvicMapSidebarHeader from './YourvicMapSidebarHeader'
+import YourvicMapCategoriesPage from './YourvicMapCategoriesPage'
 import { sortByTitle } from './helper'
 
 export default {
-  name: 'YourVicMapSidebarHome',
+  name: 'YourvicMapSidebarHome',
   components: {
-    YourVicMapCard,
-    YourVicMapProjectDetails,
-    YourVicMapSidebarHeader,
-    YourVicMapCategoriesPage,
-    YourVicMapProjectCard
+    YourvicMapCard,
+    YourvicMapProjectDetails,
+    YourvicMapSidebarHeader,
+    YourvicMapCategoriesPage,
+    YourvicMapProjectCard
   },
   props: {
     categories: Array,

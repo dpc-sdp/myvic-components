@@ -1,6 +1,6 @@
 <template>
   <div class="free-wifi-map demo-content">
-    <yourvic-map
+    <yourvic-map-core
       :center="coordinates"
       :zoom="zoom"
       :baseMapUrl="baseMapUrl"
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { YourVicMap } from '@dpc-sdp/yourvic-map-core'
+import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
 const { createImageIconStyle } = ol
@@ -190,7 +190,7 @@ const customMethods = {
 export default {
   name: 'SVicFreeWifiMap',
   components: {
-    YourVicMap
+    YourvicMapCore
   },
   data: function () {
     return {

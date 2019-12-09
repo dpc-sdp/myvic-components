@@ -29,7 +29,7 @@
 import { RplTextLabel } from '@dpc-sdp/ripple-link'
 
 export default {
-  name: 'YourVicMapSidebarHeader',
+  name: 'YourvicMapSidebarHeader',
   components: {
     RplTextLabel
   },

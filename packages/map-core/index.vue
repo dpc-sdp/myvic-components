@@ -1,15 +1,15 @@
 <template>
-  <div class="yourvic-map">
+  <div class="yourvic-map-core">
     <div
       id="map-popup"
-      class="yourvic-map__popup ol-popup"
+      class="yourvic-map-core__popup ol-popup"
       ref="mapPopup">
       <map-indicator
         :selectedFeature="feature"
         :mapElement="$refs.map" />
     </div>
-    <div class="yourvic-map__container">
-      <div class="yourvic-map__map" id="map" ref="map">
+    <div class="yourvic-map-core__container">
+      <div class="yourvic-map-core__map" id="map" ref="map">
       </div>
     </div>
   </div>
@@ -205,7 +205,7 @@ const methods = {
 }
 
 export default {
-  name: 'YourVicMap',
+  name: 'YourvicMapCore',
   props: {
     // Default center/zoom on state of Victoria
     center: {
@@ -301,7 +301,7 @@ export default {
 
   $yourvic-map-popup-width: rem(300px) !default; // consider increasing this
 
-  .yourvic-map {
+  .yourvic-map-core {
     &__map {
       width: 100%;
       height: 100%;

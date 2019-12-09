@@ -27,13 +27,13 @@
 
 <script>
 import { RplTextLabel } from '@dpc-sdp/ripple-link'
-import YourVicMapCard from './YourVicMapCard'
+import YourvicMapCard from './YourvicMapCard'
 
 export default {
-  name: 'YourVicMapCategoriesPage',
+  name: 'YourvicMapCategoriesPage',
   components: {
     RplTextLabel,
-    YourVicMapCard
+    YourvicMapCard
   },
   props: {
     items: Array,
