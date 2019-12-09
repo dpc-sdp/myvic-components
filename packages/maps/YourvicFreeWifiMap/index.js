@@ -5,7 +5,7 @@
 import YourvicFreeWifiMap from './YourvicFreeWifiMap.vue'
 
 const install = Vue => {
-  Vue.component('yourvicFreeWifiMap', YourvicFreeWifiMap)
+  Vue.component('YourvicFreeWifiMap', YourvicFreeWifiMap)
 }
 
 export default {
