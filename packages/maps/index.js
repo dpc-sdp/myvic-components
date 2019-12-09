@@ -1,7 +1,7 @@
-import YourvicVicFreeWifiMap from './YourvicFreeWifiMap'
+import YourvicFreeWifiMap from './YourvicFreeWifiMap'
 import YourvicMapPreventionFamilyViolence from './YourvicMapPreventionFamilyViolence'
 import FireMap from './FireMap'
 
-export { YourvicVicFreeWifiMap }
+export { YourvicFreeWifiMap }
 export { YourvicMapPreventionFamilyViolence }
 export { FireMap }
