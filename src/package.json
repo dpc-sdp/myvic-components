@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/yourvic-storybook",
   "description": "Storybook instance for yourvictoria component testing",
-  "version": "1.0.7",
+  "version": "1.0.11",
   "private": true,
   "scripts": {
     "start": "start-storybook -p 6006 -s ./static",
