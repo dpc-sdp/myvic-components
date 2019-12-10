@@ -135,21 +135,24 @@ const customMethods = {
 
     if (isIE) {
       // internet explorer throws an error when using AnimatedCluster
-      return new ol.layer.Vector({
-        source: clusterSource,
-        style: customMethods.themeFeatureStyleFunction,
-        name: 'clusterLayer'
-      })
+      themeLayers.push(
+        new ol.layer.Vector({
+          source: clusterSource,
+          style: customMethods.themeFeatureStyleFunction,
+          name: 'clusterLayer'
+        })
+      )
     } else {
-
+      themeLayers.push(
+        new ol.source.AnimatedCluster({
+          animationDuration: 600,
+          source: clusterSource,
+          style: customMethods.themeFeatureStyleFunction,
+          name: 'clusterLayer'
+        })
+      )
     }
-
-    return new ol.source.AnimatedCluster({
-      animationDuration: 600,
-      source: clusterSource,
-      style: customMethods.themeFeatureStyleFunction,
-      name: 'clusterLayer'
-    })
+    return themeLayers
   },
   featureMapper: (feature) => {
     const features = feature.get('features')
