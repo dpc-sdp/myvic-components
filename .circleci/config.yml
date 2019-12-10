@@ -14,6 +14,9 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js 
           environment:
