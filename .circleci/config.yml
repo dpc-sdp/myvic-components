@@ -11,8 +11,6 @@ jobs:
     working_directory: ~/app
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/app
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
@@ -26,9 +24,6 @@ jobs:
           command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: test-results/unit/    
-      - persist_to_workspace:
-          root: ~/app
-          paths: .
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -37,6 +32,6 @@ jobs:
 workflows:
   version: 2
   commit:
-    jobs:
+    jobs:  
       - test
 
