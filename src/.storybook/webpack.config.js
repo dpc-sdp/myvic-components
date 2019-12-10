@@ -30,20 +30,20 @@ module.exports = async ({ config, mode }) => {
         resolve("storybook-components"),
         resolve("storybook-components/scss")
       ],
-      exclude: [
-        resolve("../node_modules/ol")
-      ]
+      exclude: [resolve("../node_modules/ol")]
     },
     {
       test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
       loader: "url-loader",
       exclude: [
-        resolve("static/custom_icons/")
+        resolve("static/custom_icons/"),
+        resolve("../node_modules/@dpc-sdp/ripple-icon")
       ]
     },
     {
       test: /\.svg$/,
       include: [
+        resolve("../node_modules"),
         resolve("static/custom_icons/")
       ],
       use: ["svg-sprite-loader", "svgo-loader"]
