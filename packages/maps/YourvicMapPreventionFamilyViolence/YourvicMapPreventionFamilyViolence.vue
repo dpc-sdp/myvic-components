@@ -100,6 +100,7 @@ const _selectedProjects = []
 const _selectedProject = [] // Even though this is a single item, I had to use an array to get the ref for vue to be able to communicate to the global methods.
 const _allAreas = []
 const _features = []
+const _allLgas = []
 
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
 const triggerMapRedraw = () => _features.length > 0 && _features[0].changed()
@@ -124,6 +125,7 @@ const customMethods = {
       const details = f.get('overview_initiative')
       const councils = f.get('council_name')
       const href = f.get('agency_public_content_web')
+      const lgas = f.get('lga_code')
       const project = {
         id,
         title: title ? title.trim() : '',
@@ -132,7 +134,8 @@ const customMethods = {
         details,
         href,
         categories: [],
-        areas: []
+        areas: [],
+        associatedLgas: []
       }
       _projects.push(project)
       _features.push(f)
@@ -142,6 +145,7 @@ const customMethods = {
         }
       })
 
+      // TODO: refactor to common method (see lgas)
       if (councils) {
         const areas = councils.split('|')
         areas.forEach(a => {
@@ -159,6 +163,26 @@ const customMethods = {
           }
         })
       }
+
+      // TODO: refactor to common method (see councils)
+      if (lgas) {
+        const associatedLgas = lgas.split('|')
+        associatedLgas.forEach(a => {
+          // Don't want to add empty values
+          if (!a || !a.trim()) {
+            return
+          }
+          const lgaVal = a.trim()
+          const newLgaObject = { key: lgaVal, title: lgaVal, isLoaded: false, geometry: null }
+          project.associatedLgas.push(newLgaObject)
+
+          // Don't want to add duplicated
+          if (!_allLgas.find(ma => ma.key === newLgaObject.key)) {
+            _allLgas.push(newLgaObject)
+          }
+        })
+      }
+      console.log(project.associatedLgas)
     })
   },
   themeFeatureStyleFunction: (feature, resolution) => {
@@ -236,13 +260,31 @@ const customMethods = {
 
     return [createImageIconStyle(svgDefinition, 'anonymous', [size, size])]
   },
-  createThemeLayer: ol => {
+  // called when the app is mounted
+  createThemeLayers: ol => {
+    const themeLayers = []
     const isIE =
       navigator.appName === 'Microsoft Internet Explorer' ||
       !!(
         navigator.userAgent.match(/Trident/) ||
         navigator.userAgent.match(/rv:11/)
       )
+    // TODO: return the correct lga geojson as required
+    const lgaSource = new ol.source.Vector({
+      format: new ol.format.GeoJSON(),
+      url: extent =>
+        `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN('LGA20260', 'LGA20660')&outputFormat=application/json`,
+      strategy: ol.loadingstrategy.bbox
+    })
+
+    themeLayers.push(
+      new ol.layer.Vector({
+        source: lgaSource,
+        name: 'lgaLayer'
+        // style: customMethods.themeFeatureStyleFunction
+      })
+    )
+
     const themeSource = new ol.source.Vector({
       format: new ol.format.GeoJSON(),
       url: extent =>
@@ -257,36 +299,50 @@ const customMethods = {
 
     if (isIE) {
       // internet explorer throws an error when using AnimatedCluster
-      return new ol.layer.Vector({
-        source: clusterSource,
-        style: customMethods.themeFeatureStyleFunction
-      })
+      themeLayers.push(
+        new ol.layer.Vector({
+          source: clusterSource,
+          style: customMethods.themeFeatureStyleFunction,
+          name: 'clusterLayer'
+        })
+      )
+    } else {
+      themeLayers.push(
+        new ol.source.AnimatedCluster({
+          animationDuration: 600,
+          source: clusterSource,
+          style: customMethods.themeFeatureStyleFunction,
+          name: 'clusterLayer'
+        })
+      )
     }
-
-    return new ol.source.AnimatedCluster({
-      animationDuration: 600,
-      source: clusterSource,
-      style: customMethods.themeFeatureStyleFunction
-    })
+    return themeLayers
   },
+
   featureMapper: feature => {
     // This is the method thats called when clicking on a feature on the map
-    const features = feature.get('features')
-    emptyArray(_selectedProjects)
-    emptyArray(_selectedProject)
-    const count = features.length
-    if (count > 0) {
-      features.forEach(f => {
-        const id = f.getId()
-        const p = _projects.find(p => p.id === id)
-        if (count === 1) {
-          setSelectedProject(p)
-        } else {
-          _selectedProjects.push(p)
+    switch (feature.layerName) {
+      case 'clusterLayer':
+        const features = feature.get('features')
+        emptyArray(_selectedProjects)
+        emptyArray(_selectedProject)
+        const count = features.length
+        if (count > 0) {
+          features.forEach(f => {
+            const id = f.getId()
+            const p = _projects.find(p => p.id === id)
+            if (count === 1) {
+              setSelectedProject(p)
+            } else {
+              _selectedProjects.push(p)
+            }
+          })
         }
-      })
+        break
+      case 'lgaLayer':
+        console.log('lga')
+        break
     }
-
     triggerMapRedraw()
   }
 }
