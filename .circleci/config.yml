@@ -10,6 +10,7 @@ jobs:
           CIRCLE_TEST_REPORTS: test-results
     working_directory: ~/app
     steps:
+      - checkout
       - attach_workspace:
           at: ~/app
       - run:
