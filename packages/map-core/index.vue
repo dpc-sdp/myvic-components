@@ -22,7 +22,7 @@ import ol from './lib/ol'
 let map,
   baseLayer,
   baseSource,
-  themeLayer,
+  themeLayers,
   popupOverlay
 
 /**
@@ -88,19 +88,22 @@ const methods = {
       size
     )
   },
-  createThemeLayer () {
+  createThemeLayers () {
+    themeLayers = []
     const themeSource = new ol.source.VectorTileSource({
       overlaps: false,
       format: new ol.format.MVT(),
       url: this.themeLayerUrl,
       transition: 0
     })
-    themeLayer = new ol.layer.VectorTile({
+    const themeLayer = new ol.layer.VectorTile({
       style: (this.customMethods && this.customMethods.themeFeatureStyleFunction) ? this.customMethods.themeFeatureStyleFunction : this.themeFeatureStyleFunction,
       opacity: 1,
       source: themeSource,
-      renderMode: 'hybrid'
+      renderMode: 'hybrid',
+      name: 'defaultThemeLayer'
     })
+    themeLayers.push(themeLayer)
   },
   addPopupOverlay () {
     popupOverlay = new ol.Overlay({
@@ -147,7 +150,8 @@ const methods = {
   onMapClick (evt) {
     const features = []
     map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
-      if (layer === themeLayer) features.push(f)
+      f.layerName = layer.get('name')
+      if (themeLayers.includes(layer)) features.push(f)
     })
 
     if (features.length === 0) {
@@ -179,14 +183,19 @@ const methods = {
       this.createBaseLayer()
     }
 
-    if (this.customMethods && this.customMethods.createThemeLayer) {
-      themeLayer = this.customMethods.createThemeLayer(ol)
+    if (this.customMethods && this.customMethods.createThemeLayers) {
+      console.log('here1')
+      themeLayers = this.customMethods.createThemeLayers(ol)
     } else {
-      this.createThemeLayer()
+      console.log('here2')
+      this.createThemeLayers()
     }
 
     map.addLayer(baseLayer)
-    map.addLayer(themeLayer)
+
+    for (let layer of themeLayers) {
+      map.addLayer(layer)
+    }
 
     this.addPopupOverlay()
 
@@ -194,7 +203,7 @@ const methods = {
 
     this.zoomOnAppMounted()
   },
-  featureMapper (feature) {
+  featureMapper (layer, feature) {
     // this function should be overridden when consuming this component,
     // to allow customisation of the pop content
     return {
