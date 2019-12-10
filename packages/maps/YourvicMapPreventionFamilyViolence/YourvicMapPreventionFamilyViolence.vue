@@ -103,28 +103,83 @@ const _features = []
 const _allLgas = []
 const _mapLayers = []
 const _lgaStyleCache = {}
-// const _lgaFeatures = []
+const _lgaFeaturesCache = {}
 
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
-const triggerMapRedraw = () => _features.length > 0 && _features[0].changed()
+const triggerMapRedraw = () => {
+  _features.length > 0 && _features[0].changed()
+  _mapLayers[0].changed()
+}
 const setSelectedProject = proj => {
   emptyArray(_selectedProject)
+  emptyArray(_selectedProjects)
   if (proj) {
     const projectLgas = []
+    const unloadedProjectLgas = []
+    const loadedProjectLgas = []
     for (let lga of proj.associatedLgas) {
       projectLgas.push(lga.title)
     }
-    _mapLayers[0].getSource().forEachFeature(function (feature) {
-      const lgaCode = feature.get('lga_code')
-      if (projectLgas.includes(lgaCode)) {
-        feature.drawState = 'active'
+    for (let lga of projectLgas) {
+      if (!_lgaFeaturesCache[lga]) {
+        unloadedProjectLgas.push(lga)
       } else {
-        feature.drawState = 'hidden'
+        loadedProjectLgas.push(lga)
       }
+    }
+    // TODO: Remove me
+    console.log(`loading from cache: ${loadedProjectLgas}`)
+    console.log(`loading from server: ${unloadedProjectLgas}`)
+
+    let queryString = ''
+    for (let lga of unloadedProjectLgas) {
+      if (queryString.length > 0) {
+        queryString += `, '${lga}'`
+      } else {
+        queryString = `'${lga}'`
+      }
+    }
+    let source = new ol.source.Vector({
+      format: new ol.format.GeoJSON()
     })
+    if (queryString.length > 0) {
+      source = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: extent =>
+          `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN(${queryString})&outputFormat=application/json`,
+        strategy: ol.loadingstrategy.all
+      })
+    }
+    _mapLayers[0].setSource(source)
+    _mapLayers[0].getSource().on('addfeature', function () {
+      console.log('addfeature fired')
+      _mapLayers[0].getSource().forEachFeature(function (feature) {
+        const lgaCode = feature.get('lga_code')
+        if (!_lgaFeaturesCache[lgaCode]) {
+          _lgaFeaturesCache[lgaCode] = feature
+        }
+        if (projectLgas.includes(lgaCode)) {
+          feature.drawState = 'active'
+        } else {
+          feature.drawState = 'hidden'
+        }
+        _mapLayers[0].changed()
+      })
+    })
+    for (let lga of loadedProjectLgas) {
+      _mapLayers[0].getSource().addFeature(_lgaFeaturesCache[lga])
+    }
     _selectedProject.push(proj)
-    _mapLayers[0].changed()
   }
+}
+const setSelectedProjects = projects => {
+  emptyArray(_selectedProject)
+  emptyArray(_selectedProjects)
+  _mapLayers[0].getSource().clear()
+  for (let proj of projects) {
+    _selectedProjects.push(proj)
+  }
+  _mapLayers[0].changed()
 }
 const hexToRgba = (hex, alpha = 1) => {
   const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16))
@@ -206,7 +261,6 @@ const customMethods = {
     })
   },
   lgaFeatureStyleFunction: (feature, resolution) => {
-    console.log()
     var state = feature.drawState
     if (state === undefined) {
       state = 'hidden'
@@ -224,7 +278,8 @@ const customMethods = {
             stroke: new ol.style.Stroke({
               color: hexToRgba(disabledColor, 1),
               width: 3
-            })
+            }),
+            zIndex: 1
           })
           _lgaStyleCache[state] = [disabledStyle]
           break
@@ -236,7 +291,8 @@ const customMethods = {
             stroke: new ol.style.Stroke({
               color: hexToRgba(themeColor, 1),
               width: 3
-            })
+            }),
+            zIndex: 100
           })
           _lgaStyleCache[state] = [activeStyle]
           break
@@ -327,14 +383,8 @@ const customMethods = {
         navigator.userAgent.match(/Trident/) ||
         navigator.userAgent.match(/rv:11/)
       )
-    // TODO: return the correct lga geojson as required
-    const lgaSource = new ol.source.Vector({
-      format: new ol.format.GeoJSON(),
-      url: extent =>
-        `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN('LGA21750', 'LGA24600', 'LGA26730', 'LGA25490', 'LGA22410', 'LGA26260', 'LGA21830', 'LGA21750', 'LGA22670')&outputFormat=application/json`,
-      strategy: ol.loadingstrategy.bbox
-    })
 
+    const lgaSource = new ol.source.Vector()
     _mapLayers.push(
       new ol.layer.Vector({
         source: lgaSource,
@@ -381,10 +431,10 @@ const customMethods = {
     // This is the method thats called when clicking on a feature on the map
     switch (feature.layerName) {
       case 'clusterLayer':
-        console.log(feature)
         const features = feature.get('features')
         emptyArray(_selectedProjects)
         emptyArray(_selectedProject)
+        const selectedProjects = []
         const count = features.length
         if (count > 0) {
           features.forEach(f => {
@@ -393,16 +443,26 @@ const customMethods = {
             if (count === 1) {
               setSelectedProject(p)
             } else {
-              _selectedProjects.push(p)
+              selectedProjects.push(p)
             }
           })
+          if (selectedProjects.length > 0) {
+            setSelectedProjects(selectedProjects)
+          }
         }
         break
       case 'lgaLayer':
-        // console.log(_mapLayers[0])
-        // _mapLayers[0].values_.visible = false
-        // // _lgaFeatures.push()
-        // // console.log(_mapLayers[0].getSource().getFormat().writeFeatures())
+        // TODO: need to clean this up
+        // we also need to manage the project loosing its number
+        console.log(feature)
+        const lgaCode = feature.get('lga_code')
+        _mapLayers[0].getSource().forEachFeature(function (f) {
+          if (lgaCode === f.get('lga_code')) {
+            f.drawState = 'active'
+          } else {
+            f.drawState = 'disabled'
+          }
+        })
         console.log('lga')
         break
     }
