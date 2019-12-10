@@ -59,7 +59,7 @@ const { createImageIconStyle } = ol
 
 const baseMapUrl = 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
 const themeColor = '#0052c2'
-const disabledColor = '#666'
+const disabledColor = '#666666'
 const clusterColor = '#FFFFFF'
 
 const _allCategories = [
@@ -101,14 +101,34 @@ const _selectedProject = [] // Even though this is a single item, I had to use a
 const _allAreas = []
 const _features = []
 const _allLgas = []
+const _mapLayers = []
+const _lgaStyleCache = {}
+// const _lgaFeatures = []
 
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
 const triggerMapRedraw = () => _features.length > 0 && _features[0].changed()
 const setSelectedProject = proj => {
   emptyArray(_selectedProject)
   if (proj) {
+    const projectLgas = []
+    for (let lga of proj.associatedLgas) {
+      projectLgas.push(lga.title)
+    }
+    _mapLayers[0].getSource().forEachFeature(function (feature) {
+      const lgaCode = feature.get('lga_code')
+      if (projectLgas.includes(lgaCode)) {
+        feature.drawState = 'active'
+      } else {
+        feature.drawState = 'hidden'
+      }
+    })
     _selectedProject.push(proj)
+    _mapLayers[0].changed()
   }
+}
+const hexToRgba = (hex, alpha = 1) => {
+  const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16))
+  return `rgba(${r},${g},${b},${alpha})`
 }
 
 const customMethods = {
@@ -182,8 +202,47 @@ const customMethods = {
           }
         })
       }
-      console.log(project.associatedLgas)
+      // console.log(project.associatedLgas)
     })
+  },
+  lgaFeatureStyleFunction: (feature, resolution) => {
+    console.log()
+    var state = feature.drawState
+    if (state === undefined) {
+      state = 'hidden'
+    }
+    if (!_lgaStyleCache[state]) {
+      switch (state) {
+        case 'hidden':
+          _lgaStyleCache[state] = null
+          break
+        case 'disabled':
+          const disabledStyle = new ol.style.Style({
+            fill: new ol.style.Fill({
+              color: hexToRgba(disabledColor, 0.1)
+            }),
+            stroke: new ol.style.Stroke({
+              color: hexToRgba(disabledColor, 1),
+              width: 3
+            })
+          })
+          _lgaStyleCache[state] = [disabledStyle]
+          break
+        case 'active':
+          const activeStyle = new ol.style.Style({
+            fill: new ol.style.Fill({
+              color: hexToRgba(themeColor, 0.1)
+            }),
+            stroke: new ol.style.Stroke({
+              color: hexToRgba(themeColor, 1),
+              width: 3
+            })
+          })
+          _lgaStyleCache[state] = [activeStyle]
+          break
+      }
+    }
+    return _lgaStyleCache[state]
   },
   themeFeatureStyleFunction: (feature, resolution) => {
     const features = feature.get('features')
@@ -262,7 +321,6 @@ const customMethods = {
   },
   // called when the app is mounted
   createThemeLayers: ol => {
-    const themeLayers = []
     const isIE =
       navigator.appName === 'Microsoft Internet Explorer' ||
       !!(
@@ -273,15 +331,15 @@ const customMethods = {
     const lgaSource = new ol.source.Vector({
       format: new ol.format.GeoJSON(),
       url: extent =>
-        `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN('LGA20260', 'LGA20660')&outputFormat=application/json`,
+        `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN('LGA21750', 'LGA24600', 'LGA26730', 'LGA25490', 'LGA22410', 'LGA26260', 'LGA21830', 'LGA21750', 'LGA22670')&outputFormat=application/json`,
       strategy: ol.loadingstrategy.bbox
     })
 
-    themeLayers.push(
+    _mapLayers.push(
       new ol.layer.Vector({
         source: lgaSource,
-        name: 'lgaLayer'
-        // style: customMethods.themeFeatureStyleFunction
+        name: 'lgaLayer',
+        style: customMethods.lgaFeatureStyleFunction
       })
     )
 
@@ -299,7 +357,7 @@ const customMethods = {
 
     if (isIE) {
       // internet explorer throws an error when using AnimatedCluster
-      themeLayers.push(
+      _mapLayers.push(
         new ol.layer.Vector({
           source: clusterSource,
           style: customMethods.themeFeatureStyleFunction,
@@ -307,7 +365,7 @@ const customMethods = {
         })
       )
     } else {
-      themeLayers.push(
+      _mapLayers.push(
         new ol.source.AnimatedCluster({
           animationDuration: 600,
           source: clusterSource,
@@ -316,13 +374,14 @@ const customMethods = {
         })
       )
     }
-    return themeLayers
+    return _mapLayers
   },
 
   featureMapper: feature => {
     // This is the method thats called when clicking on a feature on the map
     switch (feature.layerName) {
       case 'clusterLayer':
+        console.log(feature)
         const features = feature.get('features')
         emptyArray(_selectedProjects)
         emptyArray(_selectedProject)
@@ -340,6 +399,10 @@ const customMethods = {
         }
         break
       case 'lgaLayer':
+        // console.log(_mapLayers[0])
+        // _mapLayers[0].values_.visible = false
+        // // _lgaFeatures.push()
+        // // console.log(_mapLayers[0].getSource().getFormat().writeFeatures())
         console.log('lga')
         break
     }
@@ -367,6 +430,7 @@ export default {
       customMethods,
       allCategories: _allCategories,
       allAreas: _allAreas,
+      allLgas: _allLgas,
       projects: _projects,
       selectedProjects: _selectedProjects,
       selectedProject: _selectedProject,
