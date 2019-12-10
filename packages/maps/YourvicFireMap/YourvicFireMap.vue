@@ -116,7 +116,8 @@ const customMethods = {
     )]
   },
 
-  createThemeLayer: ol => {
+  createThemeLayers: ol => {
+    const themeLayers = []
     const isIE = (navigator.appName === 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)))
 
     // We expect standard GeoJSON here.
@@ -136,14 +137,18 @@ const customMethods = {
       // internet explorer throws an error when using AnimatedCluster
       return new ol.layer.Vector({
         source: clusterSource,
-        style: customMethods.themeFeatureStyleFunction
+        style: customMethods.themeFeatureStyleFunction,
+        name: 'clusterLayer'
       })
+    } else {
+
     }
 
     return new ol.source.AnimatedCluster({
       animationDuration: 600,
       source: clusterSource,
-      style: customMethods.themeFeatureStyleFunction
+      style: customMethods.themeFeatureStyleFunction,
+      name: 'clusterLayer'
     })
   },
   featureMapper: (feature) => {
