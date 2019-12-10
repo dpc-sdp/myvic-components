@@ -181,7 +181,7 @@ const customMethods = {
 }
 
 export default {
-  name: 'FireMap',
+  name: 'YourvicFireMap',
   components: {
     YourvicMapCore
   },
