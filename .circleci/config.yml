@@ -12,11 +12,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-      - restore_cache:
-          keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js 
