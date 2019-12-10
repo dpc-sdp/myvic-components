@@ -184,10 +184,8 @@ const methods = {
     }
 
     if (this.customMethods && this.customMethods.createThemeLayers) {
-      console.log('here1')
       themeLayers = this.customMethods.createThemeLayers(ol)
     } else {
-      console.log('here2')
       this.createThemeLayers()
     }
 
