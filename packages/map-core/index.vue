@@ -50,12 +50,6 @@ const methods = {
         minZoom: this.minZoom
       })
     })
-    map.on('pointermove', (e) => {
-      // set the cursor to a pointer when hovering over an icon
-      var pixel = map.getEventPixel(e.originalEvent)
-      var hit = map.hasFeatureAtPixel(pixel)
-      this.$refs.map.style.cursor = hit ? 'pointer' : ''
-    })
   },
   createBaseLayer () {
     baseSource = new ol.source.XYZ({
@@ -147,6 +141,12 @@ const methods = {
   zoomOnAppMounted () {
     // Do something like `this.zoomToArea()`
   },
+  onMapPointerMove (evt) {
+    // set the cursor to a pointer when hovering over an icon
+    var pixel = map.getEventPixel(evt.originalEvent)
+    var hit = map.hasFeatureAtPixel(pixel)
+    this.$refs.map.style.cursor = hit ? 'pointer' : ''
+  },
   onMapClick (evt) {
     const features = []
     map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
@@ -198,6 +198,7 @@ const methods = {
     this.addPopupOverlay()
 
     map.on('singleclick', this.onMapClick)
+    map.on('pointermove', this.onMapPointerMove)
 
     this.zoomOnAppMounted()
   },
