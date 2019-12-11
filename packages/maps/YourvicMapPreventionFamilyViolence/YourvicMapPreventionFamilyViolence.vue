@@ -108,7 +108,6 @@ const _lgaFeaturesCache = {}
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
 const triggerMapRedraw = () => {
   _features.length > 0 && _features[0].changed()
-  _mapLayers[0].changed()
 }
 const setSelectedProject = proj => {
   emptyArray(_selectedProject)
@@ -342,6 +341,23 @@ const customMethods = {
       circleOutline = disabledColor
       textColor = clusterColor
     }
+    let svgText = `
+      <text
+        x="50%"
+        y="50%"
+        dy="1.25"
+        text-anchor="middle"
+        fill="${textColor}"
+        style="font-size:${fontSizeInPx}px;
+          font-weight: bold;
+          font-family:VIC-Regular, Arial, Helvetica, sans-serif;"
+      >${clusterSizeText}</text>`
+
+    if (match && _selectedProject.length === 1) {
+      // we have one project selected
+      // dont render the number
+      svgText = ''
+    }
     // NOTE: the whitespace in the <text> element is
     // important: `>${clusterSizeText}</text>`
     // IE doesn't trim all the whitespace and it leads
@@ -360,16 +376,7 @@ const customMethods = {
             cx="4"
             cy="4"
             r="3.5"/>
-          <text
-            x="50%"
-            y="50%"
-            dy="1.25"
-            text-anchor="middle"
-            fill="${textColor}"
-            style="font-size:${fontSizeInPx}px;
-              font-weight: bold;
-              font-family:VIC-Regular, Arial, Helvetica, sans-serif;"
-          >${clusterSizeText}</text>
+          ${svgText}
         </svg>
       `)
 
@@ -431,39 +438,49 @@ const customMethods = {
     // This is the method thats called when clicking on a feature on the map
     switch (feature.layerName) {
       case 'clusterLayer':
-        const features = feature.get('features')
-        emptyArray(_selectedProjects)
-        emptyArray(_selectedProject)
-        const selectedProjects = []
-        const count = features.length
-        if (count > 0) {
-          features.forEach(f => {
-            const id = f.getId()
-            const p = _projects.find(p => p.id === id)
-            if (count === 1) {
-              setSelectedProject(p)
-            } else {
-              selectedProjects.push(p)
+        switch (feature.event) {
+          case 'click':
+            const features = feature.get('features')
+            emptyArray(_selectedProjects)
+            emptyArray(_selectedProject)
+            const selectedProjects = []
+            const count = features.length
+            if (count > 0) {
+              features.forEach(f => {
+                const id = f.getId()
+                const p = _projects.find(p => p.id === id)
+                if (count === 1) {
+                  setSelectedProject(p)
+                } else {
+                  selectedProjects.push(p)
+                }
+              })
+              if (selectedProjects.length > 0) {
+                setSelectedProjects(selectedProjects)
+              }
             }
-          })
-          if (selectedProjects.length > 0) {
-            setSelectedProjects(selectedProjects)
-          }
+            break
         }
         break
+
       case 'lgaLayer':
-        // TODO: need to clean this up
-        // we also need to manage the project loosing its number
-        console.log(feature)
         const lgaCode = feature.get('lga_code')
-        _mapLayers[0].getSource().forEachFeature(function (f) {
-          if (lgaCode === f.get('lga_code')) {
-            f.drawState = 'active'
-          } else {
-            f.drawState = 'disabled'
-          }
-        })
-        console.log('lga')
+        switch (feature.event) {
+          case 'click':
+            // TODO list all projects for the lga that was clicked on
+            console.log(_allAreas)
+            break
+          case 'move':
+            _mapLayers[0].getSource().forEachFeature(function (f) {
+              if (lgaCode === f.get('lga_code')) {
+                f.drawState = 'active'
+              } else {
+                f.drawState = 'disabled'
+              }
+            })
+            _mapLayers[0].changed()
+            break
+        }
         break
     }
     triggerMapRedraw()
