@@ -146,11 +146,24 @@ const methods = {
     var pixel = map.getEventPixel(evt.originalEvent)
     var hit = map.hasFeatureAtPixel(pixel)
     this.$refs.map.style.cursor = hit ? 'pointer' : ''
+    if (hit === true) {
+      const features = []
+      map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
+        f.layerName = layer.get('name')
+        f.event = 'move'
+        if (themeLayers.includes(layer)) features.push(f)
+      })
+      const firstFeature = features[0]
+      if (this.customMethods && this.customMethods.featureMapper) {
+        this.customMethods.featureMapper(firstFeature, features)
+      }
+    }
   },
   onMapClick (evt) {
     const features = []
     map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
       f.layerName = layer.get('name')
+      f.event = 'click'
       if (themeLayers.includes(layer)) features.push(f)
     })
 
