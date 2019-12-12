@@ -80,8 +80,6 @@ export default {
         : null
     },
     selectedCategory () {
-      console.log('selectedCategory')
-      console.log(this.state.category)
       const { parentSelectedCategory } = this
       if (parentSelectedCategory.length === 1) {
         // eslint-disable-next-line vue/no-side-effects-in-computed-properties
@@ -109,12 +107,11 @@ export default {
     showProjects () {
       const {
         state: { category },
+        // eslint-disable-next-line no-unused-vars
         selectedCategory,
         selectedProject,
         selectedProjects
       } = this
-      console.log(category)
-      console.log(selectedCategory)
       return (
         (category !== null || selectedProjects.length > 1) &&
         selectedProject === null
@@ -135,13 +132,11 @@ export default {
         state: { category },
         selectedProjects,
         selectedProject,
+        // eslint-disable-next-line no-unused-vars
         selectedCategory,
         showHome,
         projects
       } = this
-
-      console.log(selectedCategory)
-      console.log(category)
 
       if (selectedProject !== null) {
         return selectedProject.title
@@ -237,10 +232,7 @@ export default {
     setCategory (cat) {
       this.scrollToTop()
       this.state.category = cat
-      console.log('setCat')
-      console.log(cat)
       if (!this.state.showCategories || cat.isArea) {
-        console.log('here')
         // we are showing projects by area
         this.$emit('set-area', cat)
       }
