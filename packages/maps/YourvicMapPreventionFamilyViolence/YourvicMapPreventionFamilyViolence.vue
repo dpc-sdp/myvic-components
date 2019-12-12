@@ -200,9 +200,6 @@ const setSelectedProject = proj => {
         loadedProjectLgas.push(lga)
       }
     }
-    // TODO: Remove me
-    console.log(`loading from cache: ${loadedProjectLgas}`)
-    console.log(`loading from server: ${unloadedProjectLgas}`)
     let queryString = ''
     for (let lga of unloadedProjectLgas) {
       if (queryString.length > 0) {
@@ -248,7 +245,6 @@ const setSelectedProject = proj => {
     _mapLayers[0].setSource(source)
     _mapLayers[0].changed()
   }
-  console.log(loadedProjectLgas.length)
   if (unloadedProjectLgas.length > 0) {
     var sourceEventListener = _mapLayers[0].getSource().on('change', function (e) {
       if (_mapLayers[0].getSource().getState() === 'ready') {
@@ -263,7 +259,6 @@ const setSelectedProjects = projects => {
   emptyArray(_selectedProject)
   emptyArray(_selectedProjects)
   _mapLayers[0].getSource().clear()
-  console.log(projects)
   for (let proj of projects) {
     _selectedProjects.push(proj)
   }
@@ -436,8 +431,6 @@ const customMethods = {
     let textColor = isCluster ? themeColor : clusterColor
     const featureIds = features.map(f => f.getId()).sort()
     let match = true
-    // console.log(_selectedProjects.length)
-    // console.log(_selectedProject.length)
     if (_selectedProject.length > 0) {
       // Try match selectedProject to feature
       const selectedId = _selectedProject[0].id
@@ -451,7 +444,7 @@ const customMethods = {
         match = projectIds.length === featureIds.length
         if (match) {
           match = true
-          console.log('match')
+          // console.log('match')
           for (let i = 0; i < projectIds.length; i++) {
             if (match && projectIds[i] !== featureIds[i]) {
               match = false
@@ -693,7 +686,6 @@ export default {
       this.refreshMapSize()
     },
     clickBack (projectsAndCategory) {
-      console.log('back')
       if (_selectedProject.length > 0) {
         // Clear selectedProject first
         emptyArray(_selectedProject)
@@ -702,18 +694,16 @@ export default {
         emptyArray(_selectedProjects)
       }
       resetLgaSource()
-      console.log(_selectedProjects)
-      console.log(_selectedProject)
       // setSelectedProjects(projects)
       if (projectsAndCategory[1]) {
-        console.log('here')
         const lga = _councilToLgaMapping[projectsAndCategory[1].key]
         showSingleLga(lga)
+      } else {
+        zoomMapToExtent(_globalMap[1], 0)
       }
       triggerMapRedraw()
     },
     clickHome () {
-      console.log('home')
       resetLgaSource()
       zoomMapToExtent(_globalMap[1], 0)
     },
