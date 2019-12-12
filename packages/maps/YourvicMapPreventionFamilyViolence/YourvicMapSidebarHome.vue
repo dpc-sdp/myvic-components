@@ -159,11 +159,13 @@ export default {
       let projectsToShow = projects
       if (!selectedCategory.isAll) {
         if (selectedCategory.isArea) {
-          projectsToShow = projects.filter(p =>
+          let projectsToShowCouncil = projects.filter(p =>
             p.areas.some(c => c.key === selectedCategory.key)
           )
-          console.log(selectedCategory)
-          console.log(projectsToShow)
+          let projectsToShowStatewide = projects.filter(p =>
+            p.areas.some(c => c.key === 'Statewide')
+          )
+          projectsToShow = projectsToShowCouncil.concat(projectsToShowStatewide)
         } else {
           projectsToShow = projects.filter(p =>
             p.categories.some(c => c.key === selectedCategory.key)
