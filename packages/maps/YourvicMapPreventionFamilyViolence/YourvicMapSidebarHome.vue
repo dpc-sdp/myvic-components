@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import YourVicMapCard from './YourVicMapCard'
-import YourVicMapProjectCard from './YourVicMapProjectCard'
-import YourVicMapProjectDetails from './YourVicMapProjectDetails'
-import YourVicMapSidebarHeader from './YourVicMapSidebarHeader'
-import YourVicMapCategoriesPage from './YourVicMapCategoriesPage'
-import { sortByTitle } from './helper'
+import YourvicMapCard from './YourvicMapCard'
+import YourvicMapProjectCard from './YourvicMapProjectCard'
+import YourvicMapProjectDetails from './YourvicMapProjectDetails'
+import YourvicMapSidebarHeader from './YourvicMapSidebarHeader'
+import YourvicMapCategoriesPage from './YourvicMapCategoriesPage'
+import { sortByTitle, emptyArray } from './helper'
 
 export default {
   name: 'YourVicMapSidebarHome',
@@ -62,13 +62,13 @@ export default {
     projects: Array,
     selectedProjects: Array,
     parentSelectedProject: Array,
-    selectedLga: Array
+    parentSelectedCategory: Array
   },
   data: function () {
     return {
       state: {
         showCategories: true,
-        selectedCategory: null
+        category: null
       }
     }
   },
@@ -78,6 +78,17 @@ export default {
       return parentSelectedProject.length === 1
         ? parentSelectedProject[0]
         : null
+    },
+    selectedCategory () {
+      console.log('selectedCategory')
+      console.log(this.state.category)
+      const { parentSelectedCategory } = this
+      if (parentSelectedCategory.length === 1) {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.state.category = parentSelectedCategory[0]
+        emptyArray(parentSelectedCategory)
+      }
+      return null
     },
     items () {
       const {
@@ -97,40 +108,47 @@ export default {
     },
     showProjects () {
       const {
-        state: { selectedCategory },
+        state: { category },
+        selectedCategory,
         selectedProject,
         selectedProjects
       } = this
+      console.log(category)
+      console.log(selectedCategory)
       return (
-        (selectedCategory !== null || selectedProjects.length > 1) &&
+        (category !== null || selectedProjects.length > 1) &&
         selectedProject === null
       )
     },
     showHome () {
       const {
-        state: { selectedCategory },
+        state: { category },
         selectedProject,
         selectedProjects
       } = this
       return (
-        selectedProjects.length === 0 && !selectedProject && !selectedCategory
+        selectedProjects.length === 0 && !selectedProject && !category
       )
     },
     headerTitle () {
       const {
+        state: { category },
         selectedProjects,
         selectedProject,
-        state: { selectedCategory },
+        selectedCategory,
         showHome,
         projects
       } = this
+
+      console.log(selectedCategory)
+      console.log(category)
 
       if (selectedProject !== null) {
         return selectedProject.title
       }
 
-      if (selectedCategory !== null) {
-        return selectedCategory.title
+      if (category !== null) {
+        return category.title
       }
 
       const count = selectedProjects.length
@@ -144,7 +162,7 @@ export default {
     },
     projectsToShow () {
       const {
-        state: { selectedCategory },
+        state: { category },
         projects,
         selectedProjects
       } = this
@@ -152,15 +170,15 @@ export default {
         return sortByTitle(selectedProjects)
       }
 
-      if (!selectedCategory) {
+      if (!category) {
         return []
       }
 
       let projectsToShow = projects
-      if (!selectedCategory.isAll) {
-        if (selectedCategory.isArea) {
+      if (!category.isAll) {
+        if (category.isArea) {
           let projectsToShowCouncil = projects.filter(p =>
-            p.areas.some(c => c.key === selectedCategory.key)
+            p.areas.some(c => c.key === category.key)
           )
           let projectsToShowStatewide = projects.filter(p =>
             p.areas.some(c => c.key === 'Statewide')
@@ -168,7 +186,7 @@ export default {
           projectsToShow = projectsToShowCouncil.concat(projectsToShowStatewide)
         } else {
           projectsToShow = projects.filter(p =>
-            p.categories.some(c => c.key === selectedCategory.key)
+            p.categories.some(c => c.key === category.key)
           )
         }
       }
@@ -176,7 +194,7 @@ export default {
     },
     headerDescription () {
       const {
-        state: { showCategories },
+        state: { category },
         showHome,
         selectedProject,
         projectsToShow
@@ -186,8 +204,12 @@ export default {
         return null
       }
 
+      let categoryTest = true
+      if (category !== null && category.isArea) {
+        categoryTest = false
+      }
       const count = projectsToShow.length
-      const suffix = showCategories ? 'category' : 'area'
+      const suffix = categoryTest ? 'category' : 'area'
       const text = count === 1 ? 'project' : 'projects'
       return `${count} ${text} in this ${suffix}`
     }
@@ -195,14 +217,14 @@ export default {
   methods: {
     clickHome () {
       this.$emit('home-clicked')
-      this.state.selectedCategory = null
+      this.state.category = null
     },
     clickBack () {
-      this.$emit('back-clicked', [this.projectsToShow, this.state.selectedCategory])
+      this.$emit('back-clicked', [this.projectsToShow, this.state.category])
     },
     clickViewAll () {
       // Dummying category to show all projects
-      this.state.selectedCategory = {
+      this.state.category = {
         title: 'All projects',
         projects: this.projects,
         isAll: true
@@ -214,8 +236,11 @@ export default {
     },
     setCategory (cat) {
       this.scrollToTop()
-      this.state.selectedCategory = cat
-      if (!this.state.showCategories) {
+      this.state.category = cat
+      console.log('setCat')
+      console.log(cat)
+      if (!this.state.showCategories || cat.isArea) {
+        console.log('here')
         // we are showing projects by area
         this.$emit('set-area', cat)
       }
