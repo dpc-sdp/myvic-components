@@ -218,6 +218,10 @@ const methods = {
     map.on('singleclick', this.onMapClick)
     map.on('pointermove', this.onMapPointerMove)
 
+    if (this.customMethods && this.customMethods.exposeMap) {
+      this.customMethods.exposeMap(map)
+    }
+
     this.zoomOnAppMounted()
   },
   featureMapper (layer, feature) {

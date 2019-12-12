@@ -38,8 +38,6 @@
             v-on:set-selected-project="setSelectedProject"
             v-on:back-clicked="clickBack"
             v-on:home-clicked="clickHome"
-            v-on:set-filter-by-area="setMapModeArea"
-            v-on:set-filter-by-category="setMapModeCategory"
             v-on:set-area="setSelectedArea"
           />
         </div>
@@ -110,21 +108,31 @@ const _mapLayers = []
 const _lgaStyleCache = {}
 const _lgaFeaturesCache = {}
 const _councilToLgaMapping = {}
-let _mapDisplayMode = 'category'
+const _lgaToCouncilMapping = {}
+const _globalMap = []
 
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
 const triggerMapRedraw = () => {
   _features.length > 0 && _features[0].changed()
 }
-const setMapMode = mode => {
-  switch (mode) {
-    case 'category':
-      _mapDisplayMode = mode
-      break
-    case 'area':
-      _mapDisplayMode = mode
-      break
+
+const resetLgaSource = () => {
+  const source = new ol.source.Vector({
+    format: new ol.format.GeoJSON()
+  })
+  _mapLayers[0].setSource(source)
+  _mapLayers[0].changed()
+}
+
+const zoomMapToLayerExtent = (layer, padding = 20) => {
+  const layerExtent = layer.getSource().getExtent()
+  if (layerExtent) {
+    zoomMapToExtent(layerExtent, padding)
   }
+}
+
+const zoomMapToExtent = (extent, padding = 20) => {
+  _globalMap[0].getView().fit(extent, { padding: [padding, padding, padding, padding], duration: 1000, constrainResolution: false })
 }
 
 const showEntireState = () => {
@@ -139,10 +147,10 @@ const showEntireState = () => {
   _mapLayers[0].getSource().on('addfeature', function () {
     // this is called when a feature is loaded onto the layer
     _mapLayers[0].getSource().forEachFeature(function (feature) {
-      console.log(feature)
       feature.drawState = 'active'
       _mapLayers[0].changed()
     })
+    zoomMapToLayerExtent(_mapLayers[0], 20)
   })
   _mapLayers[0].changed()
 }
@@ -156,14 +164,13 @@ const showSingleLga = lga => {
     strategy: ol.loadingstrategy.all
   })
   _mapLayers[0].setSource(source)
-
   _mapLayers[0].getSource().on('addfeature', function () {
     // this is called when a feature is loaded onto the layer
     _mapLayers[0].getSource().forEachFeature(function (feature) {
-      console.log(feature)
       feature.drawState = 'active'
       _mapLayers[0].changed()
     })
+    zoomMapToLayerExtent(_mapLayers[0], 110)
   })
   _mapLayers[0].changed()
 }
@@ -174,15 +181,15 @@ const setSelectedProject = proj => {
   let source = new ol.source.Vector({
     format: new ol.format.GeoJSON()
   })
+  const projectLgas = []
+  const unloadedProjectLgas = []
+  const loadedProjectLgas = []
   if (proj) {
     if (proj.associatedLgas.length === 1 && proj.associatedLgas[0].key === 'ALL') {
       showEntireState()
       _selectedProject.push(proj)
       return
     }
-    const projectLgas = []
-    const unloadedProjectLgas = []
-    const loadedProjectLgas = []
     for (let lga of proj.associatedLgas) {
       projectLgas.push(lga.title)
     }
@@ -234,9 +241,21 @@ const setSelectedProject = proj => {
       _mapLayers[0].getSource().addFeature(_lgaFeaturesCache[lga])
     }
     _selectedProject.push(proj)
+    if (unloadedProjectLgas.length === 0) {
+      zoomMapToLayerExtent(_mapLayers[0], 20)
+    }
   } else {
     _mapLayers[0].setSource(source)
     _mapLayers[0].changed()
+  }
+  console.log(loadedProjectLgas.length)
+  if (unloadedProjectLgas.length > 0) {
+    var sourceEventListener = _mapLayers[0].getSource().on('change', function (e) {
+      if (_mapLayers[0].getSource().getState() === 'ready') {
+        _mapLayers[0].getSource().un('change', sourceEventListener)
+        zoomMapToLayerExtent(_mapLayers[0], 20)
+      }
+    })
   }
 }
 
@@ -282,6 +301,11 @@ const projectsInLga = lga => {
 }
 
 const customMethods = {
+  exposeMap: map => {
+    _globalMap.push(map)
+    _globalMap.push(map.getView().calculateExtent(map.getSize()))
+  },
+
   readFeatureData: features => {
     features.forEach(f => {
       const id = f.getId()
@@ -351,9 +375,11 @@ const customMethods = {
       // map the council names to the lga codes for lookups
       for (var i = 0; i < project.areas.length; i++) {
         _councilToLgaMapping[project.areas[i].key] = project.associatedLgas[i].key
+        _lgaToCouncilMapping[project.associatedLgas[i].key] = project.areas[i].key
       }
     })
   },
+
   lgaFeatureStyleFunction: (feature, resolution) => {
     var state = feature.drawState
     if (state === undefined) {
@@ -405,7 +431,6 @@ const customMethods = {
       clusterSize > 99
         ? `99<tspan style="font-size:${fontSizeInPx * 0.75}px">+</tspan>`
         : clusterSize.toString()
-
     let circleFill = isCluster ? clusterColor : themeColor
     let circleOutline = themeColor
     let textColor = isCluster ? themeColor : clusterColor
@@ -565,18 +590,16 @@ const customMethods = {
         const lgaCode = feature.get('lga_code')
         switch (feature.event) {
           case 'click':
-            // TODO list all projects for the lga that was clicked on
             emptyArray(_selectedProject)
             showSingleLga(lgaCode)
-
-            // console.log(lgaCode)
+            const council = _lgaToCouncilMapping[lgaCode]
+            _selectedCategory.push({
+              title: council,
+              key: council,
+              isArea: true
+            })
             const projects = projectsInLga(lgaCode) // projectsInLga
             setSelectedProjects(projects)
-            // if (projects.length === 1) {
-            //   setSelectedProject(projects[0])
-            // } else {
-            //   setSelectedProjects(projects)
-            // }
             break
           case 'move':
             _mapLayers[0].getSource().forEachFeature(function (f) {
@@ -669,11 +692,8 @@ export default {
       this.isFullScreen = !this.isFullScreen
       this.refreshMapSize()
     },
-    zoomMapToLayer (layer) {
-      console.log(layer)
-      console.log(this.map)
-    },
     clickBack (projectsAndCategory) {
+      console.log('back')
       if (_selectedProject.length > 0) {
         // Clear selectedProject first
         emptyArray(_selectedProject)
@@ -681,44 +701,39 @@ export default {
         // Otherwise clear selectedProjects
         emptyArray(_selectedProjects)
       }
-      _mapLayers[0].getSource().clear()
-      _mapLayers[0].changed()
+      resetLgaSource()
       console.log(_selectedProjects)
       console.log(_selectedProject)
       // setSelectedProjects(projects)
       if (projectsAndCategory[1]) {
+        console.log('here')
         const lga = _councilToLgaMapping[projectsAndCategory[1].key]
         showSingleLga(lga)
       }
       triggerMapRedraw()
     },
     clickHome () {
-      _mapLayers[0].getSource().clear()
-      _mapLayers[0].changed()
+      console.log('home')
+      resetLgaSource()
+      zoomMapToExtent(_globalMap[1], 0)
     },
+
     setSelectedProject (proj) {
       setSelectedProject(proj)
       triggerMapRedraw()
     },
-    setMapModeArea () {
-      setMapMode('area')
-    },
-    setMapModeCategory () {
-      setMapMode('category')
-    },
+
     setSelectedArea (councilName) {
-      if (_mapDisplayMode === 'area') {
-        let lga = null
-        if (councilName.key === 'Statewide') {
-          showEntireState()
-        } else {
-          lga = _councilToLgaMapping[councilName.key]
-          showSingleLga(lga)
-        }
-        const projects = projectsInLga(lga) // projectsLeadByLga
-        setSelectedProjects(projects)
-        // triggerMapRedraw()
+      let lga = null
+      if (councilName.key === 'Statewide') {
+        showEntireState()
+      } else {
+        lga = _councilToLgaMapping[councilName.key]
+        showSingleLga(lga)
       }
+      const projects = projectsInLga(lga) // projectsLeadByLga
+      setSelectedProjects(projects)
+      // triggerMapRedraw()
     }
   }
 }
