@@ -34,8 +34,13 @@
             :projects="projects"
             :selectedProjects="selectedProjects"
             :parentSelectedProject="selectedProject"
+            :selectedLga="selectedLga"
             v-on:set-selected-project="setSelectedProject"
             v-on:back-clicked="clickBack"
+            v-on:home-clicked="clickHome"
+            v-on:set-filter-by-area="setMapModeArea"
+            v-on:set-filter-by-category="setMapModeCategory"
+            v-on:set-area="testFunction"
           />
         </div>
       </div>
@@ -98,21 +103,83 @@ const _allCategories = [
 const _projects = []
 const _selectedProjects = []
 const _selectedProject = [] // Even though this is a single item, I had to use an array to get the ref for vue to be able to communicate to the global methods.
+const _selectedLga = []
 const _allAreas = []
 const _features = []
-const _allLgas = []
 const _mapLayers = []
 const _lgaStyleCache = {}
 const _lgaFeaturesCache = {}
+const _councilToLgaMapping = {}
+let _mapDisplayMode = 'category'
 
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
 const triggerMapRedraw = () => {
   _features.length > 0 && _features[0].changed()
 }
+const setMapMode = mode => {
+  switch (mode) {
+    case 'category':
+      _mapDisplayMode = mode
+      break
+    case 'area':
+      _mapDisplayMode = mode
+      break
+  }
+}
+
+const showEntireState = () => {
+  const source = new ol.source.Vector({
+    format: new ol.format.GeoJSON(),
+    url: extent =>
+      `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:state&outputFormat=application/json`,
+    strategy: ol.loadingstrategy.all
+  })
+  _mapLayers[0].setSource(source)
+
+  _mapLayers[0].getSource().on('addfeature', function () {
+    // this is called when a feature is loaded onto the layer
+    _mapLayers[0].getSource().forEachFeature(function (feature) {
+      console.log(feature)
+      feature.drawState = 'active'
+      _mapLayers[0].changed()
+    })
+  })
+  _mapLayers[0].changed()
+}
+
+const showSingleLga = lga => {
+  const queryString = `'${lga}'`
+  const source = new ol.source.Vector({
+    format: new ol.format.GeoJSON(),
+    url: extent =>
+      `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN(${queryString})&outputFormat=application/json`,
+    strategy: ol.loadingstrategy.all
+  })
+  _mapLayers[0].setSource(source)
+
+  _mapLayers[0].getSource().on('addfeature', function () {
+    // this is called when a feature is loaded onto the layer
+    _mapLayers[0].getSource().forEachFeature(function (feature) {
+      console.log(feature)
+      feature.drawState = 'active'
+      _mapLayers[0].changed()
+    })
+  })
+  _mapLayers[0].changed()
+}
+
 const setSelectedProject = proj => {
   emptyArray(_selectedProject)
   emptyArray(_selectedProjects)
+  let source = new ol.source.Vector({
+    format: new ol.format.GeoJSON()
+  })
   if (proj) {
+    if (proj.associatedLgas.length === 1 && proj.associatedLgas[0].key === 'ALL') {
+      showEntireState()
+      _selectedProject.push(proj)
+      return
+    }
     const projectLgas = []
     const unloadedProjectLgas = []
     const loadedProjectLgas = []
@@ -129,7 +196,6 @@ const setSelectedProject = proj => {
     // TODO: Remove me
     console.log(`loading from cache: ${loadedProjectLgas}`)
     console.log(`loading from server: ${unloadedProjectLgas}`)
-
     let queryString = ''
     for (let lga of unloadedProjectLgas) {
       if (queryString.length > 0) {
@@ -138,9 +204,6 @@ const setSelectedProject = proj => {
         queryString = `'${lga}'`
       }
     }
-    let source = new ol.source.Vector({
-      format: new ol.format.GeoJSON()
-    })
     if (queryString.length > 0) {
       source = new ol.source.Vector({
         format: new ol.format.GeoJSON(),
@@ -150,8 +213,9 @@ const setSelectedProject = proj => {
       })
     }
     _mapLayers[0].setSource(source)
+
     _mapLayers[0].getSource().on('addfeature', function () {
-      console.log('addfeature fired')
+      // this is called when a feature is loaded onto the layer
       _mapLayers[0].getSource().forEachFeature(function (feature) {
         const lgaCode = feature.get('lga_code')
         if (!_lgaFeaturesCache[lgaCode]) {
@@ -165,24 +229,56 @@ const setSelectedProject = proj => {
         _mapLayers[0].changed()
       })
     })
+
     for (let lga of loadedProjectLgas) {
       _mapLayers[0].getSource().addFeature(_lgaFeaturesCache[lga])
     }
     _selectedProject.push(proj)
+  } else {
+    _mapLayers[0].setSource(source)
+    _mapLayers[0].changed()
   }
 }
+
 const setSelectedProjects = projects => {
   emptyArray(_selectedProject)
   emptyArray(_selectedProjects)
   _mapLayers[0].getSource().clear()
+  console.log(projects)
   for (let proj of projects) {
     _selectedProjects.push(proj)
   }
   _mapLayers[0].changed()
+  triggerMapRedraw()
 }
 const hexToRgba = (hex, alpha = 1) => {
   const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16))
   return `rgba(${r},${g},${b},${alpha})`
+}
+// Not used currently
+// const projectsLeadByLga = lga => {
+//   const projects = []
+//   for (let project of _projects) {
+//     if (project.associatedLgas[0]) {
+//       if (project.associatedLgas[0].key === lga) {
+//         projects.push(project)
+//       }
+//     }
+//   }
+//   return projects
+// }
+const projectsInLga = lga => {
+  const projects = []
+  for (let project of _projects) {
+    if (project.associatedLgas.length > 0) {
+      for (let projectLga of project.associatedLgas) {
+        if (projectLga.key === lga || projectLga.key === 'ALL') {
+          projects.push(project)
+        }
+      }
+    }
+  }
+  return projects
 }
 
 const customMethods = {
@@ -219,7 +315,6 @@ const customMethods = {
         }
       })
 
-      // TODO: refactor to common method (see lgas)
       if (councils) {
         const areas = councils.split('|')
         areas.forEach(a => {
@@ -238,25 +333,25 @@ const customMethods = {
         })
       }
 
-      // TODO: refactor to common method (see councils)
       if (lgas) {
         const associatedLgas = lgas.split('|')
-        associatedLgas.forEach(a => {
+        associatedLgas.forEach(l => {
           // Don't want to add empty values
-          if (!a || !a.trim()) {
+          if (!l || !l.trim()) {
             return
           }
-          const lgaVal = a.trim()
-          const newLgaObject = { key: lgaVal, title: lgaVal, isLoaded: false, geometry: null }
+          const lgaVal = l.trim()
+          const newLgaObject = { key: lgaVal, title: lgaVal }
           project.associatedLgas.push(newLgaObject)
-
-          // Don't want to add duplicated
-          if (!_allLgas.find(ma => ma.key === newLgaObject.key)) {
-            _allLgas.push(newLgaObject)
-          }
         })
+      } else if (project.areas.length === 1 && project.areas[0].key === 'Statewide') {
+        const newLgaObject = { key: 'ALL', title: 'ALL' }
+        project.associatedLgas.push(newLgaObject)
       }
-      // console.log(project.associatedLgas)
+      // map the council names to the lga codes for lookups
+      for (var i = 0; i < project.areas.length; i++) {
+        _councilToLgaMapping[project.areas[i].key] = project.associatedLgas[i].key
+      }
     })
   },
   lgaFeatureStyleFunction: (feature, resolution) => {
@@ -316,6 +411,8 @@ const customMethods = {
     let textColor = isCluster ? themeColor : clusterColor
     const featureIds = features.map(f => f.getId()).sort()
     let match = true
+    // console.log(_selectedProjects.length)
+    // console.log(_selectedProject.length)
     if (_selectedProject.length > 0) {
       // Try match selectedProject to feature
       const selectedId = _selectedProject[0].id
@@ -324,9 +421,12 @@ const customMethods = {
       if (_selectedProjects.length > 0) {
         // Try match selectedProjects to feature - the feature can change when zooming so this stops working when feature is changed during a zoom event.
         const projectIds = _selectedProjects.map(p => p.id).sort()
+        // console.log(features)
+        // console.log(projectIds)
         match = projectIds.length === featureIds.length
         if (match) {
           match = true
+          console.log('match')
           for (let i = 0; i < projectIds.length; i++) {
             if (match && projectIds[i] !== featureIds[i]) {
               match = false
@@ -379,7 +479,6 @@ const customMethods = {
           ${svgText}
         </svg>
       `)
-
     return [createImageIconStyle(svgDefinition, 'anonymous', [size, size])]
   },
   // called when the app is mounted
@@ -435,7 +534,6 @@ const customMethods = {
   },
 
   featureMapper: feature => {
-    // This is the method thats called when clicking on a feature on the map
     switch (feature.layerName) {
       case 'clusterLayer':
         switch (feature.event) {
@@ -468,7 +566,18 @@ const customMethods = {
         switch (feature.event) {
           case 'click':
             // TODO list all projects for the lga that was clicked on
-            console.log(_allAreas)
+            emptyArray(_selectedProject)
+            showSingleLga(lgaCode)
+            _selectedLga[0] = lgaCode
+
+            // console.log(lgaCode)
+            const projects = projectsInLga(lgaCode) // projectsInLga
+            setSelectedProjects(projects)
+            // if (projects.length === 1) {
+            //   setSelectedProject(projects[0])
+            // } else {
+            //   setSelectedProjects(projects)
+            // }
             break
           case 'move':
             _mapLayers[0].getSource().forEachFeature(function (f) {
@@ -482,6 +591,15 @@ const customMethods = {
             break
         }
         break
+      case 'none':
+        switch (feature.event) {
+          case 'move':
+            _mapLayers[0].getSource().forEachFeature(function (f) {
+              f.drawState = 'active'
+            })
+            _mapLayers[0].changed()
+            break
+        }
     }
     triggerMapRedraw()
   }
@@ -507,8 +625,8 @@ export default {
       customMethods,
       allCategories: _allCategories,
       allAreas: _allAreas,
-      allLgas: _allLgas,
       projects: _projects,
+      selectedLga: _selectedLga,
       selectedProjects: _selectedProjects,
       selectedProject: _selectedProject,
       isFullScreen: false,
@@ -552,7 +670,12 @@ export default {
       this.isFullScreen = !this.isFullScreen
       this.refreshMapSize()
     },
-    clickBack () {
+    zoomMapToLayer (layer) {
+      console.log(layer)
+      console.log(this.map)
+    },
+    clickBack (projectsAndCategory) {
+      console.log(projectsAndCategory)
       if (_selectedProject.length > 0) {
         // Clear selectedProject first
         emptyArray(_selectedProject)
@@ -560,11 +683,44 @@ export default {
         // Otherwise clear selectedProjects
         emptyArray(_selectedProjects)
       }
+      _mapLayers[0].getSource().clear()
+      _mapLayers[0].changed()
+      console.log(_selectedProjects)
+      console.log(_selectedProject)
+      // setSelectedProjects(projects)
+      if (projectsAndCategory[1]) {
+        const lga = _councilToLgaMapping[projectsAndCategory[1].key]
+        showSingleLga(lga)
+      }
       triggerMapRedraw()
+    },
+    clickHome () {
+      _mapLayers[0].getSource().clear()
+      _mapLayers[0].changed()
     },
     setSelectedProject (proj) {
       setSelectedProject(proj)
       triggerMapRedraw()
+    },
+    setMapModeArea () {
+      setMapMode('area')
+    },
+    setMapModeCategory () {
+      setMapMode('category')
+    },
+    testFunction (councilName) {
+      if (_mapDisplayMode === 'area') {
+        let lga = null
+        if (councilName.key === 'Statewide') {
+          showEntireState()
+        } else {
+          lga = _councilToLgaMapping[councilName.key]
+          showSingleLga(lga)
+        }
+        const projects = projectsInLga(lga) // projectsLeadByLga
+        setSelectedProjects(projects)
+        // triggerMapRedraw()
+      }
     }
   }
 }
@@ -600,11 +756,14 @@ export default {
   width: 100%;
   display: flex;
   .yourvic-map__sidebar-container {
+    overflow: hidden;
     width: 450px;
     min-width: 450px;
     margin-right: 0 !important;
     float: left !important;
+    z-index: 1;
     order: 1;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
   }
   .yourvic-map__map-container {
     width: 100%;

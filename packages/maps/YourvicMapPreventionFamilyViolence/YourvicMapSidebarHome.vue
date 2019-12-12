@@ -61,7 +61,8 @@ export default {
     areas: Array,
     projects: Array,
     selectedProjects: Array,
-    parentSelectedProject: Array
+    parentSelectedProject: Array,
+    selectedLga: Array
   },
   data: function () {
     return {
@@ -128,13 +129,13 @@ export default {
         return selectedProject.title
       }
 
+      if (selectedCategory !== null) {
+        return selectedCategory.title
+      }
+
       const count = selectedProjects.length
       if (count > 1) {
         return `${count} Project${count === 1 ? '' : 's'} at this site`
-      }
-
-      if (selectedCategory !== null) {
-        return selectedCategory.title
       }
 
       if (showHome) {
@@ -161,13 +162,14 @@ export default {
           projectsToShow = projects.filter(p =>
             p.areas.some(c => c.key === selectedCategory.key)
           )
+          console.log(selectedCategory)
+          console.log(projectsToShow)
         } else {
           projectsToShow = projects.filter(p =>
             p.categories.some(c => c.key === selectedCategory.key)
           )
         }
       }
-
       return sortByTitle(projectsToShow)
     },
     headerDescription () {
@@ -175,11 +177,10 @@ export default {
         state: { showCategories },
         showHome,
         selectedProject,
-        selectedProjects,
         projectsToShow
       } = this
 
-      if (showHome || selectedProject !== null || selectedProjects.length > 0) {
+      if (showHome || selectedProject !== null) {
         return null
       }
 
@@ -191,10 +192,11 @@ export default {
   },
   methods: {
     clickHome () {
+      this.$emit('home-clicked')
       this.state.selectedCategory = null
     },
     clickBack () {
-      this.$emit('back-clicked')
+      this.$emit('back-clicked', [this.projectsToShow, this.state.selectedCategory])
     },
     clickViewAll () {
       // Dummying category to show all projects
@@ -211,6 +213,10 @@ export default {
     setCategory (cat) {
       this.scrollToTop()
       this.state.selectedCategory = cat
+      if (!this.state.showCategories) {
+        // we are showing projects by area
+        this.$emit('set-area', cat)
+      }
     },
     setProject (proj) {
       this.scrollToTop()
@@ -222,6 +228,7 @@ export default {
         return
       }
       this.state.showCategories = !this.state.showCategories
+      this.$emit('set-filter-by-category')
     },
     clickShowArea () {
       this.scrollToTop()
@@ -229,6 +236,7 @@ export default {
         return
       }
       this.state.showCategories = !this.state.showCategories
+      this.$emit('set-filter-by-area')
     },
     scrollToTop () {
       this.$refs.scrollElement.scrollTo(0, 0)
