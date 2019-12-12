@@ -34,13 +34,13 @@
             :projects="projects"
             :selectedProjects="selectedProjects"
             :parentSelectedProject="selectedProject"
-            :selectedLga="selectedLga"
+            :parentSelectedCategory="selectedCategory"
             v-on:set-selected-project="setSelectedProject"
             v-on:back-clicked="clickBack"
             v-on:home-clicked="clickHome"
             v-on:set-filter-by-area="setMapModeArea"
             v-on:set-filter-by-category="setMapModeCategory"
-            v-on:set-area="testFunction"
+            v-on:set-area="setSelectedArea"
           />
         </div>
       </div>
@@ -103,7 +103,7 @@ const _allCategories = [
 const _projects = []
 const _selectedProjects = []
 const _selectedProject = [] // Even though this is a single item, I had to use an array to get the ref for vue to be able to communicate to the global methods.
-const _selectedLga = []
+const _selectedCategory = []
 const _allAreas = []
 const _features = []
 const _mapLayers = []
@@ -568,7 +568,6 @@ const customMethods = {
             // TODO list all projects for the lga that was clicked on
             emptyArray(_selectedProject)
             showSingleLga(lgaCode)
-            _selectedLga[0] = lgaCode
 
             // console.log(lgaCode)
             const projects = projectsInLga(lgaCode) // projectsInLga
@@ -626,7 +625,7 @@ export default {
       allCategories: _allCategories,
       allAreas: _allAreas,
       projects: _projects,
-      selectedLga: _selectedLga,
+      selectedCategory: _selectedCategory,
       selectedProjects: _selectedProjects,
       selectedProject: _selectedProject,
       isFullScreen: false,
@@ -675,7 +674,6 @@ export default {
       console.log(this.map)
     },
     clickBack (projectsAndCategory) {
-      console.log(projectsAndCategory)
       if (_selectedProject.length > 0) {
         // Clear selectedProject first
         emptyArray(_selectedProject)
@@ -708,7 +706,7 @@ export default {
     setMapModeCategory () {
       setMapMode('category')
     },
-    testFunction (councilName) {
+    setSelectedArea (councilName) {
       if (_mapDisplayMode === 'area') {
         let lga = null
         if (councilName.key === 'Statewide') {
