@@ -157,6 +157,11 @@ const methods = {
       if (this.customMethods && this.customMethods.featureMapper) {
         this.customMethods.featureMapper(firstFeature, features)
       }
+    } else {
+      // the move event didn't select a feature
+      if (this.customMethods && this.customMethods.featureMapper) {
+        this.customMethods.featureMapper({ 'layerName': 'none', 'event': 'move' }, false)
+      }
     }
   },
   onMapClick (evt) {
