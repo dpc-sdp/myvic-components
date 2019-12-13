@@ -421,14 +421,7 @@ const customMethods = {
     const size = 30
     const fontSizeInPx = '3.7'
     const clusterSize = features.length
-    const isCluster = clusterSize > 1
-    const clusterSizeText =
-      clusterSize > 99
-        ? `99<tspan style="font-size:${fontSizeInPx * 0.75}px">+</tspan>`
-        : clusterSize.toString()
-    let circleFill = isCluster ? clusterColor : themeColor
-    let circleOutline = themeColor
-    let textColor = isCluster ? themeColor : clusterColor
+
     const featureIds = features.map(f => f.getId()).sort()
     let match = true
     if (_selectedProject.length > 0) {
@@ -454,7 +447,29 @@ const customMethods = {
       }
     }
 
+    // only cluster when there is more than one point in the area, and the other points are visible
+    const isCluster = clusterSize > 1 && _selectedProject.length !== 1
+    const clusterSizeText =
+      clusterSize > 99
+        ? `99<tspan style="font-size:${fontSizeInPx * 0.75}px">+</tspan>`
+        : clusterSize.toString()
+    let circleFill = isCluster ? clusterColor : themeColor
+    let circleOutline = themeColor
+    let textColor = isCluster ? themeColor : clusterColor
+
     if (!match) {
+      if (_selectedProject.length === 1) {
+        const svgDefinition =
+          'data:image/svg+xml;charset=utf-8,' +
+          encodeURIComponent(`
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="${size}"
+              height="${size}"
+              viewBox="0 0 8 8">
+            </svg>
+          `)
+        return [createImageIconStyle(svgDefinition, 'anonymous', [size, size])]
+      }
       circleFill = disabledColor
       circleOutline = disabledColor
       textColor = clusterColor
