@@ -62,6 +62,7 @@ import { emptyArray, toggleFullScreen, isFullscreen } from './helper'
 const { createImageIconStyle } = ol
 
 const baseMapUrl = 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+const geoserverDomainName = 'gis-app-cdn.dev.myvictoria.vic.gov.au'
 const themeColor = '#0052c2'
 const disabledColor = '#666666'
 const clusterColor = '#FFFFFF'
@@ -142,7 +143,7 @@ const showEntireState = () => {
     _stateWideLayer = new ol.source.Vector({
       format: new ol.format.GeoJSON(),
       url: extent =>
-        `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:state&outputFormat=application/json`,
+        `https://${geoserverDomainName}/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:state&outputFormat=application/json`,
       strategy: ol.loadingstrategy.all
     })
   }
@@ -166,7 +167,7 @@ const showSingleLga = lga => {
   const source = new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: extent =>
-      `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN(${queryString})&outputFormat=application/json`,
+      `https://${geoserverDomainName}/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN(${queryString})&outputFormat=application/json`,
     strategy: ol.loadingstrategy.all
   })
   _mapLayers[0].setSource(source)
@@ -218,7 +219,7 @@ const setSelectedProject = proj => {
       source = new ol.source.Vector({
         format: new ol.format.GeoJSON(),
         url: extent =>
-          `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN(${queryString})&outputFormat=application/json`,
+          `https://${geoserverDomainName}/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:lga&cql_filter=lga_code IN(${queryString})&outputFormat=application/json`,
         strategy: ol.loadingstrategy.all
       })
     }
@@ -547,7 +548,7 @@ const customMethods = {
     const themeSource = new ol.source.Vector({
       format: new ol.format.GeoJSON(),
       url: extent =>
-        `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=myvic:family_violence&outputFormat=application/json&srsname=EPSG:3857&bbox=${extent.join()},EPSG:3857`,
+        `https://${geoserverDomainName}/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=myvic:family_violence&outputFormat=application/json&srsname=EPSG:3857&bbox=${extent.join()},EPSG:3857`,
       strategy: ol.loadingstrategy.bbox
     })
 
