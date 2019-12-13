@@ -701,21 +701,25 @@ export default {
         this.buttonIcon = 'fullscreen'
       }
     },
+
     toggleExpand () {
       this.expanded = !this.expanded
       this.refreshMapSize()
     },
+
     refreshMapSize () {
       // Not sure why, but the yourvic map api has a watch on the refreshOn prop. This watch method triggers a map resize when the refreshOn prop is set to true.
       // Toggling it off an on with a timeout seems to consistently trigger the method and resize the map - Yay.
       this.refreshOn = false
       setTimeout(() => (this.refreshOn = true), 100)
     },
+
     toggleMapFullScreen () {
       toggleFullScreen(this.$refs.yourvicMapContainer)
       this.isFullScreen = !this.isFullScreen
       this.refreshMapSize()
     },
+
     clickBack (projectsAndCategory) {
       if (_selectedProject.length > 0) {
         // Clear selectedProject first
@@ -734,6 +738,7 @@ export default {
       }
       triggerMapRedraw()
     },
+
     clickHome () {
       resetLgaSource()
       zoomMapToExtent(_globalMap[1], 0)
@@ -752,15 +757,15 @@ export default {
         lga = _councilToLgaMapping[councilName.key]
         showSingleLga(lga)
       }
-      const projects = projectsInLga(lga) // projectsLeadByLga
+      const projects = projectsInLga(lga)
       setSelectedProjects(projects)
-      // triggerMapRedraw()
+      triggerMapRedraw()
     },
 
     setSelectedCategory (category) {
-      const projects = projectsInCategory(category) // projectsLeadByLga
+      const projects = projectsInCategory(category)
       setSelectedProjects(projects)
-      // triggerMapRedraw()
+      triggerMapRedraw()
     }
   }
 }
@@ -795,8 +800,8 @@ export default {
 .yourvic-map__container {
   width: 100%;
   display: flex;
+  overflow: hidden;
   .yourvic-map__sidebar-container {
-    overflow: hidden;
     width: 450px;
     min-width: 450px;
     margin-right: 0 !important;
