@@ -300,6 +300,24 @@ const projectsInLga = lga => {
   return projects
 }
 
+const extractLgas = feature => {
+  const lgasText = feature.get('lga_code')
+  const extractedLgas = []
+  if (lgasText) {
+    const associatedLgas = lgasText.split('|')
+    associatedLgas.forEach(l => {
+      // Don't want to add empty values
+      if (!l || !l.trim()) {
+        return
+      }
+      const lgaVal = l.trim()
+      const newLgaObject = { key: lgaVal, title: lgaVal }
+      extractedLgas.push(newLgaObject)
+    })
+  }
+  return extractedLgas
+}
+
 const customMethods = {
   exposeMap: map => {
     _globalMap.push(map)
@@ -319,7 +337,6 @@ const customMethods = {
       const details = f.get('overview_initiative')
       const councils = f.get('council_name')
       const href = f.get('agency_public_content_web')
-      const lgas = f.get('lga_code')
       const project = {
         id,
         title: title ? title.trim() : '',
@@ -357,17 +374,11 @@ const customMethods = {
         })
       }
 
-      if (lgas) {
-        const associatedLgas = lgas.split('|')
-        associatedLgas.forEach(l => {
-          // Don't want to add empty values
-          if (!l || !l.trim()) {
-            return
-          }
-          const lgaVal = l.trim()
-          const newLgaObject = { key: lgaVal, title: lgaVal }
-          project.associatedLgas.push(newLgaObject)
-        })
+      const associatedLgas = extractLgas(f)
+      if (associatedLgas.length > 0) {
+        for (let lga of associatedLgas) {
+          project.associatedLgas.push(lga)
+        }
       } else if (project.areas.length === 1 && project.areas[0].key === 'Statewide') {
         const newLgaObject = { key: 'ALL', title: 'ALL' }
         project.associatedLgas.push(newLgaObject)
