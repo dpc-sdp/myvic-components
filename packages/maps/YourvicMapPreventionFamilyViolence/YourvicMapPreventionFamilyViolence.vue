@@ -113,6 +113,7 @@ const _councilToLgaMapping = {}
 const _lgaToCouncilMapping = {}
 const _globalMap = []
 let _stateWideLayer = null
+let _selectedLga = null
 
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
 const triggerMapRedraw = () => {
@@ -163,6 +164,7 @@ const showEntireState = () => {
 }
 
 const showSingleLga = lga => {
+  _selectedLga = lga
   const queryString = `'${lga}'`
   const source = new ol.source.Vector({
     format: new ol.format.GeoJSON(),
@@ -183,6 +185,7 @@ const showSingleLga = lga => {
 }
 
 const setSelectedProject = proj => {
+  _selectedLga = null
   emptyArray(_selectedProject)
   emptyArray(_selectedProjects)
   let source = new ol.source.Vector({
@@ -272,6 +275,7 @@ const setSelectedProjects = projects => {
   _mapLayers[0].changed()
   triggerMapRedraw()
 }
+
 const hexToRgba = (hex, alpha = 1) => {
   const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16))
   return `rgba(${r},${g},${b},${alpha})`
@@ -287,6 +291,18 @@ const projectsInCategory = category => {
   return _projects
     .filter(x => x.categories.length > 0)
     .filter(proj => !!proj.categories.find(cat => cat.key === category.key))
+}
+
+const projectsLeadByLga = lga => {
+  const projects = []
+  for (let project of _projects) {
+    if (project.associatedLgas[0]) {
+      if (project.associatedLgas[0].key === lga) {
+        projects.push(project)
+      }
+    }
+  }
+  return projects
 }
 
 const extractLgas = feature => {
@@ -440,10 +456,19 @@ const customMethods = {
       if (_selectedProjects.length > 0) {
         // extract the lga codes for the entry points of the projects
         const projectLgas = []
-        for (let project of _selectedProjects) {
-          const leadingLgaCode = project.associatedLgas[0].key
-          if (leadingLgaCode !== 'ALL') {
-            projectLgas.push(leadingLgaCode)
+        if (_selectedLga !== null) {
+          for (let project of projectsLeadByLga(_selectedLga)) {
+            const leadingLgaCode = project.associatedLgas[0].key
+            if (leadingLgaCode !== 'ALL') {
+              projectLgas.push(leadingLgaCode)
+            }
+          }
+        } else {
+          for (let project of _selectedProjects) {
+            const leadingLgaCode = project.associatedLgas[0].key
+            if (leadingLgaCode !== 'ALL') {
+              projectLgas.push(leadingLgaCode)
+            }
           }
         }
         // Try match selectedProjects to feature - the feature can change when zooming so this stops working when feature is changed during a zoom event.
@@ -606,6 +631,7 @@ const customMethods = {
                 _selectedCategory.push({ isArea: true, title: '', key: 'cluster' })
               }
             }
+            _selectedLga = null
             break
         }
         break
@@ -622,8 +648,9 @@ const customMethods = {
               key: council,
               isArea: true
             })
-            const projects = projectsInLga(lgaCode) // projectsInLga
-            setSelectedProjects(projects)
+            const projectsIn = projectsInLga(lgaCode)
+            setSelectedProjects(projectsIn)
+            _selectedLga = lgaCode
             break
           case 'move':
             _mapLayers[0].getSource().forEachFeature(function (f) {
@@ -757,14 +784,16 @@ export default {
         lga = _councilToLgaMapping[councilName.key]
         showSingleLga(lga)
       }
-      const projects = projectsInLga(lga)
-      setSelectedProjects(projects)
+      const projectsIn = projectsInLga(lga)
+      setSelectedProjects(projectsIn)
+      _selectedLga = lga
       triggerMapRedraw()
     },
 
     setSelectedCategory (category) {
       const projects = projectsInCategory(category)
       setSelectedProjects(projects)
+      _selectedLga = null
       triggerMapRedraw()
     }
   }
