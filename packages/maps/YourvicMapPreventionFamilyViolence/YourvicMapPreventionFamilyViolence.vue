@@ -296,7 +296,10 @@ const projectsInLga = lga => {
 }
 
 const extractLgas = feature => {
-  const lgasText = feature.get('lga_code')
+  let lgasText = feature.get('lga_code')
+  if (lgasText === '' && feature.get('lga_name') === 'Statewide') {
+    lgasText = 'ALL'
+  }
   const extractedLgas = []
   if (lgasText) {
     const associatedLgas = lgasText.split('|')
@@ -441,18 +444,23 @@ const customMethods = {
       match = featureIds.some(id => id === selectedId)
     } else {
       if (_selectedProjects.length > 0) {
+        // extract the lga codes for the entry points of the projects
+        const projectLgas = []
+        for (let project of _selectedProjects) {
+          const leadingLgaCode = project.associatedLgas[0].key
+          if (leadingLgaCode !== 'ALL') {
+            projectLgas.push(leadingLgaCode)
+          }
+        }
         // Try match selectedProjects to feature - the feature can change when zooming so this stops working when feature is changed during a zoom event.
-        const projectIds = _selectedProjects.map(p => p.id).sort()
-        // console.log(features)
-        // console.log(projectIds)
-        match = projectIds.length === featureIds.length
-        if (match) {
-          match = true
-          // console.log('match')
-          for (let i = 0; i < projectIds.length; i++) {
-            if (match && projectIds[i] !== featureIds[i]) {
-              match = false
-            }
+        for (let feature of features) {
+          const featureLgas = extractLgas(feature)
+          // select the entry point lga for the feature
+          const featureLeadingLga = featureLgas[0].key
+          if (projectLgas.includes(featureLeadingLga)) {
+            match = true
+          } else {
+            match = false
           }
         }
       }
