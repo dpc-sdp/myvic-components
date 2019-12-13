@@ -235,6 +235,8 @@ export default {
       if (!this.state.showCategories || cat.isArea) {
         // we are showing projects by area
         this.$emit('set-area', cat)
+      } else {
+        this.$emit('set-category', cat)
       }
     },
     setProject (proj) {
