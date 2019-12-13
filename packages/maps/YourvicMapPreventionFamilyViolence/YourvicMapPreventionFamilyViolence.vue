@@ -39,6 +39,7 @@
             v-on:back-clicked="clickBack"
             v-on:home-clicked="clickHome"
             v-on:set-area="setSelectedArea"
+            v-on:set-category="setSelectedCategory"
           />
         </div>
       </div>
@@ -274,30 +275,17 @@ const hexToRgba = (hex, alpha = 1) => {
   const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16))
   return `rgba(${r},${g},${b},${alpha})`
 }
-// Not used currently
-// const projectsLeadByLga = lga => {
-//   const projects = []
-//   for (let project of _projects) {
-//     if (project.associatedLgas[0]) {
-//       if (project.associatedLgas[0].key === lga) {
-//         projects.push(project)
-//       }
-//     }
-//   }
-//   return projects
-// }
+
 const projectsInLga = lga => {
-  const projects = []
-  for (let project of _projects) {
-    if (project.associatedLgas.length > 0) {
-      for (let projectLga of project.associatedLgas) {
-        if (projectLga.key === lga || projectLga.key === 'ALL') {
-          projects.push(project)
-        }
-      }
-    }
-  }
-  return projects
+  return _projects
+    .filter(x => x.associatedLgas.length > 0)
+    .filter(x => x.associatedLgas.find(projectLga => projectLga.key === lga || projectLga.key === 'ALL'))
+}
+
+const projectsInCategory = category => {
+  return _projects
+    .filter(x => x.categories.length > 0)
+    .filter(proj => !!proj.categories.find(cat => cat.key === category.key))
 }
 
 const extractLgas = feature => {
@@ -753,6 +741,12 @@ export default {
         showSingleLga(lga)
       }
       const projects = projectsInLga(lga) // projectsLeadByLga
+      setSelectedProjects(projects)
+      // triggerMapRedraw()
+    },
+
+    setSelectedCategory (category) {
+      const projects = projectsInCategory(category) // projectsLeadByLga
       setSelectedProjects(projects)
       // triggerMapRedraw()
     }
