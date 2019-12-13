@@ -39,6 +39,7 @@
             v-on:back-clicked="clickBack"
             v-on:home-clicked="clickHome"
             v-on:set-area="setSelectedArea"
+            v-on:set-category="setSelectedCategory"
           />
         </div>
       </div>
@@ -110,6 +111,7 @@ const _lgaFeaturesCache = {}
 const _councilToLgaMapping = {}
 const _lgaToCouncilMapping = {}
 const _globalMap = []
+let _stateWideLayer = null
 
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
 const triggerMapRedraw = () => {
@@ -136,23 +138,27 @@ const zoomMapToExtent = (extent, padding = 20) => {
 }
 
 const showEntireState = () => {
-  const source = new ol.source.Vector({
-    format: new ol.format.GeoJSON(),
-    url: extent =>
-      `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:state&outputFormat=application/json`,
-    strategy: ol.loadingstrategy.all
-  })
-  _mapLayers[0].setSource(source)
-
-  _mapLayers[0].getSource().on('addfeature', function () {
-    // this is called when a feature is loaded onto the layer
-    _mapLayers[0].getSource().forEachFeature(function (feature) {
-      feature.drawState = 'active'
-      _mapLayers[0].changed()
+  if (!_stateWideLayer) {
+    _stateWideLayer = new ol.source.Vector({
+      format: new ol.format.GeoJSON(),
+      url: extent =>
+        `https://gis-app-cdn.dev.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:state&outputFormat=application/json`,
+      strategy: ol.loadingstrategy.all
     })
-    zoomMapToLayerExtent(_mapLayers[0], 20)
+  }
+
+  const layer = _mapLayers[0]
+  layer.setSource(_stateWideLayer)
+
+  layer.getSource().on('addfeature', function () {
+    // this is called when a feature is loaded onto the layer
+    layer.getSource().forEachFeature(function (feature) {
+      feature.drawState = 'active'
+      layer.changed()
+    })
+    zoomMapToLayerExtent(layer, 20)
   })
-  _mapLayers[0].changed()
+  layer.changed()
 }
 
 const showSingleLga = lga => {
@@ -269,30 +275,17 @@ const hexToRgba = (hex, alpha = 1) => {
   const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16))
   return `rgba(${r},${g},${b},${alpha})`
 }
-// Not used currently
-// const projectsLeadByLga = lga => {
-//   const projects = []
-//   for (let project of _projects) {
-//     if (project.associatedLgas[0]) {
-//       if (project.associatedLgas[0].key === lga) {
-//         projects.push(project)
-//       }
-//     }
-//   }
-//   return projects
-// }
+
 const projectsInLga = lga => {
-  const projects = []
-  for (let project of _projects) {
-    if (project.associatedLgas.length > 0) {
-      for (let projectLga of project.associatedLgas) {
-        if (projectLga.key === lga || projectLga.key === 'ALL') {
-          projects.push(project)
-        }
-      }
-    }
-  }
-  return projects
+  return _projects
+    .filter(x => x.associatedLgas.length > 0)
+    .filter(x => x.associatedLgas.find(projectLga => projectLga.key === lga || projectLga.key === 'ALL'))
+}
+
+const projectsInCategory = category => {
+  return _projects
+    .filter(x => x.categories.length > 0)
+    .filter(proj => !!proj.categories.find(cat => cat.key === category.key))
 }
 
 const extractLgas = feature => {
@@ -756,6 +749,12 @@ export default {
         showSingleLga(lga)
       }
       const projects = projectsInLga(lga) // projectsLeadByLga
+      setSelectedProjects(projects)
+      // triggerMapRedraw()
+    },
+
+    setSelectedCategory (category) {
+      const projects = projectsInCategory(category) // projectsLeadByLga
       setSelectedProjects(projects)
       // triggerMapRedraw()
     }
