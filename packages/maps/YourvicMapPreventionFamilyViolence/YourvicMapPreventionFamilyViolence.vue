@@ -593,6 +593,9 @@ const customMethods = {
               if (selectedProjects.length > 0) {
                 setSelectedProjects(selectedProjects)
               }
+              if (count > 1) {
+                _selectedCategory.push({ isArea: true, title: '', key: 'cluster' })
+              }
             }
             break
         }
