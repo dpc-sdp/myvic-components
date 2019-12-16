@@ -592,10 +592,75 @@ exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
 
 exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
 <div
-  class="free-wifi-map demo-content"
+  class="yourvic-map"
 >
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <p
+    class="rpl-visually-hidden"
+  >
+    
+    The following is an interactive map component, showing free WiFi access points across Victoria - in Melbourne CBD, Ballarat, and Bendigo. The CBD has access points along major roads and in train stations, Bendigo in its town centre and Ballarat in the town centre and surrounding Lake Wendouree.
+  
+  </p>
+   
+  <div
+    class="yourvic-map-tablist"
+    role="tablist"
+  >
+    <div
+      class="yourvic-map-tablist__inner"
+    >
+      <div
+        class="yourvic-map-tablist__title"
+      >
+        <strong>
+          #VicFreeWiFi
+        </strong>
+         Coverage Map
+      </div>
+       
+      <div
+        class="yourvic-map-tablist__list"
+      >
+        <button
+          aria-selected="true"
+          class="yourvic-map-tablist__item yourvic-map-tablist__item--active"
+          role="tab"
+        >
+          
+        Melbourne
+      
+        </button>
+        <button
+          aria-selected="false"
+          class="yourvic-map-tablist__item"
+          role="tab"
+        >
+          
+        Ballarat
+      
+        </button>
+        <button
+          aria-selected="false"
+          class="yourvic-map-tablist__item"
+          role="tab"
+        >
+          
+        Bendigo
+      
+        </button>
+      </div>
+    </div>
+  </div>
+   
   <div
     class="yourvic-map-core"
+    role="tabpanel"
   >
      
     <div
