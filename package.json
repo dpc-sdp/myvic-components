@@ -1,0 +1,68 @@
+{
+  "name": "yourvictoria-vic-gov-au",
+  "version": "1.0.0",
+  "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au.git",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/**/*",
+      "src"
+    ],
+    "nohoist": [
+      "src"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.5.0",
+    "@ljharb/eslint-config": "^13.1.1",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "axe-core": "^3.2.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "babel-preset-vue": "^2.0.2",
+    "core-js": "^2.6.5",
+    "eslint": "^5.11.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-junit": "^1.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "husky": "^3.0.0",
+    "jest": "^24.9.0",
+    "jest-canvas-mock": "^2.2.0",
+    "jest-css-modules": "^2.1.0",
+    "jest-junit": "^10.0.0",
+    "lerna": "^3.0.0",
+    "markdown-loader-jest": "^0.1.1",
+    "mockdate": "^2.0.3",
+    "sass-lint": "^1.12.1",
+    "start-server-and-test": "^1.7.11",
+    "vue-jest": "^3.0.4",
+    "vuex-mock-store": "^0.0.7"
+  },
+  "scripts": {
+    "lerna:publish": "lerna publish",
+    "start:storybook": "cd src && yarn start",
+    "build:storybook": "cd src && yarn build-storybook",
+    "lint": "sass-lint && yarn lint:es",
+    "lint:es": "eslint --ext .js,.vue . --max-warnings 0",
+    "lint:fix": "eslint --ext .js,.vue . --fix",
+    "test:unit": "jest --colors"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run lint"
+    }
+  },
+  "dependencies": {}
+}

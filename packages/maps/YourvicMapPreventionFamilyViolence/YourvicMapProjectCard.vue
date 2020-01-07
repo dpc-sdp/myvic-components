@@ -1,0 +1,57 @@
+<template>
+  <div class="yourvic-map-project-card" v-on:click="cardClicked">
+    <YourvicMapCard :item="project">
+      <ul>
+        <li v-for="(category, index) in project.categories" :key="index">
+          <span>{{category.title}}</span>
+        </li>
+      </ul>
+    </YourvicMapCard>
+  </div>
+</template>
+
+<script>
+import YourvicMapCard from './YourvicMapCard'
+
+export default {
+  name: 'YourvicMapProjectCard',
+  components: {
+    YourvicMapCard
+  },
+  props: {
+    project: Object
+  },
+  methods: {
+    cardClicked () {
+      this.$emit('click', this.project)
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import '~@dpc-sdp/ripple-global/scss/settings';
+@import '~@dpc-sdp/ripple-global/scss/tools';
+
+.yourvic-map-project-card {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+    span {
+      @include rpl_typography_ruleset(('xs', 1.4em, 'regular'));
+      display: block;
+      text-align: center;
+      margin-right: $rpl-space;
+      margin-top: $rpl-space;
+      padding-left: $rpl-space;
+      padding-right: $rpl-space;
+      background-color: rpl-color('mid_neutral_2');
+    }
+  }
+}
+</style>
