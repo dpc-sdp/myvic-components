@@ -1,69 +1,70 @@
-# yourvictoria-vic-gov-au
 
-> Nuxt.js client for yourvictoria-vic-gov-au
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [Local environment setup](#local-environment-setup)
-- [Development Guide](#development-guide)
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Contributing](#contributing)
+  * [Getting Started](#getting-started)
+  * [Requirements](#requirements)
+  * [Installation](#install)
+  * [Storybook](#running-storybook)
+* [Usage](#usage)  
+* [Support](#support)
+* [License](#license)
+* [Attribution](#attribution)
 
-## Prerequisites
 
-Please have the *latest* stable versions of the following on your machine
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-- node
-- npm
+About yourvictoria-vic-gov-au.
 
-## Local environment setup
 
-### Run server
+### Built With
 
-``` bash
-# install dependencies
-npm install
+* [Vue](https://vuejs.org/)
+* [Nuxt](https://nuxtjs.org)
+* [Storybook](https://storybook.js.org/)
 
-# Start the local dev server
-npm run dev
-```
 
-Local URL -- [http://localhost:3000](http://localhost:3000)
+## Usage
 
-### Lint code
+TODO
 
-``` bash
-# Boolean check if code conforms to linting rules - uses sass-lint, eslint & markdownlint
-npm run lint
-```
+## Contributing
 
-### Test
+TODO
 
-``` bash
-# We uses Jest for unit test and end to end test
-npm test
-```
+### Requirements
 
-## Development Guide
+- Install [nodejs](https://nodejs.org/en/) (^v10.0.0)
+- Install [yarn](https://yarnpkg.com/en/docs/install) (currently npm is unsupported)
 
-Basically, custom dev work only happens in two files:
+### Install
 
-- [assets/_theme.scss](assets/_theme.scss)
-- [assets/_custom.scss](assets/_custom.scss)
+Run `yarn install`
 
-For more Ripple document, please check [https://github.com/dpc-sdp/ripple/](https://github.com/dpc-sdp/ripple/blob/production/README.md).
+### Running Storybook
 
-### Custom variables
+Run `yarn run start:storybook`
 
-We are using Ripple pattern library [https://ripple.sdp.vic.gov.au/](https://ripple.sdp.vic.gov.au/) in this project.
 
-You can orveride [Ripple](https://github.com/dpc-sdp/ripple) scss variables in
-[assets/_theme.scss](assets/_theme.scss) such as colour.
+## Support
+[Digital Engagement, Department of Premier and Cabinet, Victoria, Australia](https://github.com/dpc-sdp) is a maintainer of this package.
 
-Currently all scss variables with `!default` in Ripple can be overridden.
-We will build a guide of variables in future. But for now, you can check [Ripple packages](https://github.com/dpc-sdp/ripple/blob/master/packages/components) scss files if you want to go deep.
+<!-- LICENSE -->
+## License
 
-### Custom scss
+Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 
-You can orveride styles in [assets/_custom.scss](assets/_custom.scss) by adding any site specific styles.
+## Attribution
+Single Digital Presence offers government agencies an open and flexible toolkit to build websites quickly and cost-effectively.
 
-### Custom static files
-
-For custom images, favicons, analytics JavaScript files, you can replace them in [static](static) directory.
+<!-- SDP LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/dpc-sdp/ripple">
+    <img src="docs/sdp-vicgov.jpg" alt="Logo" height="150">
+  </a>
+</p>
