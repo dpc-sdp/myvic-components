@@ -71,19 +71,23 @@ const _allCategories = [
   { key: 'children_young_people', title: 'Children and young people' },
   { key: 'higher_education', title: 'Higher education' },
   { key: 'aboriginal', title: 'Aboriginal' },
-  { key: 'lgbqti', title: 'LGBQTI' },
+  { key: 'lgbqti', title: 'LGBTIQ' },
   { key: 'seniors', title: 'Seniors' },
   { key: 'parents', title: 'Parents' },
   { key: 'disability_focus', title: 'Disability focus' },
   {
     key: 'culturally_linguistically_diverse',
-    title: 'Culturally linguistically diverse'
+    title: 'Culturally and linguistically diverse'
+  },
+  {
+    key: 'workforce',
+    title: 'Workforce'
   },
   {
     key: 'education_children_young_people',
-    title: 'Education, children and young people'
+    title: 'Education'
   },
-  { key: 'sports_recreation', title: 'Sports recreation' },
+  { key: 'sports_recreation', title: 'Sports and recreation' },
   { key: 'arts', title: 'Arts' },
   { key: 'research_or_action_research', title: 'Research or action research' },
   { key: 'workplace_cultural_change', title: 'Workplace cultural change' },
@@ -91,7 +95,7 @@ const _allCategories = [
     key: 'public_spaces_infrastructure_and_facilities',
     title: 'Public spaces, infrastructure and facilities'
   },
-  { key: 'technology_online', title: 'Technology online' },
+  { key: 'technology_online', title: 'Technology and online' },
   {
     key: 'health_family_and_community_services',
     title: 'Health, family and community services'
