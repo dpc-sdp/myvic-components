@@ -116,7 +116,6 @@ const _lgaFeaturesCache = {}
 const _councilToLgaMapping = {}
 const _lgaToCouncilMapping = {}
 const _globalMap = []
-let _stateWideLayer = null
 let _selectedLga = null
 
 // Calling the feature.changed method seems to cause all other features to re render (Which is what we want)
@@ -130,6 +129,7 @@ const resetLgaSource = () => {
   })
   _mapLayers[0].setSource(source)
   _mapLayers[0].changed()
+  triggerMapRedraw()
 }
 
 const zoomMapToLayerExtent = (layer, padding = 20) => {
@@ -144,27 +144,35 @@ const zoomMapToExtent = (extent, padding = 20) => {
 }
 
 const showEntireState = () => {
-  if (!_stateWideLayer) {
-    _stateWideLayer = new ol.source.Vector({
+  resetLgaSource()
+  const victoriaFeature = _lgaFeaturesCache['Victoria']
+  if (!victoriaFeature) {
+    let source = new ol.source.Vector({
       format: new ol.format.GeoJSON(),
       url: extent =>
         `https://${geoserverDomainName}/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typename=myvic:state&outputFormat=application/json`,
       strategy: ol.loadingstrategy.all
     })
+    _mapLayers[0].setSource(source)
   }
 
-  const layer = _mapLayers[0]
-  layer.setSource(_stateWideLayer)
-
-  layer.getSource().on('addfeature', function () {
+  _mapLayers[0].getSource().on('addfeature', function () {
     // this is called when a feature is loaded onto the layer
-    layer.getSource().forEachFeature(function (feature) {
+    _mapLayers[0].getSource().forEachFeature(function (feature) {
+      const lgaCode = feature.get('name') // Victoria
+      if (!_lgaFeaturesCache[lgaCode]) {
+        _lgaFeaturesCache[lgaCode] = feature
+      }
       feature.drawState = 'active'
-      layer.changed()
+      _mapLayers[0].changed()
     })
-    zoomMapToLayerExtent(layer, 20)
+    zoomMapToLayerExtent(_mapLayers[0], 20)
   })
-  layer.changed()
+
+  if (victoriaFeature) {
+    _mapLayers[0].getSource().addFeature(victoriaFeature)
+  }
+  _mapLayers[0].changed()
 }
 
 const showSingleLga = lga => {
