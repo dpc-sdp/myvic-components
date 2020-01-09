@@ -512,9 +512,9 @@ const customMethods = {
           `)
         return [createImageIconStyle(svgDefinition, 'anonymous', [size, size])]
       }
-      circleFill = disabledColor
+      circleFill = isCluster ? clusterColor : disabledColor
       circleOutline = disabledColor
-      textColor = clusterColor
+      textColor = isCluster ? disabledColor : clusterColor
     }
     let svgText = `
       <text
