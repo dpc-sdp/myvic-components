@@ -347,7 +347,7 @@ const customMethods = {
   readFeatureData: features => {
     features.forEach(f => {
       const id = f.getId()
-      const found = _projects.find(p => p.id === id)
+      const found = _projects.filter(p => p.id === id)[0]
       if (found) {
         return
       }
