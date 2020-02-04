@@ -347,7 +347,7 @@ const customMethods = {
   readFeatureData: features => {
     features.forEach(f => {
       const id = f.getId()
-      const found = _projects.filter(p => p.id === id)[0]
+      const found = _projects.find(p => p.id === id)
       if (found) {
         return
       }
@@ -404,7 +404,12 @@ const customMethods = {
         project.associatedLgas.push(newLgaObject)
       }
       // map the council names to the lga codes for lookups
+
       for (var i = 0; i < project.areas.length; i++) {
+        if (!project.associatedLgas[i]) {
+          console.warn(`missing LGA for area ${project.areas[i].key}`)
+          return
+        }
         _councilToLgaMapping[project.areas[i].key] = project.associatedLgas[i].key
         _lgaToCouncilMapping[project.associatedLgas[i].key] = project.areas[i].key
       }
