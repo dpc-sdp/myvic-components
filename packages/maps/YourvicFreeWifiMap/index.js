@@ -2,14 +2,14 @@
 // Provide a plugin which others can use it in Nuxt as no ssr mode.
 // Usage in Nuxt: https://nuxtjs.org/guide/plugins/#client-side-only
 
-import YourVicFreeWifiMap from './YourVicFreeWifiMap.vue'
+import YourvicFreeWifiMap from './YourvicFreeWifiMap.vue'
 
 const install = Vue => {
-  Vue.component('yourvicFreeWifiMap', YourVicFreeWifiMap)
+  Vue.component('yourvicFreeWifiMap', YourvicFreeWifiMap)
 }
 
 export default {
   install
 }
 
-export { YourVicFreeWifiMap }
+export { YourvicFreeWifiMap }

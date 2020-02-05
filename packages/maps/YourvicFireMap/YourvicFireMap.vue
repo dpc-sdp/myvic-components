@@ -10,7 +10,7 @@
  </template>
 
 <script>
-import { YourVicMap } from '@dpc-sdp/yourvic-map-core'
+import { YourvicMap } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
 const { createImageIconStyle } = ol
@@ -191,7 +191,7 @@ const customMethods = {
 export default {
   name: 'YourvicFireMap',
   components: {
-    YourVicMap
+    YourvicMap
   },
   data: function () {
     return {

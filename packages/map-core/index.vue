@@ -235,7 +235,7 @@ const methods = {
 }
 
 export default {
-  name: 'YourVicMap',
+  name: 'YourvicMap',
   props: {
     // Default center/zoom on state of Victoria
     center: {

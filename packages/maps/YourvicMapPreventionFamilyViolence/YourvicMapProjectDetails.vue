@@ -7,14 +7,14 @@
     <h3>Project details</h3>
     <p>{{project.details}}</p>
     <h3>{{categoriesHeader}}</h3>
-    <YourVicMapCard
+    <YourvicMapCard
       v-for="(category, index) in project.categories"
       :key="'c' + index"
       :item="category"
       @click="itemClicked"
     />
     <h3>{{deliveredHeader}}</h3>
-    <YourVicMapCard
+    <YourvicMapCard
       v-for="(area, index) in project.areas"
       :key="'a' + index"
       :isArea="true"
@@ -26,14 +26,14 @@
 </template>
 
 <script>
-import YourVicMapCard from './YourVicMapCard'
+import YourvicMapCard from './YourvicMapCard'
 import RplButton from '@dpc-sdp/ripple-button'
 
 export default {
-  name: 'YourVicMapProjectDetails',
+  name: 'YourvicMapProjectDetails',
   components: {
     RplButton,
-    YourVicMapCard
+    YourvicMapCard
   },
   props: {
     project: Object

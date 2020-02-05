@@ -54,10 +54,10 @@
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplButton from '@dpc-sdp/ripple-button'
 import { RplTextIcon } from '@dpc-sdp/ripple-icon'
-import { YourVicMap } from '@dpc-sdp/yourvic-map-core'
+import YourvicMap from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
-import YourVicMapSidebarHome from './YourVicMapSidebarHome'
-import YourVicMapExpandButton from './YourVicMapExpandButton'
+import YourvicMapSidebarHome from './YourvicMapSidebarHome'
+import YourvicMapExpandButton from './YourvicMapExpandButton'
 import { emptyArray, toggleFullScreen, isFullscreen } from './helper'
 const { createImageIconStyle } = ol
 
@@ -696,12 +696,12 @@ const customMethods = {
 }
 
 export default {
-  name: 'YourVicMapPreventionFamilyViolence',
+  name: 'YourvicMapPreventionFamilyViolence',
   components: {
     RplMarkup,
-    YourVicMap,
-    YourVicMapExpandButton,
-    YourVicMapSidebarHome,
+    YourvicMap,
+    YourvicMapExpandButton,
+    YourvicMapSidebarHome,
     RplTextIcon,
     RplButton
   },
@@ -840,13 +840,13 @@ export default {
 .yourvic-map__container:fullscreen {
   .yourvic-map__sidebar-container,
   .yourvic-map__map-container {
-    height: 100vh;
+    // height: 100vh;
   }
 }
 .yourvic-map__container {
   width: 100%;
   display: flex;
-  overflow: hidden;
+  padding-top: 0;
   .yourvic-map__sidebar-container {
     width: 450px;
     min-width: 450px;
@@ -855,6 +855,7 @@ export default {
     z-index: 1;
     order: 1;
     box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
   }
   .yourvic-map__map-container {
     width: 100%;

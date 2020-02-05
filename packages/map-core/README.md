@@ -27,7 +27,7 @@ npm install @dpc-sdp/yourvic-map --save
 ## Import
 
 ```js
-import { YourVicMap } from '@dpc-sdp/yourvic-map'
+import { YourvicMap } from '@dpc-sdp/yourvic-map'
 ```
 
 --------------------------------------------------------------------------------

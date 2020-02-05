@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/vue'
-import YourVicMap from './index.vue'
+import YourvicMap from './index.vue'
 
 storiesOf('Molecules/Map', module)
   .add('Map with no data', () => ({
-    components: { YourVicMap },
+    components: { YourvicMap },
     template: `<yourvic-map
       :baseMapUrl="baseMapUrl" />`,
     data () {
