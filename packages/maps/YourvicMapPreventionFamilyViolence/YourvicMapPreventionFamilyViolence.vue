@@ -1,47 +1,49 @@
 <template>
-  <div class="yourvic-map">
-    <h2 v-if="title" class="yourvic-map__title">{{title}}</h2>
+  <div class="yourvic-pofvmap">
+    <h2 v-if="title" class="yourvic-pofvmap__title">{{title}}</h2>
+
     <RplMarkup v-if="description" :html="description"/>
+
     <p
       class="rpl-visually-hidden"
     >The following is an interactive map component, showing the location of programs being run in support of the Prevention of Family Violence initiative.</p>
-    <div>
-      <div ref="yourvicMapContainer" class="yourvic-map__container">
-        <div :class="expandedMapClass">
-          <rpl-button
-            class="full-screen-btn"
-            theme="primary"
-            @click.native.prevent="toggleMapFullScreen"
-          >
-            <rpl-text-icon
-              :symbol="buttonIcon"
-              color="white"
-              size="m"
-              placement="before"
-              :text="buttonText"
-            />
-          </rpl-button>
-          <div class="yourvic-map__container__expand-btn-container" >
-            <yourvicMapExpandButton :expanded="expanded" @click="toggleExpand"/>
-          </div>
-          <yourvic-map-core :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
 
-        </div>
-        <div class="yourvic-map__sidebar-container">
-          <yourvicMapSidebarHome
-            :categories="allCategories"
-            :areas="allAreas"
-            :projects="projects"
-            :selectedProjects="selectedProjects"
-            :parentSelectedProject="selectedProject"
-            :parentSelectedCategory="selectedCategory"
-            v-on:set-selected-project="setSelectedProject"
-            v-on:back-clicked="clickBack"
-            v-on:home-clicked="clickHome"
-            v-on:set-area="setSelectedArea"
-            v-on:set-category="setSelectedCategory"
+    <div ref="yourvicMapContainer" class="yourvic-pofvmap__control">
+      <div :class="expandedMapClass">
+        <rpl-button
+          class="full-screen-btn"
+          theme="primary"
+          @click.native.prevent="toggleMapFullScreen"
+        >
+          <rpl-text-icon
+            :symbol="buttonIcon"
+            color="white"
+            size="m"
+            placement="before"
+            :text="buttonText"
           />
+        </rpl-button>
+        <div class="yourvic-pofvmap__control__expand-btn-container" >
+          <yourvicMapExpandButton :expanded="expanded" @click="toggleExpand"/>
         </div>
+        <yourvic-map-core :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
+
+      </div>
+
+      <div class="yourvic-pofvmap__sidebar-container">
+        <yourvicMapSidebarHome
+          :categories="allCategories"
+          :areas="allAreas"
+          :projects="projects"
+          :selectedProjects="selectedProjects"
+          :parentSelectedProject="selectedProject"
+          :parentSelectedCategory="selectedCategory"
+          v-on:set-selected-project="setSelectedProject"
+          v-on:back-clicked="clickBack"
+          v-on:home-clicked="clickHome"
+          v-on:set-area="setSelectedArea"
+          v-on:set-category="setSelectedCategory"
+        />
       </div>
     </div>
   </div>
@@ -54,7 +56,7 @@
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import RplButton from '@dpc-sdp/ripple-button'
 import { RplTextIcon } from '@dpc-sdp/ripple-icon'
-import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
+import YourvicMapCore from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 import YourvicMapSidebarHome from './YourvicMapSidebarHome'
 import YourvicMapExpandButton from './YourvicMapExpandButton'
@@ -728,7 +730,7 @@ export default {
   },
   computed: {
     expandedMapClass () {
-      return this.expanded ? 'yourvic-map__map-container map-expanded' : 'yourvic-map__map-container'
+      return this.expanded ? 'yourvic-pofvmap__map-container map-expanded' : 'yourvic-pofvmap__map-container'
     }
   },
   mounted () {
@@ -821,7 +823,7 @@ export default {
 @import '~@dpc-sdp/ripple-global/scss/settings';
 @import '~@dpc-sdp/ripple-global/scss/tools';
 
-.yourvic-map {
+.yourvic-pofvmap {
   &__title {
     @include rpl_mobile_padding;
 
@@ -837,18 +839,19 @@ export default {
 }
 
 /* Do the following when large (wide) screen */
-.yourvic-map__container:fullscreen {
-  .yourvic-map__sidebar-container,
-  .yourvic-map__map-container {
+.yourvic-pofvmap__control:fullscreen {
+  .yourvic-pofvmap__sidebar-container,
+  .yourvic-pofvmap__map-container {
     height: 100vh;
+    padding-top: 0;
   }
 }
-.yourvic-map__container {
+
+.yourvic-pofvmap__control {
   width: 100%;
   display: flex;
-  padding-top: 0;
-
-  .yourvic-map__sidebar-container {
+  // padding-top: 0;
+  .yourvic-pofvmap__sidebar-container {
     width: 450px;
     min-width: 450px;
     margin-right: 0 !important;
@@ -858,16 +861,18 @@ export default {
     box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
     overflow: auto;
   }
-  .yourvic-map__map-container {
+
+  .yourvic-pofvmap__map-container {
     width: 100%;
     margin-left: 0 !important;
     order: 2;
     position: relative;
   }
-  .yourvic-map__sidebar-container,
-  .yourvic-map__map-container {
+  .yourvic-pofvmap__sidebar-container,
+  .yourvic-pofvmap__map-container {
     height: 600px;
   }
+
   .full-screen-btn {
     top: $rpl-space-2;
     right: $rpl-space-2;
@@ -879,7 +884,8 @@ export default {
       width: $rpl-space-2 !important;
     }
   }
-  .yourvic-map__container__expand-btn-container {
+
+  .yourvic-pofvmap__control__expand-btn-container {
     display: none;
   }
   // Hack to make the map fullscreen. Note that this referes to yourvic-map-core.
@@ -895,9 +901,10 @@ export default {
   }
 }
 
+/*.yourvic-pofvmap__container .yourvic-pofvmap__container */
 /* Do the following when small(narrow) screen */
 @media (max-width: 768px) {
-  .yourvic-map__container {
+  .yourvic-pofvmap__control {
     .rpl-text-label--emphasis.rpl-text-label--small {
       font-size: 0.75rem;
     }
@@ -905,36 +912,35 @@ export default {
     &:fullscreen .rpl-text-label--emphasis.rpl-text-label--small {
       font-size: 0.875rem;
     }
-    .yourvic-map__container__expand-btn-container {
+    .yourvic-pofvmap__control__expand-btn-container {
       position: absolute;
       z-index: 1000;
       bottom: $rpl-space-2;
       right: $rpl-space-2;
       display: block;
     }
+    padding: 0;
+    height: 300px;
+    display: inherit;
   }
-  .yourvic-map__container,
-  .yourvic-map__container:fullscreen {
-    .full-screen-btn {
-      font-size: 1rem;
-      padding-top: $rpl-space-2;
-      padding-bottom: $rpl-space-2;
-    }
+  .yourvic-pofvmap__control {
     display: block;
-    .yourvic-map__sidebar-container {
-      height: 70vh;
-      min-width: 0px;
-    }
-    .yourvic-map__map-container {
-      height: 30vh;
-      &.map-expanded {
-        height: 60vh;
-      }
-    }
-    .yourvic-map__sidebar-container,
-    .yourvic-map__map-container {
-      width: 100% !important;
-      float: none !important;
+  }
+  .full-screen-btn {
+    display: none;
+  }
+  .yourvic-pofvmap__sidebar-container,
+  .yourvic-pofvmap__map-container {
+    height: inherit !important;
+    min-width: 0px !important;
+    overflow: inherit !important;
+    width: 100% !important;
+    float: none !important;
+  }
+  .yourvic-pofvmap__map-container {
+    height: 300px !important;
+    &.map-expanded {
+      height: 90vh !important;
     }
   }
 }
