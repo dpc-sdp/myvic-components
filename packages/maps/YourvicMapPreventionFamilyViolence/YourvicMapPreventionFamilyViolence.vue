@@ -407,7 +407,7 @@ const customMethods = {
 
       for (var i = 0; i < project.areas.length; i++) {
         if (!project.associatedLgas[i]) {
-          console.warn(`missing LGA for area ${project.areas[i].key}`)
+          console.log(`missing LGA for area ${project.areas[i].key}`)
           return
         }
         _councilToLgaMapping[project.areas[i].key] = project.associatedLgas[i].key
@@ -847,6 +847,7 @@ export default {
   width: 100%;
   display: flex;
   padding-top: 0;
+
   .yourvic-map__sidebar-container {
     width: 450px;
     min-width: 450px;
@@ -855,7 +856,7 @@ export default {
     z-index: 1;
     order: 1;
     box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    overflow: auto;
   }
   .yourvic-map__map-container {
     width: 100%;
