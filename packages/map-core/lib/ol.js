@@ -21,6 +21,7 @@ import Icon from 'ol/style/Icon'
 import GeoJSON from 'ol/format/GeoJSON'
 import { bbox } from 'ol/loadingstrategy'
 import AnimatedCluster from 'ol-ext/layer/AnimatedCluster'
+import Attribution from 'ol/control/Attribution'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -49,7 +50,8 @@ const ol = {
   View: View,
   Overlay: Overlay,
   control: {
-    Zoom
+    Zoom,
+    Attribution
   },
   layer: {
     Tile: TileLayer,
