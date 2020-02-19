@@ -272,11 +272,11 @@ export default {
 
 $yourvic-map-sidebar-home-background-color: rpl-color('mid_neutral_2') !default;
 
-.yourvic-map-sidebar-home {
+.Yourvic-map-sidebar-home {
   height: 100%;
   overflow: auto;
   background-color: $yourvic-map-sidebar-home-background-color;
-  .yourvic-map-sidebar-home__content {
+  .Yourvic-map-sidebar-home__content {
     padding: $rpl-space-4;
     padding-top: $rpl-space-2;
   }
