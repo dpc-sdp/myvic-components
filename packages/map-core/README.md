@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-map --save
+npm install @dpc-sdp/yourvic-map-core --save
 ```
 
 --------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ npm install @dpc-sdp/yourvic-map --save
 ## Import
 
 ```js
-import { YourvicMap } from '@dpc-sdp/yourvic-map'
+import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
 ```
 
 --------------------------------------------------------------------------------
