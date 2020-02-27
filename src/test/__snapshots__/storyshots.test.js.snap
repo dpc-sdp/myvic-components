@@ -2,10 +2,10 @@
 
 exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
 <div
-  class="yourvic-map"
+  class="yourvic-pofvmap"
 >
   <h2
-    class="yourvic-map__title"
+    class="yourvic-pofvmap__title"
   >
     Title
   </h2>
@@ -26,563 +26,585 @@ exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
     The following is an interactive map component, showing the location of programs being run in support of the Prevention of Family Violence initiative.
   </p>
    
-  <div>
+  <div
+    class="yourvic-pofvmap__control"
+  >
     <div
-      class="yourvic-map__container"
+      class="yourvic-pofvmap__map-container"
     >
-      <div
-        class="yourvic-map__map-container"
+      <button
+        class="rpl-button full-screen-btn rpl-button--primary"
       >
-        <button
-          class="rpl-button full-screen-btn rpl-button--primary"
-        >
-          <span>
-            <span
-              class="rpl-text-icon__group"
-            >
-              <!---->
-              Enter
-            </span>
-             
-            <span>
-               full screen
-            </span>
-          </span>
-        </button>
-         
-        <div
-          class="yourvic-map__container__expand-btn-container"
-        >
-          <button
-            class="rpl-button expand-btn rpl-button--primary"
+        <span>
+          <span
+            class="rpl-text-icon__group"
           >
             <!---->
-          </button>
-        </div>
-         
-        <div
-          class="yourvic-map-core"
-        >
+            Enter
+          </span>
            
-          <div
-            class="yourvic-map-core__container"
-          >
-            <div
-              class="yourvic-map-core__map"
-              id="map"
-            />
-          </div>
-        </div>
+          <span>
+             full screen
+          </span>
+        </span>
+      </button>
+       
+      <div
+        class="yourvic-pofvmap__control__expand-btn-container"
+      >
+        <button
+          class="rpl-button expand-btn rpl-button--primary"
+        >
+          <!---->
+        </button>
       </div>
        
       <div
-        class="yourvic-map__sidebar-container"
+        class="yourvic-map"
       >
+         
         <div
-          class="yourvic-map-sidebar-home"
+          class="yourvic-map__container"
         >
           <div
-            class="yourvic-map-sidebar-header"
+            class="yourvic-map__map"
+            id="map"
+          />
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="yourvic-pofvmap__sidebar-container"
+    >
+      <div
+        class="Yourvic-map-sidebar-home"
+      >
+        <div
+          class="yourvic-map-sidebar-header"
+        >
+          <div
+            class="yourvic-map-sidebar-header__ribbon"
+          />
+           
+          <div
+            class="yourvic-map-sidebar-header__content"
           >
-            <div
-              class="yourvic-map-sidebar-header__ribbon"
-            />
+            <!---->
              
-            <div
-              class="yourvic-map-sidebar-header__content"
+            <h1>
+              0 family violence prevention projects across Victoria
+            </h1>
+             
+            <p>
+              
+            </p>
+             
+            <a
+              class="yourvic-map-sidebar-header__btn"
             >
-              <!---->
-               
-              <h1>
-                0 family violence prevention projects across Victoria
-              </h1>
-               
-              <p>
-                
-              </p>
-               
-              <a
-                class="yourvic-map-sidebar-header__btn"
+              <span
+                class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
+                iconcolor="primary"
+              >
+                View all projects
+              </span>
+            </a>
+          </div>
+        </div>
+         
+        <div
+          class="Yourvic-map-sidebar-home__content"
+        >
+          <!---->
+           
+          <div>
+            <div>
+              <div
+                class="yourvic-map-categories-page__menu"
               >
                 <span
-                  class="rpl-text-label rpl-text-label--dark rpl-text-label--dark--underline rpl-text-label--small rpl-text-label--small--underline"
-                  iconcolor="primary"
+                  class="rpl-text-label yourvic-map-categories-page__header-btn rpl-text-label--small rpl-text-label--emphasis"
                 >
-                  View all projects
+                  
+      Browse by category
+    
                 </span>
+                 
+                <a
+                  class="yourvic-map-categories-page__other-btn"
+                >
+                  <span
+                    class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline rpl-text-label--emphasis"
+                    iconcolor="primary"
+                  >
+                    
+      Browse by area
+      
+                  </span>
+                </a>
+              </div>
+               
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Aboriginal
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Arts
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Bystander
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Children and young people
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Culturally and linguistically diverse
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Disability focus
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Education
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Health, family and community services
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Higher education
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      LGBTIQ
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Media
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Parents
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Public spaces, infrastructure and facilities
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Research or action research
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Seniors
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Sports and recreation
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Technology and online
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Workforce
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
+              </a>
+              <a>
+                <div
+                  class="yourvic-map-card"
+                >
+                  <div
+                    class="yourvic-map-card__header"
+                  >
+                    <!---->
+                     
+                    <span
+                      class="yourvic-map-card__title"
+                    >
+                      Workplace cultural change
+                    </span>
+                     
+                    <div
+                      class="yourvic-map-card__arrow"
+                    >
+                      <!---->
+                    </div>
+                  </div>
+                   
+                </div>
               </a>
             </div>
           </div>
            
-          <div
-            class="yourvic-map-sidebar-home__content"
-          >
-            <!---->
-             
-            <div>
-              <div>
-                <div
-                  class="yourvic-map-categories-page__menu"
-                >
-                  <span
-                    class="rpl-text-label yourvic-map-categories-page__header-btn rpl-text-label--small rpl-text-label--emphasis"
-                  >
-                    
-      Browse by category
-    
-                  </span>
-                   
-                  <a
-                    class="yourvic-map-categories-page__other-btn"
-                  >
-                    <span
-                      class="rpl-text-label rpl-text-label--small rpl-text-label--small--underline rpl-text-label--emphasis"
-                      iconcolor="primary"
-                    >
-                      
-      Browse by area
-      
-                    </span>
-                  </a>
-                </div>
-                 
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Aboriginal
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Arts
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Bystander
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Children and young people
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Culturally linguistically diverse
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Disability focus
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Education, children and young people
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Health, family and community services
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Higher education
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        LGBQTI
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Media
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Parents
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Public spaces, infrastructure and facilities
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Research or action research
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Seniors
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Sports recreation
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Technology online
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-                <a>
-                  <div
-                    class="yourvic-map-card"
-                  >
-                    <div
-                      class="yourvic-map-card__header"
-                    >
-                      <!---->
-                       
-                      <span
-                        class="yourvic-map-card__title"
-                      >
-                        Workplace cultural change
-                      </span>
-                       
-                      <div
-                        class="yourvic-map-card__arrow"
-                      >
-                        <!---->
-                      </div>
-                    </div>
-                     
-                  </div>
-                </a>
-              </div>
-            </div>
-             
-            <!---->
-          </div>
+          <!---->
         </div>
       </div>
     </div>
@@ -659,15 +681,15 @@ exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
   </div>
    
   <div
-    class="yourvic-map-core"
+    class="yourvic-map"
     role="tabpanel"
   >
      
     <div
-      class="yourvic-map-core__container"
+      class="yourvic-map__container"
     >
       <div
-        class="yourvic-map-core__map"
+        class="yourvic-map__map"
         id="map"
       />
     </div>
@@ -677,14 +699,14 @@ exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
 
 exports[`YourvicStoryshots Molecules/Map Map with no data 1`] = `
 <div
-  class="yourvic-map-core"
+  class="yourvic-map"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="yourvic-map__container"
   >
     <div
-      class="yourvic-map-core__map"
+      class="yourvic-map__map"
       id="map"
     />
   </div>
