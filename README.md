@@ -14,12 +14,10 @@
 * [License](#license)
 * [Attribution](#attribution)
 
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 About yourvictoria-vic-gov-au.
-
 
 ### Built With
 
@@ -27,30 +25,16 @@ About yourvictoria-vic-gov-au.
 * [Nuxt](https://nuxtjs.org)
 * [Storybook](https://storybook.js.org/)
 
-
 ## Usage
 
 TODO
 
 ## Contributing
 
-TODO
-
-### Requirements
-
-- Install [nodejs](https://nodejs.org/en/) (^v10.0.0)
-- Install [yarn](https://yarnpkg.com/en/docs/install) (currently npm is unsupported)
-
-### Install
-
-Run `yarn install`
-
-### Running Storybook
-
-Run `yarn run start:storybook`
-
+Check our CONTRIBUTING.md
 
 ## Support
+
 [Digital Engagement, Department of Premier and Cabinet, Victoria, Australia](https://github.com/dpc-sdp) is a maintainer of this package.
 
 <!-- LICENSE -->
@@ -59,6 +43,7 @@ Run `yarn run start:storybook`
 Distributed under the Apache 2.0 License. See `LICENSE` for more information.
 
 ## Attribution
+
 Single Digital Presence offers government agencies an open and flexible toolkit to build websites quickly and cost-effectively.
 
 <!-- SDP LOGO -->
