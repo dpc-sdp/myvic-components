@@ -6,6 +6,7 @@ npm-debug.log
 yarn-error.log
 .nuxt
 dist
+lerna-debug.log
 
 # tests
 coverage
