@@ -1,7 +1,7 @@
 {
   "name": "@dpc-sdp/yourvic-storybook",
   "description": "Storybook instance for yourvictoria component testing",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "scripts": {
     "start": "start-storybook -p 6006 -s ./static",
@@ -10,7 +10,7 @@
   "dependencies": {
     "@dpc-sdp/ripple-global": "^1.4.0",
     "@dpc-sdp/ripple-markup": "^1.4.0",
-    "@dpc-sdp/yourvic-map-core": "1.1.1",
+    "@dpc-sdp/yourvic-map-core": "1.1.2",
     "@storybook/vue": "^5.2.8",
     "vue": "^2.6.10"
   },
