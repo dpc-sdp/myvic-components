@@ -155,6 +155,8 @@ const customMethods = {
     return themeLayers
   },
   featureMapper: (feature) => {
+    if (feature.event !== 'click') return
+
     const features = feature.get('features')
 
     const generateFeatureName = f => {
