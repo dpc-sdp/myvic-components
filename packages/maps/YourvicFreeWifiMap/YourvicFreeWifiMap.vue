@@ -186,6 +186,8 @@ const customMethods = {
   },
 
   featureMapper: (feature) => {
+    if (feature.event !== 'click') return
+
     const features = feature.get('features')
 
     const WIFI_STATUS = {
