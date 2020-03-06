@@ -1,0 +1,614 @@
+{
+    "type": "FeatureCollection",
+    "totalFeatures": 40,
+    "features": [
+        {
+            "type": "Feature",
+            "id": "1",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    143.84345,
+                    -37.55995
+                ]
+            },
+            "properties": {
+                "name": "Ballarat City",
+                "address": "1120 Sturt Street, Ballarat Victoria 3350",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "2",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.32743,
+                    -38.18895
+                ]
+            },
+            "properties": {
+                "name": "Belmont",
+                "address": "2–4 Reynolds Road, Belmont Victoria 3216",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "3",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.28512,
+                    -36.75673
+                ]
+            },
+            "properties": {
+                "name": "Bendigo",
+                "address": "145–149 Hargreaves Street, Bendigo Victoria 3550",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "4",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.26537,
+                    -37.86017
+                ]
+            },
+            "properties": {
+                "name": "Boronia",
+                "address": "296–306 Boronia Road, Boronia Victoria 3155",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "5",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.7401,
+                    -37.75508
+                ]
+            },
+            "properties": {
+                "name": "Caroline Springs",
+                "address": "8–10 Caroline Springs Boulevard, Caroline Springs Victoria 3012",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "6",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.35295,
+                    -38.09958
+                ]
+            },
+            "properties": {
+                "name": "Corio",
+                "address": "20-32 Birdwood Avenue, Norlane Victoria 3214",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "7",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.93211,
+                    -37.59824
+                ]
+            },
+            "properties": {
+                "name": "Craigieburn",
+                "address": "2 Belsay Place, Craigieburn Victoria 3064",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "8",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.2839,
+                    -38.1037
+                ]
+            },
+            "properties": {
+                "name": "Cranbourne",
+                "address": "8–10 Arundel Street, Cranbourne Victoria 3977",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "9",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.20138,
+                    -37.97271
+                ]
+            },
+            "properties": {
+                "name": "Dandenong",
+                "address": "186–194 Princes Highway, Dandenong Victoria 3175",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "10",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.14361,
+                    -37.72224
+                ]
+            },
+            "properties": {
+                "name": "Eltham",
+                "address": "61 Brougham Street, Eltham Victoria 3095",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "11",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.12651,
+                    -38.14653
+                ]
+            },
+            "properties": {
+                "name": "Frankston",
+                "address": "3 Cranbourne Road, Frankston Victoria 3199",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "12",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.36033,
+                    -38.15374
+                ]
+            },
+            "properties": {
+                "name": "Geelong City",
+                "address": "69 McKillop Street, Geelong Victoria 3220",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "13",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.90159,
+                    -37.65247
+                ]
+            },
+            "properties": {
+                "name": "Greenvale",
+                "address": "33 Barrymore Road, Greenvale Victoria 3059",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "14",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.27448,
+                    -38.00384
+                ]
+            },
+            "properties": {
+                "name": "Hallam",
+                "address": "12–14 Belgrave- Hallam Road, Hallam Victoria 3803",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "15",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.68166,
+                    -37.88277
+                ]
+            },
+            "properties": {
+                "name": "Hoppers Crossing",
+                "address": "119 Derrimut Road, Werribee Victoria 3030",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "16",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.41441,
+                    -38.0207
+                ]
+            },
+            "properties": {
+                "name": "Lara",
+                "address": "25 Mill Road, Lara Victoria 3212",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "17",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.25825,
+                    -38.17782
+                ]
+            },
+            "properties": {
+                "name": "Latrobe West",
+                "address": "77-79 Lloyd Street, Moe Victoria 3825",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "18",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    143.78668,
+                    -37.56712
+                ]
+            },
+            "properties": {
+                "name": "Lucas",
+                "address": "89 Ballarat- Carngham Road, Winter Valley Victoria 3358",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "19",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.5815,
+                    -37.68482
+                ]
+            },
+            "properties": {
+                "name": "Melton",
+                "address": "40–44 Henry Street, Melton Victoria 3337",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "20",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    142.14976,
+                    -34.20436
+                ]
+            },
+            "properties": {
+                "name": "Mildura",
+                "address": "326 San Mateo Avenue, Mildura Victoria 3500",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "21",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.04246,
+                    -38.23102
+                ]
+            },
+            "properties": {
+                "name": "Mornington",
+                "address": "859 Nepean Highway, Mornington Victoria 3931",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "22",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.40621,
+                    -38.23569
+                ]
+            },
+            "properties": {
+                "name": "Morwell",
+                "address": "26 Mcdonald Street, Morwell Victoria 3840",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "23",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.53651,
+                    -38.2574
+                ]
+            },
+            "properties": {
+                "name": "Ocean Grove",
+                "address": "5–11 Shell Road, Ocean Grove Victoria 3226",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "24",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.4528,
+                    -38.06153
+                ]
+            },
+            "properties": {
+                "name": "Pakenham",
+                "address": "780 Princes Highway, Pakenham Victoria 3810",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "25",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.1279,
+                    -38.07437
+                ]
+            },
+            "properties": {
+                "name": "Patterson River",
+                "address": "37 McLeod Road, Carrum Victoria 3197",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "26",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.74648,
+                    -37.88635
+                ]
+            },
+            "properties": {
+                "name": "Point Cook",
+                "address": "83–93 Dunnings Road, Point Cook Victoria 3030",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "27",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    141.60413,
+                    -38.34347
+                ]
+            },
+            "properties": {
+                "name": "Portland",
+                "address": "130 Percy Street, Portland Victoria 3305",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "28",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.88965,
+                    -38.37042
+                ]
+            },
+            "properties": {
+                "name": "Rosebud",
+                "address": "99–101 Boneo Road, Rosebud Victoria 3939",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "29",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.24838,
+                    -37.9265
+                ]
+            },
+            "properties": {
+                "name": "Rowville",
+                "address": "1063 Wellington Road, Rowville Victoria 3178",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "30",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.40032,
+                    -36.38218
+                ]
+            },
+            "properties": {
+                "name": "Shepparton",
+                "address": "268 Maude Street, Shepparton Victoria 3630",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "31",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.09102,
+                    -37.64783
+                ]
+            },
+            "properties": {
+                "name": "South Morang",
+                "address": "875 Plenty Road, South Morang Victoria 3752",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "32",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.22138,
+                    -37.77057
+                ]
+            },
+            "properties": {
+                "name": "South Warrandyte",
+                "address": "29 Falconer Road, Park Orchards Victoria 3114",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "33",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    145.14776,
+                    -37.97266
+                ]
+            },
+            "properties": {
+                "name": "Springvale",
+                "address": "518 Springvale Road, Springvale South Victoria 3172",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "34",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.71093,
+                    -37.57829
+                ]
+            },
+            "properties": {
+                "name": "Sunbury",
+                "address": "144 Gap Road, Sunbury Victoria 3429",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "35",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.52251,
+                    -38.20207
+                ]
+            },
+            "properties": {
+                "name": "Traralgon",
+                "address": "158 Princes Street, Traralgon Victoria 3844",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "36",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.31386,
+                    -36.36133
+                ]
+            },
+            "properties": {
+                "name": "Wangaratta",
+                "address": "26–30 Handley Street, Wangaratta Victoria 3677",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "37",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    142.49291,
+                    -38.36843
+                ]
+            },
+            "properties": {
+                "name": "Warrnambool",
+                "address": "61–67 Mortlake Road, Warrnambool Victoria 3280",
+                "functions": "Prevention and suppression of fires"
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "38",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    146.88303,
+                    -36.12196
+                ]
+            },
+            "properties": {
+                "name": "Wodonga",
+                "address": "37–39 Stanley Street, Wodonga Victoria 3690",
+                "functions": "Prevention and suppression of fires"
+            }
+        }
+    ]
+}

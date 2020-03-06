@@ -612,6 +612,26 @@ exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Molecules/Map Map with fire data 1`] = `
+<div
+  class="fire-map"
+>
+  <div
+    class="yourvic-map-core"
+  >
+     
+    <div
+      class="yourvic-map-core__container"
+    >
+      <div
+        class="yourvic-map-core__map"
+        id="map"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
 <div
   class="yourvic-map"
