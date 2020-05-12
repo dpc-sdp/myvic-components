@@ -50,6 +50,7 @@ module.exports = async ({ config, mode }) => {
     },
     {
       test: /\.(js|vue)$/,
+      exclude: /node_modules/,
       loader: "eslint-loader",
       enforce: "pre",
       include: [
