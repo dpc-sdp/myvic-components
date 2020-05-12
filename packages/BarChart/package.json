@@ -1,0 +1,16 @@
+{
+  "name": "@dpc-sdp/yourvic-bar-chart",
+  "version": "0.1.0",
+  "description": "A bar chart component.",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "lodash.merge": "^4.6.2"
+  }
+}
