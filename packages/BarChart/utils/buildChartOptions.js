@@ -2,6 +2,26 @@ import styles from '../../core/styles/export.scss'
 import _merge from 'lodash.merge'
 
 const settings = {
+  dataset: {
+    barPercentage: 0.8
+  },
+  primaryDataset: {
+    backgroundColor: styles.fillDefault,
+    hoverBackgroundColor: styles.fillDefaultHover
+  },
+  secondaryDataset: {
+    backgroundColor: styles.fillSecondary,
+    hoverBackgroundColor: styles.fillSecondaryHover
+  },
+  tertiaryDataset: {
+    backgroundColor: styles.fillTertiary,
+    hoverBackgroundColor: styles.fillTertiaryHover
+  },
+  quaternaryDataset: {
+    backgroundColor: styles.fillQuaternary,
+    hoverBackgroundColor: styles.fillQuaternaryHover
+  },
+  datasetOrder: ['primary', 'secondary', 'tertiary', 'quaternary'],
   primaryAxis: {
     gridLines: {
       display: true,
@@ -55,6 +75,15 @@ const scaleAxis = (axis, data) => {
 }
 
 export default {
+  getDatasetSettings: (data) => {
+    const datasetSettings = []
+    for (const [index, value] of data.datasets.entries()) {
+      let datasetType = settings.datasetOrder[index]
+      let finalSettings = _merge({}, value, settings.dataset, settings[datasetType + 'Dataset'])
+      datasetSettings.push(finalSettings)
+    }
+    return datasetSettings
+  },
   getTitle: (title) => ({
     display: !!title,
     fontSize: 13,
@@ -83,7 +112,7 @@ export default {
     align: 'start',
     labels: {
       boxWidth: 14,
-      fontSize: 12,
+      fontSize: 13,
       fontFamily: "'Vic', 'sans-serif'",
       fontColor: styles.legendLabelColor
     }

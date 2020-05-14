@@ -10,7 +10,6 @@ import InnerChart from './InnerChart'
 import InnerHorizontalChart from './InnerHorizontalChart'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
-import styles from '../core/styles/export.scss'
 
 export default {
   props: {
@@ -44,17 +43,10 @@ export default {
   },
   computed: {
     chartData: function () {
-      let chartSettings = {
-        datasets: [
-          {
-            barPercentage: 0.8,
-            backgroundColor: styles.fillDefault,
-            hoverBackgroundColor: styles.fillDefaultHover
-          }
-        ]
+      const chartSettings = {
+        datasets: builder.getDatasetSettings(this.data)
       }
-
-      let chartData = _merge({}, this.data, chartSettings)
+      const chartData = _merge({}, this.data, chartSettings)
       return chartData
     },
     options: function () {
@@ -83,6 +75,6 @@ export default {
   .app-chart {
     position: relative;
     width: 400px;
-    //height: 500px;
+    height: 400px;
   }
 </style>

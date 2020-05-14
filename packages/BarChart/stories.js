@@ -1,5 +1,6 @@
 import BarChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
+import _merge from 'lodash.merge'
 
 export default {
   title: 'Bar Chart',
@@ -12,12 +13,17 @@ const chartData = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June'],
   datasets: [
     {
-      label: 'Count',
-      backgroundColor: '#f87979',
+      label: 'Dataset 1',
       data: [40, 20, 12, 52, 10, 39]
     }
   ]
 }
+
+const dualChartData = _merge({}, chartData)
+dualChartData.datasets.push({
+  label: 'Dataset 2',
+  data: [35, 14, 11, 42, 12, 46]
+})
 
 export const Default = () => ({
   decorators: [withKnobs],
@@ -42,6 +48,18 @@ export const Default = () => ({
   }
 })
 
+export const WithTitleAndLegend = () => ({
+  components: { BarChart },
+  template: barChartTemplate,
+  props: {
+    id: { default: () => 'bar-chart-default' },
+    direction: { default: () => 'horizontal' },
+    title: { default: () => 'Sample Chart' },
+    data: { default: () => chartData },
+    showLegend: { default: () => true }
+  }
+})
+
 export const Vertical = () => ({
   components: { BarChart },
   template: barChartTemplate,
@@ -54,14 +72,14 @@ export const Vertical = () => ({
   }
 })
 
-export const WithTitleAndLegend = () => ({
+export const DualData = () => ({
   components: { BarChart },
   template: barChartTemplate,
   props: {
     id: { default: () => 'bar-chart-default' },
     direction: { default: () => 'horizontal' },
-    title: { default: () => 'Sample Chart' },
-    data: { default: () => chartData },
+    title: { default: () => 'Dual Chart' },
+    data: { default: () => dualChartData },
     showLegend: { default: () => true }
   }
 })
