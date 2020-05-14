@@ -1,0 +1,46 @@
+$path-to-fonts: '~../../packages/core/fonts'; 
+
+// VIC font
+@font-face {
+	font-family: "Vic";
+	src: url("#{$path-to-fonts}/vic/Regular/VIC-Regular.eot");
+	src: local("☺"),
+	url("#{$path-to-fonts}/vic/Regular/VIC-Regular.woff") format("woff"),
+	url("#{$path-to-fonts}/vic/Regular/VIC-Regular.ttf") format("truetype");
+	// url("#{$path-to-fonts}/vic/Regular/VIC-Regular.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Vic";
+	src: url("#{$path-to-fonts}/vic/SemiBold/VIC-SemiBold.eot");
+	src: local("☺"),
+	url("#{$path-to-fonts}/vic/SemiBold/VIC-SemiBold.woff") format("woff"),
+	url("#{$path-to-fonts}/vic/SemiBold/VIC-SemiBold.ttf") format("truetype");
+	// url("#{$path-to-fonts}/vic/SemiBold/VIC-SemiBold.svg") format("svg");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Vic";
+	src: url("#{$path-to-fonts}/vic/Medium/VIC-Medium.eot");
+	src: local("☺"),
+	url("#{$path-to-fonts}/vic/Medium/VIC-Medium.woff") format("woff"),
+	url("#{$path-to-fonts}/vic/Medium/VIC-Medium.ttf") format("truetype");
+	// url("#{$path-to-fonts}/vic/Medium/VIC-Medium.svg") format("svg");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Vic";
+	src: url("#{$path-to-fonts}/vic/Bold/VIC-Bold.eot");
+	src: local("☺"),
+	url("#{$path-to-fonts}/vic/Bold/VIC-Bold.woff") format("woff"),
+	url("#{$path-to-fonts}/vic/Bold/VIC-Bold.ttf") format("truetype");
+	// url("#{$path-to-fonts}/vic/Bold/VIC-Bold.svg") format("svg");
+	font-weight: 700;
+	font-style: normal;
+}

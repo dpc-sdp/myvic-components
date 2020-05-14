@@ -1,12 +1,16 @@
 <template>
   <div class="app-chart">
-    <inner-chart :chartData="chartData" :options="options" />
+    <inner-chart v-if="direction === 'vertical'" :key="componentKey" :chartData="chartData" :options="options" />
+    <inner-horizontal-chart v-if="direction === 'horizontal'" :key="componentKey" :chartData="chartData" :options="options" />
   </div>
 </template>
 
 <script>
-import InnerChart from './InnerChart.js'
+import InnerChart from './InnerChart'
+import InnerHorizontalChart from './InnerHorizontalChart'
+import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
+import styles from '../core/styles/export.scss'
 
 export default {
   props: {
@@ -14,19 +18,40 @@ export default {
       type: String,
       required: true
     },
+    direction: {
+      type: String,
+      default: 'horizontal'
+    },
+    title: {
+      type: String
+    },
     data: {
       type: Object
+    },
+    showLegend: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
-    InnerChart
+    InnerChart,
+    InnerHorizontalChart
+  },
+  data() {
+    return {
+      componentKey: 0
+    }
   },
   computed: {
     chartData: function () {
       let chartSettings = {
         datasets: [
           {
-            backgroundColor: '#00a9e0'
+            barPercentage: 0.8,
+            //categoryPercentage: 1,
+            //maxBarThickness: 40,
+            backgroundColor: styles.fillDefault,
+            hoverBackgroundColor: styles.fillDefaultHover
           }
         ]
       }
@@ -36,24 +61,30 @@ export default {
     },
     options: function () {
       const options = {
+        title: builder.getTitle(this.title),
         scales: {
-          xAxes: [{
-            gridLines: {
-              offsetGridLines: true
-            }
-          }]
-        }
+          xAxes: builder.getXAxes(this.direction, this.data),
+          yAxes: builder.getYAxes(this.direction, this.data)
+        },
+        legend: builder.getLegend(this.showLegend)
       }
       return options
+    }
+  },
+  watch: {
+    // make options changes reactive (only chartData is reactive by default)
+    options: function () {
+      this.componentKey++
     }
   }
 }
 </script>
 
 <style lang="scss">
+  @import '../core/styles/main';
   .app-chart {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    //height: 500px;
   }
 </style>
