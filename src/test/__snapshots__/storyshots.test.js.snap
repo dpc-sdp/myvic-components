@@ -1,5 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`YourvicStoryshots Molecules/Map Fixed Map 1`] = `
+<div
+  class="yourvic-map-core"
+  style="margin: 20px; width: 400px; height: 300px; border: 1px solid black;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      class="yourvic-map-core__map"
+      id="map"
+    />
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Molecules/Map Interactive Map 1`] = `
+<div
+  class="yourvic-map-core"
+  style="height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      class="yourvic-map-core__map"
+      id="map"
+    />
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
 <div
   class="yourvic-pofvmap"
@@ -618,6 +652,7 @@ exports[`YourvicStoryshots Molecules/Map Map with fire data 1`] = `
 >
   <div
     class="yourvic-map-core"
+    style="height: 56.25vw;"
   >
      
     <div
@@ -703,6 +738,7 @@ exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
   <div
     class="yourvic-map-core"
     role="tabpanel"
+    style="height: 56.25vw;"
   >
      
     <div
@@ -713,22 +749,6 @@ exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
         id="map"
       />
     </div>
-  </div>
-</div>
-`;
-
-exports[`YourvicStoryshots Molecules/Map Map with no data 1`] = `
-<div
-  class="yourvic-map-core"
->
-   
-  <div
-    class="yourvic-map-core__container"
-  >
-    <div
-      class="yourvic-map-core__map"
-      id="map"
-    />
   </div>
 </div>
 `;

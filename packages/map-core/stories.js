@@ -34,7 +34,7 @@ storiesOf('Molecules/Map', module)
         )
       },
       center: {
-        default: object('Center', [16136905.843820328, -4383057.013522999])
+        default: () => object('Center', [16136905.843820328, -4383057.013522999])
       },
       zoom: {
         default: number('Zoom', 7,
@@ -110,7 +110,7 @@ storiesOf('Molecules/Map', module)
         )
       },
       center: {
-        default: object('Center', [16138405.843820328, -4552817.013522999])
+        default: () => object('Center', [16138405.843820328, -4552817.013522999])
       },
       zoom: {
         default: number('Zoom', 17,
