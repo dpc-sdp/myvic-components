@@ -4,7 +4,7 @@ import SVicFreeWifiMap from './YourvicFreeWifiMap/YourvicFreeWifiMap'
 import SVicPreventionFamilyViolence from './YourvicMapPreventionFamilyViolence/YourvicMapPreventionFamilyViolence'
 import SVicFireMap from './YourvicFireMap/YourvicFireMap'
 
-storiesOf('Molecules/Map', module)
+storiesOf('Molecules/Map with data', module)
   .add('Map with free wifi data', () => ({
     components: { SVicFreeWifiMap },
     template: `<s-vic-free-wifi-map />`

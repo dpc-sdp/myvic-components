@@ -15,8 +15,10 @@
       title="<strong>#VicFreeWiFi</strong> Coverage Map"
       :tabs="tabs"
       @update="updateTab" />
+    <!-- 16:9 aspect ratio with height: '56.25vw'  -->
     <yourvic-map-core
       role="tabpanel"
+      :style="{height: '56.25vw'}"
       :center="getCenter"
       :zoom="getZoom"
       :baseMapUrl="baseMapUrl"

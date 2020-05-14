@@ -1,10 +1,12 @@
 <template>
      <div class="fire-map">
+         <!-- 16:9 aspect ratio with height: '56.25vw'  -->
          <yourvic-map-core
-         :center="getCenter"
-         :baseMapUrl="baseMapUrl"
-         :customMethods="customMethods"
-         :zoom="getZoom"
+           :style="{height: '56.25vw'}"
+           :center="getCenter"
+           :baseMapUrl="baseMapUrl"
+           :customMethods="customMethods"
+           :zoom="getZoom"
          />
       </div>
  </template>

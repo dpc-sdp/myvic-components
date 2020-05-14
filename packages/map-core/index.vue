@@ -1,5 +1,5 @@
 <template>
-  <div class="yourvic-map-core">
+  <div class="yourvic-map-core" >
     <div
       id="map-popup"
       class="yourvic-map-core__popup ol-popup"
@@ -23,7 +23,19 @@ let map,
   baseLayer,
   baseSource,
   themeLayers,
-  popupOverlay
+  popupOverlay,
+  zoomControl,
+  attributionControl,
+  fullScreenControl,
+  dragPanInteraction,
+  keyboardPanInteraction,
+  doubleClickZoomInteraction,
+  pinchZoomInteraction,
+  keyboardZoomInteraction,
+  mouseWheelZoomInteraction,
+  dragZoomInteraction,
+  dragRotateInteraction,
+  pinchRotateInteraction
 
 /**
  * All of these functions can be overridden by passing in
@@ -40,12 +52,24 @@ const methods = {
   createMap () {
     map = new ol.Map({
       target: 'map',
-      controls: [
-        new ol.control.Zoom(),
-        new ol.control.Attribution({
+      interactions: ol.interaction.defaults({
+        altShiftDragRotate: false,
+        onFocusOnly: false,
+        doubleClickZoom: false,
+        keyboard: false,
+        mouseWheelZoom: false,
+        shiftDragZoom: false,
+        dragPan: false,
+        pinchRotate: false,
+        pinchZoom: false
+      }),
+      controls: ol.control.defaults({
+        zoom: false,
+        attribution: false,
+        attributionOptions: {
           collapsible: false
-        })
-      ],
+        }
+      }),
       view: new ol.View({
         center: this.center,
         zoom: this.zoom,
@@ -58,11 +82,55 @@ const methods = {
     baseSource = new ol.source.XYZ({
       url: this.baseMapUrl,
       transition: 1000,
-      attributions: ['© Mapbox © OpenStreetMap']
+      attributions: [this.baseMapAttributionText]
     })
     baseLayer = new ol.layer.Tile({
       source: baseSource
     })
+  },
+  createMapControls () {
+    zoomControl = new ol.control.Zoom()
+    attributionControl = new ol.control.Attribution({
+      collapsible: false
+    })
+    fullScreenControl = new ol.control.FullScreen()
+  },
+  setMapControls () {
+    map.getControls().clear()
+    if (this.enableZoomControl) map.addControl(zoomControl)
+    if (this.enableAttributionControl) map.addControl(attributionControl)
+    if (this.enableFullScreenControl) map.addControl(fullScreenControl)
+  },
+  createMapInteractions () {
+    dragPanInteraction = new ol.interaction.DragPan()
+    keyboardPanInteraction = new ol.interaction.KeyboardPan()
+
+    doubleClickZoomInteraction = new ol.interaction.DoubleClickZoom()
+    pinchZoomInteraction = new ol.interaction.PinchZoom()
+    keyboardZoomInteraction = new ol.interaction.KeyboardZoom()
+    mouseWheelZoomInteraction = new ol.interaction.MouseWheelZoom()
+    dragZoomInteraction = new ol.interaction.DragZoom()
+
+    dragRotateInteraction = new ol.interaction.DragRotate()
+    pinchRotateInteraction = new ol.interaction.PinchRotate()
+  },
+  setMapInteractions () {
+    map.getInteractions().clear()
+    if (this.enablePanInteraction) {
+      map.addInteraction(dragPanInteraction)
+      map.addInteraction(keyboardPanInteraction)
+    }
+    if (this.enableZoomInteraction) {
+      map.addInteraction(doubleClickZoomInteraction)
+      map.addInteraction(pinchZoomInteraction)
+      map.addInteraction(keyboardZoomInteraction)
+      map.addInteraction(mouseWheelZoomInteraction)
+      map.addInteraction(dragZoomInteraction)
+    }
+    if (this.enableRotateInteraction) {
+      map.addInteraction(dragRotateInteraction)
+      map.addInteraction(pinchRotateInteraction)
+    }
   },
   createImageIconStyle: (src, crossOrigin, size) => {
     return new ol.style.Style({
@@ -213,6 +281,12 @@ const methods = {
 
     map.addLayer(baseLayer)
 
+    this.createMapControls()
+    this.setMapControls()
+
+    this.createMapInteractions()
+    this.setMapInteractions()
+
     for (let layer of themeLayers) {
       map.addLayer(layer)
     }
@@ -235,6 +309,11 @@ const methods = {
       title: feature.get('title'),
       content: feature.get('content')
     }
+  },
+  updateBaseMapUrl () {
+    map.removeLayer(baseLayer)
+    this.createBaseLayer()
+    map.addLayer(baseLayer)
   }
 }
 
@@ -269,6 +348,34 @@ export default {
     baseMapUrl: {
       type: String,
       required: true
+    },
+    baseMapAttributionText: {
+      type: String,
+      default: '© Mapbox © OpenStreetMap'
+    },
+    enableZoomControl: {
+      type: Boolean,
+      default: true
+    },
+    enableAttributionControl: {
+      type: Boolean,
+      default: true
+    },
+    enableFullScreenControl: {
+      type: Boolean,
+      default: false
+    },
+    enablePanInteraction: {
+      type: Boolean,
+      default: true
+    },
+    enableZoomInteraction: {
+      type: Boolean,
+      default: true
+    },
+    enableRotateInteraction: {
+      type: Boolean,
+      default: false
     },
     customThemeFunction: {
       type: Function,
@@ -306,6 +413,33 @@ export default {
     },
     zoom (newZoom) {
       map.getView().setZoom(newZoom)
+    },
+    minZoom (newMinZoom) {
+      map.getView().setMinZoom(newMinZoom)
+    },
+    maxZoom (newMaxZoom) {
+      map.getView().setMaxZoom(newMaxZoom)
+    },
+    baseMapUrl (newBaseMapUrl) {
+      this.updateBaseMapUrl()
+    },
+    enableZoomControl () {
+      this.setMapControls()
+    },
+    enableAttributionControl () {
+      this.setMapControls()
+    },
+    enableFullScreenControl () {
+      this.setMapControls()
+    },
+    enablePanInteraction () {
+      this.setMapInteractions()
+    },
+    enableZoomInteraction () {
+      this.setMapInteractions()
+    },
+    enableRotateInteraction () {
+      this.setMapInteractions()
     }
   },
   mounted () {
@@ -319,42 +453,26 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  // The map should be displayed in a 16:9 aspect ratio
-  // Accomplished using this technique:
-  // https://css-tricks.com/aspect-ratio-boxes/
-  // But we can't use the technique on .yourvic-map itself, because
-  // OpenLayers uses .yourvic-map's height value to draw the map.
-  // height: 0 means no map at all. By setting height: 0 and
-  // padding-top: (9/16)% on .yourvic-map__container, the map
-  // itself can be height auto which OL picks up correctly.
-
-  $yourvic-map-aspect-ratio: (
-    xs: (8/10) * 100%,
-    s: (9/16) * 100%
-  );
-
   $yourvic-map-popup-width: rem(300px) !default; // consider increasing this
 
   .yourvic-map-core {
+    width: 100%;
+    height: 100%;
+
+    &__container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
     &__map {
       width: 100%;
       height: 100%;
-      position: absolute;
+      /*position: absolute;*/
       top: 0;
       left: 0;
       box-sizing: border-box;
       cursor: grab;
-    }
-
-    &__container {
-      position: relative;
-      height: 0;
-      // https://css-tricks.com/aspect-ratio-boxes/
-      @each $bp, $val in $yourvic-map-aspect-ratio {
-        @include rpl_breakpoint($bp) {
-          padding-top: $val;
-        }
-      }
     }
 
     &__popup {

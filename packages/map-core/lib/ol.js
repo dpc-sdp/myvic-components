@@ -16,12 +16,28 @@ import Map from 'ol/Map'
 import View from 'ol/View'
 import Feature from 'ol/Feature'
 import Overlay from 'ol/Overlay'
-import Zoom from 'ol/control/Zoom'
 import Icon from 'ol/style/Icon'
 import GeoJSON from 'ol/format/GeoJSON'
 import { bbox } from 'ol/loadingstrategy'
 import AnimatedCluster from 'ol-ext/layer/AnimatedCluster'
-import Attribution from 'ol/control/Attribution'
+import {
+  defaults as DefaultInteractions,
+  DragPan,
+  KeyboardPan,
+  DoubleClickZoom,
+  PinchZoom,
+  KeyboardZoom,
+  MouseWheelZoom,
+  DragZoom,
+  DragRotate,
+  PinchRotate
+} from 'ol/interaction'
+import {
+  defaults as DefaultControls,
+  Zoom,
+  Attribution,
+  FullScreen
+} from 'ol/control'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -50,8 +66,10 @@ const ol = {
   View: View,
   Overlay: Overlay,
   control: {
+    defaults: DefaultControls,
     Zoom,
-    Attribution
+    Attribution,
+    FullScreen
   },
   layer: {
     Tile: TileLayer,
@@ -81,7 +99,19 @@ const ol = {
   loadingstrategy: {
     bbox
   },
-  Feature: Feature
+  Feature: Feature,
+  interaction: {
+    defaults: DefaultInteractions,
+    DragPan,
+    KeyboardPan,
+    DoubleClickZoom,
+    PinchZoom,
+    KeyboardZoom,
+    MouseWheelZoom,
+    DragZoom,
+    DragRotate,
+    PinchRotate
+  }
 }
 
 export default ol
