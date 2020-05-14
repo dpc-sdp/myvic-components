@@ -37,7 +37,7 @@ export default {
     InnerChart,
     InnerHorizontalChart
   },
-  data() {
+  data () {
     return {
       componentKey: 0
     }
@@ -48,8 +48,6 @@ export default {
         datasets: [
           {
             barPercentage: 0.8,
-            //categoryPercentage: 1,
-            //maxBarThickness: 40,
             backgroundColor: styles.fillDefault,
             hoverBackgroundColor: styles.fillDefaultHover
           }
