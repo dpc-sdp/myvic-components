@@ -7,7 +7,7 @@ export default {
   decorators: [withKnobs]
 }
 
-const barChartTemplate = `<bar-chart :id="id" :title="title" :direction="direction" :data="data" :showLegend="showLegend" />`
+const barChartTemplate = `<bar-chart :id="id" :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />`
 
 const chartData = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -44,6 +44,9 @@ export const Default = () => ({
     },
     showLegend: {
       default: boolean('showLegend', false)
+    },
+    dataFormat: {
+      default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
     }
   }
 })
@@ -56,7 +59,8 @@ export const WithTitleAndLegend = () => ({
     direction: { default: () => 'horizontal' },
     title: { default: () => 'Sample Chart' },
     data: { default: () => chartData },
-    showLegend: { default: () => true }
+    showLegend: { default: () => true },
+    dataFormat: { default: () => 'normal' }
   }
 })
 
@@ -68,7 +72,8 @@ export const Vertical = () => ({
     direction: { default: () => 'vertical' },
     title: { default: () => undefined },
     data: { default: () => chartData },
-    showLegend: { default: () => false }
+    showLegend: { default: () => false },
+    dataFormat: { default: () => 'normal' }
   }
 })
 
@@ -80,6 +85,7 @@ export const DualData = () => ({
     direction: { default: () => 'horizontal' },
     title: { default: () => 'Dual Chart' },
     data: { default: () => dualChartData },
-    showLegend: { default: () => true }
+    showLegend: { default: () => true },
+    dataFormat: { default: () => 'normal' }
   }
 })

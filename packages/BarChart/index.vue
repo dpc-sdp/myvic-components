@@ -1,13 +1,15 @@
 <template>
   <div class="app-chart">
-    <inner-chart v-if="direction === 'vertical'" :key="componentKey" :chartData="chartData" :options="options" />
-    <inner-horizontal-chart v-if="direction === 'horizontal'" :key="componentKey" :chartData="chartData" :options="options" />
+    <inner-chart v-if="direction === 'vertical'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
+    <inner-horizontal-chart v-if="direction === 'horizontal'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
   </div>
 </template>
 
 <script>
 import InnerChart from './InnerChart'
 import InnerHorizontalChart from './InnerHorizontalChart'
+// eslint-disable-next-line no-unused-vars
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
 
@@ -30,6 +32,10 @@ export default {
     showLegend: {
       type: Boolean,
       default: false
+    },
+    dataFormat: {
+      type: String,
+      default: 'normal'
     }
   },
   components: {
@@ -53,10 +59,12 @@ export default {
       const options = {
         title: builder.getTitle(this.title),
         scales: {
-          xAxes: builder.getXAxes(this.direction, this.data),
-          yAxes: builder.getYAxes(this.direction, this.data)
+          xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat),
+          yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat)
         },
-        legend: builder.getLegend(this.showLegend)
+        legend: builder.getLegend(this.showLegend),
+        tooltips: builder.getTooltips(this.direction, this.data),
+        plugins: builder.getPlugin(this.dataFormat)
       }
       return options
     }

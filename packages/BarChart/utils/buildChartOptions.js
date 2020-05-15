@@ -1,5 +1,6 @@
 import styles from '../../core/styles/export.scss'
 import _merge from 'lodash.merge'
+import constants from '../../core/constants/charts'
 
 const settings = {
   dataset: {
@@ -49,6 +50,36 @@ const settings = {
       fontSize: 13,
       fontColor: styles.gridLabelColor
     }
+  },
+  tooltips: {
+    mode: 'nearest',
+    displayColors: false,
+    backgroundColor: 'white',
+    borderColor: styles.gridLineColor,
+    borderWidth: 1,
+    cornerRadius: 2,
+    xPadding: 10,
+    yPadding: 15,
+    titleFontFamily: "'Vic-Regular', 'sans-serif'",
+    titleFontSize: 12,
+    titleFontColor: styles.tooltipText,
+    titleAlign: 'center',
+    bodyFontFamily: "'Vic-Semibold', 'sans-serif'",
+    bodyFontSize: 12,
+    bodyFontColor: styles.tooltipText,
+    bodyAlign: 'center'
+  },
+  plugin: {
+    datalabels: {
+      anchor: 'end',
+      align: 'end',
+      color: styles.gridLabelColor,
+      font: {
+        size: 10,
+        family: "'Vic', 'sans-serif'",
+        weight: 700
+      }
+    }
   }
 }
 
@@ -74,6 +105,32 @@ const scaleAxis = (axis, data) => {
   return _merge({}, axis, { ticks: { suggestedMax: maxLabel } })
 }
 
+const labelAxis = (axis, style) => {
+  return _merge({}, axis, { ticks: { callback: (value) => labelValue(value, style) } })
+}
+
+const labelValue = (value, style) => {
+  switch (style) {
+    case constants.labelFormats.percentage:
+      return `${value}%`
+    case constants.labelFormats.dollar:
+      return `$${value}`
+    case constants.labelFormats.thousandDollar:
+      return `$${value}k`
+    default:
+      return value
+  }
+}
+
+const buildAxes = (isPrimary, data, dataFormat) => {
+  let axis = settings[isPrimary ? 'primaryAxis' : 'secondaryAxis']
+  if (isPrimary) {
+    axis = scaleAxis(axis, data)
+    axis = labelAxis(axis, dataFormat)
+  }
+  return [axis]
+}
+
 export default {
   getDatasetSettings: (data) => {
     const datasetSettings = []
@@ -92,18 +149,29 @@ export default {
     fontColor: styles.titleColor,
     text: title
   }),
-  getXAxes: (direction, data) => {
+  getAxes: (dimension, chartDirection, data, dataFormat) => {
+    let isPrimary
+    if (chartDirection === 'horizontal') {
+      isPrimary = dimension === 'x'
+    } else {
+      isPrimary = dimension === 'y'
+    }
+    return buildAxes(isPrimary, data, dataFormat)
+  },
+  getXAxes: (direction, data, dataFormat) => {
     let axis = settings[direction === 'horizontal' ? 'primaryAxis' : 'secondaryAxis']
     if (direction === 'horizontal') {
       axis = scaleAxis(axis, data)
     }
+    axis = labelAxis(axis, dataFormat)
     return [axis]
   },
-  getYAxes: (direction, data) => {
+  getYAxes: (direction, data, dataFormat) => {
     let axis = settings[direction === 'vertical' ? 'primaryAxis' : 'secondaryAxis']
     if (direction === 'vertical') {
       axis = scaleAxis(axis, data)
     }
+    axis = labelAxis(axis, dataFormat)
     return [axis]
   },
   getLegend: (show) => ({
@@ -116,5 +184,31 @@ export default {
       fontFamily: "'Vic', 'sans-serif'",
       fontColor: styles.legendLabelColor
     }
-  })
+  }),
+  getTooltips: (direction, data) => {
+    const labelSettings = {
+      callbacks: {
+        // use label callback to return the desired label
+        label: function (tooltipItem) {
+          return direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
+        },
+        title: function (tooltipItem) {
+          if (data.datasets.length === 1) {
+            return tooltipItem[0].label
+          } else {
+            return data.datasets[tooltipItem[0].datasetIndex].label
+          }
+        }
+      }
+    }
+    return _merge({}, settings.tooltips, labelSettings)
+  },
+  getPlugin: (dataFormat) => {
+    const dataFormatSettings = {
+      datalabels: {
+        formatter: (value) => labelValue(value, dataFormat)
+      }
+    }
+    return _merge({}, settings.plugin, dataFormatSettings)
+  }
 }
