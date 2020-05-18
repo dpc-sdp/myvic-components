@@ -34,7 +34,7 @@ exports[`YourvicStoryshots Molecules/Map Interactive Map 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
+exports[`YourvicStoryshots Molecules/Maps/Family Violence Map with family violence data 1`] = `
 <div
   class="yourvic-pofvmap"
 >
@@ -95,6 +95,7 @@ exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
        
       <div
         class="yourvic-map-core"
+        style="width: 100%; height: 100%;"
       >
          
         <div
@@ -646,7 +647,7 @@ exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Molecules/Map Map with fire data 1`] = `
+exports[`YourvicStoryshots Molecules/Maps/Fire Map with fire data 1`] = `
 <div
   class="fire-map"
 >
@@ -667,7 +668,7 @@ exports[`YourvicStoryshots Molecules/Map Map with fire data 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
+exports[`YourvicStoryshots Molecules/Maps/Free Wifi Map with free wifi data 1`] = `
 <div
   class="yourvic-map"
 >

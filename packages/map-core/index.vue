@@ -1,5 +1,5 @@
 <template>
-  <div class="yourvic-map-core" >
+  <div class="yourvic-map-core" :style="containerStyle" >
     <div
       id="map-popup"
       class="yourvic-map-core__popup ol-popup"
@@ -317,70 +317,132 @@ const methods = {
   }
 }
 
+/**
+ * YourvicMapCore provides a generic and configurable map component
+ */
 export default {
   name: 'YourvicMapCore',
   props: {
-    // Default center/zoom on state of Victoria
+    /**
+     * CSS styles that control the appearance of the container that the map is rendered into
+     */
+    containerStyle: {
+      type: Object,
+      default: function () {
+        return {
+          width: '100%',
+          height: '100%'
+        }
+      }
+    },
+    /**
+     * Array of lat/lon coordinates to center the map on
+     */
     center: {
       type: Array,
       default: () => [16136905.843820328, -4383057.013522999],
       validator: value => value.length === 2
     },
+    /**
+     * Initial map zoom level
+     */
     zoom: {
       type: Number,
       default: 7
     },
+    /**
+     * Maximum map zoom level for interactive maps
+     */
     maxZoom: {
       type: Number,
       default: 20
     },
+    /**
+     * Minimum map zoom level for interactive maps
+     */
     minZoom: {
       type: Number,
       default: 1
     },
+    /**
+     * Control whether to refresh (rerender) the map
+     */
     refreshOn: {
       type: Boolean,
       default: false
     },
+    /**
+     * TODO
+     */
     themeLayerUrl: {
       type: String
     },
+    /**
+     * URL of the XYZ tiled map service to use as a basemap
+     */
     baseMapUrl: {
       type: String,
       required: true
     },
+    /**
+     * Map attribution information to be displayed using the attribution control
+     */
     baseMapAttributionText: {
       type: String,
       default: '© Mapbox © OpenStreetMap'
     },
+    /**
+     * Enable or disable the zoom control (buttons)
+     */
     enableZoomControl: {
       type: Boolean,
       default: true
     },
+    /**
+     * Enable or disable the attribution control
+     */
     enableAttributionControl: {
       type: Boolean,
       default: true
     },
+    /**
+     * Enable or disable the full screen control (button)
+     */
     enableFullScreenControl: {
       type: Boolean,
       default: false
     },
+    /**
+     * Enable or disable the ability for users to pan the map
+     */
     enablePanInteraction: {
       type: Boolean,
       default: true
     },
+    /**
+     * Enable or disable the ability for users to zoom the map
+     */
     enableZoomInteraction: {
       type: Boolean,
       default: true
     },
+    /**
+     * Enable or disable the ability for users to rotate the map
+     */
     enableRotateInteraction: {
       type: Boolean,
       default: false
     },
+    /**
+     * TODO
+     */
     customThemeFunction: {
       type: Function,
       default: null
     },
+    /**
+     * TODO
+     */
     customMethods: {
       type: Object,
       default: function () {

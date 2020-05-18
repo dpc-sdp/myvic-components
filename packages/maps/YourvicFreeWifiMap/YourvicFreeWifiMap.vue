@@ -18,7 +18,7 @@
     <!-- 16:9 aspect ratio with height: '56.25vw'  -->
     <yourvic-map-core
       role="tabpanel"
-      :style="{height: '56.25vw'}"
+      :containerStyle="{height: '56.25vw'}"
       :center="getCenter"
       :zoom="getZoom"
       :baseMapUrl="baseMapUrl"

@@ -18,7 +18,7 @@ module.exports = process.env.CYPRESS_ENV
     ],
     env: {
       test: {
-        presets: [['@babel/preset-env', { targets: { node: 'current' } }]],
+        presets: [['@babel/preset-env', { targets: { node: 'current' } }], ['@vue/babel-preset-jsx']],
         plugins: ['require-context-hook', 'dynamic-import-node']
       }
     }

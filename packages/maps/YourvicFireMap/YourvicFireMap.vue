@@ -2,7 +2,7 @@
      <div class="fire-map">
          <!-- 16:9 aspect ratio with height: '56.25vw'  -->
          <yourvic-map-core
-           :style="{height: '56.25vw'}"
+           :containerStyle="{height: '56.25vw'}"
            :center="getCenter"
            :baseMapUrl="baseMapUrl"
            :customMethods="customMethods"
