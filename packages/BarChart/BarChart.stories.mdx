@@ -1,0 +1,138 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import BarChart from './index.vue'
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
+import _merge from 'lodash.merge'
+import { barChartTemplate, chartData, dualChartData } from './storiesConstants.js'
+
+<Meta title="Bar Chart" component={ BarChart } decorators={ [withKnobs] } />
+
+# Bar Chart
+
+<Description of={ BarChart } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-bar-chart --save
+```
+
+## Import
+
+```javascript
+import { BarChart } from '@dpc-sdp/yourvic-bar-chart'
+```
+
+## Usage
+
+```html
+<bar-chart
+  :data="data"
+/>
+```
+
+## Props
+
+<Props of={ BarChart } />
+
+### Data Format
+The data object that should contain the following keys:
+- labels: an array of values for one of the axes. In the case of a horizontal bar chart this would be the Y-axis
+- datasets: an array of objects (minimum 1 required - maximum of 4) that contain the following keys:
+  - label (String): a label for this dataset
+  - data (Array): the values for this dataset. The length of this should match the length of the labels key
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { BarChart },
+        template: barChartTemplate,
+        props: {
+          id: {
+            default: () => 'bar-chart-default'
+          },
+          direction: {
+            default: select('direction', { horizontal: 'horizontal', vertical: 'vertical' }, 'horizontal')
+          },
+          title: {
+            default: text('title', undefined)
+          },
+          data: {
+            default: object('data', chartData)
+          },
+          showLegend: {
+            default: boolean('showLegend', false)
+          },
+          dataFormat: {
+            default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## With title and legend
+
+<Preview>
+  <Story name="With title and legend">
+    {
+      {
+       components: { BarChart },
+       template: barChartTemplate,
+       props: {
+        id: { default: () => 'bar-chart-default' },
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Sample Chart' },
+        data: { default: () => chartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Vertical
+
+<Preview>
+  <Story name="Vertical">
+    {
+      {
+       components: { BarChart },
+       template: barChartTemplate,
+       props: {
+        id: { default: () => 'bar-chart-default' },
+        direction: { default: () => 'vertical' },
+        title: { default: () => undefined },
+        data: { default: () => chartData },
+        showLegend: { default: () => false },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Dual Data
+
+<Preview>
+  <Story name="Dual Data">
+    {
+      {
+       components: { BarChart },
+       template: barChartTemplate,
+       props: {
+        id: { default: () => 'bar-chart-default' },
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Dual Chart' },
+        data: { default: () => dualChartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
