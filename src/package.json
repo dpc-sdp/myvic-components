@@ -11,17 +11,17 @@
     "@dpc-sdp/ripple-global": "^1.4.0",
     "@dpc-sdp/ripple-markup": "^1.4.0",
     "@dpc-sdp/yourvic-map-core": "1.1.3",
-    "@storybook/vue": "^5.2.8",
-    "vue": "^2.6.10"
+    "@storybook/vue": "^5.3.18",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.2.1",
-    "@storybook/addon-backgrounds": "^5.2.1",
-    "@storybook/addon-docs": "^5.2.1",
-    "@storybook/addon-knobs": "^5.2.1",
-    "@storybook/addon-storyshots": "^5.2.1",
-    "@storybook/addon-viewport": "^5.2.1",
-    "@storybook/vue": "^5.2.1",
+    "@storybook/addon-a11y": "^5.3.18",
+    "@storybook/addon-backgrounds": "^5.3.18",
+    "@storybook/addon-docs": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-storyshots": "^5.3.18",
+    "@storybook/addon-viewport": "^5.3.18",
+    "@storybook/vue": "^5.3.18",
     "axe-core": "^3.2.2",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
@@ -39,7 +39,8 @@
     "url-loader": "^2.0.1",
     "vue-loader": "^15.7.0",
     "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11",
+    "@vue/babel-preset-jsx": "^1.1.2"
   },
   "browserslist": [
     "> 1%",
