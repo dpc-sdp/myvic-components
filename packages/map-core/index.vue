@@ -318,7 +318,7 @@ const methods = {
 }
 
 /**
- * YourvicMapCore provides a generic and configurable map component
+ * YourvicMapCore provides a generic and configurable map component based on OpenLayers
  */
 export default {
   name: 'YourvicMapCore',
@@ -330,6 +330,7 @@ export default {
       type: Object,
       default: function () {
         return {
+          position: 'relative',
           width: '100%',
           height: '100%'
         }
@@ -518,13 +519,13 @@ export default {
   $yourvic-map-popup-width: rem(300px) !default; // consider increasing this
 
   .yourvic-map-core {
-    width: 100%;
-    height: 100%;
 
     &__container {
-      position: relative;
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
     }
 
     &__map {

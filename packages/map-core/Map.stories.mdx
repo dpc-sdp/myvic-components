@@ -1,5 +1,6 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import { withKnobs, object, number, boolean, text } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import YourvicMapCore from './index.vue'
 
 <Meta title="Molecules/Map" component={ YourvicMapCore } decorators={ [withKnobs] } />
@@ -10,7 +11,7 @@ import YourvicMapCore from './index.vue'
 
 ## Installation
 
-```bash
+```shell
 npm install @dpc-sdp/yourvic-map-core --save
 ```
 
@@ -36,6 +37,8 @@ import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
 <Props of={ YourvicMapCore } />
 
 ## Interactive Map
+
+This example shows how to create an interactive map that fills it's parent container.
 
 <Preview>
   <Story name="Interactive Map">
@@ -64,7 +67,7 @@ import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
             )
           },
           containerStyle: {
-            default: () => object('Container Style', { height: '100vh' })
+            default: () => object('Container Style', { width: '100%', height: '100%' })
           },
           center: {
             default: () => object('Center', [16136905.843820328, -4383057.013522999])
@@ -125,44 +128,64 @@ import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
 
 ## Fixed Map
 
+This example shows how to create a fixed size map locked to a specific location and zoom level. ```containerStyle```
+can be used to control to pass CSS styles through to YourvicMapCore to give it a fixed width and height.
+
 <Preview>
   <Story name="Fixed Map">
     {
       {
        components: { YourvicMapCore },
        template: `<yourvic-map-core
-          :containerStyle="containerStyle"
-          :baseMapUrl="baseMapUrl"
-          :center="center"
-          :zoom="zoom"
+          :containerStyle="{ position: 'relative', margin: '20px', width: '400px', height: '300px', border: '1px solid black' }"
+          baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+          :center="[16138405.843820328, -4552817.013522999]"
+          :zoom="17"
           :enableZoomControl="false"
           :enableAttributionControl="false"
           :enableFullScreenControl="false"
           :enablePanInteraction="false"
           :enableZoomInteraction="false"
           :enableRotateInteraction="false"
-       />`,
-       props: {
-         baseMapUrl: {
-           default: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
-         },
-         containerStyle: {
-           default: () => object('Container Style', { margin: '20px', width: '400px', height: '300px', border: '1px solid black' })
-         },
-         center: {
-           default: () => object('Center', [16138405.843820328, -4552817.013522999])
-         },
-         zoom: {
-           default: number('Zoom', 17,
-             {
-               range: true,
-               min: 1,
-               max: 20,
-               step: 1
-             }
-           )
-         }
-       }
+       />`
+      }
+    }
+  </Story>
+</Preview>
+
+## Ripple Grid
+
+This example shows how to display a map within a Ripple Grid. ```paddingTop: '56.25%'``` is used to maintain a 16:9
+aspect ratio (padding is calculated based on the width of the element, so using paddingTop allows the height of the
+element to be tied to its width)
+
+<Preview>
+  <Story name="Ripple Grid">
+    {
+      {
+       components: { YourvicMapCore, RplContainer, RplRow, RplCol },
+       template: `
+        <RplContainer style="width: 100%">
+          <rpl-row>
+            <rpl-col cols=2>Column 1</rpl-col>
+            <rpl-col cols=8>
+              <yourvic-map-core
+                :containerStyle="{ position: 'relative', width: '100%', paddingTop: '56.25%', border: '1px solid black' }"
+                baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+                :center="[16138405.843820328, -4552817.013522999]"
+                :zoom="17"
+                :enableZoomControl="false"
+                :enableAttributionControl="false"
+                :enableFullScreenControl="false"
+                :enablePanInteraction="false"
+                :enableZoomInteraction="false"
+                :enableRotateInteraction="false"
+              />
+            </rpl-col>
+            <rpl-col cols=2>Column 3</rpl-col>
+          </rpl-row>
+        </RplContainer>
+       `
       }
     }
   </Story>

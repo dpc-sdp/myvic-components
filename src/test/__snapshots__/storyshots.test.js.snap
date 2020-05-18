@@ -3,7 +3,7 @@
 exports[`YourvicStoryshots Molecules/Map Fixed Map 1`] = `
 <div
   class="yourvic-map-core"
-  style="margin: 20px; width: 400px; height: 300px; border: 1px solid black;"
+  style="position: relative; margin: 20px; width: 400px; height: 300px; border: 1px solid black;"
 >
    
   <div
@@ -20,7 +20,7 @@ exports[`YourvicStoryshots Molecules/Map Fixed Map 1`] = `
 exports[`YourvicStoryshots Molecules/Map Interactive Map 1`] = `
 <div
   class="yourvic-map-core"
-  style="height: 100vh;"
+  style="width: 100%; height: 100%;"
 >
    
   <div
@@ -30,6 +30,52 @@ exports[`YourvicStoryshots Molecules/Map Interactive Map 1`] = `
       class="yourvic-map-core__map"
       id="map"
     />
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Molecules/Map Ripple Grid 1`] = `
+<div
+  class="rpl-container"
+  style="width: 100%;"
+>
+  <div
+    class="rpl-row"
+  >
+    <div
+      class="rpl-col rpl-col--2"
+    >
+      Column 1 
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--8"
+    >
+      <div
+        class="yourvic-map-core"
+        style="position: relative; width: 100%; padding-top: 56.25%; border: 1px solid black;"
+      >
+         
+        <div
+          class="yourvic-map-core__container"
+        >
+          <div
+            class="yourvic-map-core__map"
+            id="map"
+          />
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--2"
+    >
+      Column 3 
+      <!---->
+    </div>
   </div>
 </div>
 `;
@@ -95,7 +141,7 @@ exports[`YourvicStoryshots Molecules/Maps/Family Violence Map with family violen
        
       <div
         class="yourvic-map-core"
-        style="width: 100%; height: 100%;"
+        style="position: relative; width: 100%; height: 100%;"
       >
          
         <div
@@ -653,7 +699,7 @@ exports[`YourvicStoryshots Molecules/Maps/Fire Map with fire data 1`] = `
 >
   <div
     class="yourvic-map-core"
-    style="height: 56.25vw;"
+    style="position: relative; width: 100%; padding-top: 56.25%;"
   >
      
     <div
@@ -739,7 +785,7 @@ exports[`YourvicStoryshots Molecules/Maps/Free Wifi Map with free wifi data 1`] 
   <div
     class="yourvic-map-core"
     role="tabpanel"
-    style="height: 56.25vw;"
+    style="position: relative; width: 100%; padding-top: 56.25%;"
   >
      
     <div
