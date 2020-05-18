@@ -2,7 +2,7 @@ import _merge from 'lodash.merge'
 
 export const barChartTemplate = `
 <div style="width: 400px">
-  <bar-chart :id="id" :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+  <bar-chart :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
 </div>
 `
 export const chartData = {

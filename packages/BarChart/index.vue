@@ -19,12 +19,6 @@ import _merge from 'lodash.merge'
 export default {
   props: {
     /**
-     * Optional ID of this chart
-     */
-    id: {
-      type: String
-    },
-    /**
      * Direction of bar chart: can be 'horizontal' or 'vertical'
      */
     direction: {
