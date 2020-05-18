@@ -82,7 +82,5 @@ export default {
   @import '../core/styles/main';
   .app-chart {
     position: relative;
-    width: 400px;
-    height: 400px;
   }
 </style>

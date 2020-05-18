@@ -7,7 +7,11 @@ export default {
   decorators: [withKnobs]
 }
 
-const barChartTemplate = `<bar-chart :id="id" :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />`
+const barChartTemplate = `
+<div style="width: 400px">
+  <bar-chart :id="id" :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+</div>
+`
 
 const chartData = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June'],
