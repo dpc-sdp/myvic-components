@@ -189,7 +189,7 @@ export default {
       callbacks: {
         // use label callback to return the desired label
         label: function (tooltipItem) {
-          const value =  direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
+          const value = direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
           return labelValue(value, dataFormat)
         },
         title: function (tooltipItem) {
