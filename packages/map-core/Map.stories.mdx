@@ -48,6 +48,8 @@ This example shows how to create an interactive map that fills it's parent conta
         template: `<yourvic-map-core
           :containerStyle="containerStyle"
           :baseMapUrl="baseMapUrl"
+          :baseMapAttributions="baseMapAttributions"
+          :enableMapboxWatermark="enableMapboxWatermark"
           :center="center"
           :zoom="zoom"
           :minZoom="minZoom"
@@ -65,6 +67,15 @@ This example shows how to create an interactive map that fills it's parent conta
               'Base Map URL',
               'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
             )
+          },
+          baseMapAttributions: {
+            default: () => [
+              '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
+              '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            ]
+          },
+          enableMapboxWatermark: {
+            default: boolean('Enable Mapbox Watermark', true)
           },
           containerStyle: {
             default: () => object('Container Style', { width: '100%', height: '100%' })
@@ -139,6 +150,7 @@ can be used to control to pass CSS styles through to YourvicMapCore to give it a
        template: `<yourvic-map-core
           :containerStyle="{ position: 'relative', margin: '20px', width: '400px', height: '300px', border: '1px solid black' }"
           baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+          :enableMapboxWatermark="false"
           :center="[16138405.843820328, -4552817.013522999]"
           :zoom="17"
           :enableZoomControl="false"
@@ -172,6 +184,7 @@ element to be tied to its width)
               <yourvic-map-core
                 :containerStyle="{ position: 'relative', width: '100%', paddingTop: '56.25%', border: '1px solid black' }"
                 baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+                :enableMapboxWatermark="false"
                 :center="[16138405.843820328, -4552817.013522999]"
                 :zoom="17"
                 :enableZoomControl="false"

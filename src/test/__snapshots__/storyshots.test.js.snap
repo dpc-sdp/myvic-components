@@ -12,7 +12,9 @@ exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
     <div
       class="yourvic-map-core__map"
       id="map"
-    />
+    >
+      <!---->
+    </div>
   </div>
 </div>
 `;
@@ -29,7 +31,15 @@ exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
     <div
       class="yourvic-map-core__map"
       id="map"
-    />
+    >
+      <a
+        class="map-watermark"
+        href="http://mapbox.com/about/maps"
+        target="_blank"
+      >
+        Mapbox
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -63,7 +73,9 @@ exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
           <div
             class="yourvic-map-core__map"
             id="map"
-          />
+          >
+            <!---->
+          </div>
         </div>
       </div>
        
@@ -150,7 +162,15 @@ exports[`YourvicStoryshots Maps/Family Violence Map with family violence data 1`
           <div
             class="yourvic-map-core__map"
             id="map"
-          />
+          >
+            <a
+              class="map-watermark"
+              href="http://mapbox.com/about/maps"
+              target="_blank"
+            >
+              Mapbox
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -708,7 +728,15 @@ exports[`YourvicStoryshots Maps/Fire Map with fire data 1`] = `
       <div
         class="yourvic-map-core__map"
         id="map"
-      />
+      >
+        <a
+          class="map-watermark"
+          href="http://mapbox.com/about/maps"
+          target="_blank"
+        >
+          Mapbox
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -794,7 +822,15 @@ exports[`YourvicStoryshots Maps/Free Wifi Map with free wifi data 1`] = `
       <div
         class="yourvic-map-core__map"
         id="map"
-      />
+      >
+        <a
+          class="map-watermark"
+          href="http://mapbox.com/about/maps"
+          target="_blank"
+        >
+          Mapbox
+        </a>
+      </div>
     </div>
   </div>
 </div>
