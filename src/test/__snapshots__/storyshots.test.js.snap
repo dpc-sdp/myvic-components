@@ -1,6 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
+exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; margin: 20px; width: 400px; height: 300px; border: 1px solid black;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      class="yourvic-map-core__map"
+      id="map"
+    >
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
+<div
+  class="yourvic-map-core"
+  style="width: 100%; height: 100%;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      class="yourvic-map-core__map"
+      id="map"
+    >
+      <a
+        class="map-watermark"
+        href="http://mapbox.com/about/maps"
+        target="_blank"
+      >
+        Mapbox
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
+<div
+  class="rpl-container"
+  style="width: 100%;"
+>
+  <div
+    class="rpl-row"
+  >
+    <div
+      class="rpl-col rpl-col--2"
+    >
+      Column 1 
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--8"
+    >
+      <div
+        class="yourvic-map-core"
+        style="position: relative; width: 100%; padding-top: 56.25%; border: 1px solid black;"
+      >
+         
+        <div
+          class="yourvic-map-core__container"
+        >
+          <div
+            class="yourvic-map-core__map"
+            id="map"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--2"
+    >
+      Column 3 
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Family Violence Map with family violence data 1`] = `
 <div
   class="yourvic-pofvmap"
 >
@@ -61,6 +153,7 @@ exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
        
       <div
         class="yourvic-map-core"
+        style="position: relative; width: 100%; height: 100%;"
       >
          
         <div
@@ -69,7 +162,15 @@ exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
           <div
             class="yourvic-map-core__map"
             id="map"
-          />
+          >
+            <a
+              class="map-watermark"
+              href="http://mapbox.com/about/maps"
+              target="_blank"
+            >
+              Mapbox
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -612,12 +713,13 @@ exports[`YourvicStoryshots Molecules/Map Map with family violence data 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Molecules/Map Map with fire data 1`] = `
+exports[`YourvicStoryshots Maps/Fire Map with fire data 1`] = `
 <div
   class="fire-map"
 >
   <div
     class="yourvic-map-core"
+    style="position: relative; width: 100%; padding-top: 56.25%;"
   >
      
     <div
@@ -626,13 +728,21 @@ exports[`YourvicStoryshots Molecules/Map Map with fire data 1`] = `
       <div
         class="yourvic-map-core__map"
         id="map"
-      />
+      >
+        <a
+          class="map-watermark"
+          href="http://mapbox.com/about/maps"
+          target="_blank"
+        >
+          Mapbox
+        </a>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
+exports[`YourvicStoryshots Maps/Free Wifi Map with free wifi data 1`] = `
 <div
   class="yourvic-map"
 >
@@ -703,6 +813,7 @@ exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
   <div
     class="yourvic-map-core"
     role="tabpanel"
+    style="position: relative; width: 100%; padding-top: 56.25%;"
   >
      
     <div
@@ -711,24 +822,16 @@ exports[`YourvicStoryshots Molecules/Map Map with free wifi data 1`] = `
       <div
         class="yourvic-map-core__map"
         id="map"
-      />
+      >
+        <a
+          class="map-watermark"
+          href="http://mapbox.com/about/maps"
+          target="_blank"
+        >
+          Mapbox
+        </a>
+      </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`YourvicStoryshots Molecules/Map Map with no data 1`] = `
-<div
-  class="yourvic-map-core"
->
-   
-  <div
-    class="yourvic-map-core__container"
-  >
-    <div
-      class="yourvic-map-core__map"
-      id="map"
-    />
   </div>
 </div>
 `;
