@@ -1,0 +1,205 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import { withKnobs, object, number, boolean, text } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import YourvicMapCore from './index.vue'
+
+<Meta title="Maps/Core" component={ YourvicMapCore } decorators={ [withKnobs] } />
+
+# Map Core
+
+<Description of={ YourvicMapCore } type='docgen' />
+
+## Installation
+
+```shell
+npm install @dpc-sdp/yourvic-map-core --save
+```
+
+## Import
+
+```javascript
+import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
+```
+
+## Usage
+
+```html
+<yourvic-map-core
+  :style="{height: '400px'}"
+  :baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}"
+  :center="[16136905.843820328, -4383057.013522999]"
+  :zoom="7"
+/>
+```
+
+## Props
+
+<Props of={ YourvicMapCore } />
+
+## Interactive Map
+
+This example shows how to create an interactive map that fills it's parent container.
+
+<Preview>
+  <Story name="Interactive Map">
+    {
+      {
+        components: { YourvicMapCore },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :baseMapUrl="baseMapUrl"
+          :baseMapAttributions="baseMapAttributions"
+          :enableMapboxWatermark="enableMapboxWatermark"
+          :center="center"
+          :zoom="zoom"
+          :minZoom="minZoom"
+          :maxZoom="maxZoom"
+          :enableZoomControl="enableZoomControl"
+          :enableAttributionControl="enableAttributionControl"
+          :enableFullScreenControl="enableFullScreenControl"
+          :enablePanInteraction="enablePanInteraction"
+          :enableZoomInteraction="enableZoomInteraction"
+          :enableRotateInteraction="enableRotateInteraction"
+        />`,
+        props: {
+          baseMapUrl: {
+            default: text(
+              'Base Map URL',
+              'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+            )
+          },
+          baseMapAttributions: {
+            default: () => [
+              '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
+              '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            ]
+          },
+          enableMapboxWatermark: {
+            default: boolean('Enable Mapbox Watermark', true)
+          },
+          containerStyle: {
+            default: () => object('Container Style', { width: '100%', height: '100%' })
+          },
+          center: {
+            default: () => object('Center', [16136905.843820328, -4383057.013522999])
+          },
+          zoom: {
+            default: number('Zoom', 7,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              }
+            )
+          },
+          minZoom: {
+            default: number('Min Zoom', 1,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              }
+            )
+          },
+          maxZoom: {
+            default: number('Max Zoom', 20,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              }
+            )
+          },
+          enableZoomControl: {
+            default: boolean('Enable Zoom Control', true)
+          },
+          enableAttributionControl: {
+            default: boolean('Enable Attribution Control', true)
+          },
+          enableFullScreenControl: {
+            default: boolean('Enable Full Screen Control', false)
+          },
+          enablePanInteraction: {
+            default: boolean('Enable Pan Interaction', true)
+          },
+          enableZoomInteraction: {
+            default: boolean('Enable Zoom Interaction', true)
+          },
+          enableRotateInteraction: {
+            default: boolean('Enable Rotate Interaction', false)
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Fixed Map
+
+This example shows how to create a fixed size map locked to a specific location and zoom level. ```containerStyle```
+can be used to control to pass CSS styles through to YourvicMapCore to give it a fixed width and height.
+
+<Preview>
+  <Story name="Fixed Map">
+    {
+      {
+       components: { YourvicMapCore },
+       template: `<yourvic-map-core
+          :containerStyle="{ position: 'relative', margin: '20px', width: '400px', height: '300px', border: '1px solid black' }"
+          baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+          :enableMapboxWatermark="false"
+          :center="[16138405.843820328, -4552817.013522999]"
+          :zoom="17"
+          :enableZoomControl="false"
+          :enableAttributionControl="false"
+          :enableFullScreenControl="false"
+          :enablePanInteraction="false"
+          :enableZoomInteraction="false"
+          :enableRotateInteraction="false"
+       />`
+      }
+    }
+  </Story>
+</Preview>
+
+## Ripple Grid
+
+This example shows how to display a map within a Ripple Grid. ```paddingTop: '56.25%'``` is used to maintain a 16:9
+aspect ratio (padding is calculated based on the width of the element, so using paddingTop allows the height of the
+element to be tied to its width)
+
+<Preview>
+  <Story name="Ripple Grid">
+    {
+      {
+       components: { YourvicMapCore, RplContainer, RplRow, RplCol },
+       template: `
+        <RplContainer style="width: 100%">
+          <rpl-row>
+            <rpl-col cols=2>Column 1</rpl-col>
+            <rpl-col cols=8>
+              <yourvic-map-core
+                :containerStyle="{ position: 'relative', width: '100%', paddingTop: '56.25%', border: '1px solid black' }"
+                baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+                :enableMapboxWatermark="false"
+                :center="[16138405.843820328, -4552817.013522999]"
+                :zoom="17"
+                :enableZoomControl="false"
+                :enableAttributionControl="false"
+                :enableFullScreenControl="false"
+                :enablePanInteraction="false"
+                :enableZoomInteraction="false"
+                :enableRotateInteraction="false"
+              />
+            </rpl-col>
+            <rpl-col cols=2>Column 3</rpl-col>
+          </rpl-row>
+        </RplContainer>
+       `
+      }
+    }
+  </Story>
+</Preview>

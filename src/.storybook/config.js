@@ -15,17 +15,21 @@ addDecorator(withA11y)
 addParameters({
   docs: {
     // Set a smaller default height.
-    //iframeHeight: '60px',
+    // iframeHeight: '60px',
     // Disable Docs globally for now until we got time to update them.
     // We are still able to add Docs in component level.
     // https://github.com/storybookjs/storybook/blob/next/addons/docs/docs/docspage.md#replacing-docspage
-    //page: null
+    // page: null
   },
   backgrounds: [
     // We need a story background color which is different with all SDP theme color,
     // so we can tell if a component has the right background color.
     { name: 'light', value: '#edfafc', default: true }
   ],
+  options: {
+    storySort: (a, b) =>
+      a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+  },
 })
 
 // Install Ripple Global plugin
