@@ -64,6 +64,9 @@ export default {
   },
   computed: {
     chartData: function () {
+      if (!this.data) {
+        return null
+      }
       const chartSettings = {
         datasets: builder.getDatasetSettings(this.data)
       }
@@ -71,6 +74,9 @@ export default {
       return chartData
     },
     options: function () {
+      if (!this.data) {
+        return null
+      }
       const options = {
         title: builder.getTitle(this.title),
         scales: {
@@ -78,7 +84,7 @@ export default {
           yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat)
         },
         legend: builder.getLegend(this.showLegend),
-        tooltips: builder.getTooltips(this.direction, this.data),
+        tooltips: builder.getTooltips(this.direction, this.data, this.dataFormat),
         plugins: builder.getPlugin(this.dataFormat)
       }
       return options

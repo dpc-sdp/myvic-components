@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/ripple-event --save
+npm install @dpc-sdp/yourvic-bar-chart --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,10 +16,8 @@ npm install @dpc-sdp/ripple-event --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/ripple-event
-├── @dpc-sdp/ripple-button
-├── @dpc-sdp/ripple-card
-└── @dpc-sdp/ripple-global
+@dpc-sdp/yourvic-bar-chart
+├── @dpc-sdp/core
 ```
 
 --------------------------------------------------------------------------------
@@ -27,14 +25,8 @@ npm install @dpc-sdp/ripple-event --save
 ## Import
 
 ```js
-import { RplLatestEvents } from '@dpc-sdp/ripple-event'
+import BarChart from '@dpc-sdp/yourvic-bar-chart'
 ```
-
---------------------------------------------------------------------------------
-
-## Usage and Tests
-
-See [Storybook/Organisms/Event/Latest Events](https://ripple.sdp.vic.gov.au/?path=/story/organisms-event--latest-events).
 
 --------------------------------------------------------------------------------
 

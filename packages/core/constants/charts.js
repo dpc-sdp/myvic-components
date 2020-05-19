@@ -4,5 +4,6 @@ export default {
     percentage: 'percentage',
     dollar: 'dollar',
     thousandDollar: 'thousandDollar'
-  }
+  },
+  datasetOrder: ['primary', 'secondary', 'tertiary', 'quaternary']
 }

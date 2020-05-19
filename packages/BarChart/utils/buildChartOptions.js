@@ -22,7 +22,6 @@ const settings = {
     backgroundColor: styles.fillQuaternary,
     hoverBackgroundColor: styles.fillQuaternaryHover
   },
-  datasetOrder: ['primary', 'secondary', 'tertiary', 'quaternary'],
   primaryAxis: {
     gridLines: {
       display: true,
@@ -135,7 +134,7 @@ export default {
   getDatasetSettings: (data) => {
     const datasetSettings = []
     for (const [index, value] of data.datasets.entries()) {
-      let datasetType = settings.datasetOrder[index]
+      let datasetType = constants.datasetOrder[index]
       let finalSettings = _merge({}, value, settings.dataset, settings[datasetType + 'Dataset'])
       datasetSettings.push(finalSettings)
     }
@@ -185,12 +184,13 @@ export default {
       fontColor: styles.legendLabelColor
     }
   }),
-  getTooltips: (direction, data) => {
+  getTooltips: (direction, data, dataFormat) => {
     const labelSettings = {
       callbacks: {
         // use label callback to return the desired label
         label: function (tooltipItem) {
-          return direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
+          const value =  direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
+          return labelValue(value, dataFormat)
         },
         title: function (tooltipItem) {
           if (data.datasets.length === 1) {
