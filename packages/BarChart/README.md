@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/ripple-bar-chart
+# @dpc-sdp/yourvic-bar-chart
 
 > A components for displaying a bar chart.
 
