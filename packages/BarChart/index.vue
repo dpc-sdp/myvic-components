@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../core/styles/main';
+  @import '../global/styles/main';
   .app-chart {
     position: relative;
   }

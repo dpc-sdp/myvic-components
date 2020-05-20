@@ -1,6 +1,6 @@
-import styles from '../../yourvictoria-global/styles/export.scss'
+import styles from '../../global/styles/export.scss'
 import _merge from 'lodash.merge'
-import constants from '../../yourvictoria-global/constants/charts'
+import constants from '../../global/constants/charts'
 
 const settings = {
   dataset: {
