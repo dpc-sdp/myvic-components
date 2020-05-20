@@ -75,7 +75,7 @@ const settings = {
       color: styles.gridLabelColor,
       font: {
         size: 10,
-        family: "'Vic', 'sans-serif'",
+        family: "'Vic-Bold', 'sans-serif'",
         weight: 700
       }
     }
@@ -143,7 +143,7 @@ export default {
   getTitle: (title) => ({
     display: !!title,
     fontSize: 13,
-    fontFamily: "'Vic', 'sans-serif'",
+    fontFamily: "'Vic-Bold', 'sans-serif'",
     fontStyle: 'bold',
     fontColor: styles.titleColor,
     text: title
@@ -180,7 +180,7 @@ export default {
     labels: {
       boxWidth: 14,
       fontSize: 13,
-      fontFamily: "'Vic', 'sans-serif'",
+      fontFamily: "'Vic-Medium', 'sans-serif'",
       fontColor: styles.legendLabelColor
     }
   }),

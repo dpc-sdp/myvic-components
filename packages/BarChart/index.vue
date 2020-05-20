@@ -100,7 +100,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../global/styles/main';
+  @import "~@dpc-sdp/ripple-global/scss/settings";
+  @import "~@dpc-sdp/ripple-global/scss/tools";
   .app-chart {
     position: relative;
   }
