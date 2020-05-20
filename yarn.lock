@@ -1688,7 +1688,7 @@
     "@dpc-sdp/ripple-icon" "1.8.0"
     "@dpc-sdp/ripple-link" "1.8.0"
 
-"@dpc-sdp/ripple-global@1.4.0", "@dpc-sdp/ripple-global@^1.4.0":
+"@dpc-sdp/ripple-global@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.4.0.tgz#da730bb959444f111a885c3899c23f77a7e698ed"
   integrity sha512-YlEymGyRYrZn2uGsBShArtUYxM/XEv49XmRD/Eg+Yi+j2PYo+WSKvGKgIDBJVM0xWCTPkL0Bw0HSp/Walv7dXg==
@@ -1698,7 +1698,7 @@
     object-fit-images "^3.2.3"
     vue-focus "^2.1.0"
 
-"@dpc-sdp/ripple-global@1.8.0", "@dpc-sdp/ripple-global@^1.8.0":
+"@dpc-sdp/ripple-global@1.8.0", "@dpc-sdp/ripple-global@^1.4.0", "@dpc-sdp/ripple-global@^1.8.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.8.0.tgz#7a30727865d7601686743b174bc2617c7b10ece9"
   integrity sha512-3KDrI2gZ+gE6k2XAdMFOwU7UYcSFjdUgSKddHWJFZDMBJ6b/Cip98Ux+8TPzt1Mqz1NXhA9TyKtY3plvC8/SrQ==
