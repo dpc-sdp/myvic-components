@@ -1,5 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`YourvicStoryshots Bar Chart Default 1`] = `
+<div
+  style="width: 400px;"
+>
+  <div
+    class="app-chart"
+  >
+    <!---->
+     
+    <div
+      class=""
+      dataformat="normal"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="horizontalbar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
+<div
+  style="width: 400px;"
+>
+  <div
+    class="app-chart"
+  >
+    <!---->
+     
+    <div
+      class=""
+      dataformat="normal"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="horizontalbar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
+<div
+  style="width: 400px;"
+>
+  <div
+    class="app-chart"
+  >
+    <div
+      class=""
+      dataformat="normal"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="bar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
+<div
+  style="width: 400px;"
+>
+  <div
+    class="app-chart"
+  >
+    <!---->
+     
+    <div
+      class=""
+      dataformat="normal"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="horizontalbar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
 <div
   class="yourvic-map-core"
