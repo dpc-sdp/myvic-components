@@ -17,7 +17,7 @@ npm install @dpc-sdp/yourvic-bar-chart --save
 
 ```shell
 @dpc-sdp/yourvic-bar-chart
-├── @dpc-sdp/core
+├── @dpc-sdp/yourvic-global
 ```
 
 --------------------------------------------------------------------------------
