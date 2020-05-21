@@ -9,7 +9,7 @@
         :mapElement="$refs.map" />
     </div>
     <div class="yourvic-map-core__container">
-      <div class="yourvic-map-core__map" id="map" ref="map">
+      <div class="yourvic-map-core__map" id="map" ref="map" :tabindex="tabIndex">
         <a
           v-if="enableMapboxWatermark"
           href="http://mapbox.com/about/maps"
@@ -443,6 +443,13 @@ export default {
       default: true
     },
     /**
+     * Set a specific tab index for users interacting with the map via the keyboard
+     */
+    tabIndex: {
+      type: Number,
+      default: 0
+    },
+    /**
      * Enable or disable the ability for users to rotate the map
      */
     enableRotateInteraction: {
@@ -554,6 +561,10 @@ export default {
       left: 0;
       box-sizing: border-box;
       cursor: grab;
+    }
+
+    &__map:focus {
+      outline: rpl-color('dark_primary') solid 2px;
     }
 
     &__popup {
