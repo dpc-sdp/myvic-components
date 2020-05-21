@@ -1,30 +1,19 @@
 <template>
-  <div class="yourvic-bar-chart">
-    <inner-chart v-if="direction === 'vertical'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
-    <inner-horizontal-chart v-if="direction === 'horizontal'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
+  <div class="yourvic-line-chart">
+    <inner-chart :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
   </div>
 </template>
 
 <script>
 import InnerChart from './InnerChart'
-import InnerHorizontalChart from './InnerHorizontalChart'
-// eslint-disable-next-line no-unused-vars
-import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
 
 /**
- * YourvicBarChart provides a generic and configurable bar chart component
+ * YourvicLineChart provides a generic and configurable line chart component
  */
 export default {
   props: {
-    /**
-     * Direction of bar chart: can be 'horizontal' or 'vertical'
-     */
-    direction: {
-      type: String,
-      default: 'horizontal'
-    },
     /**
      * Title that appears above the chart. If this is null then the title and its container will not render at all
      */
@@ -54,8 +43,7 @@ export default {
     }
   },
   components: {
-    InnerChart,
-    InnerHorizontalChart
+    InnerChart
   },
   data () {
     return {
@@ -80,12 +68,12 @@ export default {
       const options = {
         title: builder.getTitle(this.title),
         scales: {
-          xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat),
-          yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat)
+          xAxes: builder.getAxes('x', 'vertical', this.data, this.dataFormat),
+          yAxes: builder.getAxes('y', 'vertical', this.data, this.dataFormat)
         },
         legend: builder.getLegend(this.showLegend),
-        tooltips: builder.getTooltips(this.direction, this.data, this.dataFormat),
-        plugins: builder.getPlugin(this.dataFormat)
+        tooltips: builder.getTooltips('vertical', this.data, this.dataFormat),
+        plugins: { datalabels: { display: false } }
       }
       return options
     }
@@ -102,7 +90,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
-  .yourvic-bar-chart {
+  .yourvic-line-chart {
     position: relative;
   }
 </style>

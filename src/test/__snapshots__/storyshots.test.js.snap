@@ -5,7 +5,7 @@ exports[`YourvicStoryshots Bar Chart Default 1`] = `
   style="width: 400px;"
 >
   <div
-    class="app-chart"
+    class="yourvic-bar-chart"
   >
     <!---->
      
@@ -30,7 +30,7 @@ exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
   style="width: 400px;"
 >
   <div
-    class="app-chart"
+    class="yourvic-bar-chart"
   >
     <!---->
      
@@ -55,7 +55,7 @@ exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
   style="width: 400px;"
 >
   <div
-    class="app-chart"
+    class="yourvic-bar-chart"
   >
     <div
       class=""
@@ -80,7 +80,7 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
   style="width: 400px;"
 >
   <div
-    class="app-chart"
+    class="yourvic-bar-chart"
   >
     <!---->
      
@@ -92,6 +92,75 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
         class="chartjs-render-monitor"
         height="0"
         id="horizontalbar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Line Chart Default 1`] = `
+<div
+  style="width: 400px;"
+>
+  <div
+    class="yourvic-line-chart"
+  >
+    <div
+      class=""
+      dataformat="normal"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="line-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
+<div
+  style="width: 400px;"
+>
+  <div
+    class="yourvic-line-chart"
+  >
+    <div
+      class=""
+      dataformat="normal"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="line-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
+<div
+  style="width: 400px;"
+>
+  <div
+    class="yourvic-line-chart"
+  >
+    <div
+      class=""
+      dataformat="normal"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="line-chart"
         style="display: block;"
         width="0"
       />

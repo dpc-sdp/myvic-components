@@ -4,23 +4,36 @@ import constants from '../../global/constants/charts'
 
 const settings = {
   dataset: {
-    barPercentage: 0.8
+    borderJoinStyle: 'miter',
+    borderWidth: 2,
+    hoverBorderWidth: 4,
+    fill: false,
+    lineTension: 0,
+    pointBorderWidth: 1,
+    pointHitRadius: 15,
+    pointHoverBorderWidth: 8,
+    pointHoverRadius: 5,
+    pointRadius: 4
   },
   primaryDataset: {
-    backgroundColor: styles.fillDefault,
-    hoverBackgroundColor: styles.fillDefaultHover
+    borderColor: styles.fillDefault,
+    pointBackgroundColor: styles.fillDefault,
+    hoverBorderColor: styles.fillDefaultHoverLight
   },
   secondaryDataset: {
-    backgroundColor: styles.fillSecondary,
-    hoverBackgroundColor: styles.fillSecondaryHover
+    borderColor: styles.fillSecondary,
+    pointBackgroundColor: styles.fillSecondary,
+    hoverBorderColor: styles.fillSecondaryHoverLight
   },
   tertiaryDataset: {
-    backgroundColor: styles.fillTertiary,
-    hoverBackgroundColor: styles.fillTertiaryHover
+    borderColor: styles.fillTertiary,
+    pointBackgroundColor: styles.fillTertiary,
+    hoverBorderColor: styles.fillTertiaryHoverLight
   },
   quaternaryDataset: {
-    backgroundColor: styles.fillQuaternary,
-    hoverBackgroundColor: styles.fillQuaternaryHover
+    borderColor: styles.fillQuaternary,
+    pointBackgroundColor: styles.fillQuaternary,
+    hoverBorderColor: styles.fillQuaternaryHoverLight
   },
   primaryAxis: {
     gridLines: {
@@ -41,7 +54,10 @@ const settings = {
   },
   secondaryAxis: {
     gridLines: {
-      display: false
+      display: true,
+      drawOnChartArea: false,
+      offsetGridLines: true,
+      drawTicks: true
     },
     ticks: {
       padding: 5,
@@ -52,6 +68,7 @@ const settings = {
   },
   tooltips: {
     mode: 'nearest',
+    intersect: false,
     displayColors: false,
     backgroundColor: 'white',
     borderColor: styles.gridLineColor,
@@ -67,18 +84,6 @@ const settings = {
     bodyFontSize: 12,
     bodyFontColor: styles.tooltipText,
     bodyAlign: 'center'
-  },
-  plugin: {
-    datalabels: {
-      anchor: 'end',
-      align: 'end',
-      color: styles.gridLabelColor,
-      font: {
-        size: 10,
-        family: "'Vic-Bold', 'sans-serif'",
-        weight: 700
-      }
-    }
   }
 }
 
@@ -204,13 +209,5 @@ export default {
       }
     }
     return _merge({}, settings.tooltips, labelSettings)
-  },
-  getPlugin: (dataFormat) => {
-    const dataFormatSettings = {
-      datalabels: {
-        formatter: (value) => labelValue(value, dataFormat)
-      }
-    }
-    return _merge({}, settings.plugin, dataFormatSettings)
   }
 }
