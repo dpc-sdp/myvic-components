@@ -173,6 +173,7 @@ export default {
     axis = labelAxis(axis, dataFormat)
     return [axis]
   },
+  // TODO: this might later need to be moved to the global package if it's similar across charts (see comment on story MYVIC-72)
   getLegend: (show) => ({
     display: show,
     position: 'bottom',
@@ -184,6 +185,7 @@ export default {
       fontColor: styles.legendLabelColor
     }
   }),
+  // TODO: this might later need to be moved to the global package if it's similar across charts (see comment on story MYVIC-72)
   getTooltips: (direction, data, dataFormat) => {
     const labelSettings = {
       callbacks: {

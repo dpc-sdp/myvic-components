@@ -1,5 +1,5 @@
 <template>
-  <div class="app-chart">
+  <div class="yourvic-bar-chart">
     <inner-chart v-if="direction === 'vertical'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
     <inner-horizontal-chart v-if="direction === 'horizontal'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
   </div>
@@ -102,7 +102,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
-  .app-chart {
+  .yourvic-bar-chart {
     position: relative;
   }
 </style>

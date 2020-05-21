@@ -1,5 +1,5 @@
 <template>
-  <div class="app-chart">
+  <div class="yourvic-line-chart">
     <inner-chart :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
   </div>
 </template>
@@ -72,7 +72,8 @@ export default {
           yAxes: builder.getAxes('y', 'vertical', this.data, this.dataFormat)
         },
         legend: builder.getLegend(this.showLegend),
-        tooltips: builder.getTooltips('vertical', this.data, this.dataFormat)
+        tooltips: builder.getTooltips('vertical', this.data, this.dataFormat),
+        plugins: { datalabels: { display: false } }
       }
       return options
     }
@@ -89,7 +90,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
-  .app-chart {
+  .yourvic-line-chart {
     position: relative;
   }
 </style>
