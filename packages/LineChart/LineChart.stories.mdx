@@ -1,0 +1,109 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import LineChart from './index.vue'
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
+import _merge from 'lodash.merge'
+import { lineChartTemplate, chartData, multiChartData } from './storiesConstants.js'
+
+<Meta title="Line Chart" component={ LineChart } decorators={ [withKnobs] } />
+
+# Line Chart
+
+<Description of={ LineChart } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-line-chart --save
+```
+
+## Import
+
+```javascript
+import { LineChart } from '@dpc-sdp/yourvic-line-chart'
+```
+
+## Usage
+
+```html
+<line-chart
+  :data="data"
+/>
+```
+
+## Props
+
+<Props of={ LineChart } />
+
+### Data Format
+The data object that should contain the following keys:
+- labels: an array of values for one of the axes. In the case of a horizontal line chart this would be the Y-axis
+- datasets: an array of objects (minimum 1 required - maximum of 4) that contain the following keys:
+  - label (String): a label for this dataset
+  - data (Array): the values for this dataset. The length of this should match the length of the labels key
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { LineChart },
+        template: lineChartTemplate,
+        props: {
+          title: {
+            default: text('title', undefined)
+          },
+          data: {
+            default: object('data', chartData)
+          },
+          showLegend: {
+            default: boolean('showLegend', false)
+          },
+          dataFormat: {
+            default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## With title and legend
+
+<Preview>
+  <Story name="With title and legend">
+    {
+      {
+       components: { LineChart },
+       template: lineChartTemplate,
+       props: {
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Sample Chart' },
+        data: { default: () => chartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Multiple Datasets
+
+<Preview>
+  <Story name="Multiple Datasets">
+    {
+      {
+       components: { LineChart },
+       template: lineChartTemplate,
+       props: {
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Multiple Datasets' },
+        data: { default: () => multiChartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
