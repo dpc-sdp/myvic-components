@@ -181,6 +181,7 @@ exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
     <div
       class="yourvic-map-core__map"
       id="map"
+      tabindex="0"
     >
       <!---->
     </div>
@@ -200,6 +201,7 @@ exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
     <div
       class="yourvic-map-core__map"
       id="map"
+      tabindex="0"
     >
       <a
         class="map-watermark"
@@ -242,6 +244,7 @@ exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
           <div
             class="yourvic-map-core__map"
             id="map"
+            tabindex="0"
           >
             <!---->
           </div>
@@ -331,6 +334,7 @@ exports[`YourvicStoryshots Maps/Family Violence Map with family violence data 1`
           <div
             class="yourvic-map-core__map"
             id="map"
+            tabindex="0"
           >
             <a
               class="map-watermark"
@@ -897,6 +901,7 @@ exports[`YourvicStoryshots Maps/Fire Map with fire data 1`] = `
       <div
         class="yourvic-map-core__map"
         id="map"
+        tabindex="0"
       >
         <a
           class="map-watermark"
@@ -991,6 +996,7 @@ exports[`YourvicStoryshots Maps/Free Wifi Map with free wifi data 1`] = `
       <div
         class="yourvic-map-core__map"
         id="map"
+        tabindex="0"
       >
         <a
           class="map-watermark"
