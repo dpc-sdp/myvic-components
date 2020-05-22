@@ -85,7 +85,8 @@ export default {
         maintainAspectRatio: false,
         title: builder.getTitle(this.title),
         legend: { display: false },
-        tooltips: builder.getTooltips(this.dataFormat)
+        tooltips: builder.getTooltips(this.dataFormat),
+        plugins: { datalabels: { display: false } }
       }
       return options
     }
