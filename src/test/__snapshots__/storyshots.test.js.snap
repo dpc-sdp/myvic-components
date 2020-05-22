@@ -1,45 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`YourvicStoryshots Atoms | Global Divider 1`] = `
-<hr
-  class="rpl-divider"
-/>
-`;
-
-exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in dev mode 1`] = `
-<ol
-  class="rpl-dev-error"
->
-  <li>
-    
-    Something wrong
-  
-  </li>
-  <li>
-    
-    Another error
-  
-  </li>
-</ol>
-`;
-
-exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`] = `
-<ol
-  class="rpl-dev-error"
->
-  <li>
-    
-    Something wrong
-  
-  </li>
-  <li>
-    
-    Another error
-  
-  </li>
-</ol>
-`;
-
 exports[`YourvicStoryshots Bar Chart Default 1`] = `
 <div
   style="width: 400px;"
