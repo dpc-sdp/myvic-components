@@ -1,6 +1,7 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import BarChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
 import { barChartTemplate, chartData, dualChartData } from './storiesConstants.js'
 
@@ -48,7 +49,11 @@ The data object that should contain the following keys:
     {
       {
         components: { BarChart },
-        template: barChartTemplate,
+        template: `
+          <div :style="divStyle">
+            <bar-chart :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+          </div>
+        `,
         props: {
           direction: {
             default: select('direction', { horizontal: 'horizontal', vertical: 'vertical' }, 'horizontal')
@@ -64,6 +69,9 @@ The data object that should contain the following keys:
           },
           dataFormat: {
             default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+          },
+          divStyle: {
+            default: () => object('divStyle', { width: '400px' })
           }
         }
       }
@@ -125,6 +133,38 @@ The data object that should contain the following keys:
         data: { default: () => dualChartData },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Ripple Grid
+
+<Preview>
+  <Story name="Ripple Grid">
+    {
+      {
+       components: { BarChart, RplContainer, RplRow, RplCol },
+       template: `
+        <RplContainer style="width: 100%">
+          <rpl-row>
+            <rpl-col cols=1></rpl-col>
+            <rpl-col cols=10>
+              <div style="width: 100%; height: 100vh">
+                <bar-chart :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+              </div>
+            </rpl-col>
+            <rpl-col cols=1></rpl-col>
+          </rpl-row>
+        </RplContainer>
+       `,
+       props: {
+         direction: { default: () => 'horizontal' },
+         title: { default: () => 'Ripple Grid Chart' },
+         data: { default: () => dualChartData },
+         showLegend: { default: () => true },
+         dataFormat: { default: () => 'normal' }
        }
       }
     }
