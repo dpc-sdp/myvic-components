@@ -1,6 +1,12 @@
 <template>
   <div class="yourvic-treemap-chart">
-    <canvas :id="componentKey" class="yourvic-treemap-chart-canvas"></canvas>
+    <canvas
+      :id="componentKey"
+      class="yourvic-treemap-chart-canvas"
+      :tabIndex="tabIndex"
+      role="img"
+      :aria-label="ariaLabel"
+    />
   </div>
 </template>
 
@@ -59,6 +65,20 @@ export default {
     dataFormat: {
       type: String,
       default: 'normal'
+    },
+    /**
+     * Customise the chart tab index
+     */
+    tabIndex: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * Customise the chart aria label
+     */
+    ariaLabel: {
+      type: String,
+      default: 'Tree Map Chart'
     }
   },
   components: {},

@@ -1,6 +1,15 @@
 <template>
   <div class="yourvic-line-chart">
-    <inner-chart :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" :styles="chartContainerStyles" />
+    <inner-chart
+      :key="componentKey"
+      :chartData="chartData"
+      :options="options"
+      :dataFormat="dataFormat"
+      :styles="chartContainerStyles"
+      :tabIndex="tabIndex"
+      role="img"
+      :aria-label="ariaLabel"
+    />
   </div>
 </template>
 
@@ -40,6 +49,20 @@ export default {
     dataFormat: {
       type: String,
       default: 'normal'
+    },
+    /**
+     * Customise the chart tab index
+     */
+    tabIndex: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * Customise the chart aria label
+     */
+    ariaLabel: {
+      type: String,
+      default: 'Line Chart'
     }
   },
   components: {

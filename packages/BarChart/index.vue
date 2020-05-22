@@ -1,7 +1,27 @@
 <template>
   <div class="yourvic-bar-chart">
-    <inner-chart v-if="direction === 'vertical'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" :styles="chartContainerStyles"/>
-    <inner-horizontal-chart v-if="direction === 'horizontal'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" :styles="chartContainerStyles"/>
+    <inner-chart
+      v-if="direction === 'vertical'"
+      :key="componentKey"
+      :chartData="chartData"
+      :options="options"
+      :dataFormat="dataFormat"
+      :styles="chartContainerStyles"
+      :tabIndex="tabIndex"
+      role="img"
+      :aria-label="ariaLabel"
+    />
+    <inner-horizontal-chart
+      v-if="direction === 'horizontal'"
+      :key="componentKey"
+      :chartData="chartData"
+      :options="options"
+      :dataFormat="dataFormat"
+      :styles="chartContainerStyles"
+      :tabIndex="tabIndex"
+      role="img"
+      :aria-label="ariaLabel"
+    />
   </div>
 </template>
 
@@ -51,6 +71,20 @@ export default {
     dataFormat: {
       type: String,
       default: 'normal'
+    },
+    /**
+     * Customise the chart tab index
+     */
+    tabIndex: {
+      type: Number,
+      default: 0
+    },
+    /**
+     *  Customise the chart aria label
+     */
+    ariaLabel: {
+      type: String,
+      default: 'Bar Chart'
     }
   },
   components: {

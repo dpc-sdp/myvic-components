@@ -9,7 +9,7 @@
         :mapElement="$refs.map" />
     </div>
     <div class="yourvic-map-core__container">
-      <div class="yourvic-map-core__map" id="map" ref="map" :tabindex="tabIndex">
+      <div class="yourvic-map-core__map" id="map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
         <a
           v-if="enableMapboxWatermark"
           href="http://mapbox.com/about/maps"
@@ -448,6 +448,13 @@ export default {
     tabIndex: {
       type: Number,
       default: 0
+    },
+    /**
+     * Customise the map aria label
+     */
+    ariaLabel: {
+      type: String,
+      default: 'Map'
     },
     /**
      * Enable or disable the ability for users to rotate the map
