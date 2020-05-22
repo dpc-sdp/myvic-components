@@ -57,7 +57,7 @@ The data object that should contain the following keys:
             default: text('title', undefined)
           },
           data: {
-            default: object('data', chartData)
+            default: () => object('data', chartData)
           },
           showLegend: {
             default: boolean('showLegend', false)

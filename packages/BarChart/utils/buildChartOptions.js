@@ -1,6 +1,7 @@
 import styles from '../../global/styles/export.scss'
 import _merge from 'lodash.merge'
 import constants from '../../global/constants/charts'
+import utils from '../../global/utils/charts'
 
 const settings = {
   dataset: {
@@ -50,24 +51,6 @@ const settings = {
       fontColor: styles.gridLabelColor
     }
   },
-  tooltips: {
-    mode: 'nearest',
-    displayColors: false,
-    backgroundColor: 'white',
-    borderColor: styles.gridLineColor,
-    borderWidth: 1,
-    cornerRadius: 2,
-    xPadding: 10,
-    yPadding: 15,
-    titleFontFamily: "'Vic-Regular', 'sans-serif'",
-    titleFontSize: 12,
-    titleFontColor: styles.tooltipText,
-    titleAlign: 'center',
-    bodyFontFamily: "'Vic-Semibold', 'sans-serif'",
-    bodyFontSize: 12,
-    bodyFontColor: styles.tooltipText,
-    bodyAlign: 'center'
-  },
   plugin: {
     datalabels: {
       anchor: 'end',
@@ -105,20 +88,7 @@ const scaleAxis = (axis, data) => {
 }
 
 const labelAxis = (axis, style) => {
-  return _merge({}, axis, { ticks: { callback: (value) => labelValue(value, style) } })
-}
-
-const labelValue = (value, style) => {
-  switch (style) {
-    case constants.labelFormats.percentage:
-      return `${value}%`
-    case constants.labelFormats.dollar:
-      return `$${value}`
-    case constants.labelFormats.thousandDollar:
-      return `$${value}k`
-    default:
-      return value
-  }
+  return _merge({}, axis, { ticks: { callback: (value) => utils.labelValue(value, style) } })
 }
 
 const buildAxes = (isPrimary, data, dataFormat) => {
@@ -140,14 +110,12 @@ export default {
     }
     return datasetSettings
   },
-  getTitle: (title) => ({
-    display: !!title,
-    fontSize: 13,
-    fontFamily: "'Vic-Bold', 'sans-serif'",
-    fontStyle: 'bold',
-    fontColor: styles.titleColor,
-    text: title
-  }),
+  getTitle: (title) => {
+    return _merge({}, constants.title, {
+      display: !!title,
+      text: title
+    })
+  },
   getAxes: (dimension, chartDirection, data, dataFormat) => {
     let isPrimary
     if (chartDirection === 'horizontal') {
@@ -173,26 +141,18 @@ export default {
     axis = labelAxis(axis, dataFormat)
     return [axis]
   },
-  // TODO: this might later need to be moved to the global package if it's similar across charts (see comment on story MYVIC-72)
-  getLegend: (show) => ({
-    display: show,
-    position: 'bottom',
-    align: 'start',
-    labels: {
-      boxWidth: 14,
-      fontSize: 13,
-      fontFamily: "'Vic-Medium', 'sans-serif'",
-      fontColor: styles.legendLabelColor
-    }
-  }),
-  // TODO: this might later need to be moved to the global package if it's similar across charts (see comment on story MYVIC-72)
+  getLegend: (show) => {
+    return _merge({}, constants.legend, {
+      display: show
+    })
+  },
   getTooltips: (direction, data, dataFormat) => {
     const labelSettings = {
       callbacks: {
         // use label callback to return the desired label
         label: function (tooltipItem) {
           const value = direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
-          return labelValue(value, dataFormat)
+          return utils.labelValue(value, dataFormat)
         },
         title: function (tooltipItem) {
           if (data.datasets.length === 1) {
@@ -203,12 +163,12 @@ export default {
         }
       }
     }
-    return _merge({}, settings.tooltips, labelSettings)
+    return _merge({}, constants.tooltips, labelSettings)
   },
   getPlugin: (dataFormat) => {
     const dataFormatSettings = {
       datalabels: {
-        formatter: (value) => labelValue(value, dataFormat)
+        formatter: (value) => utils.labelValue(value, dataFormat)
       }
     }
     return _merge({}, settings.plugin, dataFormatSettings)

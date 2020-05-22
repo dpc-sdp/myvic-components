@@ -36,7 +36,7 @@ import { LineChart } from '@dpc-sdp/yourvic-line-chart'
 
 ### Data Format
 The data object that should contain the following keys:
-- labels: an array of values for one of the axes. In the case of a horizontal line chart this would be the Y-axis
+- labels: an array of values for one of the axes. In the case of a line chart this would be the X-axis
 - datasets: an array of objects (minimum 1 required - maximum of 4) that contain the following keys:
   - label (String): a label for this dataset
   - data (Array): the values for this dataset. The length of this should match the length of the labels key
@@ -54,7 +54,7 @@ The data object that should contain the following keys:
             default: text('title', undefined)
           },
           data: {
-            default: object('data', chartData)
+            default: () => object('data', chartData)
           },
           showLegend: {
             default: boolean('showLegend', false)

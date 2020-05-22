@@ -1,7 +1,7 @@
 <template>
   <div class="yourvic-bar-chart">
-    <inner-chart v-if="direction === 'vertical'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
-    <inner-horizontal-chart v-if="direction === 'horizontal'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
+    <inner-chart v-if="direction === 'vertical'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" :styles="chartContainerStyles"/>
+    <inner-horizontal-chart v-if="direction === 'horizontal'" :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" :styles="chartContainerStyles"/>
   </div>
 </template>
 
@@ -46,7 +46,7 @@ export default {
     },
     /**
      * The format of the data values. The choices are:
-     * 'normal', 'percentage', 'dollar', 'thousandDollar'
+     * `normal`, `percentage`, `dollar`, `thousandDollar`
      */
     dataFormat: {
       type: String,
@@ -63,6 +63,13 @@ export default {
     }
   },
   computed: {
+    chartContainerStyles () {
+      return {
+        position: 'relative',
+        height: 'inherit',
+        width: 'inherit'
+      }
+    },
     chartData: function () {
       if (!this.data) {
         return null
@@ -78,6 +85,8 @@ export default {
         return null
       }
       const options = {
+        maintainAspectRatio: false,
+        responsive: true,
         title: builder.getTitle(this.title),
         scales: {
           xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat),
@@ -104,5 +113,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/tools";
   .yourvic-bar-chart {
     position: relative;
+    height: inherit;
+    width: inherit;
   }
 </style>

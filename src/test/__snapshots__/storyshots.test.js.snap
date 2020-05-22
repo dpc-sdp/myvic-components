@@ -1,5 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`YourvicStoryshots Atoms | Global Divider 1`] = `
+<hr
+  class="rpl-divider"
+/>
+`;
+
+exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in dev mode 1`] = `
+<ol
+  class="rpl-dev-error"
+>
+  <li>
+    
+    Something wrong
+  
+  </li>
+  <li>
+    
+    Another error
+  
+  </li>
+</ol>
+`;
+
+exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`] = `
+<ol
+  class="rpl-dev-error"
+>
+  <li>
+    
+    Something wrong
+  
+  </li>
+  <li>
+    
+    Another error
+  
+  </li>
+</ol>
+`;
+
 exports[`YourvicStoryshots Bar Chart Default 1`] = `
 <div
   style="width: 400px;"
@@ -12,6 +52,7 @@ exports[`YourvicStoryshots Bar Chart Default 1`] = `
     <div
       class=""
       dataformat="normal"
+      style="position: relative; height: inherit; width: inherit;"
     >
       <canvas
         class="chartjs-render-monitor"
@@ -37,6 +78,7 @@ exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
     <div
       class=""
       dataformat="normal"
+      style="position: relative; height: inherit; width: inherit;"
     >
       <canvas
         class="chartjs-render-monitor"
@@ -60,6 +102,7 @@ exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
     <div
       class=""
       dataformat="normal"
+      style="position: relative; height: inherit; width: inherit;"
     >
       <canvas
         class="chartjs-render-monitor"
@@ -87,6 +130,7 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
     <div
       class=""
       dataformat="normal"
+      style="position: relative; height: inherit; width: inherit;"
     >
       <canvas
         class="chartjs-render-monitor"
@@ -110,6 +154,7 @@ exports[`YourvicStoryshots Line Chart Default 1`] = `
     <div
       class=""
       dataformat="normal"
+      style="position: relative; height: inherit; width: inherit;"
     >
       <canvas
         class="chartjs-render-monitor"
@@ -133,6 +178,7 @@ exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
     <div
       class=""
       dataformat="normal"
+      style="position: relative; height: inherit; width: inherit;"
     >
       <canvas
         class="chartjs-render-monitor"
@@ -156,6 +202,7 @@ exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
     <div
       class=""
       dataformat="normal"
+      style="position: relative; height: inherit; width: inherit;"
     >
       <canvas
         class="chartjs-render-monitor"
@@ -1001,6 +1048,36 @@ exports[`YourvicStoryshots Maps/Free Wifi Map with free wifi data 1`] = `
         </a>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Tree Map Default 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="yourvic-treemap-chart"
+  >
+    <canvas
+      class="yourvic-treemap-chart-canvas"
+      id="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Tree Map With title 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="yourvic-treemap-chart"
+  >
+    <canvas
+      class="yourvic-treemap-chart-canvas"
+      id="0"
+    />
   </div>
 </div>
 `;
