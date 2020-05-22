@@ -12,6 +12,7 @@ import builder from './utils/buildChartOptions'
 
 const createChart = (instance) => {
   var ctx = document.getElementById(instance.componentKey)
+  if (!ctx) return
   // eslint-disable-next-line no-unused-vars
   var myBarChart = new Chart(ctx, {
     type: 'treemap',
