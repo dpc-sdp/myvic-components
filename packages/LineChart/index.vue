@@ -97,8 +97,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/scss/settings";
-  @import "~@dpc-sdp/ripple-global/scss/tools";
   .yourvic-line-chart {
     position: relative;
     width: inherit;
