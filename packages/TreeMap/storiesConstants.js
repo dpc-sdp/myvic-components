@@ -6,7 +6,7 @@ export const treeMapTemplate = `
 export const chartData = [
   {
     name: 'Category 1',
-    value: 50
+    value: 45
   },
   {
     name: 'Category 2',
