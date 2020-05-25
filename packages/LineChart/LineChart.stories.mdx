@@ -1,6 +1,7 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import LineChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
 import { lineChartTemplate, chartData, multiChartData } from './storiesConstants.js'
 
@@ -36,7 +37,7 @@ import { LineChart } from '@dpc-sdp/yourvic-line-chart'
 
 ### Data Format
 The data object that should contain the following keys:
-- labels: an array of values for one of the axes. In the case of a horizontal line chart this would be the Y-axis
+- labels: an array of values for one of the axes. In the case of a line chart this would be the X-axis
 - datasets: an array of objects (minimum 1 required - maximum of 4) that contain the following keys:
   - label (String): a label for this dataset
   - data (Array): the values for this dataset. The length of this should match the length of the labels key
@@ -48,19 +49,26 @@ The data object that should contain the following keys:
     {
       {
         components: { LineChart },
-        template: lineChartTemplate,
+        template: `
+          <div :style="divStyle">
+            <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+          </div>
+        `,
         props: {
           title: {
             default: text('title', undefined)
           },
           data: {
-            default: object('data', chartData)
+            default: () => object('data', chartData)
           },
           showLegend: {
             default: boolean('showLegend', false)
           },
           dataFormat: {
             default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+          },
+          divStyle: {
+            default: () => object('divStyle', { width: '400px' })
           }
         }
       }
@@ -102,6 +110,37 @@ The data object that should contain the following keys:
         data: { default: () => multiChartData },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Ripple Grid
+
+<Preview>
+  <Story name="Ripple Grid">
+    {
+      {
+       components: { LineChart, RplContainer, RplRow, RplCol },
+       template: `
+        <RplContainer style="width: 100%">
+          <rpl-row>
+            <rpl-col cols=1></rpl-col>
+            <rpl-col cols=10>
+              <div style="width: 100%; height: 100vh">
+                <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+              </div>
+            </rpl-col>
+            <rpl-col cols=1></rpl-col>
+          </rpl-row>
+        </RplContainer>
+       `,
+       props: {
+         title: { default: () => 'Ripple Grid Chart' },
+         data: { default: () => multiChartData },
+         showLegend: { default: () => true },
+         dataFormat: { default: () => 'normal' }
        }
       }
     }

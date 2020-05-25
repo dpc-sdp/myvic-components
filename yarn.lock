@@ -5696,6 +5696,11 @@ chart.js@^2.9.3:
     chartjs-color "^2.1.0"
     moment "^2.10.2"
 
+chartjs-chart-treemap@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/chartjs-chart-treemap/-/chartjs-chart-treemap-0.2.3.tgz#2f7e2532ac7a2b47948872e8c061680c63c1d57a"
+  integrity sha512-bNLivJw57UU9TBedeY8FWsKctXaAYhGhaOuTTb4MqvI8lq3/qgnS+4cS+UicZ3YUaEXIwuA1FpYCLR7KC1kjvQ==
+
 chartjs-color-string@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/chartjs-color-string/-/chartjs-color-string-0.6.0.tgz#1df096621c0e70720a64f4135ea171d051402f71"
