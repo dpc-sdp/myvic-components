@@ -12,5 +12,12 @@ export default {
       default:
         return value
     }
+  },
+  getStyleArray: (styles, varName, length) => {
+    const array = []
+    for (var i = 1; i <= length; i++) {
+      array.push(styles[`${varName}${i}`])
+    }
+    return array
   }
 }

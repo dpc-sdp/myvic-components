@@ -1,0 +1,148 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import PieChart from './index.vue'
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import _merge from 'lodash.merge'
+import { pieChartTemplate, chartData, dualChartData } from './storiesConstants.js'
+
+<Meta title="Pie Chart" component={ PieChart } decorators={ [withKnobs] } />
+
+# Pie Chart
+
+<Description of={ PieChart } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-pie-chart --save
+```
+
+## Import
+
+```javascript
+import { PieChart } from '@dpc-sdp/yourvic-pie-chart'
+```
+
+## Usage
+
+```html
+<pie-chart
+  :data="data"
+/>
+```
+
+## Props
+
+<Props of={ PieChart } />
+
+### Data Format
+The data object that should contain the following keys:
+- labels: an array of values for one of the axes. In the case of a pie chart this would be the X-axis
+- datasets: an array of objects (minimum 1 required - maximum of 4) that contain the following keys:
+  - label (String): a label for this dataset
+  - data (Array): the values for this dataset. The length of this should match the length of the labels key
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { PieChart },
+        template: `
+          <div :style="divStyle">
+            <pie-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+          </div>
+        `,
+        props: {
+          title: {
+            default: text('title', undefined)
+          },
+          data: {
+            default: () => object('data', chartData)
+          },
+          showLegend: {
+            default: boolean('showLegend', false)
+          },
+          dataFormat: {
+            default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+          },
+          divStyle: {
+            default: () => object('divStyle', { width: '400px' })
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## With title and legend
+
+<Preview>
+  <Story name="With title and legend">
+    {
+      {
+       components: { PieChart },
+       template: pieChartTemplate,
+       props: {
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Sample Chart' },
+        data: { default: () => chartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Multiple Datasets
+
+<Preview>
+  <Story name="Multiple Datasets">
+    {
+      {
+       components: { PieChart },
+       template: pieChartTemplate,
+       props: {
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Multiple Datasets' },
+        data: { default: () => dualChartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Ripple Grid
+
+<Preview>
+  <Story name="Ripple Grid">
+    {
+      {
+       components: { PieChart, RplContainer, RplRow, RplCol },
+       template: `
+        <RplContainer style="width: 100%">
+          <rpl-row>
+            <rpl-col cols=1></rpl-col>
+            <rpl-col cols=10>
+              <div style="width: 100%; height: 100vh">
+                <pie-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+              </div>
+            </rpl-col>
+            <rpl-col cols=1></rpl-col>
+          </rpl-row>
+        </RplContainer>
+       `,
+       props: {
+         title: { default: () => 'Ripple Grid Chart' },
+         data: { default: () => chartData },
+         showLegend: { default: () => true },
+         dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
