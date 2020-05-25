@@ -67,9 +67,9 @@ Unit tests are an important. They help us secure our processes and work flows, e
 
 ### CSS
 
-A `yourfic` prefix is needed.  
+A `yourvic` prefix is needed.  
 Use [BEM](http://getbem.com/introduction/) methodology to name css class.
 
-Component class name:  .yourfic-[component-name]  
-Element class name:  .yourfic-[component-name]__[element-name]  
-Modifier class name:  .yourfic-[component-name]--[modifier-name]
+**Component class name:**  .yourvic-[component-name]  
+**Element class name:**  .yourvic-[component-name]__[element-name]  
+**Modifier class name:**  .yourvic-[component-name]--[modifier-name]
