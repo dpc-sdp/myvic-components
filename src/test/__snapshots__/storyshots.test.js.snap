@@ -14,7 +14,7 @@ exports[`YourvicStoryshots Bar Chart Default 1`] = `
       class=""
       dataformat="normal"
       role="img"
-      style="position: relative; height: inherit; width: inherit;"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
     >
       <canvas
@@ -43,7 +43,7 @@ exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
       class=""
       dataformat="normal"
       role="img"
-      style="position: relative; height: inherit; width: inherit;"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
     >
       <canvas
@@ -89,7 +89,7 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
             class=""
             dataformat="normal"
             role="img"
-            style="position: relative; height: inherit; width: inherit;"
+            style="position: relative; height: inherit; width: inherit; outline: none;"
             tabindex="0"
           >
             <canvas
@@ -128,7 +128,7 @@ exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
       class=""
       dataformat="normal"
       role="img"
-      style="position: relative; height: inherit; width: inherit;"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
     >
       <canvas
@@ -159,7 +159,7 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
       class=""
       dataformat="normal"
       role="img"
-      style="position: relative; height: inherit; width: inherit;"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
     >
       <canvas
@@ -186,7 +186,7 @@ exports[`YourvicStoryshots Line Chart Default 1`] = `
       class=""
       dataformat="normal"
       role="img"
-      style="position: relative; height: inherit; width: inherit;"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
     >
       <canvas
@@ -213,7 +213,7 @@ exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
       class=""
       dataformat="normal"
       role="img"
-      style="position: relative; height: inherit; width: inherit;"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
     >
       <canvas
@@ -257,7 +257,7 @@ exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
             class=""
             dataformat="normal"
             role="img"
-            style="position: relative; height: inherit; width: inherit;"
+            style="position: relative; height: inherit; width: inherit; outline: none;"
             tabindex="0"
           >
             <canvas
@@ -296,7 +296,7 @@ exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
       class=""
       dataformat="normal"
       role="img"
-      style="position: relative; height: inherit; width: inherit;"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
     >
       <canvas
@@ -1177,6 +1177,7 @@ exports[`YourvicStoryshots Tree Map Default 1`] = `
       class="yourvic-treemap-chart-canvas"
       id="0"
       role="img"
+      style="outline: none;"
       tabindex="0"
     />
   </div>
@@ -1212,6 +1213,7 @@ exports[`YourvicStoryshots Tree Map Ripple Grid 1`] = `
             class="yourvic-treemap-chart-canvas"
             id="0"
             role="img"
+            style="outline: none;"
             tabindex="0"
           />
         </div>
@@ -1242,6 +1244,7 @@ exports[`YourvicStoryshots Tree Map With title 1`] = `
       class="yourvic-treemap-chart-canvas"
       id="0"
       role="img"
+      style="outline: none;"
       tabindex="0"
     />
   </div>

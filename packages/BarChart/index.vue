@@ -101,7 +101,8 @@ export default {
       return {
         position: 'relative',
         height: 'inherit',
-        width: 'inherit'
+        width: 'inherit',
+        outline: 'none'
       }
     },
     chartData: function () {

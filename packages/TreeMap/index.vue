@@ -6,6 +6,7 @@
       :tabIndex="tabIndex"
       role="img"
       :aria-label="ariaLabel"
+      style="outline: none"
     />
   </div>
 </template>
