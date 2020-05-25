@@ -1,6 +1,15 @@
 <template>
   <div class="yourvic-line-chart">
-    <inner-chart :key="componentKey" :chartData="chartData" :options="options" :dataFormat="dataFormat" />
+    <inner-chart
+      :key="componentKey"
+      :chartData="chartData"
+      :options="options"
+      :dataFormat="dataFormat"
+      :styles="chartContainerStyles"
+      :tabIndex="tabIndex"
+      role="img"
+      :aria-label="ariaLabel"
+    />
   </div>
 </template>
 
@@ -35,11 +44,25 @@ export default {
     },
     /**
      * The format of the data values. The choices are:
-     * 'normal', 'percentage', 'dollar', 'thousandDollar'
+     * `normal`, `percentage`, `dollar`, `thousandDollar`
      */
     dataFormat: {
       type: String,
       default: 'normal'
+    },
+    /**
+     * Customise the chart tab index
+     */
+    tabIndex: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * Customise the chart aria label
+     */
+    ariaLabel: {
+      type: String,
+      default: 'Line Chart'
     }
   },
   components: {
@@ -51,6 +74,14 @@ export default {
     }
   },
   computed: {
+    chartContainerStyles () {
+      return {
+        position: 'relative',
+        height: 'inherit',
+        width: 'inherit',
+        outline: 'none'
+      }
+    },
     chartData: function () {
       if (!this.data) {
         return null
@@ -66,6 +97,8 @@ export default {
         return null
       }
       const options = {
+        maintainAspectRatio: false,
+        responsive: true,
         title: builder.getTitle(this.title),
         scales: {
           xAxes: builder.getAxes('x', 'vertical', this.data, this.dataFormat),
@@ -88,9 +121,9 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/ripple-global/scss/settings";
-  @import "~@dpc-sdp/ripple-global/scss/tools";
   .yourvic-line-chart {
     position: relative;
+    width: inherit;
+    height: inherit;
   }
 </style>
