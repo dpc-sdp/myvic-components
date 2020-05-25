@@ -99,7 +99,6 @@ export default {
         return null
       }
       const options = {
-        maintainAspectRatio: false,
         responsive: true,
         title: builder.getTitle(this.title),
         legend: builder.getLegend(this.showLegend),

@@ -1167,7 +1167,7 @@ exports[`YourvicStoryshots Maps/Free Wifi Map with free wifi data 1`] = `
 
 exports[`YourvicStoryshots Pie Chart Default 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
     class="yourvic-pie-chart"
