@@ -7,6 +7,8 @@
            :baseMapUrl="baseMapUrl"
            :customMethods="customMethods"
            :zoom="getZoom"
+           :enableMapboxWatermark="true"
+           :baseMapAttributions="baseMapAttributions"
          />
       </div>
  </template>
@@ -201,7 +203,11 @@ export default {
     return {
       baseMapUrl,
       customMethods,
-      err: null
+      err: null,
+      baseMapAttributions: [
+        '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
+        '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      ]
     }
   },
   computed: {

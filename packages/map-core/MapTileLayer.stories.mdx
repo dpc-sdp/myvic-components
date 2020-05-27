@@ -1,0 +1,353 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import YourvicMapCore from './index.vue'
+import YourvicMapTileLayer from './MapTileLayer.vue'
+
+<Meta title="Maps/Tile Layer" component={ YourvicMapTileLayer } decorators={ [withKnobs] } />
+
+# Map Tile Layer
+
+<Description of={ YourvicMapTileLayer } type='docgen' />
+
+## Installation
+
+```shell
+npm install @dpc-sdp/yourvic-map-core --save
+```
+
+## Import
+
+```javascript
+import { YourvicMapTileLayer } from '@dpc-sdp/yourvic-map-core'
+```
+
+## Usage
+
+```html
+<yourvic-map-core
+  :style="{height: '400px'}"
+  :baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}"
+  :center="[16136905.843820328, -4383057.013522999]"
+  :zoom="7"
+/>
+```
+
+## Props
+
+<Props of={ YourvicMapTileLayer } />
+
+## Configurable Layer
+
+This example shows how to create an interactive map that fills it's parent container.
+
+<Preview>
+  <Story name="Configurable Layer">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :baseMapUrl="baseMapUrl"
+          :baseMapAttributions="baseMapAttributions"
+          :enableMapboxWatermark="enableMapboxWatermark"
+          :center="center"
+          :projection="mapProjection == '' ? undefined : mapProjection"
+          :zoom="zoom"
+          :minZoom="minZoom"
+          :maxZoom="maxZoom"
+          enableZoomControl
+          enableAttributionControl
+          enableFullScreenControl
+          enablePanInteraction
+          enableZoomInteraction
+          enableRotateInteraction
+        >
+          <yourvic-map-tile-layer
+            :type="layerType"
+            :url="layerUrl"
+            :params="layerParams"
+            :projection="layerProjection == '' ? undefined : layerProjection"
+            :extent="layerExtent.length && layerExtent.length > 0 ? layerExtent : undefined"
+            :attributions="layerAttributions"
+            :opacity="layerOpacity"
+            :transition="layerTransition"
+            :highDPI="layerHighDPI"
+            :serverType="layerServerType == '' ? undefined : layerServerType"
+          />
+        </yourvic-map-core>`,
+        props: {
+          layerType: {
+            default: select('Type', { OSM: 'OSM', XYZ: 'XYZ', WMS: 'WMS', ArcGIS: 'ArcGIS' }, 'WMS', 'layer')
+          },
+          layerUrl: {
+            default: text('URL', 'http://gaservices.ga.gov.au/site_7/services/Topographic_Base_Map_WM/MapServer/WMSServer', 'layer')
+          },
+          layerParams: {
+            default: () => object('Params', {'LAYERS': 'Bathymetry,Australian_Mainland,Hillshade_3_second', 'TILED': true}, 'layer')
+          },
+          layerProjection: {
+            default: () => text('Projection', '', 'layer')
+          },
+          layerExtent: {
+            default: () => object('Extent', [], 'layer')
+          },
+          layerAttributions: {
+            default: () => object('Attributions', [], 'layer')
+          },
+          layerOpacity: {
+            default: () => number('Opacity', 1, {}, 'layer')
+          },
+          layerTransition: {
+            default: () => number('Transition', 500, {}, 'layer')
+          },
+          layerHighDPI: {
+            default: boolean('High DPI', true, 'layer')
+          },
+          layerServerType: {
+            default: () => text('Server Type', '', 'layer')
+          },
+          baseMapUrl: {
+            default: text('Base Map URL', '', 'map')
+          },
+          baseMapAttributions: {
+            default: () => object('Base Map Attributions', [], 'map')
+          },
+          enableMapboxWatermark: {
+            default: boolean('Enable Mapbox Watermark', false, 'map')
+          },
+          containerStyle: {
+            default: () => object('Container Style', { width: '100%', height: '100%' }, 'map')
+          },
+          center: {
+            default: () => object('Center', [16136905.843820328, -4383057.013522999], 'map')
+          },
+          mapProjection: {
+            default: '' // Cannot be updated after map is loaded
+          },
+          zoom: {
+            default: number('Zoom', 7,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              },
+              'map'
+            )
+          },
+          minZoom: {
+            default: number('Min Zoom', 1,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              },
+              'map'
+            )
+          },
+          maxZoom: {
+            default: number('Max Zoom', 20,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              },
+              'map'
+            )
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Open Street Map
+
+<Preview>
+  <Story name="Open Street Map">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `
+          <yourvic-map-core
+            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+            :center="[16138405.843820328, -4552817.013522999]"
+          >
+            <yourvic-map-tile-layer
+              type="OSM"
+            />
+          </yourvic-map-core>
+        `
+      }
+    }
+  </Story>
+</Preview>
+
+## XYZ - Mapbox
+
+<Preview>
+  <Story name="XYZ - Mapbox">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `
+          <yourvic-map-core
+            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+            :center="[16138405.843820328, -4552817.013522999]"
+            enableMapboxWatermark
+          >
+            <yourvic-map-tile-layer
+              type="XYZ"
+              url="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+              :attributions="attributions"
+            />
+          </yourvic-map-core>
+        `,
+        props: {
+          attributions: {
+            default: () => [
+              '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
+              '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            ]
+          },
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## WMS - VicMap Basemap
+
+<Preview>
+  <Story name="WMS - VicMap Basemap">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `
+          <yourvic-map-core
+            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+            :center="[16138405.843820328, -4552817.013522999]"
+          >
+            <yourvic-map-tile-layer
+              type="WMS"
+              url="https://base.maps.vic.gov.au/service"
+              :params="{'LAYERS': 'CARTO_WM', 'TILED': true}"
+              serverType="geoserver"
+            />
+          </yourvic-map-core>
+        `
+      }
+    }
+  </Story>
+</Preview>
+
+## WMS - MyVictoria
+
+<Preview>
+  <Story name="WMS - MyVictoria">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `
+          <yourvic-map-core
+            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+            :center="[16138405.843820328, -4552817.013522999]"
+          >
+            <yourvic-map-tile-layer
+              type="WMS"
+              url="https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wms"
+              :params="{'LAYERS': 'myvic:lga', 'TILED': true}"
+              serverType="geoserver"
+            />
+          </yourvic-map-core>
+        `
+      }
+    }
+  </Story>
+</Preview>
+
+## WMS - Change Projection
+
+<Preview>
+  <Story name="WMS - GDA94 Projection">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `
+          <yourvic-map-core
+            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+            :center="[144, -37]"
+            :projection="projection"
+          >
+            <yourvic-map-tile-layer
+              type="WMS"
+              url="http://services.ga.gov.au/gis/services/Bathymetry_Topography/MapServer/WMSServer"
+              :params="{'LAYERS': 'Australian_Bathymetry_and_Topography'}"
+              :projection="projection"
+              serverType="geoserver"
+            />
+          </yourvic-map-core>
+        `,
+        props: {
+          projection: {
+            default: "EPSG:4283"
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## ArcGIS - MapShare
+
+<Preview>
+  <Story name="ArcGIS - MapShare">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `
+          <yourvic-map-core
+            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+            :center="[16138405.843820328, -4552817.013522999]"
+          >
+            <yourvic-map-tile-layer
+              type="ArcGIS"
+              url="https://gis.mapshare.vic.gov.au/arcgis/rest/services/mapshare/PublicLandAndPark/MapServer"
+            />
+          </yourvic-map-core>
+        `
+      }
+    }
+  </Story>
+</Preview>
+
+## Multiple Layers
+
+<Preview>
+  <Story name="Multiple Layers">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `
+          <yourvic-map-core
+            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+            :center="[16138405.843820328, -4552817.013522999]"
+          >
+            <yourvic-map-tile-layer
+              type="XYZ"
+              url="http://a.tile.stamen.com/toner/{z}/{x}/{y}.png"
+            />
+            <yourvic-map-tile-layer
+              type="ArcGIS"
+              url="https://gis.mapshare.vic.gov.au/arcgis/rest/services/mapshare/PublicLandAndPark/MapServer"
+              :opacity="0.7"
+            />
+          </yourvic-map-core>
+        `,
+      }
+    }
+  </Story>
+</Preview>
