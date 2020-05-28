@@ -68,7 +68,7 @@ const createImageIconStyle = (src, crossOrigin, size) => {
 
 const registerCustomProjections = () => {
   // Register GDA94 Projection (EPSG:4283) with OpenLayers
-  proj4.defs('EPSG:4283', '+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs')
+  proj4.defs('EPSG:4283', '+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +axis=neu +no_defs')
   register(proj4)
   let proj4283 = getProjection('EPSG:4283')
   proj4283.setExtent([ 108.0000, -45.0000, 155.0000, -10.0000 ])

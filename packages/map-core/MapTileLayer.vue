@@ -36,6 +36,7 @@ export default {
     /**
      * The data source projection as an SRS identifier string. Defaults to the projection of the Map, which in
      * OpenLayers defaults to ```EPSG:3857``` (Web Mercator). ```EPSG:4326``` (WGS84) is also supported out of the box.
+     * Experimental support for ```EPSG:4283``` (GDA94) is also provided.
      */
     projection: {
       type: String,
