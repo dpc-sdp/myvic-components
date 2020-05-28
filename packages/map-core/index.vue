@@ -339,7 +339,8 @@ export default {
       }
     },
     /**
-     * Array of lat/lon coordinates to center the map on
+     * Coordinates to center the map on as an array of numbers. Must match the map projection, in the form ```[x, y]```
+     * or ```[lon, lat]```.
      */
     center: {
       type: Array,
@@ -347,7 +348,8 @@ export default {
       validator: value => value.length === 2
     },
     /**
-     * Map projection as an SRS identifier string. Defaults to 'EPSG:3857' if undefined
+     * Map projection as an SRS identifier string. Defaults to ```EPSG:3857``` (Web Mercator). ```EPSG:4326``` (WGS84)
+     * is also supported out of the box.
      */
     projection: {
       type: String,
