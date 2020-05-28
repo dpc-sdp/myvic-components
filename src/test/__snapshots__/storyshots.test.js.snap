@@ -2,13 +2,12 @@
 
 exports[`YourvicStoryshots Bar Chart Default 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    arialabel="chart"
+    class="yourvic-chart-wrapper"
   >
-    <!---->
-     
     <div
       aria-label="Bar Chart"
       class=""
@@ -25,19 +24,20 @@ exports[`YourvicStoryshots Bar Chart Default 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
 
 exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    arialabel="chart"
+    class="yourvic-chart-wrapper"
   >
-    <!---->
-     
     <div
       aria-label="Bar Chart"
       class=""
@@ -54,6 +54,23 @@ exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Bar Chart Invalid data provided 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    arialabel="chart"
+    class="yourvic-chart-wrapper"
+  >
+    <!---->
+     
+    <!---->
   </div>
 </div>
 `;
@@ -80,10 +97,9 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
         style="width: 100%; height: 100vh;"
       >
         <div
-          class="yourvic-bar-chart"
+          arialabel="chart"
+          class="yourvic-chart-wrapper"
         >
-          <!---->
-           
           <div
             aria-label="Bar Chart"
             class=""
@@ -100,6 +116,8 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
               width="0"
             />
           </div>
+           
+          <!---->
         </div>
       </div>
        
@@ -118,10 +136,11 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
 
 exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    arialabel="chart"
+    class="yourvic-chart-wrapper"
   >
     <div
       aria-label="Bar Chart"
@@ -147,13 +166,12 @@ exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
 
 exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    arialabel="chart"
+    class="yourvic-chart-wrapper"
   >
-    <!---->
-     
     <div
       aria-label="Bar Chart"
       class=""
@@ -170,6 +188,40 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Error Chart-related error 1`] = `
+<div
+  style="height: 200px;"
+>
+  <div
+    class="yourvic-error yourvic-error--chart"
+  >
+    <span
+      class="yourvic-error-span"
+    >
+      Something went wrong
+    </span>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Error Default 1`] = `
+<div
+  style="height: 200px;"
+>
+  <div
+    class="yourvic-error yourvic-error--null"
+  >
+    <span
+      class="yourvic-error-span"
+    >
+      Something went wrong
+    </span>
   </div>
 </div>
 `;
