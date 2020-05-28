@@ -51,6 +51,14 @@ export default {
       default: () => undefined
     },
     /**
+     * Optional tile size as an array of numbers: ```[width, height]```. If undefined, will default to 256x256 or
+     * 512x512 if using hidpi.
+     */
+    tileSize: {
+      type: Array,
+      default: () => undefined
+    },
+    /**
      * Attributions for the layer data source as an array of strings. Will be automatically displayed by the Map
      * attribution control if enabled.
      */
@@ -155,6 +163,13 @@ export default {
       let map = await this.getMap()
       if (map == null) { return }
       map.removeLayer(this.layer)
+
+      // Create custom tilegrid if non-default tile size specified
+      let tileGrid
+      if (this.tileSize !== undefined) {
+        tileGrid = ol.createTileGrid(map.getView(), 25, this.tileSize)
+      }
+
       // Create layer source
       switch (this.type) {
         case 'OSM':
@@ -168,6 +183,7 @@ export default {
           this.layerSource = new ol.source.XYZ({
             url: this.url,
             projection: this.projection,
+            tileSize: this.tileSize,
             attributions: this.attributions,
             transition: this.transition
           })
@@ -177,6 +193,7 @@ export default {
             url: this.url,
             params: this.params,
             projection: this.projection,
+            tileGrid: tileGrid,
             attributions: this.attributions,
             transition: this.transition,
             hidpi: this.highDPI,
@@ -188,6 +205,7 @@ export default {
             url: this.url,
             params: this.params,
             projection: this.projection,
+            tileGrid: tileGrid,
             attributions: this.attributions,
             transition: this.transition
           })
@@ -195,6 +213,7 @@ export default {
         default:
           this.layerSource = null
       }
+
       // Create layer
       this.layer = new ol.layer.Tile({
         source: this.layerSource,
@@ -202,6 +221,7 @@ export default {
         extent: this.extent,
         zIndex: this.zIndex
       })
+
       // Add layer to map
       map.addLayer(this.layer)
     }

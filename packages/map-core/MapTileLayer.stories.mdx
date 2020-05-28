@@ -44,7 +44,7 @@ example is to use the ```OSM``` layer type which comes pre-configured.
 
 ## Configurable Layer
 
-This example shows how to create an interactive map that fills it's parent container.
+This example provides options to test different layer configurations.
 
 <Preview>
   <Story name="Configurable Layer">
@@ -240,7 +240,34 @@ This example shows how to create an interactive map that fills it's parent conta
               type="WMS"
               url="https://base.maps.vic.gov.au/service"
               :params="{'LAYERS': 'CARTO_WM', 'TILED': true}"
-              serverType="geoserver"
+              :tileSize="[512, 512]"
+              :highDPI="false"
+            />
+          </yourvic-map-core>
+        `
+      }
+    }
+  </Story>
+</Preview>
+
+## WMS - VicMap Aerial + Overlay
+
+<Preview>
+  <Story name="WMS - VicMap Aerial + Overlay">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer },
+        template: `
+          <yourvic-map-core
+            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+            :center="[16138405.843820328, -4552817.013522999]"
+          >
+            <yourvic-map-tile-layer
+              type="WMS"
+              url="https://base.maps.vic.gov.au/service"
+              :params="{'LAYERS': 'AERIAL_WM,CARTO_OVERLAY_WM', 'TILED': true}"
+              :tileSize="[512, 512]"
+              :highDPI="false"
             />
           </yourvic-map-core>
         `

@@ -45,6 +45,7 @@ import {
 import proj4 from 'proj4'
 import { get as getProjection } from 'ol/proj'
 import { register } from 'ol/proj/proj4'
+import TileGrid from 'ol/tilegrid/TileGrid'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -74,10 +75,23 @@ const registerCustomProjections = () => {
   proj4283.setExtent([ 108.0000, -45.0000, 155.0000, -10.0000 ])
 }
 
+const createTileGrid = (mapView, resolutionCount, tileSize) => {
+  let resolutions = [mapView.getResolution()]
+  for (let i = 1; i < resolutionCount; i++) {
+    resolutions.push(resolutions[0] / Math.pow(2, i))
+  }
+  return new TileGrid({
+    extent: mapView.getProjection().getExtent(),
+    resolutions: resolutions,
+    tileSize: tileSize
+  })
+}
+
 const ol = {
   doFeaturesShareSameLocation,
   createImageIconStyle,
   registerCustomProjections,
+  createTileGrid,
   Map: Map,
   View: View,
   Overlay: Overlay,
@@ -132,6 +146,12 @@ const ol = {
     DragZoom,
     DragRotate,
     PinchRotate
+  },
+  proj: {
+    getProjection
+  },
+  tilegrid: {
+    TileGrid
   }
 }
 
