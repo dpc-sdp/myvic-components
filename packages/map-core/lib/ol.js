@@ -69,15 +69,17 @@ const createImageIconStyle = (src, crossOrigin, size) => {
 
 const registerCustomProjections = () => {
   // Register GDA94 Projection (EPSG:4283) with OpenLayers
+  // Adapted from https://spatialreference.org/ref/epsg/4283/proj4js/, with +axis=neu added to switch axis order
   proj4.defs('EPSG:4283', '+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +axis=neu +no_defs')
   register(proj4)
   let proj4283 = getProjection('EPSG:4283')
   proj4283.setExtent([ 108.0000, -45.0000, 155.0000, -10.0000 ])
 }
 
-const createTileGrid = (mapView, resolutionCount, tileSize) => {
+const createTileGrid = (mapView, zoomLevels, tileSize) => {
+  // Calculate resolutions for each zoom level
   let resolutions = [mapView.getResolution()]
-  for (let i = 1; i < resolutionCount; i++) {
+  for (let i = 1; i < zoomLevels; i++) {
     resolutions.push(resolutions[0] / Math.pow(2, i))
   }
   return new TileGrid({

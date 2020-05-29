@@ -306,6 +306,8 @@ const methods = {
     this.map.addLayer(this.baseLayer)
   },
   getMap: function (found) {
+    // This function is used with dependency injection to allow child components get a reference to the map
+    // See: https://vuejs.org/v2/guide/components-edge-cases.html#Dependency-Injection
     return new Promise((resolve, reject) => {
       let checkForMap = () => {
         if (this.map) {
