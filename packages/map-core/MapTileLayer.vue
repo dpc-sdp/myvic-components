@@ -1,5 +1,6 @@
 <script>
 import ol from './lib/ol'
+import layer from './mixin/layer'
 
 /**
  * YourvicMapTileLayer provides support for OSM, XYZ, WMS and ArcGIS tiled map layers for YourvicMapCore. It offers a
@@ -8,7 +9,7 @@ import ol from './lib/ol'
  */
 export default {
   name: 'YourvicMapTileLayer',
-  components: {},
+  mixins: [layer],
   props: {
     /**
      * The type of the tile layer. Must be ```OSM```, ```XYZ```, ```WMS``` or ```ArcGIS```
@@ -43,14 +44,6 @@ export default {
       default: undefined
     },
     /**
-     * Optional bounding extent for layer rendering, defined as an array of numbers: ```[minx, miny, maxx, maxy]```.
-     * The layer will not be rendered outside of this extent. Units must match the configured projection.
-     */
-    extent: {
-      type: Array,
-      default: () => undefined
-    },
-    /**
      * Optional tile size as an array of numbers: ```[width, height]```. If undefined, will default to 256x256 or
      * 512x512 if using hidpi.
      */
@@ -65,14 +58,6 @@ export default {
     attributions: {
       type: Array,
       default: () => []
-    },
-    /**
-     * The opacity of the layer between 0 and 1 (inclusive). Default value is 1.
-     */
-    opacity: {
-      type: Number,
-      default: 1,
-      validator: value => (value >= 0 && value <= 1)
     },
     /**
      * Duration of the opacity transition when rendering map tiles. To disable transition, set to 0.
@@ -95,21 +80,6 @@ export default {
       type: String,
       default: undefined,
       validator: value => ['geoserver', 'mapserver', 'qgis', 'carmentaserver'].includes(value) || value === undefined
-    },
-    /**
-     * The z-index for layer rendering. The layers will be ordered first by Z-index and then by the order in which they
-     * are added.
-     */
-    zIndex: {
-      type: Number,
-      default: undefined
-    }
-  },
-  inject: ['getMap'],
-  data: function () {
-    return {
-      layer: null,
-      layerSource: null
     }
   },
   watch: {
@@ -125,13 +95,7 @@ export default {
     async projection (newValue) {
       await this.configureLayer()
     },
-    async extent (newValue) {
-      await this.configureLayer()
-    },
     async attributions (newValue) {
-      await this.configureLayer()
-    },
-    async opacity (newValue) {
       await this.configureLayer()
     },
     async transition (newValue) {
@@ -142,16 +106,7 @@ export default {
     },
     async serverType (newValue) {
       await this.configureLayer()
-    },
-    async zIndex (newValue) {
-      await this.configureLayer()
     }
-  },
-  async mounted () {
-    await this.configureLayer()
-  },
-  render (createElement) {
-    return null
   },
   methods: {
     configureLayer: async function () {
