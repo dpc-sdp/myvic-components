@@ -1,6 +1,7 @@
 <template>
   <div class="yourvic-pie-chart">
     <inner-chart
+      v-if="!gotError"
       :key="componentKey"
       :chartData="chartData"
       :options="options"
@@ -11,6 +12,7 @@
       :aria-label="ariaLabel"
       style="outline: none"
     />
+    <error v-if="gotError" :message="error.toString()" errorClass="chart" />
   </div>
 </template>
 
@@ -20,11 +22,19 @@ import InnerChart from './InnerChart'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
+import Error from '../global/components/Error'
+import catchError from '../global/mixins/catchError'
+import utils from '../global/utils/charts'
 
 /**
  * YourvicPieChart provides a generic and configurable pie chart component
  */
 export default {
+  components: {
+    InnerChart,
+    Error
+  },
+  mixins: [catchError],
   props: {
     /**
      * Title that appears above the chart. If this is null then the title and its container will not render at all
@@ -68,9 +78,6 @@ export default {
       default: 'Pie Chart'
     }
   },
-  components: {
-    InnerChart
-  },
   data () {
     return {
       componentKey: 0
@@ -85,27 +92,37 @@ export default {
       }
     },
     chartData: function () {
-      if (!this.data) {
-        return null
+      try {
+        utils.validateData(this.data)
+        const chartSettings = {
+          datasets: builder.getDatasetSettings(this.data)
+        }
+        const chartData = _merge({}, this.data, chartSettings)
+        return chartData
+      } catch (error) {
+        this.handleError(error)
       }
-      const chartSettings = {
-        datasets: builder.getDatasetSettings(this.data)
-      }
-      const chartData = _merge({}, this.data, chartSettings)
-      return chartData
     },
     options: function () {
-      if (!this.data) {
-        return null
+      try {
+        utils.validateData(this.data)
+        const options = {
+          responsive: true,
+          title: builder.getTitle(this.title),
+          legend: builder.getLegend(this.showLegend),
+          tooltips: builder.getTooltips(this.dataFormat),
+          plugins: { datalabels: { display: false } }
+        }
+        return options
+      } catch (error) {
+        this.handleError(error)
       }
-      const options = {
-        responsive: true,
-        title: builder.getTitle(this.title),
-        legend: builder.getLegend(this.showLegend),
-        tooltips: builder.getTooltips(this.dataFormat),
-        plugins: { datalabels: { display: false } }
-      }
-      return options
+    }
+  },
+  methods: {
+    handleError: function (error) {
+      this.gotError = true
+      this.error = error
     }
   },
   watch: {

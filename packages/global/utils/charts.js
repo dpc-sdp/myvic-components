@@ -1,4 +1,5 @@
 import constants from '../constants/charts'
+import validations from './validations'
 
 export default {
   labelValue: (value, style) => {
@@ -19,5 +20,17 @@ export default {
       array.push(styles[`${varName}${i}`])
     }
     return array
+  },
+  validateData: (data) => {
+    validations.validateDatasetsExist(data)
+    validations.validateLabelsExist(data)
+    validations.validateValueIsArray(data.labels, 'labels')
+    validations.validateValueIsArray(data.datasets, 'datasets')
+    data.datasets.forEach(dataset => {
+      validations.validateDataset(dataset)
+    })
+  },
+  validateTreeMapData: (data) => {
+    validations.validateTreeMapDataIsArray(data)
   }
 }

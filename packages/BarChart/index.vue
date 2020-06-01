@@ -1,17 +1,40 @@
 <template>
-  <chart-wrapper>
-    <bar-chart v-bind="$props" />
-  </chart-wrapper>
+  <div class="yourvic-bar-chart">
+    <component
+      v-if="!gotError"
+      :is="innerComponentName"
+      :key="componentKey"
+      :chartData="chartData"
+      :options="options"
+      :dataFormat="dataFormat"
+      :styles="chartContainerStyles"
+      :tabIndex="tabIndex"
+      role="img"
+      :aria-label="ariaLabel"
+    />
+    <error v-if="gotError" :message="error.toString()" errorClass="chart" />
+  </div>
 </template>
 
 <script>
-import BarChart from './BarChart'
-import ChartWrapper from '../global/components/ChartWrapper'
+// eslint-disable-next-line no-unused-vars
+import ChartDataLabels from 'chartjs-plugin-datalabels'
+import builder from './utils/buildChartOptions'
+import _merge from 'lodash.merge'
+import Error from '../global/components/Error'
+import catchError from '../global/mixins/catchError'
+import utils from '../global/utils/charts'
 
 /**
  * YourvicBarChart provides a generic and configurable bar chart component
  */
 export default {
+  components: {
+    'InnerHorizontalChart': () => import(`./${'InnerHorizontalChart'}`),
+    'InnerChart': () => import(`./${'InnerChart'}`),
+    Error
+  },
+  mixins: [catchError],
   props: {
     /**
      * Direction of bar chart: can be 'horizontal' or 'vertical'
@@ -62,12 +85,75 @@ export default {
       default: 'Bar Chart'
     }
   },
-  components: {
-    ChartWrapper,
-    BarChart
+  data () {
+    return {
+      componentKey: 0
+    }
+  },
+  computed: {
+    innerComponentName: function () {
+      return this.direction === 'vertical' ? 'InnerChart' : 'InnerHorizontalChart'
+    },
+    chartContainerStyles () {
+      return {
+        position: 'relative',
+        height: 'inherit',
+        width: 'inherit',
+        outline: 'none'
+      }
+    },
+    chartData: function () {
+      try {
+        utils.validateData(this.data)
+        const chartSettings = {
+          datasets: builder.getDatasetSettings(this.data)
+        }
+        const chartData = _merge({}, this.data, chartSettings)
+        return chartData
+      } catch (error) {
+        this.handleError(error)
+      }
+    },
+    options: function () {
+      try {
+        utils.validateData(this.data)
+        const options = {
+          maintainAspectRatio: false,
+          responsive: true,
+          title: builder.getTitle(this.title),
+          scales: {
+            xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat),
+            yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat)
+          },
+          legend: builder.getLegend(this.showLegend),
+          tooltips: builder.getTooltips(this.direction, this.data, this.dataFormat),
+          plugins: builder.getPlugin(this.dataFormat)
+        }
+        return options
+      } catch (error) {
+        this.handleError(error)
+      }
+    }
+  },
+  methods: {
+    handleError: function (error) {
+      this.gotError = true
+      this.error = error
+    }
+  },
+  watch: {
+    // make options changes reactive (only chartData is reactive by default)
+    options: function () {
+      this.componentKey++
+    }
   }
 }
 </script>
 
 <style lang="scss">
+  .yourvic-bar-chart {
+    position: relative;
+    height: inherit;
+    width: inherit;
+  }
 </style>

@@ -85,7 +85,6 @@ The data object that should contain the following keys:
        components: { LineChart },
        template: lineChartTemplate,
        props: {
-        direction: { default: () => 'horizontal' },
         title: { default: () => 'Sample Chart' },
         data: { default: () => chartData },
         showLegend: { default: () => true },
@@ -105,10 +104,28 @@ The data object that should contain the following keys:
        components: { LineChart },
        template: lineChartTemplate,
        props: {
-        direction: { default: () => 'horizontal' },
         title: { default: () => 'Multiple Datasets' },
         data: { default: () => multiChartData },
         showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Invalid data provided
+
+<Preview>
+  <Story name="Invalid data provided">
+    {
+      {
+       components: { LineChart },
+       template: lineChartTemplate,
+       props: {
+        title: { default: () => undefined },
+        data: { default: () => ({'data': 'invalid data'}) },
+        showLegend: { default: () => false },
         dataFormat: { default: () => 'normal' }
        }
       }

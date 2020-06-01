@@ -1,7 +1,7 @@
 import _merge from 'lodash.merge'
 
 export const pieChartTemplate = `
-<div style="width: 400px">
+<div style="width: 400px; height: 400px">
   <pie-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
 </div>
 `

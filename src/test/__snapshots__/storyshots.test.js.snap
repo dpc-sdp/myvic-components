@@ -5,25 +5,9 @@ exports[`YourvicStoryshots Bar Chart Default 1`] = `
   style="width: 400px; height: 400px;"
 >
   <div
-    arialabel="chart"
-    class="yourvic-chart-wrapper"
+    class="yourvic-bar-chart"
   >
-    <div
-      aria-label="Bar Chart"
-      class=""
-      dataformat="normal"
-      role="img"
-      style="position: relative; height: inherit; width: inherit; outline: none;"
-      tabindex="0"
-    >
-      <canvas
-        class="chartjs-render-monitor"
-        height="0"
-        id="horizontalbar-chart"
-        style="display: block;"
-        width="0"
-      />
-    </div>
+    <!---->
      
     <!---->
   </div>
@@ -35,8 +19,7 @@ exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
   style="width: 400px; height: 400px;"
 >
   <div
-    arialabel="chart"
-    class="yourvic-chart-wrapper"
+    class="yourvic-bar-chart"
   >
     <div
       aria-label="Bar Chart"
@@ -65,12 +48,19 @@ exports[`YourvicStoryshots Bar Chart Invalid data provided 1`] = `
   style="width: 400px; height: 400px;"
 >
   <div
-    arialabel="chart"
-    class="yourvic-chart-wrapper"
+    class="yourvic-bar-chart"
   >
     <!---->
      
-    <!---->
+    <div
+      class="yourvic-error yourvic-error--chart"
+    >
+      <span
+        class="yourvic-error-span"
+      >
+        DataError: No datasets provided. The data object needs to have a "datasets" property
+      </span>
+    </div>
   </div>
 </div>
 `;
@@ -97,8 +87,7 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
         style="width: 100%; height: 100vh;"
       >
         <div
-          arialabel="chart"
-          class="yourvic-chart-wrapper"
+          class="yourvic-bar-chart"
         >
           <div
             aria-label="Bar Chart"
@@ -139,25 +128,9 @@ exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
   style="width: 400px; height: 400px;"
 >
   <div
-    arialabel="chart"
-    class="yourvic-chart-wrapper"
+    class="yourvic-bar-chart"
   >
-    <div
-      aria-label="Bar Chart"
-      class=""
-      dataformat="normal"
-      role="img"
-      style="position: relative; height: inherit; width: inherit; outline: none;"
-      tabindex="0"
-    >
-      <canvas
-        class="chartjs-render-monitor"
-        height="0"
-        id="bar-chart"
-        style="display: block;"
-        width="0"
-      />
-    </div>
+    <!---->
      
     <!---->
   </div>
@@ -169,8 +142,7 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
   style="width: 400px; height: 400px;"
 >
   <div
-    arialabel="chart"
-    class="yourvic-chart-wrapper"
+    class="yourvic-bar-chart"
   >
     <div
       aria-label="Bar Chart"
@@ -249,13 +221,37 @@ exports[`YourvicStoryshots Line Chart Default 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Line Chart Invalid data provided 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="yourvic-line-chart"
+  >
+    <!---->
+     
+    <div
+      class="yourvic-error yourvic-error--chart"
+    >
+      <span
+        class="yourvic-error-span"
+      >
+        DataError: No datasets provided. The data object needs to have a "datasets" property
+      </span>
+    </div>
   </div>
 </div>
 `;
 
 exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
     class="yourvic-line-chart"
@@ -276,6 +272,8 @@ exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -320,6 +318,8 @@ exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
               width="0"
             />
           </div>
+           
+          <!---->
         </div>
       </div>
        
@@ -338,7 +338,7 @@ exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
 
 exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
     class="yourvic-line-chart"
@@ -359,6 +359,8 @@ exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1240,13 +1242,37 @@ exports[`YourvicStoryshots Pie Chart Default 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Pie Chart Invalid data provided 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="yourvic-pie-chart"
+  >
+    <!---->
+     
+    <div
+      class="yourvic-error yourvic-error--chart"
+    >
+      <span
+        class="yourvic-error-span"
+      >
+        DataError: No datasets provided. The data object needs to have a "datasets" property
+      </span>
+    </div>
   </div>
 </div>
 `;
 
 exports[`YourvicStoryshots Pie Chart Multiple Datasets 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
     class="yourvic-pie-chart"
@@ -1267,6 +1293,8 @@ exports[`YourvicStoryshots Pie Chart Multiple Datasets 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1311,6 +1339,8 @@ exports[`YourvicStoryshots Pie Chart Ripple Grid 1`] = `
               width="0"
             />
           </div>
+           
+          <!---->
         </div>
       </div>
        
@@ -1329,7 +1359,7 @@ exports[`YourvicStoryshots Pie Chart Ripple Grid 1`] = `
 
 exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
     class="yourvic-pie-chart"
@@ -1350,6 +1380,8 @@ exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1359,16 +1391,49 @@ exports[`YourvicStoryshots Tree Map Default 1`] = `
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-treemap-chart"
+    arialabel="chart"
+    class="yourvic-chart-wrapper yourvic-treemap-chart"
   >
-    <canvas
-      aria-label="Tree Map Chart"
-      class="yourvic-treemap-chart-canvas"
-      id="0"
-      role="img"
-      style="outline: none;"
-      tabindex="0"
-    />
+    <div
+      class="yourvic-treemap-chart"
+    >
+      <canvas
+        aria-label="Tree Map Chart"
+        class="yourvic-treemap-chart-canvas"
+        id="0"
+        role="img"
+        style="outline: none;"
+        tabindex="0"
+      />
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Tree Map Invalid data provided 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    arialabel="chart"
+    class="yourvic-chart-wrapper yourvic-treemap-chart"
+  >
+    <div
+      class="yourvic-treemap-chart"
+    >
+      <canvas
+        aria-label="Tree Map Chart"
+        class="yourvic-treemap-chart-canvas"
+        id="0"
+        role="img"
+        style="outline: none;"
+        tabindex="0"
+      />
+    </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1395,16 +1460,23 @@ exports[`YourvicStoryshots Tree Map Ripple Grid 1`] = `
         style="width: 100%; height: 100vh;"
       >
         <div
-          class="yourvic-treemap-chart"
+          arialabel="chart"
+          class="yourvic-chart-wrapper yourvic-treemap-chart"
         >
-          <canvas
-            aria-label="Tree Map Chart"
-            class="yourvic-treemap-chart-canvas"
-            id="0"
-            role="img"
-            style="outline: none;"
-            tabindex="0"
-          />
+          <div
+            class="yourvic-treemap-chart"
+          >
+            <canvas
+              aria-label="Tree Map Chart"
+              class="yourvic-treemap-chart-canvas"
+              id="0"
+              role="img"
+              style="outline: none;"
+              tabindex="0"
+            />
+          </div>
+           
+          <!---->
         </div>
       </div>
        
@@ -1426,16 +1498,23 @@ exports[`YourvicStoryshots Tree Map With title 1`] = `
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-treemap-chart"
+    arialabel="chart"
+    class="yourvic-chart-wrapper yourvic-treemap-chart"
   >
-    <canvas
-      aria-label="Tree Map Chart"
-      class="yourvic-treemap-chart-canvas"
-      id="0"
-      role="img"
-      style="outline: none;"
-      tabindex="0"
-    />
+    <div
+      class="yourvic-treemap-chart"
+    >
+      <canvas
+        aria-label="Tree Map Chart"
+        class="yourvic-treemap-chart-canvas"
+        id="0"
+        role="img"
+        style="outline: none;"
+        tabindex="0"
+      />
+    </div>
+     
+    <!---->
   </div>
 </div>
 `;

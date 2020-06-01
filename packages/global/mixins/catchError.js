@@ -12,7 +12,6 @@ const catchError = {
     }
   },
   errorCaptured (error) {
-    console.log(error)
     if (this.active) {
       this.gotError = true
       this.error = error
