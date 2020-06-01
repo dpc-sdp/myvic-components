@@ -21,7 +21,7 @@ describe('YourvicMapTileLayer', () => {
   })
 
   it('removes existing layer from the map', () => {
-    expect(mockMap.removeLayer).toHaveBeenCalledWith(null) // null on first mount
+    expect(mockMap.removeLayer).toHaveBeenCalledWith(undefined) // null on first mount
   })
 
   it('adds the layer to the map', () => {

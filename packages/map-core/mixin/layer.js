@@ -29,8 +29,9 @@ export default {
   },
   data: function () {
     return {
-      layer: null,
-      layerSource: null
+      map: undefined,
+      layer: undefined,
+      layerSource: undefined
     }
   },
   watch: {
@@ -42,6 +43,16 @@ export default {
     },
     async zIndex (newValue) {
       await this.configureLayer()
+    }
+  },
+  methods: {
+    getOLMap: async function () {
+      try {
+        return await this.getMap()
+      } catch (ex) {
+        console.error('unable to get reference to map, check that layer is a child of yourvic-map-core')
+        return undefined
+      }
     }
   },
   async mounted () {

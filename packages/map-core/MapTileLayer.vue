@@ -95,6 +95,9 @@ export default {
     async projection (newValue) {
       await this.configureLayer()
     },
+    async tileSize (newValue) {
+      await this.configureLayer()
+    },
     async attributions (newValue) {
       await this.configureLayer()
     },
@@ -108,62 +111,37 @@ export default {
       await this.configureLayer()
     }
   },
+  data: function () {
+    return {}
+  },
+  computed: {
+    tileGrid: function () {
+      if (this.map === undefined || this.tileSize === undefined) return undefined
+      else {
+        return ol.createTileGrid(this.map.getView(), 25, this.tileSize)
+      }
+    }
+  },
   methods: {
     configureLayer: async function () {
       // Get map and remove any previous version of layer
-      if (this.getMap == null) {
-        console.error('getMap was not provided, check that yourvic-tile-layer is a child of yourvic-map-core')
-        return
-      }
-      let map = await this.getMap()
-      if (map == null) { return }
-      map.removeLayer(this.layer)
-
-      // Create custom tilegrid if non-default tile size specified
-      let tileGrid
-      if (this.tileSize !== undefined) {
-        tileGrid = ol.createTileGrid(map.getView(), 25, this.tileSize)
-      }
+      this.map = await this.getOLMap()
+      if (this.map == null) { return }
+      this.map.removeLayer(this.layer)
 
       // Create layer source
       switch (this.type) {
         case 'OSM':
-          this.layerSource = new ol.source.OSM({
-            projection: this.projection,
-            attributions: this.attributions.concat([ol.source.OSMAttribution]),
-            transition: this.transition
-          })
+          this.layerSource = await this.createOSMLayerSource()
           break
         case 'XYZ':
-          this.layerSource = new ol.source.XYZ({
-            url: this.url,
-            projection: this.projection,
-            tileSize: this.tileSize,
-            attributions: this.attributions,
-            transition: this.transition
-          })
+          this.layerSource = await this.createXYZLayerSource()
           break
         case 'WMS':
-          this.layerSource = new ol.source.TileWMS({
-            url: this.url,
-            params: this.params,
-            projection: this.projection,
-            tileGrid: tileGrid,
-            attributions: this.attributions,
-            transition: this.transition,
-            hidpi: this.highDPI,
-            serverType: this.serverType
-          })
+          this.layerSource = await this.createWMSLayerSource()
           break
         case 'ArcGIS':
-          this.layerSource = new ol.source.TileArcGISRest({
-            url: this.url,
-            params: this.params,
-            projection: this.projection,
-            tileGrid: tileGrid,
-            attributions: this.attributions,
-            transition: this.transition
-          })
+          this.layerSource = await this.createArcGISLayerSource()
           break
         default:
           this.layerSource = null
@@ -178,7 +156,45 @@ export default {
       })
 
       // Add layer to map
-      map.addLayer(this.layer)
+      this.map.addLayer(this.layer)
+    },
+    createOSMLayerSource: async function () {
+      return new ol.source.OSM({
+        projection: this.projection,
+        attributions: this.attributions.concat([ol.source.OSMAttribution]),
+        transition: this.transition
+      })
+    },
+    createXYZLayerSource: async function () {
+      return new ol.source.XYZ({
+        url: this.url,
+        projection: this.projection,
+        tileSize: this.tileSize,
+        attributions: this.attributions,
+        transition: this.transition
+      })
+    },
+    createWMSLayerSource: async function () {
+      return new ol.source.TileWMS({
+        url: this.url,
+        params: this.params,
+        projection: this.projection,
+        tileGrid: this.tileGrid,
+        attributions: this.attributions,
+        transition: this.transition,
+        hidpi: this.highDPI,
+        serverType: this.serverType
+      })
+    },
+    createArcGISLayerSource: async function () {
+      return new ol.source.TileArcGISRest({
+        url: this.url,
+        params: this.params,
+        projection: this.projection,
+        tileGrid: this.tileGrid,
+        attributions: this.attributions,
+        transition: this.transition
+      })
     }
   }
 }
