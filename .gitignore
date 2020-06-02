@@ -12,7 +12,8 @@ lerna-debug.log
 coverage
 /test/e2e/videos
 /test/e2e/screenshots
-
+cypress/videos
+cypress/screenshots
 
 /src/public
 

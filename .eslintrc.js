@@ -15,10 +15,11 @@ module.exports = {
     "plugin:vue/essential",
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     "standard",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    'plugin:cypress/recommended'
   ],
   // required to lint *.vue files
-  plugins: ["vue"],
+  plugins: ["vue", "jest", 'cypress'],
   // add your custom rules here
   rules: {
     // allow async-await
