@@ -1,5 +1,4 @@
-// const { resolve } = require('path')
-import { resolve } from 'path'
+const { resolve } = require('path')
 
 export default {
   rootDir: resolve(__dirname, '../../..'),
