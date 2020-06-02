@@ -11,10 +11,15 @@ const catchError = {
       default: true
     }
   },
-  errorCaptured (error) {
-    if (this.active) {
+  methods: {
+    interceptError (error) {
       this.gotError = true
       this.error = error
+    }
+  },
+  errorCaptured (error) {
+    if (this.active) {
+      this.interceptError(error)
       return false
     } else {
       return true
