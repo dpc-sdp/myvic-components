@@ -200,7 +200,7 @@ exports[`YourvicStoryshots Error Default 1`] = `
 
 exports[`YourvicStoryshots Line Chart Default 1`] = `
 <div
-  style="width: 400px;"
+  style="width: 400px; height: 400px;"
 >
   <div
     class="yourvic-line-chart"

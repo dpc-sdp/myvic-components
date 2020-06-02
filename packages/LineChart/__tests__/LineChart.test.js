@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import YourVicLineChart from './../index.vue'
+import ErrorComponent from './../../global/components/Error'
 
 describe('YourVicLineChart', () => {
   const chartData = {
@@ -14,7 +15,6 @@ describe('YourVicLineChart', () => {
 
   const wrapper = mount(YourVicLineChart, {
     propsData: {
-      direction: 'horizontal',
       title: 'Line Chart',
       data: chartData,
       showLegend: true,
@@ -22,7 +22,24 @@ describe('YourVicLineChart', () => {
     }
   })
 
+  const invalidChartData = {
+    datasets: [{}]
+  }
+
+  const errorWrapper = mount(YourVicLineChart, {
+    propsData: {
+      title: 'Line Chart',
+      data: invalidChartData,
+      showLegend: true,
+      dataFormat: 'normal'
+    }
+  })
+
   it('renders a canvas', () => {
     expect(wrapper.contains('canvas')).toBe(true)
+  })
+
+  it('renders an error message with invalid data', () => {
+    expect(errorWrapper.contains(ErrorComponent)).toBe(true)
   })
 })

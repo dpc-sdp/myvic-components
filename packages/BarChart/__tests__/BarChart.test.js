@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import YourVicBarChart from './../index.vue'
+import ErrorComponent from './../../global/components/Error'
 
 describe('YourVicBarChart', () => {
   const chartData = {
@@ -22,7 +23,25 @@ describe('YourVicBarChart', () => {
     }
   })
 
+  const invalidChartData = {
+    datasets: [{}]
+  }
+
+  const errorWrapper = mount(YourVicBarChart, {
+    propsData: {
+      direction: 'horizontal',
+      title: 'Bar Chart',
+      data: invalidChartData,
+      showLegend: true,
+      dataFormat: 'normal'
+    }
+  })
+
   it('renders a canvas', () => {
     expect(wrapper.contains('canvas')).toBe(true)
+  })
+
+  it('renders an error message with invalid data', () => {
+    expect(errorWrapper.contains(ErrorComponent)).toBe(true)
   })
 })

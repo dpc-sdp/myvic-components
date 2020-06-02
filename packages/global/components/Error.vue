@@ -58,6 +58,8 @@ $rpl-dev-error-text-color: $rpl-danger-color !default;
   &-span {
     margin: 0 auto;
     padding: 0 $rpl-space-4 * 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 </style>

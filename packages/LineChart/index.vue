@@ -21,7 +21,7 @@ import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
 import Error from '../global/components/Error'
 import catchError from '../global/mixins/catchError'
-import utils from '../global/utils/charts'
+import validateChartData from '../global/mixins/validateChartData'
 
 /**
  * YourvicLineChart provides a generic and configurable line chart component
@@ -31,7 +31,7 @@ export default {
     InnerChart,
     Error
   },
-  mixins: [catchError],
+  mixins: [catchError, validateChartData],
   props: {
     /**
      * Title that appears above the chart. If this is null then the title and its container will not render at all
@@ -91,7 +91,6 @@ export default {
     },
     chartData: function () {
       try {
-        utils.validateData(this.data)
         const chartSettings = {
           datasets: builder.getDatasetSettings(this.data)
         }
@@ -103,7 +102,6 @@ export default {
     },
     options: function () {
       try {
-        utils.validateData(this.data)
         const options = {
           maintainAspectRatio: false,
           responsive: true,

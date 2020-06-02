@@ -23,7 +23,7 @@ import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
 import Error from '../global/components/Error'
 import catchError from '../global/mixins/catchError'
-import utils from '../global/utils/charts'
+import validateChartData from '../global/mixins/validateChartData'
 
 /**
  * YourvicBarChart provides a generic and configurable bar chart component
@@ -34,7 +34,7 @@ export default {
     'InnerChart': () => import(`./${'InnerChart'}`),
     Error
   },
-  mixins: [catchError],
+  mixins: [catchError, validateChartData],
   props: {
     /**
      * Direction of bar chart: can be 'horizontal' or 'vertical'
@@ -104,7 +104,6 @@ export default {
     },
     chartData: function () {
       try {
-        utils.validateData(this.data)
         const chartSettings = {
           datasets: builder.getDatasetSettings(this.data)
         }
@@ -116,7 +115,6 @@ export default {
     },
     options: function () {
       try {
-        utils.validateData(this.data)
         const options = {
           maintainAspectRatio: false,
           responsive: true,
