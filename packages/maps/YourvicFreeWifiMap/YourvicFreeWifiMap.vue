@@ -24,6 +24,8 @@
       :baseMapUrl="baseMapUrl"
       :customMethods="customMethods"
       :minZoom="6"
+      :enableMapboxWatermark="true"
+      :baseMapAttributions="baseMapAttributions"
       />
   </div>
 </template>
@@ -239,7 +241,11 @@ export default {
       tabs: ['Melbourne', 'Ballarat', 'Bendigo'],
       baseMapUrl,
       customMethods,
-      err: null
+      err: null,
+      baseMapAttributions: [
+        '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
+        '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      ]
     }
   },
   computed: {

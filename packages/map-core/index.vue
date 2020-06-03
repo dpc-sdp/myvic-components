@@ -10,6 +10,7 @@
     </div>
     <div class="yourvic-map-core__container">
       <div class="yourvic-map-core__map" id="map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
+        <slot></slot>
         <a
           v-if="enableMapboxWatermark"
           href="http://mapbox.com/about/maps"
@@ -24,24 +25,6 @@
 import MapIndicator from './MapIndicator'
 import ol from './lib/ol'
 
-let map,
-  baseLayer,
-  baseSource,
-  themeLayers,
-  popupOverlay,
-  zoomControl,
-  attributionControl,
-  fullScreenControl,
-  dragPanInteraction,
-  keyboardPanInteraction,
-  doubleClickZoomInteraction,
-  pinchZoomInteraction,
-  keyboardZoomInteraction,
-  mouseWheelZoomInteraction,
-  dragZoomInteraction,
-  dragRotateInteraction,
-  pinchRotateInteraction
-
 /**
  * All of these functions can be overridden by passing in
  * functions of the same name as properties of the customMethods prop
@@ -55,7 +38,8 @@ let map,
  */
 const methods = {
   createMap () {
-    map = new ol.Map({
+    ol.registerCustomProjections()
+    this.map = new ol.Map({
       target: 'map',
       interactions: ol.interaction.defaults({
         altShiftDragRotate: false,
@@ -77,6 +61,7 @@ const methods = {
       }),
       view: new ol.View({
         center: this.center,
+        projection: this.projection,
         zoom: this.zoom,
         maxZoom: this.maxZoom,
         minZoom: this.minZoom
@@ -84,57 +69,57 @@ const methods = {
     })
   },
   createBaseLayer () {
-    baseSource = new ol.source.XYZ({
+    this.baseSource = new ol.source.XYZ({
       url: this.baseMapUrl,
       transition: 1000,
       attributions: this.baseMapAttributions
     })
-    baseLayer = new ol.layer.Tile({
-      source: baseSource
+    this.baseLayer = new ol.layer.Tile({
+      source: this.baseSource
     })
   },
   createMapControls () {
-    zoomControl = new ol.control.Zoom()
-    attributionControl = new ol.control.Attribution({
+    this.zoomControl = new ol.control.Zoom()
+    this.attributionControl = new ol.control.Attribution({
       collapsible: false
     })
-    fullScreenControl = new ol.control.FullScreen()
+    this.fullScreenControl = new ol.control.FullScreen()
   },
   setMapControls () {
-    map.getControls().clear()
-    if (this.enableZoomControl) map.addControl(zoomControl)
-    if (this.enableAttributionControl) map.addControl(attributionControl)
-    if (this.enableFullScreenControl) map.addControl(fullScreenControl)
+    this.map.getControls().clear()
+    if (this.enableZoomControl) this.map.addControl(this.zoomControl)
+    if (this.enableAttributionControl) this.map.addControl(this.attributionControl)
+    if (this.enableFullScreenControl) this.map.addControl(this.fullScreenControl)
   },
   createMapInteractions () {
-    dragPanInteraction = new ol.interaction.DragPan()
-    keyboardPanInteraction = new ol.interaction.KeyboardPan()
+    this.dragPanInteraction = new ol.interaction.DragPan()
+    this.keyboardPanInteraction = new ol.interaction.KeyboardPan()
 
-    doubleClickZoomInteraction = new ol.interaction.DoubleClickZoom()
-    pinchZoomInteraction = new ol.interaction.PinchZoom()
-    keyboardZoomInteraction = new ol.interaction.KeyboardZoom()
-    mouseWheelZoomInteraction = new ol.interaction.MouseWheelZoom()
-    dragZoomInteraction = new ol.interaction.DragZoom()
+    this.doubleClickZoomInteraction = new ol.interaction.DoubleClickZoom()
+    this.pinchZoomInteraction = new ol.interaction.PinchZoom()
+    this.keyboardZoomInteraction = new ol.interaction.KeyboardZoom()
+    this.mouseWheelZoomInteraction = new ol.interaction.MouseWheelZoom()
+    this.dragZoomInteraction = new ol.interaction.DragZoom()
 
-    dragRotateInteraction = new ol.interaction.DragRotate()
-    pinchRotateInteraction = new ol.interaction.PinchRotate()
+    this.dragRotateInteraction = new ol.interaction.DragRotate()
+    this.pinchRotateInteraction = new ol.interaction.PinchRotate()
   },
   setMapInteractions () {
-    map.getInteractions().clear()
+    this.map.getInteractions().clear()
     if (this.enablePanInteraction) {
-      map.addInteraction(dragPanInteraction)
-      map.addInteraction(keyboardPanInteraction)
+      this.map.addInteraction(this.dragPanInteraction)
+      this.map.addInteraction(this.keyboardPanInteraction)
     }
     if (this.enableZoomInteraction) {
-      map.addInteraction(doubleClickZoomInteraction)
-      map.addInteraction(pinchZoomInteraction)
-      map.addInteraction(keyboardZoomInteraction)
-      map.addInteraction(mouseWheelZoomInteraction)
-      map.addInteraction(dragZoomInteraction)
+      this.map.addInteraction(this.doubleClickZoomInteraction)
+      this.map.addInteraction(this.pinchZoomInteraction)
+      this.map.addInteraction(this.keyboardZoomInteraction)
+      this.map.addInteraction(this.mouseWheelZoomInteraction)
+      this.map.addInteraction(this.dragZoomInteraction)
     }
     if (this.enableRotateInteraction) {
-      map.addInteraction(dragRotateInteraction)
-      map.addInteraction(pinchRotateInteraction)
+      this.map.addInteraction(this.dragRotateInteraction)
+      this.map.addInteraction(this.pinchRotateInteraction)
     }
   },
   createImageIconStyle: (src, crossOrigin, size) => {
@@ -160,7 +145,7 @@ const methods = {
     )
   },
   createThemeLayers () {
-    themeLayers = []
+    this.themeLayers = []
     const themeSource = new ol.source.VectorTileSource({
       overlaps: false,
       format: new ol.format.MVT(),
@@ -174,10 +159,10 @@ const methods = {
       renderMode: 'hybrid',
       name: 'defaultThemeLayer'
     })
-    themeLayers.push(themeLayer)
+    this.themeLayers.push(themeLayer)
   },
   addPopupOverlay () {
-    popupOverlay = new ol.Overlay({
+    this.popupOverlay = new ol.Overlay({
       element: this.$refs.mapPopup,
       autoPan: true,
       autoPanAnimation: {
@@ -186,7 +171,7 @@ const methods = {
       positioning: 'bottom-center',
       position: undefined
     })
-    map.addOverlay(popupOverlay)
+    this.map.addOverlay(this.popupOverlay)
   },
   zoomToArea (area, { duration }) {
     /*
@@ -220,15 +205,15 @@ const methods = {
   },
   onMapPointerMove (evt) {
     // set the cursor to a pointer when hovering over an icon
-    var pixel = map.getEventPixel(evt.originalEvent)
-    var hit = map.hasFeatureAtPixel(pixel)
+    var pixel = this.map.getEventPixel(evt.originalEvent)
+    var hit = this.map.hasFeatureAtPixel(pixel)
     this.$refs.map.style.cursor = hit ? 'pointer' : ''
     if (hit === true) {
       const features = []
-      map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
+      this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
         f.layerName = layer.get('name')
         f.event = 'move'
-        if (themeLayers.includes(layer)) features.push(f)
+        if (this.themeLayers.includes(layer)) features.push(f)
       })
       const firstFeature = features[0]
       if (this.customMethods && this.customMethods.featureMapper) {
@@ -243,10 +228,10 @@ const methods = {
   },
   onMapClick (evt) {
     const features = []
-    map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
+    this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
       f.layerName = layer.get('name')
       f.event = 'click'
-      if (themeLayers.includes(layer)) features.push(f)
+      if (this.themeLayers.includes(layer)) features.push(f)
     })
 
     if (features.length === 0) {
@@ -265,26 +250,26 @@ const methods = {
     // for the browser to update the size of the popup based on content length
     // and screen size. With nextTick, the setPosition was running before the
     // overlay changed size.
-    setTimeout(function () {
-      popupOverlay.setPosition(firstFeature.getGeometry().getCoordinates())
+    setTimeout(() => {
+      this.popupOverlay.setPosition(firstFeature.getGeometry().getCoordinates())
     }, 0)
   },
   onAppMounted () {
     this.createMap()
 
     if (this.customMethods && this.customMethods.createBaseLayer) {
-      baseLayer = this.customMethods.createBaseLayer(ol)
+      this.baseLayer = this.customMethods.createBaseLayer(ol)
     } else {
       this.createBaseLayer()
     }
 
     if (this.customMethods && this.customMethods.createThemeLayers) {
-      themeLayers = this.customMethods.createThemeLayers(ol)
+      this.themeLayers = this.customMethods.createThemeLayers(ol)
     } else {
       this.createThemeLayers()
     }
 
-    map.addLayer(baseLayer)
+    this.map.addLayer(this.baseLayer)
 
     this.createMapControls()
     this.setMapControls()
@@ -292,17 +277,17 @@ const methods = {
     this.createMapInteractions()
     this.setMapInteractions()
 
-    for (let layer of themeLayers) {
-      map.addLayer(layer)
+    for (let layer of this.themeLayers) {
+      this.map.addLayer(layer)
     }
 
     this.addPopupOverlay()
 
-    map.on('singleclick', this.onMapClick)
-    map.on('pointermove', this.onMapPointerMove)
+    this.map.on('singleclick', this.onMapClick)
+    this.map.on('pointermove', this.onMapPointerMove)
 
     if (this.customMethods && this.customMethods.exposeMap) {
-      this.customMethods.exposeMap(map)
+      this.customMethods.exposeMap(this.map)
     }
 
     this.zoomOnAppMounted()
@@ -316,9 +301,23 @@ const methods = {
     }
   },
   updateBaseMap () {
-    map.removeLayer(baseLayer)
+    this.map.removeLayer(this.baseLayer)
     this.createBaseLayer()
-    map.addLayer(baseLayer)
+    this.map.addLayer(this.baseLayer)
+  },
+  getMap: function (found) {
+    // This function is used with dependency injection to allow child components get a reference to the map
+    // See: https://vuejs.org/v2/guide/components-edge-cases.html#Dependency-Injection
+    return new Promise((resolve, reject) => {
+      let checkForMap = () => {
+        if (this.map) {
+          resolve(this.map)
+        } else {
+          setTimeout(checkForMap, 50)
+        }
+      }
+      checkForMap()
+    })
   }
 }
 
@@ -342,12 +341,21 @@ export default {
       }
     },
     /**
-     * Array of lat/lon coordinates to center the map on
+     * Coordinates to center the map on as an array of numbers. Must match the map projection, in the form ```[x, y]```
+     * or ```[lon, lat]```.
      */
     center: {
       type: Array,
       default: () => [16136905.843820328, -4383057.013522999],
       validator: value => value.length === 2
+    },
+    /**
+     * Map projection as an SRS identifier string. Defaults to ```EPSG:3857``` (Web Mercator). ```EPSG:4326``` (WGS84)
+     * is also supported out of the box. Experimental support for ```EPSG:4283``` (GDA94) is also provided.
+     */
+    projection: {
+      type: String,
+      default: undefined
     },
     /**
      * Initial map zoom level
@@ -388,24 +396,21 @@ export default {
      */
     baseMapUrl: {
       type: String,
-      required: true
+      default: ''
     },
     /**
      * Map attribution information to be displayed using the attribution control
      */
     baseMapAttributions: {
       type: Array,
-      default: () => [
-        '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
-        '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      ]
+      default: () => []
     },
     /**
      * Enable or disable the Mapbox watermark (required for licensing when using Mapbox basemap)
      */
     enableMapboxWatermark: {
       type: Boolean,
-      default: true
+      default: false
     },
     /**
      * Enable or disable the zoom control (buttons)
@@ -481,7 +486,26 @@ export default {
     }
   },
   data: function () {
-    return { feature: null }
+    return {
+      map: null,
+      baseLayer: null,
+      baseSource: null,
+      themeLayers: null,
+      popupOverlay: null,
+      zoomControl: null,
+      attributionControl: null,
+      fullScreenControl: null,
+      dragPanInteraction: null,
+      keyboardPanInteraction: null,
+      doubleClickZoomInteraction: null,
+      pinchZoomInteraction: null,
+      keyboardZoomInteraction: null,
+      mouseWheelZoomInteraction: null,
+      dragZoomInteraction: null,
+      dragRotateInteraction: null,
+      pinchRotateInteraction: null,
+      feature: null
+    }
   },
   components: {
     MapIndicator
@@ -492,25 +516,28 @@ export default {
     // Update size renders the map again
     refreshOn (val) {
       if (val) {
-        map.updateSize()
+        this.map.updateSize()
         // TODO: Calling zoom works but zooms in too close on mobile
         // Update with mobile specific zoom level
         this.zoomOnAppMounted()
       }
     },
     center (newCenter) {
-      map.getView().setCenter(newCenter)
-      map.getView().setZoom(this.zoom)
+      this.map.getView().setCenter(newCenter)
+      this.map.getView().setZoom(this.zoom)
       this.feature = null
     },
+    projection (newProjection) {
+      this.createMap()
+    },
     zoom (newZoom) {
-      map.getView().setZoom(newZoom)
+      this.map.getView().setZoom(newZoom)
     },
     minZoom (newMinZoom) {
-      map.getView().setMinZoom(newMinZoom)
+      this.map.getView().setMinZoom(newMinZoom)
     },
     maxZoom (newMaxZoom) {
-      map.getView().setMaxZoom(newMaxZoom)
+      this.map.getView().setMaxZoom(newMaxZoom)
     },
     baseMapUrl (newBaseMapUrl) {
       this.updateBaseMap()
@@ -539,6 +566,11 @@ export default {
   },
   mounted () {
     this.onAppMounted()
+  },
+  provide: function () {
+    return {
+      getMap: this.getMap
+    }
   },
   methods
 }

@@ -1,8 +1,7 @@
 version: 2.0
 
 jobs:
-  test:
-    context: yourvictoria.vic.gov.au
+  install:
     docker:
       - image: cypress/base:10
         environment:
@@ -11,27 +10,89 @@ jobs:
     working_directory: ~/app
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
+      - save_cache:
+          key: v2-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+            - src/node_modules
+            - ~/.cache
+      - persist_to_workspace:
+          root: ~/app
+          paths: .
+
+  test:
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          CIRCLE_TEST_REPORTS: test-results
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
       - run:
           name: Lint code.
-          command: yarn lint --format ./node_modules/eslint-junit/index.js 
+          command: yarn lint --format ./node_modules/eslint-junit/index.js
           environment:
-             ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
+            ESLINT_JUNIT_OUTPUT: ./test-results/lint/eslint.xml
       - run:
           name: Unit tests
           command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
-            JEST_JUNIT_OUTPUT_DIR: test-results/unit/    
+            JEST_JUNIT_OUTPUT_DIR: test-results/unit/
       - store_test_results:
           path: test-results
       - store_artifacts:
           path: test-results
 
+  nuxt:
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          CIRCLE_TEST_REPORTS: test-results
+    working_directory: ~/app
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - restore_cache:
+          keys:
+            - v2-deps-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}
+            - v2-deps
+      - run:
+          name: nuxt test
+          command: yarn test:nuxt
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+
 workflows:
   version: 2
   commit:
-    jobs:  
-      - test
-
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
+      - nuxt:
+          requires:
+            - install

@@ -1,11 +1,15 @@
 import 'ol/ol.css'
 import TileLayer from 'ol/layer/Tile'
 import VectorTileLayer from 'ol/layer/VectorTile'
-import VectorTileSource from 'ol/source/VectorTile'
 import VectorLayer from 'ol/layer/Vector'
+import VectorTileSource from 'ol/source/VectorTile'
 import VectorSource from 'ol/source/Vector'
 import XYZSource from 'ol/source/XYZ'
 import ClusterSource from 'ol/source/Cluster'
+import TileWMSSource from 'ol/source/TileWMS'
+import OSMSource, { ATTRIBUTION as OSMAttribution } from 'ol/source/OSM'
+import WMTSSource, { optionsFromCapabilities as WMTSOptionsFromCapabilities } from 'ol/source/WMTS'
+import TileArcGISRestSource from 'ol/source/TileArcGISRest'
 import Style from 'ol/style/Style'
 import Text from 'ol/style/Text'
 import Fill from 'ol/style/Fill'
@@ -38,6 +42,10 @@ import {
   Attribution,
   FullScreen
 } from 'ol/control'
+import proj4 from 'proj4'
+import { get as getProjection } from 'ol/proj'
+import { register } from 'ol/proj/proj4'
+import TileGrid from 'ol/tilegrid/TileGrid'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -59,9 +67,33 @@ const createImageIconStyle = (src, crossOrigin, size) => {
   })
 }
 
+const registerCustomProjections = () => {
+  // Register GDA94 Projection (EPSG:4283) with OpenLayers
+  // Adapted from https://spatialreference.org/ref/epsg/4283/proj4js/, with +axis=neu added to switch axis order
+  proj4.defs('EPSG:4283', '+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +axis=neu +no_defs')
+  register(proj4)
+  let proj4283 = getProjection('EPSG:4283')
+  proj4283.setExtent([ 108.0000, -45.0000, 155.0000, -10.0000 ])
+}
+
+const createTileGrid = (mapView, zoomLevels, tileSize) => {
+  // Calculate resolutions for each zoom level
+  let resolutions = [mapView.getResolution()]
+  for (let i = 1; i < zoomLevels; i++) {
+    resolutions.push(resolutions[0] / Math.pow(2, i))
+  }
+  return new TileGrid({
+    extent: mapView.getProjection().getExtent(),
+    resolutions: resolutions,
+    tileSize: tileSize
+  })
+}
+
 const ol = {
   doFeaturesShareSameLocation,
   createImageIconStyle,
+  registerCustomProjections,
+  createTileGrid,
   Map: Map,
   View: View,
   Overlay: Overlay,
@@ -81,8 +113,13 @@ const ol = {
     VectorTileSource,
     XYZ: XYZSource,
     ClusterSource,
-    VectorLayer,
-    AnimatedCluster
+    AnimatedCluster,
+    TileWMS: TileWMSSource,
+    WMTS: WMTSSource,
+    WMTSOptionsFromCapabilities,
+    OSM: OSMSource,
+    OSMAttribution,
+    TileArcGISRest: TileArcGISRestSource
   },
   style: {
     Style,
@@ -111,6 +148,12 @@ const ol = {
     DragZoom,
     DragRotate,
     PinchRotate
+  },
+  proj: {
+    getProjection
+  },
+  tilegrid: {
+    TileGrid
   }
 }
 

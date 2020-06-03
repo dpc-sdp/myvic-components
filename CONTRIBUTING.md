@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Install [nodejs](https://nodejs.org/en/) (^v10.0.0)
+- Install [nodejs](https://nodejs.org/en/) (^v12.0.0)
 - Install [yarn](https://yarnpkg.com/en/docs/install) (currently npm is unsupported)
 
 ## Setup
@@ -50,7 +50,7 @@ Then merge release branches to develop.
 
 ## Test
 
-### Storybook tests
+### Storybook testing
 
 Add all components into storybook.
 
@@ -61,9 +61,23 @@ Update storyshots tests if you need by `yarn test:unit -u`.
 
 ### Unit testing
 
-Unit tests are an important. They help us secure our processes and work flows, ensuring that the most critical parts of our projects are protected from accidental mistakes or oversights in our development. We use Vue testing utility called [vue-test-utils](https://vue-test-utils.vuejs.org/).
+Unit tests are important. They help us secure our processes and work flows, ensuring that the most critical parts of our projects are protected from accidental mistakes or oversights in our development. We use Vue testing utility called [vue-test-utils](https://vue-test-utils.vuejs.org/).
 
-## Style guide
+### Server side rendering testing
+
+Users may use components in server side rendering application(e.g [nuxt.js](https://nuxtjs.org/)).
+
+It will be good to do a smoke test in nuxt.js so we can make sure our components are working in the server side as well.
+
+The end to end tests are written by [cypress](https://www.cypress.io/).
+
+Run `yarn nuxt:dev` to start a nuxt app instance from location `test/nuxt`.
+
+Run `yarn test:nuxt` to run nuxt tests.
+
+For adding new tests, add a page in `test/nuxt/fixture/pages`. Then add a new end to end test in `test/nuxt/integration`.
+
+## Coding standards
 
 ### CSS
 
