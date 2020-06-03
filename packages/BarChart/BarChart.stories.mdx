@@ -71,7 +71,7 @@ The data object that should contain the following keys:
             default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
           },
           divStyle: {
-            default: () => object('divStyle', { width: '400px' })
+            default: () => object('divStyle', { width: '400px', height: '400px' })
           }
         }
       }
@@ -131,6 +131,26 @@ The data object that should contain the following keys:
         direction: { default: () => 'horizontal' },
         title: { default: () => 'Dual Chart' },
         data: { default: () => dualChartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Invalid data provided
+
+<Preview>
+  <Story name="Invalid data provided">
+    {
+      {
+       components: { BarChart },
+       template: barChartTemplate,
+       props: {
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Dual Chart' },
+        data: { default: () => ({ data: 'invalid data'}) },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }

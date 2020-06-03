@@ -1,7 +1,7 @@
-import styles from '../../global/styles/export.scss'
+import styles from '@dpc-sdp/yourvic-global/styles/export.scss'
 import _merge from 'lodash.merge'
-import constants from '../../global/constants/charts'
-import utils from '../../global/utils/charts'
+import constants from '@dpc-sdp/yourvic-global/constants/charts'
+import utils from '@dpc-sdp/yourvic-global/utils/charts'
 
 const settings = {
   dataset: {

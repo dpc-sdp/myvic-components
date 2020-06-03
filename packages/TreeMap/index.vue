@@ -1,32 +1,12 @@
 <template>
-  <div class="yourvic-treemap-chart">
-    <canvas
-      :id="componentKey"
-      class="yourvic-treemap-chart-canvas"
-      :tabIndex="tabIndex"
-      role="img"
-      :aria-label="ariaLabel"
-      style="outline: none"
-    />
-  </div>
+  <chart-wrapper class="yourvic-treemap-chart">
+    <inner-chart v-bind="$props" />
+  </chart-wrapper>
 </template>
 
 <script>
-import Chart from 'chart.js'
-// eslint-disable-next-line no-unused-vars
-import treemap from 'chartjs-chart-treemap'
-import builder from './utils/buildChartOptions'
-
-const createChart = (instance) => {
-  var ctx = document.getElementById(instance.componentKey)
-  if (!ctx) return
-  // eslint-disable-next-line no-unused-vars
-  var myBarChart = new Chart(ctx, {
-    type: 'treemap',
-    data: instance.chartData,
-    options: instance.options
-  })
-}
+import InnerChart from './InnerChart'
+import ChartWrapper from '@dpc-sdp/yourvic-global/components/ChartWrapper'
 
 /**
  * TreeMap provides a generic and configurable tree map chart component
@@ -82,44 +62,9 @@ export default {
       default: 'Tree Map Chart'
     }
   },
-  components: {},
-  data () {
-    return {
-      componentKey: 0
-    }
-  },
-  mounted () {
-    createChart(this)
-  },
-  updated () {
-    createChart(this)
-  },
-  computed: {
-    chartData: function () {
-      return builder.getChartData(this.data, this.valueAttr, this.labelAttr)
-    },
-    options: function () {
-      if (!this.data) {
-        return null
-      }
-      const options = {
-        maintainAspectRatio: false,
-        title: builder.getTitle(this.title),
-        legend: { display: false },
-        tooltips: builder.getTooltips(this.dataFormat),
-        plugins: { datalabels: { display: false } }
-      }
-      return options
-    }
-  },
-  watch: {
-    // make options changes reactive (only chartData is reactive by default)
-    chartData: function () {
-      this.componentKey++
-    },
-    options: function () {
-      this.componentKey++
-    }
+  components: {
+    ChartWrapper,
+    InnerChart
   }
 }
 </script>

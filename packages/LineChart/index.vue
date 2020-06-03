@@ -1,6 +1,7 @@
 <template>
   <div class="yourvic-line-chart">
     <inner-chart
+      v-if="!gotError"
       :key="componentKey"
       :chartData="chartData"
       :options="options"
@@ -10,6 +11,7 @@
       role="img"
       :aria-label="ariaLabel"
     />
+    <error v-if="gotError" :message="error.toString()" errorClass="chart" />
   </div>
 </template>
 
@@ -17,11 +19,19 @@
 import InnerChart from './InnerChart'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
+import Error from '@dpc-sdp/yourvic-global/components/Error'
+import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
+import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
 
 /**
  * YourvicLineChart provides a generic and configurable line chart component
  */
 export default {
+  components: {
+    InnerChart,
+    Error
+  },
+  mixins: [catchError, validateChartData],
   props: {
     /**
      * Title that appears above the chart. If this is null then the title and its container will not render at all
@@ -65,9 +75,6 @@ export default {
       default: 'Line Chart'
     }
   },
-  components: {
-    InnerChart
-  },
   data () {
     return {
       componentKey: 0
@@ -83,32 +90,34 @@ export default {
       }
     },
     chartData: function () {
-      if (!this.data) {
-        return null
+      try {
+        const chartSettings = {
+          datasets: builder.getDatasetSettings(this.data)
+        }
+        const chartData = _merge({}, this.data, chartSettings)
+        return chartData
+      } catch (error) {
+        this.interceptError(error)
       }
-      const chartSettings = {
-        datasets: builder.getDatasetSettings(this.data)
-      }
-      const chartData = _merge({}, this.data, chartSettings)
-      return chartData
     },
     options: function () {
-      if (!this.data) {
-        return null
+      try {
+        const options = {
+          maintainAspectRatio: false,
+          responsive: true,
+          title: builder.getTitle(this.title),
+          scales: {
+            xAxes: builder.getAxes('x', 'vertical', this.data, this.dataFormat),
+            yAxes: builder.getAxes('y', 'vertical', this.data, this.dataFormat)
+          },
+          legend: builder.getLegend(this.showLegend),
+          tooltips: builder.getTooltips('vertical', this.data, this.dataFormat),
+          plugins: { datalabels: { display: false } }
+        }
+        return options
+      } catch (error) {
+        this.interceptError(error)
       }
-      const options = {
-        maintainAspectRatio: false,
-        responsive: true,
-        title: builder.getTitle(this.title),
-        scales: {
-          xAxes: builder.getAxes('x', 'vertical', this.data, this.dataFormat),
-          yAxes: builder.getAxes('y', 'vertical', this.data, this.dataFormat)
-        },
-        legend: builder.getLegend(this.showLegend),
-        tooltips: builder.getTooltips('vertical', this.data, this.dataFormat),
-        plugins: { datalabels: { display: false } }
-      }
-      return options
     }
   },
   watch: {
