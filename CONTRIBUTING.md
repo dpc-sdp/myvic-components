@@ -65,9 +65,9 @@ Unit tests are important. They help us secure our processes and work flows, ensu
 
 ### Server side rendering testing
 
-Users may will use components in server side rendering application(e.g [nuxt.js](https://nuxtjs.org/)).
+Users may use components in server side rendering application(e.g [nuxt.js](https://nuxtjs.org/)).
 
-It will be good to do a smoke test in nuxt.js so we can make sure our components working in server side as well.
+It will be good to do a smoke test in nuxt.js so we can make sure our components are working in the server side as well.
 
 The end to end tests are written by [cypress](https://www.cypress.io/).
 
