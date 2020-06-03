@@ -129,22 +129,6 @@ export default {
     }
     return buildAxes(isPrimary, data, dataFormat)
   },
-  getXAxes: (direction, data, dataFormat) => {
-    let axis = settings[direction === 'horizontal' ? 'primaryAxis' : 'secondaryAxis']
-    if (direction === 'horizontal') {
-      axis = scaleAxis(axis, data)
-    }
-    axis = labelAxis(axis, dataFormat)
-    return [axis]
-  },
-  getYAxes: (direction, data, dataFormat) => {
-    let axis = settings[direction === 'vertical' ? 'primaryAxis' : 'secondaryAxis']
-    if (direction === 'vertical') {
-      axis = scaleAxis(axis, data)
-    }
-    axis = labelAxis(axis, dataFormat)
-    return [axis]
-  },
   getLegend: (show) => {
     return _merge({}, constants.legend, {
       display: show

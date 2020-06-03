@@ -4,6 +4,7 @@ import constants from '../../global/constants/charts'
 import utils from '../../global/utils/charts'
 
 const settings = {
+  scaleFactor: 1.05,
   dataset: {
     barPercentage: 0.8
   },
@@ -75,15 +76,15 @@ const getMaxDataValue = (data) => {
   return max
 }
 
-const findMaxLabel = (max) => {
-  let candidate = Math.ceil(max * 1.1)
-  if (Math.abs(candidate - 100) <= 10) return 100
+const findMaxLabel = (max, dataFormat) => {
+  let candidate = Math.ceil(max * settings.scaleFactor)
+  if (dataFormat === constants.labelFormats.percentage && Math.abs(candidate - 100) <= 10) return 100
   return candidate
 }
 
-const scaleAxis = (axis, data) => {
+const scaleAxis = (axis, data, dataFormat) => {
   let max = getMaxDataValue(data)
-  let maxLabel = findMaxLabel(max)
+  let maxLabel = findMaxLabel(max, dataFormat)
   return _merge({}, axis, { ticks: { suggestedMax: maxLabel } })
 }
 
@@ -94,7 +95,7 @@ const labelAxis = (axis, style) => {
 const buildAxes = (isPrimary, data, dataFormat) => {
   let axis = settings[isPrimary ? 'primaryAxis' : 'secondaryAxis']
   if (isPrimary) {
-    axis = scaleAxis(axis, data)
+    axis = scaleAxis(axis, data, dataFormat)
     axis = labelAxis(axis, dataFormat)
   }
   return [axis]
@@ -124,22 +125,6 @@ export default {
       isPrimary = dimension === 'y'
     }
     return buildAxes(isPrimary, data, dataFormat)
-  },
-  getXAxes: (direction, data, dataFormat) => {
-    let axis = settings[direction === 'horizontal' ? 'primaryAxis' : 'secondaryAxis']
-    if (direction === 'horizontal') {
-      axis = scaleAxis(axis, data)
-    }
-    axis = labelAxis(axis, dataFormat)
-    return [axis]
-  },
-  getYAxes: (direction, data, dataFormat) => {
-    let axis = settings[direction === 'vertical' ? 'primaryAxis' : 'secondaryAxis']
-    if (direction === 'vertical') {
-      axis = scaleAxis(axis, data)
-    }
-    axis = labelAxis(axis, dataFormat)
-    return [axis]
   },
   getLegend: (show) => {
     return _merge({}, constants.legend, {

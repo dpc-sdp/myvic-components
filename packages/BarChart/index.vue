@@ -144,9 +144,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../global/styles/charts";
   .yourvic-bar-chart {
     position: relative;
     height: inherit;
     width: inherit;
+    padding: $outer-padding;
   }
 </style>

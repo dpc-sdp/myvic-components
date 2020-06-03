@@ -118,9 +118,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../global/styles/charts";
   .yourvic-pie-chart {
     position: relative;
     width: inherit;
     height: inherit;
+    padding: $outer-padding;
   }
 </style>

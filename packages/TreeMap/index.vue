@@ -125,9 +125,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../global/styles/charts";
   .yourvic-treemap-chart {
     position: relative;
     height: inherit;
     width: inherit;
+    padding: $outer-padding;
   }
 </style>
