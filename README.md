@@ -5,11 +5,7 @@
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
 * [Contributing](#contributing)
-  * [Getting Started](#getting-started)
-  * [Requirements](#requirements)
-  * [Installation](#install)
-  * [Storybook](#running-storybook)
-* [Usage](#usage)  
+* [Usage](#usage)
 * [Support](#support)
 * [License](#license)
 * [Attribution](#attribution)
@@ -22,7 +18,6 @@ About yourvictoria-vic-gov-au.
 ### Built With
 
 * [Vue](https://vuejs.org/)
-* [Nuxt](https://nuxtjs.org)
 * [Storybook](https://storybook.js.org/)
 
 ## Usage
