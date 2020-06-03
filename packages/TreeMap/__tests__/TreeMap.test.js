@@ -39,11 +39,16 @@ describe('YourVicTreeMap', () => {
       data: chartData,
       valueAttr: 'value',
       labelAttr: 'name',
-      dataFormat: 'normal'
+      dataFormat: 'normal',
+      longDesc: 'https://www.w3.org'
     }
   })
 
   it('renders a canvas', () => {
     expect(wrapper.contains('canvas')).toBe(true)
+  })
+
+  it('renders a link to the long description', () => {
+    expect(wrapper.contains('a')).toBe(true)
   })
 })

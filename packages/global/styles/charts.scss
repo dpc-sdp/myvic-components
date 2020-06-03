@@ -19,6 +19,7 @@ $titleColor: #011a3c;
 $legendLabelColor: #333333;
 $gridLineColor: #53565a40;
 $gridLabelColor: #53565a;
+$tooltipBorder: #53565a88;
 $tooltipText: #011a3c;
 
 // pie chart
@@ -52,3 +53,10 @@ $fill-pie-hover-12: #c5c5c5;
 $error-grid-size: 50px 50px;
 $error-grid-color: #80808012;
 $error-grid-pattern: linear-gradient(to right, $error-grid-color 1px, transparent 1px), linear-gradient(to top, $error-grid-color 1px, transparent 1px);
+
+.yourvic-chart-long-description {
+  font-size: 12px;
+  font-family: 'Vic-Medium', 'sans-serif';
+  padding: 5px 5px 5px 9px;
+  color: $gridLabelColor
+}

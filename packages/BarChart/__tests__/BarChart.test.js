@@ -19,7 +19,8 @@ describe('YourVicBarChart', () => {
       title: 'Bar Chart',
       data: chartData,
       showLegend: true,
-      dataFormat: 'normal'
+      dataFormat: 'normal',
+      longDesc: 'https://www.w3.org'
     }
   })
 
@@ -39,6 +40,10 @@ describe('YourVicBarChart', () => {
 
   it('renders a canvas', () => {
     expect(wrapper.contains('canvas')).toBe(true)
+  })
+
+  it('renders a link to the long description', () => {
+    expect(wrapper.contains('a')).toBe(true)
   })
 
   it('renders an error message with invalid data', () => {

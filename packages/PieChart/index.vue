@@ -10,8 +10,11 @@
       :tabIndex="tabIndex"
       role="img"
       :aria-label="ariaLabel"
+      :alt="shortDesc"
+      :longDesc="longDesc"
       style="outline: none"
     />
+    <a class="yourvic-chart-long-description" v-if="!gotError && longDesc" :href="longDesc">Chart Description</a>
     <error v-if="gotError" :message="error.toString()" errorClass="chart" />
   </div>
 </template>
@@ -76,6 +79,19 @@ export default {
     ariaLabel: {
       type: String,
       default: 'Pie Chart'
+    },
+    /**
+     *  Short description of the chart for accessibility purposes. This string will become the "alt" attribute
+     */
+    shortDesc: {
+      type: String,
+      default: ''
+    },
+    /**
+     *  A URL that points to the long description of the chart for accessibility purposes
+     */
+    longDesc: {
+      type: String
     }
   },
   data () {

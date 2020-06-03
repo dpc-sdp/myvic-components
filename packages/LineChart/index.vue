@@ -10,7 +10,10 @@
       :tabIndex="tabIndex"
       role="img"
       :aria-label="ariaLabel"
+      :alt="shortDesc"
+      :longDesc="longDesc"
     />
+    <a class="yourvic-chart-long-description" v-if="!gotError && longDesc" :href="longDesc">Chart Description</a>
     <error v-if="gotError" :message="error.toString()" errorClass="chart" />
   </div>
 </template>
@@ -73,6 +76,19 @@ export default {
     ariaLabel: {
       type: String,
       default: 'Line Chart'
+    },
+    /**
+     *  Short description of the chart for accessibility purposes. This string will become the "alt" attribute
+     */
+    shortDesc: {
+      type: String,
+      default: ''
+    },
+    /**
+     *  A URL that points to the long description of the chart for accessibility purposes
+     */
+    longDesc: {
+      type: String
     }
   },
   data () {
@@ -111,7 +127,7 @@ export default {
             yAxes: builder.getAxes('y', 'vertical', this.data, this.dataFormat)
           },
           legend: builder.getLegend(this.showLegend),
-          tooltips: builder.getTooltips('vertical', this.data, this.dataFormat),
+          tooltips: builder.getTooltips(this.dataFormat),
           plugins: { datalabels: { display: false } }
         }
         return options

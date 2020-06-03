@@ -131,20 +131,14 @@ export default {
       display: show
     })
   },
-  getTooltips: (direction, data, dataFormat) => {
+  getTooltips: (direction, dataFormat) => {
     const labelSettings = {
       callbacks: {
         // use label callback to return the desired label
-        label: function (tooltipItem) {
+        label: function (tooltipItem, data) {
+          var dataset = data.datasets[tooltipItem.datasetIndex]
           const value = direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
-          return utils.labelValue(value, dataFormat)
-        },
-        title: function (tooltipItem) {
-          if (data.datasets.length === 1) {
-            return tooltipItem[0].label
-          } else {
-            return data.datasets[tooltipItem[0].datasetIndex].label
-          }
+          return `${dataset.label}: ${utils.labelValue(value, dataFormat)}`
         }
       }
     }

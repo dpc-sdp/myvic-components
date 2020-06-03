@@ -10,6 +10,8 @@ exports[`YourvicStoryshots Bar Chart Default 1`] = `
     <!---->
      
     <!---->
+     
+    <!---->
   </div>
 </div>
 `;
@@ -22,6 +24,7 @@ exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
     class="yourvic-bar-chart"
   >
     <div
+      alt=""
       aria-label="Bar Chart"
       class=""
       dataformat="normal"
@@ -39,6 +42,8 @@ exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
     </div>
      
     <!---->
+     
+    <!---->
   </div>
 </div>
 `;
@@ -50,6 +55,8 @@ exports[`YourvicStoryshots Bar Chart Invalid data provided 1`] = `
   <div
     class="yourvic-bar-chart"
   >
+    <!---->
+     
     <!---->
      
     <div
@@ -90,6 +97,7 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
           class="yourvic-bar-chart"
         >
           <div
+            alt=""
             aria-label="Bar Chart"
             class=""
             dataformat="normal"
@@ -105,6 +113,8 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
               width="0"
             />
           </div>
+           
+          <!---->
            
           <!---->
         </div>
@@ -133,6 +143,46 @@ exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
     <!---->
      
     <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Bar Chart With link to long description 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="yourvic-bar-chart"
+  >
+    <div
+      alt="bar chart"
+      aria-label="Bar Chart"
+      class=""
+      dataformat="normal"
+      longdesc="https://www.w3.org"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="horizontalbar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <a
+      class="yourvic-chart-long-description"
+      href="https://www.w3.org"
+    >
+      Chart Description
+    </a>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -145,6 +195,7 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
     class="yourvic-bar-chart"
   >
     <div
+      alt=""
       aria-label="Bar Chart"
       class=""
       dataformat="normal"
@@ -160,6 +211,8 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
      
     <!---->
   </div>
@@ -206,9 +259,11 @@ exports[`YourvicStoryshots Line Chart Default 1`] = `
     class="yourvic-line-chart"
   >
     <div
+      alt="line chart"
       aria-label="Line Chart"
       class=""
       dataformat="normal"
+      longdesc=""
       role="img"
       style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
@@ -223,6 +278,8 @@ exports[`YourvicStoryshots Line Chart Default 1`] = `
     </div>
      
     <!---->
+     
+    <!---->
   </div>
 </div>
 `;
@@ -234,6 +291,8 @@ exports[`YourvicStoryshots Line Chart Invalid data provided 1`] = `
   <div
     class="yourvic-line-chart"
   >
+    <!---->
+     
     <!---->
      
     <div
@@ -257,6 +316,7 @@ exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
     class="yourvic-line-chart"
   >
     <div
+      alt=""
       aria-label="Line Chart"
       class=""
       dataformat="normal"
@@ -272,6 +332,8 @@ exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
      
     <!---->
   </div>
@@ -303,6 +365,7 @@ exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
           class="yourvic-line-chart"
         >
           <div
+            alt=""
             aria-label="Line Chart"
             class=""
             dataformat="normal"
@@ -318,6 +381,8 @@ exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
               width="0"
             />
           </div>
+           
+          <!---->
            
           <!---->
         </div>
@@ -336,6 +401,44 @@ exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Line Chart With link to long description 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="yourvic-line-chart"
+  >
+    <div
+      alt="line chart"
+      aria-label="Line Chart"
+      class=""
+      dataformat="normal"
+      longdesc="https://www.w3.org"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="line-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <a
+      class="yourvic-chart-long-description"
+      href="https://www.w3.org"
+    >
+      Chart Description
+    </a>
+     
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
 <div
   style="width: 400px; height: 400px;"
@@ -344,6 +447,7 @@ exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
     class="yourvic-line-chart"
   >
     <div
+      alt=""
       aria-label="Line Chart"
       class=""
       dataformat="normal"
@@ -359,6 +463,8 @@ exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
      
     <!---->
   </div>
@@ -1227,9 +1333,11 @@ exports[`YourvicStoryshots Pie Chart Default 1`] = `
     class="yourvic-pie-chart"
   >
     <div
+      alt="pie chart"
       aria-label="Pie Chart"
       class=""
       dataformat="normal"
+      longdesc=""
       role="img"
       style="position: relative; height: inherit; width: inherit; outline: none;"
       tabindex="0"
@@ -1244,6 +1352,8 @@ exports[`YourvicStoryshots Pie Chart Default 1`] = `
     </div>
      
     <!---->
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1255,6 +1365,8 @@ exports[`YourvicStoryshots Pie Chart Invalid data provided 1`] = `
   <div
     class="yourvic-pie-chart"
   >
+    <!---->
+     
     <!---->
      
     <div
@@ -1278,6 +1390,7 @@ exports[`YourvicStoryshots Pie Chart Multiple Datasets 1`] = `
     class="yourvic-pie-chart"
   >
     <div
+      alt=""
       aria-label="Pie Chart"
       class=""
       dataformat="normal"
@@ -1293,6 +1406,8 @@ exports[`YourvicStoryshots Pie Chart Multiple Datasets 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
      
     <!---->
   </div>
@@ -1324,6 +1439,7 @@ exports[`YourvicStoryshots Pie Chart Ripple Grid 1`] = `
           class="yourvic-pie-chart"
         >
           <div
+            alt=""
             aria-label="Pie Chart"
             class=""
             dataformat="normal"
@@ -1339,6 +1455,8 @@ exports[`YourvicStoryshots Pie Chart Ripple Grid 1`] = `
               width="0"
             />
           </div>
+           
+          <!---->
            
           <!---->
         </div>
@@ -1357,6 +1475,44 @@ exports[`YourvicStoryshots Pie Chart Ripple Grid 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Pie Chart With link to long description 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="yourvic-pie-chart"
+  >
+    <div
+      alt="bar chart"
+      aria-label="Pie Chart"
+      class=""
+      dataformat="normal"
+      longdesc="https://www.w3.org"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="pie-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <a
+      class="yourvic-chart-long-description"
+      href="https://www.w3.org"
+    >
+      Chart Description
+    </a>
+     
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
 <div
   style="width: 400px; height: 400px;"
@@ -1365,6 +1521,7 @@ exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
     class="yourvic-pie-chart"
   >
     <div
+      alt=""
       aria-label="Pie Chart"
       class=""
       dataformat="normal"
@@ -1380,6 +1537,8 @@ exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
         width="0"
       />
     </div>
+     
+    <!---->
      
     <!---->
   </div>
@@ -1398,13 +1557,17 @@ exports[`YourvicStoryshots Tree Map Default 1`] = `
       class="yourvic-treemap-chart"
     >
       <canvas
+        alt="tree map"
         aria-label="Tree Map Chart"
         class="yourvic-treemap-chart-canvas"
         id="0"
+        longdesc=""
         role="img"
         style="outline: none;"
         tabindex="0"
       />
+       
+      <!---->
     </div>
      
     <!---->
@@ -1424,6 +1587,7 @@ exports[`YourvicStoryshots Tree Map Invalid data provided 1`] = `
       class="yourvic-treemap-chart"
     >
       <canvas
+        alt=""
         aria-label="Tree Map Chart"
         class="yourvic-treemap-chart-canvas"
         id="0"
@@ -1431,6 +1595,8 @@ exports[`YourvicStoryshots Tree Map Invalid data provided 1`] = `
         style="outline: none;"
         tabindex="0"
       />
+       
+      <!---->
     </div>
      
     <!---->
@@ -1467,6 +1633,7 @@ exports[`YourvicStoryshots Tree Map Ripple Grid 1`] = `
             class="yourvic-treemap-chart"
           >
             <canvas
+              alt=""
               aria-label="Tree Map Chart"
               class="yourvic-treemap-chart-canvas"
               id="0"
@@ -1474,6 +1641,8 @@ exports[`YourvicStoryshots Tree Map Ripple Grid 1`] = `
               style="outline: none;"
               tabindex="0"
             />
+             
+            <!---->
           </div>
            
           <!---->
@@ -1493,6 +1662,41 @@ exports[`YourvicStoryshots Tree Map Ripple Grid 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Tree Map With link to long description 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    arialabel="chart"
+    class="yourvic-chart-wrapper yourvic-treemap-chart"
+  >
+    <div
+      class="yourvic-treemap-chart"
+    >
+      <canvas
+        alt="bar chart"
+        aria-label="Tree Map Chart"
+        class="yourvic-treemap-chart-canvas"
+        id="0"
+        longdesc="https://www.w3.org"
+        role="img"
+        style="outline: none;"
+        tabindex="0"
+      />
+       
+      <a
+        class="yourvic-tree-map__long-description"
+        href="https://www.w3.org"
+      >
+        Chart Description
+      </a>
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Tree Map With title 1`] = `
 <div
   style="width: 400px; height: 400px;"
@@ -1505,6 +1709,7 @@ exports[`YourvicStoryshots Tree Map With title 1`] = `
       class="yourvic-treemap-chart"
     >
       <canvas
+        alt=""
         aria-label="Tree Map Chart"
         class="yourvic-treemap-chart-canvas"
         id="0"
@@ -1512,6 +1717,8 @@ exports[`YourvicStoryshots Tree Map With title 1`] = `
         style="outline: none;"
         tabindex="0"
       />
+       
+      <!---->
     </div>
      
     <!---->

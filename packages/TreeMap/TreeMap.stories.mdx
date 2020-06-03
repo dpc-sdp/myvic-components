@@ -44,7 +44,7 @@ import { TreeMap } from '@dpc-sdp/yourvic-treemap'
         components: { TreeMap },
         template: `
           <div :style="divStyle">
-            <tree-map :title="title" :data="data" :valueAttr="valueAttr" :labelAttr="labelAttr" :dataFormat="dataFormat" />
+            <tree-map :title="title" :data="data" :valueAttr="valueAttr" :labelAttr="labelAttr" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
           </div>
         `,
         props: {
@@ -62,6 +62,12 @@ import { TreeMap } from '@dpc-sdp/yourvic-treemap'
           },
           dataFormat: {
             default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+          },
+          shortDesc: {
+            default: text('shortDesc', 'tree map')
+          },
+          longDesc: {
+            default: text('longDesc', '')
           },
           divStyle: {
             default: () => object('divStyle', { width: '400px', height: '400px' })
@@ -85,7 +91,9 @@ import { TreeMap } from '@dpc-sdp/yourvic-treemap'
         data: { default: () => chartData },
         valueAttr: { default: () => 'value' },
         labelAttr: { default: () => 'name' },
-        dataFormat: { default: () => 'normal' }
+        dataFormat: { default: () => 'normal' },
+        shortDesc: { default: () => '' },
+        longDesc: { default: () => null }
        }
       }
     }
@@ -105,7 +113,35 @@ import { TreeMap } from '@dpc-sdp/yourvic-treemap'
         data: { default: () => {} },
         valueAttr: { default: () => 'value' },
         labelAttr: { default: () => 'name' },
-        dataFormat: { default: () => 'normal' }
+        dataFormat: { default: () => 'normal' },
+        shortDesc: { default: () => '' },
+        longDesc: { default: () => null }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## With link to long description
+
+<Preview>
+  <Story name="With link to long description">
+    {
+      {
+       components: { TreeMap },
+       template: `
+        <div style="width: 400px; height: 400px">
+          <tree-map :title="title" :data="data" :valueAttr="valueAttr" :labelAttr="labelAttr" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
+        </div>
+      `,
+       props: {
+        title: { default: () => 'Sample Chart' },
+        data: { default: () => chartData },
+        valueAttr: { default: () => 'value' },
+        labelAttr: { default: () => 'name' },
+        dataFormat: { default: () => 'normal' },
+        shortDesc: { default: () => 'bar chart' },
+        longDesc: { default: () => 'https://www.w3.org' }
        }
       }
     }
@@ -133,11 +169,13 @@ import { TreeMap } from '@dpc-sdp/yourvic-treemap'
         </RplContainer>
        `,
        props: {
-         title: { default: () => 'Ripple Grid Chart' },
-         data: { default: () => chartData },
-         valueAttr: { default: () => 'value' },
-         labelAttr: { default: () => 'name' },
-         dataFormat: { default: () => 'normal' }
+        title: { default: () => 'Ripple Grid Chart' },
+        data: { default: () => chartData },
+        valueAttr: { default: () => 'value' },
+        labelAttr: { default: () => 'name' },
+        dataFormat: { default: () => 'normal' },
+        shortDesc: { default: () => '' },
+        longDesc: { default: () => null }
        }
       }
     }

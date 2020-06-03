@@ -6,8 +6,11 @@
       :tabIndex="tabIndex"
       role="img"
       :aria-label="ariaLabel"
+      :alt="shortDesc"
+      :longDesc="longDesc"
       style="outline: none"
     />
+    <a class="yourvic-tree-map__long-description" v-if="longDesc" :href="longDesc">Chart Description</a>
   </div>
 </template>
 
@@ -22,7 +25,7 @@ const createChart = (instance) => {
   var ctx = document.getElementById(instance.componentKey)
   if (!ctx) return
   // eslint-disable-next-line no-unused-vars
-  var myBarChart = new Chart(ctx, {
+  var myChart = new Chart(ctx, {
     type: 'treemap',
     data: instance.chartData,
     options: instance.options
@@ -56,6 +59,19 @@ export default {
     ariaLabel: {
       type: String,
       default: 'Tree Map Chart'
+    },
+    /**
+     *  Short description of the chart for accessibility purposes. This string will become the "alt" attribute
+     */
+    shortDesc: {
+      type: String,
+      default: ''
+    },
+    /**
+     *  A URL that points to the long description of the chart for accessibility purposes
+     */
+    longDesc: {
+      type: String
     }
   },
   data () {
@@ -101,4 +117,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../global/styles/charts";
+  .yourvic-tree-map {
+    &__long-description {
+    font-size: 12px;
+    font-family: 'Vic-Medium', 'sans-serif';
+    padding: 5px 5px 5px 0;
+    color: $gridLabelColor
+    }
+  }
 </style>
