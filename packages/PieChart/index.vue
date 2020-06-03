@@ -22,9 +22,9 @@ import InnerChart from './InnerChart'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
-import Error from '../global/components/Error'
-import catchError from '../global/mixins/catchError'
-import validateChartData from '../global/mixins/validateChartData'
+import Error from '@dpc-sdp/yourvic-global/components/Error'
+import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
+import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
 
 /**
  * YourvicPieChart provides a generic and configurable pie chart component
@@ -99,7 +99,7 @@ export default {
         const chartData = _merge({}, this.data, chartSettings)
         return chartData
       } catch (error) {
-        this.handleError(error)
+        this.interceptError(error)
       }
     },
     options: function () {
@@ -113,14 +113,8 @@ export default {
         }
         return options
       } catch (error) {
-        this.handleError(error)
+        this.interceptError(error)
       }
-    }
-  },
-  methods: {
-    handleError: function (error) {
-      this.gotError = true
-      this.error = error
     }
   },
   watch: {

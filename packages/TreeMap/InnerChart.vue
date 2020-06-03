@@ -16,7 +16,7 @@ import Chart from 'chart.js'
 // eslint-disable-next-line no-unused-vars
 import treemap from 'chartjs-chart-treemap'
 import builder from './utils/buildChartOptions'
-import utils from '../global/utils/charts'
+import utils from '@dpc-sdp/yourvic-global/utils/charts'
 
 const createChart = (instance) => {
   var ctx = document.getElementById(instance.componentKey)

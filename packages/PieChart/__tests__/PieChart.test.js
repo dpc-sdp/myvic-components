@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import YourVicPieChart from './../index.vue'
 import { chartData } from '../storiesConstants.js'
-import ErrorComponent from './../../global/components/Error'
+import ErrorComponent from '@dpc-sdp/yourvic-global/components/Error'
 
 describe('YourVicPieChart', () => {
   const wrapper = mount(YourVicPieChart, {

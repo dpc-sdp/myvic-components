@@ -1,3 +1,5 @@
+// This mixin depends on the catchError mixin to work properly
+
 import utils from '../utils/charts'
 
 const validateChartData = {
@@ -6,7 +8,7 @@ const validateChartData = {
       utils.validateData(this.data)
       this.gotError = false
     } catch (error) {
-      this.handleError(error)
+      this.interceptError(error)
     }
   },
   watch: {
@@ -15,7 +17,7 @@ const validateChartData = {
         utils.validateData(this.data)
         this.gotError = false
       } catch (error) {
-        this.handleError(error)
+        this.interceptError(error)
       }
     }
   }

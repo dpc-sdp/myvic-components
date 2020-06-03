@@ -6,7 +6,7 @@
 
 <script>
 import InnerChart from './InnerChart'
-import ChartWrapper from '../global/components/ChartWrapper'
+import ChartWrapper from '@dpc-sdp/yourvic-global/components/ChartWrapper'
 
 /**
  * TreeMap provides a generic and configurable tree map chart component

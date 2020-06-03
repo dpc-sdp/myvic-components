@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import YourVicLineChart from './../index.vue'
-import ErrorComponent from './../../global/components/Error'
+import ErrorComponent from '@dpc-sdp/yourvic-global/components/Error'
 
 describe('YourVicLineChart', () => {
   const chartData = {
