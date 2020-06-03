@@ -1,7 +1,13 @@
+@import "global";
 @import "charts";
 
 :export {
 		// Export variables to make them accessible to JS
+
+		// Global
+		// Global variables here
+
+		// Charts
 		fillDefault: $fill-default;
 		fillDefaultHover: $fill-default-hover;
 		fillDefaultHoverLight: $fill-default-hover-light;

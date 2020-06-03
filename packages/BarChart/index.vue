@@ -1,7 +1,8 @@
 <template>
   <div class="yourvic-bar-chart">
-    <inner-chart
-      v-if="direction === 'vertical'"
+    <component
+      v-if="!gotError"
+      :is="innerComponentName"
       :key="componentKey"
       :chartData="chartData"
       :options="options"
@@ -11,32 +12,29 @@
       role="img"
       :aria-label="ariaLabel"
     />
-    <inner-horizontal-chart
-      v-if="direction === 'horizontal'"
-      :key="componentKey"
-      :chartData="chartData"
-      :options="options"
-      :dataFormat="dataFormat"
-      :styles="chartContainerStyles"
-      :tabIndex="tabIndex"
-      role="img"
-      :aria-label="ariaLabel"
-    />
+    <error v-if="gotError" :message="error.toString()" errorClass="chart" />
   </div>
 </template>
 
 <script>
-import InnerChart from './InnerChart'
-import InnerHorizontalChart from './InnerHorizontalChart'
 // eslint-disable-next-line no-unused-vars
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
+import Error from '@dpc-sdp/yourvic-global/components/Error'
+import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
+import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
 
 /**
  * YourvicBarChart provides a generic and configurable bar chart component
  */
 export default {
+  components: {
+    'InnerHorizontalChart': () => import(`./${'InnerHorizontalChart'}`),
+    'InnerChart': () => import(`./${'InnerChart'}`),
+    Error
+  },
+  mixins: [catchError, validateChartData],
   props: {
     /**
      * Direction of bar chart: can be 'horizontal' or 'vertical'
@@ -87,16 +85,15 @@ export default {
       default: 'Bar Chart'
     }
   },
-  components: {
-    InnerChart,
-    InnerHorizontalChart
-  },
   data () {
     return {
       componentKey: 0
     }
   },
   computed: {
+    innerComponentName: function () {
+      return this.direction === 'vertical' ? 'InnerChart' : 'InnerHorizontalChart'
+    },
     chartContainerStyles () {
       return {
         position: 'relative',
@@ -106,32 +103,34 @@ export default {
       }
     },
     chartData: function () {
-      if (!this.data) {
-        return null
+      try {
+        const chartSettings = {
+          datasets: builder.getDatasetSettings(this.data)
+        }
+        const chartData = _merge({}, this.data, chartSettings)
+        return chartData
+      } catch (error) {
+        this.interceptError(error)
       }
-      const chartSettings = {
-        datasets: builder.getDatasetSettings(this.data)
-      }
-      const chartData = _merge({}, this.data, chartSettings)
-      return chartData
     },
     options: function () {
-      if (!this.data) {
-        return null
+      try {
+        const options = {
+          maintainAspectRatio: false,
+          responsive: true,
+          title: builder.getTitle(this.title),
+          scales: {
+            xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat),
+            yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat)
+          },
+          legend: builder.getLegend(this.showLegend),
+          tooltips: builder.getTooltips(this.direction, this.data, this.dataFormat),
+          plugins: builder.getPlugin(this.dataFormat)
+        }
+        return options
+      } catch (error) {
+        this.interceptError(error)
       }
-      const options = {
-        maintainAspectRatio: false,
-        responsive: true,
-        title: builder.getTitle(this.title),
-        scales: {
-          xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat),
-          yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat)
-        },
-        legend: builder.getLegend(this.showLegend),
-        tooltips: builder.getTooltips(this.direction, this.data, this.dataFormat),
-        plugins: builder.getPlugin(this.dataFormat)
-      }
-      return options
     }
   },
   watch: {

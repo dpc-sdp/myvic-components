@@ -47,3 +47,8 @@ $fill-pie-hover-9: #ffe848;
 $fill-pie-hover-10: #d26ad3;
 $fill-pie-hover-11: #c6f4bc;
 $fill-pie-hover-12: #c5c5c5;
+
+// error styles
+$error-grid-size: 50px 50px;
+$error-grid-color: #80808012;
+$error-grid-pattern: linear-gradient(to right, $error-grid-color 1px, transparent 1px), linear-gradient(to top, $error-grid-color 1px, transparent 1px);
