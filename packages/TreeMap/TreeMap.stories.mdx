@@ -92,6 +92,26 @@ import { TreeMap } from '@dpc-sdp/yourvic-treemap'
   </Story>
 </Preview>
 
+## Invalid data provided
+
+<Preview>
+  <Story name="Invalid data provided">
+    {
+      {
+       components: { TreeMap },
+       template: treeMapTemplate,
+       props: {
+        title: { default: () => undefined },
+        data: { default: () => {} },
+        valueAttr: { default: () => 'value' },
+        labelAttr: { default: () => 'name' },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
 ## Ripple Grid
 
 <Preview>
