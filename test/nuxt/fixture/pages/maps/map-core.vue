@@ -18,7 +18,7 @@
 
 <script>
 // TODO: we can't use import directly as "ol.js" will throw error "window not found" in server side.
-// import YourvicMapCore from '~~/packages/map-core'
+// import YourvicMapCore from '@dpc-sdp/yourvic-map-core'
 
 export default {
   // components: {
@@ -32,7 +32,7 @@ export default {
   mounted () {
     // TODO: So we need to use dynamic import in mounted for now.
     // Ideally, "ol.js" issue should be handled inside map-core component.
-    this.mapCore = () => import('~~/packages/map-core')
+    this.mapCore = () => import('@dpc-sdp/yourvic-map-core')
   }
 }
 </script>

@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import YourVicBarChart from '~~/packages/BarChart'
-import { chartData } from '~~/packages/BarChart/storiesConstants.js'
+import YourVicBarChart from '@dpc-sdp/yourvic-bar-chart'
+import { chartData } from '@dpc-sdp/yourvic-bar-chart/storiesConstants.js'
 
 export default {
   components: {
