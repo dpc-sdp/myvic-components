@@ -26,7 +26,14 @@
         <div class="yourvic-pofvmap__control__expand-btn-container" >
           <yourvicMapExpandButton :expanded="expanded" @click="toggleExpand"/>
         </div>
-        <yourvic-map-core :baseMapUrl="baseMapUrl" :customMethods="customMethods" :minZoom="6" :refreshOn="refreshOn"/>
+        <yourvic-map-core
+          :baseMapUrl="baseMapUrl"
+          :customMethods="customMethods"
+          :minZoom="6"
+          :refreshOn="refreshOn"
+          :enableMapboxWatermark="true"
+          :baseMapAttributions="baseMapAttributions"
+        />
 
       </div>
 
@@ -725,7 +732,11 @@ export default {
       expanded: false,
       refreshOn: false,
       buttonText: 'Enter full screen',
-      buttonIcon: 'fullscreen'
+      buttonIcon: 'fullscreen',
+      baseMapAttributions: [
+        '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
+        '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      ]
     }
   },
   computed: {
