@@ -10,19 +10,24 @@ import TileWMSSource from 'ol/source/TileWMS'
 import OSMSource, { ATTRIBUTION as OSMAttribution } from 'ol/source/OSM'
 import WMTSSource, { optionsFromCapabilities as WMTSOptionsFromCapabilities } from 'ol/source/WMTS'
 import TileArcGISRestSource from 'ol/source/TileArcGISRest'
-import Style from 'ol/style/Style'
-import Text from 'ol/style/Text'
-import Fill from 'ol/style/Fill'
-import Stroke from 'ol/style/Stroke'
-import MVT from 'ol/format/MVT'
-import WFS from 'ol/format/WFS'
+import {
+  Style,
+  Text,
+  Fill,
+  Stroke,
+  Icon
+} from 'ol/style'
 import Map from 'ol/Map'
 import View from 'ol/View'
 import Feature from 'ol/Feature'
 import Overlay from 'ol/Overlay'
-import Icon from 'ol/style/Icon'
-import GeoJSON from 'ol/format/GeoJSON'
-import { bbox } from 'ol/loadingstrategy'
+import {
+  GeoJSON,
+  EsriJSON,
+  MVT,
+  WFS
+} from 'ol/format'
+import { bbox, tile } from 'ol/loadingstrategy'
 import AnimatedCluster from 'ol-ext/layer/AnimatedCluster'
 import {
   defaults as DefaultInteractions,
@@ -46,6 +51,9 @@ import proj4 from 'proj4'
 import { get as getProjection } from 'ol/proj'
 import { register } from 'ol/proj/proj4'
 import TileGrid from 'ol/tilegrid/TileGrid'
+import {
+  createXYZ
+} from 'ol/tilegrid'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -131,10 +139,12 @@ const ol = {
   format: {
     MVT,
     WFS,
-    GeoJSON
+    GeoJSON,
+    EsriJSON
   },
   loadingstrategy: {
-    bbox
+    bbox,
+    tile
   },
   Feature: Feature,
   interaction: {
@@ -153,7 +163,8 @@ const ol = {
     getProjection
   },
   tilegrid: {
-    TileGrid
+    TileGrid,
+    createXYZ
   }
 }
 
