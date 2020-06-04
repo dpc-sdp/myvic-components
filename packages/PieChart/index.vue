@@ -14,7 +14,7 @@
       :longDesc="longDesc"
       style="outline: none"
     />
-    <a class="yourvic-chart-long-description" v-if="!gotError && longDesc" :href="longDesc">Chart Description</a>
+    <chart-description v-if="!gotError && longDesc" :longDesc="longDesc" />
     <error v-if="gotError" :message="error.toString()" errorClass="chart" />
   </div>
 </template>
@@ -25,6 +25,7 @@ import InnerChart from './InnerChart'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
+import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
 import Error from '@dpc-sdp/yourvic-global/components/Error'
 import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
 import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
@@ -35,6 +36,7 @@ import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
 export default {
   components: {
     InnerChart,
+    ChartDescription,
     Error
   },
   mixins: [catchError, validateChartData],
@@ -143,7 +145,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../global/styles/charts";
+@import "~@dpc-sdp/yourvic-global/styles/charts";
   .yourvic-pie-chart {
     position: relative;
     width: inherit;

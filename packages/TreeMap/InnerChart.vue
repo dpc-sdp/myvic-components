@@ -10,7 +10,7 @@
       :longDesc="longDesc"
       style="outline: none"
     />
-    <a class="yourvic-tree-map__long-description" v-if="longDesc" :href="longDesc">Chart Description</a>
+    <chart-description v-if="longDesc" :longDesc="longDesc" cssClass="yourvic-tree-map__long-description" />
   </div>
 </template>
 
@@ -20,6 +20,7 @@ import Chart from 'chart.js'
 import treemap from 'chartjs-chart-treemap'
 import builder from './utils/buildChartOptions'
 import utils from '@dpc-sdp/yourvic-global/utils/charts'
+import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
 
 const createChart = (instance) => {
   var ctx = document.getElementById(instance.componentKey)
@@ -33,6 +34,9 @@ const createChart = (instance) => {
 }
 
 export default {
+  components: {
+    ChartDescription
+  },
   props: {
     title: {
       type: String
@@ -117,13 +121,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../global/styles/charts";
+@import "~@dpc-sdp/yourvic-global/styles/charts";
   .yourvic-tree-map {
     &__long-description {
-    font-size: 12px;
-    font-family: 'Vic-Medium', 'sans-serif';
-    padding: 5px 5px 5px 0;
-    color: $gridLabelColor
+      padding-left: 0 !important;
     }
   }
 </style>

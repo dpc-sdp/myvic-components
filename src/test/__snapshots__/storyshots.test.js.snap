@@ -1915,7 +1915,7 @@ exports[`YourvicStoryshots Tree Map With link to long description 1`] = `
       />
        
       <a
-        class="yourvic-tree-map__long-description"
+        class="yourvic-chart-long-description yourvic-tree-map__long-description"
         href="https://www.w3.org"
       >
         Chart Description

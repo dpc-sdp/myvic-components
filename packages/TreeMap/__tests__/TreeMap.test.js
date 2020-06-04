@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import YourVicTreeMap from './../index.vue'
+import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
 
 describe('YourVicTreeMap', () => {
   const chartData = [
@@ -46,6 +47,10 @@ describe('YourVicTreeMap', () => {
 
   it('renders a canvas', () => {
     expect(wrapper.contains('canvas')).toBe(true)
+  })
+
+  it('renders the chart description', () => {
+    expect(wrapper.contains(ChartDescription)).toBe(true)
   })
 
   it('renders a link to the long description', () => {
