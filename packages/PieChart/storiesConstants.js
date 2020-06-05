@@ -6,11 +6,11 @@ export const pieChartTemplate = `
 </div>
 `
 export const chartData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
   datasets: [
     {
       label: 'Dataset 1',
-      data: [22, 20, 12, 10, 13, 39, 40, 41, 52, 52, 54, 58]
+      data: [22, 20, 12, 10, 13, 39]
     }
   ]
 }
@@ -18,5 +18,5 @@ export const chartData = {
 export const dualChartData = _merge({}, chartData)
 dualChartData.datasets.push({
   label: 'Dataset 2',
-  data: [35, 14, 11, 42, 12, 46, 40, 20, 17, 44, 17, 36]
+  data: [35, 14, 11, 42, 12, 46]
 })

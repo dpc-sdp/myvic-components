@@ -17,24 +17,24 @@ const settings = {
     pointRadius: 4
   },
   primaryDataset: {
-    borderColor: styles.fillDefault,
-    pointBackgroundColor: styles.fillDefault,
-    hoverBorderColor: styles.fillDefaultHoverLight
+    borderColor: styles.strokeLine1,
+    pointBackgroundColor: styles.strokeLine1,
+    hoverBorderColor: styles.strokeLine1HoverLight
   },
   secondaryDataset: {
-    borderColor: styles.fillSecondary,
-    pointBackgroundColor: styles.fillSecondary,
-    hoverBorderColor: styles.fillSecondaryHoverLight
+    borderColor: styles.strokeLine2,
+    pointBackgroundColor: styles.strokeLine2,
+    hoverBorderColor: styles.strokeLine2HoverLight
   },
   tertiaryDataset: {
-    borderColor: styles.fillTertiary,
-    pointBackgroundColor: styles.fillTertiary,
-    hoverBorderColor: styles.fillTertiaryHoverLight
+    borderColor: styles.strokeLine3,
+    pointBackgroundColor: styles.strokeLine3,
+    hoverBorderColor: styles.strokeLine3HoverLight
   },
   quaternaryDataset: {
-    borderColor: styles.fillQuaternary,
-    pointBackgroundColor: styles.fillQuaternary,
-    hoverBorderColor: styles.fillQuaternaryHoverLight
+    borderColor: styles.strokeLine4,
+    pointBackgroundColor: styles.strokeLine4,
+    hoverBorderColor: styles.strokeLine4HoverLight
   },
   primaryAxis: {
     gridLines: {
