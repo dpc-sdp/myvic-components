@@ -1,6 +1,7 @@
 <script>
 import ol from './lib/ol'
 import layer from './mixin/layer'
+import globalStyles from '@dpc-sdp/yourvic-global/styles/export.scss'
 
 /**
  * YourvicMapVectorLayer provides support for vector sources such as WFS, ArcGIS Feature Server and GeoJSON files for
@@ -46,6 +47,34 @@ export default {
       }
     },
     /**
+     * Layer style defined as a single OpenLayers style object, an array or a function.
+     */
+    layerStyle: {
+      type: undefined,
+      default: undefined
+    },
+    /**
+     * Feature attribute to use for labelling (optional)
+     */
+    labelAttribute: {
+      type: String,
+      default: undefined
+    },
+    /**
+     * Enable or disable decluttering on the layer
+     */
+    declutter: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * Enable or disable overlaps within the data source
+     */
+    overlaps: {
+      type: Boolean,
+      default: true
+    },
+    /**
      * The data source projection as an SRS identifier string. Defaults to the projection of the Map, which in
      * OpenLayers defaults to ```EPSG:3857``` (Web Mercator). ```EPSG:4326``` (WGS84) is also supported out of the box.
      * Experimental support for ```EPSG:4283``` (GDA94) is also provided.
@@ -78,6 +107,18 @@ export default {
     async loadingStrategy (newValue) {
       await this.configureLayer()
     },
+    async layerStyle (newValue) {
+      await this.configureLayer()
+    },
+    async labelAttribute (newValue) {
+      await this.configureLayer()
+    },
+    async declutter (newValue) {
+      await this.configureLayer()
+    },
+    async overlaps (newValue) {
+      await this.configureLayer()
+    },
     async projection (newValue) {
       await this.configureLayer()
     },
@@ -86,7 +127,59 @@ export default {
     }
   },
   data: function () {
-    return {}
+    return {
+      defaultPointStyle: [
+        new ol.style.Style({
+          image: new ol.style.Circle({
+            radius: 4,
+            stroke: new ol.style.Stroke({
+              color: globalStyles.fillDefault,
+              width: 2
+            }),
+            fill: new ol.style.Fill({
+              // color: globalStyles.fillDefaultHoverLight // throws assertion error during tests
+              color: [0, 169, 224, 0.2]
+            })
+          })
+        })
+      ],
+      defaultLineStyle: [
+        new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: globalStyles.fillDefault,
+            width: 3
+          })
+        })
+      ],
+      defaultPolygonStyle: [
+        new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: globalStyles.fillDefault,
+            width: 3
+          }),
+          fill: new ol.style.Fill({
+            color: globalStyles.fillDefaultHoverLight
+          })
+        })
+      ],
+      defaultTextStyle: [
+        new ol.style.Style({
+          text: new ol.style.Text({
+            font: 'normal 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
+            rotateWithView: false,
+            placement: 'point',
+            overflow: true,
+            fill: new ol.style.Fill({
+              color: globalStyles.titleColor
+            }),
+            stroke: new ol.style.Stroke({
+              color: globalStyles.titleColor,
+              width: 1
+            })
+          })
+        })
+      ]
+    }
   },
   computed: {
     format: function () {
@@ -127,6 +220,7 @@ export default {
         format: this.format,
         strategy: this.strategy,
         projection: this.projection,
+        overlaps: this.overlaps,
         attributions: this.attributions.concat([ol.source.OSMAttribution])
       })
 
@@ -136,16 +230,43 @@ export default {
         opacity: this.opacity,
         extent: this.extent,
         zIndex: this.zIndex,
-        style: new ol.style.Style({
-          stroke: new ol.style.Stroke({
-            color: 'rgba(0, 0, 255, 1.0)',
-            width: 2
-          })
-        })
+        style: this.layerStyle || this.defaultStyleFunction,
+        declutter: true
       })
 
       // Add layer to map
       this.map.addLayer(this.layer)
+    },
+    defaultStyleFunction: function (feature, resolution) {
+      let geomType = feature.getGeometry().getType()
+      let styles
+      switch (geomType) {
+        case ol.geom.GeometryType.POINT:
+        case ol.geom.GeometryType.MULTI_POINT:
+          styles = this.defaultPointStyle
+          break
+        case ol.geom.GeometryType.LINE_STRING:
+        case ol.geom.GeometryType.MULTI_LINE_STRING:
+          styles = this.defaultLineStyle
+          break
+        case ol.geom.GeometryType.POLYGON:
+        case ol.geom.GeometryType.MULTI_POLYGON:
+          styles = this.defaultPolygonStyle
+          break
+        case ol.geom.GeometryType.GEOMETRY_COLLECTION:
+          styles = this.defaultPointStyle.concat(this.defaultLineStyle, this.defaultPolygonStyle)
+          break
+        default:
+          styles = this.defaultPolygonStyle
+      }
+
+      if (this.labelAttribute) {
+        let textStyles = this.defaultTextStyle[0]
+        textStyles.getText().setText(feature.get(this.labelAttribute))
+        styles.push(textStyles)
+      }
+
+      return styles
     }
   }
 }

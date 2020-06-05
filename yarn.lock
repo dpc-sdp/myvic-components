@@ -4104,11 +4104,6 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@openlayers/pepjs@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@openlayers/pepjs/-/pepjs-0.5.3.tgz#298c5994cc12de5f149f841affdd8a3e506228b5"
-  integrity sha512-Bgvi5c14BS0FJWyYWWFstNEnXsB30nK8Jt8hkAAdqr7E0gDdBBWVDglF3Ub19wTxvgJ/CVHyTY6VuCtnyRzglg==
-
 "@reach/router@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.2.1.tgz#34ae3541a5ac44fa7796e5506a5d7274a162be4e"
@@ -8769,6 +8764,11 @@ elliptic@^6.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
+
+elm-pep@^1.0.4:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/elm-pep/-/elm-pep-1.0.6.tgz#768b6b0cc59ce6b608d9d14c87ef8c2c0936f6ec"
+  integrity sha512-1DJ6ReFk8+GtgoqRiEhBo28K69Rxe9Bfc7h16+1VMQT2KlCuPBYj5W33OYa2AZpqkuqCBLhcNzO10zxJVakapA==
 
 "emoji-regex@>=6.0.0 <=6.1.1":
   version "6.1.1"
@@ -14654,19 +14654,19 @@ octokit-pagination-methods@^1.1.0:
   resolved "https://registry.yarnpkg.com/octokit-pagination-methods/-/octokit-pagination-methods-1.1.0.tgz#cf472edc9d551055f9ef73f6e42b4dbb4c80bea4"
   integrity sha512-fZ4qZdQ2nxJvtcasX7Ghl+WlWS/d9IgnBIwFZXVNNZUmzpno91SX5bc5vuxiuKoCtK78XxGGNuSCrDC7xYB3OQ==
 
-ol-ext@^3.1.7:
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/ol-ext/-/ol-ext-3.1.7.tgz#0a9346215d45c0a3658d362082114da12a60d82d"
-  integrity sha512-ZslrYFG4MCUYjrlf7k48Zrq2e3w42+pB/2j3nWOUvCkJAvBZR8wUVX1V9Upwj2Kmqb8Cppa4OWycX9N0UIxVxA==
+ol-ext@^3.1.12:
+  version "3.1.12"
+  resolved "https://registry.yarnpkg.com/ol-ext/-/ol-ext-3.1.12.tgz#fd3cd6bf51d07953b10f569b5ac9c3e3695b9b49"
+  integrity sha512-q6lKUDuB7Kpi/ptEkfuB8Tdv7FO46cbJv5od+1S766zSHYcEsvFxAXyNgCCyrvBAnR4kyHiKU4tXoHpVxSCTWg==
   dependencies:
     gulp-jsdoc3 "^2.0.0"
 
-ol@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/ol/-/ol-6.1.1.tgz#7f8ada284344a5872d552205de558ed4a904cd27"
-  integrity sha512-0dL3i3eJqgOpqIjDKEY3grkeQnjAYfV5L/JCxhOu4SxiaizRwFrFgeas6LILRoxKa03jhQFbut2r2bbgcLGQeA==
+ol@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/ol/-/ol-6.3.1.tgz#11fcb987e632efb9f75f87fe8d85f50764543843"
+  integrity sha512-cSSYizzUJQ7AhFSrLPAKopjDXPCHtJsXSmjf3xutPG+iyBeD9IOepQGSgpOSZavPI1gsYh9wowiH+NZwVJ/NYQ==
   dependencies:
-    "@openlayers/pepjs" "^0.5.3"
+    elm-pep "^1.0.4"
     pbf "3.2.1"
     pixelworks "1.1.0"
     rbush "^3.0.1"

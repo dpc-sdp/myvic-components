@@ -15,7 +15,8 @@ import {
   Text,
   Fill,
   Stroke,
-  Icon
+  Icon,
+  Circle
 } from 'ol/style'
 import Map from 'ol/Map'
 import View from 'ol/View'
@@ -54,6 +55,8 @@ import TileGrid from 'ol/tilegrid/TileGrid'
 import {
   createXYZ
 } from 'ol/tilegrid'
+import GeometryType from 'ol/geom/GeometryType'
+import * as Color from 'ol/color'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -134,7 +137,9 @@ const ol = {
     Text,
     Fill,
     Stroke,
-    Icon
+    Icon,
+    Circle,
+    Color
   },
   format: {
     MVT,
@@ -165,6 +170,9 @@ const ol = {
   tilegrid: {
     TileGrid,
     createXYZ
+  },
+  geom: {
+    GeometryType
   }
 }
 

@@ -1,9 +1,14 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import YourvicMapCore from './index.vue'
-import YourvicMapTileLayer from './MapTileLayer.vue'
-import YourvicMapVectorLayer from './MapVectorLayer.vue'
+import {
+  YourvicMapCore,
+  YourvicMapTileLayer,
+  YourvicMapVectorLayer,
+  Style,
+  Stroke,
+  Fill
+} from './index.js'
 
 <Meta title="Maps/Vector Layer" component={ YourvicMapVectorLayer } decorators={ [withKnobs] } />
 
@@ -175,12 +180,10 @@ This example provides options to test different layer configurations.
           :center="[16138405.843820328, -4552817.013522999]"
           :zoom="1"
         >
-          <yourvic-map-tile-layer
-            type="OSM"
-          />
           <yourvic-map-vector-layer
             url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
             dataFormat="GeoJSON"
+            labelAttribute="name"
           />
         </yourvic-map-core>`
       }
@@ -214,7 +217,7 @@ Using a urlFunction which accepts the current map extent, a URL can be generated
         </yourvic-map-core>`,
         methods: {
           buildUrl: function (extent, resolution, projection) {
-            return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:suburb&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
+            return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:hospital&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
           }
         }
       }
@@ -248,7 +251,7 @@ Using a urlFunction which accepts the a tile extent, a URL can be generated to r
         </yourvic-map-core>`,
         methods: {
           buildUrl: function (extent, resolution, projection) {
-            return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:suburb&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
+            return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:pgp_lines&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
           }
         }
       }
@@ -294,6 +297,175 @@ alongside a CQL_FILTER (this is not supported by Geoserver).
         computed: {
           layerUrl: function () {
             return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:suburb&SRSNAME=EPSG:3857&OUTPUTFORMAT=application/json&CQL_FILTER=ssc_name=%27' + this.filter + '%27'
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Custom Styles
+
+This example shows how to use a style function to dynamically set styles based on feature attributes
+
+<Preview>
+  <Story name="Custom Styles">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
+        template: `<yourvic-map-core
+          :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+          :center="[16137905.843820328, -4555057.013522999]"
+          :zoom="12"
+          :minZoom="10"
+        >
+          <yourvic-map-vector-layer
+            :urlFunction="buildUrl"
+            :layerStyle="getStyle"
+            :overlaps="false"
+            dataFormat="GeoJSON"
+            loadingStrategy="bbox"
+          />
+        </yourvic-map-core>`,
+        props: {
+          blueStyle1: {
+            default: () => {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'rgba(255,255,255,0.5)',
+                  width: 2
+                }),
+                fill: new Fill({
+                  color: 'rgba(136,219,223,1)'
+                })
+              })
+            }
+          },
+          blueStyle2: {
+            default: () => {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'rgba(255,255,255,0.5)',
+                  width: 2
+                }),
+                fill: new Fill({
+                  color: 'rgba(104,194,219,1)'
+                })
+              })
+            }
+          },
+          blueStyle3: {
+            default: () => {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'rgba(255,255,255,0.5)',
+                  width: 2
+                }),
+                fill: new Fill({
+                  color: 'rgba(71,169,215,1)'
+                })
+              })
+            }
+          },
+          blueStyle4: {
+            default: () => {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'rgba(255,255,255,0.5)',
+                  width: 2
+                }),
+                fill: new Fill({
+                  color: 'rgba(39,143,210,1)'
+                })
+              })
+            }
+          },
+          blueStyle5: {
+            default: () => {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'rgba(255,255,255,0.5)',
+                  width: 2
+                }),
+                fill: new Fill({
+                  color: 'rgba(6,118,206,1)'
+                })
+              })
+            }
+          },
+          blueStyle6: {
+            default: () => {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'rgba(255,255,255,0.5)',
+                  width: 2
+                }),
+                fill: new Fill({
+                  color: 'rgba(0,96,181,1)'
+                })
+              })
+            }
+          },
+          blueStyle7: {
+            default: () => {
+              return new Style({
+                stroke: new Stroke({
+                  color: 'rgba(255,255,255,0.5)',
+                  width: 2
+                }),
+                fill: new Fill({
+                  color: 'rgba(0,75,151,1)'
+                })
+              })
+            }
+          },
+        },
+        methods: {
+          buildUrl: function (extent, resolution, projection) {
+            return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:population_suburb_map&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
+          },
+          getStyle: function (feature) {
+            var growth = feature.get('total_population_growth')
+            if (growth < 5) return this.blueStyle1
+            if (growth < 10) return this.blueStyle2
+            if (growth < 15) return this.blueStyle3
+            if (growth < 20) return this.blueStyle4
+            if (growth < 25) return this.blueStyle5
+            if (growth < 30) return this.blueStyle6
+            if (growth < 35) return this.blueStyle7
+            return this.blueStyle1
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## ArcGIS Feature Server
+
+<Preview>
+  <Story name="ArcGIS Feature Server">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
+        template: `<yourvic-map-core
+          :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+          :center="[16137905.843820328, -4555057.013522999]"
+          :zoom="12"
+          :minZoom="10"
+        >
+          <yourvic-map-tile-layer
+            type="OSM"
+          />
+          <yourvic-map-vector-layer
+            :urlFunction="buildUrl"
+            dataFormat="GeoJSON"
+            loadingStrategy="tile"
+          />
+        </yourvic-map-core>`,
+        methods: {
+          buildUrl: function (extent, resolution, projection) {
+            return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:suburb&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
           }
         }
       }
