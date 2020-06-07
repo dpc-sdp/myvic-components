@@ -28,6 +28,14 @@ export default {
       default: undefined
     },
     /**
+     * Custom loader for the vector layer. Four parameters are provided to the loader function:
+     * (extent, resolution, projection, vectorSource) => {}
+     */
+    loader: {
+      type: Function,
+      default: undefined
+    },
+    /**
      * The format of the vector layer. Must be ```GeoJSON```, ```EsriJSON``` or ```WFS```
      */
     dataFormat: {
@@ -100,6 +108,9 @@ export default {
     async urlFunction (newValue) {
       this.layerSource.setUrl(newValue)
       await this.layerSource.refresh()
+    },
+    async loader (newValue) {
+      await this.configureLayer()
     },
     async dataFormat (newValue) {
       await this.configureLayer()
@@ -214,9 +225,18 @@ export default {
       if (this.map == null) { return }
       this.map.removeLayer(this.layer)
 
+      // If loader function is provided, wrap it in a function so we can pass in the vector source
+      let loaderWrapper
+      if (this.loader) {
+        loaderWrapper = (extent, resolution, projection) => {
+          this.loader(extent, resolution, projection, this.layerSource)
+        }
+      }
+
       // Create layer source
       this.layerSource = new ol.source.Vector({
         url: this.url || this.urlFunction,
+        loader: loaderWrapper,
         format: this.format,
         strategy: this.strategy,
         projection: this.projection,

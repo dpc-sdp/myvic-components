@@ -9,6 +9,7 @@ const Fill = ol.style.Fill
 const Stroke = ol.style.Stroke
 const Icon = ol.style.Icon
 const Circle = ol.style.Circle
+const EsriJSON = ol.format.EsriJSON
 
 export {
   YourvicMapCore,
@@ -19,7 +20,8 @@ export {
   Fill,
   Stroke,
   Icon,
-  Circle
+  Circle,
+  EsriJSON
 }
 
 export default YourvicMapCore

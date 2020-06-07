@@ -7,7 +7,8 @@ import {
   YourvicMapVectorLayer,
   Style,
   Stroke,
-  Fill
+  Fill,
+  EsriJSON
 } from './index.js'
 
 <Meta title="Maps/Vector Layer" component={ YourvicMapVectorLayer } decorators={ [withKnobs] } />
@@ -451,21 +452,32 @@ This example shows how to use a style function to dynamically set styles based o
         template: `<yourvic-map-core
           :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
           :center="[16137905.843820328, -4555057.013522999]"
-          :zoom="12"
-          :minZoom="10"
+          :zoom="7"
         >
           <yourvic-map-tile-layer
             type="OSM"
           />
           <yourvic-map-vector-layer
-            :urlFunction="buildUrl"
+            :loader="loader"
             dataFormat="GeoJSON"
-            loadingStrategy="tile"
+            loadingStrategy="all"
           />
         </yourvic-map-core>`,
         methods: {
-          buildUrl: function (extent, resolution, projection) {
-            return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:suburb&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
+          loader: async function (extent, resolution, projection, vectorSource) {
+            let serviceUrl = 'https://services5.arcgis.com/ZSYwjtv8RKVhkXIL/ArcGIS/rest/services/Catchments_of_Major_Waterways/FeatureServer/';
+            let layer = '1';
+            let query = '/query?f=json&where=1=1&returnGeometry=true&spatialRel=esriSpatialRelIntersects&outFields=*&outSR=102100';
+            let url = serviceUrl + layer + query
+            let response = await fetch(url)
+            let responseJson = await response.json()
+            let esrijsonFormat = new EsriJSON();
+            let features = esrijsonFormat.readFeatures(responseJson, {
+              featureProjection: projection
+            });
+            if (features.length > 0) {
+              vectorSource.addFeatures(features);
+            }
           }
         }
       }
