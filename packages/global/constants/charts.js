@@ -19,9 +19,9 @@ export default {
   },
   tooltips: {
     mode: 'nearest',
-    displayColors: false,
+    displayColors: true,
     backgroundColor: 'white',
-    borderColor: styles.gridLineColor,
+    borderColor: styles.tooltipBorder,
     borderWidth: 1,
     cornerRadius: 2,
     xPadding: 10,
@@ -30,7 +30,7 @@ export default {
     titleFontSize: 12,
     titleFontColor: styles.tooltipText,
     titleAlign: 'center',
-    bodyFontFamily: "'Vic-Semibold', 'sans-serif'",
+    bodyFontFamily: "'Vic-Bold', 'sans-serif'",
     bodyFontSize: 12,
     bodyFontColor: styles.tooltipText,
     bodyAlign: 'center'

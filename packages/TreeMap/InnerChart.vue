@@ -6,8 +6,11 @@
       :tabIndex="tabIndex"
       role="img"
       :aria-label="ariaLabel"
+      :alt="shortDesc"
+      :longDesc="longDesc"
       style="outline: none"
     />
+    <chart-description v-if="longDesc" :longDesc="longDesc" cssClass="yourvic-tree-map__long-description" />
   </div>
 </template>
 
@@ -17,12 +20,13 @@ import Chart from 'chart.js'
 import treemap from 'chartjs-chart-treemap'
 import builder from './utils/buildChartOptions'
 import utils from '@dpc-sdp/yourvic-global/utils/charts'
+import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
 
 const createChart = (instance) => {
   var ctx = document.getElementById(instance.componentKey)
   if (!ctx) return
   // eslint-disable-next-line no-unused-vars
-  var myBarChart = new Chart(ctx, {
+  var myChart = new Chart(ctx, {
     type: 'treemap',
     data: instance.chartData,
     options: instance.options
@@ -30,6 +34,9 @@ const createChart = (instance) => {
 }
 
 export default {
+  components: {
+    ChartDescription
+  },
   props: {
     title: {
       type: String
@@ -56,6 +63,19 @@ export default {
     ariaLabel: {
       type: String,
       default: 'Tree Map Chart'
+    },
+    /**
+     *  Short description of the chart for accessibility purposes. This string will become the "alt" attribute
+     */
+    shortDesc: {
+      type: String,
+      default: ''
+    },
+    /**
+     *  A URL that points to the long description of the chart for accessibility purposes
+     */
+    longDesc: {
+      type: String
     }
   },
   data () {
@@ -101,4 +121,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@dpc-sdp/yourvic-global/styles/charts";
+  .yourvic-tree-map {
+    &__long-description {
+      padding-left: 0 !important;
+    }
+  }
 </style>

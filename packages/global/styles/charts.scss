@@ -1,32 +1,52 @@
 @import "~@dpc-sdp/ripple-global/style";
 
-$fill-default: #00A9E0;
-$fill-default-hover: #19C2F9;
-$fill-default-hover-light: #00a9e033;
-$fill-secondary: #004C97;
-$fill-secondary-hover: #1965B0;
-$fill-secondary-hover-light: #004C9733;
-$fill-tertiary: #e0a700;
-$fill-tertiary-hover: #ffc314;
-$fill-tertiary-hover-light: #e0a70033;
-$fill-quaternary: #c70033;
-$fill-quaternary-hover: #e00039;
-$fill-quaternary-hover-light: #c7003333;
-$tree-map-fill-default: #b2e6f6;
-$tree-map-fill-default-hover: #19C2F9;
+$outer-padding: 10px;
+
 $titleColor: #011a3c;
 $legendLabelColor: #333333;
 $gridLineColor: #53565a40;
 $gridLabelColor: #53565a;
+$tooltipBorder: #53565a88;
 $tooltipText: #011a3c;
 
+$fill-default: #00A9E0;
+$fill-default-hover: #19C2F9;
+$fill-secondary: #003866;
+$fill-secondary-hover: #045495;
+$fill-tertiary: #80D4EF;
+$fill-tertiary-hover: #98daf0;
+$fill-quaternary: #999999;
+$fill-quaternary-hover: #b3b3b3;
+
+$stroke-line-1: #FF8912;
+$stroke-line-1-hover: #faa34c;
+$stroke-line-1-hover-light: #faa34c33;
+$stroke-line-2: #F6BE00;
+$stroke-line-2-hover: #fbc513;
+$stroke-line-2-hover-light: #fbc51333;
+$stroke-line-3: #DD003C;
+$stroke-line-3-hover: #f91552;
+$stroke-line-3-hover-light: #f9155233;
+$stroke-line-4: #9F0025;
+$stroke-line-4-hover: #cc0534;
+$stroke-line-4-hover-light: #cc053433;
+
+$fill-default-hover-light: #00a9e033;
+$fill-secondary-hover-light: #004C9733;
+$fill-tertiary-hover-light: #e0a70033;
+$fill-quaternary-hover-light: #c7003333;
+
+
+$tree-map-fill-default: #b2e6f6;
+$tree-map-fill-default-hover: #19C2F9;
+
 // pie chart
-$fill-pie-1: #fb8072;
-$fill-pie-2: #80b1d3;
-$fill-pie-3: #8dd3c7;
-$fill-pie-4: #ffffb3;
-$fill-pie-5: #bebada;
-$fill-pie-6: #fdb462;
+$fill-pie-1: $fill-default;
+$fill-pie-2: $fill-secondary;
+$fill-pie-3: $fill-tertiary;
+$fill-pie-4: #DD335B;
+$fill-pie-5: #EA8098;
+$fill-pie-6: #AA0028;
 $fill-pie-7: #b3de69;
 $fill-pie-8: #fccde5;
 $fill-pie-9: #ffed6f;
@@ -34,12 +54,12 @@ $fill-pie-10: #bc80bd;
 $fill-pie-11: #ccebc5;
 $fill-pie-12: #d9d9d9;
 
-$fill-pie-hover-1: #fa5e4c;
-$fill-pie-hover-2: #6cb5e7;
-$fill-pie-hover-3: #71c8b9;
-$fill-pie-hover-4: #ffff78;
-$fill-pie-hover-5: #b2aaea;
-$fill-pie-hover-6: #fda13b;
+$fill-pie-hover-1: $fill-default-hover;
+$fill-pie-hover-2: $fill-secondary-hover;
+$fill-pie-hover-3: $fill-tertiary-hover;
+$fill-pie-hover-4: #e54368;
+$fill-pie-hover-5: #ed97ab;
+$fill-pie-hover-6: #d60536;
 $fill-pie-hover-7: #a3d749;
 $fill-pie-hover-8: #fbbadb;
 $fill-pie-hover-9: #ffe848;
@@ -51,3 +71,10 @@ $fill-pie-hover-12: #c5c5c5;
 $error-grid-size: 50px 50px;
 $error-grid-color: #80808012;
 $error-grid-pattern: linear-gradient(to right, $error-grid-color 1px, transparent 1px), linear-gradient(to top, $error-grid-color 1px, transparent 1px);
+
+.yourvic-chart-long-description {
+  font-size: 12px;
+  font-family: 'Vic-Medium', 'sans-serif';
+  padding: 5px 5px 5px 9px;
+  color: $gridLabelColor
+}

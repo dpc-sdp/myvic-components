@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import YourVicPieChart from './../index.vue'
 import { chartData } from '../storiesConstants.js'
+import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
 import ErrorComponent from '@dpc-sdp/yourvic-global/components/Error'
 
 describe('YourVicPieChart', () => {
@@ -9,7 +10,8 @@ describe('YourVicPieChart', () => {
       title: 'Pie Chart',
       data: chartData,
       showLegend: true,
-      dataFormat: 'normal'
+      dataFormat: 'normal',
+      longDesc: 'https://www.w3.org'
     }
   })
 
@@ -28,6 +30,10 @@ describe('YourVicPieChart', () => {
 
   it('renders a canvas', () => {
     expect(wrapper.contains('canvas')).toBe(true)
+  })
+
+  it('renders the chart description', () => {
+    expect(wrapper.contains(ChartDescription)).toBe(true)
   })
 
   it('renders an error message with invalid data', () => {

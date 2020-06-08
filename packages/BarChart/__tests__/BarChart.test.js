@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import YourVicBarChart from './../index.vue'
+import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
 import ErrorComponent from '@dpc-sdp/yourvic-global/components/Error'
 
 describe('YourVicBarChart', () => {
@@ -19,7 +20,8 @@ describe('YourVicBarChart', () => {
       title: 'Bar Chart',
       data: chartData,
       showLegend: true,
-      dataFormat: 'normal'
+      dataFormat: 'normal',
+      longDesc: 'https://www.w3.org'
     }
   })
 
@@ -39,6 +41,10 @@ describe('YourVicBarChart', () => {
 
   it('renders a canvas', () => {
     expect(wrapper.contains('canvas')).toBe(true)
+  })
+
+  it('renders the chart description', () => {
+    expect(wrapper.contains(ChartDescription)).toBe(true)
   })
 
   it('renders an error message with invalid data', () => {

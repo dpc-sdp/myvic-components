@@ -1,6 +1,6 @@
 export const treeMapTemplate = `
 <div style="width: 400px; height: 400px">
-  <tree-map :title="title" :data="data" :valueAttr="valueAttr" :labelAttr="labelAttr" :dataFormat="dataFormat" />
+  <tree-map :title="title" :data="data" :valueAttr="valueAttr" :labelAttr="labelAttr" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
 </div>
 `
 export const chartData = [

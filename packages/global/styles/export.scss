@@ -8,25 +8,37 @@
 		// Global variables here
 
 		// Charts
-		fillDefault: $fill-default;
-		fillDefaultHover: $fill-default-hover;
-		fillDefaultHoverLight: $fill-default-hover-light;
-		fillSecondary: $fill-secondary;
-		fillSecondaryHover: $fill-secondary-hover;
-		fillSecondaryHoverLight: $fill-secondary-hover-light;
-		fillTertiary: $fill-tertiary;
-		fillTertiaryHover: $fill-tertiary-hover;
-		fillTertiaryHoverLight: $fill-tertiary-hover-light;
-		fillQuaternary: $fill-quaternary;
-		fillQuaternaryHover: $fill-quaternary-hover;
-		fillQuaternaryHoverLight: $fill-quaternary-hover-light;
-		treeMapFillDefault: $tree-map-fill-default;
-		treeMapFillDefaultHover: $tree-map-fill-default-hover;
 		titleColor: $titleColor;
 		legendLabelColor: $legendLabelColor;
 		gridLineColor: $gridLineColor;
 		gridLabelColor: $gridLabelColor;
+		tooltipBorder: $tooltipBorder;
 		tooltipText: $tooltipText;
+
+		fillDefault: $fill-default;
+		fillDefaultHover: $fill-default-hover;
+		fillSecondary: $fill-secondary;
+		fillSecondaryHover: $fill-secondary-hover;
+		fillTertiary: $fill-tertiary;
+		fillTertiaryHover: $fill-tertiary-hover;
+		fillQuaternary: $fill-quaternary;
+		fillQuaternaryHover: $fill-quaternary-hover;
+
+		strokeLine1: $stroke-line-1;
+		strokeLine1Hover: $stroke-line-1-hover;
+		strokeLine1HoverLight: $stroke-line-1-hover-light;
+		strokeLine2: $stroke-line-2;
+		strokeLine2Hover: $stroke-line-2-hover;
+		strokeLine2HoverLight: $stroke-line-2-hover-light;
+		strokeLine3: $stroke-line-3;
+		strokeLine3Hover: $stroke-line-2-hover;
+		strokeLine3HoverLight: $stroke-line-3-hover-light;
+		strokeLine4: $stroke-line-4;
+		strokeLine4Hover: $stroke-line-2-hover;
+		strokeLine4HoverLight: $stroke-line-4-hover-light;
+
+		treeMapFillDefault: $tree-map-fill-default;
+		treeMapFillDefaultHover: $tree-map-fill-default-hover;
 
 		fillPie1: $fill-pie-1;
 		fillPie2: $fill-pie-2;

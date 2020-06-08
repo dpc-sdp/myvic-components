@@ -51,7 +51,7 @@ The data object that should contain the following keys:
         components: { LineChart },
         template: `
           <div :style="divStyle">
-            <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+            <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
           </div>
         `,
         props: {
@@ -66,6 +66,12 @@ The data object that should contain the following keys:
           },
           dataFormat: {
             default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+          },
+          shortDesc: {
+            default: text('shortDesc', 'line chart')
+          },
+          longDesc: {
+            default: text('longDesc', '')
           },
           divStyle: {
             default: () => object('divStyle', { width: '400px', height: '400px' })
@@ -127,6 +133,31 @@ The data object that should contain the following keys:
         data: { default: () => ({'data': 'invalid data'}) },
         showLegend: { default: () => false },
         dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## With link to long description
+
+<Preview>
+  <Story name="With link to long description">
+    {
+      {
+       components: { LineChart },
+       template: `
+        <div style="width: 400px; height: 400px">
+          <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
+        </div>
+      `,
+       props: {
+        title: { default: () => 'Sample Chart' },
+        data: { default: () => chartData },
+        showLegend: { default: () => false },
+        dataFormat: { default: () => 'normal' },
+        shortDesc: { default: () => 'line chart' },
+        longDesc: { default: () => 'https://www.w3.org' }
        }
       }
     }

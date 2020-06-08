@@ -60,6 +60,20 @@ export default {
     ariaLabel: {
       type: String,
       default: 'Tree Map Chart'
+    },
+    /**
+     *  Short description of the chart for accessibility purposes. This string will become the "alt" attribute
+     */
+    shortDesc: {
+      type: String,
+      default: ''
+    },
+    /**
+     *  A URL that points to the long description of the chart for accessibility purposes
+     */
+    longDesc: {
+      type: String,
+      default: null
     }
   },
   components: {
@@ -70,9 +84,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../global/styles/charts";
   .yourvic-treemap-chart {
     position: relative;
     height: inherit;
     width: inherit;
+    padding: $outer-padding;
   }
 </style>
