@@ -5,7 +5,7 @@ import DataItem from './../DataItem.vue'
 describe('DataBlock', () => {
   const wrapper = mount(DataBlock, {
     propsData: {
-      data: {},
+      data: { title: 'title', description: 'description' },
       selectable: true,
       isBlock: true
     }

@@ -69,28 +69,6 @@ The data object that should contain the following keys:
   </Story>
 </Preview>
 
-## Other
-
-<Preview>
-  <Story name="other">
-    {
-      {
-       components: { DataBlock },
-       template: `
-        <div style="width: 200px;">
-          ${dataBlockTemplate}
-        </div>
-       `,
-       props: {
-        data: { default: () => dataItemProps },
-        selectable: { default: () => true },
-        isBlock: { default: () => true }
-       }
-      }
-    }
-  </Story>
-</Preview>
-
 ## Ripple Grid
 
 <Preview>

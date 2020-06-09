@@ -330,49 +330,6 @@ exports[`YourvicStoryshots Data Block Ripple Grid 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Data Block other 1`] = `
-<div
-  style="width: 200px;"
->
-  <section
-    class="yourvic-data-block"
-  >
-    <div
-      class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
-    >
-      <div
-        class="yourvic-data-item"
-      >
-        <h3
-          class="yourvic-data-item__title"
-        >
-          
-    Title
-    
-          <!---->
-        </h3>
-         
-        <p
-          class="yourvic-data-item__description"
-        >
-          description
-        </p>
-      </div>
-       
-      <span
-        class="yourvic-data-block__link"
-      >
-        <span
-          class="yourvic-data-block__link-text"
-        >
-          View chart
-        </span>
-      </span>
-    </div>
-  </section>
-</div>
-`;
-
 exports[`YourvicStoryshots Error Chart-related error 1`] = `
 <div
   style="height: 200px;"
