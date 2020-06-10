@@ -13,7 +13,7 @@ import {
 
 <Meta title="Maps/Vector Layer" component={ YourvicMapVectorLayer } decorators={ [withKnobs] } />
 
-# Map Tile Layer
+# Map Vector Layer
 
 <Description of={ YourvicMapVectorLayer } type='docgen' />
 
@@ -171,6 +171,8 @@ This example provides options to test different layer configurations.
 
 ## GeoJSON File
 
+GeoJSON files can be loaded directly from a URL. This examples uses the default styles with labelling.
+
 <Preview>
   <Story name="GeoJSON File">
     {
@@ -194,7 +196,7 @@ This example provides options to test different layer configurations.
 
 ## WFS BBOX Load Strategy
 
-Using a urlFunction which accepts the current map extent, a URL can be generated to request features by BBOX
+Using a urlFunction which accepts the current map extent, a URL can be generated to request features by BBOX from a WFS
 
 <Preview>
   <Story name="WFS BBOX Load Strategy">
@@ -228,7 +230,7 @@ Using a urlFunction which accepts the current map extent, a URL can be generated
 
 ## WFS Tile Load Strategy
 
-Using a urlFunction which accepts the a tile extent, a URL can be generated to request features by BBOX
+Using a urlFunction which accepts the tile extent, a URL can be generated to request features by BBOX from a WFS
 
 <Preview>
   <Story name="WFS Tile Load Strategy">
@@ -443,6 +445,9 @@ This example shows how to use a style function to dynamically set styles based o
 </Preview>
 
 ## ArcGIS Feature Server
+
+Loading vector features from an ArcGIS feature server requires a custom loader function to request the features, parse
+the EsriJSON response and add the features to the vector layer.
 
 <Preview>
   <Story name="ArcGIS Feature Server">

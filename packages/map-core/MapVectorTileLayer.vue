@@ -2,18 +2,19 @@
 import ol from './lib/ol'
 import styles from './styles/styles'
 import layer from './mixin/layer'
+import { apply } from 'ol-mapbox-style'
+import stylefunction from 'ol-mapbox-style/dist/stylefunction'
 
 /**
- * YourvicMapVectorLayer provides support for vector sources such as WFS, ArcGIS Feature Server and GeoJSON files for
- * YourvicMapCore. It offers a declarative API for describing layers as child components of YourvicMapCore, wrapping
- * the functionality provided by OpenLayers.
+ * YourvicMapVectorTileLayer provides support for Mapbox Vector Tile sources. It offers a declarative API for
+ * describing layers as child components of YourvicMapCore, wrapping the functionality provided by OpenLayers.
  */
 export default {
-  name: 'YourvicMapVectorLayer',
+  name: 'YourvicMapVectorTileLayer',
   mixins: [layer],
   props: {
     /**
-     * The url of the vector layer as a string. This property takes precedence if both url and urlFunction are provided.
+     * The url of the vector tile layer as a string.
      */
     url: {
       type: String,
@@ -28,7 +29,7 @@ export default {
       default: undefined
     },
     /**
-     * Custom loader for the vector layer. Four parameters are provided to the loader function:
+     * Custom loader for the vector tile layer. Four parameters are provided to the loader function:
      * (extent, resolution, projection, vectorSource) => {}
      */
     loader: {
@@ -36,22 +37,13 @@ export default {
       default: undefined
     },
     /**
-     * The format of the vector layer. Must be ```GeoJSON```, ```EsriJSON``` or ```WFS```
+     * The format of the vector tile layer. Must be ```MVT```.
      */
     dataFormat: {
       type: String,
       required: true,
       validator: value => {
-        return ['GeoJSON', 'EsriJSON', 'WFS'].includes(value)
-      }
-    },
-    /**
-     * The loading strategy for the vector layer. Supports ```all```, ```bbox``` or ```tile```.
-     */
-    loadingStrategy: {
-      type: String,
-      validator: value => {
-        return ['all', 'bbox', 'tile'].includes(value)
+        return ['MVT'].includes(value)
       }
     },
     /**
@@ -62,11 +54,45 @@ export default {
       default: undefined
     },
     /**
+     * Method to use when applying styles through the ol-mapbox-style library. ```apply``` will create and style layers from
+     * a Mapbox style source. ```stylefunction``` will create an Openlayers style function that can be used to style an
+     * existing layer.
+     */
+    mapboxStyleMethod: {
+      type: String,
+      default: 'apply',
+      validator: value => {
+        return ['apply', 'stylefunction'].includes(value)
+      }
+    },
+    /**
+     * Mapbox style URL or object to be applied to the map by the ol-mapbox-style library
+     */
+    mapboxStyle: {
+      type: undefined,
+      default: undefined
+    },
+    /**
+     * Source key or an array of layer ids from the Mapbox Style object. Controls which layers from the Mapbox style
+     * are included in the style function created by the ol-mapbox-style library
+     */
+    mapboxStyleSource: {
+      type: undefined,
+      default: undefined
+    },
+    /**
      * Feature attribute to use for labelling (optional)
      */
     labelAttribute: {
       type: String,
       default: undefined
+    },
+    /**
+     * Configure the layer render mode
+     */
+    renderMode: {
+      type: String,
+      default: 'hybrid'
     },
     /**
      * Enable or disable decluttering on the layer
@@ -98,13 +124,22 @@ export default {
     async dataFormat (newValue) {
       await this.configureLayer()
     },
-    async loadingStrategy (newValue) {
-      await this.configureLayer()
-    },
     async layerStyle (newValue) {
       await this.configureLayer()
     },
+    async mapboxStyleMethod (newValue) {
+      await this.configureLayer()
+    },
+    async mapboxStyle (newValue) {
+      await this.configureLayer()
+    },
+    async mapboxStyleSource (newValue) {
+      await this.configureLayer()
+    },
     async labelAttribute (newValue) {
+      await this.configureLayer()
+    },
+    async renderMode (newValue) {
       await this.configureLayer()
     },
     async declutter (newValue) {
@@ -117,26 +152,10 @@ export default {
   computed: {
     format: function () {
       switch (this.dataFormat) {
-        case 'GeoJSON':
-          return new ol.format.GeoJSON()
-        case 'EsriJSON':
-          return new ol.format.EsriJSON()
-        case 'WFS':
-          return new ol.format.WFS()
+        case 'MVT':
+          return new ol.format.MVT()
         default:
           return undefined
-      }
-    },
-    strategy: function () {
-      switch (this.loadingStrategy) {
-        case 'bbox':
-          return ol.loadingstrategy.bbox
-        case 'tile':
-          return ol.loadingstrategy.tile((ol.tilegrid.createXYZ({
-            tileSize: 512
-          })))
-        default:
-          return undefined // defaults to 'all' strategy
       }
     }
   },
@@ -164,25 +183,35 @@ export default {
       }
 
       // Create layer source
-      this.layerSource = new ol.source.Vector({
-        url: this.url || urlFunctionWrapper,
+      this.layerSource = new ol.source.VectorTileSource({
+        url: this.url,
+        tileUrlFunction: urlFunctionWrapper,
         loader: loaderWrapper,
         format: this.format,
-        strategy: this.strategy,
         projection: this.projection,
         overlaps: this.overlaps,
         attributions: this.attributions.concat([ol.source.OSMAttribution])
       })
 
       // Create layer
-      this.layer = new ol.layer.Vector({
+      this.layer = new ol.layer.VectorTile({
         source: this.layerSource,
+        renderMode: this.renderMode,
         opacity: this.opacity,
         extent: this.extent,
         zIndex: this.zIndex,
-        style: this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute),
+        style: this.mapboxStyle ? undefined : (this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute)),
         declutter: true
       })
+
+      // Apply Mapbox styles if provided
+      if (this.mapboxStyle) {
+        if (this.mapboxStyleMethod === 'apply') {
+          apply(this.map, this.mapboxStyle)
+        } else if (this.mapboxStyleMethod === 'stylefunction') {
+          stylefunction(this.layer, this.mapboxStyle, this.mapboxStyleSource)
+        }
+      }
 
       // Add layer to map
       this.map.addLayer(this.layer)

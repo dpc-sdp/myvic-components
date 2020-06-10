@@ -1627,6 +1627,108 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
+<div
+  class="yourvic-map-core"
+  style="width: 100%; height: 100%;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      id="map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      id="map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <a
+        class="map-watermark"
+        href="http://mapbox.com/about/maps"
+        target="_blank"
+      >
+        Mapbox
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      id="map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      id="map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Pie Chart Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
