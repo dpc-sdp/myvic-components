@@ -11,7 +11,10 @@
       :tabIndex="tabIndex"
       role="img"
       :aria-label="ariaLabel"
+      :alt="shortDesc"
+      :longDesc="longDesc"
     />
+    <chart-description v-if="!gotError && longDesc" :longDesc="longDesc" />
     <error v-if="gotError" :message="error.toString()" errorClass="chart" />
   </div>
 </template>
@@ -21,6 +24,7 @@
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
+import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
 import Error from '@dpc-sdp/yourvic-global/components/Error'
 import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
 import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
@@ -32,6 +36,7 @@ export default {
   components: {
     'InnerHorizontalChart': () => import(`./${'InnerHorizontalChart'}`),
     'InnerChart': () => import(`./${'InnerChart'}`),
+    ChartDescription,
     Error
   },
   mixins: [catchError, validateChartData],
@@ -83,6 +88,19 @@ export default {
     ariaLabel: {
       type: String,
       default: 'Bar Chart'
+    },
+    /**
+     *  Short description of the chart for accessibility purposes. This string will become the "alt" attribute
+     */
+    shortDesc: {
+      type: String,
+      default: ''
+    },
+    /**
+     *  A URL that points to the long description of the chart for accessibility purposes
+     */
+    longDesc: {
+      type: String
     }
   },
   data () {
@@ -124,7 +142,7 @@ export default {
             yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat)
           },
           legend: builder.getLegend(this.showLegend),
-          tooltips: builder.getTooltips(this.direction, this.data, this.dataFormat),
+          tooltips: builder.getTooltips(this.direction, this.dataFormat),
           plugins: builder.getPlugin(this.dataFormat)
         }
         return options
@@ -143,9 +161,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@dpc-sdp/yourvic-global/styles/charts";
   .yourvic-bar-chart {
     position: relative;
     height: inherit;
     width: inherit;
+    padding: $outer-padding;
   }
 </style>

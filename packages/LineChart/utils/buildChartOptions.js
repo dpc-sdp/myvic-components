@@ -17,24 +17,24 @@ const settings = {
     pointRadius: 4
   },
   primaryDataset: {
-    borderColor: styles.fillDefault,
-    pointBackgroundColor: styles.fillDefault,
-    hoverBorderColor: styles.fillDefaultHoverLight
+    borderColor: styles.strokeLine1,
+    pointBackgroundColor: styles.strokeLine1,
+    hoverBorderColor: styles.strokeLine1HoverLight
   },
   secondaryDataset: {
-    borderColor: styles.fillSecondary,
-    pointBackgroundColor: styles.fillSecondary,
-    hoverBorderColor: styles.fillSecondaryHoverLight
+    borderColor: styles.strokeLine2,
+    pointBackgroundColor: styles.strokeLine2,
+    hoverBorderColor: styles.strokeLine2HoverLight
   },
   tertiaryDataset: {
-    borderColor: styles.fillTertiary,
-    pointBackgroundColor: styles.fillTertiary,
-    hoverBorderColor: styles.fillTertiaryHoverLight
+    borderColor: styles.strokeLine3,
+    pointBackgroundColor: styles.strokeLine3,
+    hoverBorderColor: styles.strokeLine3HoverLight
   },
   quaternaryDataset: {
-    borderColor: styles.fillQuaternary,
-    pointBackgroundColor: styles.fillQuaternary,
-    hoverBorderColor: styles.fillQuaternaryHoverLight
+    borderColor: styles.strokeLine4,
+    pointBackgroundColor: styles.strokeLine4,
+    hoverBorderColor: styles.strokeLine4HoverLight
   },
   primaryAxis: {
     gridLines: {
@@ -46,7 +46,7 @@ const settings = {
     },
     ticks: {
       beginAtZero: true,
-      maxTicksLimit: 5,
+      maxTicksLimit: 8,
       padding: 10,
       fontFamily: "'Vic-Medium', 'sans-serif'",
       fontSize: 13,
@@ -129,41 +129,19 @@ export default {
     }
     return buildAxes(isPrimary, data, dataFormat)
   },
-  getXAxes: (direction, data, dataFormat) => {
-    let axis = settings[direction === 'horizontal' ? 'primaryAxis' : 'secondaryAxis']
-    if (direction === 'horizontal') {
-      axis = scaleAxis(axis, data)
-    }
-    axis = labelAxis(axis, dataFormat)
-    return [axis]
-  },
-  getYAxes: (direction, data, dataFormat) => {
-    let axis = settings[direction === 'vertical' ? 'primaryAxis' : 'secondaryAxis']
-    if (direction === 'vertical') {
-      axis = scaleAxis(axis, data)
-    }
-    axis = labelAxis(axis, dataFormat)
-    return [axis]
-  },
   getLegend: (show) => {
     return _merge({}, constants.legend, {
       display: show
     })
   },
-  getTooltips: (direction, data, dataFormat) => {
+  getTooltips: (dataFormat) => {
     const labelSettings = {
       callbacks: {
         // use label callback to return the desired label
-        label: function (tooltipItem) {
-          const value = direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
-          return utils.labelValue(value, dataFormat)
-        },
-        title: function (tooltipItem) {
-          if (data.datasets.length === 1) {
-            return tooltipItem[0].label
-          } else {
-            return data.datasets[tooltipItem[0].datasetIndex].label
-          }
+        label: function (tooltipItem, data) {
+          var dataset = data.datasets[tooltipItem.datasetIndex]
+          const value = tooltipItem.yLabel
+          return `${dataset.label}: ${utils.labelValue(value, dataFormat)}`
         }
       }
     }

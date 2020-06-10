@@ -10,6 +10,9 @@ const settings = {
     fontFamily: "'Vic-Semibold', 'sans-serif'",
     backgroundColor: styles.treeMapFillDefault,
     hoverBackgroundColor: styles.treeMapFillDefaultHover
+  },
+  tooltips: {
+    displayColors: false
   }
 }
 
@@ -46,6 +49,6 @@ export default {
         }
       }
     }
-    return _merge({}, constants.tooltips, labelSettings)
+    return _merge({}, constants.tooltips, settings.tooltips, labelSettings)
   }
 }

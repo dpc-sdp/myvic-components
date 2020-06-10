@@ -51,7 +51,7 @@ The data object that should contain the following keys:
         components: { BarChart },
         template: `
           <div :style="divStyle">
-            <bar-chart :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+            <bar-chart :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
           </div>
         `,
         props: {
@@ -69,6 +69,12 @@ The data object that should contain the following keys:
           },
           dataFormat: {
             default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+          },
+          shortDesc: {
+            default: text('shortDesc', 'bar chart')
+          },
+          longDesc: {
+            default: text('longDesc', '')
           },
           divStyle: {
             default: () => object('divStyle', { width: '400px', height: '400px' })
@@ -153,6 +159,32 @@ The data object that should contain the following keys:
         data: { default: () => ({ data: 'invalid data'}) },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## With link to long description
+
+<Preview>
+  <Story name="With link to long description">
+    {
+      {
+       components: { BarChart },
+       template: `
+        <div style="width: 400px; height: 400px">
+          <bar-chart :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
+        </div>
+      `,
+       props: {
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Sample Chart' },
+        data: { default: () => chartData },
+        showLegend: { default: () => false },
+        dataFormat: { default: () => 'normal' },
+        shortDesc: { default: () => 'bar chart' },
+        longDesc: { default: () => 'https://www.w3.org' }
        }
       }
     }
