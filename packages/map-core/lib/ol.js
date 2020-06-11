@@ -78,6 +78,22 @@ const createImageIconStyle = (src, crossOrigin, size) => {
   })
 }
 
+const getRgbaFromString = (colorString, opacity) => {
+  // convert shorthand hex color to 6 digits
+  colorString = colorString.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => {
+    return r + r + g + g + b + b
+  })
+
+  // split hex string with regex
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(colorString)
+  return result ? [
+    parseInt(result[1], 16),
+    parseInt(result[2], 16),
+    parseInt(result[3], 16),
+    opacity
+  ] : null
+}
+
 const registerCustomProjections = () => {
   // Register GDA94 Projection (EPSG:4283) with OpenLayers
   // Adapted from https://spatialreference.org/ref/epsg/4283/proj4js/, with +axis=neu added to switch axis order
@@ -103,6 +119,7 @@ const createTileGrid = (mapView, zoomLevels, tileSize) => {
 const ol = {
   doFeaturesShareSameLocation,
   createImageIconStyle,
+  getRgbaFromString,
   registerCustomProjections,
   createTileGrid,
   Map: Map,

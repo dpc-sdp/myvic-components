@@ -8,7 +8,9 @@
         :selectedFeature="feature"
         :mapElement="$refs.map" />
     </div>
-    <div class="yourvic-map-core__container">
+    <div
+      v-if="!gotError"
+      class="yourvic-map-core__container">
       <div class="yourvic-map-core__map" id="map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
         <slot></slot>
         <a
@@ -18,12 +20,15 @@
           target="_blank">Mapbox</a>
       </div>
     </div>
+    <error v-if="gotError" :message="error.toString()" errorClass="chart" class="yourvic-map-core__container" />
   </div>
 </template>
 
 <script>
 import MapIndicator from './MapIndicator'
 import ol from './lib/ol'
+import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
+import Error from '@dpc-sdp/yourvic-global/components/Error'
 
 /**
  * All of these functions can be overridden by passing in
@@ -255,42 +260,46 @@ const methods = {
     }, 0)
   },
   onAppMounted () {
-    this.createMap()
+    try {
+      this.createMap()
 
-    if (this.customMethods && this.customMethods.createBaseLayer) {
-      this.baseLayer = this.customMethods.createBaseLayer(ol)
-    } else {
-      this.createBaseLayer()
+      if (this.customMethods && this.customMethods.createBaseLayer) {
+        this.baseLayer = this.customMethods.createBaseLayer(ol)
+      } else {
+        this.createBaseLayer()
+      }
+
+      if (this.customMethods && this.customMethods.createThemeLayers) {
+        this.themeLayers = this.customMethods.createThemeLayers(ol)
+      } else {
+        this.createThemeLayers()
+      }
+
+      this.map.addLayer(this.baseLayer)
+
+      this.createMapControls()
+      this.setMapControls()
+
+      this.createMapInteractions()
+      this.setMapInteractions()
+
+      for (let layer of this.themeLayers) {
+        this.map.addLayer(layer)
+      }
+
+      this.addPopupOverlay()
+
+      this.map.on('singleclick', this.onMapClick)
+      this.map.on('pointermove', this.onMapPointerMove)
+
+      if (this.customMethods && this.customMethods.exposeMap) {
+        this.customMethods.exposeMap(this.map)
+      }
+
+      this.zoomOnAppMounted()
+    } catch (error) {
+      this.interceptError(error)
     }
-
-    if (this.customMethods && this.customMethods.createThemeLayers) {
-      this.themeLayers = this.customMethods.createThemeLayers(ol)
-    } else {
-      this.createThemeLayers()
-    }
-
-    this.map.addLayer(this.baseLayer)
-
-    this.createMapControls()
-    this.setMapControls()
-
-    this.createMapInteractions()
-    this.setMapInteractions()
-
-    for (let layer of this.themeLayers) {
-      this.map.addLayer(layer)
-    }
-
-    this.addPopupOverlay()
-
-    this.map.on('singleclick', this.onMapClick)
-    this.map.on('pointermove', this.onMapPointerMove)
-
-    if (this.customMethods && this.customMethods.exposeMap) {
-      this.customMethods.exposeMap(this.map)
-    }
-
-    this.zoomOnAppMounted()
   },
   featureMapper (layer, feature) {
     // this function should be overridden when consuming this component,
@@ -326,6 +335,7 @@ const methods = {
  */
 export default {
   name: 'YourvicMapCore',
+  mixins: [catchError],
   props: {
     /**
      * CSS styles that control the appearance of the container that the map is rendered into
@@ -508,7 +518,8 @@ export default {
     }
   },
   components: {
-    MapIndicator
+    MapIndicator,
+    Error
   },
   watch: {
     // Used as a prop when the map will be offscreen initially i.e. mobile
@@ -569,7 +580,8 @@ export default {
   },
   provide: function () {
     return {
-      getMap: this.getMap
+      getMap: this.getMap,
+      interceptError: this.interceptError
     }
   },
   methods

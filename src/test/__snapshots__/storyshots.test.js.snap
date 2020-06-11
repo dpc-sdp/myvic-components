@@ -491,6 +491,8 @@ exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -520,6 +522,8 @@ exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
       </a>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -560,6 +564,8 @@ exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
             <!---->
           </div>
         </div>
+         
+        <!---->
       </div>
        
       <!---->
@@ -659,6 +665,8 @@ exports[`YourvicStoryshots Maps/Family Violence Map with family violence data 1`
             </a>
           </div>
         </div>
+         
+        <!---->
       </div>
     </div>
      
@@ -1229,6 +1237,8 @@ exports[`YourvicStoryshots Maps/Fire Map with fire data 1`] = `
         </a>
       </div>
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1327,6 +1337,8 @@ exports[`YourvicStoryshots Maps/Free Wifi Map with free wifi data 1`] = `
         </a>
       </div>
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1352,6 +1364,8 @@ exports[`YourvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1376,6 +1390,8 @@ exports[`YourvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1402,6 +1418,8 @@ exports[`YourvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1426,6 +1444,8 @@ exports[`YourvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1450,6 +1470,8 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1474,6 +1496,8 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1498,6 +1522,8 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1522,6 +1548,8 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1552,6 +1580,8 @@ exports[`YourvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
       </a>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1578,6 +1608,8 @@ exports[`YourvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1604,6 +1636,8 @@ exports[`YourvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1628,6 +1662,8 @@ exports[`YourvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1652,6 +1688,8 @@ exports[`YourvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1678,6 +1716,8 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1704,6 +1744,8 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1730,6 +1772,8 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1754,6 +1798,8 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1784,6 +1830,8 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
       </a>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1808,6 +1856,8 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1832,6 +1882,8 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
       <!---->
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 

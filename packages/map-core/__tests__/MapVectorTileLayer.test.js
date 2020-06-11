@@ -17,7 +17,8 @@ describe('YourvicMapVectorTileLayer', () => {
         return new Promise((resolve, reject) => {
           resolve(mockMap)
         })
-      }
+      },
+      interceptError: () => {}
     }
   })
 

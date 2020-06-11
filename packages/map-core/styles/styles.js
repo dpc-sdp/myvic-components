@@ -1,17 +1,20 @@
 import ol from '../lib/ol'
 import globalStyles from '@dpc-sdp/yourvic-global/styles/export.scss'
 
+const defaultStrokeColour = globalStyles.fillDefault
+const defaultFillColour = ol.getRgbaFromString(globalStyles.fillTertiary, 0.2)
+const defaultTextColour = globalStyles.titleColor
+
 const defaultPointStyle = [
   new ol.style.Style({
     image: new ol.style.Circle({
       radius: 4,
       stroke: new ol.style.Stroke({
-        color: globalStyles.fillDefault,
+        color: defaultStrokeColour,
         width: 2
       }),
       fill: new ol.style.Fill({
-        // color: globalStyles.fillDefaultHoverLight // throws assertion error during tests
-        color: [0, 169, 224, 0.2]
+        color: defaultFillColour
       })
     })
   })
@@ -20,7 +23,7 @@ const defaultPointStyle = [
 const defaultLineStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
-      color: globalStyles.fillDefault,
+      color: defaultStrokeColour,
       width: 3
     })
   })
@@ -29,11 +32,11 @@ const defaultLineStyle = [
 const defaultPolygonStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
-      color: globalStyles.fillDefault,
+      color: defaultStrokeColour,
       width: 3
     }),
     fill: new ol.style.Fill({
-      color: globalStyles.fillDefaultHoverLight
+      color: defaultFillColour
     })
   })
 ]
@@ -46,10 +49,10 @@ const defaultTextStyle = [
       placement: 'point',
       overflow: true,
       fill: new ol.style.Fill({
-        color: globalStyles.titleColor
+        color: defaultTextColour
       }),
       stroke: new ol.style.Stroke({
-        color: globalStyles.titleColor,
+        color: defaultTextColour,
         width: 1
       })
     })

@@ -1,6 +1,6 @@
 export default {
   components: {},
-  inject: ['getMap'],
+  inject: ['getMap', 'interceptError'],
   props: {
     /**
      * Optional bounding extent for layer rendering, defined as an array of numbers: ```[minx, miny, maxx, maxy]```.
@@ -83,5 +83,9 @@ export default {
   },
   render (createElement) {
     return null
+  },
+  errorCaptured (error) {
+    this.interceptError(error)
+    return false
   }
 }
