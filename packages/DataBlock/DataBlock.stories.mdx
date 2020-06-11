@@ -2,7 +2,7 @@ import { Meta, Preview, Story, Props, Source, Description } from '@storybook/add
 import DataBlock from './index.vue'
 import { withKnobs, boolean, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { dataBlockTemplate, dataItemProps } from './storiesConstants.js'
+import { dataBlockTemplate, dataItemProps, dataItemWithTrendProps } from './storiesConstants.js'
 
 <Meta title="Data Block" component={ DataBlock } decorators={ [withKnobs] } />
 
@@ -56,6 +56,34 @@ The data object that should contain the following keys:
         props: {
           data: {
             default: () => object('data', dataItemProps)
+          },
+          selectable: {
+            default: boolean('selectable', true)
+          },
+          isBlock: {
+            default: boolean('isBlock', true)
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## With Trend
+
+<Preview>
+  <Story name="With Trend">
+    {
+      {
+        components: { DataBlock },
+        template: `
+        <div style="width: 200px;">
+          ${dataBlockTemplate}
+        </div>
+       `,
+        props: {
+          data: {
+            default: () => object('data', dataItemWithTrendProps)
           },
           selectable: {
             default: boolean('selectable', true)

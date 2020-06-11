@@ -6,10 +6,11 @@
       <span
         v-if="trend"
         class="yourvic-data-item__icon">
-        <!-- <icon
-          :glyph="getIcon(icon)"
-          :width="12"
-          :height="12" /> -->
+        <rpl-icon
+          :symbol="icon"
+          color="secondary"
+          size="m"
+        />
       </span>
     </h3>
     <p class="yourvic-data-item__description">{{ description }}</p>
@@ -17,10 +18,11 @@
 </template>
 
 <script>
+import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 export default {
   components: {
-    // Icon
+    RplIcon
   },
   props: {
     title: {
@@ -38,7 +40,7 @@ export default {
   },
   computed: {
     icon () {
-      return this.trend === 'up' ? 'arrow-up' : 'arrow-down'
+      return this.trend === 'up' ? 'arrow_up_primary' : 'arrow_down_primary'
     }
   },
   methods: {
@@ -83,7 +85,7 @@ export default {
 
     &__icon {
       position: relative;
-      top: -3px;
+      top: -1px;
       margin-left: 2px;
     }
   }

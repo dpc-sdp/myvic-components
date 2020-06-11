@@ -1,33 +1,36 @@
 <template>
-  <section
+  <div
     class="yourvic-data-block">
     <div
       :class="{ 'yourvic-data-block__item--selectable': selectable, 'yourvic-data-block__item--isBlock': isBlock }"
-      class="yourvic-data-block__item">
+      class="yourvic-data-block__item" :role="selectable ? 'button' : ''" >
       <data-item v-bind="data" />
       <span
         v-if="selectable"
         class="yourvic-data-block__link">
         <span class="yourvic-data-block__link-text">View chart</span>
-        <!-- <icon
-          :glyph="getGlyph('caret-right')"
-          :width="5"
-          :height="8"
-        /> -->
+          <rpl-icon
+            class="yourvic-data-block__icon"
+            symbol="arrow_right_secondary"
+            color="dark_neutral_1"
+            size="s"
+          />
       </span>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
 import DataItem from './DataItem'
+import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 /**
  * YourvicDataBlock provides configurable container for data display
  */
 export default {
   components: {
-    DataItem
+    DataItem,
+    RplIcon
   },
   props: {
     /**
@@ -68,6 +71,7 @@ export default {
       flex-direction: column;
       width: 100%;
       height: 100%;
+      min-height: rem-calc(50);
       padding-top: .75rem;
       padding-right: 1rem;
       padding-bottom: .75rem;
@@ -100,7 +104,7 @@ export default {
           background-color: $hoverColor;
           border: 1px solid $borderColor;
 
-          .data-block__link-text {
+          .yourvic-data-block__link-text {
             margin-right: 5px;
             transition: all 0.075s ease-out;
           }
@@ -122,7 +126,7 @@ export default {
     &__link {
       line-height: 1;
       position: absolute;
-      bottom: rem-calc(20);
+      bottom: rem-calc(24);
     }
 
     &__link-text {
@@ -130,6 +134,12 @@ export default {
       font-weight: 500;
       margin-right: .25em;
       border-bottom: 2px solid #00a9e0;
+    }
+
+    &__icon {
+      position: relative;
+      top: 3px;
+      left: -3px;
     }
   }
 

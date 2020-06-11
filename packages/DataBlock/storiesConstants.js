@@ -3,3 +3,4 @@ export const dataBlockTemplate = `
 `
 
 export const dataItemProps = { title: 'Title', description: 'description' }
+export const dataItemWithTrendProps = { title: 'Title', description: 'description', trend: 'up' }
