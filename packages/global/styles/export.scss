@@ -5,10 +5,11 @@
 		// Export variables to make them accessible to JS
 
 		// Global
-		// Global variables here
+		titleColor: $titleColor;
+		textColor: $textColor;
 
 		// Charts
-		titleColor: $titleColor;
+
 		legendLabelColor: $legendLabelColor;
 		gridLineColor: $gridLineColor;
 		gridLabelColor: $gridLabelColor;

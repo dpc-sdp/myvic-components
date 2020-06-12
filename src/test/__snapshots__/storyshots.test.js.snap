@@ -1,5 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`YourvicStoryshots Atoms | Global Divider 1`] = `
+<hr
+  class="rpl-divider"
+/>
+`;
+
+exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in dev mode 1`] = `
+<ol
+  class="rpl-dev-error"
+>
+  <li>
+    
+    Something wrong
+  
+  </li>
+  <li>
+    
+    Another error
+  
+  </li>
+</ol>
+`;
+
+exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`] = `
+<ol
+  class="rpl-dev-error"
+>
+  <li>
+    
+    Something wrong
+  
+  </li>
+  <li>
+    
+    Another error
+  
+  </li>
+</ol>
+`;
+
 exports[`YourvicStoryshots Bar Chart Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
@@ -215,6 +255,173 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
     <!---->
      
     <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Data Block Default 1`] = `
+<div
+  style="width: 200px;"
+>
+  <div
+    class="yourvic-data-block"
+  >
+    <div
+      class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+      role="button"
+    >
+      <div
+        class="yourvic-data-item"
+      >
+        <h3
+          class="yourvic-data-item__title"
+        >
+          
+    Title
+    
+          <!---->
+        </h3>
+         
+        <p
+          class="yourvic-data-item__description"
+        >
+          description
+        </p>
+      </div>
+       
+      <span
+        class="yourvic-data-block__link"
+      >
+        <span
+          class="yourvic-data-block__link-text"
+        >
+          View chart
+        </span>
+         
+        <!---->
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Data Block Ripple Grid 1`] = `
+<div
+  class="rpl-container"
+  style="width: 100%;"
+>
+  <div
+    class="rpl-row"
+  >
+    <div
+      class="rpl-col rpl-col--1"
+    >
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--3"
+    >
+      <div
+        class="yourvic-data-block"
+      >
+        <div
+          class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+          role="button"
+        >
+          <div
+            class="yourvic-data-item"
+          >
+            <h3
+              class="yourvic-data-item__title"
+            >
+              
+    Title
+    
+              <!---->
+            </h3>
+             
+            <p
+              class="yourvic-data-item__description"
+            >
+              description
+            </p>
+          </div>
+           
+          <span
+            class="yourvic-data-block__link"
+          >
+            <span
+              class="yourvic-data-block__link-text"
+            >
+              View chart
+            </span>
+             
+            <!---->
+          </span>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--1"
+    >
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Data Block With Trend 1`] = `
+<div
+  style="width: 200px;"
+>
+  <div
+    class="yourvic-data-block"
+  >
+    <div
+      class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+      role="button"
+    >
+      <div
+        class="yourvic-data-item"
+      >
+        <h3
+          class="yourvic-data-item__title"
+        >
+          
+    Title
+    
+          <span
+            class="yourvic-data-item__icon"
+          >
+            <!---->
+          </span>
+        </h3>
+         
+        <p
+          class="yourvic-data-item__description"
+        >
+          description
+        </p>
+      </div>
+       
+      <span
+        class="yourvic-data-block__link"
+      >
+        <span
+          class="yourvic-data-block__link-text"
+        >
+          View chart
+        </span>
+         
+        <!---->
+      </span>
+    </div>
   </div>
 </div>
 `;

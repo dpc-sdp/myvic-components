@@ -1,0 +1,126 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import DataBlock from './index.vue'
+import { withKnobs, boolean, object } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { dataBlockTemplate, dataItemProps, dataItemWithTrendProps } from './storiesConstants.js'
+
+<Meta title="Data Block" component={ DataBlock } decorators={ [withKnobs] } />
+
+# Data Block
+
+<Description of={ DataBlock } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-data-block --save
+```
+
+## Import
+
+```javascript
+import { DataBlock } from '@dpc-sdp/yourvic-data-block'
+```
+
+## Usage
+
+```html
+<data-block
+  :data="data"
+/>
+```
+
+## Props
+
+<Props of={ DataBlock } />
+
+### Data Format
+The data object that should contain the following keys:
+- labels: an array of values for one of the axes. In the case of a horizontal bar chart this would be the Y-axis
+- datasets: an array of objects (minimum 1 required - maximum of 4) that contain the following keys:
+  - label (String): a label for this dataset
+  - data (Array): the values for this dataset. The length of this should match the length of the labels key
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { DataBlock },
+        template: `
+        <div style="width: 200px;">
+          ${dataBlockTemplate}
+        </div>
+       `,
+        props: {
+          data: {
+            default: () => object('data', dataItemProps)
+          },
+          selectable: {
+            default: boolean('selectable', true)
+          },
+          isBlock: {
+            default: boolean('isBlock', true)
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## With Trend
+
+<Preview>
+  <Story name="With Trend">
+    {
+      {
+        components: { DataBlock },
+        template: `
+        <div style="width: 200px;">
+          ${dataBlockTemplate}
+        </div>
+       `,
+        props: {
+          data: {
+            default: () => object('data', dataItemWithTrendProps)
+          },
+          selectable: {
+            default: boolean('selectable', true)
+          },
+          isBlock: {
+            default: boolean('isBlock', true)
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Ripple Grid
+
+<Preview>
+  <Story name="Ripple Grid">
+    {
+      {
+       components: { DataBlock, RplContainer, RplRow, RplCol },
+       template: `
+        <RplContainer style="width: 100%">
+          <rpl-row>
+            <rpl-col cols=1></rpl-col>
+            <rpl-col cols=3>
+              ${dataBlockTemplate}
+            </rpl-col>
+            <rpl-col cols=1></rpl-col>
+          </rpl-row>
+        </RplContainer>
+       `,
+       props: {
+        data: { default: () => dataItemProps },
+        selectable: { default: () => true },
+        isBlock: { default: () => true }
+       }
+      }
+    }
+  </Story>
+</Preview>

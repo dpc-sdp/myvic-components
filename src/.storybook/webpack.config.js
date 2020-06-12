@@ -37,14 +37,16 @@ module.exports = async ({ config, mode }) => {
       loader: "url-loader",
       exclude: [
         resolve("static/custom_icons/"),
-        resolve("../node_modules/@dpc-sdp/ripple-icon")
+        resolve("../node_modules/@dpc-sdp/ripple-icon"),
+        resolve("../packages/DataBlock/node_modules/@dpc-sdp/ripple-icon/assets/img/")
       ]
     },
     {
       test: /\.svg$/,
       include: [
         resolve("../node_modules"),
-        resolve("static/custom_icons/")
+        resolve("static/custom_icons/"),
+        resolve("../packages/DataBlock/node_modules/@dpc-sdp/ripple-icon/assets/img/")
       ],
       use: ["svg-sprite-loader", "svgo-loader"]
     },
