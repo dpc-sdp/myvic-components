@@ -2503,6 +2503,16 @@
     object-fit-images "^3.2.3"
     vue-focus "^2.1.0"
 
+"@dpc-sdp/ripple-global@1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.9.0.tgz#4d98555a4327d60963970514c05654b7692ddecc"
+  integrity sha512-QDsXmm3d9BNyTc5iDoHu25mqNEU4sT6owvWiELjdYjecBfHsTuTVppdVPBBI2Yr+N0tShAyGr8yOwQCNscdiQg==
+  dependencies:
+    masonry-layout "^4.2.1"
+    moment "^2.22.1"
+    object-fit-images "^3.2.3"
+    vue-focus "^2.1.0"
+
 "@dpc-sdp/ripple-grid@^1.8.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.8.0.tgz#05873582a9c0b7f940500d61580d8bf9f36fe437"
@@ -2521,6 +2531,13 @@
   integrity sha512-042qsupoU0Xn/9hj3X6EBNyoDEIgmttXQ6YPW/ZeSZRgvkL1osn+5IUm4oeWU4p9riTzuyb9i03NHJfzOCGiMw==
   dependencies:
     "@dpc-sdp/ripple-global" "1.8.0"
+
+"@dpc-sdp/ripple-icon@^1.8.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.9.0.tgz#9131783a0275a2c591ffc913435ab4e142a7092c"
+  integrity sha512-gGWugEcY8CjrW+sfmy3iwMfeAoQj2hZiVvMBlj3uN9UkiKFDskVyI/yJmKOofnWwEtBeW+AwSa8r09E70+JJEQ==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.9.0"
 
 "@dpc-sdp/ripple-link@1.4.0", "@dpc-sdp/ripple-link@^1.4.0":
   version "1.4.0"
