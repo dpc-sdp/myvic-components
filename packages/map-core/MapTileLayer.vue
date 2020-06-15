@@ -98,43 +98,39 @@ export default {
   },
   methods: {
     configureLayer: async function () {
-      try {
-        // Get map and remove any previous version of layer
-        this.map = await this.getOLMap()
-        if (this.map == null) { return }
-        this.map.removeLayer(this.layer)
+      // Get map and remove any previous version of layer
+      this.map = await this.getOLMap()
+      if (this.map == null) { return }
+      this.map.removeLayer(this.layer)
 
-        // Create layer source
-        switch (this.type) {
-          case 'OSM':
-            this.layerSource = await this.createOSMLayerSource()
-            break
-          case 'XYZ':
-            this.layerSource = await this.createXYZLayerSource()
-            break
-          case 'WMS':
-            this.layerSource = await this.createWMSLayerSource()
-            break
-          case 'ArcGIS':
-            this.layerSource = await this.createArcGISLayerSource()
-            break
-          default:
-            this.layerSource = null
-        }
-
-        // Create layer
-        this.layer = new ol.layer.Tile({
-          source: this.layerSource,
-          opacity: this.opacity,
-          extent: this.extent,
-          zIndex: this.zIndex
-        })
-
-        // Add layer to map
-        this.map.addLayer(this.layer)
-      } catch (error) {
-        this.interceptError(error)
+      // Create layer source
+      switch (this.type) {
+        case 'OSM':
+          this.layerSource = await this.createOSMLayerSource()
+          break
+        case 'XYZ':
+          this.layerSource = await this.createXYZLayerSource()
+          break
+        case 'WMS':
+          this.layerSource = await this.createWMSLayerSource()
+          break
+        case 'ArcGIS':
+          this.layerSource = await this.createArcGISLayerSource()
+          break
+        default:
+          this.layerSource = null
       }
+
+      // Create layer
+      this.layer = new ol.layer.Tile({
+        source: this.layerSource,
+        opacity: this.opacity,
+        extent: this.extent,
+        zIndex: this.zIndex
+      })
+
+      // Add layer to map
+      this.map.addLayer(this.layer)
     },
     createOSMLayerSource: async function () {
       return new ol.source.OSM({

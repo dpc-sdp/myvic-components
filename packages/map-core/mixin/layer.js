@@ -83,9 +83,5 @@ export default {
   },
   render (createElement) {
     return null
-  },
-  errorCaptured (error) {
-    this.interceptError(error)
-    return false
   }
 }

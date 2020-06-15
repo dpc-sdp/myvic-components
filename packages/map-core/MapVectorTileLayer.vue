@@ -161,64 +161,60 @@ export default {
   },
   methods: {
     configureLayer: async function () {
-      try {
-        // Get map and remove any previous version of layer
-        this.map = await this.getOLMap()
-        if (this.map == null) { return }
-        this.map.removeLayer(this.layer)
+      // Get map and remove any previous version of layer
+      this.map = await this.getOLMap()
+      if (this.map == null) { return }
+      this.map.removeLayer(this.layer)
 
-        // If url function is provided, wrap it in a function so we can pass in the vector source
-        let urlFunctionWrapper
-        if (this.urlFunction) {
-          urlFunctionWrapper = (extent, resolution, projection) => {
-            return this.urlFunction(extent, resolution, projection, this.layerSource)
-          }
+      // If url function is provided, wrap it in a function so we can pass in the vector source
+      let urlFunctionWrapper
+      if (this.urlFunction) {
+        urlFunctionWrapper = (extent, resolution, projection) => {
+          return this.urlFunction(extent, resolution, projection, this.layerSource)
         }
-
-        // If loader function is provided, wrap it in a function so we can pass in the vector source
-        let loaderWrapper
-        if (this.loader) {
-          loaderWrapper = (extent, resolution, projection) => {
-            this.loader(extent, resolution, projection, this.layerSource)
-          }
-        }
-
-        // Create layer source
-        this.layerSource = new ol.source.VectorTileSource({
-          url: this.url,
-          tileUrlFunction: urlFunctionWrapper,
-          loader: loaderWrapper,
-          format: this.format,
-          projection: this.projection,
-          overlaps: this.overlaps,
-          attributions: this.attributions.concat([ol.source.OSMAttribution])
-        })
-
-        // Create layer
-        this.layer = new ol.layer.VectorTile({
-          source: this.layerSource,
-          renderMode: this.renderMode,
-          opacity: this.opacity,
-          extent: this.extent,
-          zIndex: this.zIndex,
-          style: this.mapboxStyle ? undefined : (this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute)),
-          declutter: true
-        })
-
-        // Apply Mapbox styles if provided
-        if (this.mapboxStyle) {
-          if (this.mapboxStyleMethod === 'apply') {
-            apply(this.map, this.mapboxStyle)
-          } else if (this.mapboxStyleMethod === 'stylefunction') {
-            stylefunction(this.layer, this.mapboxStyle, this.mapboxStyleSource)
-          }
-        }
-
-        // Add layer to map
-        this.map.addLayer(this.layer)
-      } catch (error) {
-        this.interceptError(error)
       }
+
+      // If loader function is provided, wrap it in a function so we can pass in the vector source
+      let loaderWrapper
+      if (this.loader) {
+        loaderWrapper = (extent, resolution, projection) => {
+          this.loader(extent, resolution, projection, this.layerSource)
+        }
+      }
+
+      // Create layer source
+      this.layerSource = new ol.source.VectorTileSource({
+        url: this.url,
+        tileUrlFunction: urlFunctionWrapper,
+        loader: loaderWrapper,
+        format: this.format,
+        projection: this.projection,
+        overlaps: this.overlaps,
+        attributions: this.attributions.concat([ol.source.OSMAttribution])
+      })
+
+      // Create layer
+      this.layer = new ol.layer.VectorTile({
+        source: this.layerSource,
+        renderMode: this.renderMode,
+        opacity: this.opacity,
+        extent: this.extent,
+        zIndex: this.zIndex,
+        style: this.mapboxStyle ? undefined : (this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute)),
+        declutter: true
+      })
+
+      // Apply Mapbox styles if provided
+      if (this.mapboxStyle) {
+        if (this.mapboxStyleMethod === 'apply') {
+          apply(this.map, this.mapboxStyle)
+        } else if (this.mapboxStyleMethod === 'stylefunction') {
+          stylefunction(this.layer, this.mapboxStyle, this.mapboxStyleSource)
+        }
+      }
+
+      // Add layer to map
+      this.map.addLayer(this.layer)
     }
   }
 }

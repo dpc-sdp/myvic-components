@@ -20,7 +20,7 @@
           target="_blank">Mapbox</a>
       </div>
     </div>
-    <error v-if="gotError" :message="error.toString()" errorClass="chart" class="yourvic-map-core__container" />
+    <error v-if="gotError" :message="error.toString()" errorClass="map" class="yourvic-map-core__container" />
   </div>
 </template>
 
