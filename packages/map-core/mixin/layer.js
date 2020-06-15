@@ -1,6 +1,6 @@
 export default {
   components: {},
-  inject: ['getMap'],
+  inject: ['getMap', 'interceptError'],
   props: {
     /**
      * Optional bounding extent for layer rendering, defined as an array of numbers: ```[minx, miny, maxx, maxy]```.
@@ -25,6 +25,23 @@ export default {
     zIndex: {
       type: Number,
       default: undefined
+    },
+    /**
+     * The data source projection as an SRS identifier string. Defaults to the projection of the Map, which in
+     * OpenLayers defaults to ```EPSG:3857``` (Web Mercator). ```EPSG:4326``` (WGS84) is also supported out of the box.
+     * Experimental support for ```EPSG:4283``` (GDA94) is also provided.
+     */
+    projection: {
+      type: String,
+      default: undefined
+    },
+    /**
+     * Attributions for the layer data source as an array of strings. Will be automatically displayed by the Map
+     * attribution control if enabled.
+     */
+    attributions: {
+      type: Array,
+      default: () => []
     }
   },
   data: function () {
@@ -42,6 +59,12 @@ export default {
       await this.configureLayer()
     },
     async zIndex (newValue) {
+      await this.configureLayer()
+    },
+    async projection (newValue) {
+      await this.configureLayer()
+    },
+    async attributions (newValue) {
       await this.configureLayer()
     }
   },
