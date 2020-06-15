@@ -12,6 +12,5 @@
     "ol-ext": "^3.1.12",
     "ol-mapbox-style": "^6.1.2",
     "proj4": "^2.6.2"
-  },
-  "gitHead": "ade96a3b26d212314ef0487bbda84821f26edc7c"
+  }
 }
