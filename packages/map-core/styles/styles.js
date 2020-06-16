@@ -42,7 +42,7 @@ const defaultLineStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
       color: defaultStrokeColour,
-      width: 3
+      width: 2
     })
   })
 ]
@@ -51,7 +51,7 @@ const selectedLineStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
       color: selectedStrokeColour,
-      width: 3
+      width: 2
     }),
     zIndex: Infinity
   })
@@ -61,7 +61,7 @@ const defaultPolygonStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
       color: defaultStrokeColour,
-      width: 3
+      width: 2
     }),
     fill: new ol.style.Fill({
       color: defaultFillColour
@@ -73,7 +73,7 @@ const selectedPolygonStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
       color: selectedStrokeColour,
-      width: 3
+      width: 2
     }),
     fill: new ol.style.Fill({
       color: selectedFillColour

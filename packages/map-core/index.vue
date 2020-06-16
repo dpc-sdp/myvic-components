@@ -686,7 +686,7 @@ export default {
     }
 
     &__map:focus {
-      outline: rpl-color('dark_primary') solid 2px;
+      outline: rpl-color('mid_neutral_1') solid 1px;
     }
 
     &__popup {
