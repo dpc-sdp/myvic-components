@@ -2,7 +2,9 @@ import ol from '../lib/ol'
 import globalStyles from '@dpc-sdp/yourvic-global/styles/export.scss'
 
 const defaultStrokeColour = globalStyles.fillDefault
+const selectedStrokeColour = globalStyles.strokeLine1
 const defaultFillColour = ol.getRgbaFromString(globalStyles.fillTertiary, 0.2)
+const selectedFillColour = ol.getRgbaFromString(globalStyles.strokeLine1, 0.2)
 const defaultTextColour = globalStyles.titleColor
 
 const defaultPointStyle = [
@@ -20,12 +22,38 @@ const defaultPointStyle = [
   })
 ]
 
+const selectedPointStyle = [
+  new ol.style.Style({
+    image: new ol.style.Circle({
+      radius: 4,
+      stroke: new ol.style.Stroke({
+        color: selectedStrokeColour,
+        width: 2
+      }),
+      fill: new ol.style.Fill({
+        color: selectedFillColour
+      })
+    }),
+    zIndex: Infinity
+  })
+]
+
 const defaultLineStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
       color: defaultStrokeColour,
       width: 3
     })
+  })
+]
+
+const selectedLineStyle = [
+  new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: selectedStrokeColour,
+      width: 3
+    }),
+    zIndex: Infinity
   })
 ]
 
@@ -38,6 +66,19 @@ const defaultPolygonStyle = [
     fill: new ol.style.Fill({
       color: defaultFillColour
     })
+  })
+]
+
+const selectedPolygonStyle = [
+  new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: selectedStrokeColour,
+      width: 3
+    }),
+    fill: new ol.style.Fill({
+      color: selectedFillColour
+    }),
+    zIndex: Infinity
   })
 ]
 
@@ -59,22 +100,22 @@ const defaultTextStyle = [
   })
 ]
 
-const createDefaultStyleFunction = (labelAttribute) => {
+const createDefaultStyleFunction = (labelAttribute, selected) => {
   return (feature, resolution) => {
     let geomType = feature.getGeometry().getType()
     let styles
     switch (geomType) {
       case ol.geom.GeometryType.POINT:
       case ol.geom.GeometryType.MULTI_POINT:
-        styles = defaultPointStyle
+        styles = selected ? selectedPointStyle : defaultPointStyle
         break
       case ol.geom.GeometryType.LINE_STRING:
       case ol.geom.GeometryType.MULTI_LINE_STRING:
-        styles = defaultLineStyle
+        styles = selected ? selectedLineStyle : defaultLineStyle
         break
       case ol.geom.GeometryType.POLYGON:
       case ol.geom.GeometryType.MULTI_POLYGON:
-        styles = defaultPolygonStyle
+        styles = selected ? selectedPolygonStyle : defaultPolygonStyle
         break
       case ol.geom.GeometryType.GEOMETRY_COLLECTION:
         styles = defaultPointStyle.concat(defaultLineStyle, defaultPolygonStyle)
@@ -94,12 +135,20 @@ const createDefaultStyleFunction = (labelAttribute) => {
   }
 }
 
+const createSelectedStyleFunction = () => {
+  return createDefaultStyleFunction('name', true)
+}
+
 const styles = {
   defaultPointStyle,
+  selectedPointStyle,
   defaultLineStyle,
+  selectedLineStyle,
   defaultPolygonStyle,
+  selectedPolygonStyle,
   defaultTextStyle,
-  createDefaultStyleFunction
+  createDefaultStyleFunction,
+  createSelectedStyleFunction
 }
 
 export default styles

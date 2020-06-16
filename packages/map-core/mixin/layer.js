@@ -42,6 +42,13 @@ export default {
     attributions: {
       type: Array,
       default: () => []
+    },
+    /**
+     * Enable the popup to be shown for features of the layer
+     */
+    enablePopup: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -65,6 +72,9 @@ export default {
       await this.configureLayer()
     },
     async attributions (newValue) {
+      await this.configureLayer()
+    },
+    async enablePopup (newValue) {
       await this.configureLayer()
     }
   },

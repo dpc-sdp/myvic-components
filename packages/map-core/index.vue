@@ -12,6 +12,7 @@
       v-if="!gotError"
       class="yourvic-map-core__container">
       <div class="yourvic-map-core__map" id="map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
+        <!-- @slot Default slot for child layers -->
         <slot></slot>
         <a
           v-if="enableMapboxWatermark"
@@ -27,6 +28,7 @@
 <script>
 import MapIndicator from './MapIndicator'
 import ol from './lib/ol'
+import styles from './styles/styles'
 import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
 import Error from '@dpc-sdp/yourvic-global/components/Error'
 
@@ -108,6 +110,12 @@ const methods = {
 
     this.dragRotateInteraction = new ol.interaction.DragRotate()
     this.pinchRotateInteraction = new ol.interaction.PinchRotate()
+
+    this.selectInteraction = new ol.interaction.Select({
+      condition: ol.events.condition.click,
+      style: this.selectedFeatureStyle || styles.createSelectedStyleFunction()
+    })
+    this.selectInteraction.on('select', this.onSelect)
   },
   setMapInteractions () {
     this.map.getInteractions().clear()
@@ -125,6 +133,9 @@ const methods = {
     if (this.enableRotateInteraction) {
       this.map.addInteraction(this.dragRotateInteraction)
       this.map.addInteraction(this.pinchRotateInteraction)
+    }
+    if (this.enableSelectInteraction) {
+      this.map.addInteraction(this.selectInteraction)
     }
   },
   createImageIconStyle: (src, crossOrigin, size) => {
@@ -231,23 +242,53 @@ const methods = {
       }
     }
   },
+  onSelect (evt) {
+    let selectedFeatures = evt.target.getFeatures()
+    if (selectedFeatures.getLength() > 0) {
+      /**
+       * Emitted when a feature is selected
+       * @event select
+       * @property {object} selected features
+       * @property {object} select event
+       */
+      this.$emit('select', selectedFeatures, evt)
+    }
+  },
   onMapClick (evt) {
+    /**
+     * Emitted when the map is clicked
+     * @event click
+     * @property {event} the map click event
+     */
+    this.$emit('click', evt)
+
     const features = []
     this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
       f.layerName = layer.get('name')
       f.event = 'click'
+
+      // Support layers added via themeLayers
       if (this.themeLayers.includes(layer)) features.push(f)
+
+      // Support layers added as child components
+      if (layer.get('enablePopup')) features.push(f)
     })
 
+    // Hide popup if there are no features (i.e. click on an empty area of the map)
     if (features.length === 0) {
-      // hide popup if you click on the map
       this.feature = null
       return
     }
 
+    // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
     const firstFeature = features[0]
-
-    this.feature = (this.customMethods && this.customMethods.featureMapper) ? this.customMethods.featureMapper(firstFeature, features) : this.featureMapper(firstFeature, features)
+    if (this.customMethods && this.customMethods.featureMapper) {
+      this.feature = this.customMethods.featureMapper(firstFeature, features)
+    } else if (this.popupContentFunction) {
+      this.feature = this.popupContentFunction(features)
+    } else {
+      this.feature = this.featureMapper(firstFeature, features)
+    }
 
     // Wait until popup rendering is complete before positioning the element
     // this means the popup height is now known, so the map will pan correctly.
@@ -256,7 +297,8 @@ const methods = {
     // and screen size. With nextTick, the setPosition was running before the
     // overlay changed size.
     setTimeout(() => {
-      this.popupOverlay.setPosition(firstFeature.getGeometry().getCoordinates())
+      let coordinate = this.map.getCoordinateFromPixel(evt.pixel)
+      this.popupOverlay.setPosition(coordinate)
     }, 0)
   },
   onAppMounted () {
@@ -301,12 +343,12 @@ const methods = {
       this.interceptError(error)
     }
   },
-  featureMapper (layer, feature) {
+  featureMapper (feature) {
     // this function should be overridden when consuming this component,
     // to allow customisation of the pop content
     return {
-      title: feature.get('title'),
-      content: feature.get('content')
+      title: feature.get('title') || feature.get('name') || 'No Title',
+      content: feature.get('content') || 'No Content'
     }
   },
   updateBaseMap () {
@@ -458,6 +500,28 @@ export default {
       default: true
     },
     /**
+     * Enable or disable the ability for users to select vector features
+     */
+    enableSelectInteraction: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * OpenLayers style or style functions for selected feature (via select interaction)
+     */
+    selectedFeatureStyle: {
+      type: undefined,
+      default: undefined
+    },
+    /**
+     * Function used to generate content for the map popups (enabled per layer). Accepts an array of Features and
+     * should return an object with ```title``` and ```content``` properties
+     */
+    popupContentFunction: {
+      type: Function,
+      default: undefined
+    },
+    /**
      * Set a specific tab index for users interacting with the map via the keyboard
      */
     tabIndex: {
@@ -514,6 +578,7 @@ export default {
       dragZoomInteraction: null,
       dragRotateInteraction: null,
       pinchRotateInteraction: null,
+      selectInteraction: null,
       feature: null
     }
   },
@@ -569,6 +634,12 @@ export default {
       this.setMapInteractions()
     },
     enableZoomInteraction () {
+      this.setMapInteractions()
+    },
+    enableSelectInteraction () {
+      this.setMapInteractions()
+    },
+    selectedFeatureStyle () {
       this.setMapInteractions()
     },
     enableRotateInteraction () {

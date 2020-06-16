@@ -213,6 +213,9 @@ export default {
         }
       }
 
+      // Set flag used to check if popups are enabled for this layer
+      this.layer.set('enablePopup', this.enablePopup)
+
       // Add layer to map
       this.map.addLayer(this.layer)
     }

@@ -40,8 +40,10 @@ import {
   MouseWheelZoom,
   DragZoom,
   DragRotate,
-  PinchRotate
+  PinchRotate,
+  Select
 } from 'ol/interaction'
+import { click } from 'ol/events/condition'
 import {
   defaults as DefaultControls,
   Zoom,
@@ -57,6 +59,7 @@ import {
 } from 'ol/tilegrid'
 import GeometryType from 'ol/geom/GeometryType'
 import * as Color from 'ol/color'
+import { getCenter } from 'ol/extent'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -179,7 +182,13 @@ const ol = {
     MouseWheelZoom,
     DragZoom,
     DragRotate,
-    PinchRotate
+    PinchRotate,
+    Select
+  },
+  events: {
+    condition: {
+      click
+    }
   },
   proj: {
     getProjection
@@ -190,6 +199,9 @@ const ol = {
   },
   geom: {
     GeometryType
+  },
+  extent: {
+    getCenter
   }
 }
 
