@@ -40,6 +40,31 @@ exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`]
 </ol>
 `;
 
+exports[`YourvicStoryshots Autocomplete Default 1`] = `
+<form>
+  <div
+    class="yourvic-auto-complete"
+  >
+    <div
+      class="yourvic-auto-complete__input-wrapper"
+    >
+      <input
+        autocomplete="off"
+        class="yourvic-auto-complete__input"
+        name="yourvic-auto-complete"
+        placeholder="Search or browse"
+        type="text"
+        value=""
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</form>
+`;
+
 exports[`YourvicStoryshots Bar Chart Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
