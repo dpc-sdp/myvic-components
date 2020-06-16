@@ -52,7 +52,7 @@ exports[`YourvicStoryshots Autocomplete Default 1`] = `
         autocomplete="off"
         class="yourvic-auto-complete__input"
         name="yourvic-auto-complete"
-        placeholder="Search or browse"
+        placeholder="Search"
         type="text"
         value=""
       />
@@ -61,6 +61,217 @@ exports[`YourvicStoryshots Autocomplete Default 1`] = `
        
       <!---->
     </div>
+     
+    <ul
+      class="yourvic-search-results yourvic-auto-complete__results"
+    >
+      <li
+        class="yourvic-search-results__item"
+      >
+        <!---->
+      </li>
+      <li
+        class="yourvic-search-results__item"
+      >
+        <!---->
+      </li>
+      <li
+        class="yourvic-search-results__item"
+      >
+        <!---->
+      </li>
+       
+      <li
+        class="yourvic-search-results__item--no-results"
+        style="display: none;"
+      >
+        <span
+          class="yourvic-search-results__item-name"
+        >
+          
+      No results
+    
+        </span>
+      </li>
+    </ul>
+  </div>
+</form>
+`;
+
+exports[`YourvicStoryshots Autocomplete Single line result with tag 1`] = `
+<form>
+  <div
+    class="yourvic-auto-complete"
+  >
+    <div
+      class="yourvic-auto-complete__input-wrapper"
+    >
+      <input
+        autocomplete="off"
+        class="yourvic-auto-complete__input"
+        name="yourvic-auto-complete"
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <ul
+      class="yourvic-search-results yourvic-auto-complete__results"
+    >
+      <li
+        class="yourvic-search-results__item"
+      >
+        <!---->
+      </li>
+      <li
+        class="yourvic-search-results__item"
+      >
+        <!---->
+      </li>
+      <li
+        class="yourvic-search-results__item"
+      >
+        <!---->
+      </li>
+       
+      <li
+        class="yourvic-search-results__item--no-results"
+        style="display: none;"
+      >
+        <span
+          class="yourvic-search-results__item-name"
+        >
+          
+      No results
+    
+        </span>
+      </li>
+    </ul>
+  </div>
+</form>
+`;
+
+exports[`YourvicStoryshots Autocomplete With Icon 1`] = `
+<form>
+  <div
+    class="yourvic-auto-complete"
+  >
+    <div
+      class="yourvic-auto-complete__input-wrapper"
+    >
+      <input
+        autocomplete="off"
+        class="yourvic-auto-complete__input"
+        name="yourvic-auto-complete"
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <ul
+      class="yourvic-search-results yourvic-auto-complete__results"
+    >
+      <li
+        class="yourvic-search-results__item"
+      >
+        <div
+          class="yourvic-double-line-item"
+        >
+          <div
+            class="yourvic-double-line-item__icon-container"
+          >
+            <!---->
+          </div>
+           
+          <div>
+            <span
+              class="yourvic-double-line-item__item-name"
+            >
+              home
+            </span>
+             
+            <!---->
+          </div>
+        </div>
+      </li>
+      <li
+        class="yourvic-search-results__item"
+      >
+        <div
+          class="yourvic-double-line-item"
+        >
+          <div
+            class="yourvic-double-line-item__icon-container"
+          >
+            <!---->
+          </div>
+           
+          <div>
+            <span
+              class="yourvic-double-line-item__item-name"
+            >
+              some place
+            </span>
+             
+            <span
+              class="yourvic-double-line-item__item-description"
+            >
+              description for some place
+            </span>
+          </div>
+        </div>
+      </li>
+      <li
+        class="yourvic-search-results__item"
+      >
+        <div
+          class="yourvic-double-line-item"
+        >
+          <div
+            class="yourvic-double-line-item__icon-container"
+          >
+            <!---->
+          </div>
+           
+          <div>
+            <span
+              class="yourvic-double-line-item__item-name"
+            >
+              some other place
+            </span>
+             
+            <span
+              class="yourvic-double-line-item__item-description"
+            >
+              description for some other place
+            </span>
+          </div>
+        </div>
+      </li>
+       
+      <li
+        class="yourvic-search-results__item--no-results"
+        style="display: none;"
+      >
+        <span
+          class="yourvic-search-results__item-name"
+        >
+          
+      No results
+    
+        </span>
+      </li>
+    </ul>
   </div>
 </form>
 `;
