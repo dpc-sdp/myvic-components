@@ -1,0 +1,225 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import YourVicToggleList from '@dpc-sdp/yourvic-toggle-list'
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
+import fetch from 'isomorphic-fetch'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import {
+  YourvicMapCore,
+  YourvicMapTileLayer,
+  YourvicMapVectorLayer,
+  YourvicMapVectorTileLayer
+} from '@dpc-sdp/yourvic-map-core'
+
+
+<Meta title="Toggle List" component={ YourVicToggleList } decorators={ [withKnobs] } />
+
+# Toggle List
+
+<Description of={ YourVicToggleList } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-toggle-list --save
+```
+
+## Import
+
+```javascript
+import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
+```
+
+## Usage
+
+```html
+<your-vic-toggle-list
+  :data="data"
+  :selectedItems="selectedItems"
+/>
+```
+
+## Props
+
+<Props of={ YourVicToggleList } />
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { YourVicToggleList },
+        template: `
+          <div :style="divStyle">
+            <your-vic-toggle-list
+              :items="items"
+              :selectedItems="selectedItems"
+              @item-selected="onSelectItem"
+            />
+          </div>
+        `,
+        props: {
+          items: {
+            default: () => object('items', [
+              {id: 'item1', title: 'Item 1', icon: 'map_marker', color: 'primary'},
+              {id: 'item2', title: 'Item 2', icon: 'alert_smoke', color: 'danger'},
+              {id: 'item3', title: 'Item 3', icon: 'home', color: 'success'},
+              {id: 'item4', title: 'Item 4', icon: 'lock', color: 'secondary'},
+              {id: 'item5', title: 'Item 5', icon: 'document_transparent', color: 'warning'},
+            ])
+          },
+          selectedItems: {
+            default: () => object('selectedItems', {
+              'item1': true,
+              'item2': false,
+              'item3': false,
+              'item4': true,
+              'item5': false
+            })
+          }
+        },
+        methods: {
+          onSelectItem: function ({ item }) {
+            let newSelectedItems = Object.assign({}, this.selectedItems);
+            newSelectedItems[item.id] = !newSelectedItems[item.id]
+            this.selectedItems = newSelectedItems
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Map Layer Toggle
+
+<Preview>
+  <Story name="Map Layer Toggle">
+    {
+      {
+        components: {
+          YourVicToggleList,
+          YourvicMapCore,
+          YourvicMapTileLayer,
+          YourvicMapVectorLayer,
+          YourvicMapVectorTileLayer,
+          RplContainer,
+          RplRow,
+          RplCol },
+        template: `
+          <RplContainer style="width: 100%">
+            <rpl-row>
+              <rpl-col cols=4>
+                <your-vic-toggle-list
+                  :items="items"
+                  :selectedItems="selectedItems"
+                  @item-selected="onSelectItem"
+                />
+              </rpl-col>
+              <rpl-col cols=8>
+                <yourvic-map-core
+                  :containerStyle="containerStyle"
+                  :center="center"
+                  :zoom="12"
+                  :minZoom="10"
+                  :enableSelectInteraction="true"
+                >
+                  <yourvic-map-tile-layer
+                    type="OSM"
+                    :visible="selectedItems.basemap"
+                  />
+                  <yourvic-map-vector-tile-layer
+                    :url="getVectorTileWmtsUrl()"
+                    dataFormat="MVT"
+                    mapboxStyleMethod="stylefunction"
+                    :mapboxStyle="mapboxStyle"
+                    mapboxStyleSource="Pink"
+                    :visible="selectedItems.population"
+                    :opacity="0.8"
+                    :zIndex="100"
+                  />
+                  <yourvic-map-vector-layer
+                    :urlFunction="buildUrl"
+                    dataFormat="GeoJSON"
+                    loadingStrategy="bbox"
+                    :enablePopup="true"
+                    :visible="selectedItems.hospital"
+                    :zIndex="200"
+                  />
+                </yourvic-map-core>
+              </rpl-col>
+            </rpl-row>
+          </RplContainer>
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            mapboxStyle: undefined,
+            selectedItems: {
+               'basemap': true,
+               'population': false,
+               'hospital': false
+             }
+          }
+        },
+        props: {
+          items: {
+            default: () => [
+              {id: 'basemap', title: 'Basemap', icon: 'map_marker', color: 'success'},
+              {id: 'population', title: 'Population Growth', icon: 'map_marker', color: 'danger'},
+              {id: 'hospital', title: 'Hospitals', icon: 'map_marker', color: 'primary'}
+            ]
+          }
+        },
+        async mounted () {
+          this.mapboxStyle = await this.getMapboxStyle()
+        },
+        methods: {
+          onSelectItem: function ({ item }) {
+            let newSelectedItems = Object.assign({}, this.selectedItems);
+            newSelectedItems[item.id] = !newSelectedItems[item.id]
+            this.selectedItems = newSelectedItems
+          },
+          getVectorTileWmtsUrl: () => {
+            let path = `https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/gwc/service/wmts`
+            let queryParams = {
+              SERVICE: 'WMTS',
+              REQUEST: 'GetTile',
+              VERSION: '1.0.0',
+              LAYER: `myvic:population_suburb_map`,
+              STYLE: '',
+              TILEMATRIX: `EPSG:3857:{z}`,
+              TILEMATRIXSET: 'EPSG:3857',
+              FORMAT: 'application/x-protobuf;type=mapbox-vector',
+              TILECOL: '{x}',
+              TILEROW: '{y}'
+            }
+            let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
+            return `${path}?${queryParamsString}`
+          },
+          getMapboxStyle: async () => {
+            let response = await fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Pink.MBStyle')
+            let glStyle =  await response.json()
+            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
+            let fillStops = glStyle.layers[0].paint['fill-color'].stops
+            fillStops.forEach((stop, idx) => {
+              stop[0] = parseFloat(populationStops[idx])
+            })
+            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
+            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
+            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
+            glStyle.sources = {
+              Pink: {
+                type: 'vector'
+              }
+            }
+            return glStyle
+          },
+          buildUrl: function (extent, resolution, projection) {
+            return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:hospital&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>

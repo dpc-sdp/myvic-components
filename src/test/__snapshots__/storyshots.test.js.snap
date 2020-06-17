@@ -2314,6 +2314,244 @@ exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Toggle List Default 1`] = `
+<div>
+  <div>
+    <ul
+      class="toggle-list"
+    >
+      <li
+        class="toggle-item is-active"
+      >
+        <div
+          class="toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="toggle-item__title"
+        >
+          Item 1
+        </h3>
+         
+        <div
+          class="toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+      <li
+        class="toggle-item"
+      >
+        <div
+          class="toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="toggle-item__title"
+        >
+          Item 2
+        </h3>
+         
+        <div
+          class="toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+      <li
+        class="toggle-item"
+      >
+        <div
+          class="toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="toggle-item__title"
+        >
+          Item 3
+        </h3>
+         
+        <div
+          class="toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+      <li
+        class="toggle-item is-active"
+      >
+        <div
+          class="toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="toggle-item__title"
+        >
+          Item 4
+        </h3>
+         
+        <div
+          class="toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+      <li
+        class="toggle-item"
+      >
+        <div
+          class="toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="toggle-item__title"
+        >
+          Item 5
+        </h3>
+         
+        <div
+          class="toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
+<div
+  class="rpl-container"
+  style="width: 100%;"
+>
+  <div
+    class="rpl-row"
+  >
+    <div
+      class="rpl-col rpl-col--4"
+    >
+      <div>
+        <ul
+          class="toggle-list"
+        >
+          <li
+            class="toggle-item is-active"
+          >
+            <div
+              class="toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="toggle-item__title"
+            >
+              Basemap
+            </h3>
+             
+            <div
+              class="toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+          <li
+            class="toggle-item"
+          >
+            <div
+              class="toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="toggle-item__title"
+            >
+              Population Growth
+            </h3>
+             
+            <div
+              class="toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+          <li
+            class="toggle-item"
+          >
+            <div
+              class="toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="toggle-item__title"
+            >
+              Hospitals
+            </h3>
+             
+            <div
+              class="toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+        </ul>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--8"
+    >
+      <div
+        class="yourvic-map-core"
+        enableselectinteraction="true"
+        style="position: relative; width: 100%; height: 100vh;"
+      >
+         
+        <div
+          class="yourvic-map-core__container"
+        >
+          <div
+            aria-label="Map"
+            class="yourvic-map-core__map"
+            id="map"
+            role="application"
+            tabindex="0"
+          >
+            <!---->
+             
+            <!---->
+             
+            <!---->
+             
+            <!---->
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Tree Map Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
