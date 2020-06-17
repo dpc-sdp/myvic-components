@@ -181,7 +181,8 @@ export default {
         extent: this.extent,
         zIndex: this.zIndex,
         style: this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute),
-        declutter: true
+        declutter: true,
+        visible: this.visible
       })
 
       // Set flag used to check if popups are enabled for this layer

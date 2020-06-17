@@ -201,7 +201,8 @@ export default {
         extent: this.extent,
         zIndex: this.zIndex,
         style: this.mapboxStyle ? undefined : (this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute)),
-        declutter: true
+        declutter: true,
+        visible: this.visible
       })
 
       // Apply Mapbox styles if provided
