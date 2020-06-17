@@ -8,9 +8,9 @@
       @click="$emit('item-selected', item)">
       <component
         :is="innerComponentName"
-        :itemName="item.name"
+        :itemName="getItemName(item)"
         :query="query"
-        :itemSecondaryText="getItemSecondaryText && getItemSecondaryText(item)"
+        :itemSecondaryText="getItemSecondaryText(item)"
         :showIcon="showIcon"
         :icon="getIcon && getIcon(item)"
       />
@@ -48,6 +48,9 @@ export default {
     },
     resultItemLineStyle: {
       type: String
+    },
+    getItemName: {
+      type: Function
     },
     getItemSecondaryText: {
       type: Function
@@ -94,7 +97,7 @@ export default {
     }
 
     &__item {
-      font-size: rem-calc(13);
+      font-size: rem-calc(14);
       line-height: 1.5;
 
       &--no-results {
@@ -117,12 +120,6 @@ export default {
         /deep/ span {
           font-weight: 600;
         }
-      }
-
-      &-description {
-        display: block;
-        font-size: rem-calc(10);
-        text-transform: uppercase;
       }
     }
   }

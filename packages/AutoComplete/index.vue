@@ -31,6 +31,7 @@
       v-show="showResults"
       :active-index="activeIndex"
       :result-item-line-style="resultItemLineStyle"
+      :get-item-name="getItemName"
       :get-item-secondary-text="getItemSecondaryText"
       :showIcon="showIcon"
       :get-icon="getIcon"
@@ -59,18 +60,11 @@ export default {
   },
   props: {
     /**
-     * The full list of items to search against. Each item should have at least one property called `name`
+     * The full list of items to search against
      */
     items: {
       type: Array,
       default: () => []
-    },
-    /**
-     * A function to filter the items list when the user types in a search string. The first parameter is the items list and the second parameter is the search string
-     */
-    filter: {
-      type: Function,
-      default: (items, query) => items.filter(x => x.name.toLowerCase().includes(query.toLowerCase()))
     },
     /**
      * The style of the result items. `Double` (default) will render two lines per result; the top line will contain the item name and the second line will optionally
@@ -82,11 +76,25 @@ export default {
       validator: value => ['single', 'double'].includes(value)
     },
     /**
-     * A function to get the secondary text from an item. The secondary text is either the description in the `double` item line style or the tag in the `single` style
+     * A function to get the name of an item. This will appear as the main label in the results
+     */
+    getItemName: {
+      type: Function,
+      default: ({ name }) => name
+    },
+    /**
+     * A function to get the secondary text for an item. The secondary text is either the description in the `double` item line style or the tag in the `single` style
      */
     getItemSecondaryText: {
       type: Function,
       default: ({ description }) => description
+    },
+    /**
+     * A function to filter the items list when the user types in a search string. The first parameter is the items list and the second parameter is the search string
+     */
+    filter: {
+      type: Function,
+      default: (items, query) => items.filter(x => x.name.toLowerCase().includes(query.toLowerCase()))
     },
     /**
      * The initial valueof the input box
@@ -271,7 +279,7 @@ export default {
 
     &__input {
       border: none;
-      font-size: rem-calc(13);
+      font-size: rem-calc(14);
       outline: none;
       padding: 1rem 0;
       width: calc(100% - (1rem + 16px))

@@ -63,13 +63,12 @@ export default {
     }
 
     &__item-name {
-      font-size: rem-calc(15);
       box-shadow: inset 0 -2px $primaryColor;
     }
 
     &__pill {
       display: block;
-      font-size: rem-calc(10);
+      font-size: rem-calc(12);
       text-transform: uppercase;
       padding-top: .125rem;
 
@@ -78,7 +77,6 @@ export default {
       background-color: #EDEDED;
       margin-left: rem-calc(10);
       padding: 0.1rem 0.4rem;
-      font-size: rem-calc(13);
       border-radius: 13px;
       text-transform: none;
       // }

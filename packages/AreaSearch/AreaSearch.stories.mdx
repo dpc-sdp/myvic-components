@@ -1,0 +1,51 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import AreaSearch from './index.vue'
+import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { areaSearchTemplate } from './storiesConstants.js'
+
+<Meta title="AreaSearch" component={ AreaSearch } decorators={ [withKnobs] } />
+
+# AreaSearch
+
+<Description of={ AreaSearch } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-areasearch --save
+```
+
+## Import
+
+```javascript
+import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
+```
+
+## Usage
+
+```html
+<area-search
+  :items="items"
+  result-item-line-style="single"
+/>
+```
+
+## Props
+
+<Props of={ AreaSearch } />
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { AreaSearch },
+        template: areaSearchTemplate,
+        props: {
+        }
+      }
+    }
+  </Story>
+</Preview>

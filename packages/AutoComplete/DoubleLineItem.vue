@@ -79,7 +79,7 @@ export default {
 
     &__item-description {
       display: block;
-      font-size: rem-calc(10);
+      font-size: rem-calc(11);
       text-transform: uppercase;
     }
 

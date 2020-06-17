@@ -40,7 +40,7 @@ export default {
      */
     id: {
       type: String,
-      required: true
+      default: 'data-block'
     },
     /**
      * The props to pass on to the DataItem component. The mandatory props are title (string) and description (string)
