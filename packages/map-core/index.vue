@@ -12,6 +12,7 @@
       v-if="!gotError"
       class="yourvic-map-core__container">
       <div class="yourvic-map-core__map" id="map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
+        <!-- @slot Default slot for child layers -->
         <slot></slot>
         <a
           v-if="enableMapboxWatermark"
@@ -27,308 +28,9 @@
 <script>
 import MapIndicator from './MapIndicator'
 import ol from './lib/ol'
+import styles from './styles/styles'
 import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
 import Error from '@dpc-sdp/yourvic-global/components/Error'
-
-/**
- * All of these functions can be overridden by passing in
- * functions of the same name as properties of the customMethods prop
- *
- * const myMethods = {
- *    themeFeatureStyleFunction (feature, resolution) {
- *      return new ol.style.Style({})
- *    }
- * }
- * <yourvic-map :customMethods="myMethods" />
- */
-const methods = {
-  createMap () {
-    ol.registerCustomProjections()
-    this.map = new ol.Map({
-      target: 'map',
-      interactions: ol.interaction.defaults({
-        altShiftDragRotate: false,
-        onFocusOnly: false,
-        doubleClickZoom: false,
-        keyboard: false,
-        mouseWheelZoom: false,
-        shiftDragZoom: false,
-        dragPan: false,
-        pinchRotate: false,
-        pinchZoom: false
-      }),
-      controls: ol.control.defaults({
-        zoom: false,
-        attribution: false,
-        attributionOptions: {
-          collapsible: false
-        }
-      }),
-      view: new ol.View({
-        center: this.center,
-        projection: this.projection,
-        zoom: this.zoom,
-        maxZoom: this.maxZoom,
-        minZoom: this.minZoom
-      })
-    })
-  },
-  createBaseLayer () {
-    this.baseSource = new ol.source.XYZ({
-      url: this.baseMapUrl,
-      transition: 1000,
-      attributions: this.baseMapAttributions
-    })
-    this.baseLayer = new ol.layer.Tile({
-      source: this.baseSource
-    })
-  },
-  createMapControls () {
-    this.zoomControl = new ol.control.Zoom()
-    this.attributionControl = new ol.control.Attribution({
-      collapsible: false
-    })
-    this.fullScreenControl = new ol.control.FullScreen()
-  },
-  setMapControls () {
-    this.map.getControls().clear()
-    if (this.enableZoomControl) this.map.addControl(this.zoomControl)
-    if (this.enableAttributionControl) this.map.addControl(this.attributionControl)
-    if (this.enableFullScreenControl) this.map.addControl(this.fullScreenControl)
-  },
-  createMapInteractions () {
-    this.dragPanInteraction = new ol.interaction.DragPan()
-    this.keyboardPanInteraction = new ol.interaction.KeyboardPan()
-
-    this.doubleClickZoomInteraction = new ol.interaction.DoubleClickZoom()
-    this.pinchZoomInteraction = new ol.interaction.PinchZoom()
-    this.keyboardZoomInteraction = new ol.interaction.KeyboardZoom()
-    this.mouseWheelZoomInteraction = new ol.interaction.MouseWheelZoom()
-    this.dragZoomInteraction = new ol.interaction.DragZoom()
-
-    this.dragRotateInteraction = new ol.interaction.DragRotate()
-    this.pinchRotateInteraction = new ol.interaction.PinchRotate()
-  },
-  setMapInteractions () {
-    this.map.getInteractions().clear()
-    if (this.enablePanInteraction) {
-      this.map.addInteraction(this.dragPanInteraction)
-      this.map.addInteraction(this.keyboardPanInteraction)
-    }
-    if (this.enableZoomInteraction) {
-      this.map.addInteraction(this.doubleClickZoomInteraction)
-      this.map.addInteraction(this.pinchZoomInteraction)
-      this.map.addInteraction(this.keyboardZoomInteraction)
-      this.map.addInteraction(this.mouseWheelZoomInteraction)
-      this.map.addInteraction(this.dragZoomInteraction)
-    }
-    if (this.enableRotateInteraction) {
-      this.map.addInteraction(this.dragRotateInteraction)
-      this.map.addInteraction(this.pinchRotateInteraction)
-    }
-  },
-  createImageIconStyle: (src, crossOrigin, size) => {
-    return new ol.style.Style({
-      image: new ol.style.Icon(/** @type {module:ol/style/Icon~Options} */ ({
-        crossOrigin,
-        src,
-        imgSize: size
-      }))
-    })
-  },
-  themeFeatureStyleFunction (feature, resolution) {
-    let size = [12, 12]
-
-    function pointSvgDefinition (fillColor, width, height) {
-      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 8 8"><style>.st0{fill:${fillColor}}</style><circle cx="4" cy="4" r="3.8" class="st0"/></svg>`)
-    }
-
-    return this.createImageIconStyle(
-      pointSvgDefinition('#1caadd', size[0], size[1]),
-      'anonymous',
-      size
-    )
-  },
-  createThemeLayers () {
-    this.themeLayers = []
-    const themeSource = new ol.source.VectorTileSource({
-      overlaps: false,
-      format: new ol.format.MVT(),
-      url: this.themeLayerUrl,
-      transition: 0
-    })
-    const themeLayer = new ol.layer.VectorTile({
-      style: (this.customMethods && this.customMethods.themeFeatureStyleFunction) ? this.customMethods.themeFeatureStyleFunction : this.themeFeatureStyleFunction,
-      opacity: 1,
-      source: themeSource,
-      renderMode: 'hybrid',
-      name: 'defaultThemeLayer'
-    })
-    this.themeLayers.push(themeLayer)
-  },
-  addPopupOverlay () {
-    this.popupOverlay = new ol.Overlay({
-      element: this.$refs.mapPopup,
-      autoPan: true,
-      autoPanAnimation: {
-        duration: 250
-      },
-      positioning: 'bottom-center',
-      position: undefined
-    })
-    this.map.addOverlay(this.popupOverlay)
-  },
-  zoomToArea (area, { duration }) {
-    /*
-    var featureRequest = new ol.format.WFS().writeGetFeature({
-      srsName: 'EPSG:900913',
-      featureNS: 'myvic',
-      featurePrefix: 'myvic',
-      featureTypes: ['suburb'],
-      outputFormat: 'application/json'// ,
-      // filter: ol.format.filter.equalTo('ssc_name', area, false)
-    })
-    fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs', {
-      method: 'POST',
-      body: new XMLSerializer().serializeToString(featureRequest)
-    }).then((response) => {
-      return response.json()
-    }).then((json) => {
-      var features = new ol.format.GeoJSON().readFeatures(json)
-      if (features.length > 0) {
-        let feature = features[0]
-        map.getView().fit(feature.getGeometry().getExtent(), {
-          size: map.getSize(),
-          duration: duration
-        })
-      }
-    })
-    */
-  },
-  zoomOnAppMounted () {
-    // Do something like `this.zoomToArea()`
-  },
-  onMapPointerMove (evt) {
-    // set the cursor to a pointer when hovering over an icon
-    var pixel = this.map.getEventPixel(evt.originalEvent)
-    var hit = this.map.hasFeatureAtPixel(pixel)
-    this.$refs.map.style.cursor = hit ? 'pointer' : ''
-    if (hit === true) {
-      const features = []
-      this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
-        f.layerName = layer.get('name')
-        f.event = 'move'
-        if (this.themeLayers.includes(layer)) features.push(f)
-      })
-      const firstFeature = features[0]
-      if (this.customMethods && this.customMethods.featureMapper) {
-        this.customMethods.featureMapper(firstFeature, features)
-      }
-    } else {
-      // the move event didn't select a feature
-      if (this.customMethods && this.customMethods.featureMapper) {
-        this.customMethods.featureMapper({ 'layerName': 'none', 'event': 'move' }, false)
-      }
-    }
-  },
-  onMapClick (evt) {
-    const features = []
-    this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
-      f.layerName = layer.get('name')
-      f.event = 'click'
-      if (this.themeLayers.includes(layer)) features.push(f)
-    })
-
-    if (features.length === 0) {
-      // hide popup if you click on the map
-      this.feature = null
-      return
-    }
-
-    const firstFeature = features[0]
-
-    this.feature = (this.customMethods && this.customMethods.featureMapper) ? this.customMethods.featureMapper(firstFeature, features) : this.featureMapper(firstFeature, features)
-
-    // Wait until popup rendering is complete before positioning the element
-    // this means the popup height is now known, so the map will pan correctly.
-    // Here we use setTimeout instead of Vue's nextTick because it should wait
-    // for the browser to update the size of the popup based on content length
-    // and screen size. With nextTick, the setPosition was running before the
-    // overlay changed size.
-    setTimeout(() => {
-      this.popupOverlay.setPosition(firstFeature.getGeometry().getCoordinates())
-    }, 0)
-  },
-  onAppMounted () {
-    try {
-      this.createMap()
-
-      if (this.customMethods && this.customMethods.createBaseLayer) {
-        this.baseLayer = this.customMethods.createBaseLayer(ol)
-      } else {
-        this.createBaseLayer()
-      }
-
-      if (this.customMethods && this.customMethods.createThemeLayers) {
-        this.themeLayers = this.customMethods.createThemeLayers(ol)
-      } else {
-        this.createThemeLayers()
-      }
-
-      this.map.addLayer(this.baseLayer)
-
-      this.createMapControls()
-      this.setMapControls()
-
-      this.createMapInteractions()
-      this.setMapInteractions()
-
-      for (let layer of this.themeLayers) {
-        this.map.addLayer(layer)
-      }
-
-      this.addPopupOverlay()
-
-      this.map.on('singleclick', this.onMapClick)
-      this.map.on('pointermove', this.onMapPointerMove)
-
-      if (this.customMethods && this.customMethods.exposeMap) {
-        this.customMethods.exposeMap(this.map)
-      }
-
-      this.zoomOnAppMounted()
-    } catch (error) {
-      this.interceptError(error)
-    }
-  },
-  featureMapper (layer, feature) {
-    // this function should be overridden when consuming this component,
-    // to allow customisation of the pop content
-    return {
-      title: feature.get('title'),
-      content: feature.get('content')
-    }
-  },
-  updateBaseMap () {
-    this.map.removeLayer(this.baseLayer)
-    this.createBaseLayer()
-    this.map.addLayer(this.baseLayer)
-  },
-  getMap: function (found) {
-    // This function is used with dependency injection to allow child components get a reference to the map
-    // See: https://vuejs.org/v2/guide/components-edge-cases.html#Dependency-Injection
-    return new Promise((resolve, reject) => {
-      let checkForMap = () => {
-        if (this.map) {
-          resolve(this.map)
-        } else {
-          setTimeout(checkForMap, 50)
-        }
-      }
-      checkForMap()
-    })
-  }
-}
 
 /**
  * YourvicMapCore provides a generic and configurable map component based on OpenLayers
@@ -458,6 +160,36 @@ export default {
       default: true
     },
     /**
+     * Enable or disable the ability for users to select vector features
+     */
+    enableSelectInteraction: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * OpenLayers style or style functions for selected feature (via select interaction). If not provided a default
+     * style will be used.
+     */
+    selectedFeatureStyle: {
+      type: undefined,
+      default: undefined
+    },
+    /**
+     * Attribute to use for labels when using the default selected style
+     */
+    selectedFeatureStyleLabelAttribute: {
+      type: String,
+      default: undefined
+    },
+    /**
+     * Function used to generate content for the map popups (enabled per layer). Accepts an array of Features and
+     * should return an object with ```title``` and ```content``` properties
+     */
+    popupContentFunction: {
+      type: Function,
+      default: undefined
+    },
+    /**
      * Set a specific tab index for users interacting with the map via the keyboard
      */
     tabIndex: {
@@ -514,6 +246,7 @@ export default {
       dragZoomInteraction: null,
       dragRotateInteraction: null,
       pinchRotateInteraction: null,
+      selectInteraction: null,
       feature: null
     }
   },
@@ -571,6 +304,15 @@ export default {
     enableZoomInteraction () {
       this.setMapInteractions()
     },
+    enableSelectInteraction () {
+      this.setMapInteractions()
+    },
+    selectedFeatureStyle () {
+      this.setMapInteractions()
+    },
+    selectedFeatureStyleLabelAttribute () {
+      this.setMapInteractions()
+    },
     enableRotateInteraction () {
       this.setMapInteractions()
     }
@@ -584,7 +326,345 @@ export default {
       interceptError: this.interceptError
     }
   },
-  methods
+  methods: {
+    /**
+     * All of these methods can be overridden by passing in
+     * functions of the same name as properties of the customMethods prop
+     *
+     * const myMethods = {
+     *    themeFeatureStyleFunction (feature, resolution) {
+     *      return new ol.style.Style({})
+     *    }
+     * }
+     * <yourvic-map :customMethods="myMethods" />
+     */
+    createMap () {
+      ol.registerCustomProjections()
+      this.map = new ol.Map({
+        target: 'map',
+        interactions: ol.interaction.defaults({
+          altShiftDragRotate: false,
+          onFocusOnly: false,
+          doubleClickZoom: false,
+          keyboard: false,
+          mouseWheelZoom: false,
+          shiftDragZoom: false,
+          dragPan: false,
+          pinchRotate: false,
+          pinchZoom: false
+        }),
+        controls: ol.control.defaults({
+          zoom: false,
+          attribution: false,
+          attributionOptions: {
+            collapsible: false
+          }
+        }),
+        view: new ol.View({
+          center: this.center,
+          projection: this.projection,
+          zoom: this.zoom,
+          maxZoom: this.maxZoom,
+          minZoom: this.minZoom
+        })
+      })
+    },
+    createBaseLayer () {
+      this.baseSource = new ol.source.XYZ({
+        url: this.baseMapUrl,
+        transition: 1000,
+        attributions: this.baseMapAttributions
+      })
+      this.baseLayer = new ol.layer.Tile({
+        source: this.baseSource
+      })
+    },
+    createMapControls () {
+      this.zoomControl = new ol.control.Zoom()
+      this.attributionControl = new ol.control.Attribution({
+        collapsible: false
+      })
+      this.fullScreenControl = new ol.control.FullScreen()
+    },
+    setMapControls () {
+      this.map.getControls().clear()
+      if (this.enableZoomControl) this.map.addControl(this.zoomControl)
+      if (this.enableAttributionControl) this.map.addControl(this.attributionControl)
+      if (this.enableFullScreenControl) this.map.addControl(this.fullScreenControl)
+    },
+    createMapInteractions () {
+      this.dragPanInteraction = new ol.interaction.DragPan()
+      this.keyboardPanInteraction = new ol.interaction.KeyboardPan()
+
+      this.doubleClickZoomInteraction = new ol.interaction.DoubleClickZoom()
+      this.pinchZoomInteraction = new ol.interaction.PinchZoom()
+      this.keyboardZoomInteraction = new ol.interaction.KeyboardZoom()
+      this.mouseWheelZoomInteraction = new ol.interaction.MouseWheelZoom()
+      this.dragZoomInteraction = new ol.interaction.DragZoom()
+
+      this.dragRotateInteraction = new ol.interaction.DragRotate()
+      this.pinchRotateInteraction = new ol.interaction.PinchRotate()
+
+      this.selectInteraction = new ol.interaction.Select({
+        condition: ol.events.condition.click,
+        style: this.selectedFeatureStyle || styles.createSelectedStyleFunction(this.selectedFeatureStyleLabelAttribute)
+      })
+      this.selectInteraction.on('select', this.onSelect)
+    },
+    setMapInteractions () {
+      this.map.getInteractions().clear()
+      if (this.enablePanInteraction) {
+        this.map.addInteraction(this.dragPanInteraction)
+        this.map.addInteraction(this.keyboardPanInteraction)
+      }
+      if (this.enableZoomInteraction) {
+        this.map.addInteraction(this.doubleClickZoomInteraction)
+        this.map.addInteraction(this.pinchZoomInteraction)
+        this.map.addInteraction(this.keyboardZoomInteraction)
+        this.map.addInteraction(this.mouseWheelZoomInteraction)
+        this.map.addInteraction(this.dragZoomInteraction)
+      }
+      if (this.enableRotateInteraction) {
+        this.map.addInteraction(this.dragRotateInteraction)
+        this.map.addInteraction(this.pinchRotateInteraction)
+      }
+      if (this.enableSelectInteraction) {
+        this.map.addInteraction(this.selectInteraction)
+      }
+    },
+    createImageIconStyle: (src, crossOrigin, size) => {
+      return new ol.style.Style({
+        image: new ol.style.Icon(/** @type {module:ol/style/Icon~Options} */ ({
+          crossOrigin,
+          src,
+          imgSize: size
+        }))
+      })
+    },
+    themeFeatureStyleFunction (feature, resolution) {
+      let size = [12, 12]
+
+      function pointSvgDefinition (fillColor, width, height) {
+        return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 8 8"><style>.st0{fill:${fillColor}}</style><circle cx="4" cy="4" r="3.8" class="st0"/></svg>`)
+      }
+
+      return this.createImageIconStyle(
+        pointSvgDefinition('#1caadd', size[0], size[1]),
+        'anonymous',
+        size
+      )
+    },
+    createThemeLayers () {
+      this.themeLayers = []
+      const themeSource = new ol.source.VectorTileSource({
+        overlaps: false,
+        format: new ol.format.MVT(),
+        url: this.themeLayerUrl,
+        transition: 0
+      })
+      const themeLayer = new ol.layer.VectorTile({
+        style: (this.customMethods && this.customMethods.themeFeatureStyleFunction) ? this.customMethods.themeFeatureStyleFunction : this.themeFeatureStyleFunction,
+        opacity: 1,
+        source: themeSource,
+        renderMode: 'hybrid',
+        name: 'defaultThemeLayer'
+      })
+      this.themeLayers.push(themeLayer)
+    },
+    addPopupOverlay () {
+      this.popupOverlay = new ol.Overlay({
+        element: this.$refs.mapPopup,
+        autoPan: true,
+        autoPanAnimation: {
+          duration: 250
+        },
+        positioning: 'bottom-center',
+        position: undefined
+      })
+      this.map.addOverlay(this.popupOverlay)
+    },
+    zoomToArea (area, { duration }) {
+      /*
+      var featureRequest = new ol.format.WFS().writeGetFeature({
+        srsName: 'EPSG:900913',
+        featureNS: 'myvic',
+        featurePrefix: 'myvic',
+        featureTypes: ['suburb'],
+        outputFormat: 'application/json'// ,
+        // filter: ol.format.filter.equalTo('ssc_name', area, false)
+      })
+      fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs', {
+        method: 'POST',
+        body: new XMLSerializer().serializeToString(featureRequest)
+      }).then((response) => {
+        return response.json()
+      }).then((json) => {
+        var features = new ol.format.GeoJSON().readFeatures(json)
+        if (features.length > 0) {
+          let feature = features[0]
+          map.getView().fit(feature.getGeometry().getExtent(), {
+            size: map.getSize(),
+            duration: duration
+          })
+        }
+      })
+      */
+    },
+    zoomOnAppMounted () {
+      // Do something like `this.zoomToArea()`
+    },
+    onMapPointerMove (evt) {
+      // set the cursor to a pointer when hovering over an icon
+      var pixel = this.map.getEventPixel(evt.originalEvent)
+      var hit = this.map.hasFeatureAtPixel(pixel)
+      this.$refs.map.style.cursor = hit ? 'pointer' : ''
+      if (hit === true) {
+        const features = []
+        this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
+          f.layerName = layer.get('name')
+          f.event = 'move'
+          if (this.themeLayers.includes(layer)) features.push(f)
+        })
+        const firstFeature = features[0]
+        if (this.customMethods && this.customMethods.featureMapper) {
+          this.customMethods.featureMapper(firstFeature, features)
+        }
+      } else {
+        // the move event didn't select a feature
+        if (this.customMethods && this.customMethods.featureMapper) {
+          this.customMethods.featureMapper({ 'layerName': 'none', 'event': 'move' }, false)
+        }
+      }
+    },
+    onSelect (evt) {
+      let selectedFeatures = evt.target.getFeatures()
+      if (selectedFeatures.getLength() > 0) {
+        /**
+         * Emitted when a feature is selected
+         * @event select
+         * @property {object} selected features
+         * @property {object} select event
+         */
+        this.$emit('select', selectedFeatures, evt)
+      }
+    },
+    onMapClick (evt) {
+      /**
+       * Emitted when the map is clicked
+       * @event click
+       * @property {event} the map click event
+       */
+      this.$emit('click', evt)
+
+      const features = []
+      this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
+        f.layerName = layer.get('name')
+        f.event = 'click'
+
+        // Support layers added via themeLayers
+        if (this.themeLayers.includes(layer)) features.push(f)
+
+        // Support layers added as child components
+        if (layer.get('enablePopup')) features.push(f)
+      })
+
+      // Hide popup if there are no features (i.e. click on an empty area of the map)
+      if (features.length === 0) {
+        this.feature = null
+        return
+      }
+
+      // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
+      const firstFeature = features[0]
+      if (this.customMethods && this.customMethods.featureMapper) {
+        this.feature = this.customMethods.featureMapper(firstFeature, features)
+      } else if (this.popupContentFunction) {
+        this.feature = this.popupContentFunction(features)
+      } else {
+        this.feature = this.featureMapper(firstFeature, features)
+      }
+
+      // Wait until popup rendering is complete before positioning the element
+      // this means the popup height is now known, so the map will pan correctly.
+      // Here we use setTimeout instead of Vue's nextTick because it should wait
+      // for the browser to update the size of the popup based on content length
+      // and screen size. With nextTick, the setPosition was running before the
+      // overlay changed size.
+      setTimeout(() => {
+        let coordinate = this.map.getCoordinateFromPixel(evt.pixel)
+        this.popupOverlay.setPosition(coordinate)
+      }, 0)
+    },
+    onAppMounted () {
+      try {
+        this.createMap()
+
+        if (this.customMethods && this.customMethods.createBaseLayer) {
+          this.baseLayer = this.customMethods.createBaseLayer(ol)
+        } else {
+          this.createBaseLayer()
+        }
+
+        if (this.customMethods && this.customMethods.createThemeLayers) {
+          this.themeLayers = this.customMethods.createThemeLayers(ol)
+        } else {
+          this.createThemeLayers()
+        }
+
+        this.map.addLayer(this.baseLayer)
+
+        this.createMapControls()
+        this.setMapControls()
+
+        this.createMapInteractions()
+        this.setMapInteractions()
+
+        for (let layer of this.themeLayers) {
+          this.map.addLayer(layer)
+        }
+
+        this.addPopupOverlay()
+
+        this.map.on('singleclick', this.onMapClick)
+        this.map.on('pointermove', this.onMapPointerMove)
+
+        if (this.customMethods && this.customMethods.exposeMap) {
+          this.customMethods.exposeMap(this.map)
+        }
+
+        this.zoomOnAppMounted()
+      } catch (error) {
+        this.interceptError(error)
+      }
+    },
+    featureMapper (feature) {
+      // this function should be overridden when consuming this component,
+      // to allow customisation of the pop content
+      return {
+        title: feature.get('title') || feature.get('name') || 'No Title',
+        content: feature.get('content') || 'No Content'
+      }
+    },
+    updateBaseMap () {
+      this.map.removeLayer(this.baseLayer)
+      this.createBaseLayer()
+      this.map.addLayer(this.baseLayer)
+    },
+    getMap: function (found) {
+      // This function is used with dependency injection to allow child components get a reference to the map
+      // See: https://vuejs.org/v2/guide/components-edge-cases.html#Dependency-Injection
+      return new Promise((resolve, reject) => {
+        let checkForMap = () => {
+          if (this.map) {
+            resolve(this.map)
+          } else {
+            setTimeout(checkForMap, 50)
+          }
+        }
+        checkForMap()
+      })
+    }
+  }
 }
 </script>
 
@@ -615,7 +695,7 @@ export default {
     }
 
     &__map:focus {
-      outline: rpl-color('dark_primary') solid 2px;
+      outline: rpl-color('mid_neutral_1') solid 1px;
     }
 
     &__popup {

@@ -126,7 +126,8 @@ export default {
         source: this.layerSource,
         opacity: this.opacity,
         extent: this.extent,
-        zIndex: this.zIndex
+        zIndex: this.zIndex,
+        visible: this.visible
       })
 
       // Add layer to map
