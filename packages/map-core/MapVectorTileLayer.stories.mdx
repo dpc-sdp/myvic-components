@@ -174,8 +174,8 @@ MyVictoria uses Mapbox styles but requires some layer specific configuration bef
       {
         components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
         template: `<yourvic-map-core
-          :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-          :center="[16138405.843820328, -4552817.013522999]"
+          :containerStyle="containerStyle"
+          :center="center"
           :zoom="11"
         >
           <yourvic-map-vector-tile-layer
@@ -188,6 +188,8 @@ MyVictoria uses Mapbox styles but requires some layer specific configuration bef
         </yourvic-map-core>`,
         data: () => {
           return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
             mapboxStyle: undefined
           }
         },
@@ -247,8 +249,8 @@ Tile Grid. MyVictoria uses Mapbox styles but requires some layer specific config
       {
         components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
         template: `<yourvic-map-core
-          :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-          :center="[16138405.843820328, -4552817.013522999]"
+          :containerStyle="containerStyle"
+          :center="center"
           :zoom="11"
           :popupContentFunction="generatePopupContent"
         >
@@ -264,6 +266,8 @@ Tile Grid. MyVictoria uses Mapbox styles but requires some layer specific config
         </yourvic-map-core>`,
         data: () => {
           return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
             mapboxStyle: undefined
           }
         },
@@ -330,8 +334,8 @@ data sources.
       {
         components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
         template: `<yourvic-map-core
-          :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-          :center="[16138405.843820328, -4552817.013522999]"
+          :containerStyle="containerStyle"
+          :center="center"
           :zoom="11"
           enableMapboxWatermark
         >
@@ -344,6 +348,8 @@ data sources.
         </yourvic-map-core>`,
         data: () => {
           return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
             mapboxStyle: undefined,
             attributions: [
               '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'

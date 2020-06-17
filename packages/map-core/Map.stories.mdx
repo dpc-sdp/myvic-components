@@ -158,10 +158,10 @@ can be used to control to pass CSS styles through to YourvicMapCore to give it a
       {
        components: { YourvicMapCore },
        template: `<yourvic-map-core
-          :containerStyle="{ position: 'relative', margin: '20px', width: '400px', height: '300px', border: '1px solid black' }"
+          :containerStyle="containerStyle"
           baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
           :enableMapboxWatermark="false"
-          :center="[16138405.843820328, -4552817.013522999]"
+          :center="center"
           :zoom="17"
           :enableZoomControl="false"
           :enableAttributionControl="false"
@@ -169,7 +169,13 @@ can be used to control to pass CSS styles through to YourvicMapCore to give it a
           :enablePanInteraction="false"
           :enableZoomInteraction="false"
           :enableRotateInteraction="false"
-       />`
+       />`,
+       data: () => {
+         return {
+           containerStyle: { position: 'relative', margin: '20px', width: '400px', height: '300px', border: '1px solid black' },
+           center: [16138405.843820328, -4552817.013522999]
+         }
+       }
       }
     }
   </Story>
@@ -192,10 +198,10 @@ element to be tied to its width)
             <rpl-col cols=2>Column 1</rpl-col>
             <rpl-col cols=8>
               <yourvic-map-core
-                :containerStyle="{ position: 'relative', width: '100%', paddingTop: '56.25%', border: '1px solid black' }"
+                :containerStyle="containerStyle"
                 baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
                 :enableMapboxWatermark="false"
-                :center="[16138405.843820328, -4552817.013522999]"
+                :center="center"
                 :zoom="17"
                 :enableZoomControl="true"
                 :enableAttributionControl="false"
@@ -208,7 +214,13 @@ element to be tied to its width)
             <rpl-col cols=2>Column 3</rpl-col>
           </rpl-row>
         </RplContainer>
-       `
+       `,
+       data: () => {
+         return {
+           containerStyle: { position: 'relative', width: '100%', paddingTop: '56.25%', border: '1px solid black' },
+           center: [16138405.843820328, -4552817.013522999]
+         }
+       }
       }
     }
   </Story>
@@ -225,8 +237,8 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
       {
         components: { YourvicMapCore, YourvicMapVectorTileLayer },
         template: `<yourvic-map-core
-          :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-          :center="[16138405.843820328, -4552817.013522999]"
+          :containerStyle="containerStyle"
+          :center="center"
           :zoom="11"
           :popupContentFunction="generatePopupContent"
         >
@@ -242,6 +254,8 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
         </yourvic-map-core>`,
         data: () => {
           return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
             mapboxStyle: undefined
           }
         },
@@ -308,8 +322,8 @@ selected feature by passing a style or style function to the map through ```sele
       {
         components: { YourvicMapCore, YourvicMapVectorLayer },
         template: `<yourvic-map-core
-          :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-          :center="[16138405.843820328, -4552817.013522999]"
+          :containerStyle="containerStyle"
+          :center="center"
           :zoom="1"
           :enableSelectInteraction="true"
           :selectedFeatureStyle="selectedStyleFunction"
@@ -320,12 +334,18 @@ selected feature by passing a style or style function to the map through ```sele
             labelAttribute="name"
           />
         </yourvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        },
         methods: {
           selectedStyleFunction: function (feature) {
             let style = new Style({
               stroke: new Stroke({
                 color: 'rgba(255,137,18,1)',
-                width: 3
+                width: 2
               }),
               fill: new Fill({
                 color: 'rgba(255,137,18,0.2)'
@@ -369,10 +389,11 @@ selected feature by passing a style or style function to the map through ```sele
             <rpl-row>
               <rpl-col cols=6>
                 <yourvic-map-core
-                  :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-                  :center="[16138405.843820328, -4552817.013522999]"
+                  :containerStyle="containerStyle"
+                  :center="center"
                   :zoom="3"
                   :enableSelectInteraction="true"
+                  selectedFeatureStyleLabelAttribute="name"
                   @select="onSelect"
                   @click="onClick"
                 >
@@ -392,6 +413,8 @@ selected feature by passing a style or style function to the map through ```sele
         `,
         data: () => {
           return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
             selectDataBlock: { title: 'Title', description: '@select' },
             clickDataBlock: { title: 'Title', description: '@click' }
           }

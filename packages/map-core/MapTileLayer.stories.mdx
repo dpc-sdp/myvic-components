@@ -178,14 +178,20 @@ This example provides options to test different layer configurations.
         components: { YourvicMapCore, YourvicMapTileLayer },
         template: `
           <yourvic-map-core
-            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-            :center="[16138405.843820328, -4552817.013522999]"
+            :containerStyle="containerStyle"
+            :center="center"
           >
             <yourvic-map-tile-layer
               type="OSM"
             />
           </yourvic-map-core>
-        `
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        }
       }
     }
   </Story>
@@ -200,8 +206,8 @@ This example provides options to test different layer configurations.
         components: { YourvicMapCore, YourvicMapTileLayer },
         template: `
           <yourvic-map-core
-            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-            :center="[16138405.843820328, -4552817.013522999]"
+            :containerStyle="containerStyle"
+            :center="center"
             enableMapboxWatermark
           >
             <yourvic-map-tile-layer
@@ -211,6 +217,12 @@ This example provides options to test different layer configurations.
             />
           </yourvic-map-core>
         `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        },
         props: {
           attributions: {
             default: () => [
@@ -233,8 +245,8 @@ This example provides options to test different layer configurations.
         components: { YourvicMapCore, YourvicMapTileLayer },
         template: `
           <yourvic-map-core
-            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-            :center="[16138405.843820328, -4552817.013522999]"
+            :containerStyle="containerStyle"
+            :center="center"
           >
             <yourvic-map-tile-layer
               type="WMS"
@@ -244,7 +256,13 @@ This example provides options to test different layer configurations.
               :highDPI="false"
             />
           </yourvic-map-core>
-        `
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        }
       }
     }
   </Story>
@@ -259,8 +277,8 @@ This example provides options to test different layer configurations.
         components: { YourvicMapCore, YourvicMapTileLayer },
         template: `
           <yourvic-map-core
-            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-            :center="[16138405.843820328, -4552817.013522999]"
+            :containerStyle="containerStyle"
+            :center="center"
           >
             <yourvic-map-tile-layer
               type="WMS"
@@ -270,7 +288,13 @@ This example provides options to test different layer configurations.
               :highDPI="false"
             />
           </yourvic-map-core>
-        `
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        }
       }
     }
   </Story>
@@ -285,8 +309,8 @@ This example provides options to test different layer configurations.
         components: { YourvicMapCore, YourvicMapTileLayer },
         template: `
           <yourvic-map-core
-            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-            :center="[16138405.843820328, -4552817.013522999]"
+            :containerStyle="containerStyle"
+            :center="center"
           >
             <yourvic-map-tile-layer
               type="WMS"
@@ -295,7 +319,13 @@ This example provides options to test different layer configurations.
               serverType="geoserver"
             />
           </yourvic-map-core>
-        `
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        }
       }
     }
   </Story>
@@ -310,8 +340,8 @@ This example provides options to test different layer configurations.
         components: { YourvicMapCore, YourvicMapTileLayer },
         template: `
           <yourvic-map-core
-            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-            :center="[144, -37]"
+            :containerStyle="containerStyle"
+            :center="center"
             :zoom="3"
             :projection="projection"
           >
@@ -323,6 +353,12 @@ This example provides options to test different layer configurations.
             />
           </yourvic-map-core>
         `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [144, -37]
+          }
+        },
         props: {
           projection: {
             default: "EPSG:4283"
@@ -342,15 +378,21 @@ This example provides options to test different layer configurations.
         components: { YourvicMapCore, YourvicMapTileLayer },
         template: `
           <yourvic-map-core
-            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-            :center="[16138405.843820328, -4552817.013522999]"
+            :containerStyle="containerStyle"
+            :center="center"
           >
             <yourvic-map-tile-layer
               type="ArcGIS"
               url="https://gis.mapshare.vic.gov.au/arcgis/rest/services/mapshare/PublicLandAndPark/MapServer"
             />
           </yourvic-map-core>
-        `
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        }
       }
     }
   </Story>
@@ -365,8 +407,8 @@ This example provides options to test different layer configurations.
         components: { YourvicMapCore, YourvicMapTileLayer },
         template: `
           <yourvic-map-core
-            :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
-            :center="[16138405.843820328, -4552817.013522999]"
+            :containerStyle="containerStyle"
+            :center="center"
           >
             <yourvic-map-tile-layer
               type="XYZ"
@@ -381,6 +423,12 @@ This example provides options to test different layer configurations.
             />
           </yourvic-map-core>
         `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        }
       }
     }
   </Story>

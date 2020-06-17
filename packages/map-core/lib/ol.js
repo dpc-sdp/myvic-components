@@ -94,7 +94,7 @@ const getRgbaFromString = (colorString, opacity) => {
     parseInt(result[2], 16),
     parseInt(result[3], 16),
     opacity
-  ] : null
+  ] : [0, 0, 0, opacity]
 }
 
 const registerCustomProjections = () => {
