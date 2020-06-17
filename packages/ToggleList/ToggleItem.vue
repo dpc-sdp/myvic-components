@@ -2,7 +2,10 @@
   <li
     :class="{ 'is-active': isSelected }"
     class="toggle-item"
-    @click="$emit('click')">
+    @click="$emit('click')"
+    @keyup.enter="$emit('click')"
+    tabindex="0"
+    >
     <div
       class="toggle-item__icon-left">
       <rpl-icon
