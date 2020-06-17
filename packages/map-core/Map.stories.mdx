@@ -1,7 +1,17 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import { withKnobs, object, number, boolean, text } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import YourvicMapCore from './index.vue'
+import { YourVicDataBlock as DataBlock } from '@dpc-sdp/yourvic-data-block'
+import fetch from 'isomorphic-fetch'
+import {
+  YourvicMapCore,
+  YourvicMapVectorLayer,
+  YourvicMapVectorTileLayer,
+  Style,
+  Stroke,
+  Fill,
+  Text
+} from './index.js'
 
 <Meta title="Maps/Core" component={ YourvicMapCore } decorators={ [withKnobs] } />
 
@@ -148,10 +158,10 @@ can be used to control to pass CSS styles through to YourvicMapCore to give it a
       {
        components: { YourvicMapCore },
        template: `<yourvic-map-core
-          :containerStyle="{ position: 'relative', margin: '20px', width: '400px', height: '300px', border: '1px solid black' }"
+          :containerStyle="containerStyle"
           baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
           :enableMapboxWatermark="false"
-          :center="[16138405.843820328, -4552817.013522999]"
+          :center="center"
           :zoom="17"
           :enableZoomControl="false"
           :enableAttributionControl="false"
@@ -159,7 +169,13 @@ can be used to control to pass CSS styles through to YourvicMapCore to give it a
           :enablePanInteraction="false"
           :enableZoomInteraction="false"
           :enableRotateInteraction="false"
-       />`
+       />`,
+       data: () => {
+         return {
+           containerStyle: { position: 'relative', margin: '20px', width: '400px', height: '300px', border: '1px solid black' },
+           center: [16138405.843820328, -4552817.013522999]
+         }
+       }
       }
     }
   </Story>
@@ -182,10 +198,10 @@ element to be tied to its width)
             <rpl-col cols=2>Column 1</rpl-col>
             <rpl-col cols=8>
               <yourvic-map-core
-                :containerStyle="{ position: 'relative', width: '100%', paddingTop: '56.25%', border: '1px solid black' }"
+                :containerStyle="containerStyle"
                 baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
                 :enableMapboxWatermark="false"
-                :center="[16138405.843820328, -4552817.013522999]"
+                :center="center"
                 :zoom="17"
                 :enableZoomControl="true"
                 :enableAttributionControl="false"
@@ -198,7 +214,220 @@ element to be tied to its width)
             <rpl-col cols=2>Column 3</rpl-col>
           </rpl-row>
         </RplContainer>
-       `
+       `,
+       data: () => {
+         return {
+           containerStyle: { position: 'relative', width: '100%', paddingTop: '56.25%', border: '1px solid black' },
+           center: [16138405.843820328, -4552817.013522999]
+         }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Popups
+
+Click Popups are controlled at the Map level but must be enabled for each layer with ```enablePopup```.
+```popupContentFunction``` should be provided to generate a title and content for the popup from the clicked features.
+
+<Preview>
+  <Story name="Popups">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapVectorTileLayer },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="11"
+          :popupContentFunction="generatePopupContent"
+        >
+          <yourvic-map-vector-tile-layer
+            :urlFunction="getVectorTileWmsUrl"
+            dataFormat="MVT"
+            :enablePopup="true"
+            :overlaps="false"
+            mapboxStyleMethod="stylefunction"
+            :mapboxStyle="mapboxStyle"
+            mapboxStyleSource="Pink"
+          />
+        </yourvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            mapboxStyle: undefined
+          }
+        },
+        async mounted () {
+          this.mapboxStyle = await this.getMapboxStyle()
+        },
+        methods: {
+          generatePopupContent: function (features) {
+            return {
+              title: features[0].get('full_name'),
+              content: 'Population Growth: ' + features[0].get('total_population_growth')
+            }
+          },
+          getVectorTileWmsUrl: (tileCoord, pixelRatio, projection, layerSource) => {
+            let path = `https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wms`
+            const tileExtent = layerSource.tileGrid.getTileCoordExtent(tileCoord)
+            const tileSize = layerSource.tileGrid.getTileSize()
+            let queryParams = {
+              SERVICE: 'WMS',
+              VERSION: '1.1.1',
+              REQUEST: 'GetMap',
+              LAYERS: `myvic:population_suburb_map`,
+              BBOX: tileExtent.join(','),
+              WIDTH: tileSize,
+              HEIGHT: tileSize,
+              SRS: projection.getCode(),
+              FORMAT: 'application/x-protobuf;type=mapbox-vector'
+            }
+            let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
+            return `${path}?${queryParamsString}`
+          },
+          getMapboxStyle: async () => {
+            let response = await fetch('https://gis-app.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Pink.MBStyle')
+            let glStyle =  await response.json()
+            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
+            let fillStops = glStyle.layers[0].paint['fill-color'].stops
+            fillStops.forEach((stop, idx) => {
+              stop[0] = parseFloat(populationStops[idx])
+            })
+            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
+            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
+            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
+            glStyle.sources = {
+              Pink: {
+                type: 'vector'
+              }
+            }
+            return glStyle
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Select Interaction
+
+The Select interaction can be enabled at the map level for all vector layers. Custom styles can be applied to the
+selected feature by passing a style or style function to the map through ```selectedFeatureStyle```
+
+<Preview>
+  <Story name="Select Interaction">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapVectorLayer },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="1"
+          :enableSelectInteraction="true"
+          :selectedFeatureStyle="selectedStyleFunction"
+        >
+          <yourvic-map-vector-layer
+            url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+            dataFormat="GeoJSON"
+            labelAttribute="name"
+          />
+        </yourvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        },
+        methods: {
+          selectedStyleFunction: function (feature) {
+            let style = new Style({
+              stroke: new Stroke({
+                color: 'rgba(255,137,18,1)',
+                width: 2
+              }),
+              fill: new Fill({
+                color: 'rgba(255,137,18,0.2)'
+              }),
+              zIndex: 100
+            })
+            let text = new Style({
+              text: new Text({
+                text: feature.get('name'),
+                font: 'normal 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
+                rotateWithView: false,
+                placement: 'point',
+                overflow: true,
+                stroke: new Stroke({
+                  color: 'rgba(1,26,60,1)',
+                  width: 1
+                }),
+                fill: new Fill({
+                  color: 'rgba(1,26,60,1)'
+                })
+              }),
+              zIndex: 200
+            })
+            return [style, text]
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Events
+
+<Preview>
+  <Story name="Events">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapVectorLayer, RplContainer, RplRow, RplCol, DataBlock },
+        template: `
+          <RplContainer style="width: 100%">
+            <rpl-row>
+              <rpl-col cols=6>
+                <yourvic-map-core
+                  :containerStyle="containerStyle"
+                  :center="center"
+                  :zoom="3"
+                  :enableSelectInteraction="true"
+                  selectedFeatureStyleLabelAttribute="name"
+                  @select="onSelect"
+                  @click="onClick"
+                >
+                  <yourvic-map-vector-layer
+                    url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+                    dataFormat="GeoJSON"
+                    labelAttribute="name"
+                  />
+                </yourvic-map-core>
+              </rpl-col>
+              <rpl-col cols=6>
+                <data-block :data="selectDataBlock" :selectable="false" :isBlock="true" />
+                <data-block :data="clickDataBlock" :selectable="false" :isBlock="true" />
+              </rpl-col>
+            </rpl-row>
+          </RplContainer>
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            selectDataBlock: { title: 'Title', description: '@select' },
+            clickDataBlock: { title: 'Title', description: '@click' }
+          }
+        },
+        methods: {
+          onSelect: function (features) {
+            this.selectDataBlock =  { title: features.item(0).get('name'), description: '@select' }
+          },
+          onClick: function (event) {
+            let coordinate = event.map.getCoordinateFromPixel(event.pixel)
+            this.clickDataBlock =  { title: coordinate.join(','), description: '@click' }
+          }
+        }
       }
     }
   </Story>

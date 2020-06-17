@@ -42,6 +42,20 @@ export default {
     attributions: {
       type: Array,
       default: () => []
+    },
+    /**
+     * Enable the popup to be shown for features of the layer
+     */
+    enablePopup: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Set whether the layer is visible. Useful when toggling layer visibility
+     */
+    visible: {
+      type: Boolean,
+      default: true
     }
   },
   data: function () {
@@ -56,7 +70,7 @@ export default {
       await this.configureLayer()
     },
     async opacity (newValue) {
-      await this.configureLayer()
+      await this.layer.setOpacity(newValue)
     },
     async zIndex (newValue) {
       await this.configureLayer()
@@ -66,6 +80,12 @@ export default {
     },
     async attributions (newValue) {
       await this.configureLayer()
+    },
+    async enablePopup (newValue) {
+      await this.configureLayer()
+    },
+    async visible (newValue) {
+      await this.layer.setVisible(newValue)
     }
   },
   methods: {
