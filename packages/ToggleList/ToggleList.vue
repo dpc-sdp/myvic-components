@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="toggle-list">
+    <ul v-if="!gotError" class="toggle-list">
       <toggle-item
         v-for="item in items"
         :key="item.id"
@@ -10,18 +10,23 @@
         :is-selected="selectedItems[item.id]"
         @click="onItemClick(item)" />
     </ul>
+    <error v-if="gotError" :message="error.toString()" class="toggle-list-error"/>
   </div>
 </template>
 <script>
 import ToggleItem from './ToggleItem'
+import Error from '@dpc-sdp/yourvic-global/components/Error'
+import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
 
 /**
  * YourVicToggleList provides a styled list of items that can be toggled on/off on click
  */
 export default {
   name: 'ToggleList',
+  mixins: [catchError],
   components: {
-    ToggleItem
+    ToggleItem,
+    Error
   },
   props: {
     /**
@@ -67,5 +72,10 @@ export default {
     margin-top: rem-calc(10);
     margin-bottom: rem-calc(20);
     padding: 0;
+  }
+
+  .toggle-list-error {
+    width: 100%;
+    height: 100%;
   }
 </style>
