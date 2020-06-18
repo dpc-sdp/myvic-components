@@ -1,7 +1,6 @@
 <template>
   <div class="yourvic-map-core" :style="containerStyle" >
     <div
-      id="map-popup"
       class="yourvic-map-core__popup ol-popup"
       ref="mapPopup">
       <map-indicator
@@ -11,7 +10,7 @@
     <div
       v-if="!gotError"
       class="yourvic-map-core__container">
-      <div class="yourvic-map-core__map" id="map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
+      <div class="yourvic-map-core__map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
         <!-- @slot Default slot for child layers -->
         <slot></slot>
         <a
@@ -341,7 +340,7 @@ export default {
     createMap () {
       ol.registerCustomProjections()
       this.map = new ol.Map({
-        target: 'map',
+        target: this.$refs.map,
         interactions: ol.interaction.defaults({
           altShiftDragRotate: false,
           onFocusOnly: false,
