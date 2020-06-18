@@ -15,10 +15,9 @@
     </div>
     <h3 class="toggle-item__title">{{ item.title }}</h3>
     <div class="toggle-item__icon-right">
-        <rpl-icon
-          :symbol="isSelected ? 'tick' : null"
-          color="extra_dark_neutral"
-          size="m" />
+      <rpl-icon
+        :symbol="isSelected ? 'tick' : null"
+        size="m" />
     </div>
   </li>
 </template>
@@ -62,7 +61,7 @@ export default {
   $greyTint: #D9D9D6;
   $greyTint5: #EDEDED;
   $greyShade: #53565A;
-  $blueShade10: #011a3c;
+  $lightGrey: #546A7C;
 
   .toggle-item {
     cursor: pointer;
@@ -122,8 +121,8 @@ export default {
       border-radius: 5px;
       color: $greyTint;
       .is-active & {
-        color: $blueShade10;
-        border: 2px solid $blueShade10;
+        fill: $lightGrey;
+        border: 2px solid $lightGrey;
       }
     }
   }
