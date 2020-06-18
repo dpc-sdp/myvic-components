@@ -721,6 +721,7 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
     >
       <div
         class="yourvic-data-block"
+        style="margin-bottom: 10px; margin-right: 10px;"
       >
         <div
           class="yourvic-data-block__item yourvic-data-block__item--isBlock"
@@ -751,6 +752,7 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
        
       <div
         class="yourvic-data-block"
+        style="margin-bottom: 10px; margin-right: 10px;"
       >
         <div
           class="yourvic-data-block__item yourvic-data-block__item--isBlock"
