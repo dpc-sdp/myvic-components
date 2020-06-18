@@ -9,7 +9,7 @@ import {
   YourvicMapVectorLayer,
   YourvicMapVectorTileLayer
 } from '@dpc-sdp/yourvic-map-core'
-
+import { YourVicLineChart } from '@dpc-sdp/yourvic-line-chart'
 
 <Meta title="Toggle List" component={ YourVicToggleList } decorators={ [withKnobs] } />
 
@@ -217,6 +217,102 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
           },
           buildUrl: function (extent, resolution, projection) {
             return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:hospital&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Chart Data Toggle
+
+<Preview>
+  <Story name="Chart Data Toggle">
+    {
+      {
+        components: {
+          YourVicToggleList,
+          YourVicLineChart,
+          RplContainer,
+          RplRow,
+          RplCol },
+        template: `
+          <RplContainer style="width: 100%; height: 100%">
+            <rpl-row>
+              <rpl-col cols=4>
+                <your-vic-toggle-list
+                  :items="items"
+                  :selectedItems="selectedItems"
+                  @item-selected="onSelectItem"
+                />
+              </rpl-col>
+              <rpl-col cols=7>
+                <div style="width: 100%; height: 90vh">
+                  <your-vic-line-chart title="Line Chart" :data="chartData" :showLegend="false" dataFormat="normal" />
+                </div>
+              </rpl-col>
+            </rpl-row>
+          </RplContainer>
+        `,
+        data: () => {
+          return {
+            selectedItems: {
+               'dataset1': true,
+               'dataset2': false,
+               'dataset3': false
+            },
+            chartDataz: {
+              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+              datasets: [
+                {
+                  label: 'Dataset 1',
+                  data: [22, 20, 12, 10, 13, 39, 40, 41, 52, 52, 54, 58]
+                }
+              ]
+            }
+          }
+        },
+        computed: {
+          chartData () {
+            let datasets = []
+            if (this.selectedItems.dataset1) {
+              datasets.push({
+                label: 'Dataset 1',
+                data: [22, 20, 12, 10, 13, 39, 40, 41, 52, 52, 54, 58]
+              })
+            }
+            if (this.selectedItems.dataset2) {
+              datasets.push({
+                label: 'Dataset 2',
+                data: [64, 39, 31, 44, 55, 12, 20, 35, 67, 40, 42, 28]
+              })
+            }
+            if (this.selectedItems.dataset3) {
+              datasets.push({
+                label: 'Dataset 3',
+                data: [40, 26, 31, 37, 45, 29, 25, 18, 7, 15, 24, 36]
+              })
+            }
+            return {
+               labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+               datasets
+             }
+          }
+        },
+        props: {
+          items: {
+            default: () => [
+              {id: 'dataset1', title: 'Dataset 1', icon: 'map_marker', color: 'success'},
+              {id: 'dataset2', title: 'Dataset 2', icon: 'map_marker', color: 'danger'},
+              {id: 'dataset3', title: 'Dataset 3', icon: 'map_marker', color: 'primary'}
+            ]
+          }
+        },
+        methods: {
+          onSelectItem: function ({ item }) {
+            let newSelectedItems = Object.assign({}, this.selectedItems);
+            newSelectedItems[item.id] = !newSelectedItems[item.id]
+            this.selectedItems = newSelectedItems
           }
         }
       }

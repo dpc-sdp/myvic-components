@@ -2473,6 +2473,132 @@ exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
+<div
+  class="rpl-container"
+  style="width: 100%; height: 100%;"
+>
+  <div
+    class="rpl-row"
+  >
+    <div
+      class="rpl-col rpl-col--4"
+    >
+      <div>
+        <ul
+          class="toggle-list"
+        >
+          <li
+            class="toggle-item is-active"
+            tabindex="0"
+          >
+            <div
+              class="toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="toggle-item__title"
+            >
+              Dataset 1
+            </h3>
+             
+            <div
+              class="toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+          <li
+            class="toggle-item"
+            tabindex="0"
+          >
+            <div
+              class="toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="toggle-item__title"
+            >
+              Dataset 2
+            </h3>
+             
+            <div
+              class="toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+          <li
+            class="toggle-item"
+            tabindex="0"
+          >
+            <div
+              class="toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="toggle-item__title"
+            >
+              Dataset 3
+            </h3>
+             
+            <div
+              class="toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+        </ul>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--7"
+    >
+      <div
+        style="width: 100%; height: 90vh;"
+      >
+        <div
+          class="yourvic-line-chart"
+        >
+          <div
+            alt=""
+            aria-label="Line Chart"
+            class=""
+            dataformat="normal"
+            role="img"
+            style="position: relative; height: inherit; width: inherit; outline: none;"
+            tabindex="0"
+          >
+            <canvas
+              class="chartjs-render-monitor"
+              height="0"
+              id="line-chart"
+              style="display: block;"
+              width="0"
+            />
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Toggle List Default 1`] = `
 <div>
   <div>
@@ -2481,6 +2607,7 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
     >
       <li
         class="toggle-item is-active"
+        tabindex="0"
       >
         <div
           class="toggle-item__icon-left"
@@ -2502,6 +2629,7 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
       </li>
       <li
         class="toggle-item"
+        tabindex="0"
       >
         <div
           class="toggle-item__icon-left"
@@ -2523,6 +2651,7 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
       </li>
       <li
         class="toggle-item"
+        tabindex="0"
       >
         <div
           class="toggle-item__icon-left"
@@ -2544,6 +2673,7 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
       </li>
       <li
         class="toggle-item is-active"
+        tabindex="0"
       >
         <div
           class="toggle-item__icon-left"
@@ -2565,6 +2695,7 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
       </li>
       <li
         class="toggle-item"
+        tabindex="0"
       >
         <div
           class="toggle-item__icon-left"
@@ -2606,6 +2737,7 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
         >
           <li
             class="toggle-item is-active"
+            tabindex="0"
           >
             <div
               class="toggle-item__icon-left"
@@ -2627,6 +2759,7 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
           </li>
           <li
             class="toggle-item"
+            tabindex="0"
           >
             <div
               class="toggle-item__icon-left"
@@ -2648,6 +2781,7 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
           </li>
           <li
             class="toggle-item"
+            tabindex="0"
           >
             <div
               class="toggle-item__icon-left"
@@ -2678,7 +2812,6 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
     >
       <div
         class="yourvic-map-core"
-        enableselectinteraction="true"
         style="position: relative; width: 100%; height: 100vh;"
       >
          
