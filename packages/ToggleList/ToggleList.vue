@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul v-if="!gotError" class="toggle-list">
+  <div class="yourvic-toggle-list">
+    <ul v-if="!gotError" class="yourvic-toggle-list__ul">
       <toggle-item
         v-for="item in items"
         :key="item.id"
@@ -10,7 +10,7 @@
         :is-selected="selectedItems[item.id]"
         @click="onItemClick(item)" />
     </ul>
-    <error v-if="gotError" :message="error.toString()" class="toggle-list-error"/>
+    <error v-if="gotError" :message="error.toString()" class="yourvic-toggle-list__error"/>
   </div>
 </template>
 <script>
@@ -66,16 +66,20 @@ export default {
 
   $greyTint: #D9D9D6;
 
-  .toggle-list {
-    border: 1px solid $greyTint;
-    border-radius: 5px;
-    margin-top: rem-calc(10);
-    margin-bottom: rem-calc(20);
-    padding: 0;
+  .yourvic-toggle-list {
+
+    &__ul {
+      border: 1px solid $greyTint;
+      border-radius: 5px;
+      margin-top: rem-calc(10);
+      margin-bottom: rem-calc(20);
+      padding: 0;
+    }
+
+    &__error {
+      width: 100%;
+      height: 100%;
+    }
   }
 
-  .toggle-list-error {
-    width: 100%;
-    height: 100%;
-  }
 </style>

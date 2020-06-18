@@ -2486,72 +2486,74 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
     <div
       class="rpl-col rpl-col--4"
     >
-      <div>
+      <div
+        class="yourvic-toggle-list"
+      >
         <ul
-          class="toggle-list"
+          class="yourvic-toggle-list__ul"
         >
           <li
-            class="toggle-item is-active"
+            class="yourvic-toggle-item is-active"
             tabindex="0"
           >
             <div
-              class="toggle-item__icon-left"
+              class="yourvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="toggle-item__title"
+              class="yourvic-toggle-item__title"
             >
               Dataset 1
             </h3>
              
             <div
-              class="toggle-item__icon-right"
+              class="yourvic-toggle-item__icon-right"
             >
               <!---->
             </div>
           </li>
           <li
-            class="toggle-item"
+            class="yourvic-toggle-item"
             tabindex="0"
           >
             <div
-              class="toggle-item__icon-left"
+              class="yourvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="toggle-item__title"
+              class="yourvic-toggle-item__title"
             >
               Dataset 2
             </h3>
              
             <div
-              class="toggle-item__icon-right"
+              class="yourvic-toggle-item__icon-right"
             >
               <!---->
             </div>
           </li>
           <li
-            class="toggle-item"
+            class="yourvic-toggle-item"
             tabindex="0"
           >
             <div
-              class="toggle-item__icon-left"
+              class="yourvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="toggle-item__title"
+              class="yourvic-toggle-item__title"
             >
               Dataset 3
             </h3>
              
             <div
-              class="toggle-item__icon-right"
+              class="yourvic-toggle-item__icon-right"
             >
               <!---->
             </div>
@@ -2605,116 +2607,118 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
 
 exports[`YourvicStoryshots Toggle List Default 1`] = `
 <div>
-  <div>
+  <div
+    class="yourvic-toggle-list"
+  >
     <ul
-      class="toggle-list"
+      class="yourvic-toggle-list__ul"
     >
       <li
-        class="toggle-item is-active"
+        class="yourvic-toggle-item is-active"
         tabindex="0"
       >
         <div
-          class="toggle-item__icon-left"
+          class="yourvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="toggle-item__title"
+          class="yourvic-toggle-item__title"
         >
           Item 1
         </h3>
          
         <div
-          class="toggle-item__icon-right"
+          class="yourvic-toggle-item__icon-right"
         >
           <!---->
         </div>
       </li>
       <li
-        class="toggle-item"
+        class="yourvic-toggle-item"
         tabindex="0"
       >
         <div
-          class="toggle-item__icon-left"
+          class="yourvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="toggle-item__title"
+          class="yourvic-toggle-item__title"
         >
           Item 2
         </h3>
          
         <div
-          class="toggle-item__icon-right"
+          class="yourvic-toggle-item__icon-right"
         >
           <!---->
         </div>
       </li>
       <li
-        class="toggle-item"
+        class="yourvic-toggle-item"
         tabindex="0"
       >
         <div
-          class="toggle-item__icon-left"
+          class="yourvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="toggle-item__title"
+          class="yourvic-toggle-item__title"
         >
           Item 3
         </h3>
          
         <div
-          class="toggle-item__icon-right"
+          class="yourvic-toggle-item__icon-right"
         >
           <!---->
         </div>
       </li>
       <li
-        class="toggle-item is-active"
+        class="yourvic-toggle-item is-active"
         tabindex="0"
       >
         <div
-          class="toggle-item__icon-left"
+          class="yourvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="toggle-item__title"
+          class="yourvic-toggle-item__title"
         >
           Item 4
         </h3>
          
         <div
-          class="toggle-item__icon-right"
+          class="yourvic-toggle-item__icon-right"
         >
           <!---->
         </div>
       </li>
       <li
-        class="toggle-item"
+        class="yourvic-toggle-item"
         tabindex="0"
       >
         <div
-          class="toggle-item__icon-left"
+          class="yourvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="toggle-item__title"
+          class="yourvic-toggle-item__title"
         >
           Item 5
         </h3>
          
         <div
-          class="toggle-item__icon-right"
+          class="yourvic-toggle-item__icon-right"
         >
           <!---->
         </div>
@@ -2737,72 +2741,74 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
     <div
       class="rpl-col rpl-col--4"
     >
-      <div>
+      <div
+        class="yourvic-toggle-list"
+      >
         <ul
-          class="toggle-list"
+          class="yourvic-toggle-list__ul"
         >
           <li
-            class="toggle-item is-active"
+            class="yourvic-toggle-item is-active"
             tabindex="0"
           >
             <div
-              class="toggle-item__icon-left"
+              class="yourvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="toggle-item__title"
+              class="yourvic-toggle-item__title"
             >
               Basemap
             </h3>
              
             <div
-              class="toggle-item__icon-right"
+              class="yourvic-toggle-item__icon-right"
             >
               <!---->
             </div>
           </li>
           <li
-            class="toggle-item"
+            class="yourvic-toggle-item"
             tabindex="0"
           >
             <div
-              class="toggle-item__icon-left"
+              class="yourvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="toggle-item__title"
+              class="yourvic-toggle-item__title"
             >
               Population Growth
             </h3>
              
             <div
-              class="toggle-item__icon-right"
+              class="yourvic-toggle-item__icon-right"
             >
               <!---->
             </div>
           </li>
           <li
-            class="toggle-item"
+            class="yourvic-toggle-item"
             tabindex="0"
           >
             <div
-              class="toggle-item__icon-left"
+              class="yourvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="toggle-item__title"
+              class="yourvic-toggle-item__title"
             >
               Hospitals
             </h3>
              
             <div
-              class="toggle-item__icon-right"
+              class="yourvic-toggle-item__icon-right"
             >
               <!---->
             </div>

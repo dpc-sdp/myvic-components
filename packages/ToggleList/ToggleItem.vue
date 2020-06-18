@@ -1,20 +1,21 @@
 <template>
   <li
     :class="{ 'is-active': isSelected }"
-    class="toggle-item"
-    @click="$emit('click')"
+    class="yourvic-toggle-item"
+    @click="onClick"
     @keyup.enter="$emit('click')"
     tabindex="0"
+    ref="currentItem"
     >
     <div
-      class="toggle-item__icon-left">
+      class="yourvic-toggle-item__icon-left">
       <rpl-icon
         :symbol="icon"
         :color="isSelected ? color : 'mid_neutral_1'"
         size="m" />
     </div>
-    <h3 class="toggle-item__title">{{ item.title }}</h3>
-    <div class="toggle-item__icon-right">
+    <h3 class="yourvic-toggle-item__title">{{ item.title }}</h3>
+    <div class="yourvic-toggle-item__icon-right">
       <rpl-icon
         :symbol="isSelected ? 'tick' : null"
         size="m" />
@@ -52,6 +53,10 @@ export default {
     }
   },
   methods: {
+    onClick (event) {
+      this.$emit('click')
+      this.$refs.currentItem.blur()
+    }
   }
 }
 </script>
@@ -63,7 +68,7 @@ export default {
   $greyShade: #53565A;
   $lightGrey: #546A7C;
 
-  .toggle-item {
+  .yourvic-toggle-item {
     cursor: pointer;
     background-color: white;
     display: flex;
@@ -86,6 +91,10 @@ export default {
     }
     &:hover {
       background-color: $greyTint5;
+    }
+    &:focus {
+      background-color: $greyTint5;
+      outline: none;
     }
     &__title {
       font-size: rem-calc(13);

@@ -26,7 +26,7 @@ describe('YourVicToggleList', () => {
   })
 
   it('renders all items', () => {
-    let itemArray = wrapper.findAll('.toggle-item__title')
+    let itemArray = wrapper.findAll('.yourvic-toggle-item__title')
     expect(itemArray).toHaveLength(5)
     expect(itemArray.at(0).text()).toBe('Item 1')
     expect(itemArray.at(1).text()).toBe('Item 2')
