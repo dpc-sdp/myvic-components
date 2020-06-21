@@ -1,20 +1,21 @@
 <template>
   <auto-complete
-    id="area-search"
-    :items="areas"
+    id="address-search"
+    :items="addresses"
+    :filter="filter"
     resultItemLineStyle="single"
     :showIcon="true"
     :getIcon="() => 'map_marker'"
-    @item-selected="selectArea"
+    @item-selected="selectAddress"
   />
 </template>
 <script>
 
 import { AutoComplete } from '@dpc-sdp/yourvic-autocomplete'
-import { getAreas } from './utils/getAreas'
+import { getAddresses } from './utils/getAddresses'
 
 /**
- * AreaSearch is a component for looking up different kinds of areas using an autocomplete search
+ * AddressSearch is a component for looking up different kinds of areas using an autocomplete search
  */
 export default {
   components: {
@@ -24,14 +25,15 @@ export default {
   },
   data () {
     return {
-      areas: []
+      addresses: []
     }
   },
-  created: async function () {
-    this.areas = await getAreas()
-  },
   methods: {
-    selectArea (id, item) {
+    async filter (items, query) {
+      let addresses = await getAddresses(query)
+      return addresses
+    },
+    selectAddress (id, item) {
       this.$emit('item-selected', id, item)
     }
   }
@@ -41,7 +43,7 @@ export default {
 <style lang="scss" scoped>
   @import "~@dpc-sdp/yourvic-global/styles/global";
 
-  .yourvic-areasearch {
+  .yourvic-addresssearch {
     display: relative;
   }
 </style>

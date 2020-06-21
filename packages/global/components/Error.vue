@@ -55,6 +55,11 @@ $rpl-dev-error-text-color: $rpl-danger-color !default;
     background-image: $error-grid-pattern;
   }
 
+  &--autocomplete {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   &-span {
     margin: 0 auto;
     padding: 0 $rpl-space-4 * 2;

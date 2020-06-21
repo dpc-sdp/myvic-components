@@ -13,6 +13,7 @@
         :itemSecondaryText="getItemSecondaryText(item)"
         :showIcon="showIcon"
         :icon="getIcon && getIcon(item)"
+        :highlightMatch="false"
       />
     </li>
     <li
@@ -50,7 +51,8 @@ export default {
       type: String
     },
     getItemName: {
-      type: Function
+      type: Function,
+      required: true
     },
     getItemSecondaryText: {
       type: Function
@@ -60,17 +62,14 @@ export default {
     },
     getIcon: {
       type: Function
+    },
+    highlightMatch: {
+      type: Boolean
     }
   },
   computed: {
     innerComponentName: function () {
       return this.resultItemLineStyle === 'single' ? 'SingleLineItem' : 'DoubleLineItem'
-    }
-  },
-  methods: {
-    highlight (val) {
-      if (!this.query) return val
-      return val.replace(new RegExp(this.query, 'gi'), match => `<span>${match}</span>`)
     }
   }
 }
@@ -99,6 +98,8 @@ export default {
     &__item {
       font-size: rem-calc(14);
       line-height: 1.5;
+      text-transform: capitalize;
+      font-weight: bold;
 
       &--no-results {
         padding: 1rem;

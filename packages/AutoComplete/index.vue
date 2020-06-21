@@ -15,6 +15,13 @@
         @keyup.down="onKeyDown"
         @keyup.up="onKeyUp">
       <rpl-icon
+        v-if="fetching"
+        class="yourvic-auto-complete__icon"
+        symbol="search"
+        color="extra_dark_neutral"
+        size="m"
+      />
+      <rpl-icon
         v-if="!query.length"
         class="yourvic-auto-complete__icon"
         symbol="search"
@@ -28,6 +35,7 @@
       />
     </div>
     <search-results
+      v-if="!gotError"
       v-show="showResults"
       :active-index="activeIndex"
       :result-item-line-style="resultItemLineStyle"
@@ -35,10 +43,12 @@
       :get-item-secondary-text="getItemSecondaryText"
       :showIcon="showIcon"
       :get-icon="getIcon"
+      :highlight-match="false"
       :items="results"
       :query="validQuery"
       class="yourvic-auto-complete__results"
       @item-selected="selectResult" />
+    <error v-if="gotError" :message="error.toString()" errorClass="autocomplete" />
   </div>
 </template>
 <script>
@@ -48,6 +58,8 @@ import SearchResults from './SearchResults'
 import ButtonClose from './ButtonClose'
 import { isMobileSafari } from './utils/browser'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
+import Error from '@dpc-sdp/yourvic-global/components/Error'
+import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
 
 /**
  * AutoComplete is a configurable component for displaying an autocomplete search with results
@@ -56,9 +68,18 @@ export default {
   components: {
     RplIcon,
     SearchResults,
-    ButtonClose
+    ButtonClose,
+    Error
   },
+  mixins: [catchError],
   props: {
+    /**
+     * The id of this AutoComplete. This will be passed on to the item-selected event so that handlers recognize which component initiated the event
+     */
+    id: {
+      type: String,
+      default: 'autocomplete'
+    },
     /**
      * The full list of items to search against
      */
@@ -140,7 +161,8 @@ export default {
       results: this.debugMode ? this.items : [],
       resultSelected: false,
       showResults: this.debugMode,
-      validQuery: ''
+      validQuery: '',
+      fetching: false
     }
   },
   watch: {
@@ -218,15 +240,39 @@ export default {
       this.query = ''
       this.resultSelected = false
     },
+    orderResults (results) {
+      let firstCharMatches = []
+      let otherMatches = []
+      results.forEach(x => {
+        let name = this.getItemName(x)
+        if (!name || !name[0]) return
+        if (name[0].toLowerCase() === this.validQuery[0].toLowerCase()) {
+          firstCharMatches.push(x)
+        } else {
+          otherMatches.push(x)
+        }
+      })
+      firstCharMatches.sort(this.sortByLength)
+      otherMatches.sort(this.sortByLength)
+      return firstCharMatches.concat(otherMatches)
+    },
     selectResult (item) {
       this.results = []
       this.showResults = false
       this.resultSelected = true
       this.query = item.name
-      this.$emit('item-selected', item)
+      this.$emit('item-selected', this.id, item)
     },
-    updateResults () {
-      this.results = this.filter(this.items, this.validQuery)
+    sortByLength (item1, item2) {
+      return this.getItemName(item1).length - this.getItemName(item2).length
+    },
+    async updateResults () {
+      let results = this.filter(this.items, this.validQuery)
+      this.fetching = true
+      let resolved = await Promise.resolve(results).catch(e => { this.interceptError(e) })
+      let orderedResults = this.orderResults(resolved)
+      this.results = orderedResults
+      this.fetching = false
     },
     removeFocus () {
       this.$refs.input.blur()
@@ -282,7 +328,7 @@ export default {
       font-size: rem-calc(14);
       outline: none;
       padding: 1rem 0;
-      width: calc(100% - (1rem + 16px))
+      width: calc(100% - (1rem + 32px))
     }
 
     &__results {
@@ -290,6 +336,7 @@ export default {
       top: 100%;
       width: 100%;
       z-index: 1;
+      padding-left: 0;
     }
   }
 </style>

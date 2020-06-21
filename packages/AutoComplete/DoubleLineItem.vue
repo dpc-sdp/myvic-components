@@ -10,7 +10,8 @@
     <div>
       <span
         class="yourvic-double-line-item__item-name"
-        v-html="highlight(itemName)" />
+        v-html="highlight(itemName)"
+      />
       <span v-if="itemSecondaryText" class="yourvic-double-line-item__item-description">{{ itemSecondaryText }}</span>
     </div>
   </div>
@@ -40,11 +41,14 @@ export default {
     },
     icon: {
       type: String
+    },
+    highlightMatch: {
+      type: Boolean
     }
   },
   methods: {
     highlight (val) {
-      if (!this.query) return val
+      if (!this.query || !this.highlightMatch) return val
       return val.replace(new RegExp(this.query, 'gi'), match => `<span>${match}</span>`)
     }
   }
@@ -79,8 +83,8 @@ export default {
 
     &__item-description {
       display: block;
-      font-size: rem-calc(11);
-      text-transform: uppercase;
+      font-size: rem-calc(14);
+      font-weight: normal;
     }
 
     &:hover, &:focus {

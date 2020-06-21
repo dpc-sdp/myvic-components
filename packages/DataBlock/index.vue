@@ -36,7 +36,7 @@ export default {
   },
   props: {
     /**
-     * The id of this DataBlock. This will be passed on to the click event so that handlers recognize which DataBlock was clicked
+     * The id of this DataBlock. This will be passed on to the click event so that handlers recognize which DataBlock component was clicked
      */
     id: {
       type: String,
@@ -113,8 +113,8 @@ export default {
           border: 1px solid $borderColor;
 
           .yourvic-data-block__link-text {
-            margin-right: 5px;
-            transition: all 0.075s ease-out;
+            margin-right: 6px;
+            transition: all 0.175s ease-out;
           }
         }
         // }

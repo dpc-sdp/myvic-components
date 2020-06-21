@@ -37,11 +37,14 @@ export default {
     },
     icon: {
       type: String
+    },
+    highlightMatch: {
+      type: Boolean
     }
   },
   methods: {
     highlight (val) {
-      if (!this.query) return val
+      if (!this.query || !this.highlightMatch) return val
       return val.replace(new RegExp(this.query, 'gi'), match => `<span>${match}</span>`)
     }
   }
