@@ -2,6 +2,7 @@ import YourvicMapCore from './index.vue'
 import YourvicMapTileLayer from './MapTileLayer'
 import YourvicMapVectorLayer from './MapVectorLayer'
 import YourvicMapVectorTileLayer from './MapVectorTileLayer'
+import YourvicMapLegend from './MapLegend'
 import ol from './lib/ol'
 
 const Style = ol.style.Style
@@ -17,6 +18,7 @@ export {
   YourvicMapTileLayer,
   YourvicMapVectorLayer,
   YourvicMapVectorTileLayer,
+  YourvicMapLegend,
   Style,
   Text,
   Fill,
