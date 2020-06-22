@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
-import AreaSearch from './../index.vue'
+import AddressSearch from './../index.vue'
 import { AutoComplete } from '@dpc-sdp/yourvic-autocomplete'
 
-describe('AreaSearch', () => {
-  const wrapper = mount(AreaSearch, {
+describe('AddressSearch', () => {
+  const wrapper = mount(AddressSearch, {
   })
 
   it('renders an AutoComplete', () => {
