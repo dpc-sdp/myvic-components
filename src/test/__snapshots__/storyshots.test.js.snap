@@ -2,95 +2,105 @@
 
 exports[`YourvicStoryshots AddressSearch Default 1`] = `
 <form>
-  <div
-    class="yourvic-auto-complete"
+  <form
+    action=""
   >
     <div
-      class="yourvic-auto-complete__input-wrapper"
+      class="yourvic-auto-complete"
     >
-      <input
-        autocomplete="off"
-        class="yourvic-auto-complete__input"
-        name="yourvic-auto-complete"
-        placeholder="Search"
-        type="text"
-        value=""
-      />
+      <div
+        class="yourvic-auto-complete__input-wrapper"
+      >
+        <input
+          aria-label="Search"
+          autocomplete="off"
+          class="yourvic-auto-complete__input"
+          name="yourvic-auto-complete"
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+         
+        <!---->
+         
+        <!---->
+         
+        <!---->
+      </div>
        
-      <!---->
-       
-      <!---->
+      <ul
+        class="yourvic-search-results yourvic-auto-complete__results"
+        style="display: none;"
+      >
+         
+        <li
+          class="yourvic-search-results__item--no-results"
+        >
+          <span
+            class="yourvic-search-results__item-name"
+          >
+            
+      No results
+    
+          </span>
+        </li>
+      </ul>
        
       <!---->
     </div>
-     
-    <ul
-      class="yourvic-search-results yourvic-auto-complete__results"
-      style="display: none;"
-    >
-       
-      <li
-        class="yourvic-search-results__item--no-results"
-      >
-        <span
-          class="yourvic-search-results__item-name"
-        >
-          
-      No results
-    
-        </span>
-      </li>
-    </ul>
-     
-    <!---->
-  </div>
+  </form>
 </form>
 `;
 
 exports[`YourvicStoryshots AreaSearch Default 1`] = `
 <form>
-  <div
-    class="yourvic-auto-complete"
+  <form
+    action=""
   >
     <div
-      class="yourvic-auto-complete__input-wrapper"
+      class="yourvic-auto-complete"
     >
-      <input
-        autocomplete="off"
-        class="yourvic-auto-complete__input"
-        name="yourvic-auto-complete"
-        placeholder="Search"
-        type="text"
-        value=""
-      />
+      <div
+        class="yourvic-auto-complete__input-wrapper"
+      >
+        <input
+          aria-label="Search"
+          autocomplete="off"
+          class="yourvic-auto-complete__input"
+          name="yourvic-auto-complete"
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+         
+        <!---->
+         
+        <!---->
+         
+        <!---->
+      </div>
        
-      <!---->
-       
-      <!---->
+      <ul
+        class="yourvic-search-results yourvic-auto-complete__results"
+        style="display: none;"
+      >
+         
+        <li
+          class="yourvic-search-results__item--no-results"
+        >
+          <span
+            class="yourvic-search-results__item-name"
+          >
+            
+      No results
+    
+          </span>
+        </li>
+      </ul>
        
       <!---->
     </div>
-     
-    <ul
-      class="yourvic-search-results yourvic-auto-complete__results"
-      style="display: none;"
-    >
-       
-      <li
-        class="yourvic-search-results__item--no-results"
-      >
-        <span
-          class="yourvic-search-results__item-name"
-        >
-          
-      No results
-    
-        </span>
-      </li>
-    </ul>
-     
-    <!---->
-  </div>
+  </form>
 </form>
 `;
 
@@ -143,6 +153,7 @@ exports[`YourvicStoryshots Autocomplete Default 1`] = `
       class="yourvic-auto-complete__input-wrapper"
     >
       <input
+        aria-label="Search"
         autocomplete="off"
         class="yourvic-auto-complete__input"
         name="yourvic-auto-complete"
@@ -205,6 +216,7 @@ exports[`YourvicStoryshots Autocomplete Single line result with tag 1`] = `
       class="yourvic-auto-complete__input-wrapper"
     >
       <input
+        aria-label="Search"
         autocomplete="off"
         class="yourvic-auto-complete__input"
         name="yourvic-auto-complete"
@@ -267,6 +279,7 @@ exports[`YourvicStoryshots Autocomplete With Icon 1`] = `
       class="yourvic-auto-complete__input-wrapper"
     >
       <input
+        aria-label="Search"
         autocomplete="off"
         class="yourvic-auto-complete__input"
         name="yourvic-auto-complete"

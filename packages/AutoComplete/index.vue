@@ -3,6 +3,7 @@
     <div class="yourvic-auto-complete__input-wrapper">
       <input
         ref="input"
+        aria-label="Search"
         v-model.trim="query"
         autocomplete="off"
         class="yourvic-auto-complete__input"
@@ -13,7 +14,8 @@
         @keyup.enter="onEnter"
         @focus="onChange"
         @keyup.down="onKeyDown"
-        @keyup.up="onKeyUp">
+        @keyup.up="onKeyUp"
+        @submit="onSubmit">
       <rpl-icon
         v-if="fetching"
         class="yourvic-auto-complete__icon"
@@ -227,7 +229,7 @@ export default {
       }
     },
     onKeyDown () {
-      if (this.activeIndex < this.results.length) {
+      if (this.activeIndex < this.results.length - 1) {
         this.activeIndex++
       }
     },
@@ -239,6 +241,9 @@ export default {
     onClear () {
       this.query = ''
       this.resultSelected = false
+    },
+    onSubmit () {
+      console.log('submit')
     },
     orderResults (results) {
       let firstCharMatches = []

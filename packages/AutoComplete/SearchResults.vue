@@ -98,7 +98,6 @@ export default {
     &__item {
       font-size: rem-calc(14);
       line-height: 1.5;
-      text-transform: capitalize;
       font-weight: bold;
 
       &--no-results {

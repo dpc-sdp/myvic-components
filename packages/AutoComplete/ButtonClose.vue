@@ -1,5 +1,6 @@
 <template>
   <button
+    aria-label="Close"
     :class="{'yourvic-button-close': true, 'small': size === 's', 'large': size === 'l'}"
     type="button"
     @click="handleClick()">
