@@ -7,6 +7,10 @@ describe('AutoComplete', () => {
     {
       name: 'item 1',
       description: 'description for item 1'
+    },
+    {
+      name: 'result 1',
+      description: 'description for result 1'
     }
   ]
 
@@ -22,5 +26,13 @@ describe('AutoComplete', () => {
 
   it('renders SearchResults', () => {
     expect(wrapper.contains(SearchResults)).toBe(true)
+  })
+  
+  it('finds an item', async () => {
+    wrapper.setData({ query: 'item' })
+    wrapper.vm.onChange()
+    await wrapper.vm.$nextTick()
+    console.log(wrapper.vm.$data.results)
+    expect(wrapper.vm.$data.results.length).toBe(1)
   })
 })
