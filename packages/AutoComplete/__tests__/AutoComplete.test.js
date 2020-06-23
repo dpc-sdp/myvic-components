@@ -27,12 +27,11 @@ describe('AutoComplete', () => {
   it('renders SearchResults', () => {
     expect(wrapper.contains(SearchResults)).toBe(true)
   })
-  
+
   it('finds an item', async () => {
     wrapper.setData({ query: 'item' })
     wrapper.vm.onChange()
     await wrapper.vm.$nextTick()
-    console.log(wrapper.vm.$data.results)
-    expect(wrapper.vm.$data.results.length).toBe(1)
+    expect(wrapper.vm.$data.results).toHaveLength(1)
   })
 })
