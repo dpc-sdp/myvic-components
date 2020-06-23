@@ -1033,6 +1033,173 @@ exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Maps/Core Events 1`] = `
+<div
+  class="rpl-container"
+  style="width: 100%;"
+>
+  <div
+    class="rpl-row"
+  >
+    <div
+      class="rpl-col rpl-col--6"
+    >
+      <div
+        class="yourvic-map-core"
+        style="position: relative; width: 100%; height: 100vh;"
+      >
+         
+        <div
+          class="yourvic-map-core__container"
+        >
+          <div
+            aria-label="Map"
+            class="yourvic-map-core__map"
+            role="application"
+            tabindex="0"
+          >
+            <!---->
+             
+            <!---->
+            <div
+              class="ol-viewport"
+              style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+            >
+              <div
+                class="ol-unselectable ol-layers"
+                style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+              />
+              <div
+                class="ol-overlaycontainer"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              />
+              <div
+                class="ol-overlaycontainer-stopevent"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              >
+                <div
+                  class="ol-overlay-container ol-selectable"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="yourvic-map-core__popup ol-popup"
+                  >
+                    <!---->
+                  </div>
+                </div>
+                <div
+                  class="ol-zoom ol-unselectable ol-control"
+                >
+                  <button
+                    class="ol-zoom-in"
+                    title="Zoom in"
+                    type="button"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="ol-zoom-out"
+                    title="Zoom out"
+                    type="button"
+                  >
+                    −
+                  </button>
+                </div>
+                <div
+                  class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                >
+                  <ul />
+                  <button
+                    title="Attributions"
+                    type="button"
+                  >
+                    <span>
+                      i
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--6"
+    >
+      <div
+        class="yourvic-data-block"
+        style="margin-bottom: 10px; margin-right: 10px;"
+      >
+        <div
+          class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+          role=""
+        >
+          <div
+            class="yourvic-data-item"
+          >
+            <h3
+              class="yourvic-data-item__title"
+            >
+              
+    Title
+    
+              <!---->
+            </h3>
+             
+            <p
+              class="yourvic-data-item__description"
+            >
+              @select
+            </p>
+          </div>
+           
+          <!---->
+        </div>
+      </div>
+       
+      <div
+        class="yourvic-data-block"
+        style="margin-bottom: 10px; margin-right: 10px;"
+      >
+        <div
+          class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+          role=""
+        >
+          <div
+            class="yourvic-data-item"
+          >
+            <h3
+              class="yourvic-data-item__title"
+            >
+              
+    Title
+    
+              <!---->
+            </h3>
+             
+            <p
+              class="yourvic-data-item__description"
+            >
+              @click
+            </p>
+          </div>
+           
+          <!---->
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
 <div
   class="yourvic-map-core"
@@ -1045,14 +1212,43 @@ exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1068,7 +1264,6 @@ exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
@@ -1080,8 +1275,153 @@ exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
       >
         Mapbox
       </a>
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Core Popups 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1114,14 +1454,61 @@ exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
           <div
             aria-label="Map"
             class="yourvic-map-core__map"
-            id="map"
             role="application"
             tabindex="0"
           >
              
             <!---->
+            <div
+              class="ol-viewport"
+              style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+            >
+              <div
+                class="ol-unselectable ol-layers"
+                style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+              />
+              <div
+                class="ol-overlaycontainer"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              />
+              <div
+                class="ol-overlaycontainer-stopevent"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              >
+                <div
+                  class="ol-overlay-container ol-selectable"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="yourvic-map-core__popup ol-popup"
+                  >
+                    <!---->
+                  </div>
+                </div>
+                <div
+                  class="ol-zoom ol-unselectable ol-control"
+                >
+                  <button
+                    class="ol-zoom-in"
+                    title="Zoom in"
+                    type="button"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="ol-zoom-out"
+                    title="Zoom out"
+                    type="button"
+                  >
+                    −
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+         
+        <!---->
       </div>
        
       <!---->
@@ -1134,6 +1521,90 @@ exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
       <!---->
     </div>
   </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Core Select Interaction 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1207,7 +1678,6 @@ exports[`YourvicStoryshots Maps/Family Violence Map with family violence data 1`
           <div
             aria-label="Map"
             class="yourvic-map-core__map"
-            id="map"
             role="application"
             tabindex="0"
           >
@@ -1219,8 +1689,69 @@ exports[`YourvicStoryshots Maps/Family Violence Map with family violence data 1`
             >
               Mapbox
             </a>
+            <div
+              class="ol-viewport"
+              style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+            >
+              <div
+                class="ol-unselectable ol-layers"
+                style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+              />
+              <div
+                class="ol-overlaycontainer"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              />
+              <div
+                class="ol-overlaycontainer-stopevent"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              >
+                <div
+                  class="ol-overlay-container ol-selectable"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="yourvic-map-core__popup ol-popup"
+                  >
+                    <!---->
+                  </div>
+                </div>
+                <div
+                  class="ol-zoom ol-unselectable ol-control"
+                >
+                  <button
+                    class="ol-zoom-in"
+                    title="Zoom in"
+                    type="button"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="ol-zoom-out"
+                    title="Zoom out"
+                    type="button"
+                  >
+                    −
+                  </button>
+                </div>
+                <div
+                  class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                >
+                  <ul />
+                  <button
+                    title="Attributions"
+                    type="button"
+                  >
+                    <span>
+                      i
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+         
+        <!---->
       </div>
     </div>
      
@@ -1777,7 +2308,6 @@ exports[`YourvicStoryshots Maps/Fire Map with fire data 1`] = `
       <div
         aria-label="Map"
         class="yourvic-map-core__map"
-        id="map"
         role="application"
         tabindex="0"
       >
@@ -1789,8 +2319,69 @@ exports[`YourvicStoryshots Maps/Fire Map with fire data 1`] = `
         >
           Mapbox
         </a>
+        <div
+          class="ol-viewport"
+          style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-unselectable ol-layers"
+            style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+          />
+          <div
+            class="ol-overlaycontainer"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          />
+          <div
+            class="ol-overlaycontainer-stopevent"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          >
+            <div
+              class="ol-overlay-container ol-selectable"
+              style="position: absolute; display: none;"
+            >
+              <div
+                class="yourvic-map-core__popup ol-popup"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ol-zoom ol-unselectable ol-control"
+            >
+              <button
+                class="ol-zoom-in"
+                title="Zoom in"
+                type="button"
+              >
+                +
+              </button>
+              <button
+                class="ol-zoom-out"
+                title="Zoom out"
+                type="button"
+              >
+                −
+              </button>
+            </div>
+            <div
+              class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            >
+              <ul />
+              <button
+                title="Attributions"
+                type="button"
+              >
+                <span>
+                  i
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1875,7 +2466,6 @@ exports[`YourvicStoryshots Maps/Free Wifi Map with free wifi data 1`] = `
       <div
         aria-label="Map"
         class="yourvic-map-core__map"
-        id="map"
         role="application"
         tabindex="0"
       >
@@ -1887,8 +2477,69 @@ exports[`YourvicStoryshots Maps/Free Wifi Map with free wifi data 1`] = `
         >
           Mapbox
         </a>
+        <div
+          class="ol-viewport"
+          style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-unselectable ol-layers"
+            style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+          />
+          <div
+            class="ol-overlaycontainer"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          />
+          <div
+            class="ol-overlaycontainer-stopevent"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          >
+            <div
+              class="ol-overlay-container ol-selectable"
+              style="position: absolute; display: none;"
+            >
+              <div
+                class="yourvic-map-core__popup ol-popup"
+              >
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ol-zoom ol-unselectable ol-control"
+            >
+              <button
+                class="ol-zoom-in"
+                title="Zoom in"
+                type="button"
+              >
+                +
+              </button>
+              <button
+                class="ol-zoom-out"
+                title="Zoom out"
+                type="button"
+              >
+                −
+              </button>
+            </div>
+            <div
+              class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            >
+              <ul />
+              <button
+                title="Attributions"
+                type="button"
+              >
+                <span>
+                  i
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1905,15 +2556,75 @@ exports[`YourvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
       <!---->
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1929,15 +2640,86 @@ exports[`YourvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
       <!---->
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+          <div
+            class="ol-full-screen ol-unselectable ol-control ol-unsupported"
+          >
+            <button
+              class="ol-full-screen-false"
+              title="Toggle full-screen"
+              type="button"
+            >
+              ⤢
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1953,7 +2735,6 @@ exports[`YourvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
@@ -1962,8 +2743,69 @@ exports[`YourvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
       <!---->
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -1979,15 +2821,75 @@ exports[`YourvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
       <!---->
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -2003,15 +2905,75 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
       <!---->
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -2027,15 +2989,75 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
       <!---->
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -2051,15 +3073,75 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
       <!---->
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -2075,15 +3157,75 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
       <!---->
        
       <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
 </div>
 `;
 
@@ -2099,7 +3241,6 @@ exports[`YourvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
     <div
       aria-label="Map"
       class="yourvic-map-core__map"
-      id="map"
       role="application"
       tabindex="0"
     >
@@ -2112,8 +3253,1031 @@ exports[`YourvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
       >
         Mapbox
       </a>
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
+<div
+  class="yourvic-map-core"
+  style="width: 100%; height: 100%;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+          <div
+            class="ol-full-screen ol-unselectable ol-control ol-unsupported"
+          >
+            <button
+              class="ol-full-screen-false"
+              title="Toggle full-screen"
+              type="button"
+            >
+              ⤢
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
+<div
+  class="yourvic-map-core"
+  style="width: 100%; height: 100%;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+          <div
+            class="ol-full-screen ol-unselectable ol-control ol-unsupported"
+          >
+            <button
+              class="ol-full-screen-false"
+              title="Toggle full-screen"
+              type="button"
+            >
+              ⤢
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <a
+        class="map-watermark"
+        href="http://mapbox.com/about/maps"
+        target="_blank"
+      >
+        Mapbox
+      </a>
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
+<div
+  class="yourvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="yourvic-map-core__container"
+  >
+    <div
+      aria-label="Map"
+      class="yourvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; display: none;"
+          >
+            <div
+              class="yourvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
 </div>
 `;
 
@@ -2333,6 +4497,447 @@ exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
     <!---->
      
     <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
+<div
+  class="rpl-container"
+  style="width: 100%; height: 100%;"
+>
+  <div
+    class="rpl-row"
+  >
+    <div
+      class="rpl-col rpl-col--4"
+    >
+      <div
+        class="yourvic-toggle-list"
+      >
+        <ul
+          class="yourvic-toggle-list__ul"
+        >
+          <li
+            class="yourvic-toggle-item is-active"
+            tabindex="0"
+          >
+            <div
+              class="yourvic-toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="yourvic-toggle-item__title"
+            >
+              Dataset 1
+            </h3>
+             
+            <div
+              class="yourvic-toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+          <li
+            class="yourvic-toggle-item"
+            tabindex="0"
+          >
+            <div
+              class="yourvic-toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="yourvic-toggle-item__title"
+            >
+              Dataset 2
+            </h3>
+             
+            <div
+              class="yourvic-toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+          <li
+            class="yourvic-toggle-item"
+            tabindex="0"
+          >
+            <div
+              class="yourvic-toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="yourvic-toggle-item__title"
+            >
+              Dataset 3
+            </h3>
+             
+            <div
+              class="yourvic-toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+        </ul>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--7"
+    >
+      <div
+        style="width: 100%; height: 90vh;"
+      >
+        <div
+          class="yourvic-line-chart"
+        >
+          <div
+            alt=""
+            aria-label="Line Chart"
+            class=""
+            dataformat="normal"
+            role="img"
+            style="position: relative; height: inherit; width: inherit; outline: none;"
+            tabindex="0"
+          >
+            <canvas
+              class="chartjs-render-monitor"
+              height="0"
+              id="line-chart"
+              style="display: block;"
+              width="0"
+            />
+          </div>
+           
+          <!---->
+           
+          <!---->
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Toggle List Default 1`] = `
+<div>
+  <div
+    class="yourvic-toggle-list"
+  >
+    <ul
+      class="yourvic-toggle-list__ul"
+    >
+      <li
+        class="yourvic-toggle-item is-active"
+        tabindex="0"
+      >
+        <div
+          class="yourvic-toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="yourvic-toggle-item__title"
+        >
+          Item 1
+        </h3>
+         
+        <div
+          class="yourvic-toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+      <li
+        class="yourvic-toggle-item"
+        tabindex="0"
+      >
+        <div
+          class="yourvic-toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="yourvic-toggle-item__title"
+        >
+          Item 2
+        </h3>
+         
+        <div
+          class="yourvic-toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+      <li
+        class="yourvic-toggle-item"
+        tabindex="0"
+      >
+        <div
+          class="yourvic-toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="yourvic-toggle-item__title"
+        >
+          Item 3
+        </h3>
+         
+        <div
+          class="yourvic-toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+      <li
+        class="yourvic-toggle-item is-active"
+        tabindex="0"
+      >
+        <div
+          class="yourvic-toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="yourvic-toggle-item__title"
+        >
+          Item 4
+        </h3>
+         
+        <div
+          class="yourvic-toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+      <li
+        class="yourvic-toggle-item"
+        tabindex="0"
+      >
+        <div
+          class="yourvic-toggle-item__icon-left"
+        >
+          <!---->
+        </div>
+         
+        <h3
+          class="yourvic-toggle-item__title"
+        >
+          Item 5
+        </h3>
+         
+        <div
+          class="yourvic-toggle-item__icon-right"
+        >
+          <!---->
+        </div>
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
+<div
+  class="rpl-container"
+  style="width: 100%;"
+>
+  <div
+    class="rpl-row"
+  >
+    <div
+      class="rpl-col rpl-col--4"
+    >
+      <div
+        class="yourvic-toggle-list"
+      >
+        <ul
+          class="yourvic-toggle-list__ul"
+        >
+          <li
+            class="yourvic-toggle-item is-active"
+            tabindex="0"
+          >
+            <div
+              class="yourvic-toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="yourvic-toggle-item__title"
+            >
+              Basemap
+            </h3>
+             
+            <div
+              class="yourvic-toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+          <li
+            class="yourvic-toggle-item"
+            tabindex="0"
+          >
+            <div
+              class="yourvic-toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="yourvic-toggle-item__title"
+            >
+              Population Growth
+            </h3>
+             
+            <div
+              class="yourvic-toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+          <li
+            class="yourvic-toggle-item"
+            tabindex="0"
+          >
+            <div
+              class="yourvic-toggle-item__icon-left"
+            >
+              <!---->
+            </div>
+             
+            <h3
+              class="yourvic-toggle-item__title"
+            >
+              Hospitals
+            </h3>
+             
+            <div
+              class="yourvic-toggle-item__icon-right"
+            >
+              <!---->
+            </div>
+          </li>
+        </ul>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="rpl-col rpl-col--8"
+    >
+      <div
+        class="yourvic-map-core"
+        style="position: relative; width: 100%; height: 100vh;"
+      >
+         
+        <div
+          class="yourvic-map-core__container"
+        >
+          <div
+            aria-label="Map"
+            class="yourvic-map-core__map"
+            role="application"
+            tabindex="0"
+          >
+            <!---->
+             
+            <!---->
+             
+            <!---->
+             
+            <!---->
+            <div
+              class="ol-viewport"
+              style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+            >
+              <div
+                class="ol-unselectable ol-layers"
+                style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+              />
+              <div
+                class="ol-overlaycontainer"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              />
+              <div
+                class="ol-overlaycontainer-stopevent"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              >
+                <div
+                  class="ol-overlay-container ol-selectable"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="yourvic-map-core__popup ol-popup"
+                  >
+                    <!---->
+                  </div>
+                </div>
+                <div
+                  class="ol-zoom ol-unselectable ol-control"
+                >
+                  <button
+                    class="ol-zoom-in"
+                    title="Zoom in"
+                    type="button"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="ol-zoom-out"
+                    title="Zoom out"
+                    type="button"
+                  >
+                    −
+                  </button>
+                </div>
+                <div
+                  class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                >
+                  <ul />
+                  <button
+                    title="Attributions"
+                    type="button"
+                  >
+                    <span>
+                      i
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
   </div>
 </div>
 `;

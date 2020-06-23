@@ -10,19 +10,25 @@ import TileWMSSource from 'ol/source/TileWMS'
 import OSMSource, { ATTRIBUTION as OSMAttribution } from 'ol/source/OSM'
 import WMTSSource, { optionsFromCapabilities as WMTSOptionsFromCapabilities } from 'ol/source/WMTS'
 import TileArcGISRestSource from 'ol/source/TileArcGISRest'
-import Style from 'ol/style/Style'
-import Text from 'ol/style/Text'
-import Fill from 'ol/style/Fill'
-import Stroke from 'ol/style/Stroke'
-import MVT from 'ol/format/MVT'
-import WFS from 'ol/format/WFS'
+import {
+  Style,
+  Text,
+  Fill,
+  Stroke,
+  Icon,
+  Circle
+} from 'ol/style'
 import Map from 'ol/Map'
 import View from 'ol/View'
 import Feature from 'ol/Feature'
 import Overlay from 'ol/Overlay'
-import Icon from 'ol/style/Icon'
-import GeoJSON from 'ol/format/GeoJSON'
-import { bbox } from 'ol/loadingstrategy'
+import {
+  GeoJSON,
+  EsriJSON,
+  MVT,
+  WFS
+} from 'ol/format'
+import { bbox, tile } from 'ol/loadingstrategy'
 import AnimatedCluster from 'ol-ext/layer/AnimatedCluster'
 import {
   defaults as DefaultInteractions,
@@ -34,8 +40,10 @@ import {
   MouseWheelZoom,
   DragZoom,
   DragRotate,
-  PinchRotate
+  PinchRotate,
+  Select
 } from 'ol/interaction'
+import { click } from 'ol/events/condition'
 import {
   defaults as DefaultControls,
   Zoom,
@@ -46,6 +54,12 @@ import proj4 from 'proj4'
 import { get as getProjection } from 'ol/proj'
 import { register } from 'ol/proj/proj4'
 import TileGrid from 'ol/tilegrid/TileGrid'
+import {
+  createXYZ
+} from 'ol/tilegrid'
+import GeometryType from 'ol/geom/GeometryType'
+import * as Color from 'ol/color'
+import { getCenter } from 'ol/extent'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -65,6 +79,22 @@ const createImageIconStyle = (src, crossOrigin, size) => {
       imgSize: size
     }))
   })
+}
+
+const getRgbaFromString = (colorString, opacity) => {
+  // convert shorthand hex color to 6 digits
+  colorString = colorString.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => {
+    return r + r + g + g + b + b
+  })
+
+  // split hex string with regex
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(colorString)
+  return result ? [
+    parseInt(result[1], 16),
+    parseInt(result[2], 16),
+    parseInt(result[3], 16),
+    opacity
+  ] : [0, 0, 0, opacity]
 }
 
 const registerCustomProjections = () => {
@@ -92,6 +122,7 @@ const createTileGrid = (mapView, zoomLevels, tileSize) => {
 const ol = {
   doFeaturesShareSameLocation,
   createImageIconStyle,
+  getRgbaFromString,
   registerCustomProjections,
   createTileGrid,
   Map: Map,
@@ -126,15 +157,19 @@ const ol = {
     Text,
     Fill,
     Stroke,
-    Icon
+    Icon,
+    Circle,
+    Color
   },
   format: {
     MVT,
     WFS,
-    GeoJSON
+    GeoJSON,
+    EsriJSON
   },
   loadingstrategy: {
-    bbox
+    bbox,
+    tile
   },
   Feature: Feature,
   interaction: {
@@ -147,13 +182,26 @@ const ol = {
     MouseWheelZoom,
     DragZoom,
     DragRotate,
-    PinchRotate
+    PinchRotate,
+    Select
+  },
+  events: {
+    condition: {
+      click
+    }
   },
   proj: {
     getProjection
   },
   tilegrid: {
-    TileGrid
+    TileGrid,
+    createXYZ
+  },
+  geom: {
+    GeometryType
+  },
+  extent: {
+    getCenter
   }
 }
 

@@ -6,7 +6,6 @@
   "license": "Apache-2.0",
   "homepage": "https://ripple.sdp.vic.gov.au",
   "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au/tree/master/packages/global",
-  "private": true,
   "dependencies": {
     "@dpc-sdp/ripple-global": "^1.8.0"
   }

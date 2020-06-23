@@ -1,15 +1,16 @@
 import { mount } from '@vue/test-utils'
-import YourvicMapTileLayer from './../MapTileLayer.vue'
+import YourvicMapVectorTileLayer from './../MapVectorTileLayer.vue'
 
-describe('YourvicMapTileLayer', () => {
+describe('YourvicMapVectorTileLayer', () => {
   let mockMap = {
     removeLayer: jest.fn(() => true),
     addLayer: jest.fn(() => true)
   }
 
-  const wrapper = mount(YourvicMapTileLayer, {
+  const wrapper = mount(YourvicMapVectorTileLayer, {
     propsData: {
-      type: 'OSM'
+      loader: () => {},
+      dataFormat: 'MVT'
     },
     provide: {
       getMap: () => {

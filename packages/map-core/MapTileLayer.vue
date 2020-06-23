@@ -35,29 +35,12 @@ export default {
       default: () => ({})
     },
     /**
-     * The data source projection as an SRS identifier string. Defaults to the projection of the Map, which in
-     * OpenLayers defaults to ```EPSG:3857``` (Web Mercator). ```EPSG:4326``` (WGS84) is also supported out of the box.
-     * Experimental support for ```EPSG:4283``` (GDA94) is also provided.
-     */
-    projection: {
-      type: String,
-      default: undefined
-    },
-    /**
      * Optional tile size as an array of numbers: ```[width, height]```. If undefined, will default to 256x256 or
      * 512x512 if using hidpi.
      */
     tileSize: {
       type: Array,
       default: () => undefined
-    },
-    /**
-     * Attributions for the layer data source as an array of strings. Will be automatically displayed by the Map
-     * attribution control if enabled.
-     */
-    attributions: {
-      type: Array,
-      default: () => []
     },
     /**
      * Duration of the opacity transition when rendering map tiles. To disable transition, set to 0.
@@ -92,13 +75,7 @@ export default {
     async params (newValue) {
       await this.configureLayer()
     },
-    async projection (newValue) {
-      await this.configureLayer()
-    },
     async tileSize (newValue) {
-      await this.configureLayer()
-    },
-    async attributions (newValue) {
       await this.configureLayer()
     },
     async transition (newValue) {
@@ -110,9 +87,6 @@ export default {
     async serverType (newValue) {
       await this.configureLayer()
     }
-  },
-  data: function () {
-    return {}
   },
   computed: {
     tileGrid: function () {
@@ -152,7 +126,8 @@ export default {
         source: this.layerSource,
         opacity: this.opacity,
         extent: this.extent,
-        zIndex: this.zIndex
+        zIndex: this.zIndex,
+        visible: this.visible
       })
 
       // Add layer to map

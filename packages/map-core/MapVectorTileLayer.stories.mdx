@@ -1,0 +1,372 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import fetch from 'isomorphic-fetch'
+import {
+  YourvicMapCore,
+  YourvicMapTileLayer,
+  YourvicMapVectorTileLayer,
+  Style,
+  Stroke,
+  Fill,
+  EsriJSON
+} from './index.js'
+
+<Meta title="Maps/Vector Tile Layer" component={ YourvicMapVectorTileLayer } decorators={ [withKnobs] } />
+
+# Map Vector Tile Layer
+
+<Description of={ YourvicMapVectorTileLayer } type='docgen' />
+
+## Installation
+
+```shell
+npm install @dpc-sdp/yourvic-map-core --save
+```
+
+## Import
+
+```javascript
+import { YourvicMapCore, YourvicMapVectorTileLayer } from '@dpc-sdp/yourvic-map-core'
+```
+
+## Usage
+
+One or more ```yourvic-map-vector-tile-layer``` components can be declared as children of ```yourvic-map-core```.
+
+```html
+<yourvic-map-core
+  :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
+  :center="[16138405.843820328, -4552817.013522999]"
+>
+  <yourvic-map-vector-tile-layer
+    url="https://ahocevar.com/geoserver/gwc/service/tms/1.0.0/ne:ne_10m_admin_0_countries@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf"
+    dataFormat="MVT"
+  />
+</yourvic-map-core>
+```
+
+## Props
+
+<Props of={ YourvicMapVectorTileLayer } />
+
+## Configurable Layer
+
+This example provides options to test different layer configurations.
+
+<Preview>
+  <Story name="Configurable Layer">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :baseMapUrl="baseMapUrl"
+          :baseMapAttributions="baseMapAttributions"
+          :enableMapboxWatermark="enableMapboxWatermark"
+          :center="center"
+          :projection="mapProjection == '' ? undefined : mapProjection"
+          :zoom="zoom"
+          :minZoom="minZoom"
+          :maxZoom="maxZoom"
+          enableZoomControl
+          enableAttributionControl
+          enableFullScreenControl
+          enablePanInteraction
+          enableZoomInteraction
+          enableRotateInteraction
+        >
+          <yourvic-map-vector-tile-layer
+            :url="decodeURIComponent(layerUrl.url)"
+            :dataFormat="layerDataFormat"
+            :projection="layerProjection == '' ? undefined : layerProjection"
+            :extent="layerExtent.length && layerExtent.length > 0 ? layerExtent : undefined"
+            :attributions="layerAttributions"
+            :opacity="layerOpacity"
+          />
+        </yourvic-map-core>`,
+        props: {
+          layerUrl: {
+            default: () => object('URL', {
+              url: 'https://ahocevar.com/geoserver/gwc/service/tms/1.0.0/ne:ne_10m_admin_0_countries@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf'
+            }, 'layer')
+          },
+          layerDataFormat: {
+            default: select('Data Format', { MVT: 'MVT'}, 'MVT', 'layer')
+          },
+          layerProjection: {
+            default: () => text('Projection', '', 'layer')
+          },
+          layerExtent: {
+            default: () => object('Extent', [], 'layer')
+          },
+          layerAttributions: {
+            default: () => object('Attributions', [], 'layer')
+          },
+          layerOpacity: {
+            default: () => number('Opacity', 1, {}, 'layer')
+          },
+          baseMapUrl: {
+            default: text('Base Map URL', '', 'map')
+          },
+          baseMapAttributions: {
+            default: () => object('Base Map Attributions', [], 'map')
+          },
+          enableMapboxWatermark: {
+            default: boolean('Enable Mapbox Watermark', false, 'map')
+          },
+          containerStyle: {
+            default: () => object('Container Style', { width: '100%', height: '100%' }, 'map')
+          },
+          center: {
+            default: () => object('Center', [16137905.843820328, -4555057.013522999], 'map')
+          },
+          mapProjection: {
+            default: '' // Cannot be updated after map is loaded
+          },
+          zoom: {
+            default: number('Zoom', 7,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              },
+              'map'
+            )
+          },
+          minZoom: {
+            default: number('Min Zoom', 1,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              },
+              'map'
+            )
+          },
+          maxZoom: {
+            default: number('Max Zoom', 20,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              },
+              'map'
+            )
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## MyVictoria WMTS
+
+Vector Tiles can be requested from a WMTS endpoint using OpenLayers to replace x, y anx z parameters in the URL.
+MyVictoria uses Mapbox styles but requires some layer specific configuration before the style can be used.
+
+<Preview>
+  <Story name="MyVictoria WMTS">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="11"
+        >
+          <yourvic-map-vector-tile-layer
+            :url="getVectorTileWmtsUrl()"
+            dataFormat="MVT"
+            mapboxStyleMethod="stylefunction"
+            :mapboxStyle="mapboxStyle"
+            mapboxStyleSource="Blue"
+          />
+        </yourvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            mapboxStyle: undefined
+          }
+        },
+        async mounted () {
+          this.mapboxStyle = await this.getMapboxStyle()
+        },
+        methods: {
+          getVectorTileWmtsUrl: () => {
+            let path = `https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/gwc/service/wmts`
+            let queryParams = {
+              SERVICE: 'WMTS',
+              REQUEST: 'GetTile',
+              VERSION: '1.0.0',
+              LAYER: `myvic:population_suburb_map`,
+              STYLE: '',
+              TILEMATRIX: `EPSG:3857:{z}`,
+              TILEMATRIXSET: 'EPSG:3857',
+              FORMAT: 'application/x-protobuf;type=mapbox-vector',
+              TILECOL: '{x}',
+              TILEROW: '{y}'
+            }
+            let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
+            return `${path}?${queryParamsString}`
+          },
+          getMapboxStyle: async () => {
+            let response = await fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Blue.MBStyle')
+            let glStyle =  await response.json()
+            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
+            let fillStops = glStyle.layers[0].paint['fill-color'].stops
+            fillStops.forEach((stop, idx) => {
+              stop[0] = parseFloat(populationStops[idx])
+            })
+            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
+            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
+            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
+            glStyle.sources = {
+              Blue: {
+                type: 'vector'
+              }
+            }
+            return glStyle
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## MyVictoria WMS
+
+Vector Tiles can be requested from a WMS endpoint using a custom tile URL function to generate urls based on the layers
+Tile Grid. MyVictoria uses Mapbox styles but requires some layer specific configuration before the style can be used.
+
+<Preview>
+  <Story name="MyVictoria WMS">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="11"
+          :popupContentFunction="generatePopupContent"
+        >
+          <yourvic-map-vector-tile-layer
+            :urlFunction="getVectorTileWmsUrl"
+            :enablePopup="true"
+            dataFormat="MVT"
+            :overlaps="false"
+            mapboxStyleMethod="stylefunction"
+            :mapboxStyle="mapboxStyle"
+            mapboxStyleSource="Pink"
+          />
+        </yourvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            mapboxStyle: undefined
+          }
+        },
+        async mounted () {
+          this.mapboxStyle = await this.getMapboxStyle()
+        },
+        methods: {
+          getVectorTileWmsUrl: (tileCoord, pixelRatio, projection, layerSource) => {
+            let path = `https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wms`
+            const tileExtent = layerSource.tileGrid.getTileCoordExtent(tileCoord)
+            const tileSize = layerSource.tileGrid.getTileSize()
+            let queryParams = {
+              SERVICE: 'WMS',
+              VERSION: '1.1.1',
+              REQUEST: 'GetMap',
+              LAYERS: `myvic:population_suburb_map`,
+              BBOX: tileExtent.join(','),
+              WIDTH: tileSize,
+              HEIGHT: tileSize,
+              SRS: projection.getCode(),
+              FORMAT: 'application/x-protobuf;type=mapbox-vector'
+            }
+            let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
+            return `${path}?${queryParamsString}`
+          },
+          getMapboxStyle: async () => {
+            let response = await fetch('https://gis-app.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Pink.MBStyle')
+            let glStyle =  await response.json()
+            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
+            let fillStops = glStyle.layers[0].paint['fill-color'].stops
+            fillStops.forEach((stop, idx) => {
+              stop[0] = parseFloat(populationStops[idx])
+            })
+            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
+            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
+            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
+            glStyle.sources = {
+              Pink: {
+                type: 'vector'
+              }
+            }
+            return glStyle
+          },
+          generatePopupContent: function (features) {
+            return {
+              title: features[0].get('full_name'),
+              content: 'Population Growth: ' + features[0].get('total_population_growth')
+            }
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Mapbox Bright
+
+```ol-mapbox-styles``` can be used to apply a complete Mapbox style to an OpenLayers map, including all layer styles and
+data sources.
+
+<Preview>
+  <Story name="Mapbox Bright">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="11"
+          enableMapboxWatermark
+        >
+          <yourvic-map-vector-tile-layer
+            dataFormat="MVT"
+            :overlaps="false"
+            mapboxStyle="https://api.mapbox.com/styles/v1/mapbox/bright-v9?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+            :attributions="attributions"
+          />
+        </yourvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            mapboxStyle: undefined,
+            attributions: [
+              '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+            ]
+          }
+        },
+        async mounted () {
+          this.mapboxStyle = await this.getMapboxStyle()
+        },
+        methods: {
+          getMapboxStyle: async () => {
+            let response = await fetch('https://gis-app.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Blue.MBStyle')
+            let glStyle =  await response.json()
+            return glStyle
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>

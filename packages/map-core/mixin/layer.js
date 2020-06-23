@@ -1,6 +1,6 @@
 export default {
   components: {},
-  inject: ['getMap'],
+  inject: ['getMap', 'interceptError'],
   props: {
     /**
      * Optional bounding extent for layer rendering, defined as an array of numbers: ```[minx, miny, maxx, maxy]```.
@@ -25,6 +25,37 @@ export default {
     zIndex: {
       type: Number,
       default: undefined
+    },
+    /**
+     * The data source projection as an SRS identifier string. Defaults to the projection of the Map, which in
+     * OpenLayers defaults to ```EPSG:3857``` (Web Mercator). ```EPSG:4326``` (WGS84) is also supported out of the box.
+     * Experimental support for ```EPSG:4283``` (GDA94) is also provided.
+     */
+    projection: {
+      type: String,
+      default: undefined
+    },
+    /**
+     * Attributions for the layer data source as an array of strings. Will be automatically displayed by the Map
+     * attribution control if enabled.
+     */
+    attributions: {
+      type: Array,
+      default: () => []
+    },
+    /**
+     * Enable the popup to be shown for features of the layer
+     */
+    enablePopup: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Set whether the layer is visible. Useful when toggling layer visibility
+     */
+    visible: {
+      type: Boolean,
+      default: true
     }
   },
   data: function () {
@@ -39,10 +70,22 @@ export default {
       await this.configureLayer()
     },
     async opacity (newValue) {
-      await this.configureLayer()
+      await this.layer.setOpacity(newValue)
     },
     async zIndex (newValue) {
       await this.configureLayer()
+    },
+    async projection (newValue) {
+      await this.configureLayer()
+    },
+    async attributions (newValue) {
+      await this.configureLayer()
+    },
+    async enablePopup (newValue) {
+      await this.configureLayer()
+    },
+    async visible (newValue) {
+      await this.layer.setVisible(newValue)
     }
   },
   methods: {
