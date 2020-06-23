@@ -58,6 +58,7 @@ $rpl-dev-error-text-color: $rpl-danger-color !default;
   &--autocomplete {
     padding-top: 10px;
     padding-bottom: 10px;
+  }
 
   &--map {
     background-size: $error-grid-size;

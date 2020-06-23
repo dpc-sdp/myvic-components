@@ -1,17 +1,13 @@
 <template>
-  <form
-    action=""
-    @submit.prevent>
-    <auto-complete
-      id="address-search"
-      :items="addresses"
-      :filter="filter"
-      resultItemLineStyle="single"
-      :showIcon="true"
-      :getIcon="() => 'map_marker'"
-      @item-selected="selectAddress"
-    />
-  </form>
+  <auto-complete
+    id="address-search"
+    :items="addresses"
+    :filter="filter"
+    resultItemLineStyle="single"
+    :showIcon="true"
+    :getIcon="() => 'map_marker'"
+    @item-selected="selectAddress"
+  />
 </template>
 <script>
 

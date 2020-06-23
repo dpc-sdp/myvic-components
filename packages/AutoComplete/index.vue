@@ -1,57 +1,60 @@
 <template>
-  <div class="yourvic-auto-complete">
-    <div class="yourvic-auto-complete__input-wrapper">
-      <input
-        ref="input"
-        aria-label="Search"
-        v-model.trim="query"
-        autocomplete="off"
-        class="yourvic-auto-complete__input"
-        type="text"
-        name="yourvic-auto-complete"
-        placeholder="Search"
-        value=""
-        @keyup.enter="onEnter"
-        @focus="onChange"
-        @keyup.down="onKeyDown"
-        @keyup.up="onKeyUp"
-        @submit="onSubmit">
-      <rpl-icon
-        v-if="fetching"
-        class="yourvic-auto-complete__icon"
-        symbol="search"
-        color="extra_dark_neutral"
-        size="m"
-      />
-      <rpl-icon
-        v-if="!query.length"
-        class="yourvic-auto-complete__icon"
-        symbol="search"
-        color="extra_dark_neutral"
-        size="m"
-      />
-      <ButtonClose
-        v-if="query.length"
-        size="m"
-        @click="onClear"
-      />
+  <form
+    action=""
+    @submit.prevent>
+    <div class="yourvic-auto-complete">
+      <div class="yourvic-auto-complete__input-wrapper">
+        <input
+          ref="input"
+          aria-label="Search"
+          v-model.trim="query"
+          autocomplete="off"
+          class="yourvic-auto-complete__input"
+          type="text"
+          name="yourvic-auto-complete"
+          placeholder="Search"
+          value=""
+          @keyup.enter="onEnter"
+          @focus="onChange"
+          @keyup.down="onKeyDown"
+          @keyup.up="onKeyUp">
+        <rpl-icon
+          v-if="fetching"
+          class="yourvic-auto-complete__icon"
+          symbol="search"
+          color="extra_dark_neutral"
+          size="m"
+        />
+        <rpl-icon
+          v-if="!query.length"
+          class="yourvic-auto-complete__icon"
+          symbol="search"
+          color="extra_dark_neutral"
+          size="m"
+        />
+        <ButtonClose
+          v-if="query.length"
+          size="m"
+          @click="onClear"
+        />
+      </div>
+      <search-results
+        v-if="!gotError"
+        v-show="showResults"
+        :active-index="activeIndex"
+        :result-item-line-style="resultItemLineStyle"
+        :get-item-name="getItemName"
+        :get-item-secondary-text="getItemSecondaryText"
+        :showIcon="showIcon"
+        :get-icon="getIcon"
+        :highlight-match="false"
+        :items="results"
+        :query="validQuery"
+        class="yourvic-auto-complete__results"
+        @item-selected="selectResult" />
+      <error v-if="gotError" :message="error.toString()" errorClass="autocomplete" />
     </div>
-    <search-results
-      v-if="!gotError"
-      v-show="showResults"
-      :active-index="activeIndex"
-      :result-item-line-style="resultItemLineStyle"
-      :get-item-name="getItemName"
-      :get-item-secondary-text="getItemSecondaryText"
-      :showIcon="showIcon"
-      :get-icon="getIcon"
-      :highlight-match="false"
-      :items="results"
-      :query="validQuery"
-      class="yourvic-auto-complete__results"
-      @item-selected="selectResult" />
-    <error v-if="gotError" :message="error.toString()" errorClass="autocomplete" />
-  </div>
+  </form>
 </template>
 <script>
 
@@ -241,9 +244,6 @@ export default {
     onClear () {
       this.query = ''
       this.resultSelected = false
-    },
-    onSubmit () {
-      console.log('submit')
     },
     orderResults (results) {
       let firstCharMatches = []
