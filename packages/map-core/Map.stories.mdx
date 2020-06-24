@@ -265,8 +265,9 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
         methods: {
           generatePopupContent: function (features) {
             return {
-              title: features[0].get('full_name'),
-              content: 'Population Growth: ' + features[0].get('total_population_growth')
+              title: features[0].get('ssc_name'),
+              value: 'Population Growth: ' + features[0].get('total_population_growth').toFixed(1) + '%',
+              content: 'Longer content can optionally be placed here.'
             }
           },
           getVectorTileWmsUrl: (tileCoord, pixelRatio, projection, layerSource) => {
@@ -492,8 +493,9 @@ https://www.w3.org/WAI/tutorials/images/examples/2014-first-qtr/
         methods: {
           generatePopupContent: function (features) {
             return {
-              title: features[0].get('full_name'),
-              content: 'Population Growth: ' + features[0].get('total_population_growth')
+              title: features[0].get('ssc_name'),
+              value: 'Population Growth: ' + features[0].get('total_population_growth').toFixed(1) + '%',
+              content: 'Longer content can optionally be placed here.'
             }
           },
           getVectorTileWmsUrl: (tileCoord, pixelRatio, projection, layerSource) => {
