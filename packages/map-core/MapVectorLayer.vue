@@ -69,6 +69,13 @@ export default {
       default: undefined
     },
     /**
+     * Control if the default style should only display labels (not markers or shapes)
+     */
+    labelOnly: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Enable or disable decluttering on the layer
      */
     declutter: {
@@ -81,16 +88,22 @@ export default {
     overlaps: {
       type: Boolean,
       default: true
+    },
+    /**
+     * Configure whether the layer should automatically zoom to its extent when loaded or reconfigured
+     * (using postrender)
+     */
+    zoomToExtent: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
     async url (newValue) {
-      this.layerSource.setUrl(newValue)
-      await this.layerSource.refresh()
+      await this.configureLayer()
     },
     async urlFunction (newValue) {
-      this.layerSource.setUrl(newValue)
-      await this.layerSource.refresh()
+      await this.configureLayer()
     },
     async loader (newValue) {
       await this.configureLayer()
@@ -107,10 +120,16 @@ export default {
     async labelAttribute (newValue) {
       await this.configureLayer()
     },
+    async labelOnly (newValue) {
+      await this.configureLayer()
+    },
     async declutter (newValue) {
       await this.configureLayer()
     },
     async overlaps (newValue) {
+      await this.configureLayer()
+    },
+    async zoomToExtent (newValue) {
       await this.configureLayer()
     }
   },
@@ -144,7 +163,9 @@ export default {
     configureLayer: async function () {
       // Get map and remove any previous version of layer
       this.map = await this.getOLMap()
-      if (this.map == null) { return }
+      if (this.map == null) {
+        return
+      }
       this.map.removeLayer(this.layer)
 
       // If url function is provided, wrap it in a function so we can pass in the vector source
@@ -171,7 +192,7 @@ export default {
         strategy: this.strategy,
         projection: this.projection,
         overlaps: this.overlaps,
-        attributions: this.attributions.concat([ol.source.OSMAttribution])
+        attributions: this.attributions
       })
 
       // Create layer
@@ -180,7 +201,7 @@ export default {
         opacity: this.opacity,
         extent: this.extent,
         zIndex: this.zIndex,
-        style: this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute),
+        style: this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute, this.labelOnly, false),
         declutter: true,
         visible: this.visible
       })
@@ -188,8 +209,28 @@ export default {
       // Set flag used to check if popups are enabled for this layer
       this.layer.set('enablePopup', this.enablePopup)
 
+      // Zoom to layer extent on postrender
+      if (this.zoomToExtent) {
+        this.layer.once('postrender', (event) => {
+          this.zoomToLayerExtent(20, 1000)
+        })
+      }
+
       // Add layer to map
       this.map.addLayer(this.layer)
+    },
+    zoomToLayerExtent: function (padding, duration) {
+      let extent = this.layerSource.getExtent()
+      if (extent) {
+        this.map.getView().fit(
+          this.layerSource.getExtent(),
+          {
+            padding: [padding, padding, padding, padding],
+            duration,
+            constrainResolution: false
+          }
+        )
+      }
     }
   }
 }

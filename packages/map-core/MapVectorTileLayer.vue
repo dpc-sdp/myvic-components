@@ -88,6 +88,13 @@ export default {
       default: undefined
     },
     /**
+     * Control if the default style should only display labels (not markers or shapes)
+     */
+    labelOnly: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Configure the layer render mode
      */
     renderMode: {
@@ -137,6 +144,9 @@ export default {
       await this.configureLayer()
     },
     async labelAttribute (newValue) {
+      await this.configureLayer()
+    },
+    async labelOnly (newValue) {
       await this.configureLayer()
     },
     async renderMode (newValue) {
@@ -190,7 +200,7 @@ export default {
         format: this.format,
         projection: this.projection,
         overlaps: this.overlaps,
-        attributions: this.attributions.concat([ol.source.OSMAttribution])
+        attributions: this.attributions
       })
 
       // Create layer
@@ -200,7 +210,7 @@ export default {
         opacity: this.opacity,
         extent: this.extent,
         zIndex: this.zIndex,
-        style: this.mapboxStyle ? undefined : (this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute)),
+        style: this.mapboxStyle ? undefined : (this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute, this.labelOnly, false)),
         declutter: true,
         visible: this.visible
       })

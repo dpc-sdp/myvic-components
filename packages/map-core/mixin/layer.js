@@ -37,7 +37,9 @@ export default {
     },
     /**
      * Attributions for the layer data source as an array of strings. Will be automatically displayed by the Map
-     * attribution control if enabled.
+     * attribution control (which is enabled by default). An attribution can include links,
+     * for example: ```<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>```. This can be used to
+     * provide links to accessible alternative content (similar to the longdesc attribute for an img).
      */
     attributions: {
       type: Array,

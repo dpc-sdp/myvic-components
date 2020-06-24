@@ -6,6 +6,7 @@ import {
   YourvicMapCore,
   YourvicMapTileLayer,
   YourvicMapVectorTileLayer,
+  YourvicMapVectorLayer,
   Style,
   Stroke,
   Fill,
@@ -172,7 +173,7 @@ MyVictoria uses Mapbox styles but requires some layer specific configuration bef
   <Story name="MyVictoria WMTS">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
+        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer, YourvicMapVectorLayer },
         template: `<yourvic-map-core
           :containerStyle="containerStyle"
           :center="center"
@@ -185,12 +186,19 @@ MyVictoria uses Mapbox styles but requires some layer specific configuration bef
             :mapboxStyle="mapboxStyle"
             mapboxStyleSource="Blue"
           />
+          <yourvic-map-vector-layer
+            :url="labelLayerUrl"
+            dataFormat="GeoJSON"
+            labelAttribute="ssc_name"
+            labelOnly
+          />
         </yourvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
             center: [16138405.843820328, -4552817.013522999],
-            mapboxStyle: undefined
+            mapboxStyle: undefined,
+            labelLayerUrl: 'https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=myvic:label_suburb&SRSNAME=EPSG:3857&OUTPUTFORMAT=application/json'
           }
         },
         async mounted () {
