@@ -16,7 +16,7 @@ exports[`YourvicStoryshots AddressSearch Default 1`] = `
           autocomplete="off"
           class="yourvic-auto-complete__input"
           name="yourvic-auto-complete"
-          placeholder="Search"
+          placeholder="Search for an address"
           type="text"
           value=""
         />
@@ -68,7 +68,7 @@ exports[`YourvicStoryshots AreaSearch Default 1`] = `
           autocomplete="off"
           class="yourvic-auto-complete__input"
           name="yourvic-auto-complete"
-          placeholder="Search"
+          placeholder="Search by postcode, suburb, Local Government Area or Region..."
           type="text"
           value=""
         />

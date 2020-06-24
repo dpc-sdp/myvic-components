@@ -3,6 +3,7 @@
     id="area-search"
     :items="areas"
     resultItemLineStyle="single"
+    placeholder="Search by postcode, suburb, Local Government Area or Region..."
     :showIcon="true"
     :getIcon="() => 'map_marker'"
     @item-selected="selectArea"

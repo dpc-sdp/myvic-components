@@ -12,7 +12,7 @@
           class="yourvic-auto-complete__input"
           type="text"
           name="yourvic-auto-complete"
-          placeholder="Search"
+          :placeholder="placeholder"
           value=""
           @keyup.enter="onEnter"
           @focus="onChange"
@@ -128,6 +128,13 @@ export default {
     initialValue: {
       type: String,
       default: ''
+    },
+    /**
+     * The placeholder text for the text input
+     */
+    placeholder: {
+      type: String,
+      default: 'Search'
     },
     /**
      * If this is set to true, some of the component styles will be adjusted

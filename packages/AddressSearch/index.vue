@@ -4,6 +4,7 @@
     :items="addresses"
     :filter="filter"
     resultItemLineStyle="single"
+    placeholder="Search for an address"
     :showIcon="true"
     :getIcon="() => 'map_marker'"
     @item-selected="selectAddress"
