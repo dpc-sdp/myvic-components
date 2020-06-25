@@ -68,7 +68,7 @@ export default {
       //}
 
       .data-overlay & {
-        margin-bottom: rem-calc(2px);
+        margin-bottom: rem-calc(2);
 
         //@include breakpoint(medium) {
         margin-bottom: rem-calc(7);

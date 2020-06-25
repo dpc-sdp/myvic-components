@@ -28,7 +28,7 @@ const settings = {
     gridLines: {
       display: true,
       lineWidth: 1,
-      color: styles.gridLineColor,
+      color: styles.gridLineColorLight,
       drawTicks: false,
       drawBorder: false
     },

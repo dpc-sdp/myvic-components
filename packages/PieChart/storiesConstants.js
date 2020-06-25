@@ -6,11 +6,11 @@ export const pieChartTemplate = `
 </div>
 `
 export const chartData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
   datasets: [
     {
       label: 'Dataset 1',
-      data: [22, 20, 12, 10, 13, 39]
+      data: [22, 20, 12, 10, 13, 39, 23, 12, 5, 7, 9, 4]
     }
   ]
 }
