@@ -3,7 +3,9 @@
     class="yourvic-data-block">
     <div
       :class="{ 'yourvic-data-block__item--selectable': selectable, 'yourvic-data-block__item--isBlock': isBlock }"
-      class="yourvic-data-block__item" :role="selectable ? 'button' : ''" >
+      class="yourvic-data-block__item"
+      :role="selectable ? 'button' : ''"
+      @click="$emit('data-block-selected', id)">
       <data-item v-bind="data" />
       <span
         v-if="selectable"
@@ -34,6 +36,13 @@ export default {
   },
   props: {
     /**
+     * The id of this DataBlock. This will be passed on to the click event so that handlers recognize which DataBlock component was clicked
+     */
+    id: {
+      type: String,
+      default: 'data-block'
+    },
+    /**
      * The props to pass on to the DataItem component. The mandatory props are title (string) and description (string)
      */
     data: {
@@ -59,7 +68,6 @@ export default {
 
 <style lang="scss">
   @import "~@dpc-sdp/yourvic-global/styles/global";
-  $hoverColor: #e5f0fa;
   $borderColor: rgba(#0052c2, 0.3);
 
   .yourvic-data-block {
@@ -105,8 +113,8 @@ export default {
           border: 1px solid $borderColor;
 
           .yourvic-data-block__link-text {
-            margin-right: 5px;
-            transition: all 0.075s ease-out;
+            margin-right: 6px;
+            transition: all 0.175s ease-out;
           }
         }
         // }

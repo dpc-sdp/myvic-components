@@ -1,0 +1,117 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import AutoComplete from './index.vue'
+import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { autoCompleteTemplate, acItems, getItemSecondaryText } from './storiesConstants.js'
+
+<Meta title="Autocomplete" component={ AutoComplete } decorators={ [withKnobs] } />
+
+# Autocomplete
+
+<Description of={ AutoComplete } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-autocomplete --save
+```
+
+## Import
+
+```javascript
+import { AutoComplete } from '@dpc-sdp/yourvic-autocomplete'
+```
+
+## Usage
+
+```html
+<auto-complete
+  :items="items"
+  :filter="filterFunction"
+/>
+```
+
+## Props
+
+<Props of={ AutoComplete } />
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { AutoComplete },
+        template: autoCompleteTemplate,
+        props: {
+          items: {
+            default: () => object('items', acItems)
+          },
+          resultItemLineStyle: {
+            default: () => select('result item line style', { double: 'double', single: 'single' }, 'double')
+          },
+          getItemSecondaryText: {
+            default: () => getItemSecondaryText
+          },
+          showIcon: {
+            default: boolean('showIcon', false)
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## With Icon
+
+<Preview>
+  <Story name="With Icon">
+    {
+      {
+        components: { AutoComplete },
+        template: autoCompleteTemplate,
+        props: {
+          items: {
+            default: () => acItems
+          },
+          resultItemLineStyle: {
+            default: () => 'double'
+          },
+          getItemSecondaryText: {
+            default: () => getItemSecondaryText
+          },
+          showIcon: {
+            default: () => true
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Single line result with tag
+
+<Preview>
+  <Story name="Single line result with tag">
+    {
+      {
+        components: { AutoComplete },
+        template: autoCompleteTemplate,
+        props: {
+          items: {
+            default: () => acItems
+          },
+          resultItemLineStyle: {
+            default: () => 'single'
+          },
+          getItemSecondaryText: {
+            default: () => ({ tag }) => tag
+          },
+          showIcon: {
+            default: () => true
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>

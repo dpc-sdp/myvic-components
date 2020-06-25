@@ -1,0 +1,48 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import AddressSearch from './index.vue'
+import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+import { addressSearchTemplate } from './storiesConstants.js'
+
+<Meta title="AddressSearch" component={ AddressSearch } decorators={ [withKnobs] } />
+
+# AddressSearch
+
+<Description of={ AddressSearch } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-addresssearch --save
+```
+
+## Import
+
+```javascript
+import { AddressSearch } from '@dpc-sdp/yourvic-addresssearch'
+```
+
+## Usage
+
+```html
+<address-search />
+```
+
+## Props
+
+<Props of={ AddressSearch } />
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { AddressSearch },
+        template: addressSearchTemplate,
+        props: {
+        }
+      }
+    }
+  </Story>
+</Preview>
