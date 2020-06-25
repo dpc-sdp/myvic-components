@@ -3,7 +3,7 @@ import BarChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
-import { barChartTemplate, chartData, dualChartData } from './storiesConstants.js'
+import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData } from './storiesConstants.js'
 
 <Meta title="Bar Chart" component={ BarChart } decorators={ [withKnobs] } />
 
@@ -51,7 +51,9 @@ The data object that should contain the following keys:
         components: { BarChart },
         template: `
           <div :style="divStyle">
-            <bar-chart :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
+            <bar-chart :title="title" :direction="direction" :data="data" :stacked="stacked" 
+              :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" 
+            />
           </div>
         `,
         props: {
@@ -63,6 +65,9 @@ The data object that should contain the following keys:
           },
           data: {
             default: () => object('data', chartData)
+          },
+          stacked: {
+            default: () => boolean('stacked', false)
           },
           showLegend: {
             default: boolean('showLegend', false)
@@ -137,6 +142,27 @@ The data object that should contain the following keys:
         direction: { default: () => 'horizontal' },
         title: { default: () => 'Dual Chart' },
         data: { default: () => dualChartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Dual Data (stacked)
+
+<Preview>
+  <Story name="Stacked Bar Chart">
+    {
+      {
+       components: { BarChart },
+       template: stackedBarChartTemplate,
+       props: {
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Dual Chart' },
+        data: { default: () => dualChartData },
+        stacked: { default: () => true },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }

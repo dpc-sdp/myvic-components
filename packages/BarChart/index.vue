@@ -61,6 +61,13 @@ export default {
       type: Object
     },
     /**
+     * Whether to stack the datasets, creating a Stacked Bar Chart
+     */
+    stacked: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Whether to show a legend underneath the chart
      */
     showLegend: {
@@ -138,12 +145,12 @@ export default {
           responsive: true,
           title: builder.getTitle(this.title),
           scales: {
-            xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat),
-            yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat)
+            xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat, this.stacked),
+            yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat, this.stacked)
           },
           legend: builder.getLegend(this.showLegend),
           tooltips: builder.getTooltips(this.direction, this.dataFormat),
-          plugins: builder.getPlugin(this.dataFormat)
+          plugins: builder.getPlugin(this.dataFormat, this.stacked)
         }
         return options
       } catch (error) {
