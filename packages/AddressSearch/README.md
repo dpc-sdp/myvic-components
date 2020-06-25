@@ -1,6 +1,6 @@
 # @dpc-sdp/yourvic-addresssearch
 
-A component for looking up addresses using an autocomplete search.
+A component for looking up addresses in Victoria using an autocomplete search.
 
 It emits an event when an item in the list is selected.
 
