@@ -150,7 +150,7 @@ The data object that should contain the following keys:
   </Story>
 </Preview>
 
-## Dual Data
+## Dual Data (stacked)
 
 <Preview>
   <Story name="Stacked Bar Chart">
@@ -162,6 +162,7 @@ The data object that should contain the following keys:
         direction: { default: () => 'horizontal' },
         title: { default: () => 'Dual Chart' },
         data: { default: () => dualChartData },
+        stacked: { default: () => true },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }

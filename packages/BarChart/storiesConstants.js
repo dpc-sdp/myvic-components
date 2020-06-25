@@ -8,7 +8,7 @@ export const barChartTemplate = `
 
 export const stackedBarChartTemplate = `
 <div style="width: 400px; height: 400px">
-  <bar-chart :title="title" :direction="direction" :data="data" :stacked="true" :showLegend="showLegend" :dataFormat="dataFormat" />
+  <bar-chart :title="title" :direction="direction" :data="data" :stacked="stacked" :showLegend="showLegend" :dataFormat="dataFormat" />
 </div>
 `
 
