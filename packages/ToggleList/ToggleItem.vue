@@ -121,6 +121,7 @@ export default {
       }
     }
     &__icon-right {
+      box-sizing: content-box;
       width: 16px;
       height: 16px;
       line-height: 18px;

@@ -38,7 +38,8 @@ module.exports = async ({ config, mode }) => {
       exclude: [
         resolve("static/custom_icons/"),
         resolve("../node_modules/@dpc-sdp/ripple-icon"),
-        resolve("../packages/DataBlock/node_modules/@dpc-sdp/ripple-icon/assets/img/")
+        resolve("../packages/DataBlock/node_modules/@dpc-sdp/ripple-icon/assets/img/"),
+        resolve("../packages/AutoComplete/node_modules/@dpc-sdp/ripple-icon/assets/img/")
       ]
     },
     {
@@ -46,7 +47,8 @@ module.exports = async ({ config, mode }) => {
       include: [
         resolve("../node_modules"),
         resolve("static/custom_icons/"),
-        resolve("../packages/DataBlock/node_modules/@dpc-sdp/ripple-icon/assets/img/")
+        resolve("../packages/DataBlock/node_modules/@dpc-sdp/ripple-icon/assets/img/"),
+        resolve("../packages/AutoComplete/node_modules/@dpc-sdp/ripple-icon/assets/img/")
       ],
       use: ["svg-sprite-loader", "svgo-loader"]
     },
