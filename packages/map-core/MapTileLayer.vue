@@ -130,6 +130,9 @@ export default {
         visible: this.visible
       })
 
+      // Expose postrender event to users
+      this.enablePostRenderEvent()
+
       // Add layer to map
       this.map.addLayer(this.layer)
     },

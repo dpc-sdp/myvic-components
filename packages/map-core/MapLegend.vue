@@ -60,8 +60,8 @@ export default {
     gradientRange: {
       type: Object,
       default: () => ({
-        low: '0%',
-        high: '100%'
+        low: '',
+        high: ''
       })
     },
     /**
@@ -94,7 +94,7 @@ export default {
   @import "~@dpc-sdp/yourvic-global/styles/global";
 
   $blueShade10: #011a3c;
-  $greyShade: #53565A;
+  $greyShade: #222222;
 
   @mixin linear-gradient($color-stops...) {
     background: nth(nth($color-stops, 1), 1);
@@ -106,7 +106,7 @@ export default {
     padding: .6rem;
     position: absolute;
     z-index: 900;
-    background-color: rgba(255, 255, 255, 0.80);
+    background-color: rgba(255, 255, 255, 0.95);
     right: 1rem;
     bottom: 2rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);

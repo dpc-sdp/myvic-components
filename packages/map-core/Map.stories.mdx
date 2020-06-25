@@ -7,6 +7,7 @@ import {
   YourvicMapCore,
   YourvicMapVectorLayer,
   YourvicMapVectorTileLayer,
+  YourvicMapLegend,
   Style,
   Stroke,
   Fill,
@@ -451,7 +452,7 @@ https://www.w3.org/WAI/tutorials/images/examples/2014-first-qtr/
   <Story name="Accessibility">
     {
       {
-        components: { YourvicMapCore, YourvicMapVectorTileLayer, YourvicMapVectorLayer },
+        components: { YourvicMapCore, YourvicMapVectorTileLayer, YourvicMapVectorLayer, YourvicMapLegend },
         template: `<yourvic-map-core
           :containerStyle="containerStyle"
           :center="center"
@@ -475,6 +476,13 @@ https://www.w3.org/WAI/tutorials/images/examples/2014-first-qtr/
             labelAttribute="ssc_name"
             labelOnly
           />
+          <yourvic-map-legend
+            type="gradient"
+            title="Legend"
+            gradientColor="pink"
+            :gradientRange="gradientRange"
+            imageUrl="http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FLORAFAUNA1_NV2005_EVCBCS&legend_options=fontName:Arial;fontAntiAliasing:true;fontColor:0x000033;fontSize:10;dpi:120&TRANSPARENT=true"
+          />
         </yourvic-map-core>`,
         data: () => {
           return {
@@ -484,7 +492,11 @@ https://www.w3.org/WAI/tutorials/images/examples/2014-first-qtr/
             attributions: [
               '<a href="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats" tabindex="0" target="_blank">Accessible Version</a>'
             ],
-            labelLayerUrl: 'https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=myvic:label_suburb&SRSNAME=EPSG:3857&OUTPUTFORMAT=application/json'
+            labelLayerUrl: 'https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=myvic:label_suburb&SRSNAME=EPSG:3857&OUTPUTFORMAT=application/json',
+            gradientRange: {
+              low: '-8.2%',
+              high: '45.2%'
+            }
           }
         },
         async mounted () {

@@ -98,6 +98,17 @@ export default {
         console.error('unable to get reference to map, check that layer is a child of yourvic-map-core')
         return undefined
       }
+    },
+    enablePostRenderEvent: function () {
+      // Expose postrender event to users
+      this.layer.on('postrender', () => {
+        /**
+         * Emitted after the layer is rendered (using the OpenLayers 'postrender' event)
+         * @event loaded
+         * @property {object} object with layer, layerSource and map properties
+         */
+        this.$emit('postrender', { layer: this.layer, layerSource: this.layerSource, map: this.map })
+      })
     }
   },
   async mounted () {

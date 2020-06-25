@@ -1064,6 +1064,44 @@ exports[`YourvicStoryshots Maps/Core Accessibility 1`] = `
        
       <!---->
        
+      <div
+        class="yourvic-map-legend pink"
+      >
+        <h2
+          class="yourvic-map-legend__title"
+        >
+          Legend
+        </h2>
+         
+        <div
+          class="yourvic-map-legend__content"
+        >
+          <div
+            class="yourvic-map-legend__display"
+          />
+           
+          <div
+            class="yourvic-map-legend__range"
+          >
+            <span
+              class="yourvic-map-legend__range-title"
+            >
+              -8.2%
+            </span>
+             
+            <span
+              class="yourvic-map-legend__range-title"
+            >
+              45.2%
+            </span>
+          </div>
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -2652,7 +2690,7 @@ exports[`YourvicStoryshots Maps/Legend Map with Legend 1`] = `
     class="yourvic-map-core__container"
   >
     <div
-      aria-label="Map"
+      aria-label="Interactive Map"
       class="yourvic-map-core__map"
       role="application"
       tabindex="0"

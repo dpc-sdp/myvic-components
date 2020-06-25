@@ -209,7 +209,10 @@ export default {
       // Set flag used to check if popups are enabled for this layer
       this.layer.set('enablePopup', this.enablePopup)
 
-      // Zoom to layer extent on postrender
+      // Expose postrender event to users
+      this.enablePostRenderEvent()
+
+      // Auto Zoom to layer extent on postrender if enabled
       if (this.zoomToExtent) {
         this.layer.once('postrender', (event) => {
           this.zoomToLayerExtent(20, 1000)
