@@ -1,0 +1,124 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
+import { RplIcon } from '@dpc-sdp/ripple-icon'
+import {
+  YourvicMapCore,
+  YourvicMapTileLayer,
+  YourvicMapLegend,
+} from './index.js'
+
+<Meta title="Maps/Legend" component={ YourvicMapLegend } decorators={ [withKnobs] } />
+
+# Legend
+
+<Description of={ YourvicMapLegend } type='docgen' />
+
+## Installation
+
+```shell
+npm install @dpc-sdp/yourvic-map-core --save
+```
+
+## Import
+
+```javascript
+import { YourvicMapLegend } from '@dpc-sdp/yourvic-map-core'
+```
+
+## Usage
+
+```html
+<yourvic-map-core>
+  <yourvic-map-legend
+    type="custom"
+    title="Legend"
+  >
+    <table>
+      <tr>
+        <td><rpl-icon symbol="map_marker" color="primary" size="m" /></td>
+        <td>Layer 1</td>
+      </tr>
+      <tr>
+        <td><rpl-icon symbol="map_marker" color="danger" size="m" /></td>
+        <td>Layer 2</td>
+      </tr>
+      <tr>
+        <td><rpl-icon symbol="map_marker" color="success" size="m" /></td>
+        <td>Layer 3</td>
+      </tr>
+    </table>
+  </yourvic-map-legend>
+</yourvic-map-core>
+```
+
+## Props
+
+<Props of={ YourvicMapLegend } />
+
+## Map with Legend
+
+<Preview>
+  <Story name="Map with Legend">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapLegend, RplIcon },
+        template: `
+          <yourvic-map-core
+            :containerStyle="containerStyle"
+            :center="center"
+          >
+            <yourvic-map-tile-layer
+              type="OSM"
+            />
+            <yourvic-map-legend
+              :type="type"
+              :title="title"
+              :alignLeft="alignLeft"
+              :gradientColor="gradientColor"
+              :gradientRange="gradientRange"
+              imageUrl="http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FLORAFAUNA1_NV2005_EVCBCS&legend_options=fontName:Arial;fontAntiAliasing:true;fontColor:0x000033;fontSize:10;dpi:120&TRANSPARENT=true"
+            >
+              <table style="width:100%">
+                <tr>
+                  <td><rpl-icon symbol="map_marker" color="primary" size="m" /></td>
+                  <td>Layer 1</td>
+                </tr>
+                <tr>
+                  <td><rpl-icon symbol="map_marker" color="danger" size="m" /></td>
+                  <td>Layer 2</td>
+                </tr>
+                <tr>
+                  <td><rpl-icon symbol="map_marker" color="success" size="m" /></td>
+                  <td>Layer 3</td>
+                </tr>
+              </table>
+            </yourvic-map-legend>
+          </yourvic-map-core>
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        },
+        props: {
+          title: {
+            default: text('Title', 'Legend')
+          },
+          type: {
+            default: select('Type', { gradient: 'gradient', image: 'image', custom: 'custom' }, 'gradient')
+          },
+          alignLeft: {
+            default: boolean('Align Left', false)
+          },
+          gradientColor: {
+            default: select('Gradient Color', { blue: 'blue', red: 'red', pink: 'pink', teal: 'teal', purple: 'purple' }, 'blue')
+          },
+          gradientRange: {
+            default: () => object('Gradient Range', { low: '0%',  high: '100%' })
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
