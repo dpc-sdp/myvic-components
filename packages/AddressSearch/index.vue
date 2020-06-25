@@ -16,7 +16,7 @@ import { AutoComplete } from '@dpc-sdp/yourvic-autocomplete'
 import { getAddresses } from './utils/getAddresses'
 
 /**
- * AddressSearch is a component for looking up different kinds of areas using an autocomplete search
+ * AddressSearch is a component for looking up Victorian addresses using an autocomplete search
  */
 export default {
   components: {
