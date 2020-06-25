@@ -92,8 +92,9 @@ const labelAxis = (axis, style) => {
   return _merge({}, axis, { ticks: { callback: (value) => utils.labelValue(value, style) } })
 }
 
-const buildAxes = (isPrimary, data, dataFormat) => {
+const buildAxes = (isPrimary, data, dataFormat, stacked) => {
   let axis = settings[isPrimary ? 'primaryAxis' : 'secondaryAxis']
+  axis = _merge({}, axis, { stacked: stacked })
   if (isPrimary) {
     axis = scaleAxis(axis, data, dataFormat)
     axis = labelAxis(axis, dataFormat)
@@ -117,14 +118,14 @@ export default {
       text: title
     })
   },
-  getAxes: (dimension, chartDirection, data, dataFormat) => {
+  getAxes: (dimension, chartDirection, data, dataFormat, stacked) => {
     let isPrimary
     if (chartDirection === 'horizontal') {
       isPrimary = dimension === 'x'
     } else {
       isPrimary = dimension === 'y'
     }
-    return buildAxes(isPrimary, data, dataFormat)
+    return buildAxes(isPrimary, data, dataFormat, stacked)
   },
   getLegend: (show) => {
     return _merge({}, constants.legend, {
@@ -144,10 +145,11 @@ export default {
     }
     return _merge({}, constants.tooltips, labelSettings)
   },
-  getPlugin: (dataFormat) => {
+  getPlugin: (dataFormat, stacked) => {
     const dataFormatSettings = {
       datalabels: {
-        formatter: (value) => utils.labelValue(value, dataFormat)
+        formatter: (value) => utils.labelValue(value, dataFormat),
+        display: !stacked // no data labels for stacked bar chart
       }
     }
     return _merge({}, settings.plugin, dataFormatSettings)
