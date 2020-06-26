@@ -22,8 +22,13 @@
           :key="index"
           class="yourvic-map-core-indicator__feature-multiple">
           <h5 class="yourvic-map-core-indicator__title">{{ feature.title }}</h5>
-          <div class="yourvic-map-core-indicator__content">
-            <div class="yourvic-map-core-indicator__readmore" @click="readMoreMultiClick(index)" v-html="showDescOpenMuliText(index)" ></div>
+          <div v-if="feature.value" class="yourvic-map-core-indicator__value">{{ feature.value }}</div>
+          <div v-if="feature.content" class="yourvic-map-core-indicator__content">
+            <div class="yourvic-map-core-indicator__readmore"
+                 @click="readMoreMultiClick(index)"
+                 @keyup.enter="readMoreMultiClick(index)"
+                 v-html="showDescOpenMuliText(index)"
+                 tabIndex="0" />
             <div class="yourvic-map-core-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
           </div>
           <hr v-if="index !== selectedFeature.length - 1" />
@@ -31,8 +36,13 @@
       </template>
       <div v-else>
         <h5 class="yourvic-map-core-indicator__title">{{ selectedFeature.title }}</h5>
-        <div class="yourvic-map-core-indicator__content">
-          <div class="yourvic-map-core-indicator__readmore" @click="readMoreClick" v-html="this.descOpenText" ></div>
+        <div v-if="selectedFeature.value" class="yourvic-map-core-indicator__value">{{ selectedFeature.value }}</div>
+        <div v-if="selectedFeature.content" class="yourvic-map-core-indicator__content">
+          <div class="yourvic-map-core-indicator__readmore"
+               @click="readMoreClick"
+               @keyup.enter="readMoreClick"
+               v-html="this.descOpenText"
+               tabIndex="0" />
           <div class="yourvic-map-core-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
         </div>
       </div>
@@ -184,6 +194,11 @@ export default {
       color: rpl-color('primary');
       font-size: rpl-font-size('s');
       margin-top: 0;
+      margin-bottom: $rpl-space-4;
+    }
+
+    &__value {
+      font-size: rpl-font-size('xs');
       margin-bottom: $rpl-space-4;
     }
 

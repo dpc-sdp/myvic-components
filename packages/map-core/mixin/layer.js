@@ -37,7 +37,9 @@ export default {
     },
     /**
      * Attributions for the layer data source as an array of strings. Will be automatically displayed by the Map
-     * attribution control if enabled.
+     * attribution control (which is enabled by default). An attribution can include links,
+     * for example: ```<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>```. This can be used to
+     * provide links to accessible alternative content (similar to the longdesc attribute for an img).
      */
     attributions: {
       type: Array,
@@ -96,6 +98,17 @@ export default {
         console.error('unable to get reference to map, check that layer is a child of yourvic-map-core')
         return undefined
       }
+    },
+    enablePostRenderEvent: function () {
+      // Expose postrender event to users
+      this.layer.on('postrender', () => {
+        /**
+         * Emitted after the layer is rendered (using the OpenLayers 'postrender' event)
+         * @event loaded
+         * @property {object} object with layer, layerSource and map properties
+         */
+        this.$emit('postrender', { layer: this.layer, layerSource: this.layerSource, map: this.map })
+      })
     }
   },
   async mounted () {
