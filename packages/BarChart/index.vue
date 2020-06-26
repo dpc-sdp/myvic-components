@@ -80,7 +80,8 @@ export default {
      */
     dataFormat: {
       type: String,
-      default: 'normal'
+      default: 'normal',
+      validator: value => ['normal', 'percentage', 'dollar', 'thousandDollar'].includes(value)
     },
     /**
      * Customise the chart tab index

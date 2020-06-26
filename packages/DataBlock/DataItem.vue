@@ -35,7 +35,8 @@ export default {
     },
     trend: {
       type: String,
-      default: ''
+      default: '',
+      validator: value => ['', 'up', 'down'].includes(value)
     }
   },
   computed: {
