@@ -7,6 +7,7 @@ import {
   YourvicMapCore,
   YourvicMapVectorLayer,
   YourvicMapVectorTileLayer,
+  YourvicMapLegend,
   Style,
   Stroke,
   Fill,
@@ -265,8 +266,9 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
         methods: {
           generatePopupContent: function (features) {
             return {
-              title: features[0].get('full_name'),
-              content: 'Population Growth: ' + features[0].get('total_population_growth')
+              title: features[0].get('ssc_name'),
+              value: 'Population Growth: ' + features[0].get('total_population_growth').toFixed(1) + '%',
+              content: 'Longer content can optionally be placed here.'
             }
           },
           getVectorTileWmsUrl: (tileCoord, pixelRatio, projection, layerSource) => {
@@ -426,6 +428,123 @@ selected feature by passing a style or style function to the map through ```sele
           onClick: function (event) {
             let coordinate = event.map.getCoordinateFromPixel(event.pixel)
             this.clickDataBlock =  { title: coordinate.join(','), description: '@click' }
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Accessibility
+
+The map is focusable and supports keyboard navigation. Using the tab key the map can be selected and then navigated
+using the arrow keys and +/- to zoom. The zoom and attribution controls can also be selected using the tab key
+(supported by most browsers).
+
+The map has an ariaLabel attribute that can be used to set a description of the map for assistive technology such as
+screen readers.
+
+The attributions for each data layer can be used to add 'long description' links to alternative content. It is
+recommended the long description page include an overview, table of values and description of the presentation. See:
+https://www.w3.org/WAI/tutorials/images/examples/2014-first-qtr/
+
+<Preview>
+  <Story name="Accessibility">
+    {
+      {
+        components: { YourvicMapCore, YourvicMapVectorTileLayer, YourvicMapVectorLayer, YourvicMapLegend },
+        template: `<yourvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="11"
+          :popupContentFunction="generatePopupContent"
+          ariaLabel="An interactive map showing population growth by suburb"
+        >
+          <yourvic-map-vector-tile-layer
+            :urlFunction="getVectorTileWmsUrl"
+            dataFormat="MVT"
+            :enablePopup="true"
+            :overlaps="false"
+            mapboxStyleMethod="stylefunction"
+            :mapboxStyle="mapboxStyle"
+            mapboxStyleSource="Pink"
+            :attributions="attributions"
+          />
+          <yourvic-map-vector-layer
+            :url="labelLayerUrl"
+            dataFormat="GeoJSON"
+            labelAttribute="ssc_name"
+            labelOnly
+          />
+          <yourvic-map-legend
+            type="gradient"
+            title="Legend"
+            gradientColor="pink"
+            :gradientRange="gradientRange"
+            imageUrl="http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FLORAFAUNA1_NV2005_EVCBCS&legend_options=fontName:Arial;fontAntiAliasing:true;fontColor:0x000033;fontSize:10;dpi:120&TRANSPARENT=true"
+          />
+        </yourvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            mapboxStyle: undefined,
+            attributions: [
+              '<a href="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats" tabindex="0" target="_blank">Accessible Version</a>'
+            ],
+            labelLayerUrl: 'https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=myvic:label_suburb&SRSNAME=EPSG:3857&OUTPUTFORMAT=application/json',
+            gradientRange: {
+              low: '-8.2%',
+              high: '45.2%'
+            }
+          }
+        },
+        async mounted () {
+          this.mapboxStyle = await this.getMapboxStyle()
+        },
+        methods: {
+          generatePopupContent: function (features) {
+            return {
+              title: features[0].get('ssc_name'),
+              value: 'Population Growth: ' + features[0].get('total_population_growth').toFixed(1) + '%',
+              content: 'Longer content can optionally be placed here.'
+            }
+          },
+          getVectorTileWmsUrl: (tileCoord, pixelRatio, projection, layerSource) => {
+            let path = `https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wms`
+            const tileExtent = layerSource.tileGrid.getTileCoordExtent(tileCoord)
+            const tileSize = layerSource.tileGrid.getTileSize()
+            let queryParams = {
+              SERVICE: 'WMS',
+              VERSION: '1.1.1',
+              REQUEST: 'GetMap',
+              LAYERS: `myvic:population_suburb_map`,
+              BBOX: tileExtent.join(','),
+              WIDTH: tileSize,
+              HEIGHT: tileSize,
+              SRS: projection.getCode(),
+              FORMAT: 'application/x-protobuf;type=mapbox-vector'
+            }
+            let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
+            return `${path}?${queryParamsString}`
+          },
+          getMapboxStyle: async () => {
+            let response = await fetch('https://gis-app.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Pink.MBStyle')
+            let glStyle =  await response.json()
+            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
+            let fillStops = glStyle.layers[0].paint['fill-color'].stops
+            fillStops.forEach((stop, idx) => {
+              stop[0] = parseFloat(populationStops[idx])
+            })
+            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
+            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
+            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
+            glStyle.sources = {
+              Pink: {
+                type: 'vector'
+              }
+            }
+            return glStyle
           }
         }
       }

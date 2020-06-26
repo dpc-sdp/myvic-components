@@ -110,7 +110,10 @@ export default {
       default: ''
     },
     /**
-     * Map attribution information to be displayed using the attribution control
+     * Basemap attribution information as an array of strings. Will be automatically displayed by the Map
+     * attribution control (which is enabled by default). An attribution can include links,
+     * for example: ```<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>```. This can be used to
+     * provide links to accessible alternative content (similar to the longdesc attribute for an img).
      */
     baseMapAttributions: {
       type: Array,
@@ -196,11 +199,12 @@ export default {
       default: 0
     },
     /**
-     * Customise the map aria label
+     * Set the map aria label. Ideally this value should be as descriptive as possible, for example, 'Interactive map
+     * of population growth by suburb'
      */
     ariaLabel: {
       type: String,
-      default: 'Map'
+      default: 'Interactive Map'
     },
     /**
      * Enable or disable the ability for users to rotate the map
@@ -712,7 +716,7 @@ export default {
 
   .ol-attribution a, .ol-attribution li {
     font-family: VIC-Regular, Arial, Helvetica, sans-serif;
-    font-size: .6875rem;
+    font-size: .8rem;
     color: #222;
     text-decoration: none;
   }

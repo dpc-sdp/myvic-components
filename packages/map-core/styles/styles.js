@@ -1,7 +1,7 @@
 import ol from '../lib/ol'
 import globalStyles from '@dpc-sdp/yourvic-global/styles/export.scss'
 
-const defaultStrokeColour = globalStyles.fillDefault
+const defaultStrokeColour = globalStyles.fillSecondaryHover
 const selectedStrokeColour = globalStyles.strokeLine1
 const defaultFillColour = ol.getRgbaFromString(globalStyles.fillTertiary, 0.2)
 const selectedFillColour = ol.getRgbaFromString(globalStyles.strokeLine1, 0.2)
@@ -9,7 +9,8 @@ const defaultLineColour = globalStyles.fillSecondaryHover
 const selectedLineColour = globalStyles.strokeLine1
 const defaultMarkerColour = ol.getRgbaFromString(globalStyles.fillSecondaryHover, 1)
 const selectedMarkerColour = ol.getRgbaFromString(globalStyles.strokeLine1, 1)
-const defaultTextColour = globalStyles.titleColor
+const defaultTextStrokeColour = 'black'
+const defaultTextFillColour = 'white'
 
 const defaultPointStyle = [
   new ol.style.Style({
@@ -42,7 +43,7 @@ const selectedPointStyle = [
   })
 ]
 
-let markerSvg = `<svg width="12" height="16" viewBox="0 0 12 16"  xmlns="http://www.w3.org/2000/svg">
+let markerSvg = `<svg width="24" height="32" viewBox="0 0 12 16"  xmlns="http://www.w3.org/2000/svg">
   <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6ZM3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z" />
 </svg>`
 
@@ -51,7 +52,7 @@ const defaultMarkerStyle = [
     image: new ol.style.Icon({
       opacity: 1,
       src: 'data:image/svg+xml;utf8,' + markerSvg,
-      scale: 1.2,
+      scale: 0.8,
       color: defaultMarkerColour
     })
   })
@@ -62,7 +63,7 @@ const selectedMarkerStyle = [
     image: new ol.style.Icon({
       opacity: 1,
       src: 'data:image/svg+xml;utf8,' + markerSvg,
-      scale: 1.2,
+      scale: 0.8,
       color: selectedMarkerColour
     })
   })
@@ -91,7 +92,7 @@ const defaultPolygonStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
       color: defaultStrokeColour,
-      width: 2
+      width: 3
     }),
     fill: new ol.style.Fill({
       color: defaultFillColour
@@ -103,7 +104,7 @@ const selectedPolygonStyle = [
   new ol.style.Style({
     stroke: new ol.style.Stroke({
       color: selectedStrokeColour,
-      width: 2
+      width: 3
     }),
     fill: new ol.style.Fill({
       color: selectedFillColour
@@ -115,43 +116,48 @@ const selectedPolygonStyle = [
 const defaultTextStyle = [
   new ol.style.Style({
     text: new ol.style.Text({
-      font: 'normal 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
+      font: '600 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
       rotateWithView: false,
       placement: 'point',
       overflow: true,
       fill: new ol.style.Fill({
-        color: defaultTextColour
+        color: defaultTextFillColour
       }),
       stroke: new ol.style.Stroke({
-        color: defaultTextColour,
-        width: 1
+        color: defaultTextStrokeColour,
+        width: 3
       })
     })
   })
 ]
 
-const createDefaultStyleFunction = (labelAttribute, selected) => {
+const createDefaultStyleFunction = (labelAttribute, labelOnly, selected) => {
   return (feature, resolution) => {
     let geomType = feature.getGeometry().getType()
     let styles
-    switch (geomType) {
-      case ol.geom.GeometryType.POINT:
-      case ol.geom.GeometryType.MULTI_POINT:
-        styles = selected ? selectedMarkerStyle : defaultMarkerStyle
-        break
-      case ol.geom.GeometryType.LINE_STRING:
-      case ol.geom.GeometryType.MULTI_LINE_STRING:
-        styles = selected ? selectedLineStyle : defaultLineStyle
-        break
-      case ol.geom.GeometryType.POLYGON:
-      case ol.geom.GeometryType.MULTI_POLYGON:
-        styles = selected ? selectedPolygonStyle : defaultPolygonStyle
-        break
-      case ol.geom.GeometryType.GEOMETRY_COLLECTION:
-        styles = defaultPointStyle.concat(defaultLineStyle, defaultPolygonStyle)
-        break
-      default:
-        styles = defaultPolygonStyle
+
+    if (labelOnly) {
+      styles = []
+    } else {
+      switch (geomType) {
+        case ol.geom.GeometryType.POINT:
+        case ol.geom.GeometryType.MULTI_POINT:
+          styles = selected ? selectedMarkerStyle : defaultMarkerStyle
+          break
+        case ol.geom.GeometryType.LINE_STRING:
+        case ol.geom.GeometryType.MULTI_LINE_STRING:
+          styles = selected ? selectedLineStyle : defaultLineStyle
+          break
+        case ol.geom.GeometryType.POLYGON:
+        case ol.geom.GeometryType.MULTI_POLYGON:
+          styles = selected ? selectedPolygonStyle : defaultPolygonStyle
+          break
+        case ol.geom.GeometryType.GEOMETRY_COLLECTION:
+          styles = defaultPointStyle.concat(defaultLineStyle, defaultPolygonStyle)
+          break
+        default:
+          styles = defaultPolygonStyle
+      }
     }
 
     if (labelAttribute) {
@@ -165,8 +171,8 @@ const createDefaultStyleFunction = (labelAttribute, selected) => {
   }
 }
 
-const createSelectedStyleFunction = (labelAttribute) => {
-  return createDefaultStyleFunction(labelAttribute, true)
+const createSelectedStyleFunction = (labelAttribute, labelOnly = false) => {
+  return createDefaultStyleFunction(labelAttribute, labelOnly, true)
 }
 
 const styles = {
