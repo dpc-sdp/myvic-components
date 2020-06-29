@@ -212,10 +212,12 @@ export default {
       // Expose postrender event to users
       this.enablePostRenderEvent()
 
-      // Auto Zoom to layer extent on postrender if enabled
+      // Auto Zoom to layer extent on source change if enabled
       if (this.zoomToExtent) {
-        this.layer.once('postrender', (event) => {
-          this.zoomToLayerExtent(20, 1000)
+        this.layerSource.on('change', (event) => {
+          if (this.layerSource.getState() === 'ready') {
+            this.zoomToLayerExtent(20, 1000)
+          }
         })
       }
 
