@@ -1,13 +1,13 @@
-# @dpc-sdp/yourvic-example1
+# @dpc-sdp/yourvic-example3
 
-A component showcasing the area search, data block and bar chart components
+A component showcasing the data block, map and chart components
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-example1 --save
+npm install @dpc-sdp/yourvic-example3 --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,10 +15,10 @@ npm install @dpc-sdp/yourvic-example1 --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-example1
-├── @dpc-sdp/yourvic-areasearch
+@dpc-sdp/yourvic-example3
 ├── @dpc-sdp/yourvic-data-block
 ├── @dpc-sdp/yourvic-bar-chart
+├── @dpc-sdp/yourvic-map-core
 ```
 
 --------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ npm install @dpc-sdp/yourvic-example1 --save
 ## Import
 
 ```js
-import Example1 from '@dpc-sdp/yourvic-example1'
+import Example3 from '@dpc-sdp/yourvic-example3'
 ```
 
 --------------------------------------------------------------------------------

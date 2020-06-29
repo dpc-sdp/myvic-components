@@ -8,7 +8,7 @@
         class="yourvic-data-item__icon">
         <rpl-icon
           :symbol="icon"
-          color="secondary"
+          :color="trend === 'down' ? 'warning' : 'secondary'"
           size="m"
         />
       </span>

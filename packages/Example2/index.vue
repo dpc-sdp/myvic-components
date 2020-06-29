@@ -15,6 +15,7 @@
           :url="layerUrl"
           dataFormat="GeoJSON"
           loadingStrategy="bbox"
+          :zoomToExtent="true"
         />
       </yourvic-map-core>
     </div>

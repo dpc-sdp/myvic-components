@@ -2,7 +2,11 @@
   <div
     class="yourvic-data-block">
     <div
-      :class="{ 'yourvic-data-block__item--selectable': selectable, 'yourvic-data-block__item--isBlock': isBlock }"
+      :class="{
+        'yourvic-data-block__item--selectable': selectable,
+        'is-selected': isSelected,
+        'yourvic-data-block__item--isBlock': isBlock
+      }"
       class="yourvic-data-block__item"
       :role="selectable ? 'button' : ''"
       @click="$emit('data-block-selected', id)">
@@ -56,6 +60,13 @@ export default {
       default: true
     },
     /**
+     * if this is true, the block has a darker border and background color
+     */
+    isSelected: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * isBlock
      */
     isBlock: {
@@ -69,6 +80,7 @@ export default {
 <style lang="scss">
   @import "~@dpc-sdp/yourvic-global/styles/global";
   $borderColor: rgba(#0052c2, 0.3);
+  $selectedColor: #ddebf8;
 
   .yourvic-data-block {
     position: relative;
@@ -122,6 +134,11 @@ export default {
         &:active,
         &:focus {
           background-color: $hoverColor;
+          border: 1px solid $borderColor;
+        }
+
+        &.is-selected {
+          background-color: #ddebf8;
           border: 1px solid $borderColor;
         }
       }
