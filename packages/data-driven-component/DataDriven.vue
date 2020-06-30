@@ -34,7 +34,7 @@ export default {
   mounted () {
     let comp
     // Load custom components first.
-    const configs = this.$tide.getModuleConfig('data-driven-component')
+    const configs = this.$tide.getModuleConfig('@dpc-sdp/yourvic-data-driven-component')
     if (configs.customComponents) {
       const file = 'loader'
       const loaderCustomComponents = require(`~/tide/data-driven-component-${file}.js`).default
