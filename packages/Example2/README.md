@@ -18,6 +18,7 @@ npm install @dpc-sdp/yourvic-example2 --save
 @dpc-sdp/yourvic-example2
 ├── @dpc-sdp/yourvic-areasearch
 ├── @dpc-sdp/yourvic-map-core
+├── @dpc-sdp/yourvic-global
 ```
 
 --------------------------------------------------------------------------------

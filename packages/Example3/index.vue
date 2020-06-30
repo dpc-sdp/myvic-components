@@ -42,16 +42,27 @@
       <div class="yourvic-example3__map-container">
         <yourvic-map-core
           :center="center"
-          :zoom="12"
-          :minZoom="8"
-          :baseMapUrl="baseMapUrl"
+          :zoom="11"
         >
-          <yourvic-map-vector-layer
-            :url="layerUrl"
-            dataFormat="GeoJSON"
-            loadingStrategy="bbox"
-            :zoomToExtent="true"
+          <yourvic-map-vector-tile-layer
+            :url="getVectorTileWmtsUrl()"
+            dataFormat="MVT"
+            mapboxStyleMethod="stylefunction"
+            :mapboxStyle="mapboxStyle"
+            mapboxStyleSource="Blue"
           />
+          <yourvic-map-vector-layer
+            :url="labelLayerUrl"
+            dataFormat="GeoJSON"
+            labelAttribute="full_name"
+            labelOnly
+          />
+          <yourvic-map-legend
+              type="gradient"
+              :title="legendTitle"
+              :gradientRange="legendData"
+            >
+            </yourvic-map-legend>
         </yourvic-map-core>
       </div>
     </div>
@@ -61,8 +72,16 @@
 
 import DataBlock from '@dpc-sdp/yourvic-data-block'
 import BarChart from '@dpc-sdp/yourvic-bar-chart'
-import { getDemographicData, getIncomeData, commarize, createWfsRequestUrl } from './utils/getData'
-import { YourvicMapCore, YourvicMapVectorLayer } from '@dpc-sdp/yourvic-map-core'
+import { getDemographicData, getIncomeData, getLegendData, LEGEND_TITLES, MAP_LAYERS } from './utils/getData'
+import {
+  YourvicMapCore,
+  YourvicMapTileLayer,
+  YourvicMapVectorTileLayer,
+  YourvicMapVectorLayer,
+  YourvicMapLegend
+} from '@dpc-sdp/yourvic-map-core'
+import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
+import { createWfsRequestUrl } from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 
 /**
  * Example 1 is a component showcasing the area search, data block and bar chart components
@@ -72,7 +91,10 @@ export default {
     DataBlock,
     BarChart,
     YourvicMapCore,
-    YourvicMapVectorLayer
+    YourvicMapTileLayer,
+    YourvicMapVectorLayer,
+    YourvicMapVectorTileLayer,
+    YourvicMapLegend
   },
   props: {
   },
@@ -80,6 +102,8 @@ export default {
     return {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
       center: [16137905.843820328, -4555057.013522999],
+      labelLayerUrl: 'https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=myvic:label_lga&SRSNAME=EPSG:3857&OUTPUTFORMAT=application/json',
+      mapboxStyle: undefined,
       area: {
         id: 'LGA24600',
         name: 'City of Melbourne',
@@ -87,11 +111,13 @@ export default {
       },
       activeBlock: 'data-block-1',
       demData: {},
-      incomeData: {}
+      incomeData: {},
+      legendData: { low: '0%', high: '100%' }
     }
   },
   mounted: async function () {
     this.selectArea('area-search', this.area)
+    this.mapboxStyle = await this.getMapboxStyle()
   },
   computed: {
     layerUrl: function () {
@@ -155,6 +181,9 @@ export default {
         return blockData.title
       }
     },
+    legendTitle: function () {
+      return LEGEND_TITLES[this.activeBlock] || ''
+    },
     showChartLegend: function () {
       let blockData = this.incomeData[this.activeBlock]
       if (!blockData) {
@@ -167,11 +196,52 @@ export default {
   methods: {
     selectBlock: function (blockId) {
       this.activeBlock = blockId
+      this.getLegendData()
     },
     selectArea: async function (searchComponent, area) {
       this.area = area
       this.demData = await getDemographicData(area)
       this.incomeData = await getIncomeData(area)
+      await this.getLegendData()
+    },
+    getLegendData: async function () {
+      let mapLayer = MAP_LAYERS[this.activeBlock]
+      this.legendData = await getLegendData(mapLayer, this.area.description)
+    },
+    getVectorTileWmtsUrl: () => {
+      let path = `https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/gwc/service/wmts`
+      let queryParams = {
+        SERVICE: 'WMTS',
+        REQUEST: 'GetTile',
+        VERSION: '1.0.0',
+        LAYER: `myvic:income_lga_map`,
+        STYLE: '',
+        TILEMATRIX: `EPSG:3857:{z}`,
+        TILEMATRIXSET: 'EPSG:3857',
+        FORMAT: 'application/x-protobuf;type=mapbox-vector',
+        TILECOL: '{x}',
+        TILEROW: '{y}'
+      }
+      let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
+      return `${path}?${queryParamsString}`
+    },
+    getMapboxStyle: async () => {
+      let response = await fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Blue.MBStyle')
+      let glStyle = await response.json()
+      let stops = [377, 472, 532, 597, 674, 758, 902]
+      let fillStops = glStyle.layers[0].paint['fill-color'].stops
+      fillStops.forEach((stop, idx) => {
+        stop[0] = parseFloat(stops[idx])
+      })
+      glStyle.layers[0].paint['fill-outline-color']['property'] = 'median_total_personal_income_weekly'
+      glStyle.layers[0].paint['fill-color']['property'] = 'median_total_personal_income_weekly'
+      glStyle.layers[0]['source-layer'] = 'income_lga_map'
+      glStyle.sources = {
+        Blue: {
+          type: 'vector'
+        }
+      }
+      return glStyle
     }
   }
 }

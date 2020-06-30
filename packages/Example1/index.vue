@@ -21,7 +21,8 @@
 import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
 import DataBlock from '@dpc-sdp/yourvic-data-block'
 import BarChart from '@dpc-sdp/yourvic-bar-chart'
-import { getDemographicData, commarize } from './utils/getData'
+import { getDemographicData } from './utils/getData'
+import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
 
 /**
  * Example 1 is a component showcasing the area search, data block and bar chart components

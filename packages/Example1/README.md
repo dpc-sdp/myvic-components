@@ -19,6 +19,7 @@ npm install @dpc-sdp/yourvic-example1 --save
 ├── @dpc-sdp/yourvic-areasearch
 ├── @dpc-sdp/yourvic-data-block
 ├── @dpc-sdp/yourvic-bar-chart
+├── @dpc-sdp/yourvic-global
 ```
 
 --------------------------------------------------------------------------------

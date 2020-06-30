@@ -25,7 +25,7 @@
 
 import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
 import { YourvicMapCore, YourvicMapVectorLayer } from '@dpc-sdp/yourvic-map-core'
-import { createRequestUrl } from './utils/requests'
+import { createWfsRequestUrl } from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 
 /**
  * Example 2 is a component showcasing the area search and map components
@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     layerUrl: function () {
-      return createRequestUrl(this.area.id, this.area.description)
+      return createWfsRequestUrl(this.area.id, this.area.description)
     }
   },
   methods: {
