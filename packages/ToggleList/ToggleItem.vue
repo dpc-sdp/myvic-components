@@ -6,6 +6,9 @@
     @keyup.enter="$emit('click')"
     tabindex="0"
     ref="currentItem"
+    :aria-label="item.title"
+    role="checkbox"
+    :aria-checked="isSelected"
     >
     <div
       class="yourvic-toggle-item__icon-left">
@@ -127,12 +130,11 @@ export default {
       line-height: 18px;
       text-align: center;
       position: relative;
-      border: 2px solid $greyTint;
+      border: 2px solid $greyShade;
       border-radius: 5px;
-      color: $greyTint;
       .is-active & {
-        fill: $lightGrey;
-        border: 2px solid $lightGrey;
+        fill: $greyShade;
+        border: 2px solid $greyShade;
       }
     }
   }

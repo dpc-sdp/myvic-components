@@ -4811,7 +4811,10 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
           class="yourvic-toggle-list__ul"
         >
           <li
+            aria-checked="true"
+            aria-label="Dataset 1"
             class="yourvic-toggle-item is-active"
+            role="checkbox"
             tabindex="0"
           >
             <div
@@ -4833,7 +4836,9 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
             </div>
           </li>
           <li
+            aria-label="Dataset 2"
             class="yourvic-toggle-item"
+            role="checkbox"
             tabindex="0"
           >
             <div
@@ -4855,7 +4860,9 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
             </div>
           </li>
           <li
+            aria-label="Dataset 3"
             class="yourvic-toggle-item"
+            role="checkbox"
             tabindex="0"
           >
             <div
@@ -4932,7 +4939,10 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
       class="yourvic-toggle-list__ul"
     >
       <li
+        aria-checked="true"
+        aria-label="Item 1"
         class="yourvic-toggle-item is-active"
+        role="checkbox"
         tabindex="0"
       >
         <div
@@ -4954,7 +4964,9 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
         </div>
       </li>
       <li
+        aria-label="Item 2"
         class="yourvic-toggle-item"
+        role="checkbox"
         tabindex="0"
       >
         <div
@@ -4976,7 +4988,9 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
         </div>
       </li>
       <li
+        aria-label="Item 3"
         class="yourvic-toggle-item"
+        role="checkbox"
         tabindex="0"
       >
         <div
@@ -4998,7 +5012,10 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
         </div>
       </li>
       <li
+        aria-checked="true"
+        aria-label="Item 4"
         class="yourvic-toggle-item is-active"
+        role="checkbox"
         tabindex="0"
       >
         <div
@@ -5020,7 +5037,9 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
         </div>
       </li>
       <li
+        aria-label="Item 5"
         class="yourvic-toggle-item"
+        role="checkbox"
         tabindex="0"
       >
         <div
@@ -5066,7 +5085,10 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
           class="yourvic-toggle-list__ul"
         >
           <li
+            aria-checked="true"
+            aria-label="Basemap"
             class="yourvic-toggle-item is-active"
+            role="checkbox"
             tabindex="0"
           >
             <div
@@ -5088,7 +5110,9 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
             </div>
           </li>
           <li
+            aria-label="Population Growth"
             class="yourvic-toggle-item"
+            role="checkbox"
             tabindex="0"
           >
             <div
@@ -5110,7 +5134,9 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
             </div>
           </li>
           <li
+            aria-label="Hospitals"
             class="yourvic-toggle-item"
+            role="checkbox"
             tabindex="0"
           >
             <div
