@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="dist/yourvic-umd-bundle.js"></script>
+
+<p>Map:</p>
+<div id="mapContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="map"></div>
+</div>
+
+<p>Map with Vector:</p>
+<div id="mapVectorContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="mapVector"></div>
+</div>
+
+<p>Bar Chart:</p>
+<div id="chartContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="chart"></div>
+</div>
+
+<p>Toggle List:</p>
+<div id="listContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="list"></div>
+</div>
+
+<script>
+  YourVic.mountMap('#map', {
+    baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
+    center: [16136905.843820328, -4383057.013522999],
+    zoom: 8
+  })
+
+  YourVic.mountMapWithVectorLayer('#mapVector', {
+    baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
+    center: [16136905.843820328, -4383057.013522999],
+    zoom: 5
+  }, {
+    url: 'https://openlayers.org/en/latest/examples/data/geojson/countries.geojson',
+    dataFormat: 'GeoJSON',
+    labelAttribute: 'name'
+  })
+
+  YourVic.mountBarChart('#chart', {
+    direction: 'horizontal',
+    title: 'Sample Chart',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: [40, 20, 12, 52, 10, 39]
+        }
+      ]
+    },
+    showLegend: true,
+    dataFormat: 'normal'
+  })
+
+  YourVic.mountToggleList('#list', {
+    items: [
+      { id: 'item1', title: 'Item 1', icon: 'map_marker', color: 'primary' },
+      { id: 'item2', title: 'Item 2', icon: 'instagram', color: 'danger' },
+      { id: 'item3', title: 'Item 3', icon: 'home', color: 'success' },
+      { id: 'item4', title: 'Item 4', icon: 'share_alternative', color: 'secondary' },
+      { id: 'item5', title: 'Item 5', icon: 'document', color: 'warning' },
+    ],
+    selectedItems: {
+      'item1': true,
+      'item2': false,
+      'item3': false,
+      'item4': true,
+      'item5': false
+    }
+  })
+</script>
+
+</body>
+</html>
