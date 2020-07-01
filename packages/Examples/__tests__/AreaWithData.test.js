@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils'
-import Example1 from './../Example1.vue'
+import AreaWithData from './../AreaWithData.vue'
 import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
 import DataBlock from '@dpc-sdp/yourvic-data-block'
 import BarChart from '@dpc-sdp/yourvic-bar-chart'
 
-describe('Example1', () => {
-  const wrapper = mount(Example1, {
+describe('AreaWithData', () => {
+  const wrapper = mount(AreaWithData, {
     propsData: {}
   })
 

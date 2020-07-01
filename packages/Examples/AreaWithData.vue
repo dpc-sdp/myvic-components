@@ -1,15 +1,15 @@
 <template>
-  <div class="yourvic-example1__container">
+  <div class="yourvic-examples__container">
     <area-search
       :initial-value="area.name"
       @item-selected="selectArea"
     />
-    <div class="yourvic-example1__data-block-container">
-      <data-block class="yourvic-example1__data-block" :data="populationData" :selectable="false" />
-      <data-block class="yourvic-example1__data-block" :data="populationGrowthData" :selectable="false" />
+    <div class="yourvic-examples__data-block-container">
+      <data-block class="yourvic-examples__data-block" :data="populationData" :selectable="false" />
+      <data-block class="yourvic-examples__data-block" :data="populationGrowthData" :selectable="false" />
     </div>
-    <div class="yourvic-example1__chart-container">
-      <bar-chart class="yourvic-example1__bar-chart"
+    <div class="yourvic-examples__chart-container">
+      <bar-chart class="yourvic-examples__bar-chart"
         :data="chartData" title="Household composition"
         data-format="percentage"
       />
@@ -25,7 +25,7 @@ import { getDemographicData } from './utils/getData'
 import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
 
 /**
- * Example 1 is a component showcasing the area search, data block and bar chart components
+ * AreaWithData is a component showcasing the area search, data block and bar chart components
  */
 export default {
   components: {
@@ -98,7 +98,7 @@ export default {
 <style lang="scss" scoped>
   @import "~@dpc-sdp/yourvic-global/styles/global";
 
-  .yourvic-example1 {
+  .yourvic-examples {
     display: relative;
 
     &__container {

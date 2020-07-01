@@ -1,10 +1,10 @@
 <template>
-  <div class="yourvic-example2__container">
+  <div class="yourvic-examples__container">
     <area-search
       :initial-value="area.name"
       @item-selected="selectArea"
     />
-    <div class="yourvic-example2__map-container">
+    <div class="yourvic-examples__map-container">
       <yourvic-map-core
         :center="center"
         :zoom="12"
@@ -28,7 +28,7 @@ import { YourvicMapCore, YourvicMapVectorLayer } from '@dpc-sdp/yourvic-map-core
 import { createWfsRequestUrl } from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 
 /**
- * Example 2 is a component showcasing the area search and map components
+ * AreaWithMap is a component showcasing the area search and map components
  */
 export default {
   components: {
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .yourvic-example2 {
+  .yourvic-examples {
     display: relative;
 
     &__container {

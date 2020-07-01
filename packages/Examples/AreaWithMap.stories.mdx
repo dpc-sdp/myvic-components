@@ -1,35 +1,35 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
-import Example2 from './Example2.vue'
+import AreaWithMap from './AreaWithMap.vue'
 import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
-<Meta title="Examples/Example 2" component={ Example2 } decorators={ [withKnobs] } />
+<Meta title="Examples/AreaWithMap" component={ AreaWithMap } decorators={ [withKnobs] } />
 
-# Example 2
+# AreaWithMap
 
-<Description of={ Example1 } type='docgen' />
+<Description of={ AreaWithMap } type='docgen' />
 
 ## Installation
 
 ```bash
-npm install @dpc-sdp/yourvic-example2 --save
+npm install @dpc-sdp/yourvic-examples --save
 ```
 
 ## Import
 
 ```javascript
-import { Example2 } from '@dpc-sdp/yourvic-example2'
+import { AreaWithMap } from '@dpc-sdp/yourvic-examples'
 ```
 
 ## Usage
 
 ```html
-<example-2 />
+<area-with-map />
 ```
 
 ## Props
 
-<Props of={ Example2 } />
+<Props of={ AreaWithMap } />
 
 ## Default
 
@@ -37,8 +37,8 @@ import { Example2 } from '@dpc-sdp/yourvic-example2'
   <Story name="Default">
     {
       {
-        components: { Example2 },
-        template: '<example-2 />',
+        components: { AreaWithMap },
+        template: '<area-with-map />',
         props: {
         }
       }

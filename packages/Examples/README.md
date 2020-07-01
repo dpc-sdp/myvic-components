@@ -15,7 +15,7 @@ npm install @dpc-sdp/yourvic-examples --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-example1
+@dpc-sdp/yourvic-examples
 ├── @dpc-sdp/yourvic-areasearch
 ├── @dpc-sdp/yourvic-map-core
 ├── @dpc-sdp/yourvic-data-block
@@ -28,9 +28,9 @@ npm install @dpc-sdp/yourvic-examples --save
 ## Import
 
 ```js
-import { Example1 } from '@dpc-sdp/yourvic-examples'
-import { Example2 } from '@dpc-sdp/yourvic-examples'
-import { Example3 } from '@dpc-sdp/yourvic-examples'
+import { AreaWithData } from '@dpc-sdp/yourvic-examples'
+import { AreaWithMap } from '@dpc-sdp/yourvic-examples'
+import { IncomeData } from '@dpc-sdp/yourvic-examples'
 ```
 
 --------------------------------------------------------------------------------

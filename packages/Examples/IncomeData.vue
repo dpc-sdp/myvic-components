@@ -1,45 +1,45 @@
 <template>
-  <div class="yourvic-example3__container">
-    <div class="yourvic-example3__data-block-container">
+  <div class="yourvic-examples__container">
+    <div class="yourvic-examples__data-block-container">
       <data-block
         id="data-block-1"
-        class="yourvic-example3__data-block"
+        class="yourvic-examples__data-block"
         :isSelected="activeBlock === 'data-block-1'"
         :data="personalIncomeData"
         @data-block-selected="selectBlock"
       />
       <data-block
         id="data-block-2"
-        class="yourvic-example3__data-block"
+        class="yourvic-examples__data-block"
         :isSelected="activeBlock === 'data-block-2'"
         :data="personalIncomeGrowthData"
         @data-block-selected="selectBlock"
       />
       <data-block
         id="data-block-3"
-        class="yourvic-example3__data-block"
+        class="yourvic-examples__data-block"
         :isSelected="activeBlock === 'data-block-3'"
         :data="householdIncomeData"
         @data-block-selected="selectBlock"
       />
       <data-block
         id="data-block-4"
-        class="yourvic-example3__data-block"
+        class="yourvic-examples__data-block"
         :isSelected="activeBlock === 'data-block-4'"
         :data="householdIncomeGrowthData"
         @data-block-selected="selectBlock"
       />
     </div>
-    <div class="yourvic-example3__bottom-row">
-      <div class="yourvic-example3__chart-container">
-        <bar-chart class="yourvic-example3__bar-chart"
+    <div class="yourvic-examples__bottom-row">
+      <div class="yourvic-examples__chart-container">
+        <bar-chart class="yourvic-examples__bar-chart"
           :data="chartData"
           :title="chartTitle"
           :showLegend="showChartLegend"
           data-format="percentage"
         />
       </div>
-      <div class="yourvic-example3__map-container">
+      <div class="yourvic-examples__map-container">
         <yourvic-map-core
           :center="center"
           :zoom="11"
@@ -83,7 +83,7 @@ import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
 import { createWfsRequestUrl } from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 
 /**
- * Example 1 is a component showcasing the area search, data block and bar chart components
+ * IncomeData is a component showcasing the area search, data block and bar chart components
  */
 export default {
   components: {
@@ -230,7 +230,7 @@ export default {
 <style lang="scss" scoped>
   @import "~@dpc-sdp/yourvic-global/styles/global";
 
-  .yourvic-example3 {
+  .yourvic-examples {
     display: relative;
 
     &__container {

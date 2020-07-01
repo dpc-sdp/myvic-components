@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Example3 from './../Example3.vue'
+import IncomeData from './../IncomeData.vue'
 import DataBlock from '@dpc-sdp/yourvic-data-block'
 import BarChart from '@dpc-sdp/yourvic-bar-chart'
 import {
@@ -9,8 +9,8 @@ import {
   YourvicMapLegend
 } from '@dpc-sdp/yourvic-map-core'
 
-describe('Example3', () => {
-  const wrapper = mount(Example3, {
+describe('IncomeData', () => {
+  const wrapper = mount(IncomeData, {
     propsData: {}
   })
 

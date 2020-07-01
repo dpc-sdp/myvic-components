@@ -857,9 +857,9 @@ exports[`YourvicStoryshots Error Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Examples/Example 1 Default 1`] = `
+exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
 <div
-  class="yourvic-example1__container"
+  class="yourvic-examples__container"
 >
   <form
     action=""
@@ -918,10 +918,10 @@ exports[`YourvicStoryshots Examples/Example 1 Default 1`] = `
   </form>
    
   <div
-    class="yourvic-example1__data-block-container"
+    class="yourvic-examples__data-block-container"
   >
     <div
-      class="yourvic-data-block yourvic-example1__data-block"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
@@ -951,7 +951,7 @@ exports[`YourvicStoryshots Examples/Example 1 Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-example1__data-block"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
@@ -982,10 +982,10 @@ exports[`YourvicStoryshots Examples/Example 1 Default 1`] = `
   </div>
    
   <div
-    class="yourvic-example1__chart-container"
+    class="yourvic-examples__chart-container"
   >
     <div
-      class="yourvic-bar-chart yourvic-example1__bar-chart"
+      class="yourvic-bar-chart yourvic-examples__bar-chart"
     >
       <div
         alt=""
@@ -1013,9 +1013,9 @@ exports[`YourvicStoryshots Examples/Example 1 Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Examples/Example 2 Default 1`] = `
+exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
 <div
-  class="yourvic-example2__container"
+  class="yourvic-examples__container"
 >
   <form
     action=""
@@ -1074,7 +1074,7 @@ exports[`YourvicStoryshots Examples/Example 2 Default 1`] = `
   </form>
    
   <div
-    class="yourvic-example2__map-container"
+    class="yourvic-examples__map-container"
   >
     <div
       class="yourvic-map-core"
@@ -1161,15 +1161,15 @@ exports[`YourvicStoryshots Examples/Example 2 Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Examples/Example 3 Default 1`] = `
+exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
 <div
-  class="yourvic-example3__container"
+  class="yourvic-examples__container"
 >
   <div
-    class="yourvic-example3__data-block-container"
+    class="yourvic-examples__data-block-container"
   >
     <div
-      class="yourvic-data-block yourvic-example3__data-block"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
         class="yourvic-data-block__item yourvic-data-block__item--selectable is-selected yourvic-data-block__item--isBlock"
@@ -1209,7 +1209,7 @@ exports[`YourvicStoryshots Examples/Example 3 Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-example3__data-block"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
         class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
@@ -1249,7 +1249,7 @@ exports[`YourvicStoryshots Examples/Example 3 Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-example3__data-block"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
         class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
@@ -1289,7 +1289,7 @@ exports[`YourvicStoryshots Examples/Example 3 Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-example3__data-block"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
         class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
@@ -1330,13 +1330,13 @@ exports[`YourvicStoryshots Examples/Example 3 Default 1`] = `
   </div>
    
   <div
-    class="yourvic-example3__bottom-row"
+    class="yourvic-examples__bottom-row"
   >
     <div
-      class="yourvic-example3__chart-container"
+      class="yourvic-examples__chart-container"
     >
       <div
-        class="yourvic-bar-chart yourvic-example3__bar-chart"
+        class="yourvic-bar-chart yourvic-examples__bar-chart"
       >
         <div
           alt=""
@@ -1363,7 +1363,7 @@ exports[`YourvicStoryshots Examples/Example 3 Default 1`] = `
     </div>
      
     <div
-      class="yourvic-example3__map-container"
+      class="yourvic-examples__map-container"
     >
       <div
         class="yourvic-map-core"
