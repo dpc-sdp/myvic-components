@@ -23,6 +23,10 @@ export default {
     AutoComplete
   },
   props: {
+    initialValue: {
+      type: String,
+      default: ''
+    }
   },
   data () {
     return {
