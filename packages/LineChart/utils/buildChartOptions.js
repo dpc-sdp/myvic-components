@@ -141,7 +141,11 @@ export default {
         label: function (tooltipItem, data) {
           var dataset = data.datasets[tooltipItem.datasetIndex]
           const value = tooltipItem.yLabel
-          return `${dataset.label}: ${utils.labelValue(value, dataFormat)}`
+          if (data.datasets.length === 1) {
+            return utils.labelValue(value, dataFormat)
+          } else {
+            return `${dataset.label}: ${utils.labelValue(value, dataFormat)}`
+          }
         }
       }
     }

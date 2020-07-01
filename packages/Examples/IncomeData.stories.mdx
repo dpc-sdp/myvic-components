@@ -1,0 +1,47 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import IncomeData from './IncomeData.vue'
+import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+
+<Meta title="Examples/IncomeData" component={ IncomeData } decorators={ [withKnobs] } />
+
+# IncomeData
+
+<Description of={ IncomeData } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-examples --save
+```
+
+## Import
+
+```javascript
+import { IncomeData } from '@dpc-sdp/yourvic-examples'
+```
+
+## Usage
+
+```html
+<income-data />
+```
+
+## Props
+
+<Props of={ IncomeData } />
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { IncomeData },
+        template: '<income-data />',
+        props: {
+        }
+      }
+    }
+  </Story>
+</Preview>

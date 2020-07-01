@@ -60,6 +60,9 @@ The data object that should contain the following keys:
           selectable: {
             default: boolean('selectable', true)
           },
+          isSelected: {
+            default: boolean('isSelected', false)
+          },
           isBlock: {
             default: boolean('isBlock', true)
           }
@@ -87,6 +90,9 @@ The data object that should contain the following keys:
           },
           selectable: {
             default: boolean('selectable', true)
+          },
+          isSelected: {
+            default: boolean('isSelected', false)
           },
           isBlock: {
             default: boolean('isBlock', true)
@@ -118,6 +124,7 @@ The data object that should contain the following keys:
        props: {
         data: { default: () => dataItemProps },
         selectable: { default: () => true },
+        isSelected: { default: () => false },
         isBlock: { default: () => true }
        }
       }

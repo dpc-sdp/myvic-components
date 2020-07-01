@@ -2,8 +2,11 @@
   <auto-complete
     id="area-search"
     :items="areas"
+    :filter="filterFunction"
+    :getItemName="getItemName"
     resultItemLineStyle="single"
     placeholder="Search by postcode, suburb, Local Government Area or Region..."
+    :initialValue="initialValue"
     :showIcon="true"
     :getIcon="() => 'map_marker'"
     @item-selected="selectArea"
@@ -22,10 +25,18 @@ export default {
     AutoComplete
   },
   props: {
+    initialValue: {
+      type: String,
+      default: ''
+    }
   },
   data () {
     return {
-      areas: []
+      areas: [],
+      filterFunction: (items, query) => items.filter(
+        x => x.name.toLowerCase().includes(query.toLowerCase()) || x.postcode.includes(query)
+      ),
+      getItemName: ({ name, postcode }) => postcode.length ? `${name}, ${postcode}` : name
     }
   },
   created: async function () {

@@ -13,8 +13,10 @@ export const getAreas = async () => {
   const rawData = await fetchData()
   const areas = rawData.features.filter(f => f.properties.name).map(f => (
     {
+      id: f.properties.id,
       name: f.properties.name,
-      description: f.properties.type
+      description: f.properties.type,
+      postcode: f.properties.postcode
     }
   ))
   return areas

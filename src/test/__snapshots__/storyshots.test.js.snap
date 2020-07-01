@@ -857,6 +857,640 @@ exports[`YourvicStoryshots Error Default 1`] = `
 </div>
 `;
 
+exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
+<div
+  class="yourvic-examples__container"
+>
+  <form
+    action=""
+  >
+    <div
+      class="yourvic-auto-complete"
+    >
+      <div
+        class="yourvic-auto-complete__input-wrapper"
+      >
+        <input
+          aria-label="Search"
+          autocomplete="off"
+          class="yourvic-auto-complete__input"
+          name="yourvic-auto-complete"
+          placeholder="Search by postcode, suburb, Local Government Area or Region..."
+          type="text"
+          value=""
+        />
+         
+        <!---->
+         
+        <!---->
+         
+        <button
+          aria-label="Close"
+          class="yourvic-button-close"
+          type="button"
+        >
+          <!---->
+           
+          <!---->
+        </button>
+      </div>
+       
+      <ul
+        class="yourvic-search-results yourvic-auto-complete__results"
+        style="display: none;"
+      >
+         
+        <li
+          class="yourvic-search-results__item--no-results"
+        >
+          <span
+            class="yourvic-search-results__item-name"
+          >
+            
+      No results
+    
+          </span>
+        </li>
+      </ul>
+       
+      <!---->
+    </div>
+  </form>
+   
+  <div
+    class="yourvic-examples__data-block-container"
+  >
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        role=""
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        role=""
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="yourvic-examples__chart-container"
+  >
+    <div
+      class="yourvic-bar-chart yourvic-examples__bar-chart"
+    >
+      <div
+        alt=""
+        aria-label="Bar Chart"
+        class=""
+        dataformat="percentage"
+        role="img"
+        style="position: relative; height: inherit; width: inherit; outline: none;"
+        tabindex="0"
+      >
+        <canvas
+          class="chartjs-render-monitor"
+          height="0"
+          id="horizontalbar-chart"
+          style="display: block;"
+          width="0"
+        />
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
+<div
+  class="yourvic-examples__container"
+>
+  <form
+    action=""
+  >
+    <div
+      class="yourvic-auto-complete"
+    >
+      <div
+        class="yourvic-auto-complete__input-wrapper"
+      >
+        <input
+          aria-label="Search"
+          autocomplete="off"
+          class="yourvic-auto-complete__input"
+          name="yourvic-auto-complete"
+          placeholder="Search by postcode, suburb, Local Government Area or Region..."
+          type="text"
+          value=""
+        />
+         
+        <!---->
+         
+        <!---->
+         
+        <button
+          aria-label="Close"
+          class="yourvic-button-close"
+          type="button"
+        >
+          <!---->
+           
+          <!---->
+        </button>
+      </div>
+       
+      <ul
+        class="yourvic-search-results yourvic-auto-complete__results"
+        style="display: none;"
+      >
+         
+        <li
+          class="yourvic-search-results__item--no-results"
+        >
+          <span
+            class="yourvic-search-results__item-name"
+          >
+            
+      No results
+    
+          </span>
+        </li>
+      </ul>
+       
+      <!---->
+    </div>
+  </form>
+   
+  <div
+    class="yourvic-examples__map-container"
+  >
+    <div
+      class="yourvic-map-core"
+      style="position: relative; width: 100%; height: 100%;"
+    >
+       
+      <div
+        class="yourvic-map-core__container"
+      >
+        <div
+          aria-label="Interactive Map"
+          class="yourvic-map-core__map"
+          role="application"
+          tabindex="0"
+        >
+          <!---->
+           
+          <!---->
+          <div
+            class="ol-viewport"
+            style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+          >
+            <div
+              class="ol-unselectable ol-layers"
+              style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+            />
+            <div
+              class="ol-overlaycontainer"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+            />
+            <div
+              class="ol-overlaycontainer-stopevent"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+            >
+              <div
+                class="ol-overlay-container ol-selectable"
+                style="position: absolute; display: none;"
+              >
+                <div
+                  class="yourvic-map-core__popup ol-popup"
+                >
+                  <!---->
+                </div>
+              </div>
+              <div
+                class="ol-zoom ol-unselectable ol-control"
+              >
+                <button
+                  class="ol-zoom-in"
+                  title="Zoom in"
+                  type="button"
+                >
+                  +
+                </button>
+                <button
+                  class="ol-zoom-out"
+                  title="Zoom out"
+                  type="button"
+                >
+                  −
+                </button>
+              </div>
+              <div
+                class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+              >
+                <ul />
+                <button
+                  title="Attributions"
+                  type="button"
+                >
+                  <span>
+                    i
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
+<div
+  class="yourvic-examples__container"
+>
+  <div
+    class="yourvic-examples__data-block-container"
+  >
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--selectable is-selected yourvic-data-block__item--isBlock"
+        role="button"
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <span
+          class="yourvic-data-block__link"
+        >
+          <span
+            class="yourvic-data-block__link-text"
+          >
+            View chart
+          </span>
+           
+          <!---->
+        </span>
+      </div>
+    </div>
+     
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+        role="button"
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <span
+          class="yourvic-data-block__link"
+        >
+          <span
+            class="yourvic-data-block__link-text"
+          >
+            View chart
+          </span>
+           
+          <!---->
+        </span>
+      </div>
+    </div>
+     
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+        role="button"
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <span
+          class="yourvic-data-block__link"
+        >
+          <span
+            class="yourvic-data-block__link-text"
+          >
+            View chart
+          </span>
+           
+          <!---->
+        </span>
+      </div>
+    </div>
+     
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+        role="button"
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <span
+          class="yourvic-data-block__link"
+        >
+          <span
+            class="yourvic-data-block__link-text"
+          >
+            View chart
+          </span>
+           
+          <!---->
+        </span>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="yourvic-examples__bottom-row"
+  >
+    <div
+      class="yourvic-examples__chart-container"
+    >
+      <div
+        class="yourvic-bar-chart yourvic-examples__bar-chart"
+      >
+        <div
+          alt=""
+          aria-label="Bar Chart"
+          class=""
+          dataformat="percentage"
+          role="img"
+          style="position: relative; height: inherit; width: inherit; outline: none;"
+          tabindex="0"
+        >
+          <canvas
+            class="chartjs-render-monitor"
+            height="0"
+            id="horizontalbar-chart"
+            style="display: block;"
+            width="0"
+          />
+        </div>
+         
+        <!---->
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="yourvic-examples__map-container"
+    >
+      <div
+        class="yourvic-map-core"
+        style="position: relative; width: 100%; height: 100%;"
+      >
+         
+        <div
+          class="yourvic-map-core__container"
+        >
+          <div
+            aria-label="Interactive Map"
+            class="yourvic-map-core__map"
+            role="application"
+            tabindex="0"
+          >
+            <!---->
+             
+            <!---->
+             
+            <div
+              class="yourvic-map-legend blue"
+            >
+              <h2
+                class="yourvic-map-legend__title"
+              >
+                Median personal income per week
+              </h2>
+               
+              <div
+                class="yourvic-map-legend__content"
+              >
+                <div
+                  class="yourvic-map-legend__display"
+                />
+                 
+                <div
+                  class="yourvic-map-legend__range"
+                >
+                  <span
+                    class="yourvic-map-legend__range-title"
+                  >
+                    0%
+                  </span>
+                   
+                  <span
+                    class="yourvic-map-legend__range-title"
+                  >
+                    100%
+                  </span>
+                </div>
+              </div>
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <!---->
+            <div
+              class="ol-viewport"
+              style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+            >
+              <div
+                class="ol-unselectable ol-layers"
+                style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+              />
+              <div
+                class="ol-overlaycontainer"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              />
+              <div
+                class="ol-overlaycontainer-stopevent"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              >
+                <div
+                  class="ol-overlay-container ol-selectable"
+                  style="position: absolute; display: none;"
+                >
+                  <div
+                    class="yourvic-map-core__popup ol-popup"
+                  >
+                    <!---->
+                  </div>
+                </div>
+                <div
+                  class="ol-zoom ol-unselectable ol-control"
+                >
+                  <button
+                    class="ol-zoom-in"
+                    title="Zoom in"
+                    type="button"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="ol-zoom-out"
+                    title="Zoom out"
+                    type="button"
+                  >
+                    −
+                  </button>
+                </div>
+                <div
+                  class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                >
+                  <ul />
+                  <button
+                    title="Attributions"
+                    type="button"
+                  >
+                    <span>
+                      i
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`YourvicStoryshots Line Chart Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
