@@ -1,0 +1,16 @@
+FROM amazeeio/node:10-builder as builder
+
+COPY packages /app/packages
+COPY test /app/test
+COPY package.json yarn.lock /app/
+RUN yarn install
+
+FROM amazeeio/node:10
+COPY --from=builder /app/. /app/
+
+WORKDIR /app/
+
+ENV HOST 0.0.0.0
+EXPOSE 3000
+
+CMD ["yarn", "nuxt:dev"]
