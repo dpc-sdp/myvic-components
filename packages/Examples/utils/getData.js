@@ -4,6 +4,8 @@ import {
   createOwsRequestUrl
 } from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 
+import fetch from 'node-fetch'
+
 export const LEGEND_TITLES = {
   'data-block-1': 'Median personal income per week',
   'data-block-2': 'Personal income growth',
@@ -48,6 +50,23 @@ const labels = {
 }
 
 export const getDemographicData = async (area) => {
+  const request = createOwsRequestUrl(area.id, area.description, 'demographics')
+  const rawData = await fetchData(request)
+  let data = {}
+  if (rawData.features.length) {
+    const feature = rawData.features[0]
+    data = {
+      totalPopulation: feature.properties.total_population,
+      populationGrowth: feature.properties.population_growth,
+      familyTotalPercent: feature.properties.family_total_percent,
+      groupOfPeoplePercent: feature.properties.group_of_people_percent,
+      singlePersonPercent: feature.properties.single_person_percent
+    }
+  }
+  return data
+}
+
+export const getGeneralIncomeData = async (area) => {
   const request = createOwsRequestUrl(area.id, area.description, 'demographics')
   const rawData = await fetchData(request)
   let data = {}
@@ -195,4 +214,23 @@ export const getIncomeData = async (area) => {
     }
   }
   return data
+}
+
+export const getMapboxStyle = async () => {
+  let response = await fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Blue.MBStyle')
+  let glStyle = await response.json()
+  let stops = [377, 472, 532, 597, 674, 758, 902]
+  let fillStops = glStyle.layers[0].paint['fill-color'].stops
+  fillStops.forEach((stop, idx) => {
+    stop[0] = parseFloat(stops[idx])
+  })
+  glStyle.layers[0].paint['fill-outline-color']['property'] = 'median_total_personal_income_weekly'
+  glStyle.layers[0].paint['fill-color']['property'] = 'median_total_personal_income_weekly'
+  glStyle.layers[0]['source-layer'] = 'income_lga_map'
+  glStyle.sources = {
+    Blue: {
+      type: 'vector'
+    }
+  }
+  return glStyle
 }

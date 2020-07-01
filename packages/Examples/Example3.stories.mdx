@@ -1,35 +1,35 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
-import Example1 from './index.vue'
+import Example3 from './Example3.vue'
 import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
-<Meta title="Example 1" component={ Example1 } decorators={ [withKnobs] } />
+<Meta title="Examples/Example 3" component={ Example3 } decorators={ [withKnobs] } />
 
-# Example 1
+# Example 3
 
-<Description of={ Example1 } type='docgen' />
+<Description of={ Example3 } type='docgen' />
 
 ## Installation
 
 ```bash
-npm install @dpc-sdp/yourvic-example1 --save
+npm install @dpc-sdp/yourvic-example3 --save
 ```
 
 ## Import
 
 ```javascript
-import { Example1 } from '@dpc-sdp/yourvic-example1'
+import { Example3 } from '@dpc-sdp/yourvic-example3'
 ```
 
 ## Usage
 
 ```html
-<example-1 />
+<example-3 />
 ```
 
 ## Props
 
-<Props of={ Example1 } />
+<Props of={ Example3 } />
 
 ## Default
 
@@ -37,8 +37,8 @@ import { Example1 } from '@dpc-sdp/yourvic-example1'
   <Story name="Default">
     {
       {
-        components: { Example1 },
-        template: '<example-1 />',
+        components: { Example3 },
+        template: '<example-3 />',
         props: {
         }
       }

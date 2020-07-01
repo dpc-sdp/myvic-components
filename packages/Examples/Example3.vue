@@ -72,10 +72,9 @@
 
 import DataBlock from '@dpc-sdp/yourvic-data-block'
 import BarChart from '@dpc-sdp/yourvic-bar-chart'
-import { getDemographicData, getIncomeData, getLegendData, LEGEND_TITLES, MAP_LAYERS } from './utils/getData'
+import { getGeneralIncomeData, getIncomeData, getLegendData, getMapboxStyle, LEGEND_TITLES, MAP_LAYERS } from './utils/getData'
 import {
   YourvicMapCore,
-  YourvicMapTileLayer,
   YourvicMapVectorTileLayer,
   YourvicMapVectorLayer,
   YourvicMapLegend
@@ -91,7 +90,6 @@ export default {
     DataBlock,
     BarChart,
     YourvicMapCore,
-    YourvicMapTileLayer,
     YourvicMapVectorLayer,
     YourvicMapVectorTileLayer,
     YourvicMapLegend
@@ -110,58 +108,58 @@ export default {
         description: 'lga'
       },
       activeBlock: 'data-block-1',
-      demData: {},
+      generalIncomeData: {},
       incomeData: {},
       legendData: { low: '0%', high: '100%' }
     }
   },
   mounted: async function () {
     this.selectArea('area-search', this.area)
-    this.mapboxStyle = await this.getMapboxStyle()
+    this.mapboxStyle = await getMapboxStyle()
   },
   computed: {
     layerUrl: function () {
       return createWfsRequestUrl(this.area.id, this.area.description)
     },
     personalIncomeData: function () {
-      if (!this.demData.medianPersonalIncomeWeekly) {
+      if (!this.generalIncomeData.medianPersonalIncomeWeekly) {
         return { title: '', description: '' }
       } else {
         return {
-          title: `$${commarize(this.demData.medianPersonalIncomeWeekly)}`,
+          title: `$${commarize(this.generalIncomeData.medianPersonalIncomeWeekly)}`,
           description: 'Total median personal income per week'
         }
       }
     },
     personalIncomeGrowthData: function () {
-      if (!this.demData.medianPersonalIncomeWeeklyGrowth) {
+      if (!this.generalIncomeData.medianPersonalIncomeWeeklyGrowth) {
         return { title: '', description: '' }
       } else {
         return {
-          title: String(this.demData.medianPersonalIncomeWeeklyGrowth) + '%',
+          title: String(this.generalIncomeData.medianPersonalIncomeWeeklyGrowth) + '%',
           description: `Personal income growth since 2011 for ${this.area.name}`,
-          trend: this.demData.medianPersonalIncomeWeeklyGrowth > 0 ? 'up' : 'down'
+          trend: this.generalIncomeData.medianPersonalIncomeWeeklyGrowth > 0 ? 'up' : 'down'
         }
       }
     },
     householdIncomeData: function () {
-      if (!this.demData.medianHouseholdIncomeWeekly) {
+      if (!this.generalIncomeData.medianHouseholdIncomeWeekly) {
         return { title: '', description: '' }
       } else {
         return {
-          title: `$${commarize(this.demData.medianHouseholdIncomeWeekly)}`,
+          title: `$${commarize(this.generalIncomeData.medianHouseholdIncomeWeekly)}`,
           description: 'Total median household income per week'
         }
       }
     },
     householdIncomeGrowthData: function () {
-      if (!this.demData.medianHouseholdIncomeWeeklyGrowth) {
+      if (!this.generalIncomeData.medianHouseholdIncomeWeeklyGrowth) {
         return { title: '', description: '' }
       } else {
         return {
-          title: String(this.demData.medianHouseholdIncomeWeeklyGrowth) + '%',
+          title: String(this.generalIncomeData.medianHouseholdIncomeWeeklyGrowth) + '%',
           description: `Household income growth since 2011 for ${this.area.name}`,
-          trend: this.demData.medianHouseholdIncomeWeeklyGrowth > 0 ? 'up' : 'down'
+          trend: this.generalIncomeData.medianHouseholdIncomeWeeklyGrowth > 0 ? 'up' : 'down'
         }
       }
     },
@@ -200,7 +198,7 @@ export default {
     },
     selectArea: async function (searchComponent, area) {
       this.area = area
-      this.demData = await getDemographicData(area)
+      this.generalIncomeData = await getGeneralIncomeData(area)
       this.incomeData = await getIncomeData(area)
       await this.getLegendData()
     },
@@ -224,24 +222,6 @@ export default {
       }
       let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
       return `${path}?${queryParamsString}`
-    },
-    getMapboxStyle: async () => {
-      let response = await fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Blue.MBStyle')
-      let glStyle = await response.json()
-      let stops = [377, 472, 532, 597, 674, 758, 902]
-      let fillStops = glStyle.layers[0].paint['fill-color'].stops
-      fillStops.forEach((stop, idx) => {
-        stop[0] = parseFloat(stops[idx])
-      })
-      glStyle.layers[0].paint['fill-outline-color']['property'] = 'median_total_personal_income_weekly'
-      glStyle.layers[0].paint['fill-color']['property'] = 'median_total_personal_income_weekly'
-      glStyle.layers[0]['source-layer'] = 'income_lga_map'
-      glStyle.sources = {
-        Blue: {
-          type: 'vector'
-        }
-      }
-      return glStyle
     }
   }
 }

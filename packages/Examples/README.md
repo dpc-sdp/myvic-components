@@ -1,13 +1,13 @@
-# @dpc-sdp/yourvic-example1
+# @dpc-sdp/yourvic-examples
 
-A component showcasing the area search, data block and bar chart components
+A component showcasing the map, area search, data block and bar chart components
 
 --------------------------------------------------------------------------------
 
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-example1 --save
+npm install @dpc-sdp/yourvic-examples --save
 ```
 
 --------------------------------------------------------------------------------
@@ -17,6 +17,7 @@ npm install @dpc-sdp/yourvic-example1 --save
 ```shell
 @dpc-sdp/yourvic-example1
 ├── @dpc-sdp/yourvic-areasearch
+├── @dpc-sdp/yourvic-map-core
 ├── @dpc-sdp/yourvic-data-block
 ├── @dpc-sdp/yourvic-bar-chart
 ├── @dpc-sdp/yourvic-global
@@ -27,7 +28,9 @@ npm install @dpc-sdp/yourvic-example1 --save
 ## Import
 
 ```js
-import Example1 from '@dpc-sdp/yourvic-example1'
+import { Example1 } from '@dpc-sdp/yourvic-examples'
+import { Example2 } from '@dpc-sdp/yourvic-examples'
+import { Example3 } from '@dpc-sdp/yourvic-examples'
 ```
 
 --------------------------------------------------------------------------------
