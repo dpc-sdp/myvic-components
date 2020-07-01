@@ -1,12 +1,16 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const webpack = require('webpack')
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    Main: './main.js',
+    Maps: './maps.js'
+  },
   output: {
-    filename: 'yourvic-umd-bundle.js',
+    filename: '[name].yourvic-bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'YourVic',
+    library: 'YourVic[name]',
     libraryTarget: 'umd',
     publicPath: 'dist/'
   },
@@ -14,6 +18,9 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   mode: 'production',
+  optimization: {
+    usedExports: true
+  },
   module: {
     rules: [
       {
@@ -39,7 +46,7 @@ module.exports = {
     ]
   },
   plugins: [
-    // make sure to include the plugin for the magic
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ]
 }

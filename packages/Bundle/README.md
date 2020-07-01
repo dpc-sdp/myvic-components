@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/yourvic-umd-bundle
+# @dpc-sdp/yourvic-bundle
 
 > Ay YourVictoria components packaged as a UMD bundle for use directly in a HTML file
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-umd-bundle --save
+npm install @dpc-sdp/yourvic-bundle --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ npm install @dpc-sdp/yourvic-umd-bundle --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-umd-bundle
+@dpc-sdp/yourvic-bundle
 ├── @dpc-sdp/yourvic-global
 ```
 
@@ -26,7 +26,7 @@ npm install @dpc-sdp/yourvic-umd-bundle --save
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="dist/yourvic-umd-bundle.js"></script>
+<script src="dist/yourvic-bundle.js"></script>
 ```
 
 --------------------------------------------------------------------------------
