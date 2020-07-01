@@ -1,5 +1,5 @@
 <template>
-  <div class="yourvic-map">
+  <div class="yourvic-map yourvic-free-wifi-map">
     <h2 v-if="title"
       class="yourvic-map__title">{{title}}</h2>
     <RplMarkup
