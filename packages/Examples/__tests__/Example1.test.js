@@ -1,4 +1,4 @@
-import { mount, shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Example1 from './../Example1.vue'
 import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
 import DataBlock from '@dpc-sdp/yourvic-data-block'

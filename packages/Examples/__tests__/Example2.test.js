@@ -1,4 +1,4 @@
-import { mount, shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Example2 from './../Example2.vue'
 import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
 import { YourvicMapCore, YourvicMapVectorLayer } from '@dpc-sdp/yourvic-map-core'
