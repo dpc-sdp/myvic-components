@@ -110,6 +110,7 @@ export default {
     right: 1rem;
     bottom: 2rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);
+    max-width: 20rem;
 
     &--isLeftAligned {
       left: 1rem;
@@ -119,11 +120,11 @@ export default {
     &__content {
       position: relative;
       max-height: 300px;
-      overflow: scroll;
+      overflow: auto;
     }
 
     &__display {
-      width: rem-calc(180);
+      min-width: rem-calc(180);
       height: 12px;
       margin-bottom: .5rem;
       border-radius: 6px;

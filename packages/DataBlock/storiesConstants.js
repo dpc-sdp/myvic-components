@@ -1,5 +1,5 @@
 export const dataBlockTemplate = `
-<data-block id="test-datablock" :data="data" :selectable="selectable" :isBlock="isBlock" />
+<data-block id="test-datablock" :data="data" :selectable="selectable" :isBlock="isBlock" :isSelected="isSelected" />
 `
 
 export const dataItemProps = { title: 'Title', description: 'description' }

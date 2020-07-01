@@ -4,7 +4,7 @@ import constants from '@dpc-sdp/yourvic-global/constants/charts'
 import utils from '@dpc-sdp/yourvic-global/utils/charts'
 
 const settings = {
-  scaleFactor: 1.05,
+  scaleFactor: 1.06,
   dataset: {
     barPercentage: 0.8
   },
@@ -139,7 +139,11 @@ export default {
         label: function (tooltipItem, data) {
           var dataset = data.datasets[tooltipItem.datasetIndex]
           const value = direction === 'horizontal' ? tooltipItem.xLabel : tooltipItem.yLabel
-          return `${dataset.label}: ${utils.labelValue(value, dataFormat)}`
+          if (data.datasets.length === 1) {
+            return utils.labelValue(value, dataFormat)
+          } else {
+            return `${dataset.label}: ${utils.labelValue(value, dataFormat)}`
+          }
         }
       }
     }

@@ -8,7 +8,7 @@
         class="yourvic-data-item__icon">
         <rpl-icon
           :symbol="icon"
-          color="secondary"
+          :color="trend === 'down' ? 'warning' : 'secondary'"
           size="m"
         />
       </span>
@@ -35,7 +35,8 @@ export default {
     },
     trend: {
       type: String,
-      default: ''
+      default: '',
+      validator: value => ['', 'up', 'down'].includes(value)
     }
   },
   computed: {
