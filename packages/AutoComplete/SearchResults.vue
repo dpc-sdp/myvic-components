@@ -79,6 +79,7 @@ export default {
   @import "~@dpc-sdp/yourvic-global/styles/global";
 
   .yourvic-search-results {
+    box-sizing: border-box;
     background-color: #fff;
     border: 1px solid $textColor;
     border-radius: 0 0 5px 5px;
