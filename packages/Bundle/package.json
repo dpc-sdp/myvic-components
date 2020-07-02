@@ -10,7 +10,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "build-analyze": "cross-env BUNDLE_ANALYZE=1 webpack"
   },
   "dependencies": {
     "@dpc-sdp/yourvic-global": "^1.1.3",

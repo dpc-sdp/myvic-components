@@ -1,6 +1,7 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: {
@@ -50,6 +51,8 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    // Set env var BUNDLE_ANALYZE to 1 to analyze bundle.
+    new BundleAnalyzerPlugin({ analyzerMode: process.env.BUNDLE_ANALYZE === '1' ? 'server' : 'disabled' })
   ]
 }
