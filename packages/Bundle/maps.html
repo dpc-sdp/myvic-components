@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<script src="dist/Maps.yourvic-bundle.js"></script>
+
+<p>Map:</p>
+<div id="mapContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="map"></div>
+</div>
+
+<p>Map with Tile Layer:</p>
+<div id="mapTileLayerContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="mapTileLayer"></div>
+</div>
+
+<p>Map with Vector Layer:</p>
+<div id="mapVectorLayerContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="mapVectorLayer"></div>
+</div>
+
+<p>Map with Vector Tile Layer:</p>
+<div id="mapVectorTileLayerContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="mapVectorTileLayer"></div>
+</div>
+
+<script>
+  YourVicMaps.mountMap('#map', {
+    baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
+    center: [16136905.843820328, -4383057.013522999],
+    zoom: 8
+  })
+
+  YourVicMaps.mountMapWithTileLayer('#mapTileLayer', {
+    center: [16136905.843820328, -4383057.013522999],
+    zoom: 8
+  }, {
+    type: 'OSM'
+  })
+
+  YourVicMaps.mountMapWithVectorLayer('#mapVectorLayer', {
+    center: [16136905.843820328, -4383057.013522999],
+    zoom: 5
+  }, {
+    url: 'https://openlayers.org/en/latest/examples/data/geojson/countries.geojson',
+    dataFormat: 'GeoJSON',
+    labelAttribute: 'name'
+  })
+
+  YourVicMaps.mountMapWithVectorTileLayer('#mapVectorTileLayer', {
+    center: [16136905.843820328, -4383057.013522999],
+    zoom: 5
+  }, {
+    dataFormat: 'MVT',
+    overlaps: 'false',
+    mapboxStyle: 'https://api.mapbox.com/styles/v1/mapbox/bright-v9?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
+    attributions: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+  })
+</script>
+
+</body>
+</html>

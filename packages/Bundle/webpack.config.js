@@ -9,6 +9,7 @@ module.exports = {
   },
   output: {
     filename: '[name].yourvic-bundle.js',
+    chunkFilename: '[name].yourvic-bundle.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'YourVic[name]',
     libraryTarget: 'umd',
