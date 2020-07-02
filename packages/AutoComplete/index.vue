@@ -301,6 +301,7 @@ export default {
     flex-direction: column;
     position: relative;
     background: #fff;
+    color: $textColor;
 
     .is-mobile & {
       // position: fixed;

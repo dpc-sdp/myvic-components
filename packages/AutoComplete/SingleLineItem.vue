@@ -58,6 +58,7 @@ export default {
     padding: 1rem;
 
     &__icon {
+      box-sizing: border-box;
       display: inline-block;
       padding-right: 23px;
       position: relative;
