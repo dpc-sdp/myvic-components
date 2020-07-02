@@ -1,3 +1,4 @@
+import './public-path'
 import Vue from 'vue'
 
 // Replaced with dynamic imports for code splitting
