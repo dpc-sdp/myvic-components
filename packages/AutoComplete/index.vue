@@ -63,7 +63,7 @@ import { isMobileSafari } from './utils/browser'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 import Error from '@dpc-sdp/yourvic-global/components/Error'
 import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
-import Spinner from 'vue-simple-spinner/src/components/Spinner.vue'
+import Spinner from '@dpc-sdp/yourvic-global/components/Spinner'
 
 /**
  * AutoComplete is a configurable component for displaying an autocomplete search with results

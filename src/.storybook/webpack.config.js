@@ -31,8 +31,7 @@ module.exports = async ({ config, mode }) => {
         resolve("storybook-components/scss")
       ],
       exclude: [
-        resolve("../node_modules/ol"),
-        resolve("../node_modules/vue-simple-spinner/")
+        resolve("../node_modules/ol")
       ]
     },
     {
