@@ -1,7 +1,6 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import fetch from 'isomorphic-fetch'
 import {
   YourvicMapCore,
   YourvicMapTileLayer,
@@ -12,6 +11,11 @@ import {
   Fill,
   EsriJSON
 } from './index.js'
+import {
+  myVictoriaRotatingColours,
+  myVictoriaLayerStops,
+  buildMyVictoriaMapboxStyle
+} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 
 <Meta title="Maps/Vector Tile Layer" component={ YourvicMapVectorTileLayer } decorators={ [withKnobs] } />
 
@@ -223,22 +227,11 @@ MyVictoria uses Mapbox styles but requires some layer specific configuration bef
             return `${path}?${queryParamsString}`
           },
           getMapboxStyle: async () => {
-            let response = await fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Blue.MBStyle')
-            let glStyle =  await response.json()
-            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
-            let fillStops = glStyle.layers[0].paint['fill-color'].stops
-            fillStops.forEach((stop, idx) => {
-              stop[0] = parseFloat(populationStops[idx])
-            })
-            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
-            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
-            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
-            glStyle.sources = {
-              Blue: {
-                type: 'vector'
-              }
-            }
-            return glStyle
+            return buildMyVictoriaMapboxStyle(
+              myVictoriaRotatingColours.blue,
+              myVictoriaLayerStops.population_growth_suburb,
+              'total_population_growth',
+              'population_suburb_map')
           }
         }
       }
@@ -302,22 +295,11 @@ Tile Grid. MyVictoria uses Mapbox styles but requires some layer specific config
             return `${path}?${queryParamsString}`
           },
           getMapboxStyle: async () => {
-            let response = await fetch('https://gis-app.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Pink.MBStyle')
-            let glStyle =  await response.json()
-            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
-            let fillStops = glStyle.layers[0].paint['fill-color'].stops
-            fillStops.forEach((stop, idx) => {
-              stop[0] = parseFloat(populationStops[idx])
-            })
-            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
-            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
-            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
-            glStyle.sources = {
-              Pink: {
-                type: 'vector'
-              }
-            }
-            return glStyle
+            return buildMyVictoriaMapboxStyle(
+              myVictoriaRotatingColours.pink,
+              myVictoriaLayerStops.population_growth_suburb,
+              'total_population_growth',
+              'population_suburb_map')
           },
           generatePopupContent: function (features) {
             return {
@@ -358,20 +340,9 @@ data sources.
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
             center: [16138405.843820328, -4552817.013522999],
-            mapboxStyle: undefined,
             attributions: [
               '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
             ]
-          }
-        },
-        async mounted () {
-          this.mapboxStyle = await this.getMapboxStyle()
-        },
-        methods: {
-          getMapboxStyle: async () => {
-            let response = await fetch('https://gis-app.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Blue.MBStyle')
-            let glStyle =  await response.json()
-            return glStyle
           }
         }
       }

@@ -2,7 +2,6 @@ import { Meta, Preview, Story, Props, Source, Description } from '@storybook/add
 import { withKnobs, object, number, boolean, text } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { YourVicDataBlock as DataBlock } from '@dpc-sdp/yourvic-data-block'
-import fetch from 'isomorphic-fetch'
 import {
   YourvicMapCore,
   YourvicMapVectorLayer,
@@ -13,6 +12,11 @@ import {
   Fill,
   Text
 } from './index.js'
+import {
+  myVictoriaRotatingColours,
+  myVictoriaLayerStops,
+  buildMyVictoriaMapboxStyle
+} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 
 <Meta title="Maps/Core" component={ YourvicMapCore } decorators={ [withKnobs] } />
 
@@ -290,22 +294,11 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
             return `${path}?${queryParamsString}`
           },
           getMapboxStyle: async () => {
-            let response = await fetch('https://gis-app.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Pink.MBStyle')
-            let glStyle =  await response.json()
-            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
-            let fillStops = glStyle.layers[0].paint['fill-color'].stops
-            fillStops.forEach((stop, idx) => {
-              stop[0] = parseFloat(populationStops[idx])
-            })
-            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
-            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
-            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
-            glStyle.sources = {
-              Pink: {
-                type: 'vector'
-              }
-            }
-            return glStyle
+            return buildMyVictoriaMapboxStyle(
+              myVictoriaRotatingColours.pink,
+              myVictoriaLayerStops.population_growth_suburb,
+              'total_population_growth',
+              'population_suburb_map')
           }
         }
       }
@@ -529,22 +522,11 @@ https://www.w3.org/WAI/tutorials/images/examples/2014-first-qtr/
             return `${path}?${queryParamsString}`
           },
           getMapboxStyle: async () => {
-            let response = await fetch('https://gis-app.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Pink.MBStyle')
-            let glStyle =  await response.json()
-            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
-            let fillStops = glStyle.layers[0].paint['fill-color'].stops
-            fillStops.forEach((stop, idx) => {
-              stop[0] = parseFloat(populationStops[idx])
-            })
-            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
-            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
-            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
-            glStyle.sources = {
-              Pink: {
-                type: 'vector'
-              }
-            }
-            return glStyle
+            return buildMyVictoriaMapboxStyle(
+              myVictoriaRotatingColours.pink,
+              myVictoriaLayerStops.population_growth_suburb,
+              'total_population_growth',
+              'population_suburb_map')
           }
         }
       }
