@@ -301,6 +301,7 @@ export default {
     flex-direction: column;
     position: relative;
     background: #fff;
+    color: $textColor;
 
     &__spinner {
       position: relative;
