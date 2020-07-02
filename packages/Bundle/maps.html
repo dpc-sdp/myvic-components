@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<script src="dist/Maps.yourvic-bundle.js"></script>
+<script src="dist/yourvic-bundle.js"></script>
 
 <p>Map:</p>
 <div id="mapContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
@@ -28,20 +28,20 @@
 </div>
 
 <script>
-  YourVicMaps.mountMap('#map', {
+  YourVic.mountMap('#map', {
     baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
     center: [16136905.843820328, -4383057.013522999],
     zoom: 8
   })
 
-  YourVicMaps.mountMapWithTileLayer('#mapTileLayer', {
+  YourVic.mountMapWithTileLayer('#mapTileLayer', {
     center: [16136905.843820328, -4383057.013522999],
     zoom: 8
   }, {
     type: 'OSM'
   })
 
-  YourVicMaps.mountMapWithVectorLayer('#mapVectorLayer', {
+  YourVic.mountMapWithVectorLayer('#mapVectorLayer', {
     center: [16136905.843820328, -4383057.013522999],
     zoom: 5
   }, {
@@ -50,7 +50,7 @@
     labelAttribute: 'name'
   })
 
-  YourVicMaps.mountMapWithVectorTileLayer('#mapVectorTileLayer', {
+  YourVic.mountMapWithVectorTileLayer('#mapVectorTileLayer', {
     center: [16136905.843820328, -4383057.013522999],
     zoom: 5
   }, {

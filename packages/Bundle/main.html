@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<script src="dist/Main.yourvic-bundle.js"></script>
+<script src="dist/yourvic-bundle.js"></script>
 
 <p>Address Search:</p>
 <div id="addressSearchContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
@@ -48,11 +48,11 @@
 </div>
 
 <script>
-  YourVicMain.mountAddressSearch('#addressSearch', {})
+  YourVic.mountAddressSearch('#addressSearch', {})
 
-  YourVicMain.mountAreaSearch('#areaSearch', {})
+  YourVic.mountAreaSearch('#areaSearch', {})
 
-  YourVicMain.mountDataBlock('#dataBlock',
+  YourVic.mountDataBlock('#dataBlock',
     {
       data: {
         title: 'Title',
@@ -62,7 +62,7 @@
     }
   )
 
-  YourVicMain.mountBarChart('#barChart', {
+  YourVic.mountBarChart('#barChart', {
     direction: 'horizontal',
     title: 'Sample Chart',
     data: {
@@ -78,7 +78,7 @@
     dataFormat: 'normal'
   })
 
-  YourVicMain.mountLineChart('#lineChart', {
+  YourVic.mountLineChart('#lineChart', {
     title: 'Sample Chart',
     data: {
       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -93,7 +93,7 @@
     dataFormat: 'normal'
   })
 
-  YourVicMain.mountPieChart('#pieChart', {
+  YourVic.mountPieChart('#pieChart', {
     title: 'Sample Chart',
     data: {
       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -108,7 +108,7 @@
     dataFormat: 'normal'
   })
 
-  YourVicMain.mountToggleList('#list', {
+  YourVic.mountToggleList('#list', {
     items: [
       { id: 'item1', title: 'Item 1', icon: 'map_marker', color: 'primary' },
       { id: 'item2', title: 'Item 2', icon: 'instagram', color: 'danger' },
@@ -125,7 +125,7 @@
     }
   })
 
-  YourVicMain.mountTreeMap('#treeMap', {
+  YourVic.mountTreeMap('#treeMap', {
     title: 'Title',
     data: [
       {

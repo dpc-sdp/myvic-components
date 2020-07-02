@@ -4,14 +4,13 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    Main: './main.js',
-    Maps: './maps.js'
+    index: './index.js'
   },
   output: {
-    filename: '[name].yourvic-bundle.js',
+    filename: 'yourvic-bundle.js',
     chunkFilename: '[name].yourvic-bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'YourVic[name]',
+    library: 'YourVic',
     libraryTarget: 'umd',
     publicPath: 'dist/'
   },
@@ -21,6 +20,9 @@ module.exports = {
   mode: 'production',
   optimization: {
     usedExports: true
+    // splitChunks: {
+    //   chunks: 'all'
+    // }
   },
   module: {
     rules: [

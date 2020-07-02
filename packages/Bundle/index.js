@@ -1,4 +1,6 @@
 import Vue from 'vue'
+
+// Replaced with dynamic imports for code splitting
 // import YourVicAddressSearch from '@dpc-sdp/yourvic-addresssearch'
 // import YourVicAreaSearch from '@dpc-sdp/yourvic-areasearch'
 // import YourVicAutoComplete from '@dpc-sdp/yourvic-autocomplete'
@@ -8,6 +10,10 @@ import Vue from 'vue'
 // import YourVicPieChart from '@dpc-sdp/yourvic-pie-chart'
 // import YourVicToggleList from '@dpc-sdp/yourvic-toggle-list'
 // import YourVicTreeMap from '@dpc-sdp/yourvic-treemap'
+// import YourvicMapCore from '@dpc-sdp/yourvic-map-core'
+// import YourvicMapTileLayer from '@dpc-sdp/yourvic-map-core/MapTileLayer'
+// import YourvicMapVectorLayer from '@dpc-sdp/yourvic-map-core/MapVectorLayer'
+// import YourvicMapVectorTileLayer from '@dpc-sdp/yourvic-map-core/MapVectorTileLayer'
 
 function initialiseVueComponent (component, el, props, childComponent, childProps) {
   // eslint-disable-next-line no-new
@@ -63,4 +69,27 @@ export async function mountToggleList (el, props) {
 export async function mountTreeMap (el, props) {
   const { default: YourVicTreeMap } = await import(/* webpackChunkName: "YourVicTreeMap" */ '@dpc-sdp/yourvic-treemap')
   initialiseVueComponent(YourVicTreeMap, el, props)
+}
+
+export async function mountMap (el, props) {
+  const { default: YourvicMapCore } = await import(/* webpackChunkName: "YourvicMapCore" */ '@dpc-sdp/yourvic-map-core')
+  initialiseVueComponent(YourvicMapCore, el, props)
+}
+
+export async function mountMapWithTileLayer (el, mapProps, layerProps) {
+  const { default: YourvicMapCore } = await import(/* webpackChunkName: "YourvicMapCore" */ '@dpc-sdp/yourvic-map-core')
+  const { default: YourvicMapTileLayer } = await import(/* webpackChunkName: "YourvicMapTileLayer" */ '@dpc-sdp/yourvic-map-core/MapTileLayer')
+  initialiseVueComponent(YourvicMapCore, el, mapProps, YourvicMapTileLayer, layerProps)
+}
+
+export async function mountMapWithVectorLayer (el, mapProps, layerProps) {
+  const { default: YourvicMapCore } = await import(/* webpackChunkName: "YourvicMapCore" */ '@dpc-sdp/yourvic-map-core')
+  const { default: YourvicMapVectorLayer } = await import(/* webpackChunkName: "YourvicMapVectorLayer" */ '@dpc-sdp/yourvic-map-core/MapVectorLayer')
+  initialiseVueComponent(YourvicMapCore, el, mapProps, YourvicMapVectorLayer, layerProps)
+}
+
+export async function mountMapWithVectorTileLayer (el, mapProps, layerProps) {
+  const { default: YourvicMapCore } = await import(/* webpackChunkName: "YourvicMapCore" */ '@dpc-sdp/yourvic-map-core')
+  const { default: YourvicMapVectorTileLayer } = await import(/* webpackChunkName: "YourvicMapVectorTileLayer" */ '@dpc-sdp/yourvic-map-core/MapVectorTileLayer')
+  initialiseVueComponent(YourvicMapCore, el, mapProps, YourvicMapVectorTileLayer, layerProps)
 }
