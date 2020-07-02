@@ -18,12 +18,10 @@
           @focus="onChange"
           @keyup.down="onKeyDown"
           @keyup.up="onKeyUp">
-        <rpl-icon
+        <Spinner
           v-if="fetching"
-          class="yourvic-auto-complete__icon"
-          symbol="search"
-          color="extra_dark_neutral"
-          size="m"
+          class="yourvic-auto-complete__spinner"
+          size="20"
         />
         <rpl-icon
           v-if="!query.length"
@@ -65,6 +63,7 @@ import { isMobileSafari } from './utils/browser'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 import Error from '@dpc-sdp/yourvic-global/components/Error'
 import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
+import Spinner from 'vue-simple-spinner/src/components/Spinner.vue'
 
 /**
  * AutoComplete is a configurable component for displaying an autocomplete search with results
@@ -74,7 +73,8 @@ export default {
     RplIcon,
     SearchResults,
     ButtonClose,
-    Error
+    Error,
+    Spinner
   },
   mixins: [catchError],
   props: {
@@ -301,6 +301,12 @@ export default {
     flex-direction: column;
     position: relative;
     background: #fff;
+
+    &__spinner {
+      position: relative;
+      top: -1px;
+      left: -2px;
+    }
 
     .is-mobile & {
       // position: fixed;

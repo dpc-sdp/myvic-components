@@ -30,7 +30,10 @@ module.exports = async ({ config, mode }) => {
         resolve("storybook-components"),
         resolve("storybook-components/scss")
       ],
-      exclude: [resolve("../node_modules/ol")]
+      exclude: [
+        resolve("../node_modules/ol"),
+        resolve("../node_modules/vue-simple-spinner/")
+      ]
     },
     {
       test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
