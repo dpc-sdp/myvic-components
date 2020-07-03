@@ -1,8 +1,8 @@
 {
   "name": "yourvictoria-app",
   "version": "1.10.0",
-  "description": "Example Vue.js app(Not Nuxt.js) for showing how to use YourVictoria",
   "private": true,
+  "description": "Example Vue.js app(Not Nuxt.js) for showing how to use YourVictoria",
   "scripts": {
     "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
@@ -10,8 +10,8 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run -e TAGS='not @skip or @smoke'",
     "cy:run-smoke": "cypress run -e TAGS='@smoke' --spec 'test/e2e/integration/smoke/*'",
-    "test:smoke": "cross-env TEST=1 start-server-and-test serve http://localhost:3000 cy:run-smoke",
-    "test:dev": "cross-env NODE_ENV=test start-server-and-test serve http://localhost:3000 cy:open"
+    "test:dev": "cross-env NODE_ENV=test start-server-and-test serve http://localhost:3000 cy:open",
+    "test:smoke": "cross-env TEST=1 start-server-and-test serve http://localhost:3000 cy:run-smoke"
   },
   "dependencies": {
     "@dpc-sdp/ripple-global": "1.10.0",
@@ -20,16 +20,16 @@
     "@dpc-sdp/ripple-site-header": "1.10.0",
     "@dpc-sdp/yourvic-bar-chart": "dev",
     "@dpc-sdp/yourvic-map-core": "dev",
-    "core-js": "^2.6.5",
+    "core-js": "^3.6.5",
     "vue": "^2.6.10"
   },
   "devDependencies": {
     "@dpc-sdp/ripple-card": "1.10.0",
     "@dpc-sdp/ripple-grants": "1.10.0",
     "@dpc-sdp/ripple-test-tools": "1.10.0",
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
+    "@vue/cli-plugin-babel": "~4.4.6",
+    "@vue/cli-plugin-eslint": "~4.4.6",
+    "@vue/cli-service": "~4.4.6",
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
@@ -57,6 +57,10 @@
       "parser": "babel-eslint"
     }
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "step_definitions": "test/e2e/integration/",
@@ -65,9 +69,5 @@
       "outputFolder": "./../../test-results/cucumber",
       "filePrefix": "vue-example-app-"
     }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  }
 }
