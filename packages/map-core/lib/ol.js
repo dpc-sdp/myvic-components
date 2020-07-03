@@ -10,24 +10,20 @@ import TileWMSSource from 'ol/source/TileWMS'
 import OSMSource, { ATTRIBUTION as OSMAttribution } from 'ol/source/OSM'
 import WMTSSource, { optionsFromCapabilities as WMTSOptionsFromCapabilities } from 'ol/source/WMTS'
 import TileArcGISRestSource from 'ol/source/TileArcGISRest'
-import {
-  Style,
-  Text,
-  Fill,
-  Stroke,
-  Icon,
-  Circle
-} from 'ol/style'
+import Style from 'ol/style/Style'
+import Text from 'ol/style/Text'
+import Fill from 'ol/style/Fill'
+import Stroke from 'ol/style/Stroke'
+import Icon from 'ol/style/Icon'
+import Circle from 'ol/style/Circle'
 import Map from 'ol/Map'
 import View from 'ol/View'
 import Feature from 'ol/Feature'
 import Overlay from 'ol/Overlay'
-import {
-  GeoJSON,
-  EsriJSON,
-  MVT,
-  WFS
-} from 'ol/format'
+import GeoJSON from 'ol/format/GeoJSON'
+import EsriJSON from 'ol/format/EsriJSON'
+import MVT from 'ol/format/MVT'
+import WFS from 'ol/format/WFS'
 import { bbox, tile } from 'ol/loadingstrategy'
 import AnimatedCluster from 'ol-ext/layer/AnimatedCluster'
 import {

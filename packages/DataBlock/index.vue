@@ -87,6 +87,7 @@ export default {
     display: flex;
 
     &__item {
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       width: 100%;

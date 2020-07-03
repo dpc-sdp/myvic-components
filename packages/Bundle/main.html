@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+<!--<script src="dist/yourvic-bundle.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/yourvic-bundle@dev/dist/yourvic-bundle.js"></script>
+
+<p>Address Search:</p>
+<div id="addressSearchContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="addressSearch"></div>
+</div>
+
+<p>Area Search:</p>
+<div id="areaSearchContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="areaSearch"></div>
+</div>
+
+<p>Bar Chart:</p>
+<div id="barChartContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="barChart"></div>
+</div>
+
+<p>Data Block:</p>
+<div id="DataBlockContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="dataBlock"></div>
+</div>
+
+<p>Line Chart:</p>
+<div id="lineChartContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="lineChart"></div>
+</div>
+
+<p>Pie Chart:</p>
+<div id="pieChartContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="pieChart"></div>
+</div>
+
+<p>Toggle List:</p>
+<div id="listContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="list"></div>
+</div>
+
+<p>Tree Map:</p>
+<div id="treeMapContainer" style="position: relative; width: 600px; height: 400px; border: 1px solid black">
+  <div id="treeMap"></div>
+</div>
+
+<script>
+  YourVic.mountAddressSearch('#addressSearch', {})
+
+  YourVic.mountAreaSearch('#areaSearch', {})
+
+  YourVic.mountDataBlock('#dataBlock',
+    {
+      data: {
+        title: 'Title',
+        description: 'description',
+        trend: 'up'
+      }
+    }
+  )
+
+  YourVic.mountBarChart('#barChart', {
+    direction: 'horizontal',
+    title: 'Sample Chart',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: [40, 20, 12, 52, 10, 39]
+        }
+      ]
+    },
+    showLegend: true,
+    dataFormat: 'normal'
+  })
+
+  YourVic.mountLineChart('#lineChart', {
+    title: 'Sample Chart',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: [40, 20, 12, 52, 10, 39]
+        }
+      ]
+    },
+    showLegend: true,
+    dataFormat: 'normal'
+  })
+
+  YourVic.mountPieChart('#pieChart', {
+    title: 'Sample Chart',
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: [40, 20, 12, 52, 10, 39]
+        }
+      ]
+    },
+    showLegend: true,
+    dataFormat: 'normal'
+  })
+
+  YourVic.mountToggleList('#list', {
+    items: [
+      { id: 'item1', title: 'Item 1', icon: 'map_marker', color: 'primary' },
+      { id: 'item2', title: 'Item 2', icon: 'instagram', color: 'danger' },
+      { id: 'item3', title: 'Item 3', icon: 'home', color: 'success' },
+      { id: 'item4', title: 'Item 4', icon: 'share_alternative', color: 'secondary' },
+      { id: 'item5', title: 'Item 5', icon: 'document', color: 'warning' },
+    ],
+    selectedItems: {
+      'item1': true,
+      'item2': false,
+      'item3': false,
+      'item4': true,
+      'item5': false
+    }
+  })
+
+  YourVic.mountTreeMap('#treeMap', {
+    title: 'Title',
+    data: [
+      {
+        name: 'Category 1',
+        value: 45
+      },
+      {
+        name: 'Category 2',
+        value: 70
+      },
+      {
+        name: 'Category 3',
+        value: 80
+      },
+      {
+        name: 'Category 4',
+        value: 15
+      },
+      {
+        name: 'Category 5',
+        value: 55
+      },
+      {
+        name: 'Category 6',
+        value: 25
+      },
+      {
+        name: 'Category 7',
+        value: 2
+      }
+    ],
+    valueAttr: 'value',
+    labelAttr: 'name',
+    dataFormat: 'normal'
+  })
+</script>
+
+</body>
+</html>
