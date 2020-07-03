@@ -1082,59 +1082,59 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dpc-sdp/ripple-button@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-button/-/ripple-button-1.9.0.tgz#014602ec110b1adcc88d223d5339f0ca5ea8d65a"
-  integrity sha512-lUe97VWVJzhSBLC8xgIX7kFNJsqBtD9vli+5lck/RSWbAtDrrsmqnTgnwm7maNnhFYCMdUMczZksT5L4SrkA8A==
+"@dpc-sdp/ripple-button@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-button/-/ripple-button-1.8.0.tgz#08ca26038f6af1b0feef2fa1150516258679150b"
+  integrity sha512-lv+I6G6shAGv1y/gVyRm6e+cf0XP/Db87Xf3Kcs1h2YdzhfxT7pf4wHxSsDKazjObfHE2FbY72U0kvnS6sRgjw==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-link" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-link" "1.8.0"
 
-"@dpc-sdp/ripple-card@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-card/-/ripple-card-1.9.0.tgz#f1b0496aa6385c3c6f8fd80c8ab98e6e4144a906"
-  integrity sha512-2grerhc2uLWAAjyuDxY3VEHYqBEfvRhOKjFM/ugLZciXHkfq2eaZz4C5syJ24Bax/ZINd8eUOOW2i3pu9gFw3Q==
+"@dpc-sdp/ripple-card@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-card/-/ripple-card-1.8.0.tgz#8d243feda2a5f0baa5157a2c4711ef1fd1d4cff4"
+  integrity sha512-Ozl27BCfg7EEOHhsTo+YXwQE7PvYYsf8/2TJRaFzVQ7ff//Ra1ho+Vkvfi8ii/cDiNh2IYoY/sEGRWWtJSO4SA==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
-    "@dpc-sdp/ripple-link" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
+    "@dpc-sdp/ripple-link" "1.8.0"
     fontfaceobserver "^2.0.13"
     vue-carousel "^0.18.0"
 
-"@dpc-sdp/ripple-document-link@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-document-link/-/ripple-document-link-1.9.0.tgz#00f9f1e6ae0ee029fafc5ce8ee2f6b96dd53585d"
-  integrity sha512-xCXIBgCEvPUe0bCe0kGksg13//P61BrgSzAxUUIGI0roEedw0OKR2sWQBYGA9wLhVFKSfey0XvJ3cqDYE/e4cw==
+"@dpc-sdp/ripple-document-link@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-document-link/-/ripple-document-link-1.8.0.tgz#9f5bdc66419aa6faaaf7a4c760e0e275cb981972"
+  integrity sha512-27kF9TqlvartaYc8obTRrL2Pg5nTLmfvKlzT7kLZPCCzsJPxam1Dg8LDIuBUteT9yKAeyjlP9FSExJXuZNhp1w==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
 
-"@dpc-sdp/ripple-embedded-video@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-embedded-video/-/ripple-embedded-video-1.9.0.tgz#b1f0d7130d72260710e6b9000a579b4405f87346"
-  integrity sha512-ruWzAIyPClJIVWgydRPut7rqQAyGqhiiTig8otQACdKG/dToVHcj9Jef6cHZPu9p9D7N4ssePErY1TvorqxOcQ==
+"@dpc-sdp/ripple-embedded-video@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-embedded-video/-/ripple-embedded-video-1.8.0.tgz#07d5f93ee0de17c68196f5a27586db2cd967d8b8"
+  integrity sha512-i0ltPmHq3RfrbXU8uh5vfcZ/Y9HNRFJSwBo+Dl0Nw5w/iLikFxbeXh7XZEgjnzdAgdvJQBfmSZTrZYgwo+i8/g==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
-    "@dpc-sdp/ripple-link" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
+    "@dpc-sdp/ripple-link" "1.8.0"
 
-"@dpc-sdp/ripple-form@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-form/-/ripple-form-1.9.0.tgz#99ebc0b8c0baec0ba238d99bf49162e2fc6ddc82"
-  integrity sha512-b/I1scRoYc1YxCPCI8sF0j7keLpKGihKl6zHEIY+rpQn+PObydbcvqIWjOnPCqlkcFAo/AFX31DFBxdpokBSgw==
+"@dpc-sdp/ripple-form@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-form/-/ripple-form-1.8.0.tgz#fe90819eddabe32831fd26b18e34e4a0b4d4b0d8"
+  integrity sha512-1Up2M0sgUzlz3jNeyHIOPLZOTcYdC2eifGXN5Fd4GSWqGEz1Ab62PdJNMz5PpLFt3+97yZaFkSRdpTDMnLKPzw==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
     moment "^2.22.1"
     pikaday "^1.7.0"
     vue-form-generator "^2.2.2"
     vue-multiselect "^2.1.3"
     vue-scrollto "^2.13.0"
 
-"@dpc-sdp/ripple-global@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.9.0.tgz#4d98555a4327d60963970514c05654b7692ddecc"
-  integrity sha512-QDsXmm3d9BNyTc5iDoHu25mqNEU4sT6owvWiELjdYjecBfHsTuTVppdVPBBI2Yr+N0tShAyGr8yOwQCNscdiQg==
+"@dpc-sdp/ripple-global@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.8.0.tgz#7a30727865d7601686743b174bc2617c7b10ece9"
+  integrity sha512-3KDrI2gZ+gE6k2XAdMFOwU7UYcSFjdUgSKddHWJFZDMBJ6b/Cip98Ux+8TPzt1Mqz1NXhA9TyKtY3plvC8/SrQ==
   dependencies:
     masonry-layout "^4.2.1"
     moment "^2.22.1"
@@ -1151,115 +1151,115 @@
     object-fit-images "^3.2.3"
     vue-focus "^2.1.0"
 
-"@dpc-sdp/ripple-grants@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grants/-/ripple-grants-1.9.0.tgz#84eca30cca458d3d591ce8e6d4f6dd7c968ee734"
-  integrity sha512-Rz5lvjv+sH2hhNTxoRqTrD+ncpZKvxphG6wYgpbYHuu/WPvCONYHFqYYD59cS1UjGV0XD6vGnEd06w8++CZTCg==
+"@dpc-sdp/ripple-grants@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grants/-/ripple-grants-1.8.0.tgz#df08c20659d36026c9ef4ac36ef2c0c30b7c931b"
+  integrity sha512-qI44fmbxoGDAU0eiNZHt3gHoAzig4/SEAeDcXD7PolLfY8xMKUcw35y4CZyLz1CJaC18lsoJHSBgVwOIloC+eA==
   dependencies:
-    "@dpc-sdp/ripple-button" "1.9.0"
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-list" "1.9.0"
-    "@dpc-sdp/ripple-markup" "1.9.0"
-    "@dpc-sdp/ripple-meta-tag" "1.9.0"
+    "@dpc-sdp/ripple-button" "1.8.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-list" "1.8.0"
+    "@dpc-sdp/ripple-markup" "1.8.0"
+    "@dpc-sdp/ripple-meta-tag" "1.8.0"
     moment "^2.22.1"
 
-"@dpc-sdp/ripple-grid@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.9.0.tgz#d2bba6536b7a01c357a81c9e37d20df535755b88"
-  integrity sha512-tFH3yxxmnFcSGsobjmqYIZvIbo8SfTr4NOae7eO5xDamuUpOmTxe8+87woCJYBw1+pIw1Fd5FEMorijLiGD25Q==
+"@dpc-sdp/ripple-grid@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.8.0.tgz#05873582a9c0b7f940500d61580d8bf9f36fe437"
+  integrity sha512-1iKUfz3m03a6rHGNtGYCemeu4NKxmyiN6AwnCvcol0rjLVE6hxEwBcvpEO0A17K4ua71ti6ftIfgUWXqXtaWFw==
 
-"@dpc-sdp/ripple-icon@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.9.0.tgz#9131783a0275a2c591ffc913435ab4e142a7092c"
-  integrity sha512-gGWugEcY8CjrW+sfmy3iwMfeAoQj2hZiVvMBlj3uN9UkiKFDskVyI/yJmKOofnWwEtBeW+AwSa8r09E70+JJEQ==
+"@dpc-sdp/ripple-icon@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.8.0.tgz#05e14ba99d46b5497b9c63d563801eb07f634840"
+  integrity sha512-042qsupoU0Xn/9hj3X6EBNyoDEIgmttXQ6YPW/ZeSZRgvkL1osn+5IUm4oeWU4p9riTzuyb9i03NHJfzOCGiMw==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
 
-"@dpc-sdp/ripple-layout@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-layout/-/ripple-layout-1.9.0.tgz#041f1133204b3a4be95081e283bb43df01bd81ae"
-  integrity sha512-2Joutzwv2dYEXoEzM6oN8fewKYMsoUKU88AsdB2+YSACrhC63BIqCubq07VzdaahxjB0AcENmPa1KDLZqLjjJA==
+"@dpc-sdp/ripple-layout@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-layout/-/ripple-layout-1.8.0.tgz#9fe7026aa0e06e98eb6b243caf2cb4100edea0ee"
+  integrity sha512-Uml757wrmuSioe+P4XViGOcNKp0g9bNGbfarj0C8Hqo2KPllGKaVi/6Dk1omEcBovyvnPbQ3ZD6I0ubpZga3+g==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-grid" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
-    "@dpc-sdp/ripple-site-header" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-grid" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
+    "@dpc-sdp/ripple-site-header" "1.8.0"
 
-"@dpc-sdp/ripple-link@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-link/-/ripple-link-1.9.0.tgz#81d0fc942be7a28171812e5c2948562bda0165af"
-  integrity sha512-s+Za+jZZ/cxZM+ZB/cy4PfePPEa2XKhlvyPmKG5fT1jahM894dZbzeHgldwWtj8H9l2N4ygP11kntiAX08zCEg==
+"@dpc-sdp/ripple-link@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-link/-/ripple-link-1.8.0.tgz#32adc3c37108130c68d80cc6e0786c5af9f5a371"
+  integrity sha512-BM8NjQFF1mxkPO8+y5RRvRr4jwY26wcbrt1vhcA8CuVFLDlYeFBSsFzfmeNxOognQyqw/fGJTnA03yhS1+j3YQ==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
 
-"@dpc-sdp/ripple-list@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-list/-/ripple-list-1.9.0.tgz#d5fa7acb891f5b9a7b1e74ddec20f7b3d3407727"
-  integrity sha512-cQKJU4LutaKQAH0M0mVQ7iiQ9qmU2a+d+ymSedB54ViaY4oimTJuuWDyp0SxUfOscr16qRuDOBa5VkZVqChIEQ==
+"@dpc-sdp/ripple-list@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-list/-/ripple-list-1.8.0.tgz#857ae0a333f752ffc0765989670ef628c2451a5a"
+  integrity sha512-BhobSVzFQuk1fOoofmKZn7aWoyHSOysb1x9UwvKNSoifZ5HOUEaKCtm9tKmsXI8C+QTyrNacyPtEcBJ1ud1O+g==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
-    "@dpc-sdp/ripple-link" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
+    "@dpc-sdp/ripple-link" "1.8.0"
 
-"@dpc-sdp/ripple-markup@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-markup/-/ripple-markup-1.9.0.tgz#de11b68fdf65afdaa45540cdec35c1b626b988de"
-  integrity sha512-5gDdUlWuII7FWM2SIIY/4cO1VcyhgA3+bmRtEvKMQk2Hg3F4hHoMTJF2kydesB9A4g8ghTvUHYzqtXW8IFsaFw==
+"@dpc-sdp/ripple-markup@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-markup/-/ripple-markup-1.8.0.tgz#f0a7ce38ba856b415c784ec26b5e736e90c27dc4"
+  integrity sha512-WuA7NQbib0Mix57K+NxL2mukTmh8Q8gSgMHaWAUZD1WJEopZhPBZnIs3w2UOupN92GGDNQebF3kTPoI1EPybjw==
   dependencies:
-    "@dpc-sdp/ripple-button" "1.9.0"
-    "@dpc-sdp/ripple-document-link" "1.9.0"
-    "@dpc-sdp/ripple-embedded-video" "1.9.0"
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-link" "1.9.0"
+    "@dpc-sdp/ripple-button" "1.8.0"
+    "@dpc-sdp/ripple-document-link" "1.8.0"
+    "@dpc-sdp/ripple-embedded-video" "1.8.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-link" "1.8.0"
     cheerio "^1.0.0-rc.2"
 
-"@dpc-sdp/ripple-meta-tag@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-meta-tag/-/ripple-meta-tag-1.9.0.tgz#36807d1b4b8b758a02f7dfbea34ea54e825d7d3a"
-  integrity sha512-iqbfuBjNqOuQTNdwoyL4OVac3fWM2CVdec/5itJs5B4dBRy2TZLb+tAHUTSX6C6XosOfgOEXm/42EsWWziU0fw==
+"@dpc-sdp/ripple-meta-tag@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-meta-tag/-/ripple-meta-tag-1.8.0.tgz#1edee432f05fc122c0a059e75b5f92d0bb8137b8"
+  integrity sha512-TRg+MGe3KOTfVedVCXs1QU/b5L0WsY7M5jykXvyW5NDMKK2sn88bq9oDL3+zF9NfxxqO+UsRlGmxpJ4xFqUmdg==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-link" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-link" "1.8.0"
 
-"@dpc-sdp/ripple-pagination@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-pagination/-/ripple-pagination-1.9.0.tgz#615240a80694929257ccc917d2541007e0f798d6"
-  integrity sha512-JPWm8GVk7aldjF65u7yiKZwXg1rZbuYWxDefHqPt3f1nwdQQCO4PKpO92MOeJSdKcjDN+2Y8XKHzgn3diLikQA==
+"@dpc-sdp/ripple-pagination@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-pagination/-/ripple-pagination-1.8.0.tgz#a54afc3b90b4c40e0d7f9628b6f7e414ea69cbaf"
+  integrity sha512-BiSe4wNQK63kOEFvorYzEEK62So7eSPVh8uvzggMOUlH4OCtrbsQKTjANQSZyuEF5EfyRHIMCeaZ9OSOdlY9IA==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
 
-"@dpc-sdp/ripple-search@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-search/-/ripple-search-1.9.0.tgz#70fc7ae0b67df140b47e9941825e718ceb438b53"
-  integrity sha512-pZo6n8g7Ym72+z0h/h6xcUAiQilVv9dOAARH39ujjj4YB/+ZQi0se/yjBM3uJmKdjkINtiguVFXnbiJSEJ3LEA==
+"@dpc-sdp/ripple-search@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-search/-/ripple-search-1.8.0.tgz#c43202c204f17aa0ed79ac0b1c78862cfa4f7f0e"
+  integrity sha512-Kr7vO2K1knpTgeQff7eYC73mbh1v2nrHBUpHxo0Iso0o7kJ5NLZg64Z4yqDPsUlsN2TzO7eJak9NyDcDTS6QSg==
   dependencies:
-    "@dpc-sdp/ripple-form" "1.9.0"
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-grid" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
-    "@dpc-sdp/ripple-link" "1.9.0"
-    "@dpc-sdp/ripple-meta-tag" "1.9.0"
-    "@dpc-sdp/ripple-pagination" "1.9.0"
+    "@dpc-sdp/ripple-form" "1.8.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-grid" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
+    "@dpc-sdp/ripple-link" "1.8.0"
+    "@dpc-sdp/ripple-meta-tag" "1.8.0"
+    "@dpc-sdp/ripple-pagination" "1.8.0"
     vue-focus-lock "1.3.0"
 
-"@dpc-sdp/ripple-site-header@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-site-header/-/ripple-site-header-1.9.0.tgz#d70964a48fda021e2c73b34ba4ca214de5ead486"
-  integrity sha512-JDsEgTGiGxabeBwqng2ohibn/esCrunS5I1HbKQYnlGoXZxaQ9+P5e/jT9IIct6JOrqBotJxR7DTKaeSmi5n3w==
+"@dpc-sdp/ripple-site-header@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-site-header/-/ripple-site-header-1.8.0.tgz#a34829dcf5ae3c73e16ebd537a04d0c9383736e0"
+  integrity sha512-5E0tSMG6h4wmIdewlPIlW3EFgT9rS5LVJX/UcSzj5PANyv3qCTjJIweVdAM2oAQsZEBwoeAO99+xrTWAeqak0g==
   dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
-    "@dpc-sdp/ripple-icon" "1.9.0"
-    "@dpc-sdp/ripple-link" "1.9.0"
-    "@dpc-sdp/ripple-meta-tag" "1.9.0"
-    "@dpc-sdp/ripple-search" "1.9.0"
+    "@dpc-sdp/ripple-global" "1.8.0"
+    "@dpc-sdp/ripple-icon" "1.8.0"
+    "@dpc-sdp/ripple-link" "1.8.0"
+    "@dpc-sdp/ripple-meta-tag" "1.8.0"
+    "@dpc-sdp/ripple-search" "1.8.0"
     body-scroll-lock "^2.6.1"
 
-"@dpc-sdp/ripple-test-tools@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-test-tools/-/ripple-test-tools-1.9.0.tgz#2059175cc04e340c84551733065b3b642f14eefa"
-  integrity sha512-l76JVnVy2I/VnsK+2ZaWhwK4ZSRs8oMscSQU1q2jcxClFBJFZLbqKdXZIAhojEv/4gkn/YMHY2NEJAWRRt26Jg==
+"@dpc-sdp/ripple-test-tools@1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-test-tools/-/ripple-test-tools-1.8.0.tgz#2cb9fe0e4870beb17a4013a59dd5157f04e97bff"
+  integrity sha512-ffFzhFYLUzNEVRAm38+opjZfSSWCCKHnuzkcrGW2oz5eQat+D8V6ghMV7/ZupQ6hn3uym1J79lanHtrwXxR4BA==
   dependencies:
     axe-core "^3.5.2"
     cucumber-junit-convert "^1.1.0"
