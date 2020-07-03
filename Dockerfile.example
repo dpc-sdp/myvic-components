@@ -1,0 +1,17 @@
+FROM amazeeio/node:10-builder as builder
+
+COPY packages /app/packages
+COPY test /app/test
+COPY package.json yarn.lock /app/
+RUN yarn install
+
+FROM amazeeio/node:10
+COPY --from=builder /app/. /app/
+
+WORKDIR /app/
+
+ENV HOST 0.0.0.0
+EXPOSE 3000
+
+# This is just a test app, need to be changed to the new vue example app.
+CMD ["yarn", "nuxt:dev"]

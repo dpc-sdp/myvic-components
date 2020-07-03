@@ -6,3 +6,5 @@
 
 # ignore storybook files
 /src
+
+/packages/**/dist
