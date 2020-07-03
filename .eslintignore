@@ -2,5 +2,7 @@
 
 /packages/**/node_modules
 
+/examples/**/node_modules
+
 # ignore storybook files
 /src
