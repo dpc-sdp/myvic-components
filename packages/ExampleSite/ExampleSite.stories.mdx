@@ -1,0 +1,47 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import ExampleSite from './index.vue'
+import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+
+<Meta title="ExampleSite" component={ ExampleSite } decorators={ [withKnobs] } />
+
+# ExampleSite
+
+<Description of={ ExampleSite } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/yourvic-examples --save
+```
+
+## Import
+
+```javascript
+import { ExampleSite } from '@dpc-sdp/yourvic-examples'
+```
+
+## Usage
+
+```html
+<example-site />
+```
+
+## Props
+
+<Props of={ ExampleSite } />
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { ExampleSite },
+        template: '<example-site />',
+        props: {
+        }
+      }
+    }
+  </Story>
+</Preview>
