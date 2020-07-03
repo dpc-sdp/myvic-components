@@ -6,7 +6,8 @@
   "workspaces": {
     "packages": [
       "packages/**/*",
-      "src"
+      "src",
+      "test/nuxt"
     ],
     "nohoist": [
       "src"
@@ -27,6 +28,7 @@
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-preset-vue": "^2.0.2",
     "core-js": "^2.6.5",
+    "cross-env": "^7.0.2",
     "cypress": "^4.7.0",
     "eslint": "^5.11.1",
     "eslint-config-standard": "^12.0.0",
@@ -47,7 +49,6 @@
     "lerna": "^3.0.0",
     "markdown-loader-jest": "^0.1.1",
     "mockdate": "^2.0.3",
-    "nuxt": "^2.12.2",
     "sass-lint": "^1.12.1",
     "start-server-and-test": "^1.11.0",
     "vue-jest": "^3.0.4",
