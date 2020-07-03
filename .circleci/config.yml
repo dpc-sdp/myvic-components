@@ -12,14 +12,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: yarn install
       - save_cache:
-          key: v2-deps-{{ checksum "yarn.lock" }}
+          key: v3-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - src/node_modules
@@ -40,9 +40,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -70,9 +70,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v2-deps-{{ checksum "yarn.lock" }}
-            - v2-deps-{{ .Branch }}
-            - v2-deps
+            - v3-deps-{{ checksum "yarn.lock" }}
+            - v3-deps-{{ .Branch }}
+            - v3-deps
       - run:
           name: nuxt test
           command: yarn test:nuxt
