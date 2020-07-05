@@ -20,6 +20,7 @@
     "@dpc-sdp/ripple-site-header": "1.10.0",
     "@dpc-sdp/yourvic-bar-chart": "dev",
     "@dpc-sdp/yourvic-map-core": "dev",
+    "@dpc-sdp/yourvic-example-site": "dev",
     "core-js": "^3.6.5",
     "vue": "^2.6.10"
   },
