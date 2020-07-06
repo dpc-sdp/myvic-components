@@ -85,7 +85,7 @@ export const myVictoriaLayerStops = {
 }
 
 export const buildMyVictoriaMapboxStyle = async (colour, stops, property, sourceLayer) => {
-  let { data: glStyle } = await axios.get(`https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/${colour}.MBStyle`)
+  let { data: glStyle } = await axios.get(`${GEOSERVER_URL}/rest/styles/${colour}.MBStyle`)
   let fillStops = glStyle.layers[0].paint['fill-color'].stops
   fillStops.forEach((stop, idx) => {
     stop[0] = parseFloat(stops[idx])
