@@ -18,10 +18,12 @@ npm install @dpc-sdp/yourvic-example-site --save
 @dpc-sdp/yourvic-example-site
 ├── @dpc-sdp/yourvic-line-chart
 ├── @dpc-sdp/yourvic-pie-chart
+├── @dpc-sdp/yourvic-treemap
 ├── @dpc-sdp/yourvic-map-core
 ├── @dpc-sdp/yourvic-data-block
 ├── @dpc-sdp/yourvic-bar-chart
 ├── @dpc-sdp/yourvic-global
+├── axios
 ```
 
 --------------------------------------------------------------------------------
