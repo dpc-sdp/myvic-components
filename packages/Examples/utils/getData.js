@@ -1,10 +1,11 @@
 import {
   fetchData,
   createLegendValuesRequestUrl,
-  createOwsRequestUrl
+  createOwsRequestUrl,
+  myVictoriaRotatingColours,
+  myVictoriaLayerStops,
+  buildMyVictoriaMapboxStyle
 } from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
-
-import fetch from 'node-fetch'
 
 export const LEGEND_TITLES = {
   'data-block-1': 'Median personal income per week',
@@ -217,20 +218,9 @@ export const getIncomeData = async (area) => {
 }
 
 export const getMapboxStyle = async () => {
-  let response = await fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Blue.MBStyle')
-  let glStyle = await response.json()
-  let stops = [377, 472, 532, 597, 674, 758, 902]
-  let fillStops = glStyle.layers[0].paint['fill-color'].stops
-  fillStops.forEach((stop, idx) => {
-    stop[0] = parseFloat(stops[idx])
-  })
-  glStyle.layers[0].paint['fill-outline-color']['property'] = 'median_total_personal_income_weekly'
-  glStyle.layers[0].paint['fill-color']['property'] = 'median_total_personal_income_weekly'
-  glStyle.layers[0]['source-layer'] = 'income_lga_map'
-  glStyle.sources = {
-    Blue: {
-      type: 'vector'
-    }
-  }
-  return glStyle
+  return buildMyVictoriaMapboxStyle(
+    myVictoriaRotatingColours.blue,
+    myVictoriaLayerStops.income_personal_lga,
+    'median_total_personal_income_weekly',
+    'income_lga_map')
 }
