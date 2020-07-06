@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="padding-left: 10rem; padding-right: 10rem; padding-bottom: 3rem">
+
+<!--<script src="dist/yourvic-bundle.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/yourvic-bundle@dev/dist/yourvic-bundle.js"></script>
+
+<h3>Area With Data:</h3>
+<div id="areaWithDataContainer" style="position: relative; width: 100%; height: 630px; border: 1px solid black">
+  <div id="areaWithData"></div>
+</div>
+
+<h3>Area With Map:</h3>
+<div id="areaWithMapContainer" style="position: relative; width: 100%; height: 700px; border: 1px solid black">
+  <div id="areaWithMap"></div>
+</div>
+
+<h3>Income Data:</h3>
+<div id="incomeDataContainer" style="position: relative; width: 100%; height: 700px; border: 1px solid black">
+  <div id="incomeData"></div>
+</div>
+
+<script>
+  YourVic.mountAreaWithDataExample('#areaWithData', {})
+
+  YourVic.mountAreaWithMapExample('#areaWithMap', {})
+
+  YourVic.mountIncomeDataExample('#incomeData', {})
+</script>
+
+</body>
+</html>
