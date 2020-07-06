@@ -666,8 +666,10 @@ exports[`YourvicStoryshots Data Block Default 1`] = `
     class="yourvic-data-block"
   >
     <div
+      aria-label="Data Block"
       class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
       role="button"
+      tabindex="0"
     >
       <div
         class="yourvic-data-item"
@@ -726,8 +728,10 @@ exports[`YourvicStoryshots Data Block Ripple Grid 1`] = `
         class="yourvic-data-block"
       >
         <div
+          aria-label="Data Block"
           class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
           role="button"
+          tabindex="0"
         >
           <div
             class="yourvic-data-item"
@@ -783,8 +787,10 @@ exports[`YourvicStoryshots Data Block With Trend 1`] = `
     class="yourvic-data-block"
   >
     <div
+      aria-label="Data Block"
       class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
       role="button"
+      tabindex="0"
     >
       <div
         class="yourvic-data-item"
@@ -1159,8 +1165,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
         role=""
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1189,8 +1197,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
         role=""
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1219,8 +1229,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
         role=""
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1249,8 +1261,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
         role=""
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1279,8 +1293,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
         role=""
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1309,8 +1325,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
         role=""
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1405,8 +1423,10 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
         role=""
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1435,8 +1455,10 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--isBlock"
         role=""
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1469,10 +1491,11 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
       class="yourvic-bar-chart yourvic-examples__bar-chart"
     >
       <div
-        alt=""
+        alt="Bar chart showing household composition"
         aria-label="Bar Chart"
         class=""
         dataformat="percentage"
+        longdesc="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats"
         role="img"
         style="position: relative; height: inherit; width: inherit; outline: none;"
         tabindex="0"
@@ -1486,7 +1509,12 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
         />
       </div>
        
-      <!---->
+      <a
+        class="yourvic-chart-long-description"
+        href="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats"
+      >
+        Chart Description
+      </a>
        
       <!---->
     </div>
@@ -1566,7 +1594,7 @@ exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
         class="yourvic-map-core__container"
       >
         <div
-          aria-label="Interactive Map"
+          aria-label="An interactive map"
           class="yourvic-map-core__map"
           role="application"
           tabindex="0"
@@ -1653,8 +1681,10 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--selectable is-selected yourvic-data-block__item--isBlock"
         role="button"
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1693,8 +1723,10 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
         role="button"
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1733,8 +1765,10 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
         role="button"
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1773,8 +1807,10 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
       class="yourvic-data-block yourvic-examples__data-block"
     >
       <div
+        aria-label="Data Block"
         class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
         role="button"
+        tabindex="0"
       >
         <div
           class="yourvic-data-item"
@@ -1824,6 +1860,7 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
           aria-label="Bar Chart"
           class=""
           dataformat="percentage"
+          longdesc="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats"
           role="img"
           style="position: relative; height: inherit; width: inherit; outline: none;"
           tabindex="0"
@@ -1837,7 +1874,12 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
           />
         </div>
          
-        <!---->
+        <a
+          class="yourvic-chart-long-description"
+          href="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats"
+        >
+          Chart Description
+        </a>
          
         <!---->
       </div>
@@ -1855,7 +1897,7 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
           class="yourvic-map-core__container"
         >
           <div
-            aria-label="Interactive Map"
+            aria-label="An interactive map showing income statistics"
             class="yourvic-map-core__map"
             role="application"
             tabindex="0"
@@ -2420,8 +2462,10 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
         style="margin-bottom: 10px; margin-right: 10px;"
       >
         <div
+          aria-label="Data Block"
           class="yourvic-data-block__item yourvic-data-block__item--isBlock"
           role=""
+          tabindex="0"
         >
           <div
             class="yourvic-data-item"
@@ -2451,8 +2495,10 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
         style="margin-bottom: 10px; margin-right: 10px;"
       >
         <div
+          aria-label="Data Block"
           class="yourvic-data-block__item yourvic-data-block__item--isBlock"
           role=""
+          tabindex="0"
         >
           <div
             class="yourvic-data-item"
