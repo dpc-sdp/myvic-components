@@ -24,9 +24,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@dpc-sdp/ripple-test-tools": "1.8.0",
-    "@dpc-sdp/ripple-card": "1.8.0",
-    "@dpc-sdp/ripple-grants": "1.8.0",
+    "cypress": "^4.9.0",
     "@vue/cli-plugin-babel": "~4.4.6",
     "@vue/cli-plugin-eslint": "~4.4.6",
     "@vue/cli-service": "~4.4.6",
@@ -60,14 +58,5 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ],
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true,
-    "step_definitions": "test/e2e/integration/",
-    "cucumberJson": {
-      "generate": true,
-      "outputFolder": "./../../test-results/cucumber",
-      "filePrefix": "vue-example-app-"
-    }
-  }
+  ]
 }

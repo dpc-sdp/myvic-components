@@ -4,17 +4,6 @@ const resolve = path.resolve
 
 // vue.config.js
 module.exports = {
-  // Put postcss config here for working with our Ripple monorepo(yarn workspace).
-  css: {
-    loaderOptions: {
-      postcss: {
-        plugins: [
-          require('autoprefixer')()
-        ]
-      }
-    }
-  },
-
   chainWebpack: config => {
     // Add this to load a custom sass variables to override Ripple sass variables.
     // https://github.com/shakacode/sass-resources-loader#vuejs-webpack-templatevue-cli3
@@ -33,12 +22,10 @@ module.exports = {
     // Add this to load Ripple svg icons
     const svgRule = config.module.rule('svg')
     const rippleIconPath = path.dirname(require.resolve('@dpc-sdp/ripple-icon/package.json'))
-    const ripplePaginationPath = path.dirname(require.resolve('@dpc-sdp/ripple-pagination/package.json'))
     svgRule.uses.clear()
     svgRule
       .include
         .add(resolve(__dirname, rippleIconPath))
-        .add(resolve(__dirname, ripplePaginationPath))
         .end()
       .use('svg-sprite-loader')
         .loader('svg-sprite-loader')

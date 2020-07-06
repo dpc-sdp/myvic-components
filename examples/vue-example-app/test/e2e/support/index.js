@@ -13,4 +13,3 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-require('@dpc-sdp/ripple-test-tools/commands')
