@@ -21,7 +21,6 @@
           <rpl-icon
             class="yourvic-data-block__icon"
             symbol="arrow_right_secondary"
-            color="dark_neutral_1"
             size="s"
           />
       </span>
@@ -184,6 +183,7 @@ export default {
       position: relative;
       top: 3px;
       left: -3px;
+      fill: #011a3c;
     }
   }
 
