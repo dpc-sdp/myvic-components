@@ -6,6 +6,13 @@ const ARRIVALS_DATA_URL = ABS_DATA_BASE_URL + 'ABS_OAD_COUNTRY/06.TOTAL.10.M/all
 const POPULATION_IN_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK_FY/1+3+6.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions'
 const POPULATION_OUT_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK_FY/2+4+7.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions'
 const PROPERTY_PRICES_URL = ABS_DATA_BASE_URL + 'RES_PROP_INDEX/1.2+1.2GMEL.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2017'
+const CPI_URL = ABS_DATA_BASE_URL + 'CPI/1.2.20001+20002+20003+97565.10+20.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
+const EPI_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093697.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
+const EPI_MEAT_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093911.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
+const EPI_CEREAL_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093912.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
+const EPI_METAL_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093918.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
+const EPI_CCB_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093916.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
+const EPI_TRANSPORT_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093920.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
 
 const PEDESTRIAN_URL = 'https://data.melbourne.vic.gov.au/resource/b2ak-trbp.json'
 // const LABOUR_FORCE_URL = 'https://api.vic.gov.au/abs/v1.0/labour-force-statistics?region=VICTORIA&data_item=LABOUR_FORCE&age=15_AND_OVER&sex=MALES%26FEMALES&adjustment_type=ORIGINAL&start_period=2009-01'
@@ -23,8 +30,10 @@ const fetchData = async (request, apiKey) => {
   return data
 }
 
-const sortByFirstCharacter = (a, b) => {
-  return a.slice(0) < b.slice(0)
+const sortByXCharacter = (x) => {
+  return (a, b) => {
+    return a.slice(x, x + 1) < b.slice(x, x + 1)
+  }
 }
 
 const sortByLastCharacter = (a, b) => {
@@ -59,6 +68,26 @@ const buildChartDataFromSdmxJson = async (
   return data
 }
 
+const getBlockDataFromSdmxJson = async (url, description) => {
+  const rawData = await fetchData(url)
+  let data = {}
+  data.title = String(rawData.dataSets[0].observations['0:0:0:0'][0])
+  data.description = description
+  data.trend = rawData.dataSets[0].observations['1:0:0:0'][0] > 0 ? 'up' : 'down'
+  return data
+}
+
+const convertChartToTreeMap = (chartData) => {
+  const treeMapData = []
+  for (const [i, v] of chartData.labels.entries()) {
+    treeMapData.push({
+      value: chartData.datasets[0].data[i],
+      label: v
+    })
+  }
+  return treeMapData
+}
+
 export const getArrivalsData = async () => {
   const chartData = await buildChartDataFromSdmxJson(
     ARRIVALS_DATA_URL, 4, 'name', sortByLastCharacter, 0, ''
@@ -67,9 +96,17 @@ export const getArrivalsData = async () => {
   return chartData
 }
 
+export const getCpiData = async () => {
+  const chartData = await buildChartDataFromSdmxJson(
+    CPI_URL, 2, 'name', sortByXCharacter(4), 0, ''
+  )
+  const treeMapData = convertChartToTreeMap(chartData)
+  return treeMapData
+}
+
 export const getIncomingPopulationData = async () => {
   const chartData = await buildChartDataFromSdmxJson(
-    POPULATION_IN_URL, 0, 'name', sortByFirstCharacter, 0, ''
+    POPULATION_IN_URL, 0, 'name', sortByXCharacter(0), 0, ''
   )
   chartData.title = 'Population Clock for Victoria by Incoming Sources'
   return chartData
@@ -77,10 +114,52 @@ export const getIncomingPopulationData = async () => {
 
 export const getOutgoingPopulationData = async () => {
   const chartData = await buildChartDataFromSdmxJson(
-    POPULATION_OUT_URL, 0, 'name', sortByFirstCharacter, 0, ''
+    POPULATION_OUT_URL, 0, 'name', sortByXCharacter(0), 0, ''
   )
   chartData.title = 'Population Clock for Victoria by Outgoing Sources'
   return chartData
+}
+
+export const getEpiData = async () => {
+  const blockData = await getBlockDataFromSdmxJson(
+    EPI_URL, 'Export Price Index (General)'
+  )
+  return blockData
+}
+
+export const getEpiMeatData = async () => {
+  const blockData = await getBlockDataFromSdmxJson(
+    EPI_MEAT_URL, 'Meat and meat preparations'
+  )
+  return blockData
+}
+
+export const getEpiCerealData = async () => {
+  const blockData = await getBlockDataFromSdmxJson(
+    EPI_CEREAL_URL, 'Cereal grains and cereal preparations'
+  )
+  return blockData
+}
+
+export const getEpiMetalData = async () => {
+  const blockData = await getBlockDataFromSdmxJson(
+    EPI_METAL_URL, 'Metals - excluding monetary gold'
+  )
+  return blockData
+}
+
+export const getEpiCcbData = async () => {
+  const blockData = await getBlockDataFromSdmxJson(
+    EPI_CCB_URL, 'Coal, coke and briquettes'
+  )
+  return blockData
+}
+
+export const getEpiTransportData = async () => {
+  const blockData = await getBlockDataFromSdmxJson(
+    EPI_TRANSPORT_URL, 'Transport equipment'
+  )
+  return blockData
 }
 
 export const getPropertyPricesData = async () => {
@@ -104,6 +183,7 @@ export const getPropertyPricesData = async () => {
   }
 
   data = {
+    title: 'Residential Property Price Index for Greater Melbourne',
     labels: labels,
     datasets: [establishedHousesDataset, attachedDwellingsDataset]
   }

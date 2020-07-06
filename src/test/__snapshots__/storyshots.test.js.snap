@@ -861,6 +861,14 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
 <div
   class="yourvic-examples__container"
 >
+  <h1
+    class="yourvic-examples__header-h1"
+  >
+    This page has been created to showcase the charting and mapping components
+    derived from the MyVictoria website
+  
+  </h1>
+   
   <p
     class="yourvic-examples__text-block"
   >
@@ -992,6 +1000,62 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   
   </p>
    
+  <div
+    class="yourvic-examples__chart-container"
+  >
+    <div
+      class="yourvic-pie-chart yourvic-examples__population-pie-chart"
+    >
+      <div
+        alt="Incoming Population"
+        aria-label="Pie Chart"
+        class=""
+        dataformat="normal"
+        role="img"
+        style="position: relative; height: inherit; width: inherit; outline: none;"
+        tabindex="0"
+      >
+        <canvas
+          class="chartjs-render-monitor"
+          height="0"
+          id="pie-chart"
+          style="display: block;"
+          width="0"
+        />
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="yourvic-pie-chart yourvic-examples__population-pie-chart"
+    >
+      <div
+        alt="Outgoing Population"
+        aria-label="Pie Chart"
+        class=""
+        dataformat="normal"
+        role="img"
+        style="position: relative; height: inherit; width: inherit; outline: none;"
+        tabindex="0"
+      >
+        <canvas
+          class="chartjs-render-monitor"
+          height="0"
+          id="pie-chart"
+          style="display: block;"
+          width="0"
+        />
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
   <h3
     class="yourvic-examples__header"
   >
@@ -1011,7 +1075,30 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
    
   <div
     class="yourvic-examples__chart-container"
-  />
+  >
+    <div
+      arialabel="chart"
+      class="yourvic-chart-wrapper yourvic-treemap-chart yourvic-examples__cpi-tree-map"
+    >
+      <div
+        class="yourvic-treemap-chart"
+      >
+        <canvas
+          alt="CPI for a range of goods and services"
+          aria-label="Tree Map Chart"
+          class="yourvic-treemap-chart-canvas"
+          id="0"
+          role="img"
+          style="outline: none;"
+          tabindex="0"
+        />
+         
+        <!---->
+      </div>
+       
+      <!---->
+    </div>
+  </div>
    
   <p
     class="yourvic-examples__text-block"
@@ -1026,7 +1113,33 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
    
   <div
     class="yourvic-examples__chart-container"
-  />
+  >
+    <div
+      class="yourvic-bar-chart yourvic-examples__property-prices-bar-chart"
+    >
+      <div
+        alt=""
+        aria-label="Bar Chart"
+        class=""
+        dataformat="normal"
+        role="img"
+        style="position: relative; height: inherit; width: inherit; outline: none;"
+        tabindex="0"
+      >
+        <canvas
+          class="chartjs-render-monitor"
+          height="0"
+          id="horizontalbar-chart"
+          style="display: block;"
+          width="0"
+        />
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
    
   <p
     class="yourvic-examples__text-block"
@@ -1040,81 +1153,187 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <div
-    class="yourvic-pie-chart"
+    class="yourvic-examples__data-block-container"
   >
     <div
-      alt="Incoming Population"
-      aria-label="Pie Chart"
-      class=""
-      dataformat="normal"
-      role="img"
-      style="position: relative; height: inherit; width: inherit; outline: none;"
-      tabindex="0"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
-      <canvas
-        class="chartjs-render-monitor"
-        height="0"
-        id="pie-chart"
-        style="display: block;"
-        width="0"
-      />
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        role=""
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <!---->
+      </div>
     </div>
      
-    <!---->
-     
-    <!---->
-  </div>
-   
-  <div
-    class="yourvic-pie-chart"
-  >
     <div
-      alt="Outgoing Population"
-      aria-label="Pie Chart"
-      class=""
-      dataformat="normal"
-      role="img"
-      style="position: relative; height: inherit; width: inherit; outline: none;"
-      tabindex="0"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
-      <canvas
-        class="chartjs-render-monitor"
-        height="0"
-        id="pie-chart"
-        style="display: block;"
-        width="0"
-      />
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        role=""
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <!---->
+      </div>
     </div>
      
-    <!---->
-     
-    <!---->
-  </div>
-   
-  <div
-    class="yourvic-bar-chart"
-  >
     <div
-      alt=""
-      aria-label="Bar Chart"
-      class=""
-      dataformat="normal"
-      role="img"
-      style="position: relative; height: inherit; width: inherit; outline: none;"
-      tabindex="0"
+      class="yourvic-data-block yourvic-examples__data-block"
     >
-      <canvas
-        class="chartjs-render-monitor"
-        height="0"
-        id="horizontalbar-chart"
-        style="display: block;"
-        width="0"
-      />
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        role=""
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <!---->
+      </div>
     </div>
      
-    <!---->
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        role=""
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
      
-    <!---->
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        role=""
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="yourvic-data-block yourvic-examples__data-block"
+    >
+      <div
+        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        role=""
+      >
+        <div
+          class="yourvic-data-item"
+        >
+          <h3
+            class="yourvic-data-item__title"
+          >
+            
+    
+    
+            <!---->
+          </h3>
+           
+          <p
+            class="yourvic-data-item__description"
+          >
+            
+          </p>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
   </div>
 </div>
 `;

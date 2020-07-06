@@ -1,5 +1,8 @@
 <template>
   <div class="yourvic-examples__container">
+    <h1 class="yourvic-examples__header-h1">This page has been created to showcase the charting and mapping components
+      derived from the MyVictoria website
+    </h1>
     <p class="yourvic-examples__text-block">
       The charting of the COVID-19 pandemic has turned into an international pastime, with graphs demonstrating new daily cases,
       case severity and active case hot spots being closely watched day by day. This site looks to draw off the national interest
@@ -54,6 +57,20 @@
       these have not been felt yet as Victoria’s net population continues to increase overall. Below are some charts showing
       the breakup of increasing and decreasing sources of Victoria’s population.
     </p>
+    <div class="yourvic-examples__chart-container">
+      <pie-chart class="yourvic-examples__population-pie-chart"
+        :title="incomingPopulationData.title"
+        :data="incomingPopulationData"
+        :showLegend="true"
+        :shortDesc="'Incoming Population'"
+      />
+      <pie-chart class="yourvic-examples__population-pie-chart"
+        :title="outgoingPopulationData.title"
+        :data="outgoingPopulationData"
+        :showLegend="true"
+        :shortDesc="'Outgoing Population'"
+      />
+    </div>
     <h3 class="yourvic-examples__header">Hey Big Spender</h3>
     <p class="yourvic-examples__text-block">
       It’s no surprise that with changes to the workforce there may be changes to the spending habits of Australians with
@@ -62,11 +79,13 @@
       Price Indices for a range of Goods and Services in Melbourne.
     </p>
     <div class="yourvic-examples__chart-container">
-      <!-- <line-chart class="yourvic-examples__arrivals-line-chart"
-        :title="arrivalsData.title"
-        :data="arrivalsData"
-        :shortDesc="'Arrivals by month'"
-      /> -->
+      <tree-map class="yourvic-examples__cpi-tree-map"
+        :title="'CPI for a range of goods and services'"
+        :data="cpiData"
+        :valueAttr="'value'"
+        :labelAttr="'label'"
+        :shortDesc="'CPI for a range of goods and services'"
+        />
     </div>
     <p class="yourvic-examples__text-block">
       Similarly, the long-term leap consumers would be making into the property market has faltered, demonstrated itself
@@ -75,11 +94,12 @@
       this change.
     </p>
     <div class="yourvic-examples__chart-container">
-      <!-- <line-chart class="yourvic-examples__arrivals-line-chart"
-        :title="arrivalsData.title"
-        :data="arrivalsData"
-        :shortDesc="'Arrivals by month'"
-      /> -->
+      <bar-chart class="yourvic-examples__property-prices-bar-chart"
+        :title="propertyPricesData.title"
+        :data="propertyPricesData"
+        :showLegend="true"
+        :shortDesc="propertyPricesData.title"
+      />
     </div>
     <p class="yourvic-examples__text-block">
       Hold your hats, it’s not all doom and gloom in Australia right now. Our economy is demonstrating that exports of goods
@@ -87,24 +107,44 @@
       hampered the exports from Australia. Below are some trends we’re seeing in the Export Price Index in Australia compared
       to the last quarter.
     </p>
-
-    <pie-chart
-      :title="incomingPopulationData.title"
-      :data="incomingPopulationData"
-      :showLegend="true"
-      :shortDesc="'Incoming Population'"
-     />
-    <pie-chart
-      :title="outgoingPopulationData.title"
-      :data="outgoingPopulationData"
-      :showLegend="true"
-      :shortDesc="'Outgoing Population'"
-     />
-    <bar-chart
-      :title="propertyPricesData.title"
-      :data="propertyPricesData"
-      :showLegend="true"
-    />
+    <div class="yourvic-examples__data-block-container">
+      <data-block
+        id="data-block-1"
+        class="yourvic-examples__data-block"
+        :selectable="false"
+        :data="epiData"
+      />
+      <data-block
+        id="data-block-2"
+        class="yourvic-examples__data-block"
+        :selectable="false"
+        :data="epiMeatData"
+      />
+      <data-block
+        id="data-block-3"
+        class="yourvic-examples__data-block"
+        :selectable="false"
+        :data="epiCerealData"
+      />
+      <data-block
+        id="data-block-4"
+        class="yourvic-examples__data-block"
+        :selectable="false"
+        :data="epiMetalData"
+      />
+      <data-block
+        id="data-block-4"
+        class="yourvic-examples__data-block"
+        :selectable="false"
+        :data="epiCcbData"
+      />
+      <data-block
+        id="data-block-4"
+        class="yourvic-examples__data-block"
+        :selectable="false"
+        :data="epiTransportData"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -113,13 +153,21 @@ import DataBlock from '@dpc-sdp/yourvic-data-block'
 import BarChart from '@dpc-sdp/yourvic-bar-chart'
 import LineChart from '@dpc-sdp/yourvic-line-chart'
 import PieChart from '@dpc-sdp/yourvic-pie-chart'
+import TreeMap from '@dpc-sdp/yourvic-treemap'
 import {
   getArrivalsData,
+  getCpiData,
   getIncomingPopulationData,
   getOutgoingPopulationData,
   getPropertyPricesData,
   getPedestrianData,
-  getLabourForceData
+  getLabourForceData,
+  getEpiData,
+  getEpiMeatData,
+  getEpiCerealData,
+  getEpiMetalData,
+  getEpiCcbData,
+  getEpiTransportData
 } from './utils/getData'
 import {
   YourvicMapCore,
@@ -130,6 +178,7 @@ import {
 // import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
 
 const startingChartData = { datasets: [], labels: [] }
+const startingBlockData = { title: '', description: '' }
 
 /**
  * ExampleSite is a component showcasing various other components
@@ -140,6 +189,7 @@ export default {
     BarChart,
     LineChart,
     PieChart,
+    TreeMap,
     YourvicMapCore,
     YourvicMapVectorLayer,
     YourvicMapVectorTileLayer,
@@ -150,29 +200,50 @@ export default {
   data () {
     return {
       arrivalsData: startingChartData,
+      cpiData: [],
       pedestrianData: startingChartData,
       labourForceData: startingChartData,
       incomingPopulationData: startingChartData,
       outgoingPopulationData: startingChartData,
-      propertyPricesData: startingChartData
+      propertyPricesData: startingChartData,
+      epiData: startingBlockData,
+      epiMeatData: startingBlockData,
+      epiCerealData: startingBlockData,
+      epiMetalData: startingBlockData,
+      epiCcbData: startingBlockData,
+      epiTransportData: startingBlockData
     }
   },
   mounted: async function () {
     const tasks = [
       getArrivalsData,
+      getCpiData,
       getPedestrianData,
       getLabourForceData,
       getIncomingPopulationData,
       getOutgoingPopulationData,
-      getPropertyPricesData
+      getPropertyPricesData,
+      getEpiData,
+      getEpiMeatData,
+      getEpiCerealData,
+      getEpiMetalData,
+      getEpiCcbData,
+      getEpiTransportData
     ].map(x => this.createDataFetchTask(x))
     const results = await Promise.all(tasks)
     this.arrivalsData = results[0]
-    this.pedestrianData = results[1]
-    this.labourForceData = results[2]
-    this.incomingPopulationData = results[3]
-    this.outgoingPopulationData = results[4]
-    this.propertyPricesData = results[5]
+    this.cpiData = results[1]
+    this.pedestrianData = results[2]
+    this.labourForceData = results[3]
+    this.incomingPopulationData = results[4]
+    this.outgoingPopulationData = results[5]
+    this.propertyPricesData = results[6]
+    this.epiData = results[7]
+    this.epiMeatData = results[8]
+    this.epiCerealData = results[9]
+    this.epiMetalData = results[10]
+    this.epiCcbData = results[11]
+    this.epiTransportData = results[12]
   },
   computed: {
   },
@@ -201,7 +272,13 @@ export default {
     &__container {
       width: 100%;
       max-width: 800px;
-      margin: 20px auto 0;
+      margin: 20px auto 80px;
+    }
+    &__header-h1 {
+      color: $titleColor;
+      padding-top: 2rem;
+      padding-bottom: 20px;
+      line-height: normal;
     }
     &__header {
       color: $titleColor;
@@ -212,34 +289,43 @@ export default {
     }
     &__chart-container {
       margin-left: -10px;
-      margin-top: 3rem;
+      margin-top: 2rem;
       margin-bottom: 3rem;
+      display: flex;
+      justify-content: space-around;
     }
     &__arrivals-line-chart {
       height: 500px;
+      width: 100%;
+    }
+    &__cpi-tree-map {
+      height: 400px;
+      width: 100%;
+      max-width: 70%;
+      margin: 0 auto;
     }
     &__labour-force-line-chart {
       height: 350px;
+      width: 100%;
     }
-
+    &__population-pie-chart {
+      height: 300px;
+      width: 300px;
+    }
+    &__property-prices-bar-chart {
+      height: 550px;
+      min-width: 80%;
+      max-width: 80%;
+    }
     &__data-block-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-evenly;
       margin: 60px -10px 20px;
     }
     &__data-block {
       width: 30%;
-      margin: 0 10px;
-    }
-    &__bottom-row {
-      display: flex;
-      margin: 40px 0 20px;
-    }
-    &__bar-chart {
-      height: 400px;
-    }
-    &__arrivals-line-chart {
-      height: 400px;
+      margin: 10px 10px;
     }
     &__map-container {
       width: 50%;
