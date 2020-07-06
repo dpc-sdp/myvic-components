@@ -37,12 +37,15 @@
           :title="chartTitle"
           :showLegend="showChartLegend"
           data-format="percentage"
+          :shortDesc="chartTitle"
+          :longDesc="'https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats'"
         />
       </div>
       <div class="yourvic-examples__map-container">
         <yourvic-map-core
           :center="center"
           :zoom="11"
+          ariaLabel="An interactive map showing income statistics"
         >
           <yourvic-map-vector-tile-layer
             :url="getVectorTileWmtsUrl()"
@@ -50,6 +53,7 @@
             mapboxStyleMethod="stylefunction"
             :mapboxStyle="mapboxStyle"
             mapboxStyleSource="Blue"
+            :attributions="attributions"
           />
           <yourvic-map-vector-layer
             :url="labelLayerUrl"
@@ -110,7 +114,10 @@ export default {
       activeBlock: 'data-block-1',
       generalIncomeData: {},
       incomeData: {},
-      legendData: { low: '0%', high: '100%' }
+      legendData: { low: '0%', high: '100%' },
+      attributions: [
+        '<a href="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats" tabindex="0" target="_blank">Accessible Version</a>'
+      ]
     }
   },
   mounted: async function () {
@@ -258,6 +265,7 @@ export default {
     }
     &__bar-chart {
       height: 400px;
+      margin-bottom: 15px;
     }
     &__map-container {
       width: 50%;

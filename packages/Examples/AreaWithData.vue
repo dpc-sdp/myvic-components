@@ -12,6 +12,8 @@
       <bar-chart class="yourvic-examples__bar-chart"
         :data="chartData" title="Household composition"
         data-format="percentage"
+        :shortDesc="'Bar chart showing household composition'"
+        :longDesc="'https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats'"
       />
     </div>
   </div>
