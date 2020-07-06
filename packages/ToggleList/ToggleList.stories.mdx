@@ -1,14 +1,18 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import YourVicToggleList from '@dpc-sdp/yourvic-toggle-list'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
-import fetch from 'isomorphic-fetch'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import {
   YourvicMapCore,
   YourvicMapTileLayer,
   YourvicMapVectorLayer,
-  YourvicMapVectorTileLayer
+  YourvicMapVectorTileLayer,
 } from '@dpc-sdp/yourvic-map-core'
+import {
+  myVictoriaRotatingColours,
+  myVictoriaLayerStops,
+  buildMyVictoriaMapboxStyle
+} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 import { YourVicLineChart } from '@dpc-sdp/yourvic-line-chart'
 
 <Meta title="Toggle List" component={ YourVicToggleList } decorators={ [withKnobs] } />
@@ -198,22 +202,11 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
             return `${path}?${queryParamsString}`
           },
           getMapboxStyle: async () => {
-            let response = await fetch('https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/rest/styles/Pink.MBStyle')
-            let glStyle =  await response.json()
-            let populationStops = [-8.19, -1.98, 3.73, 6.74, 7.19, 13.10, 23.97]
-            let fillStops = glStyle.layers[0].paint['fill-color'].stops
-            fillStops.forEach((stop, idx) => {
-              stop[0] = parseFloat(populationStops[idx])
-            })
-            glStyle.layers[0].paint['fill-outline-color']['property'] = 'total_population_growth'
-            glStyle.layers[0].paint['fill-color']['property'] = 'total_population_growth'
-            glStyle.layers[0]['source-layer'] = 'population_suburb_map'
-            glStyle.sources = {
-              Pink: {
-                type: 'vector'
-              }
-            }
-            return glStyle
+            return buildMyVictoriaMapboxStyle(
+              myVictoriaRotatingColours.pink,
+              myVictoriaLayerStops.population_growth_suburb,
+              'total_population_growth',
+              'population_suburb_map')
           },
           buildUrl: function (extent, resolution, projection) {
             return 'https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wfs?SERVICE=wfs&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=myvic:hospital&SRSNAME=' + projection.getCode() + '&OUTPUTFORMAT=application/json&bbox=' + extent.join(',') + ',' + projection.getCode()
