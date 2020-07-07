@@ -33,7 +33,10 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          rootMode: 'upward'
+        }
       },
       {
         test: /\.(scss|css)$/,
