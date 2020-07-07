@@ -5,6 +5,7 @@
     </div>
     <rpl-page-layout class="yourvic-example-main">
       <rpl-container>
+        <example-site />
         <rpl-row row-gutter>
           <rpl-col cols="full">
             <div>
@@ -50,6 +51,7 @@
     YourvicMapTileLayer
   } from '@dpc-sdp/yourvic-map-core'
   import { YourVicBarChart } from '@dpc-sdp/yourvic-bar-chart'
+  import { ExampleSite } from '@dpc-sdp/yourvic-example-site'
 
   export default {
     name: 'Layout',
@@ -62,7 +64,8 @@
       RplSiteHeader,
       YourvicMapCore,
       YourvicMapTileLayer,
-      YourVicBarChart
+      YourVicBarChart,
+      ExampleSite
     },
     data: () => {
       return {
