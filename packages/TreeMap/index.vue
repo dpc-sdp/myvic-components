@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../global/styles/charts";
+@import "~@dpc-sdp/yourvic-global/styles/charts";
   .yourvic-treemap-chart {
     position: relative;
     height: inherit;
