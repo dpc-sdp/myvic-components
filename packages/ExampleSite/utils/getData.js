@@ -1,5 +1,6 @@
 import axios from 'axios'
 import labourStats from './labourForceStats'
+import sensors from './sensors'
 
 const ABS_DATA_BASE_URL = 'http://stat.data.abs.gov.au/sdmx-json/data/'
 const ARRIVALS_DATA_URL = ABS_DATA_BASE_URL + 'ABS_OAD_COUNTRY/06.TOTAL.10.M/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2017'
@@ -14,7 +15,7 @@ const EPI_METAL_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093918.Q/all?detail=
 const EPI_CCB_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093916.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
 const EPI_TRANSPORT_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093920.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
 
-const PEDESTRIAN_URL = 'https://data.melbourne.vic.gov.au/resource/b2ak-trbp.json'
+const PEDESTRIAN_URL = 'https://data.melbourne.vic.gov.au/resource/d6mv-s43h.json'
 // const LABOUR_FORCE_URL = 'https://api.vic.gov.au/abs/v1.0/labour-force-statistics?region=VICTORIA&data_item=LABOUR_FORCE&age=15_AND_OVER&sex=MALES%26FEMALES&adjustment_type=ORIGINAL&start_period=2009-01'
 
 // const DEVELOPER_VIC_API_KEY = '9093ae01-2a0c-4b13-b935-3457723535b6'
@@ -86,6 +87,15 @@ const convertChartToTreeMap = (chartData) => {
     })
   }
   return treeMapData
+}
+
+const getMostRecentCountForSensor = (sensorId, obs) => {
+  for (let x of obs) {
+    if (x['sensor_id'] === sensorId) {
+      return x['total_of_directions'] || '0'
+    }
+  }
+  return '0'
 }
 
 export const getArrivalsData = async () => {
@@ -192,14 +202,36 @@ export const getPropertyPricesData = async () => {
 
 export const getPedestrianData = async () => {
   const rawData = await fetchData(PEDESTRIAN_URL)
-  let data = rawData
-
+  const observations = {}
+  Object.keys(sensors).forEach(x => {
+    observations[x] = getMostRecentCountForSensor(x, rawData)
+  })
+  const features = []
+  Object.keys(sensors).forEach(x => {
+    features.push({
+      'type': 'Feature',
+      'id': x,
+      'properties': {
+        'name': sensors[x]['sensor_name'],
+        'description': sensors[x]['sensor_description'] || sensors[x]['sensor_name'],
+        'pedestrianCount': observations[x]
+      },
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [Number(sensors[x]['longitude']), Number(sensors[x]['latitude'])]
+      }
+    })
+  })
+  const data = {
+    'type': 'FeatureCollection',
+    'features': features
+  }
   return data
 }
 
 export const getLabourForceData = async () => {
   // const rawData = await fetchData(LABOUR_FORCE_URL, DEVELOPER_VIC_API_KEY)
-  const rawData = labourStats
+  const rawData = labourStats.slice(80, -1) // limit range of data
   let data = {}
   const maleData = rawData.filter(x => x['sex_description'] === 'Males')
   const femaleData = rawData.filter(x => x['sex_description'] === 'Females')

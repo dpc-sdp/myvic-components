@@ -865,10 +865,10 @@ exports[`YourvicStoryshots Error Default 1`] = `
 
 exports[`YourvicStoryshots ExampleSite Default 1`] = `
 <div
-  class="yourvic-examples__container"
+  class="yourvic-example-site__container"
 >
   <h1
-    class="yourvic-examples__header-h1"
+    class="yourvic-example-site__header-h1"
   >
     This page has been created to showcase the charting and mapping components
     derived from the MyVictoria website
@@ -876,7 +876,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </h1>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     The charting of the COVID-19 pandemic has turned into an international pastime, with graphs demonstrating new daily cases,
@@ -887,7 +887,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     This site uses live data published by the Australian Bureau of Statistics coupled with the Victorian Department of Premier
@@ -896,13 +896,13 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <h3
-    class="yourvic-examples__header"
+    class="yourvic-example-site__header"
   >
     People on the Streets
   </h3>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     Trends around the world have been pushing for increased connectivity on a global scale, international holidays and work
@@ -913,10 +913,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <div
-    class="yourvic-examples__chart-container"
+    class="yourvic-example-site__chart-container"
   >
     <div
-      class="yourvic-line-chart yourvic-examples__arrivals-line-chart"
+      class="yourvic-line-chart yourvic-example-site__arrivals-line-chart"
     >
       <div
         alt="Arrivals by month"
@@ -943,7 +943,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </div>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     Here in Melbourne pedestrian activity slumped in late March and early April but has been increasing gently since. Below
@@ -953,11 +953,93 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <div
-    class="yourvic-examples__chart-container"
-  />
+    class="yourvic-example-site__map-container"
+  >
+    <div
+      class="yourvic-map-core"
+      style="position: relative; width: 100%; height: 100%;"
+    >
+       
+      <div
+        class="yourvic-map-core__container"
+      >
+        <div
+          aria-label="An interactive map"
+          class="yourvic-map-core__map"
+          role="application"
+          tabindex="0"
+        >
+          <!---->
+           
+          <!---->
+          <div
+            class="ol-viewport"
+            style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+          >
+            <div
+              class="ol-unselectable ol-layers"
+              style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+            />
+            <div
+              class="ol-overlaycontainer"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+            />
+            <div
+              class="ol-overlaycontainer-stopevent"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+            >
+              <div
+                class="ol-overlay-container ol-selectable"
+                style="position: absolute; display: none;"
+              >
+                <div
+                  class="yourvic-map-core__popup ol-popup"
+                >
+                  <!---->
+                </div>
+              </div>
+              <div
+                class="ol-zoom ol-unselectable ol-control"
+              >
+                <button
+                  class="ol-zoom-in"
+                  title="Zoom in"
+                  type="button"
+                >
+                  +
+                </button>
+                <button
+                  class="ol-zoom-out"
+                  title="Zoom out"
+                  type="button"
+                >
+                  −
+                </button>
+              </div>
+              <div
+                class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+              >
+                <ul />
+                <button
+                  title="Attributions"
+                  type="button"
+                >
+                  <span>
+                    i
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </div>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     With the ‘stay at home’ directive in place the luxury of doing one’s job from home has not been afforded to all, while
@@ -967,10 +1049,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <div
-    class="yourvic-examples__chart-container"
+    class="yourvic-example-site__chart-container"
   >
     <div
-      class="yourvic-line-chart yourvic-examples__labour-force-line-chart"
+      class="yourvic-line-chart yourvic-example-site__labour-force-line-chart"
     >
       <div
         alt="Labour Force by Sex"
@@ -997,7 +1079,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </div>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     While we’re expecting wild fluctuations in the increasing and decreasing sources for the Victorians population clock,
@@ -1007,10 +1089,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <div
-    class="yourvic-examples__chart-container"
+    class="yourvic-example-site__chart-container"
   >
     <div
-      class="yourvic-pie-chart yourvic-examples__population-pie-chart"
+      class="yourvic-pie-chart yourvic-example-site__population-pie-chart"
     >
       <div
         alt="Incoming Population"
@@ -1036,7 +1118,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
     </div>
      
     <div
-      class="yourvic-pie-chart yourvic-examples__population-pie-chart"
+      class="yourvic-pie-chart yourvic-example-site__population-pie-chart"
     >
       <div
         alt="Outgoing Population"
@@ -1063,13 +1145,13 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </div>
    
   <h3
-    class="yourvic-examples__header"
+    class="yourvic-example-site__header"
   >
     Hey Big Spender
   </h3>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     It’s no surprise that with changes to the workforce there may be changes to the spending habits of Australians with
@@ -1080,11 +1162,11 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <div
-    class="yourvic-examples__chart-container"
+    class="yourvic-example-site__chart-container"
   >
     <div
       arialabel="chart"
-      class="yourvic-chart-wrapper yourvic-treemap-chart yourvic-examples__cpi-tree-map"
+      class="yourvic-chart-wrapper yourvic-treemap-chart yourvic-example-site__cpi-tree-map"
     >
       <div
         class="yourvic-treemap-chart"
@@ -1107,7 +1189,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </div>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     Similarly, the long-term leap consumers would be making into the property market has faltered, demonstrated itself
@@ -1118,10 +1200,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <div
-    class="yourvic-examples__chart-container"
+    class="yourvic-example-site__chart-container"
   >
     <div
-      class="yourvic-bar-chart yourvic-examples__property-prices-bar-chart"
+      class="yourvic-bar-chart yourvic-example-site__property-prices-bar-chart"
     >
       <div
         alt=""
@@ -1148,7 +1230,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </div>
    
   <p
-    class="yourvic-examples__text-block"
+    class="yourvic-example-site__text-block"
   >
     
     Hold your hats, it’s not all doom and gloom in Australia right now. Our economy is demonstrating that exports of goods
@@ -1159,10 +1241,10 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
   </p>
    
   <div
-    class="yourvic-examples__data-block-container"
+    class="yourvic-example-site__data-block-container"
   >
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="yourvic-data-block yourvic-example-site__data-block"
     >
       <div
         aria-label="Data Block"
@@ -1194,7 +1276,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="yourvic-data-block yourvic-example-site__data-block"
     >
       <div
         aria-label="Data Block"
@@ -1226,7 +1308,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="yourvic-data-block yourvic-example-site__data-block"
     >
       <div
         aria-label="Data Block"
@@ -1258,7 +1340,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="yourvic-data-block yourvic-example-site__data-block"
     >
       <div
         aria-label="Data Block"
@@ -1290,7 +1372,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="yourvic-data-block yourvic-example-site__data-block"
     >
       <div
         aria-label="Data Block"
@@ -1322,7 +1404,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="yourvic-data-block yourvic-example-site__data-block"
     >
       <div
         aria-label="Data Block"
