@@ -1,17 +1,23 @@
 FROM amazeeio/node:10-builder as builder
 
-COPY packages /app/packages
-COPY test /app/test
-COPY package.json yarn.lock /app/
+# install simple http server for serving static content
+RUN npm install -g http-server
+
+# make the 'app' folder the current working directory
+WORKDIR /app
+
+# copy both 'package.json' and 'yarn.lock'
+COPY examples/vue-example-app/package.json ./
+COPY examples/vue-example-app/yarn.lock ./
+
+# install project dependencies
 RUN yarn install
 
-FROM amazeeio/node:10
-COPY --from=builder /app/. /app/
+# copy project files and folders to the current working directory (i.e. 'app' folder)
+COPY examples/vue-example-app/ .
 
-WORKDIR /app/
+# build app for production with minification
+RUN yarn build
 
-ENV HOST 0.0.0.0
 EXPOSE 3000
-
-# This is just a test app, need to be changed to the new vue example app.
-CMD ["yarn", "nuxt:dev"]
+CMD [ "http-server", "dist", "-p", "3000" ]
