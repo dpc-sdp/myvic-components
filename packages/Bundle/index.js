@@ -94,3 +94,18 @@ export async function mountMapWithVectorTileLayer (el, mapProps, layerProps) {
   const { default: YourvicMapVectorTileLayer } = await import(/* webpackChunkName: "YourvicMapVectorTileLayer" */ '@dpc-sdp/yourvic-map-core/MapVectorTileLayer')
   initialiseVueComponent(YourvicMapCore, el, mapProps, YourvicMapVectorTileLayer, layerProps)
 }
+
+export async function mountAreaWithDataExample (el, props) {
+  const { AreaWithData } = await import(/* webpackChunkName: "AreaWithData" */ '@dpc-sdp/yourvic-examples')
+  initialiseVueComponent(AreaWithData, el, props)
+}
+
+export async function mountAreaWithMapExample (el, props) {
+  const { AreaWithMap } = await import(/* webpackChunkName: "AreaWithMap" */ '@dpc-sdp/yourvic-examples')
+  initialiseVueComponent(AreaWithMap, el, props)
+}
+
+export async function mountIncomeDataExample (el, props) {
+  const { IncomeData } = await import(/* webpackChunkName: "IncomeData" */ '@dpc-sdp/yourvic-examples')
+  initialiseVueComponent(IncomeData, el, props)
+}

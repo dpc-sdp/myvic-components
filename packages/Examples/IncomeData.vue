@@ -72,7 +72,7 @@
 
 import DataBlock from '@dpc-sdp/yourvic-data-block'
 import BarChart from '@dpc-sdp/yourvic-bar-chart'
-import { getGeneralIncomeData, getIncomeData, getLegendData, getMapboxStyle, LEGEND_TITLES, MAP_LAYERS } from './utils/getData'
+import { getGeneralIncomeData, getIncomeData, getLegendData, LEGEND_TITLES, MAP_LAYERS } from './utils/getData'
 import {
   YourvicMapCore,
   YourvicMapVectorTileLayer,
@@ -80,7 +80,12 @@ import {
   YourvicMapLegend
 } from '@dpc-sdp/yourvic-map-core'
 import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
-import { createWfsRequestUrl } from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
+import {
+  createWfsRequestUrl,
+  myVictoriaRotatingColours,
+  myVictoriaLayerStops,
+  buildMyVictoriaMapboxStyle
+} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
 
 /**
  * IncomeData is a component showcasing the area search, data block and bar chart components
@@ -114,8 +119,12 @@ export default {
     }
   },
   mounted: async function () {
-    this.selectArea('area-search', this.area)
-    this.mapboxStyle = await getMapboxStyle()
+    await this.selectArea('area-search', this.area)
+    this.mapboxStyle = await buildMyVictoriaMapboxStyle(
+      myVictoriaRotatingColours.blue,
+      myVictoriaLayerStops.income_personal_lga,
+      'median_total_personal_income_weekly',
+      'income_lga_map')
   },
   computed: {
     layerUrl: function () {
@@ -192,9 +201,45 @@ export default {
     }
   },
   methods: {
-    selectBlock: function (blockId) {
+    selectBlock: async function (blockId) {
       this.activeBlock = blockId
-      this.getLegendData()
+      await this.getLegendData()
+      switch (blockId) {
+        case 'data-block-1':
+          this.mapboxStyle = await buildMyVictoriaMapboxStyle(
+            myVictoriaRotatingColours.blue,
+            myVictoriaLayerStops.income_personal_lga,
+            'median_total_personal_income_weekly',
+            'income_lga_map')
+          break
+        case 'data-block-2':
+          this.mapboxStyle = await buildMyVictoriaMapboxStyle(
+            myVictoriaRotatingColours.blue,
+            myVictoriaLayerStops.income_personal_growth_lga,
+            'total_person_growth',
+            'income_lga_map')
+          break
+        case 'data-block-3':
+          this.mapboxStyle = await buildMyVictoriaMapboxStyle(
+            myVictoriaRotatingColours.blue,
+            myVictoriaLayerStops.income_household_lga,
+            'median_total_household_income_weekly',
+            'income_lga_map')
+          break
+        case 'data-block-4':
+          this.mapboxStyle = await buildMyVictoriaMapboxStyle(
+            myVictoriaRotatingColours.blue,
+            myVictoriaLayerStops.income_household_growth_lga,
+            'total_family_growth',
+            'income_lga_map')
+          break
+        default:
+          this.mapboxStyle = await buildMyVictoriaMapboxStyle(
+            myVictoriaRotatingColours.blue,
+            myVictoriaLayerStops.income_household_growth_lga,
+            'total_family_growth',
+            'income_lga_map')
+      }
     },
     selectArea: async function (searchComponent, area) {
       this.area = area
