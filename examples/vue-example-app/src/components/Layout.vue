@@ -1,7 +1,7 @@
 <template>
   <rpl-base-layout class="yourvic-example-layout">
     <div slot="header" class="yourvic-example-header">
-        <rpl-site-header />
+      <rpl-site-header />
     </div>
     <rpl-page-layout class="yourvic-example-main">
       <rpl-container>
