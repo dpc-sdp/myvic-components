@@ -64,8 +64,16 @@
               <td class="yourvic-example-site__legend-label">1-10</td>
             </tr>
             <tr>
+              <td><div class="yourvic-example-site__legend-layer-mediumBlue" /></td>
+              <td class="yourvic-example-site__legend-label">11-50</td>
+            </tr>
+            <tr>
               <td><div class="yourvic-example-site__legend-layer-darkBlue" /></td>
-              <td class="yourvic-example-site__legend-label">More than 10</td>
+              <td class="yourvic-example-site__legend-label">51-100</td>
+            </tr>
+            <tr>
+              <td><div class="yourvic-example-site__legend-layer-darkerBlue" /></td>
+              <td class="yourvic-example-site__legend-label">More than 100</td>
             </tr>
           </table>
         </yourvic-map-legend>
@@ -267,7 +275,19 @@ export default {
         lightBlue: new Style({
           image: new Circle({
             fill: new Fill({
-              color: '#00a4db'
+              color: '#69ccec'
+            }),
+            stroke: new Stroke({
+              color: 'rgba(255,255,255,0.5)',
+              width: 2
+            }),
+            radius: 8
+          })
+        }),
+        mediumBlue: new Style({
+          image: new Circle({
+            fill: new Fill({
+              color: '#0596c7'
             }),
             stroke: new Stroke({
               color: 'rgba(255,255,255,0.5)',
@@ -279,7 +299,19 @@ export default {
         darkBlue: new Style({
           image: new Circle({
             fill: new Fill({
-              color: '#003866'
+              color: '#004680'
+            }),
+            stroke: new Stroke({
+              color: 'rgba(255,255,255,0.5)',
+              width: 2
+            }),
+            radius: 8
+          })
+        }),
+        darkerBlue: new Style({
+          image: new Circle({
+            fill: new Fill({
+              color: '#000e1a'
             }),
             stroke: new Stroke({
               color: 'rgba(255,255,255,0.5)',
@@ -353,7 +385,9 @@ export default {
       var count = Number(feature.get('pedestrianCount'))
       if (count === 0) return this.pointStyles.gray
       if (count <= 10) return this.pointStyles.lightBlue
-      return this.pointStyles.darkBlue
+      if (count <= 50) return this.pointStyles.mediumBlue
+      if (count <= 100) return this.pointStyles.darkBlue
+      return this.pointStyles.darkerBlue
     }
   }
 }
@@ -436,13 +470,25 @@ export default {
       border-radius: 25px;
     }
     &__legend-layer-lightBlue {
-      background-color: #00a4db;
+      background-color: #69ccec;
+      width: 14px;
+      height: 14px;
+      border-radius: 25px;
+    }
+    &__legend-layer-mediumBlue {
+      background-color: #0596c7;
       width: 14px;
       height: 14px;
       border-radius: 25px;
     }
     &__legend-layer-darkBlue {
-      background-color: #003866;
+      background-color: #004680;
+      width: 14px;
+      height: 14px;
+      border-radius: 25px;
+    }
+    &__legend-layer-darkerBlue {
+      background-color: #000e1a;
       width: 14px;
       height: 14px;
       border-radius: 25px;

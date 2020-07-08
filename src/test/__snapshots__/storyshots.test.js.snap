@@ -1021,6 +1021,20 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
                 <tr>
                   <td>
                     <div
+                      class="yourvic-example-site__legend-layer-mediumBlue"
+                    />
+                  </td>
+                   
+                  <td
+                    class="yourvic-example-site__legend-label"
+                  >
+                    11-50
+                  </td>
+                </tr>
+                 
+                <tr>
+                  <td>
+                    <div
                       class="yourvic-example-site__legend-layer-darkBlue"
                     />
                   </td>
@@ -1028,7 +1042,21 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
                   <td
                     class="yourvic-example-site__legend-label"
                   >
-                    More than 10
+                    51-100
+                  </td>
+                </tr>
+                 
+                <tr>
+                  <td>
+                    <div
+                      class="yourvic-example-site__legend-layer-darkerBlue"
+                    />
+                  </td>
+                   
+                  <td
+                    class="yourvic-example-site__legend-label"
+                  >
+                    More than 100
                   </td>
                 </tr>
               </table>
