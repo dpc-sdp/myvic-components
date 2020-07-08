@@ -1101,7 +1101,7 @@
     "@dpc-sdp/ripple-icon" "^1.8.0"
     "@dpc-sdp/yourvic-global" "1.1.3-next-16"
 
-"@dpc-sdp/yourvic-example-site@1.1.3-next-16":
+"@dpc-sdp/yourvic-example-site@dev":
   version "1.1.3-next-16"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-example-site/-/yourvic-example-site-1.1.3-next-16.tgz#368bf981af966a04e6618895afa5c9f6f23fd3aa"
   integrity sha512-oD2MgwVFk8dq0pqwPfwPjG72VS2htHK+W7w0FKxSsJIMkIUJ8DG5IVyUlygb+Oq0K+z1a2QP3NqF/INuVFV+fg==
