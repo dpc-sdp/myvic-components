@@ -22,7 +22,7 @@
     "@dpc-sdp/ripple-card": "1.8.0",
     "@dpc-sdp/yourvic-bar-chart": "dev",
     "@dpc-sdp/yourvic-map-core": "dev",
-    "@dpc-sdp/yourvic-example-site": "dev",
+    "@dpc-sdp/yourvic-example-site": "1.1.3-next-16",
     "core-js": "^3.6.5",
     "vue": "^2.6.10"
   },

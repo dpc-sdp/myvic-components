@@ -1071,12 +1071,12 @@
     "@dpc-sdp/ripple-search" "1.8.0"
     body-scroll-lock "^2.6.1"
 
-"@dpc-sdp/yourvic-bar-chart@1.1.3-next.9":
-  version "1.1.3-next.9"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-bar-chart/-/yourvic-bar-chart-1.1.3-next.9.tgz#63c4bea8aa05ee18ece0b91ac02ff3c498a5b3af"
-  integrity sha512-cTXsM9gWGKEKy+nZmGnQ0OZ7ov2+UYJsBn770w7uL2jC5e2elVDT/twL3kmi8PZUGA47XdRiCP01cAj1bxGAHw==
+"@dpc-sdp/yourvic-bar-chart@1.1.3-next-16":
+  version "1.1.3-next-16"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-bar-chart/-/yourvic-bar-chart-1.1.3-next-16.tgz#d30f276f367045ee7d654209bf7f49bfcf3c0783"
+  integrity sha512-AUkCYeMZrHdPQMMdBJRPvLbnw8DorVySjEvnJn1L+4nGa/9nq5vvatVuCXiHPmDhPF1ZyiRT/Iefj5PlatZUXQ==
   dependencies:
-    "@dpc-sdp/yourvic-global" "1.1.3-next.9"
+    "@dpc-sdp/yourvic-global" "1.1.3-next-16"
     chart.js "^2.9.3"
     chartjs-plugin-datalabels "^0.7.0"
     lodash.merge "^4.6.2"
@@ -1093,26 +1093,34 @@
     lodash.merge "^4.6.2"
     vue-chartjs "^3.5.0"
 
-"@dpc-sdp/yourvic-data-block@1.1.3-next.9":
-  version "1.1.3-next.9"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-data-block/-/yourvic-data-block-1.1.3-next.9.tgz#1bdcebe6b8370247decf82eb3939a51ead44427e"
-  integrity sha512-sZj3hRKaptajPsP7Lh9/t7zD6VMxXRvEncm3qC1Q8IQYfQ50XR41RDVCINOoqnr/CsNE5rfujKcg7t/yrlO3zQ==
+"@dpc-sdp/yourvic-data-block@1.1.3-next-16":
+  version "1.1.3-next-16"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-data-block/-/yourvic-data-block-1.1.3-next-16.tgz#3672100cd1be80c8d22031d54b64866195d56e82"
+  integrity sha512-BRK9L3+Jc1m6NWdTZ3G/Lr7MyZ81C5Lij1fDb64tkDmLus43f/naxX+nH8LSoNkSlCiwiDLmbzwF/8zhYG0gYw==
   dependencies:
     "@dpc-sdp/ripple-icon" "^1.8.0"
-    "@dpc-sdp/yourvic-global" "1.1.3-next.9"
+    "@dpc-sdp/yourvic-global" "1.1.3-next-16"
 
-"@dpc-sdp/yourvic-example-site@dev":
-  version "1.1.3-next.9"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-example-site/-/yourvic-example-site-1.1.3-next.9.tgz#6d930658e00255563e198017b36b548a3f14d51a"
-  integrity sha512-hqdYIh2DczyQ4yGF4GCJP3IsmRSd203wHOVo8Zq4asUC8xDrxENqBaanvaWBIINGCIb5HGNMmJI5XUgKXEGEYQ==
+"@dpc-sdp/yourvic-example-site@1.1.3-next-16":
+  version "1.1.3-next-16"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-example-site/-/yourvic-example-site-1.1.3-next-16.tgz#368bf981af966a04e6618895afa5c9f6f23fd3aa"
+  integrity sha512-oD2MgwVFk8dq0pqwPfwPjG72VS2htHK+W7w0FKxSsJIMkIUJ8DG5IVyUlygb+Oq0K+z1a2QP3NqF/INuVFV+fg==
   dependencies:
-    "@dpc-sdp/yourvic-bar-chart" "1.1.3-next.9"
-    "@dpc-sdp/yourvic-data-block" "1.1.3-next.9"
-    "@dpc-sdp/yourvic-global" "1.1.3-next.9"
-    "@dpc-sdp/yourvic-line-chart" "1.1.3-next.9"
-    "@dpc-sdp/yourvic-map-core" "1.1.3-next.9"
-    "@dpc-sdp/yourvic-pie-chart" "1.1.3-next.9"
-    "@dpc-sdp/yourvic-treemap" "1.1.3-next.9"
+    "@dpc-sdp/yourvic-bar-chart" "1.1.3-next-16"
+    "@dpc-sdp/yourvic-data-block" "1.1.3-next-16"
+    "@dpc-sdp/yourvic-global" "1.1.3-next-16"
+    "@dpc-sdp/yourvic-line-chart" "1.1.3-next-16"
+    "@dpc-sdp/yourvic-map-core" "1.1.3-next-16"
+    "@dpc-sdp/yourvic-pie-chart" "1.1.3-next-16"
+    "@dpc-sdp/yourvic-treemap" "1.1.3-next-15"
+    axios "^0.19.2"
+
+"@dpc-sdp/yourvic-global@1.1.3-next-16":
+  version "1.1.3-next-16"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-global/-/yourvic-global-1.1.3-next-16.tgz#159cc6ad14e0223953191526926ba5d383ffaddd"
+  integrity sha512-D9k9MMleV9Wds7qh0wqVmzjFIG88F2it0NtcdHQNeHchtGmwg2JWaZtyJtgzglD4o6aFi6ldiG+Fg5czrU/Ndw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "^1.8.0"
     axios "^0.19.2"
 
 "@dpc-sdp/yourvic-global@1.1.3-next.4":
@@ -1122,31 +1130,23 @@
   dependencies:
     "@dpc-sdp/ripple-global" "^1.8.0"
 
-"@dpc-sdp/yourvic-global@1.1.3-next.9":
-  version "1.1.3-next.9"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-global/-/yourvic-global-1.1.3-next.9.tgz#e52b933aed9c2f570b763c3d903037bbffdab604"
-  integrity sha512-DlfyKEPoiszOT17cqeLBhFTl6ZRGXBqL/ndG6C2GX5tWPcaAUf+PMdAMqweOFvWVBTYN6IRtmo8Ml5mfmGCjQg==
+"@dpc-sdp/yourvic-line-chart@1.1.3-next-16":
+  version "1.1.3-next-16"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-line-chart/-/yourvic-line-chart-1.1.3-next-16.tgz#090532f97cb0f74bf00a83a0437d02ceabf45e29"
+  integrity sha512-+Syved1K77KCt/uv5P8Bh/hUPNUWIZt7B81UQC4AHqhl2D4iEMsLnE/Pvaew0xg9wsFElJVturlrcgdw+H+huw==
   dependencies:
-    "@dpc-sdp/ripple-global" "^1.8.0"
-    axios "^0.19.2"
-
-"@dpc-sdp/yourvic-line-chart@1.1.3-next.9":
-  version "1.1.3-next.9"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-line-chart/-/yourvic-line-chart-1.1.3-next.9.tgz#01f675de01bd3c6eccbd3936be8564e4f86094e1"
-  integrity sha512-MqaGMoYPnAiwd0dIxTfeBRkq0RR3/37Kc5ITI3usoEmuIp5tE4SaHr3Y7wiOsulUgZKnxpDqZvHzCHNlPG1DQg==
-  dependencies:
-    "@dpc-sdp/yourvic-global" "1.1.3-next.9"
+    "@dpc-sdp/yourvic-global" "1.1.3-next-16"
     chart.js "^2.9.3"
     lodash.merge "^4.6.2"
     vue-chartjs "^3.5.0"
 
-"@dpc-sdp/yourvic-map-core@1.1.3-next.9":
-  version "1.1.3-next.9"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-map-core/-/yourvic-map-core-1.1.3-next.9.tgz#b8298bbde3ab33df618a03641736f27f9b0f29bc"
-  integrity sha512-ChqsHi6/pOG0AtqymQ3XWaL2xp8DpFGV8tmCdtpDMM5WQO0igbsaEys7q6FQbAnY1/JpvNmUCM4kCC1GBmFNaw==
+"@dpc-sdp/yourvic-map-core@1.1.3-next-16":
+  version "1.1.3-next-16"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-map-core/-/yourvic-map-core-1.1.3-next-16.tgz#68fadde78905605c90c547dc02389502067154a7"
+  integrity sha512-G2Kr27promakgOdyuJuSDGbUtqcXX4V07OaTwAiYKSjM3k95fxVB6zJPRscPHzEChr3g+MURtNyzyFRCWYCmfg==
   dependencies:
     "@dpc-sdp/ripple-global" "^1.8.0"
-    "@dpc-sdp/yourvic-global" "1.1.3-next.9"
+    "@dpc-sdp/yourvic-global" "1.1.3-next-16"
     ol "^6.3.1"
     ol-ext "^3.1.12"
     ol-mapbox-style "^6.1.2"
@@ -1164,23 +1164,24 @@
     ol-mapbox-style "^6.1.2"
     proj4 "^2.6.2"
 
-"@dpc-sdp/yourvic-pie-chart@1.1.3-next.9":
-  version "1.1.3-next.9"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-pie-chart/-/yourvic-pie-chart-1.1.3-next.9.tgz#46eb0ff6ec1bae0518023355787c09fc064b0cbe"
-  integrity sha512-QwB7QH9dgo2k5dxNvV5TiUmKIo0QQWDrbCWkN+ZRwAVdUdWCACWaJmV2cCwVqXurEMJ27SdMnG+rLnkeRjxrcA==
+"@dpc-sdp/yourvic-pie-chart@1.1.3-next-16":
+  version "1.1.3-next-16"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-pie-chart/-/yourvic-pie-chart-1.1.3-next-16.tgz#9f91c232445945e6f6088a380eee5cc9a5bdfc9a"
+  integrity sha512-1sNuQCVgy8tWddDTH8Onj5yjo6D07h2l0k79aOXc/gAH4PZyxkyvDPM0k+lmtp9f2zx/fSyQMkowazjajgzRBQ==
   dependencies:
-    "@dpc-sdp/yourvic-global" "1.1.3-next.9"
+    "@dpc-sdp/yourvic-global" "1.1.3-next-16"
     chart.js "^2.9.3"
     chartjs-plugin-datalabels "^0.7.0"
     lodash.merge "^4.6.2"
     vue-chartjs "^3.5.0"
 
-"@dpc-sdp/yourvic-treemap@1.1.3-next.9":
-  version "1.1.3-next.9"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-treemap/-/yourvic-treemap-1.1.3-next.9.tgz#be68195e7933ab7fe1444a3cc932ea40b0f1ddd0"
-  integrity sha512-pZ8iVzcJUvD1PmFiO6U5RpgvvSJ4I17Zp8ubaKzIZR1fSadH4lN5N77nsK/GCXZ6oX1VvXPMM+pkfpV9k3/Cgg==
+"@dpc-sdp/yourvic-treemap@1.1.3-next-15":
+  version "1.1.3-next-16"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/yourvic-treemap/-/yourvic-treemap-1.1.3-next-16.tgz#99d21656b09cf6dd987522e855b061a21c451c01"
+  integrity sha512-KRYcf52GzqWaociUQqb9KNvIMZhxUTKXrhkeMAlONRdfg9R6nCXVLKqiCyuo7Gzr5l1VtbPCdgrm9FgHeHN6CQ==
   dependencies:
     "@dpc-sdp/ripple-global" "^1.8.0"
+    "@dpc-sdp/yourvic-global" "1.1.3-next-16"
     chart.js "^2.9.3"
     chartjs-chart-treemap "^0.2.3"
     lodash.merge "^4.6.2"
