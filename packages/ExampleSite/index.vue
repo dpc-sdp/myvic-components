@@ -46,9 +46,29 @@
           dataFormat="GeoJSON"
           loadingStrategy="all"
           :zoomToExtent="true"
+          :layerStyle="getMapLayerStyle"
           :enablePopup="true"
           :attributions="attributions"
         />
+        <yourvic-map-legend
+          :type="'custom'"
+          :title="'Number of pedestrians'"
+        >
+          <table style="width:100%">
+            <tr>
+              <td><div class="yourvic-example-site__legend-layer-gray" /></td>
+              <td class="yourvic-example-site__legend-label">No pedestrians</td>
+            </tr>
+            <tr>
+              <td><div class="yourvic-example-site__legend-layer-lightBlue" /></td>
+              <td class="yourvic-example-site__legend-label">1-10</td>
+            </tr>
+            <tr>
+              <td><div class="yourvic-example-site__legend-layer-darkBlue" /></td>
+              <td class="yourvic-example-site__legend-label">More than 10</td>
+            </tr>
+          </table>
+        </yourvic-map-legend>
       </yourvic-map-core>
     </div>
     <p class="yourvic-example-site__text-block">
@@ -183,7 +203,12 @@ import {
 } from './utils/getData'
 import {
   YourvicMapCore,
-  YourvicMapVectorLayer
+  YourvicMapVectorLayer,
+  YourvicMapLegend,
+  Style,
+  Stroke,
+  Fill,
+  Circle
 } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
@@ -201,7 +226,8 @@ export default {
     PieChart,
     TreeMap,
     YourvicMapCore,
-    YourvicMapVectorLayer
+    YourvicMapVectorLayer,
+    YourvicMapLegend
   },
   props: {
   },
@@ -224,7 +250,45 @@ export default {
       center: [16137905.843820328, -4555057.013522999],
       attributions: [
         '<a href="https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Sensor-Locations/h57g-5234/data" tabindex="0" target="_blank">Accessible Version</a>'
-      ]
+      ],
+      pointStyles: {
+        gray: new Style({
+          image: new Circle({
+            fill: new Fill({
+              color: '#93979a'
+            }),
+            stroke: new Stroke({
+              color: 'rgba(255,255,255,0.5)',
+              width: 2
+            }),
+            radius: 8
+          })
+        }),
+        lightBlue: new Style({
+          image: new Circle({
+            fill: new Fill({
+              color: '#00a4db'
+            }),
+            stroke: new Stroke({
+              color: 'rgba(255,255,255,0.5)',
+              width: 2
+            }),
+            radius: 8
+          })
+        }),
+        darkBlue: new Style({
+          image: new Circle({
+            fill: new Fill({
+              color: '#003866'
+            }),
+            stroke: new Stroke({
+              color: 'rgba(255,255,255,0.5)',
+              width: 2
+            }),
+            radius: 8
+          })
+        })
+      }
     }
   },
   mounted: async function () {
@@ -284,6 +348,12 @@ export default {
         title: features[0].get('description'),
         value: 'Pedestrian count: ' + features[0].get('pedestrianCount')
       }
+    },
+    getMapLayerStyle: function (feature) {
+      var count = Number(feature.get('pedestrianCount'))
+      if (count === 0) return this.pointStyles.gray
+      if (count <= 10) return this.pointStyles.lightBlue
+      return this.pointStyles.darkBlue
     }
   }
 }
@@ -358,6 +428,30 @@ export default {
     &__data-block {
       width: 30%;
       margin: 10px 10px;
+    }
+    &__legend-layer-gray {
+      background-color: #93979a;
+      width: 14px;
+      height: 14px;
+      border-radius: 25px;
+    }
+    &__legend-layer-lightBlue {
+      background-color: #00a4db;
+      width: 14px;
+      height: 14px;
+      border-radius: 25px;
+    }
+    &__legend-layer-darkBlue {
+      background-color: #003866;
+      width: 14px;
+      height: 14px;
+      border-radius: 25px;
+    }
+    &__legend-label {
+      position: relative;
+      top: 1px;
+      left: 2px;
+      font-size: 14px;
     }
   }
 </style>

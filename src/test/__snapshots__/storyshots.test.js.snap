@@ -971,6 +971,70 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
         >
           <!---->
            
+          <div
+            class="yourvic-map-legend blue"
+          >
+            <h2
+              class="yourvic-map-legend__title"
+            >
+              Number of pedestrians
+            </h2>
+             
+            <!---->
+             
+            <!---->
+             
+            <div
+              class="yourvic-map-legend__content"
+            >
+              <table
+                style="width: 100%;"
+              >
+                <tr>
+                  <td>
+                    <div
+                      class="yourvic-example-site__legend-layer-gray"
+                    />
+                  </td>
+                   
+                  <td
+                    class="yourvic-example-site__legend-label"
+                  >
+                    No pedestrians
+                  </td>
+                </tr>
+                 
+                <tr>
+                  <td>
+                    <div
+                      class="yourvic-example-site__legend-layer-lightBlue"
+                    />
+                  </td>
+                   
+                  <td
+                    class="yourvic-example-site__legend-label"
+                  >
+                    1-10
+                  </td>
+                </tr>
+                 
+                <tr>
+                  <td>
+                    <div
+                      class="yourvic-example-site__legend-layer-darkBlue"
+                    />
+                  </td>
+                   
+                  <td
+                    class="yourvic-example-site__legend-label"
+                  >
+                    More than 10
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+           
           <!---->
           <div
             class="ol-viewport"
