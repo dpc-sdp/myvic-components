@@ -186,7 +186,6 @@ import {
   YourvicMapVectorLayer
 } from '@dpc-sdp/yourvic-map-core'
 import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
-// import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
 
 const startingChartData = { datasets: [], labels: [] }
 const startingBlockData = { title: '', description: '' }

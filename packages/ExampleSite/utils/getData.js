@@ -1,5 +1,4 @@
 import axios from 'axios'
-import labourStats from './labourForceStats'
 import sensors from './sensors'
 
 const ABS_DATA_BASE_URL = 'http://stat.data.abs.gov.au/sdmx-json/data/'
@@ -16,9 +15,10 @@ const EPI_CCB_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093916.Q/all?detail=Fu
 const EPI_TRANSPORT_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093920.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
 
 const PEDESTRIAN_URL = 'https://data.melbourne.vic.gov.au/resource/d6mv-s43h.json'
-// const LABOUR_FORCE_URL = 'https://api.vic.gov.au/abs/v1.0/labour-force-statistics?region=VICTORIA&data_item=LABOUR_FORCE&age=15_AND_OVER&sex=MALES%26FEMALES&adjustment_type=ORIGINAL&start_period=2009-01'
+const LABOUR_FORCE_URL = 'https://api.vic.gov.au/abs/v1.0/labour-force-statistics?region=VICTORIA&data_item=LABOUR_FORCE&age=15_AND_OVER&adjustment_type=ORIGINAL&start_period=2009-01'
+const DEVELOPER_VIC_API_KEY = 'e06367ba-4e38-4843-91ad-b81d51c84057'
 
-// const DEVELOPER_VIC_API_KEY = '9093ae01-2a0c-4b13-b935-3457723535b6'
+const LABOUR_FORCE_SLICE_START = 80
 
 const fetchData = async (request, apiKey) => {
   const options = {}
@@ -229,21 +229,24 @@ export const getPedestrianData = async () => {
   return data
 }
 
+const sliceData = (data) => {
+  return data.slice(LABOUR_FORCE_SLICE_START, -1)
+}
+
 export const getLabourForceData = async () => {
-  // const rawData = await fetchData(LABOUR_FORCE_URL, DEVELOPER_VIC_API_KEY)
-  const rawData = labourStats.slice(80, -1) // limit range of data
+  const rawData = await fetchData(LABOUR_FORCE_URL, DEVELOPER_VIC_API_KEY)
   let data = {}
-  const maleData = rawData.filter(x => x['sex_description'] === 'Males')
-  const femaleData = rawData.filter(x => x['sex_description'] === 'Females')
-  const labels = maleData.map(x => x['observation_month'])
+  const maleData = rawData.labour_force_statistics.filter(x => x['sex_description'] === 'Males')
+  const femaleData = rawData.labour_force_statistics.filter(x => x['sex_description'] === 'Females')
+  const labels = sliceData(maleData.map(x => x['observation_month']))
 
   const maleDataset = {
     label: 'Males',
-    data: maleData.map(x => Number(x['observation_value']))
+    data: sliceData(maleData.map(x => Number(x['observation_value'])))
   }
   const femaleDataset = {
     label: 'Females',
-    data: femaleData.map(x => Number(x['observation_value']))
+    data: sliceData(femaleData.map(x => Number(x['observation_value'])))
   }
 
   data = {
