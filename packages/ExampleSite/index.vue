@@ -89,6 +89,7 @@
         :title="labourForceData.title"
         :data="labourForceData"
         :showLegend="true"
+        dataFormat="thousand"
         :shortDesc="'Labour Force by Sex'"
       />
     </div>
@@ -136,6 +137,7 @@
     <div class="yourvic-example-site__chart-container">
       <bar-chart class="yourvic-example-site__property-prices-bar-chart"
         :title="propertyPricesData.title"
+        direction="vertical"
         :data="propertyPricesData"
         :showLegend="true"
         :shortDesc="propertyPricesData.title"
@@ -450,8 +452,8 @@ export default {
     }
     &__property-prices-bar-chart {
       height: 550px;
-      min-width: 80%;
-      max-width: 80%;
+      min-width: 95%;
+      max-width: 95%;
     }
     &__data-block-container {
       display: flex;

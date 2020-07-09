@@ -61,7 +61,13 @@ import { TreeMap } from '@dpc-sdp/yourvic-treemap'
             default: text('labelAttr', 'name')
           },
           dataFormat: {
-            default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+            default: select('data format', {
+              normal: 'normal',
+              percentage: 'percentage',
+              thousand: 'thousand',
+              dollar: 'dollar',
+              'thousand dollar': 'thousandDollar'
+            }, 'normal')
           },
           shortDesc: {
             default: text('shortDesc', 'tree map')

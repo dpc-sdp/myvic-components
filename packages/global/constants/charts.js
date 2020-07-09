@@ -38,6 +38,7 @@ export default {
   labelFormats: {
     normal: 'normal',
     percentage: 'percentage',
+    thousand: 'thousand',
     dollar: 'dollar',
     thousandDollar: 'thousandDollar'
   },

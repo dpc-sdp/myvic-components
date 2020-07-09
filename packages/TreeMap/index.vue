@@ -40,12 +40,13 @@ export default {
       required: true
     },
     /**
-     * The format of the data values. This will be used to format the value in the tooltips. The choices are:
-     * `normal`, `percentage`, `dollar`, `thousandDollar`
+     * The format of the data values. The choices are:
+     * `normal`, `percentage`, `thousand`, `dollar`, `thousandDollar`
      */
     dataFormat: {
       type: String,
-      default: 'normal'
+      default: 'normal',
+      validator: value => ['normal', 'percentage', 'thousand', 'dollar', 'thousandDollar'].includes(value)
     },
     /**
      * Customise the chart tab index

@@ -1150,7 +1150,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
         alt="Labour Force by Sex"
         aria-label="Line Chart"
         class=""
-        dataformat="normal"
+        dataformat="thousand"
         role="img"
         style="position: relative; height: inherit; width: inherit; outline: none;"
         tabindex="0"
@@ -1309,7 +1309,7 @@ exports[`YourvicStoryshots ExampleSite Default 1`] = `
         <canvas
           class="chartjs-render-monitor"
           height="0"
-          id="horizontalbar-chart"
+          id="bar-chart"
           style="display: block;"
           width="0"
         />

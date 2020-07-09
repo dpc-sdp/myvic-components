@@ -18,7 +18,7 @@ const PEDESTRIAN_URL = 'https://data.melbourne.vic.gov.au/resource/d6mv-s43h.jso
 const LABOUR_FORCE_URL = 'https://api.vic.gov.au/abs/v1.0/labour-force-statistics?region=VICTORIA&data_item=LABOUR_FORCE&age=15_AND_OVER&adjustment_type=ORIGINAL&start_period=2009-01'
 const DEVELOPER_VIC_API_KEY = 'e06367ba-4e38-4843-91ad-b81d51c84057'
 
-const LABOUR_FORCE_SLICE_START = 80
+const LABOUR_FORCE_SLICE_START = 108
 
 const fetchData = async (request, apiKey) => {
   const options = {}
@@ -242,11 +242,11 @@ export const getLabourForceData = async () => {
 
   const maleDataset = {
     label: 'Males',
-    data: sliceData(maleData.map(x => Number(x['observation_value'])))
+    data: sliceData(maleData.map(x => Math.floor(Number(x['observation_value']))))
   }
   const femaleDataset = {
     label: 'Females',
-    data: sliceData(femaleData.map(x => Number(x['observation_value'])))
+    data: sliceData(femaleData.map(x => Math.floor(Number(x['observation_value']))))
   }
 
   data = {
