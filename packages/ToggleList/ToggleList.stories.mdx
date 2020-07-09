@@ -241,7 +241,7 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
               </rpl-col>
               <rpl-col cols=7>
                 <div style="width: 100%; height: 90vh">
-                  <your-vic-line-chart title="Line Chart" :data="chartData" :showLegend="false" dataFormat="normal" />
+                  <your-vic-line-chart title="Line Chart" :data="chartData" :showLegend="true" dataFormat="normal" />
                 </div>
               </rpl-col>
             </rpl-row>
@@ -295,9 +295,9 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
         props: {
           items: {
             default: () => [
-              {id: 'dataset1', title: 'Dataset 1', icon: 'map_marker', color: 'success'},
-              {id: 'dataset2', title: 'Dataset 2', icon: 'map_marker', color: 'danger'},
-              {id: 'dataset3', title: 'Dataset 3', icon: 'map_marker', color: 'primary'}
+              {id: 'dataset1', title: 'Dataset 1'},
+              {id: 'dataset2', title: 'Dataset 2'},
+              {id: 'dataset3', title: 'Dataset 3'}
             ]
           }
         },

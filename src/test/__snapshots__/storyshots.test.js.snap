@@ -5216,11 +5216,7 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
             role="checkbox"
             tabindex="0"
           >
-            <div
-              class="yourvic-toggle-item__icon-left"
-            >
-              <!---->
-            </div>
+            <!---->
              
             <h3
               class="yourvic-toggle-item__title"
@@ -5240,11 +5236,7 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
             role="checkbox"
             tabindex="0"
           >
-            <div
-              class="yourvic-toggle-item__icon-left"
-            >
-              <!---->
-            </div>
+            <!---->
              
             <h3
               class="yourvic-toggle-item__title"
@@ -5264,11 +5256,7 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
             role="checkbox"
             tabindex="0"
           >
-            <div
-              class="yourvic-toggle-item__icon-left"
-            >
-              <!---->
-            </div>
+            <!---->
              
             <h3
               class="yourvic-toggle-item__title"
