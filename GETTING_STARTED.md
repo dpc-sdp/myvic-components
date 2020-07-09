@@ -64,7 +64,7 @@ be backed by [Tide](https://github.com/dpc-sdp/tide) - the SDP Drupal Content Ma
 - Ripple with Tide - The [@dpc-sdp/ripple-nuxt-tide](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-tide) Nuxt
 module can be used to add Tide integration to a Nuxt application.
 - Ripple without Tide - The [@dpc-sdp/nuxt-ripple-ui](https://www.npmjs.com/package/@dpc-sdp/ripple-nuxt-ui) Nuxt module
-can be used to add Ripple UI components with Tide integration for a Nuxt application.
+can be used to add Ripple UI components without Tide integration for a Nuxt application.
 
 ## Data Hosting
 
