@@ -6,6 +6,8 @@ export default {
     switch (style) {
       case constants.labelFormats.percentage:
         return `${value}%`
+      case constants.labelFormats.thousand:
+        return `${value}K`
       case constants.labelFormats.dollar:
         return `$${value}`
       case constants.labelFormats.thousandDollar:

@@ -11,6 +11,7 @@
     :aria-checked="isSelected"
     >
     <div
+      v-if="!!icon"
       class="yourvic-toggle-item__icon-left">
       <rpl-icon
         :symbol="icon"
@@ -44,7 +45,7 @@ export default {
     },
     icon: {
       type: String,
-      default: 'map_marker'
+      default: null
     },
     color: {
       type: String,

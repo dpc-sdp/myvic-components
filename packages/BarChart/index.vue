@@ -76,12 +76,12 @@ export default {
     },
     /**
      * The format of the data values. The choices are:
-     * `normal`, `percentage`, `dollar`, `thousandDollar`
+     * `normal`, `percentage`, `thousand`, `dollar`, `thousandDollar`
      */
     dataFormat: {
       type: String,
       default: 'normal',
-      validator: value => ['normal', 'percentage', 'dollar', 'thousandDollar'].includes(value)
+      validator: value => ['normal', 'percentage', 'thousand', 'dollar', 'thousandDollar'].includes(value)
     },
     /**
      * Customise the chart tab index

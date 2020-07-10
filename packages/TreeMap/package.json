@@ -13,6 +13,7 @@
     "@dpc-sdp/ripple-global": "^1.8.0",
     "chart.js": "^2.9.3",
     "chartjs-chart-treemap": "^0.2.3",
-    "lodash.merge": "^4.6.2"
+    "lodash.merge": "^4.6.2",
+    "@dpc-sdp/yourvic-global": "1.1.3"
   }
 }

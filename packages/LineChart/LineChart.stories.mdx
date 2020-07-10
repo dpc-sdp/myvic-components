@@ -65,7 +65,13 @@ The data object that should contain the following keys:
             default: boolean('showLegend', false)
           },
           dataFormat: {
-            default: select('data format', { normal: 'normal', percentage: 'percentage', dollar: 'dollar', 'thousand dollar': 'thousandDollar' }, 'normal')
+            default: select('data format', {
+              normal: 'normal',
+              percentage: 'percentage',
+              thousand: 'thousand',
+              dollar: 'dollar',
+              'thousand dollar': 'thousandDollar'
+            }, 'normal')
           },
           shortDesc: {
             default: text('shortDesc', 'line chart')

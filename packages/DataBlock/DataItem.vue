@@ -8,7 +8,7 @@
         class="yourvic-data-item__icon">
         <rpl-icon
           :symbol="icon"
-          :color="trend === 'down' ? 'warning' : 'secondary'"
+          :class="trend === 'up' ? 'yourvic-data-item__icon-up' : 'yourvic-data-item__icon-down'"
           size="m"
         />
       </span>
@@ -88,6 +88,12 @@ export default {
       position: relative;
       top: -1px;
       margin-left: 2px;
+    }
+    &__icon-up {
+      fill: #0095C7;
+    }
+    &__icon-down {
+      fill: #ca4c21;
     }
   }
 </style>

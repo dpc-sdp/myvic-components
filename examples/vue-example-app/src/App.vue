@@ -20,6 +20,5 @@ export default {
 @import "~@dpc-sdp/ripple-global/style";
 
 #app {
-  text-align: center;
 }
 </style>
