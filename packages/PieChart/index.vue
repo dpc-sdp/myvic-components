@@ -119,6 +119,7 @@ export default {
         return chartData
       } catch (error) {
         this.interceptError(error)
+        return {}
       }
     },
     options: function () {
@@ -133,6 +134,7 @@ export default {
         return options
       } catch (error) {
         this.interceptError(error)
+        return {}
       }
     }
   },
