@@ -25,6 +25,7 @@
         :title="arrivalsData.title"
         :data="arrivalsData"
         :shortDesc="'Arrivals by month'"
+        :longDesc="longDescriptionUrls['arrivals-line-chart']"
       />
     </div>
     <p class="yourvic-example-site__text-block">
@@ -91,6 +92,7 @@
         :showLegend="true"
         dataFormat="thousand"
         :shortDesc="'Labour Force by Sex'"
+        :longDesc="longDescriptionUrls['labour-force-line-chart']"
       />
     </div>
     <p class="yourvic-example-site__text-block">
@@ -104,12 +106,14 @@
         :data="incomingPopulationData"
         :showLegend="true"
         :shortDesc="'Incoming Population'"
+        :longDesc="longDescriptionUrls['incoming-population-pie-chart']"
       />
       <pie-chart class="yourvic-example-site__population-pie-chart"
         :title="outgoingPopulationData.title"
         :data="outgoingPopulationData"
         :showLegend="true"
         :shortDesc="'Outgoing Population'"
+        :longDesc="longDescriptionUrls['outcoming-population-pie-chart']"
       />
     </div>
     <h3 class="yourvic-example-site__header">Hey Big Spender</h3>
@@ -126,6 +130,7 @@
         :valueAttr="'value'"
         :labelAttr="'label'"
         :shortDesc="'CPI for a range of goods and services'"
+        :longDesc="longDescriptionUrls['cpi-tree-map']"
         />
     </div>
     <p class="yourvic-example-site__text-block">
@@ -141,6 +146,7 @@
         :data="propertyPricesData"
         :showLegend="true"
         :shortDesc="propertyPricesData.title"
+        :longDesc="longDescriptionUrls['property-prices-bar-chart']"
       />
     </div>
     <p class="yourvic-example-site__text-block">
@@ -224,6 +230,15 @@ import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 
 const startingChartData = { datasets: [], labels: [] }
 const startingBlockData = { title: '', description: '' }
+const longDescriptionUrls = {
+  'arrivals-line-chart': '',
+  'pedestrian-map': '',
+  'labour-force-line-chart': '',
+  'incoming-population-pie-chart': '',
+  'outcoming-population-pie-chart': '',
+  'cpi-tree-map': '',
+  'property-prices-bar-chart': ''
+}
 
 /**
  * ExampleSite is a component showcasing various other components
@@ -243,6 +258,7 @@ export default {
   },
   data () {
     return {
+      longDescriptionUrls: longDescriptionUrls,
       arrivalsData: startingChartData,
       cpiData: [],
       pedestrianData: startingChartData,
@@ -259,7 +275,7 @@ export default {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
       center: [16137905.843820328, -4555057.013522999],
       attributions: [
-        '<a href="https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Sensor-Locations/h57g-5234/data" tabindex="0" target="_blank">Accessible Version</a>'
+        `<a href="${longDescriptionUrls['pedestrian-map']}" tabindex="0" target="_blank">Accessible Version</a>`
       ],
       pointStyles: {
         gray: new Style({
