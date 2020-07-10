@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/yourvic-bundle",
-  "version": "1.1.3",
+  "version": "1.1.3-next.20",
   "description": "Bundle (UMD) of YourVictoria components",
   "license": "Apache-2.0",
   "main": "dist/yourvic-bundle.js",
@@ -14,24 +14,24 @@
     "build-analyze": "cross-env BUNDLE_ANALYZE=1 webpack"
   },
   "dependencies": {
-    "@dpc-sdp/yourvic-global": "1.1.3",
     "@dpc-sdp/ripple-global": "^1.8.0",
-    "@dpc-sdp/yourvic-addresssearch": "1.1.3",
-    "@dpc-sdp/yourvic-areasearch": "1.1.3",
-    "@dpc-sdp/yourvic-autocomplete": "1.1.3",
-    "@dpc-sdp/yourvic-bar-chart": "1.1.3",
-    "@dpc-sdp/yourvic-data-block": "1.1.3",
-    "@dpc-sdp/yourvic-line-chart": "1.1.3",
-    "@dpc-sdp/yourvic-pie-chart": "1.1.3",
-    "@dpc-sdp/yourvic-map-core": "1.1.3",
-    "@dpc-sdp/yourvic-toggle-list": "1.1.3",
-    "@dpc-sdp/yourvic-treemap": "1.1.3",
-    "@dpc-sdp/yourvic-examples": "1.1.3"
+    "@dpc-sdp/yourvic-addresssearch": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-areasearch": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-autocomplete": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-bar-chart": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-data-block": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-examples": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-global": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-line-chart": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-map-core": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-pie-chart": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-toggle-list": "1.1.3-next.20",
+    "@dpc-sdp/yourvic-treemap": "1.1.3-next.20"
   },
   "devDependencies": {
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
     "vue-loader": "^15.9.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }
