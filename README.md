@@ -25,6 +25,8 @@ with their usage.
 All components have been designed to align to Victorian Government design standards and branding; and include features
 to improve their accessibility.
 
+For a higher level overview of how to get started, see the [Getting Started Guide](GETTING_STARTED.md)
+
 ## Component Overview
 
 All components have been developed with [Vue](https://vuejs.org/) as part of the
