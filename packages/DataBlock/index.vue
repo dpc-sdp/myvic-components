@@ -8,8 +8,11 @@
         'yourvic-data-block__item--isBlock': isBlock
       }"
       class="yourvic-data-block__item"
+      :tabIndex="tabIndex"
+      :aria-label="ariaLabel"
       :role="selectable ? 'button' : ''"
-      @click="$emit('data-block-selected', id)">
+      @click="$emit('data-block-selected', id)"
+      @keyup.enter="$emit('data-block-selected', id)">
       <data-item v-bind="data" />
       <span
         v-if="selectable"
@@ -18,7 +21,6 @@
           <rpl-icon
             class="yourvic-data-block__icon"
             symbol="arrow_right_secondary"
-            color="dark_neutral_1"
             size="s"
           />
       </span>
@@ -72,6 +74,20 @@ export default {
     isBlock: {
       type: Boolean,
       default: true
+    },
+    /**
+     * Customise the data block tab index
+     */
+    tabIndex: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * Customise the data block aria label
+     */
+    ariaLabel: {
+      type: String,
+      default: 'Data Block'
     }
   }
 }
@@ -109,6 +125,7 @@ export default {
         border-radius: 5px;
         padding: 1.25rem;
         padding-bottom: 2.5rem;
+        outline: none;
 
         // @include breakpoint(large) {
         //   padding: 1.4rem;
@@ -159,13 +176,14 @@ export default {
       font-size: rem-calc(13);
       font-weight: 500;
       margin-right: .25em;
-      border-bottom: 2px solid #00a9e0;
+      border-bottom: 2px solid #0095C7;
     }
 
     &__icon {
       position: relative;
       top: 3px;
       left: -3px;
+      fill: #011a3c;
     }
   }
 

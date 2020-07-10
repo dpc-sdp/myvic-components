@@ -10,12 +10,14 @@
         :zoom="12"
         :minZoom="8"
         :baseMapUrl="baseMapUrl"
+        ariaLabel="An interactive map"
       >
         <yourvic-map-vector-layer
           :url="layerUrl"
           dataFormat="GeoJSON"
           loadingStrategy="bbox"
           :zoomToExtent="true"
+          :attributions="attributions"
         />
       </yourvic-map-core>
     </div>
@@ -46,7 +48,10 @@ export default {
         id: 'LGA24600',
         name: 'City of Melbourne',
         description: 'lga'
-      }
+      },
+      attributions: [
+        '<a href="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats" tabindex="0" target="_blank">Accessible Version</a>'
+      ]
     }
   },
   computed: {
