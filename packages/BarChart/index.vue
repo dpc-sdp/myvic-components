@@ -34,8 +34,8 @@ import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
  */
 export default {
   components: {
-    'InnerHorizontalChart': () => import(`./${'InnerHorizontalChart'}`),
-    'InnerChart': () => import(`./${'InnerChart'}`),
+    'InnerHorizontalChart': () => import('./InnerHorizontalChart'),
+    'InnerChart': () => import('./InnerChart'),
     ChartDescription,
     Error
   },
@@ -137,6 +137,7 @@ export default {
         return chartData
       } catch (error) {
         this.interceptError(error)
+        return {}
       }
     },
     options: function () {
@@ -156,6 +157,7 @@ export default {
         return options
       } catch (error) {
         this.interceptError(error)
+        return {}
       }
     }
   },
