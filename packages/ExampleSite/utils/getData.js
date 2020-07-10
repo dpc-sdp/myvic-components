@@ -31,14 +31,12 @@ const fetchData = async (request, apiKey) => {
   return data
 }
 
-const sortByXCharacter = (x) => {
+const sortByXPosition = (x) => {
   return (a, b) => {
-    return a.slice(x, x + 1) < b.slice(x, x + 1)
+    let aValues = a.split(':')
+    let bValues = b.split(':')
+    return Number(aValues[x]) - Number(bValues[x])
   }
-}
-
-const sortByLastCharacter = (a, b) => {
-  return a.slice(-1) < b.slice(-1)
 }
 
 const buildChartDataFromSdmxJson = async (
@@ -100,7 +98,7 @@ const getMostRecentCountForSensor = (sensorId, obs) => {
 
 export const getArrivalsData = async () => {
   const chartData = await buildChartDataFromSdmxJson(
-    ARRIVALS_DATA_URL, 4, 'name', sortByLastCharacter, 0, ''
+    ARRIVALS_DATA_URL, 4, 'name', sortByXPosition(4), 0, ''
   )
   chartData.title = 'Monthly Visitors to Australia'
   return chartData
@@ -108,7 +106,7 @@ export const getArrivalsData = async () => {
 
 export const getCpiData = async () => {
   const chartData = await buildChartDataFromSdmxJson(
-    CPI_URL, 2, 'name', sortByXCharacter(4), 0, ''
+    CPI_URL, 2, 'name', sortByXPosition(2), 0, ''
   )
   const treeMapData = convertChartToTreeMap(chartData)
   return treeMapData
@@ -116,7 +114,7 @@ export const getCpiData = async () => {
 
 export const getIncomingPopulationData = async () => {
   const chartData = await buildChartDataFromSdmxJson(
-    POPULATION_IN_URL, 0, 'name', sortByXCharacter(0), 0, ''
+    POPULATION_IN_URL, 0, 'name', sortByXPosition(0), 0, ''
   )
   chartData.title = 'Population Clock for Victoria by Incoming Sources'
   return chartData
@@ -124,7 +122,7 @@ export const getIncomingPopulationData = async () => {
 
 export const getOutgoingPopulationData = async () => {
   const chartData = await buildChartDataFromSdmxJson(
-    POPULATION_OUT_URL, 0, 'name', sortByXCharacter(0), 0, ''
+    POPULATION_OUT_URL, 0, 'name', sortByXPosition(0), 0, ''
   )
   chartData.title = 'Population Clock for Victoria by Outgoing Sources'
   return chartData
@@ -179,10 +177,8 @@ export const getPropertyPricesData = async () => {
   const labels = labelObservation.values.map(x => x.name)
   const observations = rawData.dataSets[0].observations
   const keys = Object.keys(observations)
-
-  const establishedHousesValues = keys.filter(x => x[2] === '0').sort(sortByLastCharacter)
-  const attachedDwellingsValues = keys.filter(x => x[2] === '1').sort(sortByLastCharacter)
-
+  const establishedHousesValues = keys.filter(x => x[2] === '0').sort(sortByXPosition(4))
+  const attachedDwellingsValues = keys.filter(x => x[2] === '1').sort(sortByXPosition(4))
   const establishedHousesDataset = {
     label: 'Established Houses',
     data: establishedHousesValues.map(x => observations[x][0])
