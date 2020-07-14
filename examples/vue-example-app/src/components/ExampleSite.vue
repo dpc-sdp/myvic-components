@@ -231,13 +231,13 @@ import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
 const startingChartData = { datasets: [], labels: [] }
 const startingBlockData = { title: '', description: '' }
 const longDescriptionUrls = {
-  'arrivals-line-chart': '',
-  'pedestrian-map': '',
-  'labour-force-line-chart': '',
-  'incoming-population-pie-chart': '',
-  'outcoming-population-pie-chart': '',
-  'cpi-tree-map': '',
-  'property-prices-bar-chart': ''
+  'arrivals-line-chart': 'sample-site-line-chart-visitors',
+  'pedestrian-map': 'sample-site-map',
+  'labour-force-line-chart': 'sample-site-line-chart-labour',
+  'incoming-population-pie-chart': 'sample-site-pie-chart-increase',
+  'outcoming-population-pie-chart': 'sample-site-pie-chart-decrease',
+  'cpi-tree-map': 'sample-site-tree-map',
+  'property-prices-bar-chart': 'sample-site-bar-chart'
 }
 
 /**
@@ -275,8 +275,8 @@ export default {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
       center: [16137905.843820328, -4555057.013522999],
       attributions: [
-        '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
-        ' | ',
+        '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> | ',
+        `<a href="${longDescriptionUrls['pedestrian-map']}">Long Description</a> | `,
         '<a href="https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Sensor-Locations/h57g-5234/data" tabindex="0" target="_blank">Accessible Version</a>'
       ],
       pointStyles: {
@@ -376,12 +376,11 @@ export default {
   },
   methods: {
     createDataFetchTask: function (task) {
-      return new Promise(async (resolve, reject) => {
+      return new Promise(async (resolve) => {
         try {
           let result = await task()
           resolve(result)
         } catch (error) {
-          console.error(error)
           resolve({})
         }
       })

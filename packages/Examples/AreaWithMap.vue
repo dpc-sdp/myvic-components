@@ -11,6 +11,7 @@
         :minZoom="8"
         :baseMapUrl="baseMapUrl"
         ariaLabel="An interactive map"
+        enableMapboxWatermark
       >
         <yourvic-map-vector-layer
           :url="layerUrl"
