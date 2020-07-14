@@ -275,7 +275,9 @@ export default {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
       center: [16137905.843820328, -4555057.013522999],
       attributions: [
-        `<a href="${longDescriptionUrls['pedestrian-map']}" tabindex="0" target="_blank">Accessible Version</a>`
+        '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
+        ' | ',
+        '<a href="https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Sensor-Locations/h57g-5234/data" tabindex="0" target="_blank">Accessible Version</a>'
       ],
       pointStyles: {
         gray: new Style({
@@ -440,6 +442,7 @@ export default {
       margin-top: 2rem;
       margin-bottom: 3rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
     }
     &__map-container {
