@@ -20,4 +20,4 @@ COPY examples/vue-example-app/ .
 RUN yarn build
 
 EXPOSE 3000
-CMD [ "http-server", "dist", "-p", "3000" ]
+CMD [ "http-server", "dist", "-p", "3000", "--proxy", "http://localhost:3000?" ]
