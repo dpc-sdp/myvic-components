@@ -32,14 +32,23 @@
   YourVic.mountMap('#map', {
     baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
     center: [16136905.843820328, -4383057.013522999],
-    zoom: 8
+    zoom: 8,
+    enableMapboxWatermark: true,
+    baseMapAttributions: [
+      '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> ',
+      '| © <a href="http://www.openstreetmap.org/about/">OpenStreetMap</a> ',
+      '| <a href="https://www.w3.org/WAI/tutorials/images/complex/#image-containing-substantial-information">Long Description</a>'
+    ]
   })
 
   YourVic.mountMapWithTileLayer('#mapTileLayer', {
     center: [16136905.843820328, -4383057.013522999],
     zoom: 8
   }, {
-    type: 'OSM'
+    type: 'OSM',
+    attributions: [
+      '<a href="https://www.w3.org/WAI/tutorials/images/complex/#image-containing-substantial-information">Long Description</a> | '
+    ]
   })
 
   YourVic.mountMapWithVectorLayer('#mapVectorLayer', {
@@ -48,17 +57,25 @@
   }, {
     url: 'https://openlayers.org/en/latest/examples/data/geojson/countries.geojson',
     dataFormat: 'GeoJSON',
-    labelAttribute: 'name'
+    labelAttribute: 'name',
+    attributions: [
+      '<a href="https://www.w3.org/WAI/tutorials/images/complex/#image-containing-substantial-information">Long Description</a>'
+    ]
   })
 
   YourVic.mountMapWithVectorTileLayer('#mapVectorTileLayer', {
     center: [16136905.843820328, -4383057.013522999],
-    zoom: 5
+    zoom: 5,
+    enableMapboxWatermark: true
   }, {
     dataFormat: 'MVT',
     overlaps: 'false',
     mapboxStyle: 'https://api.mapbox.com/styles/v1/mapbox/bright-v9?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
-    attributions: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+    attributions: [
+      '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> ',
+      '| © <a href="http://www.openstreetmap.org/about/">OpenStreetMap</a> ',
+      '| <a href="https://www.w3.org/WAI/tutorials/images/complex/#image-containing-substantial-information">Long Description</a>'
+    ]
   })
 </script>
 
