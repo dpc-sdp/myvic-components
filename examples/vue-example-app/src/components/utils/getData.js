@@ -6,7 +6,7 @@ const ARRIVALS_DATA_URL = ABS_DATA_BASE_URL + 'ABS_OAD_COUNTRY/06.TOTAL.10.M/all
 const POPULATION_IN_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK_FY/1+3+6.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions'
 const POPULATION_OUT_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK_FY/2+4+7.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions'
 const PROPERTY_PRICES_URL = ABS_DATA_BASE_URL + 'RES_PROP_INDEX/1.2+1.2GMEL.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2017'
-const CPI_URL = ABS_DATA_BASE_URL + 'CPI/1.2.20001+20002+20003+97565.10+20.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
+const CPI_URL = ABS_DATA_BASE_URL + 'CPI/1.2.10001+40089+40088+40087+30027.10.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
 const EPI_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093697.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
 const EPI_MEAT_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093911.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
 const EPI_CEREAL_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093912.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'

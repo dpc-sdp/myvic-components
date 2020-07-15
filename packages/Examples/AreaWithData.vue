@@ -13,7 +13,7 @@
         :data="chartData" title="Household composition"
         data-format="percentage"
         :shortDesc="'Bar chart showing household composition'"
-        :longDesc="'https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats'"
+        :longDesc="'http://example-yourvictoria-vic-gov-au-pr-55.lagoon.vicsdp.amazee.io/bundle-1-bar-chart'"
       />
     </div>
   </div>

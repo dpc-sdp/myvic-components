@@ -9,7 +9,7 @@
     </p>
     <p>
       The data has been sourced from the Australian Bureau of Statistics and is downloadable as a SDMX-JSON file for interpretation:
-      <a href="http://stat.data.abs.gov.au/sdmx-json/data/CPI/1.2.20001+20002+20003+97565.10+20.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020">http://stat.data.abs.gov.au/sdmx-json/data/CPI/1.2.20001+20002+20003+97565.10+20.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020</a>
+      <a href="http://stat.data.abs.gov.au/sdmx-json/data/CPI/1.2.10001+40089+40088+40087+30027.10.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020">http://stat.data.abs.gov.au/sdmx-json/data/CPI/1.2.20001+20002+20003+97565.10+20.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020</a>
     </p>
   </div>
 </template>
