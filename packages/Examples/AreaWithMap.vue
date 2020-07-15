@@ -11,6 +11,7 @@
         :minZoom="8"
         :baseMapUrl="baseMapUrl"
         ariaLabel="An interactive map"
+        enableMapboxWatermark
       >
         <yourvic-map-vector-layer
           :url="layerUrl"
@@ -50,7 +51,9 @@ export default {
         description: 'lga'
       },
       attributions: [
-        '<a href="https://www.abs.gov.au/websitedbs/D3310114.nsf/Home/2016%20QuickStats" tabindex="0" target="_blank">Accessible Version</a>'
+        '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
+        ' | ',
+        '<a href="http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-2-map" tabindex="0" target="_blank">Accessible Version</a>'
       ]
     }
   },
