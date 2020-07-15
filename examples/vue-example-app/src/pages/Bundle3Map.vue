@@ -1,6 +1,6 @@
 <template>
   <div id="long-description">
-    <h2>Bundle 1 – Bar Chart</h2>
+    <h2>Bundle 3 – Map</h2>
     <p>
       This component is a map showing a range of statistical breakdowns (based on the selection of the data items above), for local government areas of Melbourne. There are four selectable statistical breakdowns:
     </p>
