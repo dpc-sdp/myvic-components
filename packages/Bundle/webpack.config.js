@@ -4,9 +4,15 @@ const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
-  entry: {
-    index: './index.js'
-  },
+  entry: [
+    // Add polyfills for IE11 support
+    'core-js/modules/es6.promise',
+    'core-js/modules/es6.array.iterator',
+    'core-js/fn/object/assign',
+    'whatwg-fetch',
+    // Bundle entrypoint
+    './index.js'
+  ],
   output: {
     filename: 'yourvic-bundle.js',
     chunkFilename: '[name].yourvic-bundle.js',
@@ -33,9 +39,18 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        // Exclude node_modues from transpile, except for those under @dpc-sdp (with windows or unix paths)
+        exclude: /node_modules[\\/](?!(@dpc-sdp|chartjs-chart-treemap)).*/,
         loader: 'babel-loader',
         options: {
-          rootMode: 'upward'
+          rootMode: 'upward',
+          presets: [[
+            '@babel/preset-env',
+            {
+              useBuiltIns: 'entry',
+              corejs: 2
+            }
+          ]]
         }
       },
       {
