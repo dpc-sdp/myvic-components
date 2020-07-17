@@ -8,6 +8,7 @@ module.exports = {
     // Add polyfills for IE11 support
     'core-js/modules/es6.promise',
     'core-js/modules/es6.array.iterator',
+    'core-js/fn/object/assign',
     'whatwg-fetch',
     // Bundle entrypoint
     './index.js'

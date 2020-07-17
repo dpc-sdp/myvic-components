@@ -1,4 +1,5 @@
 import './public-path'
+import 'babel-polyfill'
 import Vue from 'vue'
 
 // Replaced with dynamic imports for code splitting
