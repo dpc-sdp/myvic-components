@@ -35,5 +35,10 @@ module.exports = {
       .use('svgo-loader')
         .loader('svgo-loader')
         .end()
-  }
+  },
+  transpileDependencies: [
+    // for IE11 support
+    /@dpc-sdp/,
+    /chartjs-chart-treemap/
+  ]
 }
