@@ -55,7 +55,7 @@
     "vuex-mock-store": "^0.0.7"
   },
   "scripts": {
-    "lerna:publish": "lerna publish",
+    "lerna:publish": "lerna publish --conventional-commits",
     "start:storybook": "cd src && yarn start",
     "build:storybook": "cd src && yarn build-storybook",
     "lint": "sass-lint && yarn lint:es",
