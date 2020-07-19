@@ -40,15 +40,9 @@ Then add a file "/tide/data-driven-component-loader.js" to map and load your cus
 const loadComponent = (configs) => {
   let dataDrivenComp
   switch (configs.name) {
-    case 'myvic_vicfreewifi':
+    case 'my_chart':
       dataDrivenComp = {
-        name: () => import(/* webackChunkName: 'yourvic-free-wifi-map' */ '@dpc-sdp/yourvic-maps/YourvicFreeWifiMap').then(m => m.YourvicFreeWifiMap)
-      }
-      break
-
-    case 'myvic_family_violence_women_programs':
-      dataDrivenComp = {
-        name: () => import(/* webackChunkName: 'yourvic-map-prevention-family-violence' */ '@dpc-sdp/yourvic-maps/YourvicMapPreventionFamilyViolence').then(m => m.YourvicMapPreventionFamilyViolence)
+        name: () => import(/* webackChunkName: 'my-chart' */ '~/components/MyChart').then(m => m.MyChart)
       }
       break
 
