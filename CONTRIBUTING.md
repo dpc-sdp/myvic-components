@@ -45,6 +45,7 @@ Create release branch e.g `release/v1.0.0`, and push to remote.
 
 Run `yarn lerna:publish`.
 It will guide you through publishing npm packages.
+It will generate(updating) CHANGELOG.md files. Passing `--no-changelog` will disable the generation (or updating) of CHANGELOG.md files.
 
 Then merge release branches to develop.
 
