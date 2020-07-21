@@ -1,19 +1,19 @@
 <template>
-  <div class="yourvic-data-item">
+  <div class="myvic-data-item">
     <h3
-      class="yourvic-data-item__title">
+      class="myvic-data-item__title">
       {{ title }}
       <span
         v-if="trend"
-        class="yourvic-data-item__icon">
+        class="myvic-data-item__icon">
         <rpl-icon
           :symbol="icon"
-          :class="trend === 'up' ? 'yourvic-data-item__icon-up' : 'yourvic-data-item__icon-down'"
+          :class="trend === 'up' ? 'myvic-data-item__icon-up' : 'myvic-data-item__icon-down'"
           size="m"
         />
       </span>
     </h3>
-    <p class="yourvic-data-item__description">{{ description }}</p>
+    <p class="myvic-data-item__description">{{ description }}</p>
   </div>
 </template>
 
@@ -51,8 +51,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/yourvic-global/styles/global";
-  .yourvic-data-item {
+  @import "~@dpc-sdp/myvic-global/styles/global";
+  .myvic-data-item {
     &__title {
       font-weight: 700;
       font-size: rem-calc(18);

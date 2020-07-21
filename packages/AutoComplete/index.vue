@@ -2,16 +2,16 @@
   <form
     action=""
     @submit.prevent>
-    <div class="yourvic-auto-complete">
-      <div class="yourvic-auto-complete__input-wrapper">
+    <div class="myvic-auto-complete">
+      <div class="myvic-auto-complete__input-wrapper">
         <input
           ref="input"
           aria-label="Search"
           v-model.trim="query"
           autocomplete="off"
-          class="yourvic-auto-complete__input"
+          class="myvic-auto-complete__input"
           type="text"
-          name="yourvic-auto-complete"
+          name="myvic-auto-complete"
           :placeholder="placeholder"
           value=""
           @keyup.enter="onEnter"
@@ -20,12 +20,12 @@
           @keyup.up="onKeyUp">
         <Spinner
           v-if="fetching"
-          class="yourvic-auto-complete__spinner"
+          class="myvic-auto-complete__spinner"
           size="20"
         />
         <rpl-icon
           v-if="!query.length"
-          class="yourvic-auto-complete__icon"
+          class="myvic-auto-complete__icon"
           symbol="search"
           color="extra_dark_neutral"
           size="m"
@@ -48,7 +48,7 @@
         :highlight-match="false"
         :items="results"
         :query="validQuery"
-        class="yourvic-auto-complete__results"
+        class="myvic-auto-complete__results"
         @item-selected="selectResult" />
       <error v-if="gotError" :message="error.toString()" errorClass="autocomplete" />
     </div>
@@ -61,9 +61,9 @@ import SearchResults from './SearchResults'
 import ButtonClose from './ButtonClose'
 import { isMobileSafari } from './utils/browser'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
-import Error from '@dpc-sdp/yourvic-global/components/Error'
-import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
-import Spinner from '@dpc-sdp/yourvic-global/components/Spinner'
+import Error from '@dpc-sdp/myvic-global/components/Error'
+import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
+import Spinner from '@dpc-sdp/myvic-global/components/Spinner'
 
 /**
  * AutoComplete is a configurable component for displaying an autocomplete search with results
@@ -294,9 +294,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-auto-complete {
+  .myvic-auto-complete {
     display: flex;
     flex-direction: column;
     position: relative;

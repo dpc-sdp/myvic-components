@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
-import YourVicToggleList from './../ToggleList.vue'
+import MyVicToggleList from './../ToggleList.vue'
 
-describe('YourVicToggleList', () => {
-  const wrapper = mount(YourVicToggleList, {
+describe('MyVicToggleList', () => {
+  const wrapper = mount(MyVicToggleList, {
     propsData: {
       items: [
         { id: 'item1', title: 'Item 1', icon: 'map_marker', color: 'primary' },
@@ -26,7 +26,7 @@ describe('YourVicToggleList', () => {
   })
 
   it('renders all items', () => {
-    let itemArray = wrapper.findAll('.yourvic-toggle-item__title')
+    let itemArray = wrapper.findAll('.myvic-toggle-item__title')
     expect(itemArray).toHaveLength(5)
     expect(itemArray.at(0).text()).toBe('Item 1')
     expect(itemArray.at(1).text()).toBe('Item 2')

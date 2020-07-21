@@ -6,7 +6,7 @@ const loadComponent = (configs) => {
     // TODO: this will be next phase to create charts dynamically by given a component name and config/data.
     // case 'myvic_barchart':
     //   dataDrivenComp = {
-    //     name: () => import(/* webackChunkName: 'yourvic-bar-chart' */ '@dpc-sdp/yourvic-bar-chart'),
+    //     name: () => import(/* webackChunkName: 'myvic-bar-chart' */ '@dpc-sdp/myvic-bar-chart'),
     //     props: config.data
     //   }
     //   break

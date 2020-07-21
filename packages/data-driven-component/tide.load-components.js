@@ -1,3 +1,3 @@
 export default {
-  'yourvic-data-driven': () => import(/* webackChunkName: 'yourvic-data-driven' */ './DataDriven')
+  'myvic-data-driven': () => import(/* webackChunkName: 'myvic-data-driven' */ './DataDriven')
 }

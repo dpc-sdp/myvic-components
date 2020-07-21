@@ -48,6 +48,6 @@ describe('SearchResults', () => {
   })
 
   it('renders a list item with a specific style when no items are found', () => {
-    expect(wrapperNoItems.contains('li.yourvic-search-results__item--no-results')).toBe(true)
+    expect(wrapperNoItems.contains('li.myvic-search-results__item--no-results')).toBe(true)
   })
 })

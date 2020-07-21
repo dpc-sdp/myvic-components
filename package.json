@@ -1,7 +1,7 @@
 {
-  "name": "yourvictoria-vic-gov-au",
+  "name": "myvic-components",
   "version": "1.0.0",
-  "repository": "https://github.com/dpc-sdp/yourvictoria-vic-gov-au.git",
+  "repository": "https://github.com/dpc-sdp/myvic-components",
   "private": true,
   "workspaces": {
     "packages": [

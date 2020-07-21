@@ -1,6 +1,6 @@
 <template>
-  <div class="yourvic-toggle-list">
-    <ul v-if="!gotError" class="yourvic-toggle-list__ul">
+  <div class="myvic-toggle-list">
+    <ul v-if="!gotError" class="myvic-toggle-list__ul">
       <toggle-item
         v-for="item in items"
         :key="item.id"
@@ -10,16 +10,16 @@
         :is-selected="selectedItems[item.id]"
         @click="onItemClick(item)" />
     </ul>
-    <error v-if="gotError" :message="error.toString()" class="yourvic-toggle-list__error"/>
+    <error v-if="gotError" :message="error.toString()" class="myvic-toggle-list__error"/>
   </div>
 </template>
 <script>
 import ToggleItem from './ToggleItem'
-import Error from '@dpc-sdp/yourvic-global/components/Error'
-import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
+import Error from '@dpc-sdp/myvic-global/components/Error'
+import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
 
 /**
- * YourVicToggleList provides a styled list of items that can be toggled on/off on click
+ * MyVicToggleList provides a styled list of items that can be toggled on/off on click
  */
 export default {
   name: 'ToggleList',
@@ -62,11 +62,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
   $greyTint: #D9D9D6;
 
-  .yourvic-toggle-list {
+  .myvic-toggle-list {
 
     &__ul {
       border: 1px solid $greyTint;

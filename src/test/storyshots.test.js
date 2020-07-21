@@ -1,6 +1,6 @@
 import initStoryshots from '@storybook/addon-storyshots'
 
 initStoryshots({
-  suite: 'YourvicStoryshots',
+  suite: 'MyvicStoryshots',
   configPath: './src/.storybook'
 })

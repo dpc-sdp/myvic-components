@@ -1,5 +1,5 @@
 <template>
-  <div class="yourvic-line-chart">
+  <div class="myvic-line-chart">
     <inner-chart
       v-if="!gotError"
       :key="componentKey"
@@ -22,13 +22,13 @@
 import InnerChart from './InnerChart'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
-import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
-import Error from '@dpc-sdp/yourvic-global/components/Error'
-import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
-import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
+import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
+import Error from '@dpc-sdp/myvic-global/components/Error'
+import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
+import validateChartData from '@dpc-sdp/myvic-global/mixins/validateChartData'
 
 /**
- * YourvicLineChart provides a generic and configurable line chart component
+ * MyvicLineChart provides a generic and configurable line chart component
  */
 export default {
   components: {
@@ -151,8 +151,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/yourvic-global/styles/charts";
-  .yourvic-line-chart {
+@import "~@dpc-sdp/myvic-global/styles/charts";
+  .myvic-line-chart {
     position: relative;
     width: inherit;
     height: inherit;

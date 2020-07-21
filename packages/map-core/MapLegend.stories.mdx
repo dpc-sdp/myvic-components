@@ -2,34 +2,34 @@ import { Meta, Preview, Story, Props, Source, Description } from '@storybook/add
 import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 import {
-  YourvicMapCore,
-  YourvicMapTileLayer,
-  YourvicMapLegend,
+  MyvicMapCore,
+  MyvicMapTileLayer,
+  MyvicMapLegend,
 } from './index.js'
 
-<Meta title="Maps/Legend" component={ YourvicMapLegend } decorators={ [withKnobs] } />
+<Meta title="Maps/Legend" component={ MyvicMapLegend } decorators={ [withKnobs] } />
 
 # Legend
 
-<Description of={ YourvicMapLegend } type='docgen' />
+<Description of={ MyvicMapLegend } type='docgen' />
 
 ## Installation
 
 ```shell
-npm install @dpc-sdp/yourvic-map-core --save
+npm install @dpc-sdp/myvic-map-core --save
 ```
 
 ## Import
 
 ```javascript
-import { YourvicMapLegend } from '@dpc-sdp/yourvic-map-core'
+import { MyvicMapLegend } from '@dpc-sdp/myvic-map-core'
 ```
 
 ## Usage
 
 ```html
-<yourvic-map-core>
-  <yourvic-map-legend
+<myvic-map-core>
+  <myvic-map-legend
     type="custom"
     title="Legend"
   >
@@ -47,13 +47,13 @@ import { YourvicMapLegend } from '@dpc-sdp/yourvic-map-core'
         <td>Layer 3</td>
       </tr>
     </table>
-  </yourvic-map-legend>
-</yourvic-map-core>
+  </myvic-map-legend>
+</myvic-map-core>
 ```
 
 ## Props
 
-<Props of={ YourvicMapLegend } />
+<Props of={ MyvicMapLegend } />
 
 ## Map with Legend
 
@@ -61,16 +61,16 @@ import { YourvicMapLegend } from '@dpc-sdp/yourvic-map-core'
   <Story name="Map with Legend">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapLegend, RplIcon },
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapLegend, RplIcon },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="OSM"
             />
-            <yourvic-map-legend
+            <myvic-map-legend
               :type="type"
               :title="title"
               :alignLeft="alignLeft"
@@ -92,8 +92,8 @@ import { YourvicMapLegend } from '@dpc-sdp/yourvic-map-core'
                   <td>Layer 3</td>
                 </tr>
               </table>
-            </yourvic-map-legend>
-          </yourvic-map-core>
+            </myvic-map-legend>
+          </myvic-map-core>
         `,
         data: () => {
           return {

@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/yourvic-toggle-list
+# @dpc-sdp/myvic-toggle-list
 
 > A component for displaying a toggle list.
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-toggle-list --save
+npm install @dpc-sdp/myvic-toggle-list --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,8 +16,8 @@ npm install @dpc-sdp/yourvic-toggle-list --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-toggle-list
-├── @dpc-sdp/yourvic-global
+@dpc-sdp/myvic-toggle-list
+├── @dpc-sdp/myvic-global
 ```
 
 --------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ npm install @dpc-sdp/yourvic-toggle-list --save
 ## Import
 
 ```js
-import ToggleList from '@dpc-sdp/yourvic-toggle-list'
+import ToggleList from '@dpc-sdp/myvic-toggle-list'
 ```
 
 --------------------------------------------------------------------------------

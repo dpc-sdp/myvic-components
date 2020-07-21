@@ -1,18 +1,18 @@
 <template>
-  <div class="yourvic-double-line-item">
-    <div v-if="showIcon" class="yourvic-double-line-item__icon-container">
+  <div class="myvic-double-line-item">
+    <div v-if="showIcon" class="myvic-double-line-item__icon-container">
       <rpl-icon
-        class="yourvic-double-line-item__icon"
+        class="myvic-double-line-item__icon"
         :symbol="icon"
         size="m"
       />
     </div>
     <div>
       <span
-        class="yourvic-double-line-item__item-name"
+        class="myvic-double-line-item__item-name"
         v-html="highlight(itemName)"
       />
-      <span v-if="itemSecondaryText" class="yourvic-double-line-item__item-description">{{ itemSecondaryText }}</span>
+      <span v-if="itemSecondaryText" class="myvic-double-line-item__item-description">{{ itemSecondaryText }}</span>
     </div>
   </div>
 </template>
@@ -56,9 +56,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-double-line-item {
+  .myvic-double-line-item {
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -88,7 +88,7 @@ export default {
     }
 
     &:hover, &:focus {
-      .yourvic-double-line-item__icon {
+      .myvic-double-line-item__icon {
         fill: $primaryColor;
       }
     }

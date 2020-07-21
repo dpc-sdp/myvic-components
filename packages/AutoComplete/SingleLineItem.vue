@@ -1,15 +1,15 @@
 <template>
-  <div class="yourvic-single-line-item">
+  <div class="myvic-single-line-item">
     <rpl-icon
       v-if="showIcon"
-      class="yourvic-single-line-item__icon"
+      class="myvic-single-line-item__icon"
       :symbol="icon"
       size="m"
     />
     <span
-      class="yourvic-single-line-item__item-name"
+      class="myvic-single-line-item__item-name"
       v-html="highlight(itemName)" />
-    <span v-if="itemSecondaryText" class="yourvic-single-line-item__pill">{{ itemSecondaryText }}</span>
+    <span v-if="itemSecondaryText" class="myvic-single-line-item__pill">{{ itemSecondaryText }}</span>
   </div>
 </template>
 
@@ -52,9 +52,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-single-line-item {
+  .myvic-single-line-item {
     padding: 1rem;
 
     &__icon {
@@ -87,10 +87,10 @@ export default {
     }
 
     &:hover, &:focus {
-      .yourvic-single-line-item__icon {
+      .myvic-single-line-item__icon {
         fill: $primaryColor;
       }
-      .yourvic-single-line-item__pill {
+      .myvic-single-line-item__pill {
         // @include breakpoint(medium) {
         background-color: #fff;
         // }

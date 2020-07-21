@@ -1,6 +1,6 @@
-# Example for using YourVictoria in Vue.js (Not Nuxt.js)
+# Example for using MyVictoria components in Vue.js (Not Nuxt.js)
 
-This is an example of using YourVictoria components in a Vue.js app.
+This is an example of using MyVictoria components in a Vue.js app.
 
 ## Intro
 

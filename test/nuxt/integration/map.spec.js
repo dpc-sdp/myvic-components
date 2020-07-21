@@ -3,6 +3,6 @@
 describe('Visits map page', () => {
   it('Should get map core', () => {
     cy.visit('/maps/map-core')
-    cy.get('.yourvic-map-core').should('exist')
+    cy.get('.myvic-map-core').should('exist')
   })
 })

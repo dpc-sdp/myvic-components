@@ -1,46 +1,46 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import YourvicMapCore from './index.vue'
-import YourvicMapTileLayer from './MapTileLayer.vue'
+import MyvicMapCore from './index.vue'
+import MyvicMapTileLayer from './MapTileLayer.vue'
 
-<Meta title="Maps/Tile Layer" component={ YourvicMapTileLayer } decorators={ [withKnobs] } />
+<Meta title="Maps/Tile Layer" component={ MyvicMapTileLayer } decorators={ [withKnobs] } />
 
 # Map Tile Layer
 
-<Description of={ YourvicMapTileLayer } type='docgen' />
+<Description of={ MyvicMapTileLayer } type='docgen' />
 
 ## Installation
 
 ```shell
-npm install @dpc-sdp/yourvic-map-core --save
+npm install @dpc-sdp/myvic-map-core --save
 ```
 
 ## Import
 
 ```javascript
-import { YourvicMapCore, YourvicMapTileLayer } from '@dpc-sdp/yourvic-map-core'
+import { MyvicMapCore, MyvicMapTileLayer } from '@dpc-sdp/myvic-map-core'
 ```
 
 ## Usage
 
-One or more ```yourvic-map-tile-layer``` components can be declared as children of ```yourvic-map-core```. The simplest
+One or more ```myvic-map-tile-layer``` components can be declared as children of ```myvic-map-core```. The simplest
 example is to use the ```OSM``` layer type which comes pre-configured.
 
 ```html
-<yourvic-map-core
+<myvic-map-core
   :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
   :center="[16138405.843820328, -4552817.013522999]"
 >
-  <yourvic-map-tile-layer
+  <myvic-map-tile-layer
     type="OSM"
   />
-</yourvic-map-core>
+</myvic-map-core>
 ```
 
 ## Props
 
-<Props of={ YourvicMapTileLayer } />
+<Props of={ MyvicMapTileLayer } />
 
 ## Configurable Layer
 
@@ -50,8 +50,8 @@ This example provides options to test different layer configurations.
   <Story name="Configurable Layer">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :baseMapUrl="baseMapUrl"
           :baseMapAttributions="baseMapAttributions"
@@ -68,7 +68,7 @@ This example provides options to test different layer configurations.
           enableZoomInteraction
           enableRotateInteraction
         >
-          <yourvic-map-tile-layer
+          <myvic-map-tile-layer
             :type="layerType"
             :url="layerUrl"
             :params="layerParams"
@@ -80,7 +80,7 @@ This example provides options to test different layer configurations.
             :highDPI="layerHighDPI"
             :serverType="layerServerType == '' ? undefined : layerServerType"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         props: {
           layerType: {
             default: select('Type', { OSM: 'OSM', XYZ: 'XYZ', WMS: 'WMS', ArcGIS: 'ArcGIS' }, 'WMS', 'layer')
@@ -175,16 +175,16 @@ This example provides options to test different layer configurations.
   <Story name="Open Street Map">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
+        components: { MyvicMapCore, MyvicMapTileLayer },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="OSM"
             />
-          </yourvic-map-core>
+          </myvic-map-core>
         `,
         data: () => {
           return {
@@ -203,19 +203,19 @@ This example provides options to test different layer configurations.
   <Story name="XYZ - Mapbox">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
+        components: { MyvicMapCore, MyvicMapTileLayer },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
             enableMapboxWatermark
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="XYZ"
               url="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
               :attributions="attributions"
             />
-          </yourvic-map-core>
+          </myvic-map-core>
         `,
         data: () => {
           return {
@@ -242,20 +242,20 @@ This example provides options to test different layer configurations.
   <Story name="WMS - VicMap Basemap">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
+        components: { MyvicMapCore, MyvicMapTileLayer },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="WMS"
               url="https://base.maps.vic.gov.au/service"
               :params="{'LAYERS': 'CARTO_WM', 'TILED': true}"
               :tileSize="[512, 512]"
               :highDPI="false"
             />
-          </yourvic-map-core>
+          </myvic-map-core>
         `,
         data: () => {
           return {
@@ -274,20 +274,20 @@ This example provides options to test different layer configurations.
   <Story name="WMS - VicMap Aerial + Overlay">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
+        components: { MyvicMapCore, MyvicMapTileLayer },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="WMS"
               url="https://base.maps.vic.gov.au/service"
               :params="{'LAYERS': 'AERIAL_WM,CARTO_OVERLAY_WM', 'TILED': true}"
               :tileSize="[512, 512]"
               :highDPI="false"
             />
-          </yourvic-map-core>
+          </myvic-map-core>
         `,
         data: () => {
           return {
@@ -306,19 +306,19 @@ This example provides options to test different layer configurations.
   <Story name="WMS - MyVictoria">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
+        components: { MyvicMapCore, MyvicMapTileLayer },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="WMS"
               url="https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/wms"
               :params="{'LAYERS': 'myvic:lga', 'TILED': true}"
               serverType="geoserver"
             />
-          </yourvic-map-core>
+          </myvic-map-core>
         `,
         data: () => {
           return {
@@ -337,21 +337,21 @@ This example provides options to test different layer configurations.
   <Story name="WMS - GDA94 Projection">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
+        components: { MyvicMapCore, MyvicMapTileLayer },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
             :zoom="3"
             :projection="projection"
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="WMS"
               url="http://services.ga.gov.au/gis/services/Bathymetry_Topography/MapServer/WMSServer"
               :params="{'LAYERS': 'Australian_Bathymetry_and_Topography'}"
               :projection="projection"
             />
-          </yourvic-map-core>
+          </myvic-map-core>
         `,
         data: () => {
           return {
@@ -375,17 +375,17 @@ This example provides options to test different layer configurations.
   <Story name="ArcGIS - MapShare">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
+        components: { MyvicMapCore, MyvicMapTileLayer },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="ArcGIS"
               url="https://gis.mapshare.vic.gov.au/arcgis/rest/services/mapshare/PublicLandAndPark/MapServer"
             />
-          </yourvic-map-core>
+          </myvic-map-core>
         `,
         data: () => {
           return {
@@ -404,24 +404,24 @@ This example provides options to test different layer configurations.
   <Story name="Multiple Layers">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer },
+        components: { MyvicMapCore, MyvicMapTileLayer },
         template: `
-          <yourvic-map-core
+          <myvic-map-core
             :containerStyle="containerStyle"
             :center="center"
           >
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="XYZ"
               url="http://a.tile.stamen.com/toner/{z}/{x}/{y}.png"
               :zIndex="1"
             />
-            <yourvic-map-tile-layer
+            <myvic-map-tile-layer
               type="ArcGIS"
               url="https://gis.mapshare.vic.gov.au/arcgis/rest/services/mapshare/PublicLandAndPark/MapServer"
               :opacity="0.7"
               :zIndex="2"
             />
-          </yourvic-map-core>
+          </myvic-map-core>
         `,
         data: () => {
           return {

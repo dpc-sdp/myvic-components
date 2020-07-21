@@ -1,4 +1,4 @@
-# @dpc-sdp/yourvic-examples
+# @dpc-sdp/myvic-examples
 
 A component showcasing the map, area search, data block and bar chart components
 
@@ -7,7 +7,7 @@ A component showcasing the map, area search, data block and bar chart components
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-examples --save
+npm install @dpc-sdp/myvic-examples --save
 ```
 
 --------------------------------------------------------------------------------
@@ -15,12 +15,12 @@ npm install @dpc-sdp/yourvic-examples --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-examples
-├── @dpc-sdp/yourvic-areasearch
-├── @dpc-sdp/yourvic-map-core
-├── @dpc-sdp/yourvic-data-block
-├── @dpc-sdp/yourvic-bar-chart
-├── @dpc-sdp/yourvic-global
+@dpc-sdp/myvic-examples
+├── @dpc-sdp/myvic-areasearch
+├── @dpc-sdp/myvic-map-core
+├── @dpc-sdp/myvic-data-block
+├── @dpc-sdp/myvic-bar-chart
+├── @dpc-sdp/myvic-global
 ```
 
 --------------------------------------------------------------------------------
@@ -28,9 +28,9 @@ npm install @dpc-sdp/yourvic-examples --save
 ## Import
 
 ```js
-import { AreaWithData } from '@dpc-sdp/yourvic-examples'
-import { AreaWithMap } from '@dpc-sdp/yourvic-examples'
-import { IncomeData } from '@dpc-sdp/yourvic-examples'
+import { AreaWithData } from '@dpc-sdp/myvic-examples'
+import { AreaWithMap } from '@dpc-sdp/myvic-examples'
+import { IncomeData } from '@dpc-sdp/myvic-examples'
 ```
 
 --------------------------------------------------------------------------------

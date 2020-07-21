@@ -1,12 +1,12 @@
 <template>
-  <div class="yourvic-data-driven">
-    <h2 v-if="title" class="yourvic-data-driven__title">{{ title }}</h2>
-    <rpl-markup v-if="description" :html="description" class="yourvic-data-driven__description" />
+  <div class="myvic-data-driven">
+    <h2 v-if="title" class="myvic-data-driven__title">{{ title }}</h2>
+    <rpl-markup v-if="description" :html="description" class="myvic-data-driven__description" />
     <component
       v-if="dataDrivenComp"
       :is="dataDrivenComp.name"
       v-bind="dataDrivenComp.props"
-      class="yourvic-data-driven__component"
+      class="myvic-data-driven__component"
     >
     </component>
   </div>
@@ -17,7 +17,7 @@ import RplMarkup from '@dpc-sdp/ripple-markup'
 import loadComponent from './component-loader'
 
 export default {
-  name: 'YourvicDataDriven',
+  name: 'MyvicDataDriven',
   components: {
     RplMarkup
   },
@@ -34,7 +34,7 @@ export default {
   mounted () {
     let comp
     // Load custom components first.
-    const configs = this.$tide.getModuleConfig('@dpc-sdp/yourvic-data-driven-component')
+    const configs = this.$tide.getModuleConfig('@dpc-sdp/myvic-data-driven-component')
     if (configs.customComponents) {
       const file = 'loader'
       const loaderCustomComponents = require(`~/tide/data-driven-component-${file}.js`).default

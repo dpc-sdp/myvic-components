@@ -1,8 +1,8 @@
-import YourvicMapCore from './index.vue'
-import YourvicMapTileLayer from './MapTileLayer'
-import YourvicMapVectorLayer from './MapVectorLayer'
-import YourvicMapVectorTileLayer from './MapVectorTileLayer'
-import YourvicMapLegend from './MapLegend'
+import MyvicMapCore from './index.vue'
+import MyvicMapTileLayer from './MapTileLayer'
+import MyvicMapVectorLayer from './MapVectorLayer'
+import MyvicMapVectorTileLayer from './MapVectorTileLayer'
+import MyvicMapLegend from './MapLegend'
 import ol from './lib/ol'
 
 const Style = ol.style.Style
@@ -14,11 +14,11 @@ const Circle = ol.style.Circle
 const EsriJSON = ol.format.EsriJSON
 
 export {
-  YourvicMapCore,
-  YourvicMapTileLayer,
-  YourvicMapVectorLayer,
-  YourvicMapVectorTileLayer,
-  YourvicMapLegend,
+  MyvicMapCore,
+  MyvicMapTileLayer,
+  MyvicMapVectorLayer,
+  MyvicMapVectorTileLayer,
+  MyvicMapLegend,
   Style,
   Text,
   Fill,
@@ -28,4 +28,4 @@ export {
   EsriJSON
 }
 
-export default YourvicMapCore
+export default MyvicMapCore

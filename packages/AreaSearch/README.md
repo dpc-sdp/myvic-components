@@ -1,4 +1,4 @@
-# @dpc-sdp/yourvic-areasearch
+# @dpc-sdp/myvic-areasearch
 
 A component for looking up different kinds of areas using an autocomplete search.
 
@@ -9,7 +9,7 @@ It emits an event when an item in the list is selected.
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-areasearch --save
+npm install @dpc-sdp/myvic-areasearch --save
 ```
 
 --------------------------------------------------------------------------------
@@ -17,8 +17,8 @@ npm install @dpc-sdp/yourvic-areasearch --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-areasearch
-├── @dpc-sdp/yourvic-autocomplete
+@dpc-sdp/myvic-areasearch
+├── @dpc-sdp/myvic-autocomplete
 ```
 
 --------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ npm install @dpc-sdp/yourvic-areasearch --save
 ## Import
 
 ```js
-import AreaSearch from '@dpc-sdp/yourvic-areasearch'
+import AreaSearch from '@dpc-sdp/myvic-areasearch'
 ```
 
 --------------------------------------------------------------------------------

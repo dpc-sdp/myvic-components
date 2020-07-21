@@ -1,4 +1,4 @@
-# @dpc-sdp/yourvic-autocomplete
+# @dpc-sdp/myvic-autocomplete
 
 A component for displaying an autocomplete search with results.
 
@@ -10,7 +10,7 @@ as a formatting function for the description/tag of the item.
 
 It is possible to format the result items in two different layouts: double line
 or single line. Showing an icon before the item is optional and there is support
-for custom icons per item. Check out the 
+for custom icons per item. Check out the
 [Ripple icon library](https://ripple.sdp.vic.gov.au/?path=/story/atoms-icon--icon-library)
 
 It emits an event when an item in the list is selected.
@@ -20,7 +20,7 @@ It emits an event when an item in the list is selected.
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-autocomplete --save
+npm install @dpc-sdp/myvic-autocomplete --save
 ```
 
 --------------------------------------------------------------------------------
@@ -28,8 +28,8 @@ npm install @dpc-sdp/yourvic-autocomplete --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-autocomplete
-├── @dpc-sdp/yourvic-global
+@dpc-sdp/myvic-autocomplete
+├── @dpc-sdp/myvic-global
 ```
 
 --------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ npm install @dpc-sdp/yourvic-autocomplete --save
 ## Import
 
 ```js
-import AutoComplete from '@dpc-sdp/yourvic-autocomplete'
+import AutoComplete from '@dpc-sdp/myvic-autocomplete'
 ```
 
 --------------------------------------------------------------------------------

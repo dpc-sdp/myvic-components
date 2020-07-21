@@ -1,5 +1,5 @@
 <template>
-  <div class="yourvic-bar-chart">
+  <div class="myvic-bar-chart">
     <component
       v-if="!gotError"
       :is="innerComponentName"
@@ -24,13 +24,13 @@
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
-import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
-import Error from '@dpc-sdp/yourvic-global/components/Error'
-import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
-import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
+import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
+import Error from '@dpc-sdp/myvic-global/components/Error'
+import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
+import validateChartData from '@dpc-sdp/myvic-global/mixins/validateChartData'
 
 /**
- * YourvicBarChart provides a generic and configurable bar chart component
+ * MyvicBarChart provides a generic and configurable bar chart component
  */
 export default {
   components: {
@@ -171,8 +171,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/yourvic-global/styles/charts";
-  .yourvic-bar-chart {
+@import "~@dpc-sdp/myvic-global/styles/charts";
+  .myvic-bar-chart {
     position: relative;
     height: inherit;
     width: inherit;

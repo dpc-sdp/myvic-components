@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`YourvicStoryshots AddressSearch Default 1`] = `
+exports[`MyvicStoryshots AddressSearch Default 1`] = `
 <form>
   <form
     action=""
   >
     <div
-      class="yourvic-auto-complete"
+      class="myvic-auto-complete"
     >
       <div
-        class="yourvic-auto-complete__input-wrapper"
+        class="myvic-auto-complete__input-wrapper"
       >
         <input
           aria-label="Search"
           autocomplete="off"
-          class="yourvic-auto-complete__input"
-          name="yourvic-auto-complete"
+          class="myvic-auto-complete__input"
+          name="myvic-auto-complete"
           placeholder="Search for an address"
           type="text"
           value=""
@@ -29,15 +29,15 @@ exports[`YourvicStoryshots AddressSearch Default 1`] = `
       </div>
        
       <ul
-        class="yourvic-search-results yourvic-auto-complete__results"
+        class="myvic-search-results myvic-auto-complete__results"
         style="display: none;"
       >
          
         <li
-          class="yourvic-search-results__item--no-results"
+          class="myvic-search-results__item--no-results"
         >
           <span
-            class="yourvic-search-results__item-name"
+            class="myvic-search-results__item-name"
           >
             
       No results
@@ -52,22 +52,22 @@ exports[`YourvicStoryshots AddressSearch Default 1`] = `
 </form>
 `;
 
-exports[`YourvicStoryshots AreaSearch Default 1`] = `
+exports[`MyvicStoryshots AreaSearch Default 1`] = `
 <form>
   <form
     action=""
   >
     <div
-      class="yourvic-auto-complete"
+      class="myvic-auto-complete"
     >
       <div
-        class="yourvic-auto-complete__input-wrapper"
+        class="myvic-auto-complete__input-wrapper"
       >
         <input
           aria-label="Search"
           autocomplete="off"
-          class="yourvic-auto-complete__input"
-          name="yourvic-auto-complete"
+          class="myvic-auto-complete__input"
+          name="myvic-auto-complete"
           placeholder="Search by postcode, suburb, Local Government Area or Region..."
           type="text"
           value=""
@@ -81,15 +81,15 @@ exports[`YourvicStoryshots AreaSearch Default 1`] = `
       </div>
        
       <ul
-        class="yourvic-search-results yourvic-auto-complete__results"
+        class="myvic-search-results myvic-auto-complete__results"
         style="display: none;"
       >
          
         <li
-          class="yourvic-search-results__item--no-results"
+          class="myvic-search-results__item--no-results"
         >
           <span
-            class="yourvic-search-results__item-name"
+            class="myvic-search-results__item-name"
           >
             
       No results
@@ -104,13 +104,13 @@ exports[`YourvicStoryshots AreaSearch Default 1`] = `
 </form>
 `;
 
-exports[`YourvicStoryshots Atoms | Global Divider 1`] = `
+exports[`MyvicStoryshots Atoms | Global Divider 1`] = `
 <hr
   class="rpl-divider"
 />
 `;
 
-exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in dev mode 1`] = `
+exports[`MyvicStoryshots Atoms/Global/Dev error Dev error in dev mode 1`] = `
 <ol
   class="rpl-dev-error"
 >
@@ -127,7 +127,7 @@ exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in dev mode 1`] = `
 </ol>
 `;
 
-exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`] = `
+exports[`MyvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`] = `
 <ol
   class="rpl-dev-error"
 >
@@ -144,22 +144,22 @@ exports[`YourvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`]
 </ol>
 `;
 
-exports[`YourvicStoryshots Autocomplete Default 1`] = `
+exports[`MyvicStoryshots Autocomplete Default 1`] = `
 <form>
   <form
     action=""
   >
     <div
-      class="yourvic-auto-complete"
+      class="myvic-auto-complete"
     >
       <div
-        class="yourvic-auto-complete__input-wrapper"
+        class="myvic-auto-complete__input-wrapper"
       >
         <input
           aria-label="Search"
           autocomplete="off"
-          class="yourvic-auto-complete__input"
-          name="yourvic-auto-complete"
+          class="myvic-auto-complete__input"
+          name="myvic-auto-complete"
           placeholder="Search"
           type="text"
           value=""
@@ -173,30 +173,30 @@ exports[`YourvicStoryshots Autocomplete Default 1`] = `
       </div>
        
       <ul
-        class="yourvic-search-results yourvic-auto-complete__results"
+        class="myvic-search-results myvic-auto-complete__results"
       >
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <!---->
         </li>
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <!---->
         </li>
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <!---->
         </li>
          
         <li
-          class="yourvic-search-results__item--no-results"
+          class="myvic-search-results__item--no-results"
           style="display: none;"
         >
           <span
-            class="yourvic-search-results__item-name"
+            class="myvic-search-results__item-name"
           >
             
       No results
@@ -211,22 +211,22 @@ exports[`YourvicStoryshots Autocomplete Default 1`] = `
 </form>
 `;
 
-exports[`YourvicStoryshots Autocomplete Single line result with tag 1`] = `
+exports[`MyvicStoryshots Autocomplete Single line result with tag 1`] = `
 <form>
   <form
     action=""
   >
     <div
-      class="yourvic-auto-complete"
+      class="myvic-auto-complete"
     >
       <div
-        class="yourvic-auto-complete__input-wrapper"
+        class="myvic-auto-complete__input-wrapper"
       >
         <input
           aria-label="Search"
           autocomplete="off"
-          class="yourvic-auto-complete__input"
-          name="yourvic-auto-complete"
+          class="myvic-auto-complete__input"
+          name="myvic-auto-complete"
           placeholder="Search"
           type="text"
           value=""
@@ -240,30 +240,30 @@ exports[`YourvicStoryshots Autocomplete Single line result with tag 1`] = `
       </div>
        
       <ul
-        class="yourvic-search-results yourvic-auto-complete__results"
+        class="myvic-search-results myvic-auto-complete__results"
       >
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <!---->
         </li>
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <!---->
         </li>
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <!---->
         </li>
          
         <li
-          class="yourvic-search-results__item--no-results"
+          class="myvic-search-results__item--no-results"
           style="display: none;"
         >
           <span
-            class="yourvic-search-results__item-name"
+            class="myvic-search-results__item-name"
           >
             
       No results
@@ -278,22 +278,22 @@ exports[`YourvicStoryshots Autocomplete Single line result with tag 1`] = `
 </form>
 `;
 
-exports[`YourvicStoryshots Autocomplete With Icon 1`] = `
+exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
 <form>
   <form
     action=""
   >
     <div
-      class="yourvic-auto-complete"
+      class="myvic-auto-complete"
     >
       <div
-        class="yourvic-auto-complete__input-wrapper"
+        class="myvic-auto-complete__input-wrapper"
       >
         <input
           aria-label="Search"
           autocomplete="off"
-          class="yourvic-auto-complete__input"
-          name="yourvic-auto-complete"
+          class="myvic-auto-complete__input"
+          name="myvic-auto-complete"
           placeholder="Search"
           type="text"
           value=""
@@ -307,23 +307,23 @@ exports[`YourvicStoryshots Autocomplete With Icon 1`] = `
       </div>
        
       <ul
-        class="yourvic-search-results yourvic-auto-complete__results"
+        class="myvic-search-results myvic-auto-complete__results"
       >
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <div
-            class="yourvic-double-line-item"
+            class="myvic-double-line-item"
           >
             <div
-              class="yourvic-double-line-item__icon-container"
+              class="myvic-double-line-item__icon-container"
             >
               <!---->
             </div>
              
             <div>
               <span
-                class="yourvic-double-line-item__item-name"
+                class="myvic-double-line-item__item-name"
               >
                 home
               </span>
@@ -333,26 +333,26 @@ exports[`YourvicStoryshots Autocomplete With Icon 1`] = `
           </div>
         </li>
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <div
-            class="yourvic-double-line-item"
+            class="myvic-double-line-item"
           >
             <div
-              class="yourvic-double-line-item__icon-container"
+              class="myvic-double-line-item__icon-container"
             >
               <!---->
             </div>
              
             <div>
               <span
-                class="yourvic-double-line-item__item-name"
+                class="myvic-double-line-item__item-name"
               >
                 some place
               </span>
                
               <span
-                class="yourvic-double-line-item__item-description"
+                class="myvic-double-line-item__item-description"
               >
                 description for some place
               </span>
@@ -360,26 +360,26 @@ exports[`YourvicStoryshots Autocomplete With Icon 1`] = `
           </div>
         </li>
         <li
-          class="yourvic-search-results__item"
+          class="myvic-search-results__item"
         >
           <div
-            class="yourvic-double-line-item"
+            class="myvic-double-line-item"
           >
             <div
-              class="yourvic-double-line-item__icon-container"
+              class="myvic-double-line-item__icon-container"
             >
               <!---->
             </div>
              
             <div>
               <span
-                class="yourvic-double-line-item__item-name"
+                class="myvic-double-line-item__item-name"
               >
                 some other place
               </span>
                
               <span
-                class="yourvic-double-line-item__item-description"
+                class="myvic-double-line-item__item-description"
               >
                 description for some other place
               </span>
@@ -388,11 +388,11 @@ exports[`YourvicStoryshots Autocomplete With Icon 1`] = `
         </li>
          
         <li
-          class="yourvic-search-results__item--no-results"
+          class="myvic-search-results__item--no-results"
           style="display: none;"
         >
           <span
-            class="yourvic-search-results__item-name"
+            class="myvic-search-results__item-name"
           >
             
       No results
@@ -407,12 +407,12 @@ exports[`YourvicStoryshots Autocomplete With Icon 1`] = `
 </form>
 `;
 
-exports[`YourvicStoryshots Bar Chart Default 1`] = `
+exports[`MyvicStoryshots Bar Chart Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    class="myvic-bar-chart"
   >
     <!---->
      
@@ -423,12 +423,12 @@ exports[`YourvicStoryshots Bar Chart Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
+exports[`MyvicStoryshots Bar Chart Dual Data 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    class="myvic-bar-chart"
   >
     <div
       alt=""
@@ -455,22 +455,22 @@ exports[`YourvicStoryshots Bar Chart Dual Data 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Bar Chart Invalid data provided 1`] = `
+exports[`MyvicStoryshots Bar Chart Invalid data provided 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    class="myvic-bar-chart"
   >
     <!---->
      
     <!---->
      
     <div
-      class="yourvic-error yourvic-error--chart"
+      class="myvic-error myvic-error--chart"
     >
       <span
-        class="yourvic-error-span"
+        class="myvic-error-span"
       >
         DataError: No datasets provided. The data object needs to have a "datasets" property
       </span>
@@ -479,7 +479,7 @@ exports[`YourvicStoryshots Bar Chart Invalid data provided 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
+exports[`MyvicStoryshots Bar Chart Ripple Grid 1`] = `
 <div
   class="rpl-container"
   style="width: 100%;"
@@ -501,7 +501,7 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
         style="width: 100%; height: 100vh;"
       >
         <div
-          class="yourvic-bar-chart"
+          class="myvic-bar-chart"
         >
           <div
             alt=""
@@ -540,12 +540,12 @@ exports[`YourvicStoryshots Bar Chart Ripple Grid 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Bar Chart Stacked Bar Chart 1`] = `
+exports[`MyvicStoryshots Bar Chart Stacked Bar Chart 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    class="myvic-bar-chart"
   >
     <div
       alt=""
@@ -572,12 +572,12 @@ exports[`YourvicStoryshots Bar Chart Stacked Bar Chart 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
+exports[`MyvicStoryshots Bar Chart Vertical 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    class="myvic-bar-chart"
   >
     <!---->
      
@@ -588,12 +588,12 @@ exports[`YourvicStoryshots Bar Chart Vertical 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Bar Chart With link to long description 1`] = `
+exports[`MyvicStoryshots Bar Chart With link to long description 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    class="myvic-bar-chart"
   >
     <div
       alt="bar chart"
@@ -615,7 +615,7 @@ exports[`YourvicStoryshots Bar Chart With link to long description 1`] = `
     </div>
      
     <a
-      class="yourvic-chart-long-description"
+      class="myvic-chart-long-description"
       href="https://www.w3.org"
     >
       Chart Description
@@ -626,12 +626,12 @@ exports[`YourvicStoryshots Bar Chart With link to long description 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
+exports[`MyvicStoryshots Bar Chart With title and legend 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-bar-chart"
+    class="myvic-bar-chart"
   >
     <div
       alt=""
@@ -658,24 +658,24 @@ exports[`YourvicStoryshots Bar Chart With title and legend 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Data Block Default 1`] = `
+exports[`MyvicStoryshots Data Block Default 1`] = `
 <div
   style="width: 200px;"
 >
   <div
-    class="yourvic-data-block"
+    class="myvic-data-block"
   >
     <div
       aria-label="Data Block"
-      class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+      class="myvic-data-block__item myvic-data-block__item--selectable myvic-data-block__item--isBlock"
       role="button"
       tabindex="0"
     >
       <div
-        class="yourvic-data-item"
+        class="myvic-data-item"
       >
         <h3
-          class="yourvic-data-item__title"
+          class="myvic-data-item__title"
         >
           
     Title
@@ -684,17 +684,17 @@ exports[`YourvicStoryshots Data Block Default 1`] = `
         </h3>
          
         <p
-          class="yourvic-data-item__description"
+          class="myvic-data-item__description"
         >
           description
         </p>
       </div>
        
       <span
-        class="yourvic-data-block__link"
+        class="myvic-data-block__link"
       >
         <span
-          class="yourvic-data-block__link-text"
+          class="myvic-data-block__link-text"
         >
           View chart
         </span>
@@ -706,7 +706,7 @@ exports[`YourvicStoryshots Data Block Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Data Block Ripple Grid 1`] = `
+exports[`MyvicStoryshots Data Block Ripple Grid 1`] = `
 <div
   class="rpl-container"
   style="width: 100%;"
@@ -725,19 +725,19 @@ exports[`YourvicStoryshots Data Block Ripple Grid 1`] = `
       class="rpl-col rpl-col--3"
     >
       <div
-        class="yourvic-data-block"
+        class="myvic-data-block"
       >
         <div
           aria-label="Data Block"
-          class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+          class="myvic-data-block__item myvic-data-block__item--selectable myvic-data-block__item--isBlock"
           role="button"
           tabindex="0"
         >
           <div
-            class="yourvic-data-item"
+            class="myvic-data-item"
           >
             <h3
-              class="yourvic-data-item__title"
+              class="myvic-data-item__title"
             >
               
     Title
@@ -746,17 +746,17 @@ exports[`YourvicStoryshots Data Block Ripple Grid 1`] = `
             </h3>
              
             <p
-              class="yourvic-data-item__description"
+              class="myvic-data-item__description"
             >
               description
             </p>
           </div>
            
           <span
-            class="yourvic-data-block__link"
+            class="myvic-data-block__link"
           >
             <span
-              class="yourvic-data-block__link-text"
+              class="myvic-data-block__link-text"
             >
               View chart
             </span>
@@ -779,47 +779,47 @@ exports[`YourvicStoryshots Data Block Ripple Grid 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Data Block With Trend 1`] = `
+exports[`MyvicStoryshots Data Block With Trend 1`] = `
 <div
   style="width: 200px;"
 >
   <div
-    class="yourvic-data-block"
+    class="myvic-data-block"
   >
     <div
       aria-label="Data Block"
-      class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+      class="myvic-data-block__item myvic-data-block__item--selectable myvic-data-block__item--isBlock"
       role="button"
       tabindex="0"
     >
       <div
-        class="yourvic-data-item"
+        class="myvic-data-item"
       >
         <h3
-          class="yourvic-data-item__title"
+          class="myvic-data-item__title"
         >
           
     Title
     
           <span
-            class="yourvic-data-item__icon"
+            class="myvic-data-item__icon"
           >
             <!---->
           </span>
         </h3>
          
         <p
-          class="yourvic-data-item__description"
+          class="myvic-data-item__description"
         >
           description
         </p>
       </div>
        
       <span
-        class="yourvic-data-block__link"
+        class="myvic-data-block__link"
       >
         <span
-          class="yourvic-data-block__link-text"
+          class="myvic-data-block__link-text"
         >
           View chart
         </span>
@@ -831,15 +831,15 @@ exports[`YourvicStoryshots Data Block With Trend 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Error Chart-related error 1`] = `
+exports[`MyvicStoryshots Error Chart-related error 1`] = `
 <div
   style="height: 200px;"
 >
   <div
-    class="yourvic-error yourvic-error--chart"
+    class="myvic-error myvic-error--chart"
   >
     <span
-      class="yourvic-error-span"
+      class="myvic-error-span"
     >
       Something went wrong
     </span>
@@ -847,15 +847,15 @@ exports[`YourvicStoryshots Error Chart-related error 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Error Default 1`] = `
+exports[`MyvicStoryshots Error Default 1`] = `
 <div
   style="height: 200px;"
 >
   <div
-    class="yourvic-error yourvic-error--null"
+    class="myvic-error myvic-error--null"
   >
     <span
-      class="yourvic-error-span"
+      class="myvic-error-span"
     >
       Something went wrong
     </span>
@@ -863,24 +863,24 @@ exports[`YourvicStoryshots Error Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
+exports[`MyvicStoryshots Examples/AreaWithData Default 1`] = `
 <div
-  class="yourvic-examples__container"
+  class="myvic-examples__container"
 >
   <form
     action=""
   >
     <div
-      class="yourvic-auto-complete"
+      class="myvic-auto-complete"
     >
       <div
-        class="yourvic-auto-complete__input-wrapper"
+        class="myvic-auto-complete__input-wrapper"
       >
         <input
           aria-label="Search"
           autocomplete="off"
-          class="yourvic-auto-complete__input"
-          name="yourvic-auto-complete"
+          class="myvic-auto-complete__input"
+          name="myvic-auto-complete"
           placeholder="Search by postcode, suburb, Local Government Area or Region..."
           type="text"
           value=""
@@ -892,7 +892,7 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
          
         <button
           aria-label="Close"
-          class="yourvic-button-close"
+          class="myvic-button-close"
           type="button"
         >
           <!---->
@@ -902,15 +902,15 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
       </div>
        
       <ul
-        class="yourvic-search-results yourvic-auto-complete__results"
+        class="myvic-search-results myvic-auto-complete__results"
         style="display: none;"
       >
          
         <li
-          class="yourvic-search-results__item--no-results"
+          class="myvic-search-results__item--no-results"
         >
           <span
-            class="yourvic-search-results__item-name"
+            class="myvic-search-results__item-name"
           >
             
       No results
@@ -924,22 +924,22 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
   </form>
    
   <div
-    class="yourvic-examples__data-block-container"
+    class="myvic-examples__data-block-container"
   >
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="myvic-data-block myvic-examples__data-block"
     >
       <div
         aria-label="Data Block"
-        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        class="myvic-data-block__item myvic-data-block__item--isBlock"
         role=""
         tabindex="0"
       >
         <div
-          class="yourvic-data-item"
+          class="myvic-data-item"
         >
           <h3
-            class="yourvic-data-item__title"
+            class="myvic-data-item__title"
           >
             
     
@@ -948,7 +948,7 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
           </h3>
            
           <p
-            class="yourvic-data-item__description"
+            class="myvic-data-item__description"
           >
             
           </p>
@@ -959,19 +959,19 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="myvic-data-block myvic-examples__data-block"
     >
       <div
         aria-label="Data Block"
-        class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+        class="myvic-data-block__item myvic-data-block__item--isBlock"
         role=""
         tabindex="0"
       >
         <div
-          class="yourvic-data-item"
+          class="myvic-data-item"
         >
           <h3
-            class="yourvic-data-item__title"
+            class="myvic-data-item__title"
           >
             
     
@@ -980,7 +980,7 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
           </h3>
            
           <p
-            class="yourvic-data-item__description"
+            class="myvic-data-item__description"
           >
             
           </p>
@@ -992,17 +992,17 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
   </div>
    
   <div
-    class="yourvic-examples__chart-container"
+    class="myvic-examples__chart-container"
   >
     <div
-      class="yourvic-bar-chart yourvic-examples__bar-chart"
+      class="myvic-bar-chart myvic-examples__bar-chart"
     >
       <div
         alt="Bar chart showing household composition"
         aria-label="Bar Chart"
         class=""
         dataformat="percentage"
-        longdesc="http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-1-bar-chart"
+        longdesc="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-1-bar-chart"
         role="img"
         style="position: relative; height: inherit; width: inherit; outline: none;"
         tabindex="0"
@@ -1017,8 +1017,8 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
       </div>
        
       <a
-        class="yourvic-chart-long-description"
-        href="http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-1-bar-chart"
+        class="myvic-chart-long-description"
+        href="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-1-bar-chart"
       >
         Chart Description
       </a>
@@ -1029,24 +1029,24 @@ exports[`YourvicStoryshots Examples/AreaWithData Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
+exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
 <div
-  class="yourvic-examples__container"
+  class="myvic-examples__container"
 >
   <form
     action=""
   >
     <div
-      class="yourvic-auto-complete"
+      class="myvic-auto-complete"
     >
       <div
-        class="yourvic-auto-complete__input-wrapper"
+        class="myvic-auto-complete__input-wrapper"
       >
         <input
           aria-label="Search"
           autocomplete="off"
-          class="yourvic-auto-complete__input"
-          name="yourvic-auto-complete"
+          class="myvic-auto-complete__input"
+          name="myvic-auto-complete"
           placeholder="Search by postcode, suburb, Local Government Area or Region..."
           type="text"
           value=""
@@ -1058,7 +1058,7 @@ exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
          
         <button
           aria-label="Close"
-          class="yourvic-button-close"
+          class="myvic-button-close"
           type="button"
         >
           <!---->
@@ -1068,15 +1068,15 @@ exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
       </div>
        
       <ul
-        class="yourvic-search-results yourvic-auto-complete__results"
+        class="myvic-search-results myvic-auto-complete__results"
         style="display: none;"
       >
          
         <li
-          class="yourvic-search-results__item--no-results"
+          class="myvic-search-results__item--no-results"
         >
           <span
-            class="yourvic-search-results__item-name"
+            class="myvic-search-results__item-name"
           >
             
       No results
@@ -1090,19 +1090,19 @@ exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
   </form>
    
   <div
-    class="yourvic-examples__map-container"
+    class="myvic-examples__map-container"
   >
     <div
-      class="yourvic-map-core"
+      class="myvic-map-core"
       style="position: relative; width: 100%; height: 100%;"
     >
        
       <div
-        class="yourvic-map-core__container"
+        class="myvic-map-core__container"
       >
         <div
           aria-label="An interactive map"
-          class="yourvic-map-core__map"
+          class="myvic-map-core__map"
           role="application"
           tabindex="0"
         >
@@ -1136,7 +1136,7 @@ exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
                 style="position: absolute; display: none;"
               >
                 <div
-                  class="yourvic-map-core__popup ol-popup"
+                  class="myvic-map-core__popup ol-popup"
                 >
                   <!---->
                 </div>
@@ -1183,27 +1183,27 @@ exports[`YourvicStoryshots Examples/AreaWithMap Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
+exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
 <div
-  class="yourvic-examples__container"
+  class="myvic-examples__container"
 >
   <div
-    class="yourvic-examples__data-block-container"
+    class="myvic-examples__data-block-container"
   >
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="myvic-data-block myvic-examples__data-block"
     >
       <div
         aria-label="Data Block"
-        class="yourvic-data-block__item yourvic-data-block__item--selectable is-selected yourvic-data-block__item--isBlock"
+        class="myvic-data-block__item myvic-data-block__item--selectable is-selected myvic-data-block__item--isBlock"
         role="button"
         tabindex="0"
       >
         <div
-          class="yourvic-data-item"
+          class="myvic-data-item"
         >
           <h3
-            class="yourvic-data-item__title"
+            class="myvic-data-item__title"
           >
             
     
@@ -1212,17 +1212,17 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
           </h3>
            
           <p
-            class="yourvic-data-item__description"
+            class="myvic-data-item__description"
           >
             
           </p>
         </div>
          
         <span
-          class="yourvic-data-block__link"
+          class="myvic-data-block__link"
         >
           <span
-            class="yourvic-data-block__link-text"
+            class="myvic-data-block__link-text"
           >
             View chart
           </span>
@@ -1233,19 +1233,19 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="myvic-data-block myvic-examples__data-block"
     >
       <div
         aria-label="Data Block"
-        class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+        class="myvic-data-block__item myvic-data-block__item--selectable myvic-data-block__item--isBlock"
         role="button"
         tabindex="0"
       >
         <div
-          class="yourvic-data-item"
+          class="myvic-data-item"
         >
           <h3
-            class="yourvic-data-item__title"
+            class="myvic-data-item__title"
           >
             
     
@@ -1254,17 +1254,17 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
           </h3>
            
           <p
-            class="yourvic-data-item__description"
+            class="myvic-data-item__description"
           >
             
           </p>
         </div>
          
         <span
-          class="yourvic-data-block__link"
+          class="myvic-data-block__link"
         >
           <span
-            class="yourvic-data-block__link-text"
+            class="myvic-data-block__link-text"
           >
             View chart
           </span>
@@ -1275,19 +1275,19 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="myvic-data-block myvic-examples__data-block"
     >
       <div
         aria-label="Data Block"
-        class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+        class="myvic-data-block__item myvic-data-block__item--selectable myvic-data-block__item--isBlock"
         role="button"
         tabindex="0"
       >
         <div
-          class="yourvic-data-item"
+          class="myvic-data-item"
         >
           <h3
-            class="yourvic-data-item__title"
+            class="myvic-data-item__title"
           >
             
     
@@ -1296,17 +1296,17 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
           </h3>
            
           <p
-            class="yourvic-data-item__description"
+            class="myvic-data-item__description"
           >
             
           </p>
         </div>
          
         <span
-          class="yourvic-data-block__link"
+          class="myvic-data-block__link"
         >
           <span
-            class="yourvic-data-block__link-text"
+            class="myvic-data-block__link-text"
           >
             View chart
           </span>
@@ -1317,19 +1317,19 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
     </div>
      
     <div
-      class="yourvic-data-block yourvic-examples__data-block"
+      class="myvic-data-block myvic-examples__data-block"
     >
       <div
         aria-label="Data Block"
-        class="yourvic-data-block__item yourvic-data-block__item--selectable yourvic-data-block__item--isBlock"
+        class="myvic-data-block__item myvic-data-block__item--selectable myvic-data-block__item--isBlock"
         role="button"
         tabindex="0"
       >
         <div
-          class="yourvic-data-item"
+          class="myvic-data-item"
         >
           <h3
-            class="yourvic-data-item__title"
+            class="myvic-data-item__title"
           >
             
     
@@ -1338,17 +1338,17 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
           </h3>
            
           <p
-            class="yourvic-data-item__description"
+            class="myvic-data-item__description"
           >
             
           </p>
         </div>
          
         <span
-          class="yourvic-data-block__link"
+          class="myvic-data-block__link"
         >
           <span
-            class="yourvic-data-block__link-text"
+            class="myvic-data-block__link-text"
           >
             View chart
           </span>
@@ -1360,20 +1360,20 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
   </div>
    
   <div
-    class="yourvic-examples__bottom-row"
+    class="myvic-examples__bottom-row"
   >
     <div
-      class="yourvic-examples__chart-container"
+      class="myvic-examples__chart-container"
     >
       <div
-        class="yourvic-bar-chart yourvic-examples__bar-chart"
+        class="myvic-bar-chart myvic-examples__bar-chart"
       >
         <div
           alt=""
           aria-label="Bar Chart"
           class=""
           dataformat="percentage"
-          longdesc="http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-bar-chart"
+          longdesc="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-bar-chart"
           role="img"
           style="position: relative; height: inherit; width: inherit; outline: none;"
           tabindex="0"
@@ -1388,8 +1388,8 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
         </div>
          
         <a
-          class="yourvic-chart-long-description"
-          href="http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-bar-chart"
+          class="myvic-chart-long-description"
+          href="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-bar-chart"
         >
           Chart Description
         </a>
@@ -1399,19 +1399,19 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
     </div>
      
     <div
-      class="yourvic-examples__map-container"
+      class="myvic-examples__map-container"
     >
       <div
-        class="yourvic-map-core"
+        class="myvic-map-core"
         style="position: relative; width: 100%; height: 100%;"
       >
          
         <div
-          class="yourvic-map-core__container"
+          class="myvic-map-core__container"
         >
           <div
             aria-label="An interactive map showing income statistics"
-            class="yourvic-map-core__map"
+            class="myvic-map-core__map"
             role="application"
             tabindex="0"
           >
@@ -1420,32 +1420,32 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
             <!---->
              
             <div
-              class="yourvic-map-legend blue"
+              class="myvic-map-legend blue"
             >
               <h2
-                class="yourvic-map-legend__title"
+                class="myvic-map-legend__title"
               >
                 Median personal income per week
               </h2>
                
               <div
-                class="yourvic-map-legend__content"
+                class="myvic-map-legend__content"
               >
                 <div
-                  class="yourvic-map-legend__display"
+                  class="myvic-map-legend__display"
                 />
                  
                 <div
-                  class="yourvic-map-legend__range"
+                  class="myvic-map-legend__range"
                 >
                   <span
-                    class="yourvic-map-legend__range-title"
+                    class="myvic-map-legend__range-title"
                   >
                     0%
                   </span>
                    
                   <span
-                    class="yourvic-map-legend__range-title"
+                    class="myvic-map-legend__range-title"
                   >
                     100%
                   </span>
@@ -1479,7 +1479,7 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
                   style="position: absolute; display: none;"
                 >
                   <div
-                    class="yourvic-map-core__popup ol-popup"
+                    class="myvic-map-core__popup ol-popup"
                   >
                     <!---->
                   </div>
@@ -1527,12 +1527,12 @@ exports[`YourvicStoryshots Examples/IncomeData Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Line Chart Default 1`] = `
+exports[`MyvicStoryshots Line Chart Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-line-chart"
+    class="myvic-line-chart"
   >
     <div
       alt="line chart"
@@ -1560,22 +1560,22 @@ exports[`YourvicStoryshots Line Chart Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Line Chart Invalid data provided 1`] = `
+exports[`MyvicStoryshots Line Chart Invalid data provided 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-line-chart"
+    class="myvic-line-chart"
   >
     <!---->
      
     <!---->
      
     <div
-      class="yourvic-error yourvic-error--chart"
+      class="myvic-error myvic-error--chart"
     >
       <span
-        class="yourvic-error-span"
+        class="myvic-error-span"
       >
         DataError: No datasets provided. The data object needs to have a "datasets" property
       </span>
@@ -1584,12 +1584,12 @@ exports[`YourvicStoryshots Line Chart Invalid data provided 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
+exports[`MyvicStoryshots Line Chart Multiple Datasets 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-line-chart"
+    class="myvic-line-chart"
   >
     <div
       alt=""
@@ -1616,7 +1616,7 @@ exports[`YourvicStoryshots Line Chart Multiple Datasets 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
+exports[`MyvicStoryshots Line Chart Ripple Grid 1`] = `
 <div
   class="rpl-container"
   style="width: 100%;"
@@ -1638,7 +1638,7 @@ exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
         style="width: 100%; height: 100vh;"
       >
         <div
-          class="yourvic-line-chart"
+          class="myvic-line-chart"
         >
           <div
             alt=""
@@ -1677,12 +1677,12 @@ exports[`YourvicStoryshots Line Chart Ripple Grid 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Line Chart With link to long description 1`] = `
+exports[`MyvicStoryshots Line Chart With link to long description 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-line-chart"
+    class="myvic-line-chart"
   >
     <div
       alt="line chart"
@@ -1704,7 +1704,7 @@ exports[`YourvicStoryshots Line Chart With link to long description 1`] = `
     </div>
      
     <a
-      class="yourvic-chart-long-description"
+      class="myvic-chart-long-description"
       href="https://www.w3.org"
     >
       Chart Description
@@ -1715,12 +1715,12 @@ exports[`YourvicStoryshots Line Chart With link to long description 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
+exports[`MyvicStoryshots Line Chart With title and legend 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-line-chart"
+    class="myvic-line-chart"
   >
     <div
       alt=""
@@ -1747,18 +1747,18 @@ exports[`YourvicStoryshots Line Chart With title and legend 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Core Accessibility 1`] = `
+exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="An interactive map showing population growth by suburb"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -1767,32 +1767,32 @@ exports[`YourvicStoryshots Maps/Core Accessibility 1`] = `
       <!---->
        
       <div
-        class="yourvic-map-legend pink"
+        class="myvic-map-legend pink"
       >
         <h2
-          class="yourvic-map-legend__title"
+          class="myvic-map-legend__title"
         >
           Legend
         </h2>
          
         <div
-          class="yourvic-map-legend__content"
+          class="myvic-map-legend__content"
         >
           <div
-            class="yourvic-map-legend__display"
+            class="myvic-map-legend__display"
           />
            
           <div
-            class="yourvic-map-legend__range"
+            class="myvic-map-legend__range"
           >
             <span
-              class="yourvic-map-legend__range-title"
+              class="myvic-map-legend__range-title"
             >
               -8.2%
             </span>
              
             <span
-              class="yourvic-map-legend__range-title"
+              class="myvic-map-legend__range-title"
             >
               45.2%
             </span>
@@ -1826,7 +1826,7 @@ exports[`YourvicStoryshots Maps/Core Accessibility 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -1871,7 +1871,7 @@ exports[`YourvicStoryshots Maps/Core Accessibility 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Core Events 1`] = `
+exports[`MyvicStoryshots Maps/Core Events 1`] = `
 <div
   class="rpl-container"
   style="width: 100%;"
@@ -1883,16 +1883,16 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
       class="rpl-col rpl-col--6"
     >
       <div
-        class="yourvic-map-core"
+        class="myvic-map-core"
         style="position: relative; width: 100%; height: 100vh;"
       >
          
         <div
-          class="yourvic-map-core__container"
+          class="myvic-map-core__container"
         >
           <div
             aria-label="Interactive Map"
-            class="yourvic-map-core__map"
+            class="myvic-map-core__map"
             role="application"
             tabindex="0"
           >
@@ -1920,7 +1920,7 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
                   style="position: absolute; display: none;"
                 >
                   <div
-                    class="yourvic-map-core__popup ol-popup"
+                    class="myvic-map-core__popup ol-popup"
                   >
                     <!---->
                   </div>
@@ -1971,20 +1971,20 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
       class="rpl-col rpl-col--6"
     >
       <div
-        class="yourvic-data-block"
+        class="myvic-data-block"
         style="margin-bottom: 10px; margin-right: 10px;"
       >
         <div
           aria-label="Data Block"
-          class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+          class="myvic-data-block__item myvic-data-block__item--isBlock"
           role=""
           tabindex="0"
         >
           <div
-            class="yourvic-data-item"
+            class="myvic-data-item"
           >
             <h3
-              class="yourvic-data-item__title"
+              class="myvic-data-item__title"
             >
               
     Title
@@ -1993,7 +1993,7 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
             </h3>
              
             <p
-              class="yourvic-data-item__description"
+              class="myvic-data-item__description"
             >
               @select
             </p>
@@ -2004,20 +2004,20 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
       </div>
        
       <div
-        class="yourvic-data-block"
+        class="myvic-data-block"
         style="margin-bottom: 10px; margin-right: 10px;"
       >
         <div
           aria-label="Data Block"
-          class="yourvic-data-block__item yourvic-data-block__item--isBlock"
+          class="myvic-data-block__item myvic-data-block__item--isBlock"
           role=""
           tabindex="0"
         >
           <div
-            class="yourvic-data-item"
+            class="myvic-data-item"
           >
             <h3
-              class="yourvic-data-item__title"
+              class="myvic-data-item__title"
             >
               
     Title
@@ -2026,7 +2026,7 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
             </h3>
              
             <p
-              class="yourvic-data-item__description"
+              class="myvic-data-item__description"
             >
               @click
             </p>
@@ -2042,18 +2042,18 @@ exports[`YourvicStoryshots Maps/Core Events 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
+exports[`MyvicStoryshots Maps/Core Fixed Map 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; margin: 20px; width: 400px; height: 300px; border: 1px solid black;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2080,7 +2080,7 @@ exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2094,18 +2094,18 @@ exports[`YourvicStoryshots Maps/Core Fixed Map 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
+exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="width: 100%; height: 100%;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2138,7 +2138,7 @@ exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2183,18 +2183,18 @@ exports[`YourvicStoryshots Maps/Core Interactive Map 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Core Popups 1`] = `
+exports[`MyvicStoryshots Maps/Core Popups 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2222,7 +2222,7 @@ exports[`YourvicStoryshots Maps/Core Popups 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2267,7 +2267,7 @@ exports[`YourvicStoryshots Maps/Core Popups 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
+exports[`MyvicStoryshots Maps/Core Ripple Grid 1`] = `
 <div
   class="rpl-container"
   style="width: 100%;"
@@ -2286,16 +2286,16 @@ exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
       class="rpl-col rpl-col--8"
     >
       <div
-        class="yourvic-map-core"
+        class="myvic-map-core"
         style="position: relative; width: 100%; padding-top: 56.25%; border: 1px solid black;"
       >
          
         <div
-          class="yourvic-map-core__container"
+          class="myvic-map-core__container"
         >
           <div
             aria-label="Interactive Map"
-            class="yourvic-map-core__map"
+            class="myvic-map-core__map"
             role="application"
             tabindex="0"
           >
@@ -2322,7 +2322,7 @@ exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
                   style="position: absolute; display: none;"
                 >
                   <div
-                    class="yourvic-map-core__popup ol-popup"
+                    class="myvic-map-core__popup ol-popup"
                   >
                     <!---->
                   </div>
@@ -2366,18 +2366,18 @@ exports[`YourvicStoryshots Maps/Core Ripple Grid 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Core Select Interaction 1`] = `
+exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2405,7 +2405,7 @@ exports[`YourvicStoryshots Maps/Core Select Interaction 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2450,50 +2450,50 @@ exports[`YourvicStoryshots Maps/Core Select Interaction 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Legend Map with Legend 1`] = `
+exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
       <!---->
        
       <div
-        class="yourvic-map-legend blue"
+        class="myvic-map-legend blue"
       >
         <h2
-          class="yourvic-map-legend__title"
+          class="myvic-map-legend__title"
         >
           Legend
         </h2>
          
         <div
-          class="yourvic-map-legend__content"
+          class="myvic-map-legend__content"
         >
           <div
-            class="yourvic-map-legend__display"
+            class="myvic-map-legend__display"
           />
            
           <div
-            class="yourvic-map-legend__range"
+            class="myvic-map-legend__range"
           >
             <span
-              class="yourvic-map-legend__range-title"
+              class="myvic-map-legend__range-title"
             >
               0%
             </span>
              
             <span
-              class="yourvic-map-legend__range-title"
+              class="myvic-map-legend__range-title"
             >
               100%
             </span>
@@ -2527,7 +2527,7 @@ exports[`YourvicStoryshots Maps/Legend Map with Legend 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2572,18 +2572,18 @@ exports[`YourvicStoryshots Maps/Legend Map with Legend 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2611,7 +2611,7 @@ exports[`YourvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2656,18 +2656,18 @@ exports[`YourvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="width: 100%; height: 100%;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2695,7 +2695,7 @@ exports[`YourvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2751,18 +2751,18 @@ exports[`YourvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2792,7 +2792,7 @@ exports[`YourvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2837,18 +2837,18 @@ exports[`YourvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2876,7 +2876,7 @@ exports[`YourvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -2921,18 +2921,18 @@ exports[`YourvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -2960,7 +2960,7 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3005,18 +3005,18 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3044,7 +3044,7 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3089,18 +3089,18 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3128,7 +3128,7 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3173,18 +3173,18 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3212,7 +3212,7 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3257,18 +3257,18 @@ exports[`YourvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
+exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3302,7 +3302,7 @@ exports[`YourvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3347,18 +3347,18 @@ exports[`YourvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
+exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3388,7 +3388,7 @@ exports[`YourvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3433,18 +3433,18 @@ exports[`YourvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
+exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="width: 100%; height: 100%;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3474,7 +3474,7 @@ exports[`YourvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3530,18 +3530,18 @@ exports[`YourvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
+exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3569,7 +3569,7 @@ exports[`YourvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3614,18 +3614,18 @@ exports[`YourvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
+exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3653,7 +3653,7 @@ exports[`YourvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3698,18 +3698,18 @@ exports[`YourvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
+exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3739,7 +3739,7 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3784,18 +3784,18 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
+exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3825,7 +3825,7 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3870,18 +3870,18 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
+exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3911,7 +3911,7 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -3956,18 +3956,18 @@ exports[`YourvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
+exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="width: 100%; height: 100%;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -3995,7 +3995,7 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -4051,18 +4051,18 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
+exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -4096,7 +4096,7 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -4141,18 +4141,18 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
+exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -4180,7 +4180,7 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -4225,18 +4225,18 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
+exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
 <div
-  class="yourvic-map-core"
+  class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
    
   <div
-    class="yourvic-map-core__container"
+    class="myvic-map-core__container"
   >
     <div
       aria-label="Interactive Map"
-      class="yourvic-map-core__map"
+      class="myvic-map-core__map"
       role="application"
       tabindex="0"
     >
@@ -4266,7 +4266,7 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
             style="position: absolute; display: none;"
           >
             <div
-              class="yourvic-map-core__popup ol-popup"
+              class="myvic-map-core__popup ol-popup"
             >
               <!---->
             </div>
@@ -4311,12 +4311,12 @@ exports[`YourvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Pie Chart Default 1`] = `
+exports[`MyvicStoryshots Pie Chart Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-pie-chart"
+    class="myvic-pie-chart"
   >
     <div
       alt="pie chart"
@@ -4344,22 +4344,22 @@ exports[`YourvicStoryshots Pie Chart Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Pie Chart Invalid data provided 1`] = `
+exports[`MyvicStoryshots Pie Chart Invalid data provided 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-pie-chart"
+    class="myvic-pie-chart"
   >
     <!---->
      
     <!---->
      
     <div
-      class="yourvic-error yourvic-error--chart"
+      class="myvic-error myvic-error--chart"
     >
       <span
-        class="yourvic-error-span"
+        class="myvic-error-span"
       >
         DataError: No datasets provided. The data object needs to have a "datasets" property
       </span>
@@ -4368,12 +4368,12 @@ exports[`YourvicStoryshots Pie Chart Invalid data provided 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Pie Chart Multiple Datasets 1`] = `
+exports[`MyvicStoryshots Pie Chart Multiple Datasets 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-pie-chart"
+    class="myvic-pie-chart"
   >
     <div
       alt=""
@@ -4400,7 +4400,7 @@ exports[`YourvicStoryshots Pie Chart Multiple Datasets 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Pie Chart Ripple Grid 1`] = `
+exports[`MyvicStoryshots Pie Chart Ripple Grid 1`] = `
 <div
   class="rpl-container"
   style="width: 100%;"
@@ -4422,7 +4422,7 @@ exports[`YourvicStoryshots Pie Chart Ripple Grid 1`] = `
         style="width: 100%; height: 100vh;"
       >
         <div
-          class="yourvic-pie-chart"
+          class="myvic-pie-chart"
         >
           <div
             alt=""
@@ -4461,12 +4461,12 @@ exports[`YourvicStoryshots Pie Chart Ripple Grid 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Pie Chart With link to long description 1`] = `
+exports[`MyvicStoryshots Pie Chart With link to long description 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-pie-chart"
+    class="myvic-pie-chart"
   >
     <div
       alt="bar chart"
@@ -4488,7 +4488,7 @@ exports[`YourvicStoryshots Pie Chart With link to long description 1`] = `
     </div>
      
     <a
-      class="yourvic-chart-long-description"
+      class="myvic-chart-long-description"
       href="https://www.w3.org"
     >
       Chart Description
@@ -4499,12 +4499,12 @@ exports[`YourvicStoryshots Pie Chart With link to long description 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
+exports[`MyvicStoryshots Pie Chart With title and legend 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
-    class="yourvic-pie-chart"
+    class="myvic-pie-chart"
   >
     <div
       alt=""
@@ -4531,7 +4531,7 @@ exports[`YourvicStoryshots Pie Chart With title and legend 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
+exports[`MyvicStoryshots Toggle List Chart Data Toggle 1`] = `
 <div
   class="rpl-container"
   style="width: 100%; height: 100%;"
@@ -4543,68 +4543,68 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
       class="rpl-col rpl-col--4"
     >
       <div
-        class="yourvic-toggle-list"
+        class="myvic-toggle-list"
       >
         <ul
-          class="yourvic-toggle-list__ul"
+          class="myvic-toggle-list__ul"
         >
           <li
             aria-checked="true"
             aria-label="Dataset 1"
-            class="yourvic-toggle-item is-active"
+            class="myvic-toggle-item is-active"
             role="checkbox"
             tabindex="0"
           >
             <!---->
              
             <h3
-              class="yourvic-toggle-item__title"
+              class="myvic-toggle-item__title"
             >
               Dataset 1
             </h3>
              
             <div
-              class="yourvic-toggle-item__icon-right"
+              class="myvic-toggle-item__icon-right"
             >
               <!---->
             </div>
           </li>
           <li
             aria-label="Dataset 2"
-            class="yourvic-toggle-item"
+            class="myvic-toggle-item"
             role="checkbox"
             tabindex="0"
           >
             <!---->
              
             <h3
-              class="yourvic-toggle-item__title"
+              class="myvic-toggle-item__title"
             >
               Dataset 2
             </h3>
              
             <div
-              class="yourvic-toggle-item__icon-right"
+              class="myvic-toggle-item__icon-right"
             >
               <!---->
             </div>
           </li>
           <li
             aria-label="Dataset 3"
-            class="yourvic-toggle-item"
+            class="myvic-toggle-item"
             role="checkbox"
             tabindex="0"
           >
             <!---->
              
             <h3
-              class="yourvic-toggle-item__title"
+              class="myvic-toggle-item__title"
             >
               Dataset 3
             </h3>
              
             <div
-              class="yourvic-toggle-item__icon-right"
+              class="myvic-toggle-item__icon-right"
             >
               <!---->
             </div>
@@ -4624,7 +4624,7 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
         style="width: 100%; height: 90vh;"
       >
         <div
-          class="yourvic-line-chart"
+          class="myvic-line-chart"
         >
           <div
             alt=""
@@ -4656,83 +4656,83 @@ exports[`YourvicStoryshots Toggle List Chart Data Toggle 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Toggle List Default 1`] = `
+exports[`MyvicStoryshots Toggle List Default 1`] = `
 <div>
   <div
-    class="yourvic-toggle-list"
+    class="myvic-toggle-list"
   >
     <ul
-      class="yourvic-toggle-list__ul"
+      class="myvic-toggle-list__ul"
     >
       <li
         aria-checked="true"
         aria-label="Item 1"
-        class="yourvic-toggle-item is-active"
+        class="myvic-toggle-item is-active"
         role="checkbox"
         tabindex="0"
       >
         <div
-          class="yourvic-toggle-item__icon-left"
+          class="myvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="yourvic-toggle-item__title"
+          class="myvic-toggle-item__title"
         >
           Item 1
         </h3>
          
         <div
-          class="yourvic-toggle-item__icon-right"
+          class="myvic-toggle-item__icon-right"
         >
           <!---->
         </div>
       </li>
       <li
         aria-label="Item 2"
-        class="yourvic-toggle-item"
+        class="myvic-toggle-item"
         role="checkbox"
         tabindex="0"
       >
         <div
-          class="yourvic-toggle-item__icon-left"
+          class="myvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="yourvic-toggle-item__title"
+          class="myvic-toggle-item__title"
         >
           Item 2
         </h3>
          
         <div
-          class="yourvic-toggle-item__icon-right"
+          class="myvic-toggle-item__icon-right"
         >
           <!---->
         </div>
       </li>
       <li
         aria-label="Item 3"
-        class="yourvic-toggle-item"
+        class="myvic-toggle-item"
         role="checkbox"
         tabindex="0"
       >
         <div
-          class="yourvic-toggle-item__icon-left"
+          class="myvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="yourvic-toggle-item__title"
+          class="myvic-toggle-item__title"
         >
           Item 3
         </h3>
          
         <div
-          class="yourvic-toggle-item__icon-right"
+          class="myvic-toggle-item__icon-right"
         >
           <!---->
         </div>
@@ -4740,48 +4740,48 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
       <li
         aria-checked="true"
         aria-label="Item 4"
-        class="yourvic-toggle-item is-active"
+        class="myvic-toggle-item is-active"
         role="checkbox"
         tabindex="0"
       >
         <div
-          class="yourvic-toggle-item__icon-left"
+          class="myvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="yourvic-toggle-item__title"
+          class="myvic-toggle-item__title"
         >
           Item 4
         </h3>
          
         <div
-          class="yourvic-toggle-item__icon-right"
+          class="myvic-toggle-item__icon-right"
         >
           <!---->
         </div>
       </li>
       <li
         aria-label="Item 5"
-        class="yourvic-toggle-item"
+        class="myvic-toggle-item"
         role="checkbox"
         tabindex="0"
       >
         <div
-          class="yourvic-toggle-item__icon-left"
+          class="myvic-toggle-item__icon-left"
         >
           <!---->
         </div>
          
         <h3
-          class="yourvic-toggle-item__title"
+          class="myvic-toggle-item__title"
         >
           Item 5
         </h3>
          
         <div
-          class="yourvic-toggle-item__icon-right"
+          class="myvic-toggle-item__icon-right"
         >
           <!---->
         </div>
@@ -4793,7 +4793,7 @@ exports[`YourvicStoryshots Toggle List Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
+exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
 <div
   class="rpl-container"
   style="width: 100%;"
@@ -4805,80 +4805,80 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
       class="rpl-col rpl-col--4"
     >
       <div
-        class="yourvic-toggle-list"
+        class="myvic-toggle-list"
       >
         <ul
-          class="yourvic-toggle-list__ul"
+          class="myvic-toggle-list__ul"
         >
           <li
             aria-checked="true"
             aria-label="Basemap"
-            class="yourvic-toggle-item is-active"
+            class="myvic-toggle-item is-active"
             role="checkbox"
             tabindex="0"
           >
             <div
-              class="yourvic-toggle-item__icon-left"
+              class="myvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="yourvic-toggle-item__title"
+              class="myvic-toggle-item__title"
             >
               Basemap
             </h3>
              
             <div
-              class="yourvic-toggle-item__icon-right"
+              class="myvic-toggle-item__icon-right"
             >
               <!---->
             </div>
           </li>
           <li
             aria-label="Population Growth"
-            class="yourvic-toggle-item"
+            class="myvic-toggle-item"
             role="checkbox"
             tabindex="0"
           >
             <div
-              class="yourvic-toggle-item__icon-left"
+              class="myvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="yourvic-toggle-item__title"
+              class="myvic-toggle-item__title"
             >
               Population Growth
             </h3>
              
             <div
-              class="yourvic-toggle-item__icon-right"
+              class="myvic-toggle-item__icon-right"
             >
               <!---->
             </div>
           </li>
           <li
             aria-label="Hospitals"
-            class="yourvic-toggle-item"
+            class="myvic-toggle-item"
             role="checkbox"
             tabindex="0"
           >
             <div
-              class="yourvic-toggle-item__icon-left"
+              class="myvic-toggle-item__icon-left"
             >
               <!---->
             </div>
              
             <h3
-              class="yourvic-toggle-item__title"
+              class="myvic-toggle-item__title"
             >
               Hospitals
             </h3>
              
             <div
-              class="yourvic-toggle-item__icon-right"
+              class="myvic-toggle-item__icon-right"
             >
               <!---->
             </div>
@@ -4895,16 +4895,16 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
       class="rpl-col rpl-col--8"
     >
       <div
-        class="yourvic-map-core"
+        class="myvic-map-core"
         style="position: relative; width: 100%; height: 100vh;"
       >
          
         <div
-          class="yourvic-map-core__container"
+          class="myvic-map-core__container"
         >
           <div
             aria-label="Interactive Map"
-            class="yourvic-map-core__map"
+            class="myvic-map-core__map"
             role="application"
             tabindex="0"
           >
@@ -4936,7 +4936,7 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
                   style="position: absolute; display: none;"
                 >
                   <div
-                    class="yourvic-map-core__popup ol-popup"
+                    class="myvic-map-core__popup ol-popup"
                   >
                     <!---->
                   </div>
@@ -4986,21 +4986,21 @@ exports[`YourvicStoryshots Toggle List Map Layer Toggle 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Tree Map Default 1`] = `
+exports[`MyvicStoryshots Tree Map Default 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
     arialabel="chart"
-    class="yourvic-chart-wrapper yourvic-treemap-chart"
+    class="myvic-chart-wrapper myvic-treemap-chart"
   >
     <div
-      class="yourvic-treemap-chart"
+      class="myvic-treemap-chart"
     >
       <canvas
         alt="tree map"
         aria-label="Tree Map Chart"
-        class="yourvic-treemap-chart-canvas"
+        class="myvic-treemap-chart-canvas"
         id="0"
         longdesc=""
         role="img"
@@ -5016,21 +5016,21 @@ exports[`YourvicStoryshots Tree Map Default 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Tree Map Invalid data provided 1`] = `
+exports[`MyvicStoryshots Tree Map Invalid data provided 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
     arialabel="chart"
-    class="yourvic-chart-wrapper yourvic-treemap-chart"
+    class="myvic-chart-wrapper myvic-treemap-chart"
   >
     <div
-      class="yourvic-treemap-chart"
+      class="myvic-treemap-chart"
     >
       <canvas
         alt=""
         aria-label="Tree Map Chart"
-        class="yourvic-treemap-chart-canvas"
+        class="myvic-treemap-chart-canvas"
         id="0"
         role="img"
         style="outline: none;"
@@ -5045,7 +5045,7 @@ exports[`YourvicStoryshots Tree Map Invalid data provided 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Tree Map Ripple Grid 1`] = `
+exports[`MyvicStoryshots Tree Map Ripple Grid 1`] = `
 <div
   class="rpl-container"
   style="width: 100%;"
@@ -5068,15 +5068,15 @@ exports[`YourvicStoryshots Tree Map Ripple Grid 1`] = `
       >
         <div
           arialabel="chart"
-          class="yourvic-chart-wrapper yourvic-treemap-chart"
+          class="myvic-chart-wrapper myvic-treemap-chart"
         >
           <div
-            class="yourvic-treemap-chart"
+            class="myvic-treemap-chart"
           >
             <canvas
               alt=""
               aria-label="Tree Map Chart"
-              class="yourvic-treemap-chart-canvas"
+              class="myvic-treemap-chart-canvas"
               id="0"
               role="img"
               style="outline: none;"
@@ -5103,21 +5103,21 @@ exports[`YourvicStoryshots Tree Map Ripple Grid 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Tree Map With link to long description 1`] = `
+exports[`MyvicStoryshots Tree Map With link to long description 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
     arialabel="chart"
-    class="yourvic-chart-wrapper yourvic-treemap-chart"
+    class="myvic-chart-wrapper myvic-treemap-chart"
   >
     <div
-      class="yourvic-treemap-chart"
+      class="myvic-treemap-chart"
     >
       <canvas
         alt="bar chart"
         aria-label="Tree Map Chart"
-        class="yourvic-treemap-chart-canvas"
+        class="myvic-treemap-chart-canvas"
         id="0"
         longdesc="https://www.w3.org"
         role="img"
@@ -5126,7 +5126,7 @@ exports[`YourvicStoryshots Tree Map With link to long description 1`] = `
       />
        
       <a
-        class="yourvic-chart-long-description yourvic-tree-map__long-description"
+        class="myvic-chart-long-description myvic-tree-map__long-description"
         href="https://www.w3.org"
       >
         Chart Description
@@ -5138,21 +5138,21 @@ exports[`YourvicStoryshots Tree Map With link to long description 1`] = `
 </div>
 `;
 
-exports[`YourvicStoryshots Tree Map With title 1`] = `
+exports[`MyvicStoryshots Tree Map With title 1`] = `
 <div
   style="width: 400px; height: 400px;"
 >
   <div
     arialabel="chart"
-    class="yourvic-chart-wrapper yourvic-treemap-chart"
+    class="myvic-chart-wrapper myvic-treemap-chart"
   >
     <div
-      class="yourvic-treemap-chart"
+      class="myvic-treemap-chart"
     >
       <canvas
         alt=""
         aria-label="Tree Map Chart"
-        class="yourvic-treemap-chart-canvas"
+        class="myvic-treemap-chart-canvas"
         id="0"
         role="img"
         style="outline: none;"

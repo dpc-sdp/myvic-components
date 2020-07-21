@@ -1,14 +1,14 @@
 <template>
-  <rpl-base-layout class="yourvic-example-layout">
-    <div slot="header" class="yourvic-example-header">
+  <rpl-base-layout class="myvic-example-layout">
+    <div slot="header" class="myvic-example-header">
       <rpl-site-header />
     </div>
-    <rpl-page-layout class="yourvic-example-main">
+    <rpl-page-layout class="myvic-example-main">
       <rpl-container>
         <example-site />
       </rpl-container>
     </rpl-page-layout>
-    <div slot="footer" class="yourvic-example-footer">
+    <div slot="footer" class="myvic-example-footer">
     </div>
   </rpl-base-layout>
 </template>
@@ -38,6 +38,6 @@
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  .yourvic-example-layout {
+  .myvic-example-layout {
   }
 </style>

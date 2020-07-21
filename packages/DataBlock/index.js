@@ -1,4 +1,4 @@
-import YourVicDataBlock from './index.vue'
+import MyVicDataBlock from './index.vue'
 
-export { YourVicDataBlock }
-export default YourVicDataBlock
+export { MyVicDataBlock }
+export default MyVicDataBlock

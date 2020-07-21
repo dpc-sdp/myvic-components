@@ -1,5 +1,5 @@
 <template>
-  <div class="yourvic-chart-wrapper" ariaLabel="chart">
+  <div class="myvic-chart-wrapper" ariaLabel="chart">
     <slot v-if="!gotError"></slot>
     <error v-if="gotError" :message="error.toString()" errorClass="chart" />
   </div>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .yourvic-chart-wrapper {
+  .myvic-chart-wrapper {
     position: relative;
     height: inherit;
     width: inherit;

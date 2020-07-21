@@ -12,7 +12,7 @@
 </template>
 <script>
 
-import { AutoComplete } from '@dpc-sdp/yourvic-autocomplete'
+import { AutoComplete } from '@dpc-sdp/myvic-autocomplete'
 import { getAddresses } from './utils/getAddresses'
 
 /**
@@ -46,9 +46,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-addresssearch {
+  .myvic-addresssearch {
     display: relative;
   }
 </style>

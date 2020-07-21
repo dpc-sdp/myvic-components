@@ -7,11 +7,11 @@ environments:
   production:
     routes:
       - app:
-        - "www.yourvictoria.gov.au":
+        - "www.myvictoria.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
-        - "yourvictoria.gov.au":
+        - "myvictoria.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
@@ -20,24 +20,24 @@ environments:
   master:
     routes:
       - app:
-        - "staging.yourvictoria.vic.gov.au":
+        - "staging.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
 
-        - "www.staging.yourvictoria.vic.gov.au":
+        - "www.staging.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
   develop:
       routes:
         - app:
-          - "develop.yourvictoria.vic.gov.au":
+          - "develop.myvictoria.vic.gov.au":
               tls-acme: 'false'
               insecure: Allow
               hsts: max-age=31536000
         - app:
-          - "www.develop.yourvictoria.vic.gov.au":
+          - "www.develop.myvictoria.vic.gov.au":
               tls-acme: 'false'
               insecure: Allow
               hsts: max-age=31536000

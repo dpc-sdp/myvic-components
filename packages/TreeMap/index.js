@@ -1,4 +1,4 @@
-import YourVicTreeMap from './index.vue'
+import MyVicTreeMap from './index.vue'
 
-export { YourVicTreeMap }
-export default YourVicTreeMap
+export { MyVicTreeMap }
+export default MyVicTreeMap

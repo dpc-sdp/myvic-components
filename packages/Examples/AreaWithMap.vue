@@ -1,11 +1,11 @@
 <template>
-  <div class="yourvic-examples__container">
+  <div class="myvic-examples__container">
     <area-search
       :initial-value="area.name"
       @item-selected="selectArea"
     />
-    <div class="yourvic-examples__map-container">
-      <yourvic-map-core
+    <div class="myvic-examples__map-container">
+      <myvic-map-core
         :center="center"
         :zoom="12"
         :minZoom="8"
@@ -13,22 +13,22 @@
         ariaLabel="An interactive map"
         enableMapboxWatermark
       >
-        <yourvic-map-vector-layer
+        <myvic-map-vector-layer
           :url="layerUrl"
           dataFormat="GeoJSON"
           loadingStrategy="bbox"
           :zoomToExtent="true"
           :attributions="attributions"
         />
-      </yourvic-map-core>
+      </myvic-map-core>
     </div>
   </div>
 </template>
 <script>
 
-import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
-import { YourvicMapCore, YourvicMapVectorLayer } from '@dpc-sdp/yourvic-map-core'
-import { createWfsRequestUrl } from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
+import { AreaSearch } from '@dpc-sdp/myvic-areasearch'
+import { MyvicMapCore, MyvicMapVectorLayer } from '@dpc-sdp/myvic-map-core'
+import { createWfsRequestUrl } from '@dpc-sdp/myvic-global/utils/geoserver_requests'
 
 /**
  * AreaWithMap is a component showcasing the area search and map components
@@ -36,8 +36,8 @@ import { createWfsRequestUrl } from '@dpc-sdp/yourvic-global/utils/geoserver_req
 export default {
   components: {
     AreaSearch,
-    YourvicMapCore,
-    YourvicMapVectorLayer
+    MyvicMapCore,
+    MyvicMapVectorLayer
   },
   props: {
   },
@@ -53,7 +53,7 @@ export default {
       attributions: [
         '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
         ' | ',
-        '<a href="http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-2-map" tabindex="0" target="_blank">Accessible Version</a>'
+        '<a href="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-2-map" tabindex="0" target="_blank">Accessible Version</a>'
       ]
     }
   },
@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .yourvic-examples {
+  .myvic-examples {
     display: relative;
 
     &__container {

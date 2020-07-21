@@ -1,10 +1,10 @@
 <template>
-  <ul class="yourvic-search-results">
+  <ul class="myvic-search-results">
     <li
       v-for="(item, index) in items"
       :key="item.id"
-      :class="{ 'yourvic-search-results__item--isActive': index === activeIndex }"
-      class="yourvic-search-results__item"
+      :class="{ 'myvic-search-results__item--isActive': index === activeIndex }"
+      class="myvic-search-results__item"
       @click="$emit('item-selected', item)">
       <component
         :is="innerComponentName"
@@ -18,9 +18,9 @@
     </li>
     <li
       v-show="!items.length"
-      class="yourvic-search-results__item--no-results">
+      class="myvic-search-results__item--no-results">
       <span
-        class="yourvic-search-results__item-name">
+        class="myvic-search-results__item-name">
         No results
       </span>
     </li>
@@ -76,9 +76,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-search-results {
+  .myvic-search-results {
     box-sizing: border-box;
     background-color: #fff;
     border: 1px solid $textColor;

@@ -1,4 +1,4 @@
-# @dpc-sdp/yourvic-addresssearch
+# @dpc-sdp/myvic-addresssearch
 
 A component for looking up addresses in Victoria using an autocomplete search.
 
@@ -9,7 +9,7 @@ It emits an event when an item in the list is selected.
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-addresssearch --save
+npm install @dpc-sdp/myvic-addresssearch --save
 ```
 
 --------------------------------------------------------------------------------
@@ -17,8 +17,8 @@ npm install @dpc-sdp/yourvic-addresssearch --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-addresssearch
-├── @dpc-sdp/yourvic-autocomplete
+@dpc-sdp/myvic-addresssearch
+├── @dpc-sdp/myvic-autocomplete
 ```
 
 --------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ npm install @dpc-sdp/yourvic-addresssearch --save
 ## Import
 
 ```js
-import AddressSearch from '@dpc-sdp/yourvic-addresssearch'
+import AddressSearch from '@dpc-sdp/myvic-addresssearch'
 ```
 
 --------------------------------------------------------------------------------
