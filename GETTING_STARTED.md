@@ -11,7 +11,7 @@
 
 ## About The Project
 
-The Your Victoria component library aims to enable the publication of accessible maps, charts and user interface (UI)
+The My Victoria component library aims to enable the publication of accessible maps, charts and user interface (UI)
 elements to websites by content owners across Government. It includes a set of reusable UI components designed to
 integrate with DDI’s existing ecosystem of platforms and services; and supporting documentation and examples to assist
 with their usage.
@@ -23,7 +23,7 @@ audience, which is a significant differentiator from the many off-the-shelf dash
 
 ## Component Overview
 
-Your Victoria provides a set of reusable components designed to allow developers to easily create their own
+My Victoria provides a set of reusable components designed to allow developers to easily create their own
 visualisations and dashboards in a consistent way. These components are self-contained building blocks that can be used
 in a standalone website or integrated with existing DPC platforms such as
 [SDP](https://www.singledigitalpresence.vic.gov.au/).

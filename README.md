@@ -17,7 +17,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The Your Victoria component library aims to enable the publication of accessible maps, charts and user interface (UI)
+The My Victoria component library aims to enable the publication of accessible maps, charts and user interface (UI)
 elements to websites by content owners across Government. It includes a set of reusable UI components designed to
 integrate with DDI’s existing ecosystem of platforms and services; and supporting documentation and examples to assist
 with their usage.
@@ -30,7 +30,7 @@ For a higher level overview of how to get started, see the [Getting Started Guid
 ## Component Overview
 
 All components have been developed with [Vue](https://vuejs.org/) as part of the
-[Your Victoria](https://github.com/dpc-sdp/myvictoria-vic-gov-au) repository and aligned to the existing
+[MyVic-Components](https://github.com/dpc-sdp/myvic-components) repository and aligned to the existing
 [Ripple](https://github.com/dpc-sdp/ripple) component library. Components are published to NPM, ready to be used
 directly in any Vue JS application.
 
@@ -204,7 +204,7 @@ in existing HTML sites that are not already using Vue or Webpack.
 
 ## Deployment
 
-Users of the Your Victoria components are responsible for arranging their own web hosting. Some possible options include:
+Users of the My Victoria components are responsible for arranging their own web hosting. Some possible options include:
 
 - A Standalone Vue or Nuxt app can be self hosted on any standard web server.
 - Existing SDP Sites may be able to use the components via Drupal and Data Driven Component
@@ -213,7 +213,7 @@ Users of the Your Victoria components are responsible for arranging their own we
 
 ## Data Hosting
 
-The Your Victoria components don't have any specific requirements for data hosting, other than that the data is online
+The My Victoria components don't have any specific requirements for data hosting, other than that the data is online
 and can be parsed with JavaScript. If hosting is required, some existing options include:
 
 - [MyVictoria](https://myvictoria.vic.gov.au/) (using Geoserver for hosting geospatial web services)
