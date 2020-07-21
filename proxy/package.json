@@ -1,0 +1,12 @@
+{
+  "name": "@dpc-sdp/myvic-proxy",
+  "description": "Proxy server for data source",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.5"
+  }
+}
