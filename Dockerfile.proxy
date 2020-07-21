@@ -1,6 +1,6 @@
 FROM amazeeio/node:10-builder as builder
 
-COPY proxy /app/proxy
+COPY proxy /app/
 RUN yarn
 
 WORKDIR /app

@@ -14,6 +14,8 @@ coverage
 /test/e2e/screenshots
 cypress/videos
 cypress/screenshots
+proxy/cypress/videos
+proxy/cypress/screenshots
 
 /src/public
 

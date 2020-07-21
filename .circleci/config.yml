@@ -12,14 +12,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v3-deps-{{ checksum "yarn.lock" }}
-            - v3-deps-{{ .Branch }}
-            - v3-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: Install Dependencies
           command: yarn install
       - save_cache:
-          key: v3-deps-{{ checksum "yarn.lock" }}
+          key: v5-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - src/node_modules
@@ -40,9 +40,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v3-deps-{{ checksum "yarn.lock" }}
-            - v3-deps-{{ .Branch }}
-            - v3-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: Lint code.
           command: yarn lint --format ./node_modules/eslint-junit/index.js
@@ -70,9 +70,9 @@ jobs:
           at: ~/app
       - restore_cache:
           keys:
-            - v3-deps-{{ checksum "yarn.lock" }}
-            - v3-deps-{{ .Branch }}
-            - v3-deps
+            - v5-deps-{{ checksum "yarn.lock" }}
+            - v5-deps-{{ .Branch }}
+            - v5-deps
       - run:
           name: nuxt test
           command: yarn test:nuxt
@@ -85,6 +85,33 @@ jobs:
       - store_artifacts:
           path: cypress/screenshots
 
+  proxy:
+    docker:
+      - image: cypress/base:10
+        environment:
+          TERM: xterm
+          CIRCLE_TEST_REPORTS: test-results
+    working_directory: ~/app
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v5-proxy-deps-{{ checksum "yarn.lock" }}
+            - v5-proxy-deps-{{ .Branch }}
+            - v5-proxy-deps
+      - run:
+          name: Install Dependencies
+          command: yarn
+          working_directory: proxy
+      - save_cache:
+          key: v5-proxy-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: test proxy server
+          command: yarn test
+          working_directory: proxy
+
 workflows:
   version: 2
   commit:
@@ -96,3 +123,4 @@ workflows:
       - nuxt:
           requires:
             - install
+      - proxy
