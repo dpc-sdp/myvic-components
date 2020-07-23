@@ -5,6 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@dpc-sdp/ripple-global": "^1.8.0",
     "@dpc-sdp/myvic-global": "1.1.3",
