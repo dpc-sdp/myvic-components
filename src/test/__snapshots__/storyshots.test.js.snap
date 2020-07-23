@@ -1002,7 +1002,7 @@ exports[`MyvicStoryshots Examples/AreaWithData Default 1`] = `
         aria-label="Bar Chart"
         class=""
         dataformat="percentage"
-        longdesc="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-1-bar-chart"
+        longdesc="https://example.visualise.myvictoria.vic.gov.au/bundle-1-bar-chart"
         role="img"
         style="position: relative; height: inherit; width: inherit; outline: none;"
         tabindex="0"
@@ -1018,7 +1018,7 @@ exports[`MyvicStoryshots Examples/AreaWithData Default 1`] = `
        
       <a
         class="myvic-chart-long-description"
-        href="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-1-bar-chart"
+        href="https://example.visualise.myvictoria.vic.gov.au/bundle-1-bar-chart"
       >
         Chart Description
       </a>
@@ -1373,7 +1373,7 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
           aria-label="Bar Chart"
           class=""
           dataformat="percentage"
-          longdesc="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-bar-chart"
+          longdesc="https://example.visualise.myvictoria.vic.gov.au/bundle-3-bar-chart"
           role="img"
           style="position: relative; height: inherit; width: inherit; outline: none;"
           tabindex="0"
@@ -1389,7 +1389,7 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
          
         <a
           class="myvic-chart-long-description"
-          href="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-bar-chart"
+          href="https://example.visualise.myvictoria.vic.gov.au/bundle-3-bar-chart"
         >
           Chart Description
         </a>

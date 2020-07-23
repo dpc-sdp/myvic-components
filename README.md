@@ -40,7 +40,7 @@ directly in any Vue JS application.
 application for deployment to [SDP](https://www.singledigitalpresence.vic.gov.au/).
 
 [Storybook](https://storybook.js.org/) examples with component documentation are available
-[here](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/)
+[here](https://visualise.myvictoria.vic.gov.au/)
 
 ## Installation
 
@@ -96,91 +96,91 @@ A component for displaying an autocomplete search with results. This component r
 searching over a set of items. The filtered results will appear beneath the input as a selectable list.
 
 - [@dpc-sdp/myvic-autocomplete](https://www.npmjs.com/package/@dpc-sdp/myvic-autocomplete)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/autocomplete--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/autocomplete--default-story)
 
 ### Address Search
 
 A component for looking up addresses in Victoria using an autocomplete search.
 
 - [@dpc-sdp/myvic-addresssearch](https://www.npmjs.com/package/@dpc-sdp/myvic-addresssearch)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/addresssearch--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/addresssearch--default-story)
 
 ### Area Search
 
 A component for looking up different kinds of areas using an autocomplete search.
 
 - [@dpc-sdp/myvic-areasearch](https://www.npmjs.com/package/@dpc-sdp/myvic-areasearch)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/areasearch--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/areasearch--default-story)
 
 ### Bar Chart
 
 A component for displaying a data-driven bar chart.
 
 - [@dpc-sdp/myvic-bar-chart](https://www.npmjs.com/package/@dpc-sdp/myvic-bar-chart)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/bar-chart--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/bar-chart--default-story)
 
 ### Line Chart
 
 A component for displaying a data-driven line chart.
 
 - [@dpc-sdp/myvic-line-chart](https://www.npmjs.com/package/@dpc-sdp/myvic-line-chart)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/line-chart--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/line-chart--default-story)
 
 ### Pie Chart
 
 A component for displaying a data-driven pie chart.
 
 - [@dpc-sdp/myvic-pie-chart](https://www.npmjs.com/package/@dpc-sdp/myvic-pie-chart)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/pie-chart--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/pie-chart--default-story)
 
 ### Tree Map
 
 A component for displaying a data-driven tree map.
 
 - [@dpc-sdp/myvic-treemap](https://www.npmjs.com/package/@dpc-sdp/myvic-treemap)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/tree-map--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/tree-map--default-story)
 
 ### Data Block
 
 A component for displaying a single data item as a block element.
 
 - [@dpc-sdp/myvic-data-block](https://www.npmjs.com/package/@dpc-sdp/myvic-data-block)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/data-block--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/data-block--default-story)
 
 ### Toggle List
 
 A component for displaying a dynamic list of toggleable items.
 
 - [@dpc-sdp/myvic-toggle-list](https://www.npmjs.com/package/@dpc-sdp/myvic-toggle-list)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/toggle-list--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/toggle-list--default-story)
 
 ### Map
 
 An interactive map component based on [OpenLayers](https://openlayers.org/).
 
 - [@dpc-sdp/myvic-map-core](https://www.npmjs.com/package/@dpc-sdp/myvic-map-core)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-core--interactive-map)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/maps-core--interactive-map)
 
 ### Map - Tile Layer
 
 A component that provides support for OSM, XYZ, WMS and ArcGIS tiled map layers.
 
 - [@dpc-sdp/myvic-map-core](https://www.npmjs.com/package/@dpc-sdp/myvic-map-core)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-tile-layer--configurable-layer)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/maps-tile-layer--configurable-layer)
 
 ### Map - Vector Layer
 
 A component that provides support for vector sources such as WFS, ArcGIS Feature Server and GeoJSON files.
 
 - [@dpc-sdp/myvic-map-core](https://www.npmjs.com/package/@dpc-sdp/myvic-map-core)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-vector-layer--configurable-layer)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/maps-vector-layer--configurable-layer)
 
 ### Map - Vector Tile Layer
 
 A component that provides support for Mapbox Vector Tile sources.
 
 - [@dpc-sdp/myvic-map-core](https://www.npmjs.com/package/@dpc-sdp/myvic-map-core)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-vector-tile-layer--configurable-layer)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/maps-vector-tile-layer--configurable-layer)
 
 ### Global
 
@@ -193,7 +193,7 @@ Shared styles, libraries and utility functions for use across MyVictoria compone
 Examples showing how multiple components can be bundled together and interact with each other.
 
 - [@dpc-sdp/myvic-examples](https://www.npmjs.com/package/@dpc-sdp/myvic-examples)
-- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/examples-areawithdata--default-story)
+- [Storybook Documentation](https://visualise.myvictoria.vic.gov.au/?path=/docs/examples-areawithdata--default-story)
 
 ### UMD Bundle
 

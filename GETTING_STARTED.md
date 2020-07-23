@@ -35,7 +35,7 @@ Victorian Government design guidelines and can easily slot in alongside existing
 
 All components are configurable and data-driven, allowing developers to pass information to the components via
 documented Vue.js ‘props’. [Storybook](https://storybook.js.org/) has been used for documenting and demonstrating
-components and is available [online here](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/).
+components and is available [online here](https://visualise.myvictoria.vic.gov.au/).
 
 All components target WCAG 2.0 AA accessibility compliance.
 
