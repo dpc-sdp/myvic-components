@@ -1,5 +1,5 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
-import MyVicToggleList from '@dpc-sdp/myvic-toggle-list'
+import MyvicToggleList from '@dpc-sdp/myvic-toggle-list'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import {
@@ -13,13 +13,13 @@ import {
   myVictoriaLayerStops,
   buildMyVictoriaMapboxStyle
 } from '@dpc-sdp/myvic-global/utils/geoserver_requests'
-import { MyVicLineChart } from '@dpc-sdp/myvic-line-chart'
+import { MyvicLineChart } from '@dpc-sdp/myvic-line-chart'
 
-<Meta title="Toggle List" component={ MyVicToggleList } decorators={ [withKnobs] } />
+<Meta title="Toggle List" component={ MyvicToggleList } decorators={ [withKnobs] } />
 
 # Toggle List
 
-<Description of={ MyVicToggleList } type='docgen' />
+<Description of={ MyvicToggleList } type='docgen' />
 
 ## Installation
 
@@ -30,13 +30,13 @@ npm install @dpc-sdp/myvic-toggle-list --save
 ## Import
 
 ```javascript
-import { MyVicToggleList } from '@dpc-sdp/myvic-toggle-list'
+import { MyvicToggleList } from '@dpc-sdp/myvic-toggle-list'
 ```
 
 ## Usage
 
 ```html
-<my-vic-toggle-list
+<myvic-toggle-list
   :data="data"
   :selectedItems="selectedItems"
 />
@@ -44,7 +44,7 @@ import { MyVicToggleList } from '@dpc-sdp/myvic-toggle-list'
 
 ## Props
 
-<Props of={ MyVicToggleList } />
+<Props of={ MyvicToggleList } />
 
 ## Default
 
@@ -52,10 +52,10 @@ import { MyVicToggleList } from '@dpc-sdp/myvic-toggle-list'
   <Story name="Default">
     {
       {
-        components: { MyVicToggleList },
+        components: { MyvicToggleList },
         template: `
           <div>
-            <my-vic-toggle-list
+            <myvic-toggle-list
               :items="items"
               :selectedItems="selectedItems"
               @item-selected="onSelectItem"
@@ -101,7 +101,7 @@ import { MyVicToggleList } from '@dpc-sdp/myvic-toggle-list'
     {
       {
         components: {
-          MyVicToggleList,
+          MyvicToggleList,
           MyvicMapCore,
           MyvicMapTileLayer,
           MyvicMapVectorLayer,
@@ -113,7 +113,7 @@ import { MyVicToggleList } from '@dpc-sdp/myvic-toggle-list'
           <RplContainer style="width: 100%">
             <rpl-row>
               <rpl-col cols=4>
-                <my-vic-toggle-list
+                <myvic-toggle-list
                   :items="items"
                   :selectedItems="selectedItems"
                   @item-selected="onSelectItem"
@@ -224,8 +224,8 @@ import { MyVicToggleList } from '@dpc-sdp/myvic-toggle-list'
     {
       {
         components: {
-          MyVicToggleList,
-          MyVicLineChart,
+          MyvicToggleList,
+          MyvicLineChart,
           RplContainer,
           RplRow,
           RplCol },
@@ -233,7 +233,7 @@ import { MyVicToggleList } from '@dpc-sdp/myvic-toggle-list'
           <RplContainer style="width: 100%; height: 100%">
             <rpl-row>
               <rpl-col cols=4>
-                <my-vic-toggle-list
+                <myvic-toggle-list
                   :items="items"
                   :selectedItems="selectedItems"
                   @item-selected="onSelectItem"
@@ -241,7 +241,7 @@ import { MyVicToggleList } from '@dpc-sdp/myvic-toggle-list'
               </rpl-col>
               <rpl-col cols=7>
                 <div style="width: 100%; height: 90vh">
-                  <my-vic-line-chart title="Line Chart" :data="chartData" :showLegend="true" dataFormat="normal" />
+                  <myvic-line-chart title="Line Chart" :data="chartData" :showLegend="true" dataFormat="normal" />
                 </div>
               </rpl-col>
             </rpl-row>

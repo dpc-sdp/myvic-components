@@ -1,4 +1,4 @@
-import MyVicToggleList from './ToggleList.vue'
+import MyvicToggleList from './ToggleList.vue'
 
-export { MyVicToggleList }
-export default MyVicToggleList
+export { MyvicToggleList }
+export default MyvicToggleList

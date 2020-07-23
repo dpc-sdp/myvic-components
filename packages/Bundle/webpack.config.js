@@ -17,7 +17,7 @@ module.exports = {
     filename: 'myvic-bundle.js',
     chunkFilename: '[name].myvic-bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'MyVic',
+    library: 'Myvic',
     libraryTarget: 'umd',
     publicPath: 'dist/'
   },

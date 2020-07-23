@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
-import MyVicToggleList from './../ToggleList.vue'
+import MyvicToggleList from './../ToggleList.vue'
 
-describe('MyVicToggleList', () => {
-  const wrapper = mount(MyVicToggleList, {
+describe('MyvicToggleList', () => {
+  const wrapper = mount(MyvicToggleList, {
     propsData: {
       items: [
         { id: 'item1', title: 'Item 1', icon: 'map_marker', color: 'primary' },

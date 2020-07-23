@@ -3,15 +3,15 @@ import 'babel-polyfill'
 import Vue from 'vue'
 
 // Replaced with dynamic imports for code splitting
-// import MyVicAddressSearch from '@dpc-sdp/myvic-addresssearch'
-// import MyVicAreaSearch from '@dpc-sdp/myvic-areasearch'
-// import MyVicAutoComplete from '@dpc-sdp/myvic-autocomplete'
-// import MyVicBarChart from '@dpc-sdp/myvic-bar-chart'
-// import MyVicDataBlock from '@dpc-sdp/myvic-data-block'
-// import MyVicLineChart from '@dpc-sdp/myvic-line-chart'
-// import MyVicPieChart from '@dpc-sdp/myvic-pie-chart'
-// import MyVicToggleList from '@dpc-sdp/myvic-toggle-list'
-// import MyVicTreeMap from '@dpc-sdp/myvic-treemap'
+// import MyvicAddressSearch from '@dpc-sdp/myvic-addresssearch'
+// import MyvicAreaSearch from '@dpc-sdp/myvic-areasearch'
+// import MyvicAutoComplete from '@dpc-sdp/myvic-autocomplete'
+// import MyvicBarChart from '@dpc-sdp/myvic-bar-chart'
+// import MyvicDataBlock from '@dpc-sdp/myvic-data-block'
+// import MyvicLineChart from '@dpc-sdp/myvic-line-chart'
+// import MyvicPieChart from '@dpc-sdp/myvic-pie-chart'
+// import MyvicToggleList from '@dpc-sdp/myvic-toggle-list'
+// import MyvicTreeMap from '@dpc-sdp/myvic-treemap'
 // import MyvicMapCore from '@dpc-sdp/myvic-map-core'
 // import MyvicMapTileLayer from '@dpc-sdp/myvic-map-core/MapTileLayer'
 // import MyvicMapVectorLayer from '@dpc-sdp/myvic-map-core/MapVectorLayer'
@@ -29,48 +29,48 @@ function initialiseVueComponent (component, el, props, childComponent, childProp
 }
 
 export async function mountAddressSearch (el, props) {
-  const { default: MyVicAddressSearch } = await import(/* webpackChunkName: "MyVicAddressSearch" */ '@dpc-sdp/myvic-addresssearch')
-  initialiseVueComponent(MyVicAddressSearch, el, props)
+  const { default: MyvicAddressSearch } = await import(/* webpackChunkName: "MyvicAddressSearch" */ '@dpc-sdp/myvic-addresssearch')
+  initialiseVueComponent(MyvicAddressSearch, el, props)
 }
 
 export async function mountAreaSearch (el, props) {
-  const { default: MyVicAreaSearch } = await import(/* webpackChunkName: "MyVicAreaSearch" */ '@dpc-sdp/myvic-areasearch')
-  initialiseVueComponent(MyVicAreaSearch, el, props)
+  const { default: MyvicAreaSearch } = await import(/* webpackChunkName: "MyvicAreaSearch" */ '@dpc-sdp/myvic-areasearch')
+  initialiseVueComponent(MyvicAreaSearch, el, props)
 }
 
 export async function mountAutoComplete (el, props) {
-  const { default: MyVicAutoComplete } = await import(/* webpackChunkName: "MyVicAutoComplete" */ '@dpc-sdp/myvic-autocomplete')
-  initialiseVueComponent(MyVicAutoComplete, el, props)
+  const { default: MyvicAutoComplete } = await import(/* webpackChunkName: "MyvicAutoComplete" */ '@dpc-sdp/myvic-autocomplete')
+  initialiseVueComponent(MyvicAutoComplete, el, props)
 }
 
 export async function mountBarChart (el, props) {
-  const { default: MyVicBarChart } = await import(/* webpackChunkName: "MyVicBarChart" */ '@dpc-sdp/myvic-bar-chart')
-  initialiseVueComponent(MyVicBarChart, el, props)
+  const { default: MyvicBarChart } = await import(/* webpackChunkName: "MyvicBarChart" */ '@dpc-sdp/myvic-bar-chart')
+  initialiseVueComponent(MyvicBarChart, el, props)
 }
 
 export async function mountDataBlock (el, props) {
-  const { default: MyVicDataBlock } = await import(/* webpackChunkName: "MyVicDataBlock" */ '@dpc-sdp/myvic-data-block')
-  initialiseVueComponent(MyVicDataBlock, el, props)
+  const { default: MyvicDataBlock } = await import(/* webpackChunkName: "MyvicDataBlock" */ '@dpc-sdp/myvic-data-block')
+  initialiseVueComponent(MyvicDataBlock, el, props)
 }
 
 export async function mountLineChart (el, props) {
-  const { default: MyVicLineChart } = await import(/* webpackChunkName: "MyVicLineChart" */ '@dpc-sdp/myvic-line-chart')
-  initialiseVueComponent(MyVicLineChart, el, props)
+  const { default: MyvicLineChart } = await import(/* webpackChunkName: "MyvicLineChart" */ '@dpc-sdp/myvic-line-chart')
+  initialiseVueComponent(MyvicLineChart, el, props)
 }
 
 export async function mountPieChart (el, props) {
-  const { default: MyVicPieChart } = await import(/* webpackChunkName: "MyVicPieChart" */ '@dpc-sdp/myvic-pie-chart')
-  initialiseVueComponent(MyVicPieChart, el, props)
+  const { default: MyvicPieChart } = await import(/* webpackChunkName: "MyvicPieChart" */ '@dpc-sdp/myvic-pie-chart')
+  initialiseVueComponent(MyvicPieChart, el, props)
 }
 
 export async function mountToggleList (el, props) {
-  const { default: MyVicToggleList } = await import(/* webpackChunkName: "MyVicToggleList" */ '@dpc-sdp/myvic-toggle-list')
-  initialiseVueComponent(MyVicToggleList, el, props)
+  const { default: MyvicToggleList } = await import(/* webpackChunkName: "MyvicToggleList" */ '@dpc-sdp/myvic-toggle-list')
+  initialiseVueComponent(MyvicToggleList, el, props)
 }
 
 export async function mountTreeMap (el, props) {
-  const { default: MyVicTreeMap } = await import(/* webpackChunkName: "MyVicTreeMap" */ '@dpc-sdp/myvic-treemap')
-  initialiseVueComponent(MyVicTreeMap, el, props)
+  const { default: MyvicTreeMap } = await import(/* webpackChunkName: "MyvicTreeMap" */ '@dpc-sdp/myvic-treemap')
+  initialiseVueComponent(MyvicTreeMap, el, props)
 }
 
 export async function mountMap (el, props) {

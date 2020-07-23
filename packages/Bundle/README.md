@@ -9,19 +9,19 @@ and props will pass a props object through to the underlying Vue component (see
 the storybook docs for more information for each component).
 
 ```js
-MyVic.mountAddressSearch (el, props)
-MyVic.mountAreaSearch (el, props)
-MyVic.mountAutoComplete (el, props)
-MyVic.mountBarChart (el, props)
-MyVic.mountDataBlock (el, props)
-MyVic.mountLineChart (el, props)
-MyVic.mountPieChart (el, props)
-MyVic.mountToggleList (el, props)
-MyVic.mountTreeMap (el, props)
-MyVic.mountMap (el, props)
-MyVic.mountMapWithTileLayer (el, mapProps, layerProps)
-MyVic.mountMapWithVectorLayer (el, mapProps, layerProps)
-MyVic.mountMapWithVectorTileLayer (el, mapProps, layerProps)
+Myvic.mountAddressSearch (el, props)
+Myvic.mountAreaSearch (el, props)
+Myvic.mountAutoComplete (el, props)
+Myvic.mountBarChart (el, props)
+Myvic.mountDataBlock (el, props)
+Myvic.mountLineChart (el, props)
+Myvic.mountPieChart (el, props)
+Myvic.mountToggleList (el, props)
+Myvic.mountTreeMap (el, props)
+Myvic.mountMap (el, props)
+Myvic.mountMapWithTileLayer (el, mapProps, layerProps)
+Myvic.mountMapWithVectorLayer (el, mapProps, layerProps)
+Myvic.mountMapWithVectorTileLayer (el, mapProps, layerProps)
 ```
 
 --------------------------------------------------------------------------------

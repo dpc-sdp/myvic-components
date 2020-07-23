@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils'
-import MyVicPieChart from './../index.vue'
+import MyvicPieChart from './../index.vue'
 import { chartData } from '../storiesConstants.js'
 import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
 import ErrorComponent from '@dpc-sdp/myvic-global/components/Error'
 
-describe('MyVicPieChart', () => {
-  const wrapper = mount(MyVicPieChart, {
+describe('MyvicPieChart', () => {
+  const wrapper = mount(MyvicPieChart, {
     propsData: {
       title: 'Pie Chart',
       data: chartData,
@@ -19,7 +19,7 @@ describe('MyVicPieChart', () => {
     datasets: [{}]
   }
 
-  const errorWrapper = mount(MyVicPieChart, {
+  const errorWrapper = mount(MyvicPieChart, {
     propsData: {
       title: 'Pie Chart',
       data: invalidChartData,

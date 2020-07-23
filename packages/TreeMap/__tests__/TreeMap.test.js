@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
-import MyVicTreeMap from './../index.vue'
+import MyvicTreeMap from './../index.vue'
 import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
 
-describe('MyVicTreeMap', () => {
+describe('MyvicTreeMap', () => {
   const chartData = [
     {
       name: 'Category 1',
@@ -34,7 +34,7 @@ describe('MyVicTreeMap', () => {
     }
   ]
 
-  const wrapper = mount(MyVicTreeMap, {
+  const wrapper = mount(MyvicTreeMap, {
     propsData: {
       title: 'Line Chart',
       data: chartData,

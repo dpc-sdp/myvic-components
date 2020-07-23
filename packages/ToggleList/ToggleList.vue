@@ -19,7 +19,7 @@ import Error from '@dpc-sdp/myvic-global/components/Error'
 import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
 
 /**
- * MyVicToggleList provides a styled list of items that can be toggled on/off on click
+ * MyvicToggleList provides a styled list of items that can be toggled on/off on click
  */
 export default {
   name: 'ToggleList',
