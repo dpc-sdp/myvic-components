@@ -1,0 +1,19 @@
+{
+  "name": "@dpc-sdp/myvic-proxy",
+  "description": "Proxy server for data source",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "start-server-and-test 'yarn start' http://localhost:3000 'yarn cy:run'",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.5"
+  },
+  "devDependencies": {
+    "cypress": "^4.11.0",
+    "start-server-and-test": "^1.11.2"
+  }
+}
