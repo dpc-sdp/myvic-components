@@ -1,13 +1,13 @@
 <template>
   <div
-    class="yourvic-data-block">
+    class="myvic-data-block">
     <div
       :class="{
-        'yourvic-data-block__item--selectable': selectable,
+        'myvic-data-block__item--selectable': selectable,
         'is-selected': isSelected,
-        'yourvic-data-block__item--isBlock': isBlock
+        'myvic-data-block__item--isBlock': isBlock
       }"
-      class="yourvic-data-block__item"
+      class="myvic-data-block__item"
       :tabIndex="tabIndex"
       :aria-label="ariaLabel"
       :role="selectable ? 'button' : ''"
@@ -16,10 +16,10 @@
       <data-item v-bind="data" />
       <span
         v-if="selectable"
-        class="yourvic-data-block__link">
-        <span class="yourvic-data-block__link-text">View chart</span>
+        class="myvic-data-block__link">
+        <span class="myvic-data-block__link-text">View chart</span>
           <rpl-icon
-            class="yourvic-data-block__icon"
+            class="myvic-data-block__icon"
             symbol="arrow_right_secondary"
             size="s"
           />
@@ -33,7 +33,7 @@ import DataItem from './DataItem'
 import { RplIcon } from '@dpc-sdp/ripple-icon'
 
 /**
- * YourvicDataBlock provides configurable container for data display
+ * MyvicDataBlock provides configurable container for data display
  */
 export default {
   components: {
@@ -94,11 +94,11 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
   $borderColor: rgba(#0052c2, 0.3);
   $selectedColor: #ddebf8;
 
-  .yourvic-data-block {
+  .myvic-data-block {
     position: relative;
     display: flex;
 
@@ -142,7 +142,7 @@ export default {
           background-color: $hoverColor;
           border: 1px solid $borderColor;
 
-          .yourvic-data-block__link-text {
+          .myvic-data-block__link-text {
             margin-right: 6px;
             transition: all 0.175s ease-out;
           }

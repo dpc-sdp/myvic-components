@@ -5,7 +5,7 @@ import {
   myVictoriaRotatingColours,
   myVictoriaLayerStops,
   buildMyVictoriaMapboxStyle
-} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
+} from '@dpc-sdp/myvic-global/utils/geoserver_requests'
 
 export const LEGEND_TITLES = {
   'data-block-1': 'Median personal income per week',

@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/yourvic-data-block
+# @dpc-sdp/myvic-data-block
 
 > A components for displaying a data block.
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-data-block --save
+npm install @dpc-sdp/myvic-data-block --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,8 +16,8 @@ npm install @dpc-sdp/yourvic-data-block --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-data-block
-├── @dpc-sdp/yourvic-global
+@dpc-sdp/myvic-data-block
+├── @dpc-sdp/myvic-global
 ```
 
 --------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ npm install @dpc-sdp/yourvic-data-block --save
 ## Import
 
 ```js
-import DataBlock from '@dpc-sdp/yourvic-data-block'
+import DataBlock from '@dpc-sdp/myvic-data-block'
 ```
 
 --------------------------------------------------------------------------------

@@ -6,11 +6,11 @@ import { apply } from 'ol-mapbox-style'
 import stylefunction from 'ol-mapbox-style/dist/stylefunction'
 
 /**
- * YourvicMapVectorTileLayer provides support for Mapbox Vector Tile sources. It offers a declarative API for
- * describing layers as child components of YourvicMapCore, wrapping the functionality provided by OpenLayers.
+ * MyvicMapVectorTileLayer provides support for Mapbox Vector Tile sources. It offers a declarative API for
+ * describing layers as child components of MyvicMapCore, wrapping the functionality provided by OpenLayers.
  */
 export default {
-  name: 'YourvicMapVectorTileLayer',
+  name: 'MyvicMapVectorTileLayer',
   mixins: [layer],
   props: {
     /**

@@ -9,6 +9,6 @@ describe('ErrorComponent', () => {
   })
 
   it('renders a styled error container', () => {
-    expect(wrapper.contains('div.yourvic-error--chart')).toBe(true)
+    expect(wrapper.contains('div.myvic-error--chart')).toBe(true)
   })
 })

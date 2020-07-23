@@ -1,8 +1,8 @@
 <template>
-  <div class="yourvic-treemap-chart">
+  <div class="myvic-treemap-chart">
     <canvas
       :id="componentKey"
-      class="yourvic-treemap-chart-canvas"
+      class="myvic-treemap-chart-canvas"
       :tabIndex="tabIndex"
       role="img"
       :aria-label="ariaLabel"
@@ -10,7 +10,7 @@
       :longDesc="longDesc"
       style="outline: none"
     />
-    <chart-description v-if="longDesc" :longDesc="longDesc" cssClass="yourvic-tree-map__long-description" />
+    <chart-description v-if="longDesc" :longDesc="longDesc" cssClass="myvic-tree-map__long-description" />
   </div>
 </template>
 
@@ -19,8 +19,8 @@ import Chart from 'chart.js'
 // eslint-disable-next-line no-unused-vars
 import treemap from 'chartjs-chart-treemap'
 import builder from './utils/buildChartOptions'
-import utils from '@dpc-sdp/yourvic-global/utils/charts'
-import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
+import utils from '@dpc-sdp/myvic-global/utils/charts'
+import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
 
 const createChart = (instance) => {
   var ctx = document.getElementById(instance.componentKey)
@@ -121,8 +121,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/yourvic-global/styles/charts";
-  .yourvic-tree-map {
+@import "~@dpc-sdp/myvic-global/styles/charts";
+  .myvic-tree-map {
     &__long-description {
       padding-left: 0 !important;
     }

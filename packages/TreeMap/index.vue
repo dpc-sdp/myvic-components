@@ -1,12 +1,12 @@
 <template>
-  <chart-wrapper class="yourvic-treemap-chart">
+  <chart-wrapper class="myvic-treemap-chart">
     <inner-chart v-bind="$props" />
   </chart-wrapper>
 </template>
 
 <script>
 import InnerChart from './InnerChart'
-import ChartWrapper from '@dpc-sdp/yourvic-global/components/ChartWrapper'
+import ChartWrapper from '@dpc-sdp/myvic-global/components/ChartWrapper'
 
 /**
  * TreeMap provides a generic and configurable tree map chart component
@@ -85,8 +85,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/yourvic-global/styles/charts";
-  .yourvic-treemap-chart {
+@import "~@dpc-sdp/myvic-global/styles/charts";
+  .myvic-treemap-chart {
     position: relative;
     height: inherit;
     width: inherit;

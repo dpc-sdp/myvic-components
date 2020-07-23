@@ -14,10 +14,10 @@ module.exports = {
     './index.js'
   ],
   output: {
-    filename: 'yourvic-bundle.js',
-    chunkFilename: '[name].yourvic-bundle.js',
+    filename: 'myvic-bundle.js',
+    chunkFilename: '[name].myvic-bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'YourVic',
+    library: 'Myvic',
     libraryTarget: 'umd',
     publicPath: 'dist/'
   },

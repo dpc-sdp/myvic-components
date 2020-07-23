@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
-import YourVicLineChart from './../index.vue'
-import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
-import ErrorComponent from '@dpc-sdp/yourvic-global/components/Error'
+import MyvicLineChart from './../index.vue'
+import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
+import ErrorComponent from '@dpc-sdp/myvic-global/components/Error'
 
-describe('YourVicLineChart', () => {
+describe('MyvicLineChart', () => {
   const chartData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
     datasets: [
@@ -14,7 +14,7 @@ describe('YourVicLineChart', () => {
     ]
   }
 
-  const wrapper = mount(YourVicLineChart, {
+  const wrapper = mount(MyvicLineChart, {
     propsData: {
       title: 'Line Chart',
       data: chartData,
@@ -28,7 +28,7 @@ describe('YourVicLineChart', () => {
     datasets: [{}]
   }
 
-  const errorWrapper = mount(YourVicLineChart, {
+  const errorWrapper = mount(MyvicLineChart, {
     propsData: {
       title: 'Line Chart',
       data: invalidChartData,

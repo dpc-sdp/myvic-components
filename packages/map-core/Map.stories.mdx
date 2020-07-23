@@ -1,12 +1,12 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import { withKnobs, object, number, boolean, text } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { YourVicDataBlock as DataBlock } from '@dpc-sdp/yourvic-data-block'
+import { MyvicDataBlock as DataBlock } from '@dpc-sdp/myvic-data-block'
 import {
-  YourvicMapCore,
-  YourvicMapVectorLayer,
-  YourvicMapVectorTileLayer,
-  YourvicMapLegend,
+  MyvicMapCore,
+  MyvicMapVectorLayer,
+  MyvicMapVectorTileLayer,
+  MyvicMapLegend,
   Style,
   Stroke,
   Fill,
@@ -16,30 +16,30 @@ import {
   myVictoriaRotatingColours,
   myVictoriaLayerStops,
   buildMyVictoriaMapboxStyle
-} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
+} from '@dpc-sdp/myvic-global/utils/geoserver_requests'
 
-<Meta title="Maps/Core" component={ YourvicMapCore } decorators={ [withKnobs] } />
+<Meta title="Maps/Core" component={ MyvicMapCore } decorators={ [withKnobs] } />
 
 # Map Core
 
-<Description of={ YourvicMapCore } type='docgen' />
+<Description of={ MyvicMapCore } type='docgen' />
 
 ## Installation
 
 ```shell
-npm install @dpc-sdp/yourvic-map-core --save
+npm install @dpc-sdp/myvic-map-core --save
 ```
 
 ## Import
 
 ```javascript
-import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
+import { MyvicMapCore } from '@dpc-sdp/myvic-map-core'
 ```
 
 ## Usage
 
 ```html
-<yourvic-map-core
+<myvic-map-core
   :style="{height: '400px'}"
   :baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}"
   :center="[16136905.843820328, -4383057.013522999]"
@@ -49,7 +49,7 @@ import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
 
 ## Props
 
-<Props of={ YourvicMapCore } />
+<Props of={ MyvicMapCore } />
 
 ## Interactive Map
 
@@ -59,8 +59,8 @@ This example shows how to create an interactive map that fills it's parent conta
   <Story name="Interactive Map">
     {
       {
-        components: { YourvicMapCore },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :baseMapUrl="baseMapUrl"
           :baseMapAttributions="baseMapAttributions"
@@ -155,14 +155,14 @@ This example shows how to create an interactive map that fills it's parent conta
 ## Fixed Map
 
 This example shows how to create a fixed size map locked to a specific location and zoom level. ```containerStyle```
-can be used to control to pass CSS styles through to YourvicMapCore to give it a fixed width and height.
+can be used to control to pass CSS styles through to MyvicMapCore to give it a fixed width and height.
 
 <Preview>
   <Story name="Fixed Map">
     {
       {
-       components: { YourvicMapCore },
-       template: `<yourvic-map-core
+       components: { MyvicMapCore },
+       template: `<myvic-map-core
           :containerStyle="containerStyle"
           baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
           :enableMapboxWatermark="false"
@@ -196,13 +196,13 @@ element to be tied to its width)
   <Story name="Ripple Grid">
     {
       {
-       components: { YourvicMapCore, RplContainer, RplRow, RplCol },
+       components: { MyvicMapCore, RplContainer, RplRow, RplCol },
        template: `
         <RplContainer style="width: 100%">
           <rpl-row>
             <rpl-col cols=2>Column 1</rpl-col>
             <rpl-col cols=8>
-              <yourvic-map-core
+              <myvic-map-core
                 :containerStyle="containerStyle"
                 baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
                 :enableMapboxWatermark="false"
@@ -240,14 +240,14 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
   <Story name="Popups">
     {
       {
-        components: { YourvicMapCore, YourvicMapVectorTileLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapVectorTileLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="11"
           :popupContentFunction="generatePopupContent"
         >
-          <yourvic-map-vector-tile-layer
+          <myvic-map-vector-tile-layer
             :urlFunction="getVectorTileWmsUrl"
             dataFormat="MVT"
             :enablePopup="true"
@@ -256,7 +256,7 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
             :mapboxStyle="mapboxStyle"
             mapboxStyleSource="Pink"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -315,20 +315,20 @@ selected feature by passing a style or style function to the map through ```sele
   <Story name="Select Interaction">
     {
       {
-        components: { YourvicMapCore, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="1"
           :enableSelectInteraction="true"
           :selectedFeatureStyle="selectedStyleFunction"
         >
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
             dataFormat="GeoJSON"
             labelAttribute="name"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -378,12 +378,12 @@ selected feature by passing a style or style function to the map through ```sele
   <Story name="Events">
     {
       {
-        components: { YourvicMapCore, YourvicMapVectorLayer, RplContainer, RplRow, RplCol, DataBlock },
+        components: { MyvicMapCore, MyvicMapVectorLayer, RplContainer, RplRow, RplCol, DataBlock },
         template: `
           <RplContainer style="width: 100%">
             <rpl-row>
               <rpl-col cols=6>
-                <yourvic-map-core
+                <myvic-map-core
                   :containerStyle="containerStyle"
                   :center="center"
                   :zoom="3"
@@ -392,12 +392,12 @@ selected feature by passing a style or style function to the map through ```sele
                   @select="onSelect"
                   @click="onClick"
                 >
-                  <yourvic-map-vector-layer
+                  <myvic-map-vector-layer
                     url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
                     dataFormat="GeoJSON"
                     labelAttribute="name"
                   />
-                </yourvic-map-core>
+                </myvic-map-core>
               </rpl-col>
               <rpl-col cols=6>
                 <data-block :data="selectDataBlock" :selectable="false" :isBlock="true" style="marginBottom: 10px; marginRight: 10px" />
@@ -445,15 +445,15 @@ https://www.w3.org/WAI/tutorials/images/examples/2014-first-qtr/
   <Story name="Accessibility">
     {
       {
-        components: { YourvicMapCore, YourvicMapVectorTileLayer, YourvicMapVectorLayer, YourvicMapLegend },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapVectorTileLayer, MyvicMapVectorLayer, MyvicMapLegend },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="11"
           :popupContentFunction="generatePopupContent"
           ariaLabel="An interactive map showing population growth by suburb"
         >
-          <yourvic-map-vector-tile-layer
+          <myvic-map-vector-tile-layer
             :urlFunction="getVectorTileWmsUrl"
             dataFormat="MVT"
             :enablePopup="true"
@@ -463,20 +463,20 @@ https://www.w3.org/WAI/tutorials/images/examples/2014-first-qtr/
             mapboxStyleSource="Pink"
             :attributions="attributions"
           />
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :url="labelLayerUrl"
             dataFormat="GeoJSON"
             labelAttribute="ssc_name"
             labelOnly
           />
-          <yourvic-map-legend
+          <myvic-map-legend
             type="gradient"
             title="Legend"
             gradientColor="pink"
             :gradientRange="gradientRange"
             imageUrl="http://services.land.vic.gov.au/catalogue/publicproxy/guest/dv_geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FLORAFAUNA1_NV2005_EVCBCS&legend_options=fontName:Arial;fontAntiAliasing:true;fontColor:0x000033;fontSize:10;dpi:120&TRANSPARENT=true"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },

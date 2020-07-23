@@ -2,10 +2,10 @@ import { Meta, Preview, Story, Props, Source, Description } from '@storybook/add
 import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import {
-  YourvicMapCore,
-  YourvicMapTileLayer,
-  YourvicMapVectorTileLayer,
-  YourvicMapVectorLayer,
+  MyvicMapCore,
+  MyvicMapTileLayer,
+  MyvicMapVectorTileLayer,
+  MyvicMapVectorLayer,
   Style,
   Stroke,
   Fill,
@@ -15,45 +15,45 @@ import {
   myVictoriaRotatingColours,
   myVictoriaLayerStops,
   buildMyVictoriaMapboxStyle
-} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
+} from '@dpc-sdp/myvic-global/utils/geoserver_requests'
 
-<Meta title="Maps/Vector Tile Layer" component={ YourvicMapVectorTileLayer } decorators={ [withKnobs] } />
+<Meta title="Maps/Vector Tile Layer" component={ MyvicMapVectorTileLayer } decorators={ [withKnobs] } />
 
 # Map Vector Tile Layer
 
-<Description of={ YourvicMapVectorTileLayer } type='docgen' />
+<Description of={ MyvicMapVectorTileLayer } type='docgen' />
 
 ## Installation
 
 ```shell
-npm install @dpc-sdp/yourvic-map-core --save
+npm install @dpc-sdp/myvic-map-core --save
 ```
 
 ## Import
 
 ```javascript
-import { YourvicMapCore, YourvicMapVectorTileLayer } from '@dpc-sdp/yourvic-map-core'
+import { MyvicMapCore, MyvicMapVectorTileLayer } from '@dpc-sdp/myvic-map-core'
 ```
 
 ## Usage
 
-One or more ```yourvic-map-vector-tile-layer``` components can be declared as children of ```yourvic-map-core```.
+One or more ```myvic-map-vector-tile-layer``` components can be declared as children of ```myvic-map-core```.
 
 ```html
-<yourvic-map-core
+<myvic-map-core
   :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
   :center="[16138405.843820328, -4552817.013522999]"
 >
-  <yourvic-map-vector-tile-layer
+  <myvic-map-vector-tile-layer
     url="https://ahocevar.com/geoserver/gwc/service/tms/1.0.0/ne:ne_10m_admin_0_countries@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf"
     dataFormat="MVT"
   />
-</yourvic-map-core>
+</myvic-map-core>
 ```
 
 ## Props
 
-<Props of={ YourvicMapVectorTileLayer } />
+<Props of={ MyvicMapVectorTileLayer } />
 
 ## Configurable Layer
 
@@ -63,8 +63,8 @@ This example provides options to test different layer configurations.
   <Story name="Configurable Layer">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorTileLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :baseMapUrl="baseMapUrl"
           :baseMapAttributions="baseMapAttributions"
@@ -81,7 +81,7 @@ This example provides options to test different layer configurations.
           enableZoomInteraction
           enableRotateInteraction
         >
-          <yourvic-map-vector-tile-layer
+          <myvic-map-vector-tile-layer
             :url="decodeURIComponent(layerUrl.url)"
             :dataFormat="layerDataFormat"
             :projection="layerProjection == '' ? undefined : layerProjection"
@@ -89,7 +89,7 @@ This example provides options to test different layer configurations.
             :attributions="layerAttributions"
             :opacity="layerOpacity"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         props: {
           layerUrl: {
             default: () => object('URL', {
@@ -177,26 +177,26 @@ MyVictoria uses Mapbox styles but requires some layer specific configuration bef
   <Story name="MyVictoria WMTS">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorTileLayer, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="11"
         >
-          <yourvic-map-vector-tile-layer
+          <myvic-map-vector-tile-layer
             :url="getVectorTileWmtsUrl()"
             dataFormat="MVT"
             mapboxStyleMethod="stylefunction"
             :mapboxStyle="mapboxStyle"
             mapboxStyleSource="Blue"
           />
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :url="labelLayerUrl"
             dataFormat="GeoJSON"
             labelAttribute="ssc_name"
             labelOnly
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -248,14 +248,14 @@ Tile Grid. MyVictoria uses Mapbox styles but requires some layer specific config
   <Story name="MyVictoria WMS">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorTileLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="11"
           :popupContentFunction="generatePopupContent"
         >
-          <yourvic-map-vector-tile-layer
+          <myvic-map-vector-tile-layer
             :urlFunction="getVectorTileWmsUrl"
             :enablePopup="true"
             dataFormat="MVT"
@@ -264,7 +264,7 @@ Tile Grid. MyVictoria uses Mapbox styles but requires some layer specific config
             :mapboxStyle="mapboxStyle"
             mapboxStyleSource="Pink"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -322,20 +322,20 @@ data sources.
   <Story name="Mapbox Bright">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorTileLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorTileLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="11"
           enableMapboxWatermark
         >
-          <yourvic-map-vector-tile-layer
+          <myvic-map-vector-tile-layer
             dataFormat="MVT"
             :overlaps="false"
             mapboxStyle="https://api.mapbox.com/styles/v1/mapbox/bright-v9?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
             :attributions="attributions"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },

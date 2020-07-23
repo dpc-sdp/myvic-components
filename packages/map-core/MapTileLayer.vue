@@ -3,12 +3,12 @@ import ol from './lib/ol'
 import layer from './mixin/layer'
 
 /**
- * YourvicMapTileLayer provides support for OSM, XYZ, WMS and ArcGIS tiled map layers for YourvicMapCore. It offers a
- * declarative API for describing layers as child components of YourvicMapCore, wrapping the functionality provided by
+ * MyvicMapTileLayer provides support for OSM, XYZ, WMS and ArcGIS tiled map layers for MyvicMapCore. It offers a
+ * declarative API for describing layers as child components of MyvicMapCore, wrapping the functionality provided by
  * an OpenLayers Tile layer and OSM, XYZ, TileWMS and TileArcGISRest data sources.
  */
 export default {
-  name: 'YourvicMapTileLayer',
+  name: 'MyvicMapTileLayer',
   mixins: [layer],
   props: {
     /**

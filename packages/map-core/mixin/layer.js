@@ -95,7 +95,7 @@ export default {
       try {
         return await this.getMap()
       } catch (ex) {
-        console.error('unable to get reference to map, check that layer is a child of yourvic-map-core')
+        console.error('unable to get reference to map, check that layer is a child of myvic-map-core')
         return undefined
       }
     },

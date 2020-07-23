@@ -82,9 +82,9 @@ For adding new tests, add a page in `test/nuxt/fixture/pages`. Then add a new en
 
 ### CSS
 
-A `yourvic` prefix is needed.  
+A `myvic` prefix is needed.
 Use [BEM](http://getbem.com/introduction/) methodology to name css class.
 
-**Component class name:**  .yourvic-[component-name]  
-**Element class name:**  .yourvic-[component-name]__[element-name]  
-**Modifier class name:**  .yourvic-[component-name]--[modifier-name]
+**Component class name:**  .myvic-[component-name]
+**Element class name:**  .myvic-[component-name]__[element-name]
+**Modifier class name:**  .myvic-[component-name]--[modifier-name]

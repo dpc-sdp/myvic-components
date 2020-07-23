@@ -1,36 +1,36 @@
 <template>
-  <div class="yourvic-example-site__container">
-    <h1 class="yourvic-example-site__header-h1">This page has been created to showcase the charting and mapping components
+  <div class="myvic-example-site__container">
+    <h1 class="myvic-example-site__header-h1">This page has been created to showcase the charting and mapping components
       derived from the MyVictoria website
     </h1>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       This page has been created to showcase the charting and mapping components derived from the MyVictoria website.
       To demonstrate the flexibility of embedding these charts into web pages a range of data sources and datasets have
       been drawn upon in this example site.
     </p>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       This site uses live data published by the Australian Bureau of Statistics (ABS), the City of Melbourne and the
       API Gateway coupled with the Victorian Department of Premier and Cabinet developer toolkit for demonstration of
       data by way of graphs and maps.
     </p>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       The first such is a line chart demonstrating the ABS dataset showing monthly visitors to Australia. This is
       a live feed of a data updated monthly by the ABS.
     </p>
-    <div class="yourvic-example-site__chart-container">
-      <line-chart class="yourvic-example-site__arrivals-line-chart"
+    <div class="myvic-example-site__chart-container">
+      <line-chart class="myvic-example-site__arrivals-line-chart"
         :title="arrivalsData.title"
         :data="arrivalsData"
         :shortDesc="'Arrivals by month'"
         :longDesc="longDescriptionUrls['arrivals-line-chart']"
       />
     </div>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       The next data demonstration component is a map of the City of Melbourne’s pedestrian sensor counts for the last
       minute of the past hour. Once again this is a live feed of data updated every hour by the City of Melbourne.
     </p>
-    <div class="yourvic-example-site__map-container">
-      <yourvic-map-core
+    <div class="myvic-example-site__map-container">
+      <myvic-map-core
         :center="center"
         :zoom="8"
         :minZoom="1"
@@ -38,7 +38,7 @@
         :popupContentFunction="generatePopupContent"
         ariaLabel="An interactive map"
       >
-        <yourvic-map-vector-layer
+        <myvic-map-vector-layer
           :loader="mapDataLoader"
           dataFormat="GeoJSON"
           loadingStrategy="all"
@@ -47,41 +47,41 @@
           :enablePopup="true"
           :attributions="attributions"
         />
-        <yourvic-map-legend
+        <myvic-map-legend
           :type="'custom'"
           :title="'Number of pedestrians'"
         >
           <table style="width:100%">
             <tr>
-              <td><div class="yourvic-example-site__legend-layer-gray" /></td>
-              <td class="yourvic-example-site__legend-label">No pedestrians</td>
+              <td><div class="myvic-example-site__legend-layer-gray" /></td>
+              <td class="myvic-example-site__legend-label">No pedestrians</td>
             </tr>
             <tr>
-              <td><div class="yourvic-example-site__legend-layer-lightBlue" /></td>
-              <td class="yourvic-example-site__legend-label">1-10</td>
+              <td><div class="myvic-example-site__legend-layer-lightBlue" /></td>
+              <td class="myvic-example-site__legend-label">1-10</td>
             </tr>
             <tr>
-              <td><div class="yourvic-example-site__legend-layer-mediumBlue" /></td>
-              <td class="yourvic-example-site__legend-label">11-50</td>
+              <td><div class="myvic-example-site__legend-layer-mediumBlue" /></td>
+              <td class="myvic-example-site__legend-label">11-50</td>
             </tr>
             <tr>
-              <td><div class="yourvic-example-site__legend-layer-darkBlue" /></td>
-              <td class="yourvic-example-site__legend-label">51-100</td>
+              <td><div class="myvic-example-site__legend-layer-darkBlue" /></td>
+              <td class="myvic-example-site__legend-label">51-100</td>
             </tr>
             <tr>
-              <td><div class="yourvic-example-site__legend-layer-darkerBlue" /></td>
-              <td class="yourvic-example-site__legend-label">More than 100</td>
+              <td><div class="myvic-example-site__legend-layer-darkerBlue" /></td>
+              <td class="myvic-example-site__legend-label">More than 100</td>
             </tr>
           </table>
-        </yourvic-map-legend>
-      </yourvic-map-core>
+        </myvic-map-legend>
+      </myvic-map-core>
     </div>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       The next chart is showing the ABS dataset of the monthly labour force by sex in Victoria. This is a live feed of
       a data updated monthly by the ABS ingested and pushed out by the API gateway.
     </p>
-    <div class="yourvic-example-site__chart-container">
-      <line-chart class="yourvic-example-site__labour-force-line-chart"
+    <div class="myvic-example-site__chart-container">
+      <line-chart class="myvic-example-site__labour-force-line-chart"
         :title="labourForceData.title"
         :data="labourForceData"
         :showLegend="true"
@@ -90,19 +90,19 @@
         :longDesc="longDescriptionUrls['labour-force-line-chart']"
       />
     </div>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       The following two pie charts are showing the ABS data of increasing and decreasing sources to Victoria’s
       population clock for the past quarter. Once again this is a live feed of a data updated quarterly by the ABS.
     </p>
-    <div class="yourvic-example-site__chart-container">
-      <pie-chart class="yourvic-example-site__population-pie-chart"
+    <div class="myvic-example-site__chart-container">
+      <pie-chart class="myvic-example-site__population-pie-chart"
         :title="incomingPopulationData.title"
         :data="incomingPopulationData"
         :showLegend="true"
         :shortDesc="'Incoming Population'"
         :longDesc="longDescriptionUrls['incoming-population-pie-chart']"
       />
-      <pie-chart class="yourvic-example-site__population-pie-chart"
+      <pie-chart class="myvic-example-site__population-pie-chart"
         :title="outgoingPopulationData.title"
         :data="outgoingPopulationData"
         :showLegend="true"
@@ -110,13 +110,13 @@
         :longDesc="longDescriptionUrls['outcoming-population-pie-chart']"
       />
     </div>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       The next chart is a tree map showing the ABS data for the differences in the consumer price index in Melbourne
       for a range of goods and services for the past quarter. Once again this is a live feed of a data updated
       quarterly by the ABS.
     </p>
-    <div class="yourvic-example-site__chart-container">
-      <tree-map class="yourvic-example-site__cpi-tree-map"
+    <div class="myvic-example-site__chart-container">
+      <tree-map class="myvic-example-site__cpi-tree-map"
         :title="'CPI for a range of goods and services'"
         :data="cpiData"
         :valueAttr="'value'"
@@ -125,12 +125,12 @@
         :longDesc="longDescriptionUrls['cpi-tree-map']"
         />
     </div>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       The following bar chart is showing the ABS data for quarterly residential property price index value for
       greater Melbourne. Once again this is a live feed of a data updated quarterly by the ABS.
     </p>
-    <div class="yourvic-example-site__chart-container">
-      <bar-chart class="yourvic-example-site__property-prices-bar-chart"
+    <div class="myvic-example-site__chart-container">
+      <bar-chart class="myvic-example-site__property-prices-bar-chart"
         :title="propertyPricesData.title"
         direction="vertical"
         :data="propertyPricesData"
@@ -139,44 +139,44 @@
         :longDesc="longDescriptionUrls['property-prices-bar-chart']"
       />
     </div>
-    <p class="yourvic-example-site__text-block">
+    <p class="myvic-example-site__text-block">
       Finally, the range of data blocks with trend icons below are showing the ABS data for the past quarter’s export
       price indices for a range of goods. Once again this is a live feed of a data updated quarterly by the ABS.
     </p>
-    <div class="yourvic-example-site__data-block-container">
+    <div class="myvic-example-site__data-block-container">
       <data-block
         id="data-block-1"
-        class="yourvic-example-site__data-block"
+        class="myvic-example-site__data-block"
         :selectable="false"
         :data="epiData"
       />
       <data-block
         id="data-block-2"
-        class="yourvic-example-site__data-block"
+        class="myvic-example-site__data-block"
         :selectable="false"
         :data="epiMeatData"
       />
       <data-block
         id="data-block-3"
-        class="yourvic-example-site__data-block"
+        class="myvic-example-site__data-block"
         :selectable="false"
         :data="epiCerealData"
       />
       <data-block
         id="data-block-4"
-        class="yourvic-example-site__data-block"
+        class="myvic-example-site__data-block"
         :selectable="false"
         :data="epiMetalData"
       />
       <data-block
         id="data-block-4"
-        class="yourvic-example-site__data-block"
+        class="myvic-example-site__data-block"
         :selectable="false"
         :data="epiCcbData"
       />
       <data-block
         id="data-block-4"
-        class="yourvic-example-site__data-block"
+        class="myvic-example-site__data-block"
         :selectable="false"
         :data="epiTransportData"
       />
@@ -185,11 +185,11 @@
 </template>
 <script>
 
-import DataBlock from '@dpc-sdp/yourvic-data-block'
-import BarChart from '@dpc-sdp/yourvic-bar-chart'
-import LineChart from '@dpc-sdp/yourvic-line-chart'
-import PieChart from '@dpc-sdp/yourvic-pie-chart'
-import TreeMap from '@dpc-sdp/yourvic-treemap'
+import DataBlock from '@dpc-sdp/myvic-data-block'
+import BarChart from '@dpc-sdp/myvic-bar-chart'
+import LineChart from '@dpc-sdp/myvic-line-chart'
+import PieChart from '@dpc-sdp/myvic-pie-chart'
+import TreeMap from '@dpc-sdp/myvic-treemap'
 import {
   getArrivalsData,
   getCpiData,
@@ -206,15 +206,15 @@ import {
   getEpiTransportData
 } from './utils/getData'
 import {
-  YourvicMapCore,
-  YourvicMapVectorLayer,
-  YourvicMapLegend,
+  MyvicMapCore,
+  MyvicMapVectorLayer,
+  MyvicMapLegend,
   Style,
   Stroke,
   Fill,
   Circle
-} from '@dpc-sdp/yourvic-map-core'
-import ol from '@dpc-sdp/yourvic-map-core/lib/ol'
+} from '@dpc-sdp/myvic-map-core'
+import ol from '@dpc-sdp/myvic-map-core/lib/ol'
 
 const startingChartData = { datasets: [], labels: [] }
 const startingBlockData = { title: '', description: '' }
@@ -238,9 +238,9 @@ export default {
     LineChart,
     PieChart,
     TreeMap,
-    YourvicMapCore,
-    YourvicMapVectorLayer,
-    YourvicMapLegend
+    MyvicMapCore,
+    MyvicMapVectorLayer,
+    MyvicMapLegend
   },
   props: {
   },
@@ -401,9 +401,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-example-site {
+  .myvic-example-site {
     display: relative;
 
     &__container {

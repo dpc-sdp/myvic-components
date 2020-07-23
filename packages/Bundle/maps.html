@@ -5,8 +5,8 @@
 </head>
 <body style="padding-left: 10rem; padding-right: 10rem; padding-bottom: 3rem">
 
-<!--<script src="dist/yourvic-bundle.js"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/yourvic-bundle@dev/dist/yourvic-bundle.js"></script>
+<!--<script src="dist/myvic-bundle.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/myvic-bundle@dev/dist/myvic-bundle.js"></script>
 
 <h3>Map:</h3>
 <div id="mapContainer" style="position: relative; width: 100%; height: 400px; border: 1px solid black">
@@ -29,7 +29,7 @@
 </div>
 
 <script>
-  YourVic.mountMap('#map', {
+  Myvic.mountMap('#map', {
     baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
     center: [16136905.843820328, -4383057.013522999],
     zoom: 8,
@@ -41,7 +41,7 @@
     ]
   })
 
-  YourVic.mountMapWithTileLayer('#mapTileLayer', {
+  Myvic.mountMapWithTileLayer('#mapTileLayer', {
     center: [16136905.843820328, -4383057.013522999],
     zoom: 8
   }, {
@@ -51,7 +51,7 @@
     ]
   })
 
-  YourVic.mountMapWithVectorLayer('#mapVectorLayer', {
+  Myvic.mountMapWithVectorLayer('#mapVectorLayer', {
     center: [16136905.843820328, -4383057.013522999],
     zoom: 5
   }, {
@@ -63,7 +63,7 @@
     ]
   })
 
-  YourVic.mountMapWithVectorTileLayer('#mapVectorTileLayer', {
+  Myvic.mountMapWithVectorTileLayer('#mapVectorTileLayer', {
     center: [16136905.843820328, -4383057.013522999],
     zoom: 5,
     enableMapboxWatermark: true

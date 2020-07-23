@@ -1,6 +1,6 @@
-# @dpc-sdp/yourvic-bundle
+# @dpc-sdp/myvic-bundle
 
-A bundle of YourVictoria components packaged as a UMD. Mainly intended for use
+A bundle of MyVictoria components packaged as a UMD. Mainly intended for use
 in existing HTML sites that are not already using Vue or Webpack.
 
 The bundle includes a simple API to allow individual components to be mounted
@@ -9,19 +9,19 @@ and props will pass a props object through to the underlying Vue component (see
 the storybook docs for more information for each component).
 
 ```js
-YourVic.mountAddressSearch (el, props)
-YourVic.mountAreaSearch (el, props)
-YourVic.mountAutoComplete (el, props)
-YourVic.mountBarChart (el, props)
-YourVic.mountDataBlock (el, props)
-YourVic.mountLineChart (el, props)
-YourVic.mountPieChart (el, props)
-YourVic.mountToggleList (el, props)
-YourVic.mountTreeMap (el, props)
-YourVic.mountMap (el, props)
-YourVic.mountMapWithTileLayer (el, mapProps, layerProps)
-YourVic.mountMapWithVectorLayer (el, mapProps, layerProps)
-YourVic.mountMapWithVectorTileLayer (el, mapProps, layerProps)
+Myvic.mountAddressSearch (el, props)
+Myvic.mountAreaSearch (el, props)
+Myvic.mountAutoComplete (el, props)
+Myvic.mountBarChart (el, props)
+Myvic.mountDataBlock (el, props)
+Myvic.mountLineChart (el, props)
+Myvic.mountPieChart (el, props)
+Myvic.mountToggleList (el, props)
+Myvic.mountTreeMap (el, props)
+Myvic.mountMap (el, props)
+Myvic.mountMapWithTileLayer (el, mapProps, layerProps)
+Myvic.mountMapWithVectorLayer (el, mapProps, layerProps)
+Myvic.mountMapWithVectorTileLayer (el, mapProps, layerProps)
 ```
 
 --------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ YourVic.mountMapWithVectorTileLayer (el, mapProps, layerProps)
 ## Import
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/yourvic-bundle/dist/yourvic-bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/myvic-bundle/dist/myvic-bundle.js"></script>
 ```
 
 --------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ YourVic.mountMapWithVectorTileLayer (el, mapProps, layerProps)
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-bundle --save
+npm install @dpc-sdp/myvic-bundle --save
 ```
 
 --------------------------------------------------------------------------------
@@ -45,8 +45,8 @@ npm install @dpc-sdp/yourvic-bundle --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-bundle
-├── @dpc-sdp/yourvic-global
+@dpc-sdp/myvic-bundle
+├── @dpc-sdp/myvic-global
 ```
 
 --------------------------------------------------------------------------------

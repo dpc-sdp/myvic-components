@@ -1,53 +1,53 @@
 <template>
-  <div class="yourvic-examples__container">
-    <div class="yourvic-examples__data-block-container">
+  <div class="myvic-examples__container">
+    <div class="myvic-examples__data-block-container">
       <data-block
         id="data-block-1"
-        class="yourvic-examples__data-block"
+        class="myvic-examples__data-block"
         :isSelected="activeBlock === 'data-block-1'"
         :data="personalIncomeData"
         @data-block-selected="selectBlock"
       />
       <data-block
         id="data-block-2"
-        class="yourvic-examples__data-block"
+        class="myvic-examples__data-block"
         :isSelected="activeBlock === 'data-block-2'"
         :data="personalIncomeGrowthData"
         @data-block-selected="selectBlock"
       />
       <data-block
         id="data-block-3"
-        class="yourvic-examples__data-block"
+        class="myvic-examples__data-block"
         :isSelected="activeBlock === 'data-block-3'"
         :data="householdIncomeData"
         @data-block-selected="selectBlock"
       />
       <data-block
         id="data-block-4"
-        class="yourvic-examples__data-block"
+        class="myvic-examples__data-block"
         :isSelected="activeBlock === 'data-block-4'"
         :data="householdIncomeGrowthData"
         @data-block-selected="selectBlock"
       />
     </div>
-    <div class="yourvic-examples__bottom-row">
-      <div class="yourvic-examples__chart-container">
-        <bar-chart class="yourvic-examples__bar-chart"
+    <div class="myvic-examples__bottom-row">
+      <div class="myvic-examples__chart-container">
+        <bar-chart class="myvic-examples__bar-chart"
           :data="chartData"
           :title="chartTitle"
           :showLegend="showChartLegend"
           data-format="percentage"
           :shortDesc="chartTitle"
-          :longDesc="'http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-bar-chart'"
+          :longDesc="'http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-bar-chart'"
         />
       </div>
-      <div class="yourvic-examples__map-container">
-        <yourvic-map-core
+      <div class="myvic-examples__map-container">
+        <myvic-map-core
           :center="center"
           :zoom="11"
           ariaLabel="An interactive map showing income statistics"
         >
-          <yourvic-map-vector-tile-layer
+          <myvic-map-vector-tile-layer
             :url="getVectorTileWmtsUrl()"
             dataFormat="MVT"
             mapboxStyleMethod="stylefunction"
@@ -55,41 +55,41 @@
             mapboxStyleSource="Blue"
             :attributions="attributions"
           />
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :url="labelLayerUrl"
             dataFormat="GeoJSON"
             labelAttribute="full_name"
             labelOnly
           />
-          <yourvic-map-legend
+          <myvic-map-legend
               type="gradient"
               :title="legendTitle"
               :gradientRange="legendData"
             >
-            </yourvic-map-legend>
-        </yourvic-map-core>
+            </myvic-map-legend>
+        </myvic-map-core>
       </div>
     </div>
   </div>
 </template>
 <script>
 
-import DataBlock from '@dpc-sdp/yourvic-data-block'
-import BarChart from '@dpc-sdp/yourvic-bar-chart'
+import DataBlock from '@dpc-sdp/myvic-data-block'
+import BarChart from '@dpc-sdp/myvic-bar-chart'
 import { getGeneralIncomeData, getIncomeData, getLegendData, LEGEND_TITLES, MAP_LAYERS } from './utils/getData'
 import {
-  YourvicMapCore,
-  YourvicMapVectorTileLayer,
-  YourvicMapVectorLayer,
-  YourvicMapLegend
-} from '@dpc-sdp/yourvic-map-core'
-import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
+  MyvicMapCore,
+  MyvicMapVectorTileLayer,
+  MyvicMapVectorLayer,
+  MyvicMapLegend
+} from '@dpc-sdp/myvic-map-core'
+import { commarize } from '@dpc-sdp/myvic-global/utils/formatting'
 import {
   createWfsRequestUrl,
   myVictoriaRotatingColours,
   myVictoriaLayerStops,
   buildMyVictoriaMapboxStyle
-} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
+} from '@dpc-sdp/myvic-global/utils/geoserver_requests'
 
 /**
  * IncomeData is a component showcasing the area search, data block and bar chart components
@@ -98,10 +98,10 @@ export default {
   components: {
     DataBlock,
     BarChart,
-    YourvicMapCore,
-    YourvicMapVectorLayer,
-    YourvicMapVectorTileLayer,
-    YourvicMapLegend
+    MyvicMapCore,
+    MyvicMapVectorLayer,
+    MyvicMapVectorTileLayer,
+    MyvicMapLegend
   },
   props: {
   },
@@ -121,7 +121,7 @@ export default {
       incomeData: {},
       legendData: { low: '0%', high: '100%' },
       attributions: [
-        '<a href="http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-map" tabindex="0" target="_blank">Accessible Version</a>'
+        '<a href="http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-3-map" tabindex="0" target="_blank">Accessible Version</a>'
       ]
     }
   },
@@ -280,9 +280,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-examples {
+  .myvic-examples {
     display: relative;
 
     &__container {

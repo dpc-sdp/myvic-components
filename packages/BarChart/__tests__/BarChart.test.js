@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
-import YourVicBarChart from './../index.vue'
-import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
-import ErrorComponent from '@dpc-sdp/yourvic-global/components/Error'
+import MyvicBarChart from './../index.vue'
+import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
+import ErrorComponent from '@dpc-sdp/myvic-global/components/Error'
 
-describe('YourVicBarChart', () => {
+describe('MyvicBarChart', () => {
   const chartData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
     datasets: [
@@ -14,7 +14,7 @@ describe('YourVicBarChart', () => {
     ]
   }
 
-  const wrapper = mount(YourVicBarChart, {
+  const wrapper = mount(MyvicBarChart, {
     propsData: {
       direction: 'horizontal',
       title: 'Bar Chart',
@@ -29,7 +29,7 @@ describe('YourVicBarChart', () => {
     datasets: [{}]
   }
 
-  const errorWrapper = mount(YourVicBarChart, {
+  const errorWrapper = mount(MyvicBarChart, {
     propsData: {
       direction: 'horizontal',
       title: 'Bar Chart',

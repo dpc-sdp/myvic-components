@@ -1,16 +1,16 @@
 <template>
   <div
     v-if="show"
-    id="yourvic-map-core-popup-content"
-    class="yourvic-map-core-indicator">
-    <div class="yourvic-map-core-indicator__close">
+    id="myvic-map-core-popup-content"
+    class="myvic-map-core-indicator">
+    <div class="myvic-map-core-indicator__close">
       <button-close
         :id="'tabs-close-button'"
         :size="'small'"
         @click="close"/>
     </div>
     <div
-      class="yourvic-map-core-indicator__inner"
+      class="myvic-map-core-indicator__inner"
       :ref="'contentElement'"
       :style="{
         maxHeight: this.maxHeight,
@@ -20,30 +20,30 @@
         <div
           v-for="(feature, index) in selectedFeature"
           :key="index"
-          class="yourvic-map-core-indicator__feature-multiple">
-          <h5 class="yourvic-map-core-indicator__title">{{ feature.title }}</h5>
-          <div v-if="feature.value" class="yourvic-map-core-indicator__value">{{ feature.value }}</div>
-          <div v-if="feature.content" class="yourvic-map-core-indicator__content">
-            <div class="yourvic-map-core-indicator__readmore"
+          class="myvic-map-core-indicator__feature-multiple">
+          <h5 class="myvic-map-core-indicator__title">{{ feature.title }}</h5>
+          <div v-if="feature.value" class="myvic-map-core-indicator__value">{{ feature.value }}</div>
+          <div v-if="feature.content" class="myvic-map-core-indicator__content">
+            <div class="myvic-map-core-indicator__readmore"
                  @click="readMoreMultiClick(index)"
                  @keyup.enter="readMoreMultiClick(index)"
                  v-html="showDescOpenMuliText(index)"
                  tabIndex="0" />
-            <div class="yourvic-map-core-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
+            <div class="myvic-map-core-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
           </div>
           <hr v-if="index !== selectedFeature.length - 1" />
         </div>
       </template>
       <div v-else>
-        <h5 class="yourvic-map-core-indicator__title">{{ selectedFeature.title }}</h5>
-        <div v-if="selectedFeature.value" class="yourvic-map-core-indicator__value">{{ selectedFeature.value }}</div>
-        <div v-if="selectedFeature.content" class="yourvic-map-core-indicator__content">
-          <div class="yourvic-map-core-indicator__readmore"
+        <h5 class="myvic-map-core-indicator__title">{{ selectedFeature.title }}</h5>
+        <div v-if="selectedFeature.value" class="myvic-map-core-indicator__value">{{ selectedFeature.value }}</div>
+        <div v-if="selectedFeature.content" class="myvic-map-core-indicator__content">
+          <div class="myvic-map-core-indicator__readmore"
                @click="readMoreClick"
                @keyup.enter="readMoreClick"
                v-html="this.descOpenText"
                tabIndex="0" />
-          <div class="yourvic-map-core-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
+          <div class="myvic-map-core-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
         </div>
       </div>
     </div>
@@ -154,7 +154,7 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  .yourvic-map-core-indicator {
+  .myvic-map-core-indicator {
     $root: &;
     background-color: rpl-color('white');
     border-radius: rem(5px);

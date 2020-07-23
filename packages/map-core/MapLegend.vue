@@ -1,20 +1,20 @@
 <template>
   <div
-    :class="[{ 'yourvic-map-legend--isLeftAligned': alignLeft }, gradientColor]"
-    class="yourvic-map-legend"
+    :class="[{ 'myvic-map-legend--isLeftAligned': alignLeft }, gradientColor]"
+    class="myvic-map-legend"
   >
-    <h2 class="yourvic-map-legend__title">{{ title }}</h2>
-    <div v-if="type === 'gradient'" class="yourvic-map-legend__content">
-      <div class="yourvic-map-legend__display" />
-      <div class="yourvic-map-legend__range">
-        <span class="yourvic-map-legend__range-title">{{ gradientRange.low }}</span>
-        <span class="yourvic-map-legend__range-title">{{ gradientRange.high }}</span>
+    <h2 class="myvic-map-legend__title">{{ title }}</h2>
+    <div v-if="type === 'gradient'" class="myvic-map-legend__content">
+      <div class="myvic-map-legend__display" />
+      <div class="myvic-map-legend__range">
+        <span class="myvic-map-legend__range-title">{{ gradientRange.low }}</span>
+        <span class="myvic-map-legend__range-title">{{ gradientRange.high }}</span>
       </div>
     </div>
-    <div v-if="type === 'image'" class="yourvic-map-legend__content">
+    <div v-if="type === 'image'" class="myvic-map-legend__content">
       <img :src="imageUrl" :alt="imageAltText">
     </div>
-    <div v-if="type === 'custom'" class="yourvic-map-legend__content">
+    <div v-if="type === 'custom'" class="myvic-map-legend__content">
       <!-- @slot Default slot for custom legend content -->
       <slot></slot>
     </div>
@@ -23,13 +23,13 @@
 
 <script>
 /**
- * YourvicMapLegend provides a simple legend that can be overlayed on a map. Three types of legend are supported - a
+ * MyvicMapLegend provides a simple legend that can be overlayed on a map. Three types of legend are supported - a
  * ```gradient``` legend based on those in use in MyVictoria, an ```image``` legend that displays an image such as those
  * returned by a WMS GetLegendGraphic request, and a ```custom``` legend that allows users to define their own HTML
  * content to be displayed within the legend.
  */
 export default {
-  name: 'YourvicMapLegend',
+  name: 'MyvicMapLegend',
   props: {
     /**
      * The type of the legend. Must be ```gradient```, ```image``` or ```custom```
@@ -91,7 +91,7 @@ export default {
 
 <style lang="scss" scoped>
 
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
   $blueShade10: #011a3c;
   $greyShade: #222222;
@@ -102,7 +102,7 @@ export default {
     background: linear-gradient(to right, $color-stops);
   }
 
-  .yourvic-map-legend {
+  .myvic-map-legend {
     padding: .6rem;
     position: absolute;
     z-index: 900;

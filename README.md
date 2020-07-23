@@ -17,7 +17,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The Your Victoria component library aims to enable the publication of accessible maps, charts and user interface (UI)
+The My Victoria component library aims to enable the publication of accessible maps, charts and user interface (UI)
 elements to websites by content owners across Government. It includes a set of reusable UI components designed to
 integrate with DDI’s existing ecosystem of platforms and services; and supporting documentation and examples to assist
 with their usage.
@@ -30,7 +30,7 @@ For a higher level overview of how to get started, see the [Getting Started Guid
 ## Component Overview
 
 All components have been developed with [Vue](https://vuejs.org/) as part of the
-[Your Victoria](https://github.com/dpc-sdp/yourvictoria-vic-gov-au) repository and aligned to the existing
+[MyVic-Components](https://github.com/dpc-sdp/myvic-components) repository and aligned to the existing
 [Ripple](https://github.com/dpc-sdp/ripple) component library. Components are published to NPM, ready to be used
 directly in any Vue JS application.
 
@@ -40,52 +40,52 @@ directly in any Vue JS application.
 application for deployment to [SDP](https://www.singledigitalpresence.vic.gov.au/).
 
 [Storybook](https://storybook.js.org/) examples with component documentation are available
-[here](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/)
+[here](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/)
 
 ## Installation
 
 Installation is straightforward with NPM or Yarn. See the component listing for all available packages.
 
 ```shell
-npm install @dpc-sdp/yourvic-bar-chart --save
+npm install @dpc-sdp/myvic-bar-chart --save
 ```
 
 or
 
 ```shell
-yarn add @dpc-sdp/yourvic-bar-chart
+yarn add @dpc-sdp/myvic-bar-chart
 ```
 
 ## Usage
 
-All components are published to NPM as individual packages under the @dpc-sdp namespace, with a yourvic- prefix. For
+All components are published to NPM as individual packages under the @dpc-sdp namespace, with a myvic- prefix. For
 example:
 
-- @dpc-sdp/yourvic-map-core
-- @dpc-sdp/yourvic-bar-chart
+- @dpc-sdp/myvic-map-core
+- @dpc-sdp/myvic-bar-chart
 
 Components are intended to be used with Vue.js projects, and can be installed with NPM as follows:
 
 ```shell
-npm install @dpc-sdp/yourvic-map-core --save
+npm install @dpc-sdp/myvic-map-core --save
 ```
 
 And imported using ES6 style imports:
 
 ```javascript
-import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
+import { MyvicMapCore } from '@dpc-sdp/myvic-map-core'
 ```
 
 Or using require as follows:
 
 ```javascript
-const YourvicMapCore = require("@dpc-sdp/yourvic-map-core")
+const MyvicMapCore = require("@dpc-sdp/myvic-map-core")
 ```
 
 Or imported directly into an HTML page (see the UMD Bundle documentation for more information:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/yourvic-bundle@dev/dist/yourvic-bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/myvic-bundle@dev/dist/myvic-bundle.js"></script>
 ```
 
 ## Component Listing
@@ -95,116 +95,116 @@ Or imported directly into an HTML page (see the UMD Bundle documentation for mor
 A component for displaying an autocomplete search with results. This component renders a text input that allows
 searching over a set of items. The filtered results will appear beneath the input as a selectable list.
 
-- [@dpc-sdp/yourvic-autocomplete](https://www.npmjs.com/package/@dpc-sdp/yourvic-autocomplete)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/autocomplete--default-story)
+- [@dpc-sdp/myvic-autocomplete](https://www.npmjs.com/package/@dpc-sdp/myvic-autocomplete)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/autocomplete--default-story)
 
 ### Address Search
 
 A component for looking up addresses in Victoria using an autocomplete search.
 
-- [@dpc-sdp/yourvic-addresssearch](https://www.npmjs.com/package/@dpc-sdp/yourvic-addresssearch)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/addresssearch--default-story)
+- [@dpc-sdp/myvic-addresssearch](https://www.npmjs.com/package/@dpc-sdp/myvic-addresssearch)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/addresssearch--default-story)
 
 ### Area Search
 
 A component for looking up different kinds of areas using an autocomplete search.
 
-- [@dpc-sdp/yourvic-areasearch](https://www.npmjs.com/package/@dpc-sdp/yourvic-areasearch)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/areasearch--default-story)
+- [@dpc-sdp/myvic-areasearch](https://www.npmjs.com/package/@dpc-sdp/myvic-areasearch)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/areasearch--default-story)
 
 ### Bar Chart
 
 A component for displaying a data-driven bar chart.
 
-- [@dpc-sdp/yourvic-bar-chart](https://www.npmjs.com/package/@dpc-sdp/yourvic-bar-chart)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/bar-chart--default-story)
+- [@dpc-sdp/myvic-bar-chart](https://www.npmjs.com/package/@dpc-sdp/myvic-bar-chart)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/bar-chart--default-story)
 
 ### Line Chart
 
 A component for displaying a data-driven line chart.
 
-- [@dpc-sdp/yourvic-line-chart](https://www.npmjs.com/package/@dpc-sdp/yourvic-line-chart)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/line-chart--default-story)
+- [@dpc-sdp/myvic-line-chart](https://www.npmjs.com/package/@dpc-sdp/myvic-line-chart)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/line-chart--default-story)
 
 ### Pie Chart
 
 A component for displaying a data-driven pie chart.
 
-- [@dpc-sdp/yourvic-pie-chart](https://www.npmjs.com/package/@dpc-sdp/yourvic-pie-chart)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/pie-chart--default-story)
+- [@dpc-sdp/myvic-pie-chart](https://www.npmjs.com/package/@dpc-sdp/myvic-pie-chart)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/pie-chart--default-story)
 
 ### Tree Map
 
 A component for displaying a data-driven tree map.
 
-- [@dpc-sdp/yourvic-treemap](https://www.npmjs.com/package/@dpc-sdp/yourvic-treemap)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/tree-map--default-story)
+- [@dpc-sdp/myvic-treemap](https://www.npmjs.com/package/@dpc-sdp/myvic-treemap)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/tree-map--default-story)
 
 ### Data Block
 
 A component for displaying a single data item as a block element.
 
-- [@dpc-sdp/yourvic-data-block](https://www.npmjs.com/package/@dpc-sdp/yourvic-data-block)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/data-block--default-story)
+- [@dpc-sdp/myvic-data-block](https://www.npmjs.com/package/@dpc-sdp/myvic-data-block)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/data-block--default-story)
 
 ### Toggle List
 
 A component for displaying a dynamic list of toggleable items.
 
-- [@dpc-sdp/yourvic-toggle-list](https://www.npmjs.com/package/@dpc-sdp/yourvic-toggle-list)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/toggle-list--default-story)
+- [@dpc-sdp/myvic-toggle-list](https://www.npmjs.com/package/@dpc-sdp/myvic-toggle-list)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/toggle-list--default-story)
 
 ### Map
 
 An interactive map component based on [OpenLayers](https://openlayers.org/).
 
-- [@dpc-sdp/yourvic-map-core](https://www.npmjs.com/package/@dpc-sdp/yourvic-map-core)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-core--interactive-map)
+- [@dpc-sdp/myvic-map-core](https://www.npmjs.com/package/@dpc-sdp/myvic-map-core)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-core--interactive-map)
 
 ### Map - Tile Layer
 
 A component that provides support for OSM, XYZ, WMS and ArcGIS tiled map layers.
 
-- [@dpc-sdp/yourvic-map-core](https://www.npmjs.com/package/@dpc-sdp/yourvic-map-core)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-tile-layer--configurable-layer)
+- [@dpc-sdp/myvic-map-core](https://www.npmjs.com/package/@dpc-sdp/myvic-map-core)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-tile-layer--configurable-layer)
 
 ### Map - Vector Layer
 
 A component that provides support for vector sources such as WFS, ArcGIS Feature Server and GeoJSON files.
 
-- [@dpc-sdp/yourvic-map-core](https://www.npmjs.com/package/@dpc-sdp/yourvic-map-core)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-vector-layer--configurable-layer)
+- [@dpc-sdp/myvic-map-core](https://www.npmjs.com/package/@dpc-sdp/myvic-map-core)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-vector-layer--configurable-layer)
 
 ### Map - Vector Tile Layer
 
 A component that provides support for Mapbox Vector Tile sources.
 
-- [@dpc-sdp/yourvic-map-core](https://www.npmjs.com/package/@dpc-sdp/yourvic-map-core)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-vector-tile-layer--configurable-layer)
+- [@dpc-sdp/myvic-map-core](https://www.npmjs.com/package/@dpc-sdp/myvic-map-core)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/maps-vector-tile-layer--configurable-layer)
 
 ### Global
 
-Shared styles, libraries and utility functions for use across YourVictoria components.
+Shared styles, libraries and utility functions for use across MyVictoria components.
 
-- [@dpc-sdp/yourvic-global](https://www.npmjs.com/package/@dpc-sdp/yourvic-global)
+- [@dpc-sdp/myvic-global](https://www.npmjs.com/package/@dpc-sdp/myvic-global)
 
 ### Bundled Examples
 
 Examples showing how multiple components can be bundled together and interact with each other.
 
-- [@dpc-sdp/yourvic-examples](https://www.npmjs.com/package/@dpc-sdp/yourvic-examples)
-- [Storybook Documentation](https://storybook-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/examples-areawithdata--default-story)
+- [@dpc-sdp/myvic-examples](https://www.npmjs.com/package/@dpc-sdp/myvic-examples)
+- [Storybook Documentation](https://storybook-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/?path=/docs/examples-areawithdata--default-story)
 
 ### UMD Bundle
 
-A bundle of YourVictoria components packaged as a UMD. Mainly intended for use
+A bundle of MyVictoria components packaged as a UMD. Mainly intended for use
 in existing HTML sites that are not already using Vue or Webpack.
 
-- [@dpc-sdp/yourvic-bundle](https://www.npmjs.com/package/@dpc-sdp/yourvic-bundle)
+- [@dpc-sdp/myvic-bundle](https://www.npmjs.com/package/@dpc-sdp/myvic-bundle)
 
 ## Deployment
 
-Users of the Your Victoria components are responsible for arranging their own web hosting. Some possible options include:
+Users of the My Victoria components are responsible for arranging their own web hosting. Some possible options include:
 
 - A Standalone Vue or Nuxt app can be self hosted on any standard web server.
 - Existing SDP Sites may be able to use the components via Drupal and Data Driven Component
@@ -213,7 +213,7 @@ Users of the Your Victoria components are responsible for arranging their own we
 
 ## Data Hosting
 
-The Your Victoria components don't have any specific requirements for data hosting, other than that the data is online
+The My Victoria components don't have any specific requirements for data hosting, other than that the data is online
 and can be parsed with JavaScript. If hosting is required, some existing options include:
 
 - [MyVictoria](https://myvictoria.vic.gov.au/) (using Geoserver for hosting geospatial web services)

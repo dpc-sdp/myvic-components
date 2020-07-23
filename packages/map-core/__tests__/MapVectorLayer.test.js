@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
-import YourvicMapVectorLayer from './../MapVectorLayer.vue'
+import MyvicMapVectorLayer from './../MapVectorLayer.vue'
 
-describe('YourvicMapVectorLayer', () => {
+describe('MyvicMapVectorLayer', () => {
   let mockMap = {
     removeLayer: jest.fn(() => true),
     addLayer: jest.fn(() => true)
   }
 
-  const wrapper = mount(YourvicMapVectorLayer, {
+  const wrapper = mount(MyvicMapVectorLayer, {
     propsData: {
       loader: () => {},
       dataFormat: 'GeoJSON'

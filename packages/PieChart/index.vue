@@ -1,5 +1,5 @@
 <template>
-  <div class="yourvic-pie-chart">
+  <div class="myvic-pie-chart">
     <inner-chart
       v-if="!gotError"
       :key="componentKey"
@@ -25,13 +25,13 @@ import InnerChart from './InnerChart'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
-import ChartDescription from '@dpc-sdp/yourvic-global/components/ChartDescription'
-import Error from '@dpc-sdp/yourvic-global/components/Error'
-import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
-import validateChartData from '@dpc-sdp/yourvic-global/mixins/validateChartData'
+import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
+import Error from '@dpc-sdp/myvic-global/components/Error'
+import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
+import validateChartData from '@dpc-sdp/myvic-global/mixins/validateChartData'
 
 /**
- * YourvicPieChart provides a generic and configurable pie chart component
+ * MyvicPieChart provides a generic and configurable pie chart component
  */
 export default {
   components: {
@@ -148,8 +148,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@dpc-sdp/yourvic-global/styles/charts";
-  .yourvic-pie-chart {
+@import "~@dpc-sdp/myvic-global/styles/charts";
+  .myvic-pie-chart {
     position: relative;
     width: inherit;
     height: inherit;

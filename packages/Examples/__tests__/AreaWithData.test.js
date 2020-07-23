@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import AreaWithData from './../AreaWithData.vue'
-import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
-import DataBlock from '@dpc-sdp/yourvic-data-block'
-import BarChart from '@dpc-sdp/yourvic-bar-chart'
+import { AreaSearch } from '@dpc-sdp/myvic-areasearch'
+import DataBlock from '@dpc-sdp/myvic-data-block'
+import BarChart from '@dpc-sdp/myvic-bar-chart'
 
 describe('AreaWithData', () => {
   const wrapper = mount(AreaWithData, {

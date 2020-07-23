@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/yourvic-line-chart
+# @dpc-sdp/myvic-line-chart
 
 > A component for displaying a line chart.
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-line-chart --save
+npm install @dpc-sdp/myvic-line-chart --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,8 +16,8 @@ npm install @dpc-sdp/yourvic-line-chart --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-line-chart
-├── @dpc-sdp/yourvic-global
+@dpc-sdp/myvic-line-chart
+├── @dpc-sdp/myvic-global
 ```
 
 --------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ npm install @dpc-sdp/yourvic-line-chart --save
 ## Import
 
 ```js
-import LineChart from '@dpc-sdp/yourvic-line-chart'
+import LineChart from '@dpc-sdp/myvic-line-chart'
 ```
 
 --------------------------------------------------------------------------------

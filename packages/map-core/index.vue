@@ -1,7 +1,7 @@
 <template>
-  <div class="yourvic-map-core" :style="containerStyle" >
+  <div class="myvic-map-core" :style="containerStyle" >
     <div
-      class="yourvic-map-core__popup ol-popup"
+      class="myvic-map-core__popup ol-popup"
       ref="mapPopup">
       <map-indicator
         :selectedFeature="feature"
@@ -9,8 +9,8 @@
     </div>
     <div
       v-if="!gotError"
-      class="yourvic-map-core__container">
-      <div class="yourvic-map-core__map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
+      class="myvic-map-core__container">
+      <div class="myvic-map-core__map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
         <!-- @slot Default slot for child layers -->
         <slot></slot>
         <a
@@ -20,7 +20,7 @@
           target="_blank">Mapbox</a>
       </div>
     </div>
-    <error v-if="gotError" :message="error.toString()" errorClass="map" class="yourvic-map-core__container" />
+    <error v-if="gotError" :message="error.toString()" errorClass="map" class="myvic-map-core__container" />
   </div>
 </template>
 
@@ -28,14 +28,14 @@
 import MapIndicator from './MapIndicator'
 import ol from './lib/ol'
 import styles from './styles/styles'
-import catchError from '@dpc-sdp/yourvic-global/mixins/catchError'
-import Error from '@dpc-sdp/yourvic-global/components/Error'
+import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
+import Error from '@dpc-sdp/myvic-global/components/Error'
 
 /**
- * YourvicMapCore provides a generic and configurable map component based on OpenLayers
+ * MyvicMapCore provides a generic and configurable map component based on OpenLayers
  */
 export default {
-  name: 'YourvicMapCore',
+  name: 'MyvicMapCore',
   mixins: [catchError],
   props: {
     /**
@@ -339,7 +339,7 @@ export default {
      *      return new ol.style.Style({})
      *    }
      * }
-     * <yourvic-map :customMethods="myMethods" />
+     * <myvic-map :customMethods="myMethods" />
      */
     createMap () {
       ol.registerCustomProjections()
@@ -675,9 +675,9 @@ export default {
   @import "~@dpc-sdp/ripple-global/scss/settings";
   @import "~@dpc-sdp/ripple-global/scss/tools";
 
-  $yourvic-map-popup-width: rem(300px) !default; // consider increasing this
+  $myvic-map-popup-width: rem(300px) !default; // consider increasing this
 
-  .yourvic-map-core {
+  .myvic-map-core {
 
     &__container {
       position: absolute;

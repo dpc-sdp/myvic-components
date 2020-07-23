@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/yourvic-map-core
+# @dpc-sdp/myvic-map-core
 
 > An interactive map component
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-map-core --save
+npm install @dpc-sdp/myvic-map-core --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ npm install @dpc-sdp/yourvic-map-core --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-map-core
+@dpc-sdp/myvic-map-core
 ├── @dpc-sdp/ripple-global
 ├── ol
 └── ol-ext
@@ -27,7 +27,7 @@ npm install @dpc-sdp/yourvic-map-core --save
 ## Import
 
 ```js
-import { YourvicMapCore } from '@dpc-sdp/yourvic-map-core'
+import { MyvicMapCore } from '@dpc-sdp/myvic-map-core'
 ```
 
 --------------------------------------------------------------------------------

@@ -2,52 +2,52 @@ import { Meta, Preview, Story, Props, Source, Description } from '@storybook/add
 import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import {
-  YourvicMapCore,
-  YourvicMapTileLayer,
-  YourvicMapVectorLayer,
+  MyvicMapCore,
+  MyvicMapTileLayer,
+  MyvicMapVectorLayer,
   Style,
   Stroke,
   Fill,
   EsriJSON
 } from './index.js'
 
-<Meta title="Maps/Vector Layer" component={ YourvicMapVectorLayer } decorators={ [withKnobs] } />
+<Meta title="Maps/Vector Layer" component={ MyvicMapVectorLayer } decorators={ [withKnobs] } />
 
 # Map Vector Layer
 
-<Description of={ YourvicMapVectorLayer } type='docgen' />
+<Description of={ MyvicMapVectorLayer } type='docgen' />
 
 ## Installation
 
 ```shell
-npm install @dpc-sdp/yourvic-map-core --save
+npm install @dpc-sdp/myvic-map-core --save
 ```
 
 ## Import
 
 ```javascript
-import { YourvicMapCore, YourvicMapVectorLayer } from '@dpc-sdp/yourvic-map-core'
+import { MyvicMapCore, MyvicMapVectorLayer } from '@dpc-sdp/myvic-map-core'
 ```
 
 ## Usage
 
-One or more ```yourvic-map-vector-layer``` components can be declared as children of ```yourvic-map-core```.
+One or more ```myvic-map-vector-layer``` components can be declared as children of ```myvic-map-core```.
 
 ```html
-<yourvic-map-core
+<myvic-map-core
   :containerStyle="{ position: 'relative', width: '100%', height:'100vh' }"
   :center="[16138405.843820328, -4552817.013522999]"
 >
-  <yourvic-map-vector-layer
+  <myvic-map-vector-layer
     url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
     dataFormat="GeoJSON"
   />
-</yourvic-map-core>
+</myvic-map-core>
 ```
 
 ## Props
 
-<Props of={ YourvicMapVectorLayer } />
+<Props of={ MyvicMapVectorLayer } />
 
 ## Configurable Layer
 
@@ -57,8 +57,8 @@ This example provides options to test different layer configurations.
   <Story name="Configurable Layer">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :baseMapUrl="baseMapUrl"
           :baseMapAttributions="baseMapAttributions"
@@ -75,10 +75,10 @@ This example provides options to test different layer configurations.
           enableZoomInteraction
           enableRotateInteraction
         >
-          <yourvic-map-tile-layer
+          <myvic-map-tile-layer
             type="OSM"
           />
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :url="decodeURIComponent(layerUrl.url)"
             :dataFormat="layerDataFormat"
             :loadingStrategy="layerLoadingStrategy"
@@ -87,7 +87,7 @@ This example provides options to test different layer configurations.
             :attributions="layerAttributions"
             :opacity="layerOpacity"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         props: {
           layerUrl: {
             default: () => object('URL', {
@@ -177,20 +177,20 @@ GeoJSON files can be loaded directly from a URL. This examples uses the default 
   <Story name="GeoJSON File">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="1"
           :enableSelectInteraction="true"
           selectedFeatureStyleLabelAttribute="name"
         >
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
             dataFormat="GeoJSON"
             labelAttribute="name"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -210,24 +210,24 @@ Using a urlFunction which accepts the current map extent, a URL can be generated
   <Story name="WFS BBOX Load Strategy">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="12"
           :minZoom="10"
           :enableSelectInteraction="true"
         >
-          <yourvic-map-tile-layer
+          <myvic-map-tile-layer
             type="OSM"
           />
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :urlFunction="buildUrl"
             dataFormat="GeoJSON"
             loadingStrategy="bbox"
             :enablePopup="true"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -252,23 +252,23 @@ Using a urlFunction which accepts the tile extent, a URL can be generated to req
   <Story name="WFS Tile Load Strategy">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="12"
           :minZoom="10"
           :enableSelectInteraction="true"
         >
-          <yourvic-map-tile-layer
+          <myvic-map-tile-layer
             type="OSM"
           />
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :urlFunction="buildUrl"
             dataFormat="GeoJSON"
             loadingStrategy="tile"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -294,22 +294,22 @@ alongside a CQL_FILTER (this is not supported by Geoserver).
   <Story name="WFS with Filter">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="12"
           :minZoom="10"
         >
-          <yourvic-map-tile-layer
+          <myvic-map-tile-layer
             type="OSM"
           />
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :url="layerUrl"
             dataFormat="GeoJSON"
             zoomToExtent
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -344,21 +344,21 @@ This example shows how to use a style function to dynamically set styles based o
   <Story name="Custom Styles">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="12"
           :minZoom="10"
         >
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :urlFunction="buildUrl"
             :layerStyle="getStyle"
             :overlaps="false"
             dataFormat="GeoJSON"
             loadingStrategy="bbox"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
@@ -488,21 +488,21 @@ the EsriJSON response and add the features to the vector layer.
   <Story name="ArcGIS Feature Server">
     {
       {
-        components: { YourvicMapCore, YourvicMapTileLayer, YourvicMapVectorLayer },
-        template: `<yourvic-map-core
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
           :zoom="7"
         >
-          <yourvic-map-tile-layer
+          <myvic-map-tile-layer
             type="OSM"
           />
-          <yourvic-map-vector-layer
+          <myvic-map-vector-layer
             :loader="loader"
             dataFormat="GeoJSON"
             loadingStrategy="all"
           />
-        </yourvic-map-core>`,
+        </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },

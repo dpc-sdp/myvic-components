@@ -5,8 +5,8 @@
 </head>
 <body style="padding-left: 10rem; padding-right: 10rem; padding-bottom: 3rem">
 
-<!--<script src="dist/yourvic-bundle.js"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/yourvic-bundle@dev/dist/yourvic-bundle.js"></script>
+<!--<script src="dist/myvic-bundle.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/@dpc-sdp/myvic-bundle@dev/dist/myvic-bundle.js"></script>
 
 <h3>Address Search:</h3>
 <div id="addressSearchContainer" style="position: relative; width: 100%; height: 80px">
@@ -49,11 +49,11 @@
 </div>
 
 <script>
-  YourVic.mountAddressSearch('#addressSearch', {})
+  Myvic.mountAddressSearch('#addressSearch', {})
 
-  YourVic.mountAreaSearch('#areaSearch', {})
+  Myvic.mountAreaSearch('#areaSearch', {})
 
-  YourVic.mountDataBlock('#dataBlock',
+  Myvic.mountDataBlock('#dataBlock',
     {
       data: {
         title: 'Title',
@@ -63,7 +63,7 @@
     }
   )
 
-  YourVic.mountBarChart('#barChart', {
+  Myvic.mountBarChart('#barChart', {
     direction: 'horizontal',
     title: 'Sample Chart',
     data: {
@@ -80,7 +80,7 @@
     longDesc: 'https://www.w3.org/WAI/tutorials/images/complex/#image-containing-substantial-information'
   })
 
-  YourVic.mountLineChart('#lineChart', {
+  Myvic.mountLineChart('#lineChart', {
     title: 'Sample Chart',
     data: {
       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -96,7 +96,7 @@
     longDesc: 'https://www.w3.org/WAI/tutorials/images/complex/#image-containing-substantial-information'
   })
 
-  YourVic.mountPieChart('#pieChart', {
+  Myvic.mountPieChart('#pieChart', {
     title: 'Sample Chart',
     data: {
       labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -112,7 +112,7 @@
     longDesc: 'https://www.w3.org/WAI/tutorials/images/complex/#image-containing-substantial-information'
   })
 
-  YourVic.mountToggleList('#list', {
+  Myvic.mountToggleList('#list', {
     items: [
       { id: 'item1', title: 'Item 1', icon: 'map_marker', color: 'primary' },
       { id: 'item2', title: 'Item 2', icon: 'instagram', color: 'danger' },
@@ -129,7 +129,7 @@
     }
   })
 
-  YourVic.mountTreeMap('#treeMap', {
+  Myvic.mountTreeMap('#treeMap', {
     title: 'Title',
     data: [
       {

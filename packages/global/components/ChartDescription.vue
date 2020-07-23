@@ -1,5 +1,5 @@
 <template>
-  <a class="yourvic-chart-long-description" :class="cssClass" :href="longDesc">Chart Description</a>
+  <a class="myvic-chart-long-description" :class="cssClass" :href="longDesc">Chart Description</a>
 </template>
 
 <script>

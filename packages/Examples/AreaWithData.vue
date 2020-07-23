@@ -1,30 +1,30 @@
 <template>
-  <div class="yourvic-examples__container">
+  <div class="myvic-examples__container">
     <area-search
       :initial-value="area.name"
       @item-selected="selectArea"
     />
-    <div class="yourvic-examples__data-block-container">
-      <data-block class="yourvic-examples__data-block" :data="populationData" :selectable="false" />
-      <data-block class="yourvic-examples__data-block" :data="populationGrowthData" :selectable="false" />
+    <div class="myvic-examples__data-block-container">
+      <data-block class="myvic-examples__data-block" :data="populationData" :selectable="false" />
+      <data-block class="myvic-examples__data-block" :data="populationGrowthData" :selectable="false" />
     </div>
-    <div class="yourvic-examples__chart-container">
-      <bar-chart class="yourvic-examples__bar-chart"
+    <div class="myvic-examples__chart-container">
+      <bar-chart class="myvic-examples__bar-chart"
         :data="chartData" title="Household composition"
         data-format="percentage"
         :shortDesc="'Bar chart showing household composition'"
-        :longDesc="'http://example-yourvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-1-bar-chart'"
+        :longDesc="'http://example-myvictoria-vic-gov-au-develop.lagoon.vicsdp.amazee.io/bundle-1-bar-chart'"
       />
     </div>
   </div>
 </template>
 <script>
 
-import { AreaSearch } from '@dpc-sdp/yourvic-areasearch'
-import DataBlock from '@dpc-sdp/yourvic-data-block'
-import BarChart from '@dpc-sdp/yourvic-bar-chart'
+import { AreaSearch } from '@dpc-sdp/myvic-areasearch'
+import DataBlock from '@dpc-sdp/myvic-data-block'
+import BarChart from '@dpc-sdp/myvic-bar-chart'
 import { getDemographicData } from './utils/getData'
-import { commarize } from '@dpc-sdp/yourvic-global/utils/formatting'
+import { commarize } from '@dpc-sdp/myvic-global/utils/formatting'
 
 /**
  * AreaWithData is a component showcasing the area search, data block and bar chart components
@@ -98,9 +98,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-examples {
+  .myvic-examples {
     display: relative;
 
     &__container {

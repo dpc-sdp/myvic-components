@@ -1,4 +1,4 @@
-import YourVicLineChart from './index.vue'
+import MyvicLineChart from './index.vue'
 
-export { YourVicLineChart }
-export default YourVicLineChart
+export { MyvicLineChart }
+export default MyvicLineChart

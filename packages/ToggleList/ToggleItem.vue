@@ -1,7 +1,7 @@
 <template>
   <li
     :class="{ 'is-active': isSelected }"
-    class="yourvic-toggle-item"
+    class="myvic-toggle-item"
     @click="onClick"
     @keyup.enter="$emit('click')"
     tabindex="0"
@@ -12,14 +12,14 @@
     >
     <div
       v-if="!!icon"
-      class="yourvic-toggle-item__icon-left">
+      class="myvic-toggle-item__icon-left">
       <rpl-icon
         :symbol="icon"
         :color="isSelected ? color : 'mid_neutral_1'"
         size="m" />
     </div>
-    <h3 class="yourvic-toggle-item__title">{{ item.title }}</h3>
-    <div class="yourvic-toggle-item__icon-right">
+    <h3 class="myvic-toggle-item__title">{{ item.title }}</h3>
+    <div class="myvic-toggle-item__icon-right">
       <rpl-icon
         :symbol="isSelected ? 'tick' : null"
         size="m" />
@@ -65,14 +65,14 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
   $greyTint: #D9D9D6;
   $greyTint5: #EDEDED;
   $greyShade: #53565A;
   $lightGrey: #546A7C;
 
-  .yourvic-toggle-item {
+  .myvic-toggle-item {
     cursor: pointer;
     background-color: white;
     display: flex;

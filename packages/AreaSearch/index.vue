@@ -14,7 +14,7 @@
 </template>
 <script>
 
-import { AutoComplete } from '@dpc-sdp/yourvic-autocomplete'
+import { AutoComplete } from '@dpc-sdp/myvic-autocomplete'
 import { getAreas } from './utils/getAreas'
 
 /**
@@ -51,9 +51,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-areasearch {
+  .myvic-areasearch {
     display: relative;
   }
 </style>

@@ -1,42 +1,42 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
-import YourVicToggleList from '@dpc-sdp/yourvic-toggle-list'
+import MyvicToggleList from '@dpc-sdp/myvic-toggle-list'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import {
-  YourvicMapCore,
-  YourvicMapTileLayer,
-  YourvicMapVectorLayer,
-  YourvicMapVectorTileLayer,
-} from '@dpc-sdp/yourvic-map-core'
+  MyvicMapCore,
+  MyvicMapTileLayer,
+  MyvicMapVectorLayer,
+  MyvicMapVectorTileLayer,
+} from '@dpc-sdp/myvic-map-core'
 import {
   myVictoriaRotatingColours,
   myVictoriaLayerStops,
   buildMyVictoriaMapboxStyle
-} from '@dpc-sdp/yourvic-global/utils/geoserver_requests'
-import { YourVicLineChart } from '@dpc-sdp/yourvic-line-chart'
+} from '@dpc-sdp/myvic-global/utils/geoserver_requests'
+import { MyvicLineChart } from '@dpc-sdp/myvic-line-chart'
 
-<Meta title="Toggle List" component={ YourVicToggleList } decorators={ [withKnobs] } />
+<Meta title="Toggle List" component={ MyvicToggleList } decorators={ [withKnobs] } />
 
 # Toggle List
 
-<Description of={ YourVicToggleList } type='docgen' />
+<Description of={ MyvicToggleList } type='docgen' />
 
 ## Installation
 
 ```bash
-npm install @dpc-sdp/yourvic-toggle-list --save
+npm install @dpc-sdp/myvic-toggle-list --save
 ```
 
 ## Import
 
 ```javascript
-import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
+import { MyvicToggleList } from '@dpc-sdp/myvic-toggle-list'
 ```
 
 ## Usage
 
 ```html
-<your-vic-toggle-list
+<myvic-toggle-list
   :data="data"
   :selectedItems="selectedItems"
 />
@@ -44,7 +44,7 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
 
 ## Props
 
-<Props of={ YourVicToggleList } />
+<Props of={ MyvicToggleList } />
 
 ## Default
 
@@ -52,10 +52,10 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
   <Story name="Default">
     {
       {
-        components: { YourVicToggleList },
+        components: { MyvicToggleList },
         template: `
           <div>
-            <your-vic-toggle-list
+            <myvic-toggle-list
               :items="items"
               :selectedItems="selectedItems"
               @item-selected="onSelectItem"
@@ -101,11 +101,11 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
     {
       {
         components: {
-          YourVicToggleList,
-          YourvicMapCore,
-          YourvicMapTileLayer,
-          YourvicMapVectorLayer,
-          YourvicMapVectorTileLayer,
+          MyvicToggleList,
+          MyvicMapCore,
+          MyvicMapTileLayer,
+          MyvicMapVectorLayer,
+          MyvicMapVectorTileLayer,
           RplContainer,
           RplRow,
           RplCol },
@@ -113,25 +113,25 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
           <RplContainer style="width: 100%">
             <rpl-row>
               <rpl-col cols=4>
-                <your-vic-toggle-list
+                <myvic-toggle-list
                   :items="items"
                   :selectedItems="selectedItems"
                   @item-selected="onSelectItem"
                 />
               </rpl-col>
               <rpl-col cols=8>
-                <yourvic-map-core
+                <myvic-map-core
                   :containerStyle="containerStyle"
                   :center="center"
                   :zoom="12"
                   :minZoom="10"
                   :enableSelectInteraction="true"
                 >
-                  <yourvic-map-tile-layer
+                  <myvic-map-tile-layer
                     type="OSM"
                     :visible="selectedItems.basemap"
                   />
-                  <yourvic-map-vector-tile-layer
+                  <myvic-map-vector-tile-layer
                     :url="getVectorTileWmtsUrl()"
                     dataFormat="MVT"
                     mapboxStyleMethod="stylefunction"
@@ -141,7 +141,7 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
                     :opacity="0.8"
                     :zIndex="100"
                   />
-                  <yourvic-map-vector-layer
+                  <myvic-map-vector-layer
                     :urlFunction="buildUrl"
                     dataFormat="GeoJSON"
                     loadingStrategy="bbox"
@@ -149,7 +149,7 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
                     :visible="selectedItems.hospital"
                     :zIndex="200"
                   />
-                </yourvic-map-core>
+                </myvic-map-core>
               </rpl-col>
             </rpl-row>
           </RplContainer>
@@ -224,8 +224,8 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
     {
       {
         components: {
-          YourVicToggleList,
-          YourVicLineChart,
+          MyvicToggleList,
+          MyvicLineChart,
           RplContainer,
           RplRow,
           RplCol },
@@ -233,7 +233,7 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
           <RplContainer style="width: 100%; height: 100%">
             <rpl-row>
               <rpl-col cols=4>
-                <your-vic-toggle-list
+                <myvic-toggle-list
                   :items="items"
                   :selectedItems="selectedItems"
                   @item-selected="onSelectItem"
@@ -241,7 +241,7 @@ import { YourVicToggleList } from '@dpc-sdp/yourvic-toggle-list'
               </rpl-col>
               <rpl-col cols=7>
                 <div style="width: 100%; height: 90vh">
-                  <your-vic-line-chart title="Line Chart" :data="chartData" :showLegend="true" dataFormat="normal" />
+                  <myvic-line-chart title="Line Chart" :data="chartData" :showLegend="true" dataFormat="normal" />
                 </div>
               </rpl-col>
             </rpl-row>

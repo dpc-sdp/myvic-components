@@ -1,6 +1,6 @@
 <template>
-  <div class="yourvic-error" :class="cssClass">
-    <span class="yourvic-error-span">{{ message }}</span>
+  <div class="myvic-error" :class="cssClass">
+    <span class="myvic-error-span">{{ message }}</span>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     cssClass: function () {
-      return `yourvic-error--${this.errorClass}`
+      return `myvic-error--${this.errorClass}`
     }
   }
 }
@@ -42,7 +42,7 @@ export default {
 
 $rpl-dev-error-text-color: $rpl-danger-color !default;
 
-.yourvic-error {
+.myvic-error {
   background-color: $error-bg-color;
   color: $rpl-dev-error-text-color;
   height: inherit;

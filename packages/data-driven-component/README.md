@@ -7,7 +7,7 @@ A module to allow editors in SDP Tide CMS to add charts/maps into a content page
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-data-driven-component --save
+npm install @dpc-sdp/myvic-data-driven-component --save
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ In SDP project "tide.config.js"(it should be found in SDP site project root "/ti
 ```
 const tideConfig = {
   nodeModules: [
-    '@dpc-sdp/yourvic-data-driven-component'
+    '@dpc-sdp/myvic-data-driven-component'
   ]
 }
 ```
@@ -29,7 +29,7 @@ To add custom components, set `customComponents` to `true`.
 ```
 const tideConfig = {
   nodeModules: [
-    ['@dpc-sdp/yourvic-data-driven-component', { customComponents: true }]
+    ['@dpc-sdp/myvic-data-driven-component', { customComponents: true }]
   ]
 }
 ```
@@ -48,7 +48,7 @@ const loadComponent = (configs) => {
 
     case 'myvic_barchart_demo_1':
       dataDrivenComp = {
-        name: () => import(/* webackChunkName: 'yourvic-bar-chart' */ '@dpc-sdp/yourvic-bar-chart'),
+        name: () => import(/* webackChunkName: 'myvic-bar-chart' */ '@dpc-sdp/myvic-bar-chart'),
         props: {
           title: 'test bar chart',
           data: {

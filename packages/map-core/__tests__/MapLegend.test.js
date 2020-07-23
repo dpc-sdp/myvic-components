@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
-import YourvicMapLegend from './../MapLegend.vue'
+import MyvicMapLegend from './../MapLegend.vue'
 
-describe('YourvicMapLegend', () => {
-  const wrapper = mount(YourvicMapLegend, {
+describe('MyvicMapLegend', () => {
+  const wrapper = mount(MyvicMapLegend, {
     propsData: {
       title: 'Legend Test',
       type: 'gradient',
@@ -12,13 +12,13 @@ describe('YourvicMapLegend', () => {
   })
 
   it('renders the legend title', () => {
-    let itemArray = wrapper.findAll('.yourvic-map-legend__title')
+    let itemArray = wrapper.findAll('.myvic-map-legend__title')
     expect(itemArray).toHaveLength(1)
     expect(itemArray.at(0).text()).toBe('Legend Test')
   })
 
   it('renders the legend content', () => {
-    let itemArray = wrapper.findAll('.yourvic-map-legend__content')
+    let itemArray = wrapper.findAll('.myvic-map-legend__content')
     expect(itemArray).toHaveLength(1)
   })
 })

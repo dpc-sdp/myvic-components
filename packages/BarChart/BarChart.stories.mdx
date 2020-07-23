@@ -14,13 +14,13 @@ import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData } f
 ## Installation
 
 ```bash
-npm install @dpc-sdp/yourvic-bar-chart --save
+npm install @dpc-sdp/myvic-bar-chart --save
 ```
 
 ## Import
 
 ```javascript
-import { BarChart } from '@dpc-sdp/yourvic-bar-chart'
+import { BarChart } from '@dpc-sdp/myvic-bar-chart'
 ```
 
 ## Usage
@@ -51,8 +51,8 @@ The data object that should contain the following keys:
         components: { BarChart },
         template: `
           <div :style="divStyle">
-            <bar-chart :title="title" :direction="direction" :data="data" :stacked="stacked" 
-              :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" 
+            <bar-chart :title="title" :direction="direction" :data="data" :stacked="stacked"
+              :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc"
             />
           </div>
         `,

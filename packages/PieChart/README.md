@@ -1,5 +1,5 @@
 <!-- GENERATED_DOCS -->
-# @dpc-sdp/yourvic-pie-chart
+# @dpc-sdp/myvic-pie-chart
 
 > A component for displaying a pie chart.
 
@@ -8,7 +8,7 @@
 ## Install
 
 ```shell
-npm install @dpc-sdp/yourvic-pie-chart --save
+npm install @dpc-sdp/myvic-pie-chart --save
 ```
 
 --------------------------------------------------------------------------------
@@ -16,8 +16,8 @@ npm install @dpc-sdp/yourvic-pie-chart --save
 ## Dependency graph
 
 ```shell
-@dpc-sdp/yourvic-pie-chart
-├── @dpc-sdp/yourvic-global
+@dpc-sdp/myvic-pie-chart
+├── @dpc-sdp/myvic-global
 ```
 
 --------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ npm install @dpc-sdp/yourvic-pie-chart --save
 ## Import
 
 ```js
-import PieChart from '@dpc-sdp/yourvic-pie-chart'
+import PieChart from '@dpc-sdp/myvic-pie-chart'
 ```
 
 --------------------------------------------------------------------------------

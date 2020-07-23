@@ -1,14 +1,14 @@
 import Vue from 'vue'
-import YourvicMapCore from '@dpc-sdp/yourvic-map-core'
-import YourvicMapTileLayer from '@dpc-sdp/yourvic-map-core/MapTileLayer'
-import YourvicMapVectorLayer from '@dpc-sdp/yourvic-map-core/MapVectorLayer'
-import YourvicMapVectorTileLayer from '@dpc-sdp/yourvic-map-core/MapVectorTileLayer'
+import MyvicMapCore from '@dpc-sdp/myvic-map-core'
+import MyvicMapTileLayer from '@dpc-sdp/myvic-map-core/MapTileLayer'
+import MyvicMapVectorLayer from '@dpc-sdp/myvic-map-core/MapVectorLayer'
+import MyvicMapVectorTileLayer from '@dpc-sdp/myvic-map-core/MapVectorTileLayer'
 
 export function mountMap (el, props) {
   // eslint-disable-next-line no-new
   new Vue({
     el,
-    render: h => h(YourvicMapCore, { props })
+    render: h => h(MyvicMapCore, { props })
   })
 }
 
@@ -17,9 +17,9 @@ export function mountMapWithTileLayer (el, mapProps, layerProps) {
   new Vue({
     el,
     render (h) {
-      const tileLayer = h(YourvicMapTileLayer, { props: layerProps })
+      const tileLayer = h(MyvicMapTileLayer, { props: layerProps })
 
-      return h(YourvicMapCore, { props: mapProps }, [tileLayer])
+      return h(MyvicMapCore, { props: mapProps }, [tileLayer])
     }
   })
 }
@@ -29,9 +29,9 @@ export function mountMapWithVectorLayer (el, mapProps, layerProps) {
   new Vue({
     el,
     render (h) {
-      const vectorLayer = h(YourvicMapVectorLayer, { props: layerProps })
+      const vectorLayer = h(MyvicMapVectorLayer, { props: layerProps })
 
-      return h(YourvicMapCore, { props: mapProps }, [vectorLayer])
+      return h(MyvicMapCore, { props: mapProps }, [vectorLayer])
     }
   })
 }
@@ -41,9 +41,9 @@ export function mountMapWithVectorTileLayer (el, mapProps, layerProps) {
   new Vue({
     el,
     render (h) {
-      const vectorTileLayer = h(YourvicMapVectorTileLayer, { props: layerProps })
+      const vectorTileLayer = h(MyvicMapVectorTileLayer, { props: layerProps })
 
-      return h(YourvicMapCore, { props: mapProps }, [vectorTileLayer])
+      return h(MyvicMapCore, { props: mapProps }, [vectorTileLayer])
     }
   })
 }

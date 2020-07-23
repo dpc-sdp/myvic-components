@@ -1,15 +1,15 @@
 <template>
   <button
     aria-label="Close"
-    :class="{'yourvic-button-close': true, 'small': size === 's', 'large': size === 'l'}"
+    :class="{'myvic-button-close': true, 'small': size === 's', 'large': size === 'l'}"
     type="button"
     @click="handleClick()">
     <span
       v-if="label"
-      class="yourvic-button-close__label">{{ label }}
+      class="myvic-button-close__label">{{ label }}
     </span>
     <rpl-icon
-      class="yourvic-button-close__icon"
+      class="myvic-button-close__icon"
       symbol="close"
       :size="size"
     />
@@ -46,9 +46,9 @@ export default {
 
 <style lang="scss" scoped>
 
-  @import "~@dpc-sdp/yourvic-global/styles/global";
+  @import "~@dpc-sdp/myvic-global/styles/global";
 
-  .yourvic-button-close {
+  .myvic-button-close {
     padding: 0;
     border: 0;
     border-radius: 5px;

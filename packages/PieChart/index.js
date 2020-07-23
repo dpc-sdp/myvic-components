@@ -1,4 +1,4 @@
-import YourVicPieChart from './index.vue'
+import MyvicPieChart from './index.vue'
 
-export { YourVicPieChart }
-export default YourVicPieChart
+export { MyvicPieChart }
+export default MyvicPieChart

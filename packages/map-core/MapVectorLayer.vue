@@ -4,12 +4,12 @@ import styles from './styles/styles'
 import layer from './mixin/layer'
 
 /**
- * YourvicMapVectorLayer provides support for vector sources such as WFS, ArcGIS Feature Server and GeoJSON files for
- * YourvicMapCore. It offers a declarative API for describing layers as child components of YourvicMapCore, wrapping
+ * MyvicMapVectorLayer provides support for vector sources such as WFS, ArcGIS Feature Server and GeoJSON files for
+ * MyvicMapCore. It offers a declarative API for describing layers as child components of MyvicMapCore, wrapping
  * the functionality provided by OpenLayers.
  */
 export default {
-  name: 'YourvicMapVectorLayer',
+  name: 'MyvicMapVectorLayer',
   mixins: [layer],
   props: {
     /**

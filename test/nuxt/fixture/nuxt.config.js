@@ -8,7 +8,7 @@ export default {
     transpile: [
       // TODO: We need to transpile ES module unless we have UMD version.
       // https://digital-engagement.atlassian.net/browse/MYVIC-90
-      /@dpc-sdp\/yourvic/
+      /@dpc-sdp\/myvic/
     ]
   }
 }
