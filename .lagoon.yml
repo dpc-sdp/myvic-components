@@ -6,38 +6,37 @@ tasks:
 environments:
   production:
     routes:
-      - app:
-        - "www.myvictoria.gov.au":
+      - storybook:
+        - "visualise.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
-        - "myvictoria.gov.au":
+      - example:
+        - "example.visualise.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
-    monitoring_urls:
-      - "www.vic.gov.au"
   master:
     routes:
-      - app:
-        - "staging.myvictoria.vic.gov.au":
+      - storybook:
+        - "master.visualise.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
-
-        - "www.staging.myvictoria.vic.gov.au":
+      - example:
+        - "example.master.visualise.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
   develop:
-      routes:
-        - app:
-          - "develop.myvictoria.vic.gov.au":
-              tls-acme: 'false'
-              insecure: Allow
-              hsts: max-age=31536000
-        - app:
-          - "www.develop.myvictoria.vic.gov.au":
-              tls-acme: 'false'
-              insecure: Allow
-              hsts: max-age=31536000
+    routes:
+      - storybook:
+        - "develop.visualise.myvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+      - example:
+        - "example.develop.visualise.myvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
