@@ -2494,30 +2494,10 @@
     "@dpc-sdp/ripple-icon" "1.10.0"
     "@dpc-sdp/ripple-link" "1.10.0"
 
-"@dpc-sdp/ripple-global@1.10.0":
+"@dpc-sdp/ripple-global@1.10.0", "@dpc-sdp/ripple-global@^1.8.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.10.0.tgz#7f145e0c06939c85bf8ab455ca3498520f50199a"
   integrity sha512-pEBtDpvDNrKQWkLCs/ugJjWZgdz53wuujDz0vW/g1YNtVXWKtY+q8PKHI6LSpMHJ47kT9CPgb6xpOAGAkYyazg==
-  dependencies:
-    masonry-layout "^4.2.1"
-    moment "^2.22.1"
-    object-fit-images "^3.2.3"
-    vue-focus "^2.1.0"
-
-"@dpc-sdp/ripple-global@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.9.0.tgz#4d98555a4327d60963970514c05654b7692ddecc"
-  integrity sha512-QDsXmm3d9BNyTc5iDoHu25mqNEU4sT6owvWiELjdYjecBfHsTuTVppdVPBBI2Yr+N0tShAyGr8yOwQCNscdiQg==
-  dependencies:
-    masonry-layout "^4.2.1"
-    moment "^2.22.1"
-    object-fit-images "^3.2.3"
-    vue-focus "^2.1.0"
-
-"@dpc-sdp/ripple-global@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.8.0.tgz#7a30727865d7601686743b174bc2617c7b10ece9"
-  integrity sha512-3KDrI2gZ+gE6k2XAdMFOwU7UYcSFjdUgSKddHWJFZDMBJ6b/Cip98Ux+8TPzt1Mqz1NXhA9TyKtY3plvC8/SrQ==
   dependencies:
     masonry-layout "^4.2.1"
     moment "^2.22.1"
@@ -2529,19 +2509,12 @@
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.10.0.tgz#3b803767ffd4f52c8482fca6f50e2ffbb3c59df7"
   integrity sha512-0G1eAcgYPGARkJCo9duvCK+1VUT+Jg9l/m/1Cjr3ndVeX1xKk24UIGmEnq/UlwM1qMf4uaLX+lqvEcSqDPsPXQ==
 
-"@dpc-sdp/ripple-icon@1.10.0":
+"@dpc-sdp/ripple-icon@1.10.0", "@dpc-sdp/ripple-icon@^1.8.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.10.0.tgz#270ad75a0ebfd474bf452009a4025d3f250255e6"
   integrity sha512-bRzw3C/ENvcjp/YiI1nJ4x3Y0qqlvUZEq04OAZTYrHV3fdH4AmRFrX33gOT/alyKUQ1JnWOsv+Zc+WnTkQbsEA==
   dependencies:
     "@dpc-sdp/ripple-global" "1.10.0"
-
-"@dpc-sdp/ripple-icon@^1.8.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.9.0.tgz#9131783a0275a2c591ffc913435ab4e142a7092c"
-  integrity sha512-gGWugEcY8CjrW+sfmy3iwMfeAoQj2hZiVvMBlj3uN9UkiKFDskVyI/yJmKOofnWwEtBeW+AwSa8r09E70+JJEQ==
-  dependencies:
-    "@dpc-sdp/ripple-global" "1.9.0"
 
 "@dpc-sdp/ripple-link@1.10.0":
   version "1.10.0"
