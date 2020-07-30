@@ -12,6 +12,11 @@ const Stroke = ol.style.Stroke
 const Icon = ol.style.Icon
 const Circle = ol.style.Circle
 const EsriJSON = ol.format.EsriJSON
+const Feature = ol.Feature
+const Point = ol.geom.Point
+const Polygon = ol.geom.Polygon
+const CircleGeometry = ol.geom.CircleGeometry
+const circularPolygon = ol.geom.circularPolygon
 
 export {
   MyvicMapCore,
@@ -25,7 +30,12 @@ export {
   Stroke,
   Icon,
   Circle,
-  EsriJSON
+  EsriJSON,
+  Feature,
+  Point,
+  Polygon,
+  CircleGeometry,
+  circularPolygon
 }
 
 export default MyvicMapCore

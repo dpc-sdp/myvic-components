@@ -1,4 +1,5 @@
 import AreaSearch from './index.vue'
+import { getAreas } from './utils/getAreas'
 
-export { AreaSearch }
+export { AreaSearch, getAreas }
 export default AreaSearch

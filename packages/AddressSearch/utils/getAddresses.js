@@ -1,22 +1,29 @@
 import axios from 'axios'
 
 const ARCGIS_SERVER_URL = 'https://geo.mapshare.vic.gov.au/arcgis'
-const SERVICE_REQUEST = 'rest/services/Geocoder/VMAddressEZIAdd/GeocodeServer/suggest?f=json&text='
-const REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_REQUEST}`
+const SERVICE_PATH = 'rest/services/Geocoder/VMAddressEZIAdd/GeocodeServer'
+const SUGGEST_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/suggest?f=json&text=`
+const ADDRESS_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/findAddressCandidates?f=json&outSR=4326&magicKey=`
 
 const fetchData = async (request) => {
   const response = await axios.get(request)
   return response
 }
 
-export const getAddresses = async (query) => {
-  const response = await fetchData(REQUEST + query)
+export const getAddressSuggestions = async (query) => {
+  const response = await fetchData(SUGGEST_REQUEST + query)
   const addresses = response.data.suggestions.map(x => (
     {
-      name: capitalize(x.text)
+      name: capitalize(x.text),
+      magicKey: x.magicKey
     }
   ))
   return addresses
+}
+
+export const getAddress = async (magicKey) => {
+  const response = await fetchData(ADDRESS_REQUEST + magicKey)
+  return response.data.candidates[0]
 }
 
 /**

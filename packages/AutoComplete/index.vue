@@ -251,6 +251,7 @@ export default {
     onClear () {
       this.query = ''
       this.resultSelected = false
+      this.$emit('item-cleared', this.id)
     },
     orderResults (results) {
       let firstCharMatches = []

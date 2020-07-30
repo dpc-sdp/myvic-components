@@ -8,12 +8,13 @@
     :showIcon="true"
     :getIcon="() => 'map_marker'"
     @item-selected="selectAddress"
+    @item-cleared="clearAddress"
   />
 </template>
 <script>
 
 import { AutoComplete } from '@dpc-sdp/myvic-autocomplete'
-import { getAddresses } from './utils/getAddresses'
+import { getAddressSuggestions, getAddress } from './utils/getAddresses'
 
 /**
  * AddressSearch is a component for looking up Victorian addresses using an autocomplete search
@@ -35,11 +36,15 @@ export default {
   },
   methods: {
     async filter (items, query) {
-      let addresses = await getAddresses(query)
+      let addresses = await getAddressSuggestions(query)
       return addresses
     },
-    selectAddress (id, item) {
-      this.$emit('item-selected', id, item)
+    async selectAddress (id, item) {
+      let address = await getAddress(item.magicKey)
+      this.$emit('item-selected', id, address)
+    },
+    clearAddress () {
+      this.$emit('item-cleared', this.id)
     }
   }
 }
