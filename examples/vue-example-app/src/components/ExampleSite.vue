@@ -1,6 +1,6 @@
 <template>
   <div class="myvic-example-site__container">
-    <h1 class="myvic-example-site__header-h1">This page has been created to showcase the charting and mapping components
+    <h1 class="myvic-example-site__header-h1">That page has been created to showcase the charting and mapping components
       derived from the MyVictoria website
     </h1>
     <p class="myvic-example-site__text-block">
