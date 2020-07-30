@@ -256,46 +256,6 @@ exports[`MyvicStoryshots AreaSearch Default 1`] = `
 </form>
 `;
 
-exports[`MyvicStoryshots Atoms | Global Divider 1`] = `
-<hr
-  class="rpl-divider"
-/>
-`;
-
-exports[`MyvicStoryshots Atoms/Global/Dev error Dev error in dev mode 1`] = `
-<ol
-  class="rpl-dev-error"
->
-  <li>
-    
-    Something wrong
-  
-  </li>
-  <li>
-    
-    Another error
-  
-  </li>
-</ol>
-`;
-
-exports[`MyvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`] = `
-<ol
-  class="rpl-dev-error"
->
-  <li>
-    
-    Something wrong
-  
-  </li>
-  <li>
-    
-    Another error
-  
-  </li>
-</ol>
-`;
-
 exports[`MyvicStoryshots Autocomplete Default 1`] = `
 <form>
   <form
