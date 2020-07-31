@@ -29,6 +29,7 @@
           dataFormat="GeoJSON"
           loadingStrategy="bbox"
           :zoomToExtent="false"
+          labelAttribute="ssc_name"
           :attributions="attributions"
         />
       </myvic-map-core>
@@ -87,10 +88,14 @@ export default {
   methods: {
     selectAddress: async function (searchComponent, address) {
       // Lookup SSC ID for suburb
-      let postcode = address.context[0].text
-      let suburb = address.context[1].text
-      let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
-      this.area = area
+      try {
+        let postcode = address.context[0].text
+        let suburb = address.context[1].text
+        let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
+        this.area = area
+      } catch (e) {
+        console.log('Unable to identify suburb: ' + e)
+      }
 
       // Construct radius circle
       let vertices = 64
