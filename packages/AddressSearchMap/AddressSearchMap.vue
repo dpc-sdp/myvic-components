@@ -3,6 +3,7 @@
     <div class="myvic-address-search-map__map-container">
       <div class="myvic-address-search-map__address-search-container">
         <address-search
+          class="myvic-address-search-map__address-search"
           provider="Mapbox"
           :minQueryLength="minQueryLength"
           @item-selected="selectAddress"
@@ -131,14 +132,19 @@ export default {
       z-index: 200;
       top: 10px;
       right: 10px;
-      margin-left: 45px;
-      min-width: 260px;
-      width: 400px;
+      left: 40px;
+      width: auto;
+      display: flex;
+    }
+    &__address-search {
+      min-width: 200px;
+      max-width: 500px;
+      margin-left: auto;
+      flex-grow: 100;
     }
     &__map-container {
       width: 100%;
       height: 100%;
-      /*position: absolute;*/
       top: 0;
       left: 0;
       box-sizing: border-box;
