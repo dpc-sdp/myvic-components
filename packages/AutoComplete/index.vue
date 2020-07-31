@@ -159,6 +159,13 @@ export default {
       default: ({ icon }) => icon
     },
     /**
+     * Minimum length of the query (in characters) before filtering will occur
+    */
+    minQueryLength: {
+      type: Number,
+      default: 3
+    },
+    /**
      * If set to true all of the items will be shown on first render. Useful only for debugging
      */
     debugMode: {
@@ -214,7 +221,7 @@ export default {
     onChange () {
       this.$emit('input-changed', this.query.length !== 0)
 
-      if (this.query.length < 3) {
+      if (this.query.length < this.minQueryLength) {
         this.showResults = false
         return
       }

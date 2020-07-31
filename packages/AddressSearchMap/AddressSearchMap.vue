@@ -3,6 +3,8 @@
     <div class="myvic-address-search-map__map-container">
       <div class="myvic-address-search-map__address-search-container">
         <address-search
+          provider="Mapbox"
+          :minQueryLength="minQueryLength"
           @item-selected="selectAddress"
           @item-cleared="clearAddress"
         />
@@ -61,8 +63,12 @@ export default {
     return {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
       center: [16137905.843820328, -4555057.013522999],
+      minQueryLength: 6,
       areas: undefined,
-      area: {},
+      area: {
+        id: '',
+        description: 'suburb'
+      },
       features: [],
       attributions: [
         '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
@@ -79,9 +85,10 @@ export default {
   },
   methods: {
     selectAddress: async function (searchComponent, address) {
-      // Lookup suburb
-      let postcode = address.address.trim().slice(-4)
-      let area = this.areas.find(area => area.postcode === postcode && address.address.toLowerCase().includes(area.name.toLowerCase()))
+      // Lookup SSC ID for suburb
+      let postcode = address.context[0].text
+      let suburb = address.context[1].text
+      let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
       this.area = area
 
       // Construct radius circle
@@ -101,7 +108,10 @@ export default {
     },
     clearAddress: function () {
       this.features = []
-      this.area = {}
+      this.area = {
+        id: '',
+        description: 'suburb'
+      }
     }
   }
 }
