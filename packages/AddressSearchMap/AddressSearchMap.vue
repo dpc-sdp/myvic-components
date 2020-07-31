@@ -22,6 +22,7 @@
           :features="features"
           dataFormat="GeoJSON"
           :zoomToExtent="true"
+          labelAttribute="name"
           :attributions="attributions"
         />
         <myvic-map-vector-layer
@@ -103,14 +104,17 @@ export default {
       let vertices = 64
       let circle = circularPolygon([address.location.x, address.location.y], this.radius, vertices)
       circle = circle.transform('EPSG:4326', 'EPSG:3857')
+      let firstCoord = circle.getCoordinates()[0][0]
       this.features = [
         new Feature({
-          geometry: circle,
-          name: address.address
+          geometry: circle
         }),
         new Feature({
-          geometry: new Point([address.location.x, address.location.y]).transform('EPSG:4326', 'EPSG:3857'),
-          name: address.address
+          geometry: new Point(firstCoord),
+          name: 'Approx. 5km radius'
+        }),
+        new Feature({
+          geometry: new Point([address.location.x, address.location.y]).transform('EPSG:4326', 'EPSG:3857')
         })
       ]
     },
