@@ -81,7 +81,7 @@ export default {
     selectAddress: async function (searchComponent, address) {
       // Lookup suburb
       let postcode = address.address.trim().slice(-4)
-      let area = this.areas.find(area => area.postcode === postcode)
+      let area = this.areas.find(area => area.postcode === postcode && address.address.toLowerCase().includes(area.name.toLowerCase()))
       this.area = area
 
       // Construct radius circle
