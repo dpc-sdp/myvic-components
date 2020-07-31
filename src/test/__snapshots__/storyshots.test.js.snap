@@ -64,6 +64,7 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
     >
       <form
         action=""
+        class="myvic-address-search-map__address-search"
       >
         <div
           class="myvic-auto-complete"
