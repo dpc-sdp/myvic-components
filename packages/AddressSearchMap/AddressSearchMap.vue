@@ -60,13 +60,26 @@ export default {
     radius: {
       type: Number,
       default: 5000
+    },
+    /**
+     * Label text for the radius circle
+     */
+    radiusLabel: {
+      type: String,
+      default: 'Approx. 5km radius'
+    },
+    /**
+     * Minimum length of a search query before sending to Mapbox
+     */
+    minQueryLength: {
+      type: Number,
+      default: 6
     }
   },
   data () {
     return {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
       center: [16137905.843820328, -4555057.013522999],
-      minQueryLength: 6,
       areas: undefined,
       area: {
         id: '',
@@ -101,22 +114,26 @@ export default {
       }
 
       // Construct radius circle
-      let vertices = 64
-      let circle = circularPolygon([address.location.x, address.location.y], this.radius, vertices)
-      circle = circle.transform('EPSG:4326', 'EPSG:3857')
-      let firstCoord = circle.getCoordinates()[0][0]
-      this.features = [
-        new Feature({
-          geometry: circle
-        }),
-        new Feature({
-          geometry: new Point(firstCoord),
-          name: 'Approx. 5km radius'
-        }),
-        new Feature({
-          geometry: new Point([address.location.x, address.location.y]).transform('EPSG:4326', 'EPSG:3857')
-        })
-      ]
+      try {
+        let vertices = 64
+        let circle = circularPolygon([address.location.x, address.location.y], this.radius, vertices)
+        circle = circle.transform('EPSG:4326', 'EPSG:3857')
+        let firstCoord = circle.getCoordinates()[0][0]
+        this.features = [
+          new Feature({
+            geometry: circle
+          }),
+          new Feature({
+            geometry: new Point(firstCoord),
+            name: this.radiusLabel
+          }),
+          new Feature({
+            geometry: new Point([address.location.x, address.location.y]).transform('EPSG:4326', 'EPSG:3857')
+          })
+        ]
+      } catch (e) {
+        console.log('Unable to create radius: ' + e)
+      }
     },
     clearAddress: function () {
       this.features = []
