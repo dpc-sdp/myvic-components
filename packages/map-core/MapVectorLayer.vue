@@ -36,6 +36,13 @@ export default {
       default: undefined
     },
     /**
+     * Array of OL Features to display in the Vector Layer
+     */
+    features: {
+      type: Array,
+      default: undefined
+    },
+    /**
      * The format of the vector layer. Must be ```GeoJSON```, ```EsriJSON``` or ```WFS```
      */
     dataFormat: {
@@ -106,6 +113,9 @@ export default {
       await this.configureLayer()
     },
     async loader (newValue) {
+      await this.configureLayer()
+    },
+    async features (newValue) {
       await this.configureLayer()
     },
     async dataFormat (newValue) {
@@ -188,6 +198,7 @@ export default {
       this.layerSource = new ol.source.Vector({
         url: this.url || urlFunctionWrapper,
         loader: loaderWrapper,
+        features: this.features,
         format: this.format,
         strategy: this.strategy,
         projection: this.projection,
@@ -214,9 +225,16 @@ export default {
 
       // Auto Zoom to layer extent on source change if enabled
       if (this.zoomToExtent) {
+        // Check if the layer is 'ready' immediately
+        if (this.layerSource.getState() === 'ready') {
+          try {
+            this.zoomToLayerExtent(60, 1000)
+          } catch (e) {}
+        }
+        // On 'change', zoom to extent
         this.layerSource.on('change', (event) => {
           if (this.layerSource.getState() === 'ready') {
-            this.zoomToLayerExtent(20, 1000)
+            this.zoomToLayerExtent(60, 1000)
           }
         })
       }

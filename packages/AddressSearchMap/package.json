@@ -1,0 +1,18 @@
+{
+  "name": "@dpc-sdp/myvic-address-search-map",
+  "version": "1.2.0",
+  "description": "Address search with map",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "homepage": "https://ripple.sdp.vic.gov.au",
+  "repository": "https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@dpc-sdp/myvic-global": "1.2.0",
+    "@dpc-sdp/myvic-addresssearch": "1.2.0",
+    "@dpc-sdp/myvic-map-core": "1.2.0",
+    "node-fetch": "^2.6.0"
+  }
+}

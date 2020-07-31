@@ -52,6 +52,159 @@ exports[`MyvicStoryshots AddressSearch Default 1`] = `
 </form>
 `;
 
+exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
+<div
+  class="myvic-address-search-map__container"
+>
+  <div
+    class="myvic-address-search-map__map-container"
+  >
+    <div
+      class="myvic-address-search-map__address-search-container"
+    >
+      <form
+        action=""
+        class="myvic-address-search-map__address-search"
+      >
+        <div
+          class="myvic-auto-complete"
+        >
+          <div
+            class="myvic-auto-complete__input-wrapper"
+          >
+            <input
+              aria-label="Search"
+              autocomplete="off"
+              class="myvic-auto-complete__input"
+              name="myvic-auto-complete"
+              placeholder="Search for an address"
+              type="text"
+              value=""
+            />
+             
+            <!---->
+             
+            <!---->
+             
+            <!---->
+          </div>
+           
+          <ul
+            class="myvic-search-results myvic-auto-complete__results"
+            style="display: none;"
+          >
+             
+            <li
+              class="myvic-search-results__item--no-results"
+            >
+              <span
+                class="myvic-search-results__item-name"
+              >
+                
+      No results
+    
+              </span>
+            </li>
+          </ul>
+           
+          <!---->
+        </div>
+      </form>
+    </div>
+     
+    <div
+      class="myvic-map-core"
+      style="position: relative; width: 100%; height: 100%;"
+    >
+       
+      <div
+        class="myvic-map-core__container"
+      >
+        <div
+          aria-label="An interactive map"
+          class="myvic-map-core__map"
+          role="application"
+          tabindex="0"
+        >
+          <!---->
+           
+          <!---->
+           
+          <a
+            class="map-watermark"
+            href="http://mapbox.com/about/maps"
+            target="_blank"
+          >
+            Mapbox
+          </a>
+          <div
+            class="ol-viewport"
+            style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+          >
+            <div
+              class="ol-unselectable ol-layers"
+              style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+            />
+            <div
+              class="ol-overlaycontainer"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+            />
+            <div
+              class="ol-overlaycontainer-stopevent"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+            >
+              <div
+                class="ol-overlay-container ol-selectable"
+                style="position: absolute; display: none;"
+              >
+                <div
+                  class="myvic-map-core__popup ol-popup"
+                >
+                  <!---->
+                </div>
+              </div>
+              <div
+                class="ol-zoom ol-unselectable ol-control"
+              >
+                <button
+                  class="ol-zoom-in"
+                  title="Zoom in"
+                  type="button"
+                >
+                  +
+                </button>
+                <button
+                  class="ol-zoom-out"
+                  title="Zoom out"
+                  type="button"
+                >
+                  −
+                </button>
+              </div>
+              <div
+                class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+              >
+                <ul />
+                <button
+                  title="Attributions"
+                  type="button"
+                >
+                  <span>
+                    i
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`MyvicStoryshots AreaSearch Default 1`] = `
 <form>
   <form

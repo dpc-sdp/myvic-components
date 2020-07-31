@@ -54,6 +54,13 @@ import {
   createXYZ
 } from 'ol/tilegrid'
 import GeometryType from 'ol/geom/GeometryType'
+import {
+  Point,
+  Polygon,
+  MultiPolygon,
+  Circle as CircleGeometry
+} from 'ol/geom'
+import { circular as circularPolygon } from 'ol/geom/Polygon'
 import * as Color from 'ol/color'
 import { getCenter } from 'ol/extent'
 
@@ -194,7 +201,12 @@ const ol = {
     createXYZ
   },
   geom: {
-    GeometryType
+    GeometryType,
+    Point,
+    Polygon,
+    MultiPolygon,
+    CircleGeometry,
+    circularPolygon
   },
   extent: {
     getCenter
