@@ -103,8 +103,8 @@ export default {
     selectAddress: async function (searchComponent, address) {
       // Lookup SSC ID for suburb
       try {
-        let postcode = address.context[0].text
-        let suburb = address.context[1].text
+        // let postcode = address.context[0].text
+        // let suburb = address.context[1].text
         // let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
         // if (area) {
         //   this.area = area
