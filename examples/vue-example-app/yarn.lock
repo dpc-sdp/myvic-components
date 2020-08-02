@@ -880,6 +880,33 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@dpc-sdp/myvic-address-search-map@latest":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-address-search-map/-/myvic-address-search-map-1.3.0.tgz#3b8cfea11f2774bc84a85727d877125b06e756d9"
+  integrity sha512-Tp9jq2FXx4Ib8BtNpXvmJTwGjOKeNHZ8MDspTaPi36zv1BM71V0cewMd9cXfayM/hVtyga1hDTzH8HcYvg8erA==
+  dependencies:
+    "@dpc-sdp/myvic-addresssearch" "1.3.0"
+    "@dpc-sdp/myvic-global" "1.3.0"
+    "@dpc-sdp/myvic-map-core" "1.3.0"
+    node-fetch "^2.6.0"
+
+"@dpc-sdp/myvic-addresssearch@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-addresssearch/-/myvic-addresssearch-1.3.0.tgz#ff0711efe5989be5cbc8b38a6ab80eeb86a4392d"
+  integrity sha512-aDpY63uyeah/6wIePwDtwCpc3AlONOnISQ0EeApd41M27OrHh49J0bIZPmiJtOYmAgMtPi5+1Rf5HY8Hjum5VA==
+  dependencies:
+    "@dpc-sdp/myvic-autocomplete" "1.3.0"
+    axios "^0.19.2"
+
+"@dpc-sdp/myvic-autocomplete@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-autocomplete/-/myvic-autocomplete-1.3.0.tgz#63cfb48662c14f9c5024c09355675b58015b022e"
+  integrity sha512-Y5SdrwbfPmoh5yHIGTDbnmb0nRoiwoDJMmaFzynA1xnI5sANll+WawRSs19f36QjmzLidNAKmXxvOhN9lyVS+w==
+  dependencies:
+    "@dpc-sdp/myvic-global" "1.3.0"
+    "@dpc-sdp/ripple-icon" "^1.8.0"
+    lodash.debounce "^4.0.8"
+
 "@dpc-sdp/myvic-bar-chart@latest":
   version "1.2.0-alpha.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-bar-chart/-/myvic-bar-chart-1.2.0-alpha.0.tgz#011cd57e5599cb69cec4dbf1aa84bda7ce5f60a9"
@@ -907,6 +934,14 @@
     "@dpc-sdp/ripple-global" "^1.8.0"
     axios "^0.19.2"
 
+"@dpc-sdp/myvic-global@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-global/-/myvic-global-1.3.0.tgz#24cddd99b0ef9f6a64978347f7bd2c02cdd8507d"
+  integrity sha512-rW+6e2t8DmOyGgidNT0iQ/keHSUHJIE9w5Zt4+yOXpLN5veK1CL4PhratFSSFeK7n4A+sJIBYcjDdI4cd1m4fg==
+  dependencies:
+    "@dpc-sdp/ripple-global" "^1.8.0"
+    axios "^0.19.2"
+
 "@dpc-sdp/myvic-line-chart@latest":
   version "1.2.0-alpha.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-line-chart/-/myvic-line-chart-1.2.0-alpha.0.tgz#57b02d10a2d659087019c84d4c867e07d6af34e0"
@@ -916,6 +951,18 @@
     chart.js "^2.9.3"
     lodash.merge "^4.6.2"
     vue-chartjs "^3.5.0"
+
+"@dpc-sdp/myvic-map-core@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-map-core/-/myvic-map-core-1.3.0.tgz#fc49d9f64293f63c12b5066c49e3544181ad7e9b"
+  integrity sha512-4110VybEeIYQnSfrYCEKA5rXXX7PK2IlAMZlvrlYEQRFKTR6mORA+0SujYYZh6Dzcex1MW5Xb1LpiM6dA1DxnA==
+  dependencies:
+    "@dpc-sdp/myvic-global" "1.3.0"
+    "@dpc-sdp/ripple-global" "^1.8.0"
+    ol "^6.3.1"
+    ol-ext "^3.1.12"
+    ol-mapbox-style "^6.1.2"
+    proj4 "^2.6.2"
 
 "@dpc-sdp/myvic-map-core@latest":
   version "1.2.0-alpha.0"
@@ -6115,6 +6162,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
+
 lodash.defaultsdeep@^4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.1.tgz#512e9bd721d272d94e3d3a63653fa17516741ca6"
@@ -6709,6 +6761,11 @@ no-case@^2.2.0:
   integrity sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==
   dependencies:
     lower-case "^1.1.1"
+
+node-fetch@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
 node-forge@0.9.0:
   version "0.9.0"
