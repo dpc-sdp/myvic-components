@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <map-layout />
+    <layout />
   </div>
 </template>
 
 <script>
-import MapLayout from './components/MapLayout.vue'
+import Layout from './components/Layout.vue'
 
 export default {
   name: 'app',
   components: {
-    MapLayout
+    Layout
   }
 }
 </script>
