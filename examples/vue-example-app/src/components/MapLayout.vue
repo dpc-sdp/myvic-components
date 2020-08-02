@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import { AddressSearchMap } from '../../../../packages/AddressSearchMap'
+  import { AddressSearchMap } from '@dpc-sdp/myvic-address-search-map'
 
   export default {
     name: 'MapLayout',
