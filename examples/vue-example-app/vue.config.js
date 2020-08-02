@@ -22,12 +22,10 @@ module.exports = {
     // Add this to load Ripple svg icons
     const svgRule = config.module.rule('svg')
     const rippleIconPath = path.dirname(require.resolve('@dpc-sdp/ripple-icon/package.json'))
-    const rippleIconPathInDataBlock = path.dirname(require.resolve('@dpc-sdp/myvic-data-block/node_modules/@dpc-sdp/ripple-icon/package.json'))
     svgRule.uses.clear()
     svgRule
       .include
         .add(resolve(__dirname, rippleIconPath))
-        .add(resolve(__dirname, rippleIconPathInDataBlock))
         .end()
       .use('svg-sprite-loader')
         .loader('svg-sprite-loader')
