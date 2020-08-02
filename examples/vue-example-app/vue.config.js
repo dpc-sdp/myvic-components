@@ -1,6 +1,6 @@
-const path = require('path')
+// const path = require('path')
 
-const resolve = path.resolve
+// const resolve = path.resolve
 
 // vue.config.js
 module.exports = {
