@@ -14,12 +14,10 @@
     "test:smoke": "cross-env TEST=1 start-server-and-test serve http://localhost:3000 cy:run-smoke"
   },
   "dependencies": {
-    "@dpc-sdp/ripple-global": "1.8.0",
-    "@dpc-sdp/ripple-grid": "1.8.0",
-    "@dpc-sdp/ripple-layout": "1.8.0",
-    "@dpc-sdp/ripple-site-header": "1.8.0",
-    "@dpc-sdp/ripple-card": "1.8.0",
-    "@dpc-sdp/ripple-grants": "1.8.0",
+    "@dpc-sdp/ripple-global": "^1.8.0",
+    "@dpc-sdp/ripple-grid": "^1.8.0",
+    "@dpc-sdp/ripple-layout": "^1.8.0",
+    "@dpc-sdp/ripple-site-header": "^1.8.0",
     "@dpc-sdp/myvic-address-search-map": "latest",
     "@dpc-sdp/myvic-bar-chart": "latest",
     "@dpc-sdp/myvic-line-chart": "latest",
