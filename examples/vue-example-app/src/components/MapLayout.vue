@@ -11,8 +11,6 @@
     name: 'MapLayout',
     components: {
       AddressSearchMap
-    },
-    data: () => {
     }
   }
 </script>

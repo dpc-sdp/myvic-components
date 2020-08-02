@@ -27,8 +27,6 @@
       RplContainer,
       RplSiteHeader,
       ExampleSite
-    },
-    data: () => {
     }
   }
 </script>
