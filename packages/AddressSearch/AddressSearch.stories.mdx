@@ -1,6 +1,6 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import AddressSearch from './index.vue'
-import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
+import { withKnobs, object, boolean, select, number, text } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { addressSearchTemplate } from './storiesConstants.js'
 
@@ -39,8 +39,34 @@ import { AddressSearch } from '@dpc-sdp/myvic-addresssearch'
     {
       {
         components: { AddressSearch },
-        template: addressSearchTemplate,
+        template: `<form>
+                     <address-search
+                      :provider="provider"
+                      :minQueryLength="minQueryLength"
+                      :showIcon="showIcon"
+                      :mapboxGeocoderParams="mapboxGeocoderParams"
+                     />
+                   </form>`,
         props: {
+          provider: {
+            default: () => select('provider', { DELWP: 'DELWP', Mapbox: 'Mapbox' }, 'DELWP')
+          },
+          minQueryLength: {
+            default: number('minQueryLength', 3,
+              {
+                range: true,
+                min: 1,
+                max: 20,
+                step: 1
+              }
+            )
+          },
+          showIcon: {
+            default: boolean('showIcon', true)
+          },
+          mapboxGeocoderParams: {
+            default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+          }
         }
       }
     }
