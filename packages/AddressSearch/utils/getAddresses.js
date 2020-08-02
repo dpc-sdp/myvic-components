@@ -6,17 +6,15 @@ const SUGGEST_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/suggest?f=json&tex
 const ADDRESS_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/findAddressCandidates?f=json&outSR=4326&magicKey=`
 
 const MAPBOX_GEOCODER_API = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'
-// const MAPBOX_GEOCODER_PARAMS = '+victoria.json?country=AU&bbox=139,-40,151,-33&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
-const MAPBOX_GEOCODER_PARAMS = '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
 
 const fetchData = async (request) => {
   const response = await axios.get(request)
   return response
 }
 
-export const getAddressSuggestions = async (provider, query) => {
+export const getAddressSuggestions = async (provider, query, mapboxGeocoderParams) => {
   if (provider === 'DELWP') {
-    const response = await fetchData(SUGGEST_REQUEST + query)
+    const response = await fetchData(SUGGEST_REQUEST + encodeURIComponent(query))
     const addresses = response.data.suggestions.map(x => (
       {
         name: capitalize(x.text),
@@ -25,7 +23,7 @@ export const getAddressSuggestions = async (provider, query) => {
     ))
     return addresses
   } else if (provider === 'Mapbox') {
-    const response = await fetchData(MAPBOX_GEOCODER_API + query + MAPBOX_GEOCODER_PARAMS)
+    const response = await fetchData(MAPBOX_GEOCODER_API + encodeURIComponent(query) + mapboxGeocoderParams)
     const addresses = response.data.features.map(x => (
       {
         ...x,

@@ -199,6 +199,13 @@ export default {
       default: 0
     },
     /**
+     * Set focus() on the map element
+     */
+    focus: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Set the map aria label. Ideally this value should be as descriptive as possible, for example, 'Interactive map
      * of population growth by suburb'
      */
@@ -318,6 +325,9 @@ export default {
     },
     enableRotateInteraction () {
       this.setMapInteractions()
+    },
+    focus (focus) {
+      if (focus) this.$refs.map.focus()
     }
   },
   mounted () {
@@ -371,6 +381,7 @@ export default {
           minZoom: this.minZoom
         })
       })
+      if (this.focus) this.$refs.map.focus()
     },
     createBaseLayer () {
       this.baseSource = new ol.source.XYZ({
