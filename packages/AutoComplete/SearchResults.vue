@@ -31,8 +31,8 @@
 
 export default {
   components: {
-    'SingleLineItem': () => import(`./${'SingleLineItem'}`),
-    'DoubleLineItem': () => import(`./${'DoubleLineItem'}`)
+    'SingleLineItem': () => import('./SingleLineItem'),
+    'DoubleLineItem': () => import('./DoubleLineItem')
   },
   props: {
     activeIndex: {

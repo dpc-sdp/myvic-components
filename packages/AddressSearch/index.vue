@@ -5,7 +5,7 @@
     :filter="filter"
     resultItemLineStyle="single"
     placeholder="Search for an address"
-    :showIcon="true"
+    :showIcon="showIcon"
     :getIcon="() => 'map_marker'"
     :minQueryLength="minQueryLength"
     @item-selected="selectAddress"
@@ -40,6 +40,21 @@ export default {
     minQueryLength: {
       type: Number,
       default: 3
+    },
+    /**
+     * Show icon with search results
+     */
+    showIcon: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * Query params for Mapbox Geocoder API queries. Appended immediately after the search query to provide the option
+     * to append search terms, e.g: +victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=
+     */
+    mapboxGeocoderParams: {
+      type: String,
+      default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token='
     }
   },
   data () {
@@ -49,12 +64,21 @@ export default {
   },
   methods: {
     async filter (items, query) {
-      let addresses = await getAddressSuggestions(this.provider, query)
-      return addresses
+      try {
+        let addresses = await getAddressSuggestions(this.provider, query, this.mapboxGeocoderParams)
+        return addresses
+      } catch (e) {
+        console.log('Error retrieving address suggestions: ' + e)
+        return []
+      }
     },
     async selectAddress (id, item) {
-      let address = await getAddress(this.provider, item)
-      this.$emit('item-selected', id, address)
+      try {
+        let address = await getAddress(this.provider, item)
+        this.$emit('item-selected', id, address)
+      } catch (e) {
+        console.log('Error selecting address: ' + e)
+      }
     },
     clearAddress () {
       this.$emit('item-cleared', this.id)

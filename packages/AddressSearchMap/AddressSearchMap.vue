@@ -6,6 +6,8 @@
           class="myvic-address-search-map__address-search"
           provider="Mapbox"
           :minQueryLength="minQueryLength"
+          :showIcon="false"
+          :mapboxGeocoderParams="mapboxGeocoderParams"
           @item-selected="selectAddress"
           @item-cleared="clearAddress"
         />
@@ -17,6 +19,8 @@
         :baseMapUrl="baseMapUrl"
         ariaLabel="An interactive map"
         enableMapboxWatermark
+        :enableFullScreenControl="false"
+        :focus="mapFocus"
       >
         <myvic-map-vector-layer
           :features="features"
@@ -79,6 +83,8 @@ export default {
   data () {
     return {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
+      mapboxGeocoderParams: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
+      mapFocus: false,
       center: [16137905.843820328, -4555057.013522999],
       areas: undefined,
       area: {
@@ -134,6 +140,7 @@ export default {
       } catch (e) {
         console.log('Unable to create radius: ' + e)
       }
+      this.mapFocus = true
     },
     clearAddress: function () {
       this.features = []
@@ -146,7 +153,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+  .ol-full-screen {
+    top: 65px
+  }
   .myvic-address-search-map {
     &__container {
       position: absolute;
@@ -160,7 +170,7 @@ export default {
       z-index: 200;
       top: 10px;
       right: 10px;
-      left: 40px;
+      left: 47px;
       width: auto;
       display: flex;
     }
