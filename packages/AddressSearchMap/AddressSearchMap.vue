@@ -173,6 +173,11 @@ export default {
       left: 47px;
       width: auto;
       display: flex;
+
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS styles go here */
+        display: block;
+      }
     }
     &__address-search {
       min-width: 200px;
