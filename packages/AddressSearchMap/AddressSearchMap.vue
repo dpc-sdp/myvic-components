@@ -105,10 +105,10 @@ export default {
       try {
         let postcode = address.context[0].text
         let suburb = address.context[1].text
-        let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
-        if (area) {
-          this.area = area
-        }
+        // let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
+        // if (area) {
+        //   this.area = area
+        // }
       } catch (e) {
         console.log('Unable to identify suburb: ' + e)
       }
