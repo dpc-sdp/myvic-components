@@ -130,7 +130,9 @@ export default {
         let postcodeSuburbs = this.areas.filter(area => area.postcode === postcode)
         // Sort so longer suburb names are matched first, e.g. 'Hepburn Springs' before 'Hepburn'
         postcodeSuburbs.sort((a, b) => b.name.length - a.name.length)
-        let area = postcodeSuburbs.find(area => address.address.toLowerCase().includes(area.name.toLowerCase()))
+        // Use address without postcode, then use regex match from end of string (to exclude streets that match suburb names)
+        let addressShort = address.address.slice(0, -5)
+        let area = postcodeSuburbs.find(area => addressShort.toLowerCase().match(area.name.toLowerCase() + '$'))
         // Get suburb from Mapbox response
         // let suburb = address.context[1].text
         // let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
