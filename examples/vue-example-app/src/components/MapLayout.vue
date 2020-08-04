@@ -1,6 +1,14 @@
 <template>
   <div class="myvic-address-search-map-layout">
-    <address-search-map />
+    <address-search-map
+      geocodeProvider="DELWP"
+      :minQueryLength="6"
+      :showSuburb="false"
+      :showMetroBoundary="true"
+      metroBoundaryUrl="metro_3857_poly_simplified.geojson"
+      :radius="5000"
+      radiusLabel="Approx. 5km radius"
+    />
   </div>
 </template>
 
