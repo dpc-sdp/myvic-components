@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/dpc-sdp/myvic-components/compare/v1.3.1...v1.3.2) (2020-08-04)
+
+
+### Bug Fixes
+
+* resolve example site build issues ([#78](https://github.com/dpc-sdp/myvic-components/issues/78)) ([9e38547](https://github.com/dpc-sdp/myvic-components/commit/9e385474cacc22155374c8dc93703f263286962d))
+
+
+
+
+
 ## [1.3.1](https://github.com/dpc-sdp/myvic-components/compare/v1.3.0...v1.3.1) (2020-08-02)
 
 

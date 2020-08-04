@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-examples",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Examples showcasing the map, area search, data block and bar chart components",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,11 +10,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-areasearch": "1.3.1",
-    "@dpc-sdp/myvic-bar-chart": "1.3.1",
-    "@dpc-sdp/myvic-data-block": "1.3.1",
-    "@dpc-sdp/myvic-global": "1.3.1",
-    "@dpc-sdp/myvic-map-core": "1.3.1",
+    "@dpc-sdp/myvic-areasearch": "1.3.2",
+    "@dpc-sdp/myvic-bar-chart": "1.3.2",
+    "@dpc-sdp/myvic-data-block": "1.3.2",
+    "@dpc-sdp/myvic-global": "1.3.2",
+    "@dpc-sdp/myvic-map-core": "1.3.2",
     "node-fetch": "^2.6.0"
   }
 }
