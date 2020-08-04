@@ -122,6 +122,10 @@ export default {
           font-weight: 600;
         }
       }
+
+      @media screen and (max-width: 575px) {
+        font-size: rem-calc(12);
+      }
     }
   }
 
