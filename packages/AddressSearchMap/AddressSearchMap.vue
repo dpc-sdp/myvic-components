@@ -4,9 +4,10 @@
       <div class="myvic-address-search-map__address-search-container">
         <address-search
           class="myvic-address-search-map__address-search"
-          provider="DELWP"
+          :provider="geocodeProvider"
           :minQueryLength="minQueryLength"
           :showIcon="false"
+          :mapboxGeocoderParams="mapboxGeocoderParams"
           @item-selected="selectAddress"
           @item-cleared="clearAddress"
         />
@@ -29,6 +30,7 @@
           :attributions="attributions"
         />
         <myvic-map-vector-layer
+          :visible="showSuburb"
           :url="layerUrl"
           dataFormat="GeoJSON"
           loadingStrategy="bbox"
@@ -37,7 +39,8 @@
           :attributions="attributions"
         />
         <myvic-map-vector-layer
-          url="metro_3857_poly_simplified.geojson"
+          :visible="showMetroBoundary"
+          :url="metroBoundaryUrl"
           dataFormat="GeoJSON"
           :zoomToExtent="false"
           :layerStyle="getMetroAreaStyle"
@@ -84,6 +87,27 @@ export default {
     minQueryLength: {
       type: Number,
       default: 6
+    },
+    geocodeProvider: {
+      type: String,
+      default: 'DELWP',
+      validator: value => ['DELWP', 'Mapbox'].includes(value)
+    },
+    mapboxGeocoderParams: {
+      type: String,
+      default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+    },
+    showSuburb: {
+      type: Boolean,
+      default: false
+    },
+    showMetroBoundary: {
+      type: Boolean,
+      default: true
+    },
+    metroBoundaryUrl: {
+      type: String,
+      default: 'metro_3857_poly_simplified.geojson'
     }
   },
   data () {
@@ -125,19 +149,29 @@ export default {
     selectAddress: async function (searchComponent, address) {
       // Lookup SSC ID for suburb
       try {
-        // Get suburb from DELWP response
-        let postcode = address.address.trim().slice(-4)
-        let postcodeSuburbs = this.areas.filter(area => area.postcode === postcode)
-        // Sort so longer suburb names are matched first, e.g. 'Hepburn Springs' before 'Hepburn'
-        postcodeSuburbs.sort((a, b) => b.name.length - a.name.length)
-        // Use address without postcode, then use regex match from end of string (to exclude streets that match suburb names)
-        let addressShort = address.address.slice(0, -5)
-        let area = postcodeSuburbs.find(area => addressShort.toLowerCase().match(area.name.toLowerCase() + '$'))
-        // Get suburb from Mapbox response
-        // let suburb = address.context[1].text
-        // let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
+        let area
+        if (this.showSuburb && this.geocodeProvider === 'DELWP') {
+          // Get suburb from DELWP response
+          let postcode = address.address.trim().slice(-4)
+          let postcodeSuburbs = this.areas.filter(area => area.postcode === postcode)
+          // Sort so longer suburb names are matched first, e.g. 'Hepburn Springs' before 'Hepburn'
+          postcodeSuburbs.sort((a, b) => b.name.length - a.name.length)
+          // Use address without postcode, then use regex match from end of string (to exclude streets that match suburb names)
+          let addressShort = address.address.slice(0, -5)
+          area = postcodeSuburbs.find(area => addressShort.toLowerCase().match(area.name.toLowerCase() + '$'))
+        } else if (this.showSuburb && this.geocodeProvider === 'Mapbox') {
+          // Get suburb from Mapbox response
+          let postcode = address.context[0].text
+          let suburb = address.context[1].text
+          area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
+        }
         if (area) {
           this.area = area
+        } else {
+          this.area = {
+            id: '',
+            description: 'suburb'
+          }
         }
       } catch (e) {
         console.log('Unable to identify suburb: ' + e)
