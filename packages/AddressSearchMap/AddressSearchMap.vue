@@ -128,7 +128,7 @@ export default {
         new ol.style.Style({
           stroke: new ol.style.Stroke({
             color: '#FF5500',
-            width: 4
+            width: 3
           }),
           fill: new ol.style.Fill({
             color: '#ff550015'
