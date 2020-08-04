@@ -131,7 +131,7 @@ export default {
             width: 3
           }),
           fill: new ol.style.Fill({
-            color: '#ff550015'
+            color: ol.getRgbaFromString('#ff5500', 0.1)
           }),
           text: new ol.style.Text({
             text: 'Stage 4 restrictions zone',
