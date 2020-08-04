@@ -14,7 +14,7 @@
       </div>
       <myvic-map-core
         :center="center"
-        :zoom="12"
+        :zoom="8"
         :minZoom="7"
         :baseMapUrl="baseMapUrl"
         ariaLabel="An interactive map"
@@ -42,7 +42,7 @@
           :visible="showMetroBoundary"
           :url="metroBoundaryUrl"
           dataFormat="GeoJSON"
-          :zoomToExtent="false"
+          :zoomToExtent="true"
           :layerStyle="getMetroAreaStyle"
         />
       </myvic-map-core>
@@ -114,7 +114,7 @@ export default {
     return {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
       mapFocus: false,
-      center: [16137905.843820328, -4555057.013522999],
+      center: [16171110, -4558722],
       areas: undefined,
       area: {
         id: '',
@@ -127,11 +127,25 @@ export default {
       metroAreaStyle: [
         new ol.style.Style({
           stroke: new ol.style.Stroke({
-            color: '#045495',
+            color: '#FF5500',
             width: 4
           }),
           fill: new ol.style.Fill({
-            color: '#ffffff00'
+            color: '#ff550015'
+          }),
+          text: new ol.style.Text({
+            text: 'Stage 4 restrictions zone',
+            font: '600 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
+            rotateWithView: false,
+            placement: 'point',
+            overflow: true,
+            fill: new ol.style.Fill({
+              color: 'white'
+            }),
+            stroke: new ol.style.Stroke({
+              color: 'black',
+              width: 3
+            })
           })
         })
       ]
