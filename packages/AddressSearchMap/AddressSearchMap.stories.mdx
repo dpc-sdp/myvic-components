@@ -1,6 +1,6 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
 import AddressSearchMap from './AddressSearchMap.vue'
-import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
+import { withKnobs, object, boolean, select, text, number } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 
 <Meta title="AddressSearchMap" component={ AddressSearchMap } decorators={ [withKnobs] } />
@@ -38,8 +38,53 @@ import { AddressSearchMap } from '@dpc-sdp/myvic-address-search-map'
     {
       {
         components: { AddressSearchMap },
-        template: '<address-search-map />',
+        template: `<address-search-map
+          :geocodeProvider="geocodeProvider"
+          :minQueryLength="minQueryLength"
+          :showSuburb="showSuburb"
+          :showMetroBoundary="showMetroBoundary"
+          :metroBoundaryUrl="metroBoundaryUrl"
+          :radius="radius"
+          :radiusLabel="radiusLabel"
+        />`,
         props: {
+          geocodeProvider: {
+            default: () => select('geocodeProvider', { DELWP: 'DELWP', Mapbox: 'Mapbox' }, 'DELWP')
+          },
+          minQueryLength: {
+            default: number('minQueryLength', 6,
+              {
+                min: 1,
+                max: 20,
+              }
+            )
+          },
+          showSuburb: {
+            default: boolean('showSuburb', false)
+          },
+          showMetroBoundary: {
+            default: boolean('showMetroBoundary', true)
+          },
+          metroBoundaryUrl: {
+            default: text(
+              'metroBoundaryUrl',
+              'metro_3857_poly_simplified.geojson'
+            )
+          },
+          radius: {
+            default: number('radius', 5000,
+              {
+                min: 1,
+                max: 20000
+              }
+            )
+          },
+          radiusLabel: {
+            default: text(
+              'radiusLabel',
+              'Approx. 5km radius'
+            )
+          },
         }
       }
     }

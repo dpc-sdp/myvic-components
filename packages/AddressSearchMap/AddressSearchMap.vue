@@ -4,7 +4,7 @@
       <div class="myvic-address-search-map__address-search-container">
         <address-search
           class="myvic-address-search-map__address-search"
-          provider="Mapbox"
+          :provider="geocodeProvider"
           :minQueryLength="minQueryLength"
           :showIcon="false"
           :mapboxGeocoderParams="mapboxGeocoderParams"
@@ -14,7 +14,7 @@
       </div>
       <myvic-map-core
         :center="center"
-        :zoom="12"
+        :zoom="8"
         :minZoom="7"
         :baseMapUrl="baseMapUrl"
         ariaLabel="An interactive map"
@@ -30,12 +30,20 @@
           :attributions="attributions"
         />
         <myvic-map-vector-layer
+          :visible="showSuburb"
           :url="layerUrl"
           dataFormat="GeoJSON"
           loadingStrategy="bbox"
           :zoomToExtent="false"
           labelAttribute="ssc_name"
           :attributions="attributions"
+        />
+        <myvic-map-vector-layer
+          :visible="showMetroBoundary"
+          :url="metroBoundaryUrl"
+          dataFormat="GeoJSON"
+          :zoomToExtent="true"
+          :layerStyle="getMetroAreaStyle"
         />
       </myvic-map-core>
     </div>
@@ -47,6 +55,7 @@ import { AddressSearch } from '@dpc-sdp/myvic-addresssearch'
 import { getAreas } from './utils/getAreas'
 import { MyvicMapCore, MyvicMapVectorLayer, Feature, Point, circularPolygon } from '@dpc-sdp/myvic-map-core'
 import { createWfsRequestUrl } from '@dpc-sdp/myvic-global/utils/geoserver_requests'
+import ol from '@dpc-sdp/myvic-map-core/lib/ol'
 
 /**
  * AreaWithMap is a component showcasing the area search and map components
@@ -78,14 +87,34 @@ export default {
     minQueryLength: {
       type: Number,
       default: 6
+    },
+    geocodeProvider: {
+      type: String,
+      default: 'DELWP',
+      validator: value => ['DELWP', 'Mapbox'].includes(value)
+    },
+    mapboxGeocoderParams: {
+      type: String,
+      default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+    },
+    showSuburb: {
+      type: Boolean,
+      default: false
+    },
+    showMetroBoundary: {
+      type: Boolean,
+      default: true
+    },
+    metroBoundaryUrl: {
+      type: String,
+      default: 'metro_3857_poly_simplified.geojson'
     }
   },
   data () {
     return {
       baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
-      mapboxGeocoderParams: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
       mapFocus: false,
-      center: [16137905.843820328, -4555057.013522999],
+      center: [16171110, -4558722],
       areas: undefined,
       area: {
         id: '',
@@ -94,6 +123,31 @@ export default {
       features: [],
       attributions: [
         '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+      ],
+      metroAreaStyle: [
+        new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: '#FF5500',
+            width: 3
+          }),
+          fill: new ol.style.Fill({
+            color: ol.getRgbaFromString('#ff5500', 0.1)
+          }),
+          text: new ol.style.Text({
+            text: 'Stage 4 restrictions zone',
+            font: '600 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
+            rotateWithView: false,
+            placement: 'point',
+            overflow: true,
+            fill: new ol.style.Fill({
+              color: 'white'
+            }),
+            stroke: new ol.style.Stroke({
+              color: 'black',
+              width: 3
+            })
+          })
+        })
       ]
     }
   },
@@ -109,12 +163,30 @@ export default {
     selectAddress: async function (searchComponent, address) {
       // Lookup SSC ID for suburb
       try {
-        // let postcode = address.context[0].text
-        // let suburb = address.context[1].text
-        // let area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
-        // if (area) {
-        //   this.area = area
-        // }
+        let area
+        if (this.showSuburb && this.geocodeProvider === 'DELWP') {
+          // Get suburb from DELWP response
+          let postcode = address.address.trim().slice(-4)
+          let postcodeSuburbs = this.areas.filter(area => area.postcode === postcode)
+          // Sort so longer suburb names are matched first, e.g. 'Hepburn Springs' before 'Hepburn'
+          postcodeSuburbs.sort((a, b) => b.name.length - a.name.length)
+          // Use address without postcode, then use regex match from end of string (to exclude streets that match suburb names)
+          let addressShort = address.address.slice(0, -5)
+          area = postcodeSuburbs.find(area => addressShort.toLowerCase().match(area.name.toLowerCase() + '$'))
+        } else if (this.showSuburb && this.geocodeProvider === 'Mapbox') {
+          // Get suburb from Mapbox response
+          let postcode = address.context[0].text
+          let suburb = address.context[1].text
+          area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
+        }
+        if (area) {
+          this.area = area
+        } else {
+          this.area = {
+            id: '',
+            description: 'suburb'
+          }
+        }
       } catch (e) {
         console.log('Unable to identify suburb: ' + e)
       }
@@ -148,6 +220,9 @@ export default {
         id: '',
         description: 'suburb'
       }
+    },
+    getMetroAreaStyle: function () {
+      return this.metroAreaStyle
     }
   }
 }

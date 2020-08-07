@@ -57,6 +57,10 @@ export default {
   .myvic-single-line-item {
     padding: 1rem;
 
+    @media screen and (max-width: 575px) {
+      padding: 0.8rem;
+    }
+
     &__icon {
       box-sizing: border-box;
       display: inline-block;
