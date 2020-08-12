@@ -292,28 +292,37 @@ export default {
     }
     &__data-block-container {
       display: flex;
-      justify-content: space-evenly;
-      margin: 60px -10px 20px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 60px 0 20px;
     }
     &__data-block {
-      width: 30%;
-      margin: 0 10px;
+      width: 35%;
+      min-width: 130px;
+      max-width: 180px;
+      margin: 10px 10px;
     }
     &__bottom-row {
       display: flex;
-      margin: 40px 0 20px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 40px 8px 20px;
     }
     &__chart-container {
-      width: 100%;
-      max-width: calc(50% - 30px);
-      margin-right: 30px;
+      flex-basis: calc(50% - 30px);
+      flex-grow: 1;
+      min-width: 290px;
+      margin-right: 10px;
     }
     &__bar-chart {
       height: 400px;
       margin-bottom: 15px;
     }
     &__map-container {
-      width: 50%;
+      flex-basis: calc(50% - 30px);
+      flex-grow: 1;
+      min-width: 290px;
+      height: 400px;
       margin-left: 10px;
     }
   }
