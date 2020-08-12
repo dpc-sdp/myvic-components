@@ -111,21 +111,24 @@ export default {
     &__data-block-container {
       width: 100%;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-around;
       margin: 60px 0 20px;
     }
     &__data-block {
-      width: 30%;
+      width: 35%;
+      min-width: 145px;
+      max-width: 180px;
     }
     &__chart-container {
       width: 100%;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-around;
       margin: 20px 0;
     }
     &__bar-chart {
       width: 100%;
       max-width: 50%;
+      min-width: 280px;
       height: 280px;
     }
   }
