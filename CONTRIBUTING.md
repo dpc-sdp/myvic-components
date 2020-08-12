@@ -43,6 +43,7 @@ Commits should follow the format <type>: <subject> or <type>(scope): <subject>
 
 Create release branch e.g `release/v1.0.0`, and push to remote.
 
+Run `lerna run build` to make sure the UMD package is up to date.
 Run `yarn lerna:publish`.
 It will guide you through publishing npm packages.
 It will generate(updating) CHANGELOG.md files. Passing `--no-changelog` will disable the generation (or updating) of CHANGELOG.md files.
