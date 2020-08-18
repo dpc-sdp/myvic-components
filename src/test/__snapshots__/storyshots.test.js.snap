@@ -132,13 +132,9 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
            
           <!---->
            
-          <a
-            class="map-watermark"
-            href="http://mapbox.com/about/maps"
-            target="_blank"
-          >
-            Mapbox
-          </a>
+          <!---->
+           
+          <!---->
           <div
             class="ol-viewport"
             style="position: relative; overflow: hidden; width: 100%; height: 100%;"
@@ -181,19 +177,6 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
                   type="button"
                 >
                   −
-                </button>
-              </div>
-              <div
-                class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
-              >
-                <ul />
-                <button
-                  title="Attributions"
-                  type="button"
-                >
-                  <span>
-                    i
-                  </span>
                 </button>
               </div>
             </div>
@@ -257,6 +240,46 @@ exports[`MyvicStoryshots AreaSearch Default 1`] = `
     </div>
   </form>
 </form>
+`;
+
+exports[`MyvicStoryshots Atoms | Global Divider 1`] = `
+<hr
+  class="rpl-divider"
+/>
+`;
+
+exports[`MyvicStoryshots Atoms/Global/Dev error Dev error in dev mode 1`] = `
+<ol
+  class="rpl-dev-error"
+>
+  <li>
+    
+    Something wrong
+  
+  </li>
+  <li>
+    
+    Another error
+  
+  </li>
+</ol>
+`;
+
+exports[`MyvicStoryshots Atoms/Global/Dev error Dev error in none dev mode 1`] = `
+<ol
+  class="rpl-dev-error"
+>
+  <li>
+    
+    Something wrong
+  
+  </li>
+  <li>
+    
+    Another error
+  
+  </li>
+</ol>
 `;
 
 exports[`MyvicStoryshots Autocomplete Default 1`] = `

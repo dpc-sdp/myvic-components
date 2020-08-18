@@ -16,18 +16,25 @@
         :center="center"
         :zoom="8"
         :minZoom="7"
-        :baseMapUrl="baseMapUrl"
         ariaLabel="An interactive map"
-        enableMapboxWatermark
         :enableFullScreenControl="false"
         :focus="mapFocus"
+        :enableAttributionControl="false"
       >
+        <myvic-map-tile-layer
+          type="WMS"
+          url="https://base.maps.vic.gov.au/service"
+          :params="{'LAYERS': 'CARTO_WM', 'TILED': false}"
+          :highDPI="false"
+          :zIndex="1"
+        />
         <myvic-map-vector-layer
           :features="features"
           dataFormat="GeoJSON"
           :zoomToExtent="true"
           labelAttribute="name"
           :attributions="attributions"
+          :zIndex="4"
         />
         <myvic-map-vector-layer
           :visible="showSuburb"
@@ -37,6 +44,7 @@
           :zoomToExtent="false"
           labelAttribute="ssc_name"
           :attributions="attributions"
+          :zIndex="3"
         />
         <myvic-map-vector-layer
           :visible="showMetroBoundary"
@@ -44,6 +52,7 @@
           dataFormat="GeoJSON"
           :zoomToExtent="true"
           :layerStyle="getMetroAreaStyle"
+          :zIndex="2"
         />
       </myvic-map-core>
     </div>
@@ -53,7 +62,7 @@
 
 import { AddressSearch } from '@dpc-sdp/myvic-addresssearch'
 import { getAreas } from './utils/getAreas'
-import { MyvicMapCore, MyvicMapVectorLayer, Feature, Point, circularPolygon } from '@dpc-sdp/myvic-map-core'
+import { MyvicMapCore, MyvicMapVectorLayer, MyvicMapTileLayer, Feature, Point, circularPolygon } from '@dpc-sdp/myvic-map-core'
 import { createWfsRequestUrl } from '@dpc-sdp/myvic-global/utils/geoserver_requests'
 import ol from '@dpc-sdp/myvic-map-core/lib/ol'
 
@@ -64,7 +73,8 @@ export default {
   components: {
     AddressSearch,
     MyvicMapCore,
-    MyvicMapVectorLayer
+    MyvicMapVectorLayer,
+    MyvicMapTileLayer
   },
   props: {
     /**

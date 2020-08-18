@@ -310,6 +310,7 @@ export default {
     position: relative;
     background: #fff;
     color: $textColor;
+    border-radius: 5px;
 
     &__spinner {
       position: relative;
