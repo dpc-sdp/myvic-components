@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-data-block",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "A data block component",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-global": "1.3.4",
+    "@dpc-sdp/myvic-global": "1.3.5",
     "@dpc-sdp/ripple-icon": "^1.8.0"
   }
 }
