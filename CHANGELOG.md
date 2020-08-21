@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/dpc-sdp/myvic-components/compare/v1.3.4...v1.4.0) (2020-08-21)
+
+
+### Features
+
+* swap address search mapbox basemap with vicmap ([6055a35](https://github.com/dpc-sdp/myvic-components/commit/6055a35b5dd467f0a238d0024ed093dfc00cafa9))
+
+
+
+
+
+
 ## [1.3.4](https://github.com/dpc-sdp/myvic-components/compare/v1.3.3...v1.3.4) (2020-08-13)
 
 
