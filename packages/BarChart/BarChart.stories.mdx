@@ -3,7 +3,7 @@ import BarChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
-import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData } from './storiesConstants.js'
+import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData, maxChartData } from './storiesConstants.js'
 
 <Meta title="Bar Chart" component={ BarChart } decorators={ [withKnobs] } />
 
@@ -148,6 +148,30 @@ The data object that should contain the following keys:
         direction: { default: () => 'horizontal' },
         title: { default: () => 'Dual Chart' },
         data: { default: () => dualChartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Maximum Datasets
+
+<Preview>
+  <Story name="Maximum datasets">
+    {
+      {
+       components: { BarChart },
+       template: `
+        <div style="width: 1200px; height: 600px">
+          <bar-chart :title="title" :direction="direction" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+        </div>
+      `,
+       props: {
+        direction: { default: () => 'vertical' },
+        title: { default: () => 'Maximum possible datasets' },
+        data: { default: () => maxChartData },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }

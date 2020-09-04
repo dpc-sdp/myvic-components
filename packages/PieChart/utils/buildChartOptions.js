@@ -13,20 +13,20 @@ const settings = {
     fill: true
   },
   primaryDataset: {
-    backgroundColor: utils.getStyleArray(styles, 'fillPie', 12),
-    hoverBackgroundColor: utils.getStyleArray(styles, 'fillPieHover', 12)
+    backgroundColor: utils.getStyleArray(styles, 'fill', 12),
+    hoverBackgroundColor: utils.getStyleArray(styles, 'fillHover', 12)
   },
   secondaryDataset: {
-    backgroundColor: utils.getStyleArray(styles, 'fillPie', 12),
-    hoverBackgroundColor: utils.getStyleArray(styles, 'fillPieHover', 12)
+    backgroundColor: utils.getStyleArray(styles, 'fill', 12),
+    hoverBackgroundColor: utils.getStyleArray(styles, 'fillHover', 12)
   },
   tertiaryDataset: {
-    backgroundColor: utils.getStyleArray(styles, 'fillPie', 12),
-    hoverBackgroundColor: utils.getStyleArray(styles, 'fillPieHover', 12)
+    backgroundColor: utils.getStyleArray(styles, 'fill', 12),
+    hoverBackgroundColor: utils.getStyleArray(styles, 'fillHover', 12)
   },
   quaternaryDataset: {
-    backgroundColor: utils.getStyleArray(styles, 'fillPie', 12),
-    hoverBackgroundColor: utils.getStyleArray(styles, 'fillPieHover', 12)
+    backgroundColor: utils.getStyleArray(styles, 'fill', 12),
+    hoverBackgroundColor: utils.getStyleArray(styles, 'fillHover', 12)
   }
 }
 

@@ -3,7 +3,7 @@ import LineChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
-import { lineChartTemplate, chartData, multiChartData } from './storiesConstants.js'
+import { lineChartTemplate, chartData, multiChartData, maxChartData } from './storiesConstants.js'
 
 <Meta title="Line Chart" component={ LineChart } decorators={ [withKnobs] } />
 
@@ -118,6 +118,29 @@ The data object that should contain the following keys:
        props: {
         title: { default: () => 'Multiple Datasets' },
         data: { default: () => multiChartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Maximum Datasets
+
+<Preview>
+  <Story name="Maximum datasets">
+    {
+      {
+       components: { LineChart },
+       template: `
+        <div style="width: 1200px; height: 600px">
+          <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+        </div>
+      `,
+       props: {
+        title: { default: () => 'Maximum possible datasets' },
+        data: { default: () => maxChartData },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }

@@ -8,22 +8,6 @@ const settings = {
   dataset: {
     barPercentage: 0.8
   },
-  primaryDataset: {
-    backgroundColor: styles.fillDefault,
-    hoverBackgroundColor: styles.fillDefaultHover
-  },
-  secondaryDataset: {
-    backgroundColor: styles.fillSecondary,
-    hoverBackgroundColor: styles.fillSecondaryHover
-  },
-  tertiaryDataset: {
-    backgroundColor: styles.fillTertiary,
-    hoverBackgroundColor: styles.fillTertiaryHover
-  },
-  quaternaryDataset: {
-    backgroundColor: styles.fillQuaternary,
-    hoverBackgroundColor: styles.fillQuaternaryHover
-  },
   primaryAxis: {
     gridLines: {
       display: true,
@@ -106,8 +90,11 @@ export default {
   getDatasetSettings: (data) => {
     const datasetSettings = []
     for (const [index, value] of data.datasets.entries()) {
-      let datasetType = constants.datasetOrder[index]
-      let finalSettings = _merge({}, value, settings.dataset, settings[datasetType + 'Dataset'])
+      let colorSettings = {
+        backgroundColor: styles[`fill${index + 1}`],
+        hoverBackgroundColor: styles[`fillHover${index + 1}`]
+      }
+      let finalSettings = _merge({}, value, settings.dataset, colorSettings)
       datasetSettings.push(finalSettings)
     }
     return datasetSettings
