@@ -16,26 +16,6 @@ const settings = {
     pointHoverRadius: 5,
     pointRadius: 4
   },
-  primaryDataset: {
-    borderColor: styles.strokeLine1,
-    pointBackgroundColor: styles.strokeLine1,
-    hoverBorderColor: styles.strokeLine1HoverLight
-  },
-  secondaryDataset: {
-    borderColor: styles.strokeLine2,
-    pointBackgroundColor: styles.strokeLine2,
-    hoverBorderColor: styles.strokeLine2HoverLight
-  },
-  tertiaryDataset: {
-    borderColor: styles.strokeLine3,
-    pointBackgroundColor: styles.strokeLine3,
-    hoverBorderColor: styles.strokeLine3HoverLight
-  },
-  quaternaryDataset: {
-    borderColor: styles.strokeLine4,
-    pointBackgroundColor: styles.strokeLine4,
-    hoverBorderColor: styles.strokeLine4HoverLight
-  },
   primaryAxis: {
     gridLines: {
       display: true,
@@ -108,8 +88,12 @@ export default {
   getDatasetSettings: (data) => {
     const datasetSettings = []
     for (const [index, value] of data.datasets.entries()) {
-      let datasetType = constants.datasetOrder[index]
-      let finalSettings = _merge({}, value, settings.dataset, settings[datasetType + 'Dataset'])
+      let colorSettings = {
+        borderColor: styles[`fill${index + 1}`],
+        pointBackgroundColor: styles[`fill${index + 1}`],
+        hoverBorderColor: styles[`fillHover${index + 1}`] + '33'
+      }
+      let finalSettings = _merge({}, value, settings.dataset, colorSettings)
       datasetSettings.push(finalSettings)
     }
     return datasetSettings

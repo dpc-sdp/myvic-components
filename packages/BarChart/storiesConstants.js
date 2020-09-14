@@ -1,4 +1,5 @@
 import _merge from 'lodash.merge'
+import { getRandomArray } from '@dpc-sdp/myvic-global/utils/randomData'
 
 export const barChartTemplate = `
 <div style="width: 400px; height: 400px">
@@ -17,7 +18,7 @@ export const chartData = {
   datasets: [
     {
       label: 'Dataset 1',
-      data: [40, 20, 12, 52, 10, 39]
+      data: getRandomArray(6, 0, 50)
     }
   ]
 }
@@ -25,5 +26,13 @@ export const chartData = {
 export const dualChartData = _merge({}, chartData)
 dualChartData.datasets.push({
   label: 'Dataset 2',
-  data: [35, 14, 11, 42, 12, 46]
+  data: getRandomArray(6, 0, 50)
 })
+
+export const maxChartData = _merge({}, dualChartData)
+for (var i = 3; i <= 12; i++) {
+  maxChartData.datasets.push({
+    label: `Dataset ${i}`,
+    data: getRandomArray(6, 0, 50)
+  })
+}

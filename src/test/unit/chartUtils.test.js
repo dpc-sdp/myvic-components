@@ -5,8 +5,8 @@ describe('getStyleArray', () => {
   /* eslint-disable indent */
   test.each`
     varName                             | length | expected
-    ${'fillPie'}                        | ${1}   | ${['fillPie1']}
-    ${'fillPieHover'}                   | ${3}   | ${['fillPieHover1', 'fillPieHover2', 'fillPieHover3']}
+    ${'fill'}                        | ${1}   | ${['fill1']}
+    ${'fillHover'}                   | ${3}   | ${['fillHover1', 'fillHover2', 'fillHover3']}
   `('returns $expected for $varName, $length', ({ varName, length, expected }) => {
     expect(utils.getStyleArray(styles, varName, length)).toStrictEqual(expected)
   })
