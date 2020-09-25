@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/data-driven-component/compare/v1.4.0...v1.4.1) (2020-09-25)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-data-driven-component
+
+
+
+
+
+
 # [1.4.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/data-driven-component/compare/v1.3.4...v1.4.0) (2020-08-21)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-data-driven-component
