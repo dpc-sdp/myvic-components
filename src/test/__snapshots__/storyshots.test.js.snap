@@ -577,6 +577,38 @@ exports[`MyvicStoryshots Bar Chart Invalid data provided 1`] = `
 </div>
 `;
 
+exports[`MyvicStoryshots Bar Chart Maximum datasets 1`] = `
+<div
+  style="width: 1200px; height: 600px;"
+>
+  <div
+    class="myvic-bar-chart"
+  >
+    <div
+      alt=""
+      aria-label="Bar Chart"
+      class=""
+      dataformat="normal"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="bar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`MyvicStoryshots Bar Chart Ripple Grid 1`] = `
 <div
   class="rpl-container"
@@ -1678,6 +1710,38 @@ exports[`MyvicStoryshots Line Chart Invalid data provided 1`] = `
         DataError: No datasets provided. The data object needs to have a "datasets" property
       </span>
     </div>
+  </div>
+</div>
+`;
+
+exports[`MyvicStoryshots Line Chart Maximum datasets 1`] = `
+<div
+  style="width: 1200px; height: 600px;"
+>
+  <div
+    class="myvic-line-chart"
+  >
+    <div
+      alt=""
+      aria-label="Line Chart"
+      class=""
+      dataformat="normal"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="line-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
   </div>
 </div>
 `;

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/dpc-sdp/myvic-components/compare/v1.4.0...v1.4.1) (2020-09-25)
+
+
+### Bug Fixes
+
+* update address-search-map package ([#99](https://github.com/dpc-sdp/myvic-components/issues/99)) ([670e192](https://github.com/dpc-sdp/myvic-components/commit/670e19210e15dfda6a55e71a2c52eefb996b8765))
+
+
+
+
+
+
 # [1.4.0](https://github.com/dpc-sdp/myvic-components/compare/v1.3.4...v1.4.0) (2020-08-21)
 
 

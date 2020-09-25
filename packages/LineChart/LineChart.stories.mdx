@@ -3,7 +3,7 @@ import LineChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
-import { lineChartTemplate, chartData, multiChartData } from './storiesConstants.js'
+import { lineChartTemplate, chartData, multiChartData, maxChartData } from './storiesConstants.js'
 
 <Meta title="Line Chart" component={ LineChart } decorators={ [withKnobs] } />
 
@@ -38,7 +38,7 @@ import { LineChart } from '@dpc-sdp/myvic-line-chart'
 ### Data Format
 The data object that should contain the following keys:
 - labels: an array of values for one of the axes. In the case of a line chart this would be the X-axis
-- datasets: an array of objects (minimum 1 required - maximum of 4) that contain the following keys:
+- datasets: an array of objects (minimum 1 required - maximum of 12) that contain the following keys:
   - label (String): a label for this dataset
   - data (Array): the values for this dataset. The length of this should match the length of the labels key
 
@@ -118,6 +118,29 @@ The data object that should contain the following keys:
        props: {
         title: { default: () => 'Multiple Datasets' },
         data: { default: () => multiChartData },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Maximum Datasets
+
+<Preview>
+  <Story name="Maximum datasets">
+    {
+      {
+       components: { LineChart },
+       template: `
+        <div style="width: 1200px; height: 600px">
+          <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+        </div>
+      `,
+       props: {
+        title: { default: () => 'Maximum possible datasets' },
+        data: { default: () => maxChartData },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }
