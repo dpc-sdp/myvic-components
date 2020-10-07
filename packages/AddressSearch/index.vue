@@ -28,7 +28,7 @@ export default {
     provider: {
       type: String,
       default: 'DELWP',
-      validator: value => ['DELWP', 'Mapbox'].includes(value)
+      validator: value => ['DELWP', 'Mapbox', 'VicmapAddressAPI'].includes(value)
     },
     initialValue: {
       type: String,
@@ -55,6 +55,10 @@ export default {
     mapboxGeocoderParams: {
       type: String,
       default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token='
+    },
+    vicmapAddressAPIKey: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -65,7 +69,7 @@ export default {
   methods: {
     async filter (items, query) {
       try {
-        let addresses = await getAddressSuggestions(this.provider, query, this.mapboxGeocoderParams)
+        let addresses = await getAddressSuggestions(this.provider, query, this.mapboxGeocoderParams, this.vicmapAddressAPIKey)
         return addresses
       } catch (e) {
         console.log('Error retrieving address suggestions: ' + e)

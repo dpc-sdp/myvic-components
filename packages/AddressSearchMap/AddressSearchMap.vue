@@ -8,6 +8,7 @@
           :minQueryLength="minQueryLength"
           :showIcon="false"
           :mapboxGeocoderParams="mapboxGeocoderParams"
+          :vicmapAddressAPIKey="vicmapAddressAPIKey"
           @item-selected="selectAddress"
           @item-cleared="clearAddress"
         />
@@ -101,11 +102,15 @@ export default {
     geocodeProvider: {
       type: String,
       default: 'DELWP',
-      validator: value => ['DELWP', 'Mapbox'].includes(value)
+      validator: value => ['DELWP', 'Mapbox', 'VicmapAddressAPI'].includes(value)
     },
     mapboxGeocoderParams: {
       type: String,
       default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+    },
+    vicmapAddressAPIKey: {
+      type: String,
+      default: ''
     },
     showSuburb: {
       type: Boolean,
@@ -188,6 +193,8 @@ export default {
           let postcode = address.context[0].text
           let suburb = address.context[1].text
           area = this.areas.find(area => area.postcode === postcode && area.name.toLowerCase() === suburb.toLowerCase())
+        } else if (this.showSuburb && this.geocodeProvider === 'VicmapAddressAPI') {
+          area = this.areas.find(area => area.postcode === address.postcode && area.name.toLowerCase() === address.suburb.toLowerCase())
         }
         if (area) {
           this.area = area
