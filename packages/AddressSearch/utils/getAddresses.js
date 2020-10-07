@@ -7,12 +7,14 @@ const ADDRESS_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/findAddressCandida
 
 const MAPBOX_GEOCODER_API = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'
 
-const fetchData = async (request) => {
-  const response = await axios.get(request)
+const VICMAP_ADDRESS_API = 'https://api.vic.gov.au:443/delwp/address/v1/suggestions?query='
+
+const fetchData = async (request, headers) => {
+  const response = await axios.get(request, headers)
   return response
 }
 
-export const getAddressSuggestions = async (provider, query, mapboxGeocoderParams) => {
+export const getAddressSuggestions = async (provider, query, mapboxGeocoderParams, vicmapAddressAPIKey) => {
   if (provider === 'DELWP') {
     const response = await fetchData(SUGGEST_REQUEST + encodeURIComponent(query))
     const addresses = response.data.suggestions.map(x => (
@@ -28,6 +30,17 @@ export const getAddressSuggestions = async (provider, query, mapboxGeocoderParam
       {
         ...x,
         name: capitalize(x.place_name)
+      }
+    ))
+    return addresses
+  } else if (provider === 'VicmapAddressAPI') {
+    const response = await fetchData(VICMAP_ADDRESS_API + encodeURIComponent(query), {
+      headers: { 'apiKey': vicmapAddressAPIKey }
+    })
+    const addresses = response.data.suggestions.map(x => (
+      {
+        ...x,
+        name: capitalize(x.label)
       }
     ))
     return addresses
@@ -47,6 +60,15 @@ export const getAddress = async (provider, item) => {
       location: {
         x: item.geometry.coordinates[0],
         y: item.geometry.coordinates[1]
+      }
+    }
+  } else if (provider === 'VicmapAddressAPI') {
+    return {
+      ...item,
+      address: item.label,
+      location: {
+        x: item.longitude,
+        y: item.latitude
       }
     }
   } else {
