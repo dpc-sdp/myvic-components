@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-areasearch",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "An area search component.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-autocomplete": "1.4.1",
+    "@dpc-sdp/myvic-autocomplete": "1.4.2",
     "axios": "^0.19.2"
   }
 }
