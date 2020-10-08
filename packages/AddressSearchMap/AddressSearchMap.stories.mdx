@@ -40,7 +40,6 @@ import { AddressSearchMap } from '@dpc-sdp/myvic-address-search-map'
         components: { AddressSearchMap },
         template: `<address-search-map
           :geocodeProvider="geocodeProvider"
-          :vicmapAddressAPIKey="vicmapAddressAPIKey"
           :minQueryLength="minQueryLength"
           :showSuburb="showSuburb"
           :showMetroBoundary="showMetroBoundary"
@@ -51,9 +50,6 @@ import { AddressSearchMap } from '@dpc-sdp/myvic-address-search-map'
         props: {
           geocodeProvider: {
             default: () => select('geocodeProvider', { VicmapAddressAPI: 'VicmapAddressAPI', DELWP: 'DELWP', Mapbox: 'Mapbox' }, 'VicmapAddressAPI')
-          },
-          vicmapAddressAPIKey: {
-            default: text('vicmapAddressAPIKey', '')
           },
           minQueryLength: {
             default: number('minQueryLength', 6,

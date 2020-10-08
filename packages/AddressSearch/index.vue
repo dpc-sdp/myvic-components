@@ -55,10 +55,6 @@ export default {
     mapboxGeocoderParams: {
       type: String,
       default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token='
-    },
-    vicmapAddressAPIKey: {
-      type: String,
-      default: ''
     }
   },
   data () {
@@ -69,7 +65,7 @@ export default {
   methods: {
     async filter (items, query) {
       try {
-        let addresses = await getAddressSuggestions(this.provider, query, this.mapboxGeocoderParams, this.vicmapAddressAPIKey)
+        let addresses = await getAddressSuggestions(this.provider, query, this.mapboxGeocoderParams)
         return addresses
       } catch (e) {
         console.log('Error retrieving address suggestions: ' + e)
