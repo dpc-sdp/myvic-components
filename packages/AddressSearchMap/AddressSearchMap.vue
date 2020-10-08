@@ -8,7 +8,6 @@
           :minQueryLength="minQueryLength"
           :showIcon="false"
           :mapboxGeocoderParams="mapboxGeocoderParams"
-          :vicmapAddressAPIKey="vicmapAddressAPIKey"
           @item-selected="selectAddress"
           @item-cleared="clearAddress"
         />
@@ -107,10 +106,6 @@ export default {
     mapboxGeocoderParams: {
       type: String,
       default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
-    },
-    vicmapAddressAPIKey: {
-      type: String,
-      default: ''
     },
     showSuburb: {
       type: Boolean,

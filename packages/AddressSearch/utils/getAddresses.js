@@ -7,14 +7,14 @@ const ADDRESS_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/findAddressCandida
 
 const MAPBOX_GEOCODER_API = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'
 
-const VICMAP_ADDRESS_API = 'https://api.vic.gov.au:443/delwp/address/v1/suggestions?query='
+const VICMAP_ADDRESS_API = 'https://proxy-myvic-components-production.lagoon.vicsdp.amazee.io/api-address-suggestions?query='
 
 const fetchData = async (request, headers) => {
   const response = await axios.get(request, headers)
   return response
 }
 
-export const getAddressSuggestions = async (provider, query, mapboxGeocoderParams, vicmapAddressAPIKey) => {
+export const getAddressSuggestions = async (provider, query, mapboxGeocoderParams) => {
   if (provider === 'DELWP') {
     const response = await fetchData(SUGGEST_REQUEST + encodeURIComponent(query))
     const addresses = response.data.suggestions.map(x => (
@@ -34,9 +34,7 @@ export const getAddressSuggestions = async (provider, query, mapboxGeocoderParam
     ))
     return addresses
   } else if (provider === 'VicmapAddressAPI') {
-    const response = await fetchData(VICMAP_ADDRESS_API + encodeURIComponent(query), {
-      headers: { 'apiKey': vicmapAddressAPIKey }
-    })
+    const response = await fetchData(VICMAP_ADDRESS_API + encodeURIComponent(query))
     const addresses = response.data.suggestions.map(x => (
       {
         ...x,
