@@ -45,6 +45,7 @@ import { AddressSearch } from '@dpc-sdp/myvic-addresssearch'
                       :minQueryLength="minQueryLength"
                       :showIcon="showIcon"
                       :mapboxGeocoderParams="mapboxGeocoderParams"
+                      :vicmapAddressAPIKey="vicmapAddressAPIKey"
                      />
                    </form>`,
         props: {
@@ -66,6 +67,9 @@ import { AddressSearch } from '@dpc-sdp/myvic-addresssearch'
           },
           mapboxGeocoderParams: {
             default: '+victoria.json?country=AU&proximity=144.9,-37.8&types=address&access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g'
+          },
+          vicmapAddressAPIKey: {
+            default: text('vicmapAddressAPIKey', '')
           }
         }
       }
