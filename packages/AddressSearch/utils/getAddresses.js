@@ -7,7 +7,7 @@ const ADDRESS_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/findAddressCandida
 
 const MAPBOX_GEOCODER_API = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'
 
-const VICMAP_ADDRESS_API = 'https://api.vic.gov.au:443/delwp/address/v1/suggestions?query='
+const VICMAP_ADDRESS_API = 'https://api.sdp.vic.gov.au/delwp/address/v1/suggestions?query='
 
 const fetchData = async (request, headers) => {
   const response = await axios.get(request, headers)
