@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/compare/v1.4.2...v1.4.3) (2020-10-14)
+
+
+### Bug Fixes
+
+* changed address search endpoint to proxy ([e9ae3f3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/commit/e9ae3f30ac6fa25a2c893f9b27652def1fa8f737))
+
+
+
+
+
 ## [1.4.2](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/compare/v1.4.0...v1.4.2) (2020-10-07)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-address-search-map

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/compare/v1.4.2...v1.4.3) (2020-10-14)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-toggle-list
+
+
+
+
+
 ## [1.4.2](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/compare/v1.4.0...v1.4.2) (2020-10-07)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-toggle-list
