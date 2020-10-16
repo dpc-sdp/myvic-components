@@ -6,8 +6,8 @@
       :showSuburb="false"
       :showMetroBoundary="true"
       metroBoundaryUrl="metro_3857_poly_simplified.geojson"
-      :radius="5000"
-      radiusLabel="Approx. 5km radius"
+      :radius="radius"
+      :radiusLabel="radiusLabel"
     />
   </div>
 </template>
@@ -19,6 +19,21 @@
     name: 'MapLayout',
     components: {
       AddressSearchMap
+    },
+    data() {
+      // Please make sure env variable VUE_APP_COVID_MAP_RADIUS is set.
+      const radius = parseInt(process.env.VUE_APP_COVID_MAP_RADIUS)
+      let radiusLabel
+      if (isNaN(radius)) {
+        radiusLabel = `We have a glitch in our system. We are aware of the issue. We appreciate your patience while we're looking into it.`
+      } else {
+        const radiusKm = Math.round(radius / 1000)
+        radiusLabel = `Approx. ${radiusKm}km radius`
+      }
+      return { 
+        radius: isNaN(radius) ? null : radius,
+        radiusLabel
+      }
     }
   }
 </script>

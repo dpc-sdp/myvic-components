@@ -37,3 +37,11 @@ or
 ```
 npm run serve
 ```
+
+### Covid-19 map
+
+This app is used for Covid-19 map for now. Below env variable is required for building the map.
+
+```
+VUE_APP_COVID_MAP_RADIUS=20000
+```
