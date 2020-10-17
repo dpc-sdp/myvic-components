@@ -1,7 +1,7 @@
 <template>
   <div class="myvic-address-search-map-layout">
     <address-search-map
-      basemapProvider="Mapbox"
+      :basemapProvider="basemapProvider"
       :geocodeProvider="geocodeProvider"
       :vicmapAddressAPIKey="vicmapAddressAPIKey"
       :minQueryLength="6"
@@ -35,6 +35,7 @@
       return {
         radius: isNaN(radius) ? null : radius,
         radiusLabel,
+        basemapProvider: process.env.VUE_APP_COVID_MAP_BASEMAP_PROVIDER,
         geocodeProvider: process.env.VUE_APP_COVID_MAP_GEOCODE_PROVIDER,
         vicmapAddressAPIKey: process.env.VUE_APP_COVID_MAP_VICMAP_API_KEY
       }

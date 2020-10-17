@@ -43,9 +43,11 @@ npm run serve
 This app is used for Covid-19 map for now. Below env variable is required for building the map.
 
 ```shell
+VUE_APP_COVID_MAP_BASEMAP_PROVIDER=Mapbox
 VUE_APP_COVID_MAP_RADIUS=20000
 VUE_APP_COVID_MAP_GEOCODE_PROVIDER=Mapbox
 VUE_APP_COVID_MAP_VICMAP_API_KEY=xxxxxxx
 ```
 
-`VUE_APP_COVID_MAP_GEOCODE_PROVIDER` value: `Mapbox`, `DELWP` or `VicmapAddressAPI`
+- `VUE_APP_COVID_MAP_BASEMAP_PROVIDER` value: `Mapbox` or `Vicmap`.
+- `VUE_APP_COVID_MAP_GEOCODE_PROVIDER` value: `Mapbox`, `DELWP` or `VicmapAddressAPI`
