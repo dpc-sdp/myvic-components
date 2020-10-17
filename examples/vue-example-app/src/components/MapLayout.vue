@@ -1,6 +1,7 @@
 <template>
   <div class="myvic-address-search-map-layout">
     <address-search-map
+      basemapProvider="Mapbox"
       :geocodeProvider="geocodeProvider"
       :vicmapAddressAPIKey="vicmapAddressAPIKey"
       :minQueryLength="6"
@@ -31,7 +32,6 @@
         const radiusKm = Math.round(radius / 1000)
         radiusLabel = `Approx. ${radiusKm}km radius`
       }
-
       return {
         radius: isNaN(radius) ? null : radius,
         radiusLabel,
