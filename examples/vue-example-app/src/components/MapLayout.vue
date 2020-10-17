@@ -1,8 +1,7 @@
 <template>
   <div class="myvic-address-search-map-layout">
     <address-search-map
-      geocodeProvider="VicmapAddressAPI"
-      vicmapAddressAPIKey="0e8bf7b3-b681-4d0b-9bcd-b8ef6a071296"
+      geocodeProvider="DELWP"
       :minQueryLength="6"
       :showSuburb="false"
       :showMetroBoundary="true"
