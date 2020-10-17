@@ -39,6 +39,7 @@ import { AddressSearchMap } from '@dpc-sdp/myvic-address-search-map'
       {
         components: { AddressSearchMap },
         template: `<address-search-map
+          :basemapProvider="basemapProvider"
           :geocodeProvider="geocodeProvider"
           :vicmapAddressAPIKey="vicmapAddressAPIKey"
           :minQueryLength="minQueryLength"
@@ -49,6 +50,9 @@ import { AddressSearchMap } from '@dpc-sdp/myvic-address-search-map'
           :radiusLabel="radiusLabel"
         />`,
         props: {
+          basemapProvider: {
+            default: () => select('basemapProvider', { Vicmap: 'Vicmap', Mapbox: 'Mapbox' }, 'Mapbox')
+          },
           geocodeProvider: {
             default: () => select('geocodeProvider', { VicmapAddressAPI: 'VicmapAddressAPI', DELWP: 'DELWP', Mapbox: 'Mapbox' }, 'VicmapAddressAPI')
           },

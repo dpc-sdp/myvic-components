@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/dpc-sdp/myvic-components/compare/v1.4.2...v1.5.0) (2020-10-17)
+
+
+### Bug Fixes
+
+* add Mapbox attributions and update storyshot tests ([936edd4](https://github.com/dpc-sdp/myvic-components/commit/936edd4870cc61c6387e8837b311e1894697fd63))
+* change api back due to outage ([8540162](https://github.com/dpc-sdp/myvic-components/commit/85401629c4895ecdb0c03cbaae5bbea3dbb0439b))
+* changed address search endpoint to proxy ([e9ae3f3](https://github.com/dpc-sdp/myvic-components/commit/e9ae3f30ac6fa25a2c893f9b27652def1fa8f737))
+* IE issue on Address suggestion API ([#110](https://github.com/dpc-sdp/myvic-components/issues/110)) ([84b212c](https://github.com/dpc-sdp/myvic-components/commit/84b212cfd0374f094a5b064f7990e29f5dec8711))
+
+
+### Features
+
+* Add option to choose Vicmap or Mapbox basemap on AddressSearchMap ([ca9938e](https://github.com/dpc-sdp/myvic-components/commit/ca9938e760e8ed22754cd609a4955c176bf05764))
+
+
+
+
+
 ## [1.4.3](https://github.com/dpc-sdp/myvic-components/compare/v1.4.2...v1.4.3) (2020-10-14)
 
 
