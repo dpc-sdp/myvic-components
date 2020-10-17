@@ -21,13 +21,21 @@
         :enableFullScreenControl="false"
         :focus="mapFocus"
         :enableAttributionControl="false"
+        :enableMapboxWatermark="enableMapboxWatermark"
       >
         <myvic-map-tile-layer
+          :visible="basemapProvider === 'Vicmap'"
           type="WMS"
           url="https://base.maps.vic.gov.au/service"
           :params="{'LAYERS': 'CARTO_WM', 'TILED': false}"
           :highDPI="false"
           :zIndex="1"
+        />
+        <myvic-map-tile-layer
+          :visible="basemapProvider === 'Mapbox'"
+          type="XYZ"
+          url="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+          :attributions="attributions"
         />
         <myvic-map-vector-layer
           :features="features"
@@ -98,6 +106,11 @@ export default {
     minQueryLength: {
       type: Number,
       default: 6
+    },
+    basemapProvider: {
+      type: String,
+      default: 'Mapbox',
+      validator: value => ['Vicmap', 'Mapbox'].includes(value)
     },
     geocodeProvider: {
       type: String,
@@ -172,6 +185,9 @@ export default {
   computed: {
     layerUrl: function () {
       return createWfsRequestUrl(this.area.id, this.area.description)
+    },
+    enableMapboxWatermark: function () {
+      return this.basemapProvider === 'Mapbox'
     }
   },
   methods: {
