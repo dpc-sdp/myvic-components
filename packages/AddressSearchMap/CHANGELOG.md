@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/compare/v1.4.2...v1.5.0) (2020-10-17)
+
+
+### Bug Fixes
+
+* add Mapbox attributions and update storyshot tests ([936edd4](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/commit/936edd4870cc61c6387e8837b311e1894697fd63))
+* changed address search endpoint to proxy ([e9ae3f3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/commit/e9ae3f30ac6fa25a2c893f9b27652def1fa8f737))
+
+
+### Features
+
+* Add option to choose Vicmap or Mapbox basemap on AddressSearchMap ([ca9938e](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/commit/ca9938e760e8ed22754cd609a4955c176bf05764))
+
+
+
+
+
 ## [1.4.3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/compare/v1.4.2...v1.4.3) (2020-10-14)
 
 

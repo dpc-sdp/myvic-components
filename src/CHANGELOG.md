@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/dpc-sdp/myvic-components/compare/v1.4.2...v1.5.0) (2020-10-17)
+
+
+### Bug Fixes
+
+* add Mapbox attributions and update storyshot tests ([936edd4](https://github.com/dpc-sdp/myvic-components/commit/936edd4870cc61c6387e8837b311e1894697fd63))
+
+
+
+
+
 ## [1.4.3](https://github.com/dpc-sdp/myvic-components/compare/v1.4.2...v1.4.3) (2020-10-14)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-storybook
