@@ -1,7 +1,9 @@
 <template>
   <div class="myvic-address-search-map-layout">
     <address-search-map
-      geocodeProvider="DELWP"
+      :basemapProvider="basemapProvider"
+      :geocodeProvider="geocodeProvider"
+      :vicmapAddressAPIKey="vicmapAddressAPIKey"
       :minQueryLength="6"
       :showSuburb="false"
       :showMetroBoundary="true"
@@ -30,9 +32,12 @@
         const radiusKm = Math.round(radius / 1000)
         radiusLabel = `Approx. ${radiusKm}km radius`
       }
-      return { 
+      return {
         radius: isNaN(radius) ? null : radius,
-        radiusLabel
+        radiusLabel,
+        basemapProvider: process.env.VUE_APP_COVID_MAP_BASEMAP_PROVIDER,
+        geocodeProvider: process.env.VUE_APP_COVID_MAP_GEOCODE_PROVIDER,
+        vicmapAddressAPIKey: process.env.VUE_APP_COVID_MAP_VICMAP_API_KEY
       }
     }
   }
