@@ -197,7 +197,7 @@ export default {
       this.onInitialValueChange()
     }
 
-    this.debouncedOnChange = _debounce(this.onChange, 1000)
+    this.debouncedOnChange = _debounce(this.onChange, 500)
   },
   destroyed () {
     document.removeEventListener('click', this.closeResults)
