@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AutoComplete/compare/v1.5.0...v1.5.1) (2020-10-18)
+
+
+### Bug Fixes
+
+* change onchange to 1s ([#117](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AutoComplete/issues/117)) ([1078755](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AutoComplete/commit/107875541e3f55b71a491824188c907b1d0005b6))
+
+
+
+
+
 # [1.5.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AutoComplete/compare/v1.4.2...v1.5.0) (2020-10-17)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-autocomplete
