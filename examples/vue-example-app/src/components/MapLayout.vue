@@ -4,7 +4,7 @@
       :basemapProvider="basemapProvider"
       :geocodeProvider="geocodeProvider"
       :vicmapAddressAPIKey="vicmapAddressAPIKey"
-      :minQueryLength="6"
+      :minQueryLength="8"
       :showSuburb="false"
       :showMetroBoundary="true"
       metroBoundaryUrl="metro_3857_poly_simplified.geojson"
