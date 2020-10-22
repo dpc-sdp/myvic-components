@@ -433,6 +433,7 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
         >
           <div
             class="myvic-double-line-item"
+            itemsecondarytextclass=""
           >
             <div
               class="myvic-double-line-item__icon-container"
@@ -456,6 +457,7 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
         >
           <div
             class="myvic-double-line-item"
+            itemsecondarytextclass=""
           >
             <div
               class="myvic-double-line-item__icon-container"
@@ -483,6 +485,7 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
         >
           <div
             class="myvic-double-line-item"
+            itemsecondarytextclass=""
           >
             <div
               class="myvic-double-line-item__icon-container"
@@ -4489,6 +4492,71 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
       </div>
     </div>
   </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`MyvicStoryshots MetroAreaAddressSearch Default 1`] = `
+<div
+  class="myvic-metro-area-address-search__container"
+  metroboundaryurl="metro_3857_poly_simplified.geojson"
+>
+  <div
+    class="myvic-metro-area-address-search__address-search-container"
+  >
+    <form
+      action=""
+    >
+      <div
+        class="myvic-auto-complete"
+      >
+        <div
+          class="myvic-auto-complete__input-wrapper"
+        >
+          <input
+            aria-label="Search"
+            autocomplete="off"
+            class="myvic-auto-complete__input"
+            name="myvic-auto-complete"
+            placeholder="Search for an address"
+            type="text"
+            value=""
+          />
+           
+          <!---->
+           
+          <!---->
+           
+          <!---->
+        </div>
+         
+        <ul
+          class="myvic-search-results myvic-auto-complete__results"
+          style="display: none;"
+        >
+           
+          <li
+            class="myvic-search-results__item--no-results"
+          >
+            <span
+              class="myvic-search-results__item-name"
+            >
+              
+      No results
+    
+            </span>
+          </li>
+        </ul>
+         
+        <!---->
+      </div>
+    </form>
+  </div>
+   
+  <!---->
+   
+  <!---->
    
   <!---->
 </div>

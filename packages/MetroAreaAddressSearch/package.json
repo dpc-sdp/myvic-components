@@ -1,0 +1,18 @@
+{
+    "name": "@dpc-sdp/myvic-metro-area-address-search",
+    "version": "1.5.1",
+    "description": "Address search for the metro area",
+    "license": "Apache-2.0",
+    "main": "index.js",
+    "homepage": "https://ripple.sdp.vic.gov.au",
+    "repository": "https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/MetroAreaAddressSearch",
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@dpc-sdp/myvic-addresssearch": "1.5.1",
+        "@dpc-sdp/myvic-global": "1.5.1",
+        "@dpc-sdp/myvic-map-core": "1.5.1",
+        "node-fetch": "^2.6.0"
+    }
+}

@@ -1,0 +1,73 @@
+import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
+import MetroAreaAddressSearch from './MetroAreaAddressSearch.vue'
+import { withKnobs, object, boolean, select, text, number } from '@storybook/addon-knobs'
+import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
+
+<Meta title="MetroAreaAddressSearch" component={ MetroAreaAddressSearch } decorators={ [withKnobs] } />
+
+# MetroAreaAddressSearch
+
+<Description of={ MetroAreaAddressSearch } type='docgen' />
+
+## Installation
+
+```bash
+npm install @dpc-sdp/myvic-metro-area-address-search --save
+```
+
+## Import
+
+```javascript
+import { MetroAreaAddressSearch } from '@dpc-sdp/myvic-metro-area-address-search'
+```
+
+## Usage
+
+```html
+<metro-area-address-search />
+```
+
+## Props
+
+<Props of={ MetroAreaAddressSearch } />
+
+## Default
+
+<Preview>
+  <Story name="Default">
+    {
+      {
+        components: { MetroAreaAddressSearch },
+        template: `<metro-area-address-search
+          :minQueryLength="minQueryLength"
+          :provider="geocodeProvider"
+          :vicmapAddressAPIKey="vicmapAddressAPIKey"
+          :metroBoundaryUrl="metroBoundaryUrl"
+        />`,
+        props: {
+          geocodeProvider: {
+            default: () => select('geocodeProvider', { VicmapAddressAPI: 'VicmapAddressAPI', DELWP: 'DELWP', Mapbox: 'Mapbox' }, 'VicmapAddressAPI')
+          },
+          vicmapAddressAPIKey: {
+            default: text('vicmapAddressAPIKey', '')
+          },
+          minQueryLength: {
+            default: number('minQueryLength', 6,
+              {
+                min: 1,
+                max: 20,
+              }
+            )
+          },
+          metroBoundaryUrl: {
+            default: text(
+              'metroBoundaryUrl',
+              'metro_3857_poly_simplified.geojson'
+            )
+          },
+        
+        }
+      }
+    }
+  </Story>
+</Preview>

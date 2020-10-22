@@ -9,7 +9,7 @@
     <span
       class="myvic-single-line-item__item-name"
       v-html="highlight(itemName)" />
-    <span v-if="itemSecondaryText" class="myvic-single-line-item__pill">{{ itemSecondaryText }}</span>
+    <span v-if="itemSecondaryText" :class="'myvic-single-line-item__pill ' + itemSecondaryTextClass">{{ itemSecondaryText }}</span>
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
       default: ''
     },
     itemSecondaryText: {
+      type: String
+    },
+    itemSecondaryTextClass: {
       type: String
     },
     showIcon: {
