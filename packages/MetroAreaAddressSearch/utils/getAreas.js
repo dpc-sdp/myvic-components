@@ -27,7 +27,7 @@ export const getAreas = async () => {
   const rawData = await fetchData()
   const areas = rawData.features.filter(f => f.properties.name).map(f => ({
     id: f.properties.id,
-    name: f.properties.name || f.properties.postcode,
+    name: f.properties.type === 'suburb' ? `${f.properties.name}, ${f.properties.postcode}` : f.properties.name,
     description: f.properties.type,
     postcode: f.properties.postcode,
     flag: f.properties.flag,

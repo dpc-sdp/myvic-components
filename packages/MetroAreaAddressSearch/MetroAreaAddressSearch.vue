@@ -99,8 +99,7 @@ export default {
           return []
         }
       },
-      getItemName: ({ name, postcode }) =>
-        postcode.length ? `${name}, ${postcode}` : name
+      getItemName: ({ name }) => name
     }
   },
   created: async function () {
