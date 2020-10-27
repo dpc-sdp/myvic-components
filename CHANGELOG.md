@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/dpc-sdp/myvic-components/compare/v1.5.1...v1.5.2) (2020-10-27)
+
+
+### Bug Fixes
+
+* update to fix map load issue ([#118](https://github.com/dpc-sdp/myvic-components/issues/118)) ([08f78a1](https://github.com/dpc-sdp/myvic-components/commit/08f78a1a360cbd7ca0d2638b35a4bb23317b9a15))
+
+
+
+
+
 ## [1.5.1](https://github.com/dpc-sdp/myvic-components/compare/v1.5.0...v1.5.1) (2020-10-18)
 
 
