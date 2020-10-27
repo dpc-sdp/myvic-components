@@ -164,7 +164,7 @@ export default {
             color: ol.getRgbaFromString('#ff5500', 0.1)
           }),
           text: new ol.style.Text({
-            text: 'Stage 4 restrictions zone',
+            text: 'Third Step restrictions zone',
             font: '600 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
             rotateWithView: false,
             placement: 'point',
