@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AreaSearch/compare/v1.5.1...v1.5.3) (2020-11-18)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-areasearch
+
+
+
+
+
 ## [1.5.2](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AreaSearch/compare/v1.5.1...v1.5.2) (2020-10-27)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-areasearch
