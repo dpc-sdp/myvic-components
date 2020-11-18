@@ -211,7 +211,7 @@ export default {
         extent: this.extent,
         zIndex: this.zIndex,
         style: this.mapboxStyle ? undefined : (this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute, this.labelOnly, false)),
-        declutter: true,
+        declutter: this.declutter,
         visible: this.visible
       })
 
