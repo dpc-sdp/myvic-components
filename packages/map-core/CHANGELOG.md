@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.5.1...v1.5.3) (2020-11-18)
+
+
+### Bug Fixes
+
+* resolved issue with hard-coded declutter property ([0f05aff](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/commit/0f05aff5c2e11bcf445a1d98b692ff7b6bfc9e32))
+
+
+
+
+
 ## [1.5.2](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.5.1...v1.5.2) (2020-10-27)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-map-core
