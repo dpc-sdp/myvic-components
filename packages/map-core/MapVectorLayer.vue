@@ -103,6 +103,10 @@ export default {
     zoomToExtent: {
       type: Boolean,
       default: false
+    },
+    zoomDuration: {
+      type: Number,
+      default: 1000
     }
   },
   watch: {
@@ -140,6 +144,9 @@ export default {
       await this.configureLayer()
     },
     async zoomToExtent (newValue) {
+      await this.configureLayer()
+    },
+    async zoomDuration (newValue) {
       await this.configureLayer()
     }
   },
@@ -228,13 +235,13 @@ export default {
         // Check if the layer is 'ready' immediately
         if (this.layerSource.getState() === 'ready') {
           try {
-            this.zoomToLayerExtent(60, 1000)
+            this.zoomToLayerExtent(60, this.zoomDuration)
           } catch (e) {}
         }
         // On 'change', zoom to extent
         this.layerSource.on('change', (event) => {
           if (this.layerSource.getState() === 'ready') {
-            this.zoomToLayerExtent(60, 1000)
+            this.zoomToLayerExtent(60, this.zoomDuration)
           }
         })
       }
