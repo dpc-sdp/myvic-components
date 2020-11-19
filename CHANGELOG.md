@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/dpc-sdp/myvic-components/compare/v1.5.3...v1.6.0) (2020-11-19)
+
+
+### Features
+
+* add support for html content in map popups ([971714f](https://github.com/dpc-sdp/myvic-components/commit/971714fd2a4cee0bb8a97b647d0e05f38364d667))
+
+
+
+
+
 ## [1.5.3](https://github.com/dpc-sdp/myvic-components/compare/v1.5.1...v1.5.3) (2020-11-18)
 
 
