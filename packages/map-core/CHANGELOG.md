@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.6.0...v1.6.1) (2020-11-19)
+
+
+### Bug Fixes
+
+* expose zoom duration as property on vector layer ([4d66a74](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/commit/4d66a74cf49f5460c12e91688e09b8e717b05a84))
+
+
+
+
+
 # [1.6.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.5.3...v1.6.0) (2020-11-19)
 
 
