@@ -22,6 +22,7 @@
           :key="index"
           class="myvic-map-core-indicator__feature-multiple">
           <h5 class="myvic-map-core-indicator__title">{{ feature.title }}</h5>
+          <div v-if="feature.html" v-html="feature.html"></div>
           <div v-if="feature.value" class="myvic-map-core-indicator__value">{{ feature.value }}</div>
           <div v-if="feature.content" class="myvic-map-core-indicator__content">
             <div class="myvic-map-core-indicator__readmore"
@@ -36,6 +37,7 @@
       </template>
       <div v-else>
         <h5 class="myvic-map-core-indicator__title">{{ selectedFeature.title }}</h5>
+        <div v-if="selectedFeature.html" v-html="selectedFeature.html"></div>
         <div v-if="selectedFeature.value" class="myvic-map-core-indicator__value">{{ selectedFeature.value }}</div>
         <div v-if="selectedFeature.content" class="myvic-map-core-indicator__content">
           <div class="myvic-map-core-indicator__readmore"
