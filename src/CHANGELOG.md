@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/dpc-sdp/myvic-components/compare/v1.6.1...v1.7.0) (2021-02-12)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-storybook
+
+
+
+
+
 ## [1.6.1](https://github.com/dpc-sdp/myvic-components/compare/v1.6.0...v1.6.1) (2020-11-19)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-storybook
