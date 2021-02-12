@@ -48,6 +48,7 @@ import { AddressSearchMap } from '@dpc-sdp/myvic-address-search-map'
           :metroBoundaryUrl="metroBoundaryUrl"
           :radius="radius"
           :radiusLabel="radiusLabel"
+          :label="label"
         />`,
         props: {
           basemapProvider: {
@@ -93,6 +94,13 @@ import { AddressSearchMap } from '@dpc-sdp/myvic-address-search-map'
               'Approx. 5km radius'
             )
           },
+          label: {
+            default: text(
+              'label',
+              'Restriction zone'
+            )
+          }
+        }
         }
       }
     }
