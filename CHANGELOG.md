@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/dpc-sdp/myvic-components/compare/v1.6.1...v1.7.0) (2021-02-12)
+
+
+### Features
+
+* make map label configure ([#130](https://github.com/dpc-sdp/myvic-components/issues/130)) ([da9bd9a](https://github.com/dpc-sdp/myvic-components/commit/da9bd9ae7cd4612e7e470150ec82cda5f6bdaa6a))
+
+
+
+
+
 ## [1.6.1](https://github.com/dpc-sdp/myvic-components/compare/v1.6.0...v1.6.1) (2020-11-19)
 
 
