@@ -136,6 +136,10 @@ export default {
     metroBoundaryUrl: {
       type: String,
       default: 'metro_3857_poly_simplified.geojson'
+    },
+    label: {
+      type: String,
+      default: 'Restriction zone'
     }
   },
   data () {
@@ -164,7 +168,7 @@ export default {
             color: ol.getRgbaFromString('#ff5500', 0.1)
           }),
           text: new ol.style.Text({
-            text: 'Third Step restrictions zone',
+            text: this.label,
             font: '600 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
             rotateWithView: false,
             placement: 'point',

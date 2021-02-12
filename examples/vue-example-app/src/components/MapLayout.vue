@@ -10,6 +10,7 @@
       metroBoundaryUrl="https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/ows?service=WFS&version=1.0.0&outputFormat=application%2Fjson&request=GetFeature&typeName=myvic:covid_metro_area_4326"
       :radius="radius"
       :radiusLabel="radiusLabel"
+      :label="label"
     />
   </div>
 </template>
@@ -35,6 +36,7 @@
       return {
         radius: isNaN(radius) ? null : radius,
         radiusLabel,
+        label: process.env.VUE_APP_COVID_MAP_LABEL,
         basemapProvider: process.env.VUE_APP_COVID_MAP_BASEMAP_PROVIDER,
         geocodeProvider: process.env.VUE_APP_COVID_MAP_GEOCODE_PROVIDER,
         vicmapAddressAPIKey: process.env.VUE_APP_COVID_MAP_VICMAP_API_KEY
