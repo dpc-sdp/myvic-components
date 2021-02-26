@@ -83,6 +83,27 @@ export default {
       default: false
     },
     /**
+     * Whether to cluster the point features
+     */
+    clustering: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Distance between clusters
+     */
+    clusterDistance: {
+      type: Number,
+      default: 40
+    },
+    /**
+     * Layer style for the clustered points defined as a single OpenLayers style object, an array or a function.
+     */
+    clusterPointStyle: {
+      type: undefined,
+      default: undefined
+    },
+    /**
      * Enable or disable decluttering on the layer
      */
     declutter: {
@@ -213,13 +234,24 @@ export default {
         attributions: this.attributions
       })
 
+      if (this.clustering) {
+        this.clusterSource = new ol.source.ClusterSource({
+          source: this.layerSource,
+          distance: this.clusterDistance
+        })
+      }
+      const isIE = (navigator.appName === 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)))
+
+      const LayerConstructor = this.clustering && !isIE ? ol.source.AnimatedCluster : ol.layer.Vector
+
       // Create layer
-      this.layer = new ol.layer.Vector({
-        source: this.layerSource,
+      this.layer = new LayerConstructor({
+        source: this.clustering ? this.clusterSource : this.layerSource,
         opacity: this.opacity,
         extent: this.extent,
         zIndex: this.zIndex,
-        style: this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute, this.labelOnly, false),
+        style: this.getLayerStyle(),
+        animationDuration: this.clustering ? 600 : undefined,
         declutter: this.declutter,
         visible: this.visible
       })
@@ -260,6 +292,24 @@ export default {
             constrainResolution: false
           }
         )
+      }
+    },
+    callIfFunction: function (thing, parameters) {
+      if (typeof thing === 'function') return thing(parameters)
+      return thing
+    },
+    getLayerStyle: function () {
+      const unclusteredStyle = this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute, this.labelOnly, false)
+      return this.clustering ? this.getClusteringStyle(unclusteredStyle) : unclusteredStyle
+    },
+    getClusteringStyle: function (unclusteredStyle) {
+      return (feature) => {
+        const features = feature.get('features')
+        if (features.length > 1) {
+          return this.callIfFunction(this.clusterPointStyle, features) || styles.createDefaultClusteringStyleFunction(features)
+        } else {
+          return this.callIfFunction(unclusteredStyle, features[0])
+        }
       }
     }
   }
