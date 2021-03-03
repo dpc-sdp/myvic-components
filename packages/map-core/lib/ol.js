@@ -86,9 +86,9 @@ const createImageIconStyle = (src, crossOrigin, size) => {
 
 const getRgbaFromString = (colorString, opacity) => {
   // convert shorthand hex color to 6 digits
-  colorString = colorString.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => {
+  colorString = colorString ? colorString.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => {
     return r + r + g + g + b + b
-  })
+  }) : ''
 
   // split hex string with regex
   let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(colorString)
