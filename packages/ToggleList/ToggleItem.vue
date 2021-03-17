@@ -105,7 +105,8 @@ export default {
       font-weight: 500;
       flex-grow: 1;
       color: $greyShade;
-
+      overflow: hidden;
+      text-overflow: ellipsis;
       &.is-active {
         font-weight: 700;
       }
@@ -121,6 +122,7 @@ export default {
       justify-items: center;
       border-radius: 999px;
       overflow: hidden;
+      flex: 0 0 auto;
       .is-active & {
       }
     }
@@ -133,6 +135,7 @@ export default {
       position: relative;
       border: 2px solid $greyShade;
       border-radius: 5px;
+      flex: 0 0 auto;
       .is-active & {
         fill: $greyShade;
         border: 2px solid $greyShade;

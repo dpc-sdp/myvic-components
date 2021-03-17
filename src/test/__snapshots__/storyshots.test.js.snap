@@ -153,15 +153,15 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
             />
             <div
               class="ol-overlaycontainer"
-              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
             />
             <div
               class="ol-overlaycontainer-stopevent"
-              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
             >
               <div
                 class="ol-overlay-container ol-selectable"
-                style="position: absolute; display: none;"
+                style="position: absolute; pointer-events: auto; display: none;"
               >
                 <div
                   class="myvic-map-core__popup ol-popup"
@@ -171,6 +171,7 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
               </div>
               <div
                 class="ol-zoom ol-unselectable ol-control"
+                style="pointer-events: auto;"
               >
                 <button
                   class="ol-zoom-in"
@@ -189,6 +190,7 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
               </div>
               <div
                 class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                style="pointer-events: auto;"
               >
                 <ul />
                 <button
@@ -1276,15 +1278,15 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
             />
             <div
               class="ol-overlaycontainer"
-              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
             />
             <div
               class="ol-overlaycontainer-stopevent"
-              style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+              style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
             >
               <div
                 class="ol-overlay-container ol-selectable"
-                style="position: absolute; display: none;"
+                style="position: absolute; pointer-events: auto; display: none;"
               >
                 <div
                   class="myvic-map-core__popup ol-popup"
@@ -1294,6 +1296,7 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
               </div>
               <div
                 class="ol-zoom ol-unselectable ol-control"
+                style="pointer-events: auto;"
               >
                 <button
                   class="ol-zoom-in"
@@ -1312,6 +1315,7 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
               </div>
               <div
                 class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                style="pointer-events: auto;"
               >
                 <ul />
                 <button
@@ -1619,15 +1623,15 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
               />
               <div
                 class="ol-overlaycontainer"
-                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
               />
               <div
                 class="ol-overlaycontainer-stopevent"
-                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
               >
                 <div
                   class="ol-overlay-container ol-selectable"
-                  style="position: absolute; display: none;"
+                  style="position: absolute; pointer-events: auto; display: none;"
                 >
                   <div
                     class="myvic-map-core__popup ol-popup"
@@ -1637,6 +1641,7 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
                 </div>
                 <div
                   class="ol-zoom ol-unselectable ol-control"
+                  style="pointer-events: auto;"
                 >
                   <button
                     class="ol-zoom-in"
@@ -1655,6 +1660,7 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
                 </div>
                 <div
                   class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                  style="pointer-events: auto;"
                 >
                   <ul />
                   <button
@@ -1998,15 +2004,15 @@ exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2016,6 +2022,7 @@ exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -2034,6 +2041,7 @@ exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -2092,15 +2100,15 @@ exports[`MyvicStoryshots Maps/Core Events 1`] = `
               />
               <div
                 class="ol-overlaycontainer"
-                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
               />
               <div
                 class="ol-overlaycontainer-stopevent"
-                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
               >
                 <div
                   class="ol-overlay-container ol-selectable"
-                  style="position: absolute; display: none;"
+                  style="position: absolute; pointer-events: auto; display: none;"
                 >
                   <div
                     class="myvic-map-core__popup ol-popup"
@@ -2110,6 +2118,7 @@ exports[`MyvicStoryshots Maps/Core Events 1`] = `
                 </div>
                 <div
                   class="ol-zoom ol-unselectable ol-control"
+                  style="pointer-events: auto;"
                 >
                   <button
                     class="ol-zoom-in"
@@ -2128,6 +2137,7 @@ exports[`MyvicStoryshots Maps/Core Events 1`] = `
                 </div>
                 <div
                   class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                  style="pointer-events: auto;"
                 >
                   <ul />
                   <button
@@ -2252,15 +2262,15 @@ exports[`MyvicStoryshots Maps/Core Fixed Map 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2310,15 +2320,15 @@ exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2328,6 +2338,7 @@ exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -2346,6 +2357,7 @@ exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -2394,15 +2406,15 @@ exports[`MyvicStoryshots Maps/Core Popups 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2412,6 +2424,7 @@ exports[`MyvicStoryshots Maps/Core Popups 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -2430,6 +2443,7 @@ exports[`MyvicStoryshots Maps/Core Popups 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -2494,15 +2508,15 @@ exports[`MyvicStoryshots Maps/Core Ripple Grid 1`] = `
               />
               <div
                 class="ol-overlaycontainer"
-                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
               />
               <div
                 class="ol-overlaycontainer-stopevent"
-                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
               >
                 <div
                   class="ol-overlay-container ol-selectable"
-                  style="position: absolute; display: none;"
+                  style="position: absolute; pointer-events: auto; display: none;"
                 >
                   <div
                     class="myvic-map-core__popup ol-popup"
@@ -2512,6 +2526,7 @@ exports[`MyvicStoryshots Maps/Core Ripple Grid 1`] = `
                 </div>
                 <div
                   class="ol-zoom ol-unselectable ol-control"
+                  style="pointer-events: auto;"
                 >
                   <button
                     class="ol-zoom-in"
@@ -2577,15 +2592,15 @@ exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2595,6 +2610,7 @@ exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -2613,6 +2629,7 @@ exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -2699,15 +2716,15 @@ exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2717,6 +2734,7 @@ exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -2735,6 +2753,7 @@ exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -2783,15 +2802,15 @@ exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2801,6 +2820,7 @@ exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -2819,6 +2839,7 @@ exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -2867,15 +2888,15 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2885,6 +2906,7 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -2903,6 +2925,7 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -2916,6 +2939,7 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-full-screen ol-unselectable ol-control ol-unsupported"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-full-screen-false"
@@ -2964,15 +2988,15 @@ exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -2982,6 +3006,7 @@ exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3000,6 +3025,7 @@ exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3048,15 +3074,15 @@ exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3066,6 +3092,7 @@ exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3084,6 +3111,7 @@ exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3132,15 +3160,15 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3150,6 +3178,7 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3168,6 +3197,7 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3216,15 +3246,15 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3234,6 +3264,7 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3252,6 +3283,7 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3300,15 +3332,15 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3318,6 +3350,7 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3336,6 +3369,7 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3384,15 +3418,15 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3402,6 +3436,7 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3420,6 +3455,7 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3474,15 +3510,15 @@ exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3492,6 +3528,7 @@ exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3510,6 +3547,7 @@ exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3560,15 +3598,15 @@ exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3578,6 +3616,7 @@ exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3596,6 +3635,7 @@ exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3646,15 +3686,15 @@ exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3664,6 +3704,7 @@ exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3682,6 +3723,7 @@ exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3695,6 +3737,7 @@ exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-full-screen ol-unselectable ol-control ol-unsupported"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-full-screen-false"
@@ -3741,15 +3784,15 @@ exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3759,6 +3802,7 @@ exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3777,6 +3821,7 @@ exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3825,15 +3870,15 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3843,6 +3888,7 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3861,6 +3907,93 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span>
+                i
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File With Clustering 1`] = `
+<div
+  class="myvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+   
+  <div
+    class="myvic-map-core__container"
+  >
+    <div
+      aria-label="Interactive Map"
+      class="myvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; pointer-events: auto; display: none;"
+          >
+            <div
+              class="myvic-map-core__popup ol-popup"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              −
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3911,15 +4044,15 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -3929,6 +4062,7 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -3947,6 +4081,7 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -3997,15 +4132,15 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -4015,6 +4150,7 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -4033,6 +4169,7 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -4083,15 +4220,15 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -4101,6 +4238,7 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -4119,6 +4257,7 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -4167,15 +4306,15 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -4185,6 +4324,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -4203,6 +4343,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -4216,6 +4357,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
           </div>
           <div
             class="ol-full-screen ol-unselectable ol-control ol-unsupported"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-full-screen-false"
@@ -4268,15 +4410,15 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -4286,6 +4428,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -4304,6 +4447,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -4352,15 +4496,15 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -4370,6 +4514,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -4388,6 +4533,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -4438,15 +4584,15 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
         />
         <div
           class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />
         <div
           class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         >
           <div
             class="ol-overlay-container ol-selectable"
-            style="position: absolute; display: none;"
+            style="position: absolute; pointer-events: auto; display: none;"
           >
             <div
               class="myvic-map-core__popup ol-popup"
@@ -4456,6 +4602,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
           </div>
           <div
             class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
           >
             <button
               class="ol-zoom-in"
@@ -4474,6 +4621,7 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
           </div>
           <div
             class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
           >
             <ul />
             <button
@@ -5108,15 +5256,15 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
               />
               <div
                 class="ol-overlaycontainer"
-                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
               />
               <div
                 class="ol-overlaycontainer-stopevent"
-                style="position: absolute; z-index: 0; width: 100%; height: 100%;"
+                style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
               >
                 <div
                   class="ol-overlay-container ol-selectable"
-                  style="position: absolute; display: none;"
+                  style="position: absolute; pointer-events: auto; display: none;"
                 >
                   <div
                     class="myvic-map-core__popup ol-popup"
@@ -5126,6 +5274,7 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
                 </div>
                 <div
                   class="ol-zoom ol-unselectable ol-control"
+                  style="pointer-events: auto;"
                 >
                   <button
                     class="ol-zoom-in"
@@ -5144,6 +5293,7 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
                 </div>
                 <div
                   class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+                  style="pointer-events: auto;"
                 >
                   <ul />
                   <button

@@ -271,6 +271,7 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
           generatePopupContent: function (features) {
             return {
               title: features[0].get('ssc_name'),
+              html: '<p>Population Growth: <br/><b>$6.5b</b></p><a href="https://www.google.com">Go somewhere</a><br/>',
               value: 'Population Growth: ' + features[0].get('total_population_growth').toFixed(1) + '%',
               content: 'Longer content can optionally be placed here.'
             }

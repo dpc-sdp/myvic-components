@@ -288,6 +288,7 @@ Tile Grid. MyVictoria uses Mapbox styles but requires some layer specific config
               BBOX: tileExtent.join(','),
               WIDTH: tileSize,
               HEIGHT: tileSize,
+              BUFFER: 20,
               SRS: projection.getCode(),
               FORMAT: 'application/x-protobuf;type=mapbox-vector'
             }

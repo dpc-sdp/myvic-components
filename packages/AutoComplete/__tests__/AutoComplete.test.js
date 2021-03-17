@@ -32,6 +32,7 @@ describe('AutoComplete', () => {
     wrapper.setData({ query: 'item' })
     wrapper.vm.onChange()
     await wrapper.vm.$nextTick()
+    await wrapper.vm.$nextTick()
     expect(wrapper.vm.$data.results).toHaveLength(1)
   })
 })

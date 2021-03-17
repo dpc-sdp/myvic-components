@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/dpc-sdp/myvic-components/compare/v1.7.0...v1.8.0) (2021-03-17)
+
+
+### Features
+
+* vector layer clustering ([#134](https://github.com/dpc-sdp/myvic-components/issues/134)) ([bc1fb83](https://github.com/dpc-sdp/myvic-components/commit/bc1fb8335f5e1c28c3c0f2e88fddd7ec4a348700))
+
+
+
+
+
+
+# [1.7.0](https://github.com/dpc-sdp/myvic-components/compare/v1.6.1...v1.7.0) (2021-02-12)
+
+
+### Features
+
+* make map label configure ([#130](https://github.com/dpc-sdp/myvic-components/issues/130)) ([da9bd9a](https://github.com/dpc-sdp/myvic-components/commit/da9bd9ae7cd4612e7e470150ec82cda5f6bdaa6a))
+
+
+
+
+
+## [1.6.1](https://github.com/dpc-sdp/myvic-components/compare/v1.6.0...v1.6.1) (2020-11-19)
+
+
+### Bug Fixes
+
+* expose zoom duration as property on vector layer ([4d66a74](https://github.com/dpc-sdp/myvic-components/commit/4d66a74cf49f5460c12e91688e09b8e717b05a84))
+
+
+
+
+
+# [1.6.0](https://github.com/dpc-sdp/myvic-components/compare/v1.5.3...v1.6.0) (2020-11-19)
+
+
+### Features
+
+* add support for html content in map popups ([971714f](https://github.com/dpc-sdp/myvic-components/commit/971714fd2a4cee0bb8a97b647d0e05f38364d667))
+
+
+
+
+
+## [1.5.3](https://github.com/dpc-sdp/myvic-components/compare/v1.5.1...v1.5.3) (2020-11-18)
+
+
+### Bug Fixes
+
+* resolved issue with hard-coded declutter property ([0f05aff](https://github.com/dpc-sdp/myvic-components/commit/0f05aff5c2e11bcf445a1d98b692ff7b6bfc9e32))
+* update to fix map load issue ([#118](https://github.com/dpc-sdp/myvic-components/issues/118)) ([08f78a1](https://github.com/dpc-sdp/myvic-components/commit/08f78a1a360cbd7ca0d2638b35a4bb23317b9a15))
+
+
+
+
+
 ## [1.5.2](https://github.com/dpc-sdp/myvic-components/compare/v1.5.1...v1.5.2) (2020-10-27)
 
 

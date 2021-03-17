@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.7.0...v1.8.0) (2021-03-17)
+
+
+### Features
+
+* vector layer clustering ([#134](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/issues/134)) ([bc1fb83](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/commit/bc1fb8335f5e1c28c3c0f2e88fddd7ec4a348700))
+
+
+
+
+
+
+# [1.7.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.6.1...v1.7.0) (2021-02-12)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-map-core
+
+
+
+
+
+## [1.6.1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.6.0...v1.6.1) (2020-11-19)
+
+
+### Bug Fixes
+
+* expose zoom duration as property on vector layer ([4d66a74](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/commit/4d66a74cf49f5460c12e91688e09b8e717b05a84))
+
+
+
+
+
+# [1.6.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.5.3...v1.6.0) (2020-11-19)
+
+
+### Features
+
+* add support for html content in map popups ([971714f](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/commit/971714fd2a4cee0bb8a97b647d0e05f38364d667))
+
+
+
+
+
+## [1.5.3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.5.1...v1.5.3) (2020-11-18)
+
+
+### Bug Fixes
+
+* resolved issue with hard-coded declutter property ([0f05aff](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/commit/0f05aff5c2e11bcf445a1d98b692ff7b6bfc9e32))
+
+
+
+
+
 ## [1.5.2](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.5.1...v1.5.2) (2020-10-27)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-map-core
