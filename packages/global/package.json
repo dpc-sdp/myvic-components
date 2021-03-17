@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-global",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "Core package for My Victoria components",
   "main": "index.js",
   "license": "Apache-2.0",

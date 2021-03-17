@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/compare/v1.7.0...v1.8.0) (2021-03-17)
+
+
+### Features
+
+* vector layer clustering ([#134](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/issues/134)) ([bc1fb83](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/commit/bc1fb8335f5e1c28c3c0f2e88fddd7ec4a348700))
+
+
+
+
+
+
 # [1.7.0](https://github.com/dpc-sdp/myvic-components/compare/v1.6.1...v1.7.0) (2021-02-12)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-storybook

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/compare/v1.7.0...v1.8.0) (2021-03-17)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-address-search-map
+
+
+
+
+
+
 # [1.7.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AddressSearchMap/compare/v1.6.1...v1.7.0) (2021-02-12)
 
 
