@@ -8,6 +8,7 @@ import {
   Style,
   Stroke,
   Fill,
+  Circle,
   EsriJSON
 } from './index.js'
 
@@ -171,7 +172,7 @@ This example provides options to test different layer configurations.
 
 ## GeoJSON File
 
-GeoJSON files can be loaded directly from a URL. This examples uses the default styles with labelling.
+GeoJSON files can be loaded directly from a URL. This example uses the default styles with labelling.
 
 <Preview>
   <Story name="GeoJSON File">
@@ -195,6 +196,54 @@ GeoJSON files can be loaded directly from a URL. This examples uses the default 
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
             center: [16138405.843820328, -4552817.013522999]
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## GeoJSON File With Clustering
+
+This example showcases client-side clustering with a GeoJSON file loaded from a URL.
+
+<Preview>
+  <Story name="GeoJSON File With Clustering">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapVectorLayer },
+        template: `<myvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="14"
+          :baseMapUrl="baseMapUrl"
+          :popupContentFunction="generatePopupContent"
+        >
+          <myvic-map-vector-layer
+            :urlFunction="buildUrl"
+            dataFormat="GeoJSON"
+            loadingStrategy="bbox"
+            :clustering="true"
+            :enablePopup="true"
+          />
+        </myvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16136905.843820328, -4553057.013522999],
+            baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
+          }
+        },
+        methods: {
+          buildUrl: function (extent, resolution, projection) {
+            return `https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=myvic:public_wifi&outputFormat=application/json&srsname=EPSG:3857&bbox=${extent.join()},EPSG:3857`
+          },
+          generatePopupContent: function (features) {
+            const feature = features[0]
+            const clusteredFeatures = feature.get('features')
+            return {
+              title: `${clusteredFeatures.length} feature(s) found in this area`
+            }
           }
         }
       }

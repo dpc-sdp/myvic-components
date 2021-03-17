@@ -171,6 +171,53 @@ const createDefaultStyleFunction = (labelAttribute, labelOnly, selected) => {
   }
 }
 
+const styleCluster = (features, size) => {
+  const fontSizeInPx = '3.7'
+  const clusterSizeText = features.length > 99 ? `99<tspan style="font-size:${fontSizeInPx * 0.75}px">+</tspan>` : features.length.toString()
+  const backgroundColor = '#ffffff'
+  const strokeColor = globalStyles.fillTertiary
+  const textColor = globalStyles.fillTertiary
+
+  // NOTE: the whitespace in the <text> element is
+  // important: `>${clusterSizeText}</text>`
+  // IE doesn't trim all the whitespace and it leads
+  // to off-center text
+  return 'data:image/svg+xml;charset=utf-8,' +
+    encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg"
+        width="${size}"
+        height="${size}"
+        viewBox="0 0 8 8">
+        <circle
+          stroke="${strokeColor}"
+          fill="${backgroundColor}"
+          stroke-width="1"
+          cx="4"
+          cy="4"
+          r="3.5"/>
+        <text
+          x="50%"
+          y="50%"
+          dy="1.25"
+          text-anchor="middle"
+          fill="${textColor}"
+          style="font-size: ${fontSizeInPx}px;
+            font-weight: bold;
+            font-family:VIC-Regular, Arial, Helvetica, sans-serif;"
+        >${clusterSizeText}</text>
+      </svg>
+    `)
+}
+
+const createDefaultClusteringStyleFunction = (features) => {
+  const size = 30
+  return [ol.createImageIconStyle(
+    styleCluster(features, size),
+    'anonymous',
+    [size, size]
+  )]
+}
+
 const createSelectedStyleFunction = (labelAttribute, labelOnly = false) => {
   return createDefaultStyleFunction(labelAttribute, labelOnly, true)
 }
@@ -184,7 +231,8 @@ const styles = {
   selectedPolygonStyle,
   defaultTextStyle,
   createDefaultStyleFunction,
-  createSelectedStyleFunction
+  createSelectedStyleFunction,
+  createDefaultClusteringStyleFunction
 }
 
 export default styles
