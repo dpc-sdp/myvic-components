@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/dpc-sdp/myvic-components/compare/v1.8.0...v1.8.1) (2021-03-31)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-storybook
+
+
+
+
+
 # [1.8.0](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/compare/v1.7.0...v1.8.0) (2021-03-17)
 
 
