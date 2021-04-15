@@ -2469,6 +2469,15 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@dpc-sdp/ripple-alert@^1.8.0":
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-alert/-/ripple-alert-1.20.3.tgz#c0099f5cef7540956a23818b831c5b1babb45094"
+  integrity sha512-0oRnwccN+Qc3xivLYfEyENhcBjSXI6xs62fVGacWElabf1U3fIepIacSCLaeInTCCJiLsIw0+4s4tWILnreoNA==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.20.3"
+    "@dpc-sdp/ripple-icon" "1.20.3"
+    "@dpc-sdp/ripple-link" "1.20.3"
+
 "@dpc-sdp/ripple-button@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-button/-/ripple-button-1.10.0.tgz#1063999793e00922fc5785f2cfd90d54f594ac73"
@@ -2504,6 +2513,16 @@
     object-fit-images "^3.2.3"
     vue-focus "^2.1.0"
 
+"@dpc-sdp/ripple-global@1.20.3":
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.20.3.tgz#e5d17c186f6513f343c0c540d32c00a888a7238d"
+  integrity sha512-UyFQgS4IrgjryIadFhnqb9P53gF0S+D03LrzhQ+lvOtqxWU8gszE82SNyMNNo0YPHFpMMmgACnoAJdPdYoSZVg==
+  dependencies:
+    masonry-layout "^4.2.1"
+    moment "^2.29.1"
+    object-fit-images "^3.2.3"
+    vue-focus "^2.1.0"
+
 "@dpc-sdp/ripple-grid@^1.8.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.10.0.tgz#3b803767ffd4f52c8482fca6f50e2ffbb3c59df7"
@@ -2516,6 +2535,13 @@
   dependencies:
     "@dpc-sdp/ripple-global" "1.10.0"
 
+"@dpc-sdp/ripple-icon@1.20.3":
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.20.3.tgz#b7de4d5890a50af7f2dc01cb253202d700212f5c"
+  integrity sha512-MiVNd8IUwf+cz59eb030DXv/6BRUBkFEkIUk0ydkiuq8rWs7QU45QN1EneB28fN0qPWLKCqEeN0X+9BF0A9j1A==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.20.3"
+
 "@dpc-sdp/ripple-link@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-link/-/ripple-link-1.10.0.tgz#b380bf2117ecae3c268bb2ebdfba53a922fb2be1"
@@ -2523,6 +2549,14 @@
   dependencies:
     "@dpc-sdp/ripple-global" "1.10.0"
     "@dpc-sdp/ripple-icon" "1.10.0"
+
+"@dpc-sdp/ripple-link@1.20.3":
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-link/-/ripple-link-1.20.3.tgz#3f985507db3d6e9f76fc2a8bdf6164793829df4d"
+  integrity sha512-qgiFTSGgfprQVGLG06MeRcPmvaeKXavK26CkvxJj1fVehlZYCkx7sit56tFvDm52OgtNB2Ql/OdcvbGyDdY21g==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.20.3"
+    "@dpc-sdp/ripple-icon" "1.20.3"
 
 "@dpc-sdp/ripple-markup@^1.8.0":
   version "1.10.0"
@@ -13777,6 +13811,11 @@ moment@^2.10.2:
   version "2.25.3"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.25.3.tgz#252ff41319cf41e47761a1a88cab30edfe9808c0"
   integrity sha512-PuYv0PHxZvzc15Sp8ybUCoQ+xpyPWvjOuK72a5ovzp2LI32rJXOiIfyoFoYvG3s6EwwrdkMyWuRiEHSZRLJNdg==
+
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
