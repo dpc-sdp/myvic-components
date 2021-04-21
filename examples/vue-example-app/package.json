@@ -26,7 +26,7 @@
     "@dpc-sdp/myvic-data-block": "1.5.2",
     "@dpc-sdp/myvic-map-core": "1.5.2",
     "@dpc-sdp/myvic-global": "1.5.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.10"
   },
