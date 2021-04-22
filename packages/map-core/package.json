@@ -11,6 +11,7 @@
   "dependencies": {
     "@dpc-sdp/myvic-global": "1.8.1",
     "@dpc-sdp/ripple-global": "^1.8.0",
+    "@dpc-sdp/ripple-alert": "^1.8.0",
     "ol": "^6.4.3",
     "ol-ext": "^3.1.16",
     "ol-mapbox-style": "^6.1.4",
