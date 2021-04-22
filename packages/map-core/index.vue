@@ -1,5 +1,6 @@
 <template>
-  <div class="myvic-map-core" :style="containerStyle" >
+  <div class="myvic-map-core" :style="containerStyle">
+    <rpl-alert v-if="ie11" title="Internet Explorer 11 (and older) is not fully supported, please upgrade to a modern browser."/>
     <div
       class="myvic-map-core__popup ol-popup"
       ref="mapPopup">
@@ -8,7 +9,7 @@
         :mapElement="$refs.map" />
     </div>
     <div
-      v-if="!gotError"
+      v-if="!gotError && !ie11"
       class="myvic-map-core__container">
       <div class="myvic-map-core__map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
         <!-- @slot Default slot for child layers -->
@@ -30,6 +31,7 @@ import ol from './lib/ol'
 import styles from './styles/styles'
 import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
 import Error from '@dpc-sdp/myvic-global/components/Error'
+import { RplAlert } from '@dpc-sdp/ripple-alert'
 
 /**
  * MyvicMapCore provides a generic and configurable map component based on OpenLayers
@@ -257,12 +259,14 @@ export default {
       dragRotateInteraction: null,
       pinchRotateInteraction: null,
       selectInteraction: null,
-      feature: null
+      feature: null,
+      ie11: !!window.MSInputMethodContext && !!document.documentMode
     }
   },
   components: {
     MapIndicator,
-    Error
+    Error,
+    RplAlert
   },
   watch: {
     // Used as a prop when the map will be offscreen initially i.e. mobile
