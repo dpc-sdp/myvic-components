@@ -26,7 +26,7 @@ const tideConfig = {
 
 To add custom components, set `customComponents` to `true`.
 
-```
+```JS
 const tideConfig = {
   nodeModules: [
     ['@dpc-sdp/myvic-data-driven-component', { customComponents: true }]
@@ -36,7 +36,7 @@ const tideConfig = {
 
 Then add a file "/tide/data-driven-component-loader.js" to map and load your custom components, as below example.
 
-```
+```JS
 const loadComponent = (configs) => {
   let dataDrivenComp
   switch (configs.name) {
@@ -69,3 +69,18 @@ const loadComponent = (configs) => {
 
 export default loadComponent
 ```
+
+## Disable IE support
+
+For components like map, we are not going to support IE browsers. To disable IE support, set `ieSupport` to `false` in the configuration.
+
+```JS
+case 'my_map':
+  dataDrivenComp = {
+    name: () => import(/* webackChunkName: 'my-map' */ '~/components/MyMap').then(m => m.MyMap),
+    ieSupport: false
+  }
+  break
+```
+
+The map will not be rendered. A alert will be displayed to the user.
