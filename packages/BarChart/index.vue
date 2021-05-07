@@ -168,7 +168,8 @@ export default {
           },
           legend: builder.getLegend(this.showLegend),
           tooltips: builder.getTooltips(this.direction, this.dataFormat),
-          plugins: builder.getPlugin(this.dataFormat, this.stacked)
+          plugins: builder.getPlugin(this.dataFormat, this.stacked),
+          annotation: this.annotation
         }
         return options
       } catch (error) {
