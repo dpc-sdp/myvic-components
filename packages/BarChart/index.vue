@@ -1,27 +1,29 @@
 <template>
-  <div class="myvic-bar-chart">
+  <div class='myvic-bar-chart'>
     <component
-      v-if="!gotError"
-      :is="innerComponentName"
-      :key="componentKey"
-      :chartData="chartData"
-      :options="options"
-      :dataFormat="dataFormat"
-      :styles="chartContainerStyles"
-      :tabIndex="tabIndex"
-      role="img"
-      :aria-label="ariaLabel"
-      :alt="shortDesc"
-      :longDesc="longDesc"
+      v-if='!gotError'
+      :is='innerComponentName'
+      :key='componentKey'
+      :chartData='chartData'
+      :options='options'
+      :dataFormat='dataFormat'
+      :styles='chartContainerStyles'
+      :tabIndex='tabIndex'
+      role='img'
+      :aria-label='ariaLabel'
+      :alt='shortDesc'
+      :longDesc='longDesc'
     />
-    <chart-description v-if="!gotError && longDesc" :longDesc="longDesc" />
-    <error v-if="gotError" :message="error.toString()" errorClass="chart" />
+    <chart-description v-if='!gotError && longDesc' :longDesc='longDesc' />
+    <error v-if='gotError' :message='error.toString()' errorClass='chart' />
   </div>
 </template>
 
 <script>
 // eslint-disable-next-line no-unused-vars
 import ChartDataLabels from 'chartjs-plugin-datalabels'
+// eslint-disable-next-line no-unused-vars
+import ChartAnnotation from 'chartjs-plugin-annotation'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
 import ChartDescription from '@dpc-sdp/myvic-global/components/ChartDescription'
@@ -61,6 +63,20 @@ export default {
       type: Object
     },
     /**
+     * An array of custom styles for each dataset. Refer to the Custom Styling section below
+     */
+    customDatasetStyles: {
+      type: Array,
+      default: () => []
+    },
+    /**
+     * Annotations to display. Refer to [chartjs-plugin-annotation](https://www.chartjs.org/chartjs-plugin-annotation/guide/usage.html) for details
+     */
+    annotation: {
+      type: Object,
+      default: () => {}
+    },
+    /**
      * Whether to stack the datasets, creating a Stacked Bar Chart
      */
     stacked: {
@@ -98,7 +114,7 @@ export default {
       default: 'Bar Chart'
     },
     /**
-     *  Short description of the chart for accessibility purposes. This string will become the "alt" attribute
+     *  Short description of the chart for accessibility purposes. This string will become the 'alt' attribute
      */
     shortDesc: {
       type: String,
@@ -131,7 +147,7 @@ export default {
     chartData: function () {
       try {
         const chartSettings = {
-          datasets: builder.getDatasetSettings(this.data)
+          datasets: builder.getDatasetSettings(this.data, this.customDatasetStyles)
         }
         const chartData = _merge({}, this.data, chartSettings)
         return chartData
@@ -170,8 +186,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "~@dpc-sdp/myvic-global/styles/charts";
+<style lang='scss'>
+@import '~@dpc-sdp/myvic-global/styles/charts';
   .myvic-bar-chart {
     position: relative;
     height: inherit;

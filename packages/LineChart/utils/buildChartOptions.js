@@ -17,6 +17,7 @@ const settings = {
     pointRadius: 4
   },
   primaryAxis: {
+    id: 'primary',
     gridLines: {
       display: true,
       lineWidth: 1,
@@ -34,6 +35,7 @@ const settings = {
     }
   },
   secondaryAxis: {
+    id: 'secondary',
     gridLines: {
       display: true,
       drawOnChartArea: false,
@@ -85,14 +87,16 @@ const buildAxes = (isPrimary, data, dataFormat) => {
 }
 
 export default {
-  getDatasetSettings: (data) => {
+  getDatasetSettings: (data, customDatasetStyles) => {
     const datasetSettings = []
     for (const [index, value] of data.datasets.entries()) {
+      let customDatasetColors = (customDatasetStyles && customDatasetStyles[index]) || {}
       let colorSettings = {
         borderColor: styles[`fill${index + 1}`],
         pointBackgroundColor: styles[`fill${index + 1}`],
         hoverBorderColor: styles[`fillHover${index + 1}`] + '33'
       }
+      colorSettings = _merge({}, colorSettings, customDatasetColors)
       let finalSettings = _merge({}, value, settings.dataset, colorSettings)
       datasetSettings.push(finalSettings)
     }

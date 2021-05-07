@@ -9,6 +9,7 @@ const settings = {
     barPercentage: 0.8
   },
   primaryAxis: {
+    id: 'primary',
     gridLines: {
       display: true,
       lineWidth: 1,
@@ -26,6 +27,7 @@ const settings = {
     }
   },
   secondaryAxis: {
+    id: 'secondary',
     gridLines: {
       display: false
     },
@@ -87,13 +89,15 @@ const buildAxes = (isPrimary, data, dataFormat, stacked) => {
 }
 
 export default {
-  getDatasetSettings: (data) => {
+  getDatasetSettings: (data, customDatasetStyles) => {
     const datasetSettings = []
     for (const [index, value] of data.datasets.entries()) {
+      let customDatasetColors = (customDatasetStyles && customDatasetStyles[index]) || {}
       let colorSettings = {
         backgroundColor: styles[`fill${index + 1}`],
         hoverBackgroundColor: styles[`fillHover${index + 1}`]
       }
+      colorSettings = _merge({}, colorSettings, customDatasetColors)
       let finalSettings = _merge({}, value, settings.dataset, colorSettings)
       datasetSettings.push(finalSettings)
     }

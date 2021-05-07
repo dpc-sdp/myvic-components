@@ -19,6 +19,8 @@
 </template>
 
 <script>
+// eslint-disable-next-line no-unused-vars
+import ChartAnnotation from 'chartjs-plugin-annotation'
 import InnerChart from './InnerChart'
 import builder from './utils/buildChartOptions'
 import _merge from 'lodash.merge'
@@ -49,6 +51,20 @@ export default {
      */
     data: {
       type: Object
+    },
+    /**
+     * An array of custom styles for each dataset. Refer to the Custom Styling section below
+     */
+    customDatasetStyles: {
+      type: Array,
+      default: () => []
+    },
+    /**
+     * Annotations to display. Refer to [chartjs-plugin-annotation](https://www.chartjs.org/chartjs-plugin-annotation/guide/usage.html) for details
+     */
+    annotation: {
+      type: Object,
+      default: () => {}
     },
     /**
      * Whether to show a legend underneath the chart
@@ -111,7 +127,7 @@ export default {
     chartData: function () {
       try {
         const chartSettings = {
-          datasets: builder.getDatasetSettings(this.data)
+          datasets: builder.getDatasetSettings(this.data, this.customDatasetStyles)
         }
         const chartData = _merge({}, this.data, chartSettings)
         return chartData
@@ -132,7 +148,8 @@ export default {
           },
           legend: builder.getLegend(this.showLegend),
           tooltips: builder.getTooltips(this.dataFormat),
-          plugins: { datalabels: { display: false } }
+          plugins: { datalabels: { display: false } },
+          annotation: this.annotation
         }
         return options
       } catch (error) {
