@@ -12,6 +12,7 @@
   "dependencies": {
     "@dpc-sdp/myvic-global": "1.8.1",
     "chart.js": "^2.9.3",
+    "chartjs-plugin-annotation": "^0.5.7",
     "lodash.merge": "^4.6.2",
     "vue-chartjs": "^3.5.0"
   }
