@@ -3,8 +3,8 @@ import BarChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
-import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData, maxChartData, annotationChartData, annotationChartCustomStyles } from './storiesConstants/storiesConstants.js'
-import { annotation1, annotation2 } from './storiesConstants/annotations.js'
+import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData, maxChartData, annotationChartData, annotationChartCustomStyles } from './storyConfig/storiesConstants.js'
+import { annotation1, annotation2 } from './storyConfig/annotations.js'
 
 <Meta title="Bar Chart" component={ BarChart } decorators={ [withKnobs] } />
 
