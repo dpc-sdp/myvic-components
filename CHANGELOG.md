@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/dpc-sdp/myvic-components/compare/v1.8.2...v1.9.0) (2021-05-10)
+
+
+### Features
+
+* expand chart scale with custom props ([#144](https://github.com/dpc-sdp/myvic-components/issues/144)) ([27429a0](https://github.com/dpc-sdp/myvic-components/commit/27429a03c9b25a4da9af29deca67e4a733810dbd))
+
+
+
+
+
+
 ## [1.8.2](https://github.com/dpc-sdp/myvic-components/compare/v1.8.1...v1.8.2) (2021-05-10)
 
 **Note:** Version bump only for package myvic-components
