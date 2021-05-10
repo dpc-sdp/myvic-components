@@ -67,20 +67,20 @@ const findMaxLabel = (max) => {
   return candidate
 }
 
-const scaleAxis = (axis, data) => {
+const scaleAxis = (axis, data, scaleLimits) => {
   let max = getMaxDataValue(data)
   let maxLabel = findMaxLabel(max)
-  return _merge({}, axis, { ticks: { suggestedMax: maxLabel } })
+  return _merge({}, axis, { ticks: { suggestedMax: maxLabel } }, { ticks: { ...scaleLimits } })
 }
 
 const labelAxis = (axis, style) => {
   return _merge({}, axis, { ticks: { callback: (value) => utils.labelValue(value, style) } })
 }
 
-const buildAxes = (isPrimary, data, dataFormat) => {
+const buildAxes = (isPrimary, data, dataFormat, scaleLimits) => {
   let axis = settings[isPrimary ? 'primaryAxis' : 'secondaryAxis']
   if (isPrimary) {
-    axis = scaleAxis(axis, data)
+    axis = scaleAxis(axis, data, scaleLimits)
     axis = labelAxis(axis, dataFormat)
   }
   return [axis]
@@ -108,14 +108,14 @@ export default {
       text: title
     })
   },
-  getAxes: (dimension, chartDirection, data, dataFormat) => {
+  getAxes: (dimension, chartDirection, data, dataFormat, scaleLimits) => {
     let isPrimary
     if (chartDirection === 'horizontal') {
       isPrimary = dimension === 'x'
     } else {
       isPrimary = dimension === 'y'
     }
-    return buildAxes(isPrimary, data, dataFormat)
+    return buildAxes(isPrimary, data, dataFormat, scaleLimits)
   },
   getLegend: (show) => {
     return _merge({}, constants.legend, {
