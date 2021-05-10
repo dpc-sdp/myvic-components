@@ -530,7 +530,39 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
 </form>
 `;
 
-exports[`MyvicStoryshots Bar Chart Annotations 1`] = `
+exports[`MyvicStoryshots Bar Chart Annotations Example 1 1`] = `
+<div
+  style="width: 800px; height: 400px;"
+>
+  <div
+    class="myvic-bar-chart"
+  >
+    <div
+      alt=""
+      aria-label="Bar Chart"
+      class=""
+      dataformat="normal"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="bar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`MyvicStoryshots Bar Chart Annotations Example 2 1`] = `
 <div
   style="width: 800px; height: 400px;"
 >

@@ -67,6 +67,13 @@ export default {
       default: () => {}
     },
     /**
+     * Custom scale limits for the main data axis. An Object with min and max values. Helpful for expanding the chart for context or for making room for annotations
+     */
+    scaleLimits: {
+      type: Object,
+      default: () => {}
+    },
+    /**
      * Whether to show a legend underneath the chart
      */
     showLegend: {
@@ -143,8 +150,8 @@ export default {
           responsive: true,
           title: builder.getTitle(this.title),
           scales: {
-            xAxes: builder.getAxes('x', 'vertical', this.data, this.dataFormat),
-            yAxes: builder.getAxes('y', 'vertical', this.data, this.dataFormat)
+            xAxes: builder.getAxes('x', 'vertical', this.data, this.dataFormat, this.scaleLimits),
+            yAxes: builder.getAxes('y', 'vertical', this.data, this.dataFormat, this.scaleLimits)
           },
           legend: builder.getLegend(this.showLegend),
           tooltips: builder.getTooltips(this.dataFormat),

@@ -3,7 +3,8 @@ import BarChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
-import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData, maxChartData, annotationChartData, annotationChartCustomStyles, annotation } from './storiesConstants.js'
+import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData, maxChartData, annotationChartData, annotationChartCustomStyles } from './storyConfig/storiesConstants.js'
+import { annotation1, annotation2 } from './storyConfig/annotations.js'
 
 <Meta title="Bar Chart" component={ BarChart } decorators={ [withKnobs] } />
 
@@ -58,7 +59,7 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
         template: `
           <div :style="divStyle">
             <bar-chart :title="title" :direction="direction" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation"
-              :stacked="stacked" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc"
+              :scaleLimits="scaleLimits" :stacked="stacked" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc"
             />
           </div>
         `,
@@ -77,6 +78,9 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
           },
           annotation: {
             default: () => object('annotation', {})
+          },
+          scaleLimits: {
+            default: () => object('scaleLimits', {})
           },
           stacked: {
             default: () => boolean('stacked', false)
@@ -247,24 +251,50 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
   </Story>
 </Preview>
 
-## Annotations
+## Annotations Example 1
 
 <Preview>
-  <Story name="Annotations">
+  <Story name="Annotations Example 1">
     {
       {
        components: { BarChart },
        template: `
         <div style="width: 800px; height: 400px">
-          <bar-chart :title="title" :direction="direction" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation" :showLegend="showLegend" :dataFormat="dataFormat" />
+          <bar-chart :title="title" :direction="direction" :data="data" :annotation="annotation" :showLegend="showLegend" :dataFormat="dataFormat" />
         </div>
       `,
        props: {
         direction: { default: () => 'vertical' },
         title: { default: () => undefined },
         data: { default: () => chartData },
+        annotation: { default: () => annotation1 },
+        showLegend: { default: () => false },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Annotations Example 2
+
+<Preview>
+  <Story name="Annotations Example 2">
+    {
+      {
+       components: { BarChart },
+       template: `
+        <div style="width: 800px; height: 400px">
+          <bar-chart :title="title" :direction="direction" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation" :scaleLimits="scaleLimits" :showLegend="showLegend" :dataFormat="dataFormat" />
+        </div>
+      `,
+       props: {
+        direction: { default: () => 'vertical' },
+        title: { default: () => undefined },
+        data: { default: () => annotationChartData },
         customDatasetStyles: { default: () => annotationChartCustomStyles},
-        annotation: { default: () => annotation },
+        annotation: { default: () => annotation2 },
+        scaleLimits: { default: () => ({ max: 100 }) },
         showLegend: { default: () => false },
         dataFormat: { default: () => 'normal' }
        }

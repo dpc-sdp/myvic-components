@@ -77,6 +77,13 @@ export default {
       default: () => {}
     },
     /**
+     * Custom scale limits for the main data axis. An Object with min and max values. Helpful for expanding the chart for context or for making room for annotations
+     */
+    scaleLimits: {
+      type: Object,
+      default: () => {}
+    },
+    /**
      * Whether to stack the datasets, creating a Stacked Bar Chart
      */
     stacked: {
@@ -163,8 +170,8 @@ export default {
           responsive: true,
           title: builder.getTitle(this.title),
           scales: {
-            xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat, this.stacked),
-            yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat, this.stacked)
+            xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat, this.stacked, this.scaleLimits),
+            yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat, this.stacked, this.scaleLimits)
           },
           legend: builder.getLegend(this.showLegend),
           tooltips: builder.getTooltips(this.direction, this.dataFormat),

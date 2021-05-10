@@ -6,7 +6,7 @@
 
 <script>
 import MyvicBarChart from '@dpc-sdp/myvic-bar-chart'
-import { chartData } from '@dpc-sdp/myvic-bar-chart/storiesConstants.js'
+import { chartData } from '@dpc-sdp/myvic-bar-chart/storyConfig/storiesConstants.js'
 
 export default {
   components: {
