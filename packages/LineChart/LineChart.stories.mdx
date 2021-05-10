@@ -58,7 +58,7 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
         components: { LineChart },
         template: `
           <div :style="divStyle">
-            <line-chart :title="title" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
+            <line-chart :title="title" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation" :scaleLimits="scaleLimits" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
           </div>
         `,
         props: {
@@ -73,6 +73,9 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
           },
           annotation: {
             default: () => object('annotation', {})
+          },
+          scaleLimits: {
+            default: () => object('scaleLimits', {})
           },
           showLegend: {
             default: boolean('showLegend', false)
