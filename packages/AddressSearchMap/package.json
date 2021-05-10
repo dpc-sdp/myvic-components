@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-address-search-map",
-  "version": "1.8.0",
+  "version": "1.8.2",
   "description": "Address search with map",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,9 +10,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-addresssearch": "1.8.0",
-    "@dpc-sdp/myvic-global": "1.8.0",
-    "@dpc-sdp/myvic-map-core": "1.8.0",
+    "@dpc-sdp/myvic-addresssearch": "1.8.2",
+    "@dpc-sdp/myvic-global": "1.8.2",
+    "@dpc-sdp/myvic-map-core": "1.8.2",
     "node-fetch": "^2.6.0"
   }
 }

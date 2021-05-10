@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/PieChart/compare/v1.8.1...v1.8.2) (2021-05-10)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-pie-chart
+
+
+
+
+
+
+## [1.8.1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/PieChart/compare/v1.8.0...v1.8.1) (2021-03-31)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-pie-chart
+
+
+
+
+
 # [1.8.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/PieChart/compare/v1.7.0...v1.8.0) (2021-03-17)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-pie-chart

@@ -116,6 +116,8 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
       class="myvic-map-core"
       style="position: relative; width: 100%; height: 100%;"
     >
+      <!---->
+       
        
       <div
         class="myvic-map-core__container"
@@ -526,6 +528,70 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
     </div>
   </form>
 </form>
+`;
+
+exports[`MyvicStoryshots Bar Chart Annotations 1`] = `
+<div
+  style="width: 800px; height: 400px;"
+>
+  <div
+    class="myvic-bar-chart"
+  >
+    <div
+      alt=""
+      aria-label="Bar Chart"
+      class=""
+      dataformat="normal"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="bar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`MyvicStoryshots Bar Chart Custom Colors 1`] = `
+<div
+  style="width: 800px; height: 400px;"
+>
+  <div
+    class="myvic-bar-chart"
+  >
+    <div
+      alt=""
+      aria-label="Bar Chart"
+      class=""
+      dataformat="normal"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="bar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
 `;
 
 exports[`MyvicStoryshots Bar Chart Default 1`] = `
@@ -1249,6 +1315,8 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
       class="myvic-map-core"
       style="position: relative; width: 100%; height: 100%;"
     >
+      <!---->
+       
        
       <div
         class="myvic-map-core__container"
@@ -1560,6 +1628,8 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
         class="myvic-map-core"
         style="position: relative; width: 100%; height: 100%;"
       >
+        <!---->
+         
          
         <div
           class="myvic-map-core__container"
@@ -1680,6 +1750,38 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
         <!---->
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`MyvicStoryshots Line Chart Custom Colors 1`] = `
+<div
+  style="width: 800px; height: 400px;"
+>
+  <div
+    class="myvic-line-chart"
+  >
+    <div
+      alt=""
+      aria-label="Line Chart"
+      class=""
+      dataformat="normal"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="line-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
   </div>
 </div>
 `;
@@ -1941,6 +2043,8 @@ exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -2077,6 +2181,8 @@ exports[`MyvicStoryshots Maps/Core Events 1`] = `
         class="myvic-map-core"
         style="position: relative; width: 100%; height: 100vh;"
       >
+        <!---->
+         
          
         <div
           class="myvic-map-core__container"
@@ -2240,6 +2346,8 @@ exports[`MyvicStoryshots Maps/Core Fixed Map 1`] = `
   class="myvic-map-core"
   style="position: relative; margin: 20px; width: 400px; height: 300px; border: 1px solid black;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -2292,6 +2400,8 @@ exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
   class="myvic-map-core"
   style="width: 100%; height: 100%;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -2383,6 +2493,8 @@ exports[`MyvicStoryshots Maps/Core Popups 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -2486,6 +2598,8 @@ exports[`MyvicStoryshots Maps/Core Ripple Grid 1`] = `
         class="myvic-map-core"
         style="position: relative; width: 100%; padding-top: 56.25%; border: 1px solid black;"
       >
+        <!---->
+         
          
         <div
           class="myvic-map-core__container"
@@ -2569,6 +2683,8 @@ exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -2655,6 +2771,8 @@ exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -2779,6 +2897,8 @@ exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -2865,6 +2985,8 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
   class="myvic-map-core"
   style="width: 100%; height: 100%;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -2963,6 +3085,8 @@ exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3051,6 +3175,8 @@ exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3137,6 +3263,8 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3223,6 +3351,8 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3309,6 +3439,8 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3395,6 +3527,8 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3481,6 +3615,8 @@ exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3573,6 +3709,8 @@ exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3661,6 +3799,8 @@ exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
   class="myvic-map-core"
   style="width: 100%; height: 100%;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3761,6 +3901,8 @@ exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3847,6 +3989,8 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -3933,6 +4077,8 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File With Clustering 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -4019,6 +4165,8 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -4107,6 +4255,8 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -4195,6 +4345,8 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -4283,6 +4435,8 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
   class="myvic-map-core"
   style="width: 100%; height: 100%;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -4381,6 +4535,8 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -4473,6 +4629,8 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -4559,6 +4717,8 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
   class="myvic-map-core"
   style="position: relative; width: 100%; height: 100vh;"
 >
+  <!---->
+   
    
   <div
     class="myvic-map-core__container"
@@ -5229,6 +5389,8 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
         class="myvic-map-core"
         style="position: relative; width: 100%; height: 100vh;"
       >
+        <!---->
+         
          
         <div
           class="myvic-map-core__container"

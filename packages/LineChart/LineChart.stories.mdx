@@ -42,6 +42,13 @@ The data object that should contain the following keys:
   - label (String): a label for this dataset
   - data (Array): the values for this dataset. The length of this should match the length of the labels key
 
+### Custom Styling
+The customDatasetStyles prop is an array that should contain the following configuration for each dataset:
+- borderColor: color to be applied to the line segments
+- pointBackgroundColor: color or array of colors to be applied to the points between line segments
+- hoverBorderColor: color or array of colors to be applied to the points between line segments when hovered
+The above colors can be specified as strings in hexadecimal, RGB, or HSL notations. If a color is not specified the default color will be used
+
 ## Default
 
 <Preview>
@@ -51,7 +58,7 @@ The data object that should contain the following keys:
         components: { LineChart },
         template: `
           <div :style="divStyle">
-            <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
+            <line-chart :title="title" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc" />
           </div>
         `,
         props: {
@@ -60,6 +67,12 @@ The data object that should contain the following keys:
           },
           data: {
             default: () => object('data', chartData)
+          },
+          customDatasetStyles: {
+            default: () => object('customDatasetStyles', [])
+          },
+          annotation: {
+            default: () => object('annotation', {})
           },
           showLegend: {
             default: boolean('showLegend', false)
@@ -142,6 +155,50 @@ The data object that should contain the following keys:
         title: { default: () => 'Maximum possible datasets' },
         data: { default: () => maxChartData },
         showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Custom Colors
+
+<Preview>
+  <Story name="Custom Colors">
+    {
+      {
+       components: { LineChart },
+       template: `
+        <div style="width: 800px; height: 400px">
+          <line-chart :title="title" :data="data" :customDatasetStyles="customDatasetStyles" :showLegend="showLegend" :dataFormat="dataFormat" />
+        </div>
+      `,
+       props: {
+        title: { default: () => undefined },
+        data: { default: () => multiChartData },
+        customDatasetStyles: { default: () => [
+          {
+            borderColor: '#c94000',
+            pointBackgroundColor: ['#c94000', '#c94000', '#c94000', '#c94000', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee'],
+            hoverBorderColor: '#d4460033'
+          },
+          {
+            borderColor: 'gray',
+            pointBackgroundColor: 'gray',
+            hoverBorderColor: '#45474b33'
+          },
+          {
+            borderColor: 'green',
+            pointBackgroundColor: 'green'
+          },
+          {
+            borderColor: '#c94000',
+            pointBackgroundColor: ['#c94000', '#c94000', '#c94000', '#c94000', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee', '#eeeeee'],
+            hoverBorderColor: '#d4460033'
+          }
+        ]},
+        showLegend: { default: () => false },
         dataFormat: { default: () => 'normal' }
        }
       }

@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-pie-chart",
-  "version": "1.8.0",
+  "version": "1.8.2",
   "description": "A pie chart component.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-global": "1.8.0",
+    "@dpc-sdp/myvic-global": "1.8.2",
     "chart.js": "^2.9.3",
     "chartjs-plugin-datalabels": "^0.7.0",
     "lodash.merge": "^4.6.2",

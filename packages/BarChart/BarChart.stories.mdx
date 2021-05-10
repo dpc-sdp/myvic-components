@@ -3,7 +3,7 @@ import BarChart from './index.vue'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import _merge from 'lodash.merge'
-import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData, maxChartData } from './storiesConstants.js'
+import { barChartTemplate, stackedBarChartTemplate, chartData, dualChartData, maxChartData, annotationChartData, annotationChartCustomStyles, annotation } from './storiesConstants.js'
 
 <Meta title="Bar Chart" component={ BarChart } decorators={ [withKnobs] } />
 
@@ -42,6 +42,12 @@ The data object that should contain the following keys:
   - label (String): a label for this dataset
   - data (Array): the values for this dataset. The length of this should match the length of the labels key
 
+### Custom Styling
+The customDatasetStyles prop is an array that should contain the following configuration for each dataset:
+- backgroundColor: A color to be applied to all values of the dataset or an array of colors for each value
+- hoverBackgroundColor: A hover color (single value or array, to be applied as above)
+The above colors can be specified as strings in hexadecimal, RGB, or HSL notations. If a color is not specified the default color will be used
+
 ## Default
 
 <Preview>
@@ -51,8 +57,8 @@ The data object that should contain the following keys:
         components: { BarChart },
         template: `
           <div :style="divStyle">
-            <bar-chart :title="title" :direction="direction" :data="data" :stacked="stacked"
-              :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc"
+            <bar-chart :title="title" :direction="direction" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation"
+              :stacked="stacked" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc"
             />
           </div>
         `,
@@ -65,6 +71,12 @@ The data object that should contain the following keys:
           },
           data: {
             default: () => object('data', chartData)
+          },
+          customDatasetStyles: {
+            default: () => object('customDatasetStyles', [])
+          },
+          annotation: {
+            default: () => object('annotation', {})
           },
           stacked: {
             default: () => boolean('stacked', false)
@@ -194,6 +206,66 @@ The data object that should contain the following keys:
         data: { default: () => dualChartData },
         stacked: { default: () => true },
         showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Custom Colors
+
+<Preview>
+  <Story name="Custom Colors">
+    {
+      {
+       components: { BarChart },
+       template: `
+        <div style="width: 800px; height: 400px">
+          <bar-chart :title="title" :direction="direction" :data="data" :customDatasetStyles="customDatasetStyles" :showLegend="showLegend" :dataFormat="dataFormat" />
+        </div>
+      `,
+       props: {
+        direction: { default: () => 'vertical' },
+        title: { default: () => undefined },
+        data: { default: () => dualChartData },
+        customDatasetStyles: { default: () => [
+          {
+            backgroundColor: ['#c94000', '#c94000', '#c94000', '#c94000', '#005e33', '#005e33'],
+            hoverBackgroundColor: ['#d44600', '#d44600', '#d44600', '#d44600', '#007b4b', '#007b4b']
+          },
+          {
+            backgroundColor: 'rebeccapurple',
+            hoverBackgroundColor: 'blueviolet'
+          }
+        ]},
+        showLegend: { default: () => false },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## Annotations
+
+<Preview>
+  <Story name="Annotations">
+    {
+      {
+       components: { BarChart },
+       template: `
+        <div style="width: 800px; height: 400px">
+          <bar-chart :title="title" :direction="direction" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation" :showLegend="showLegend" :dataFormat="dataFormat" />
+        </div>
+      `,
+       props: {
+        direction: { default: () => 'vertical' },
+        title: { default: () => undefined },
+        data: { default: () => chartData },
+        customDatasetStyles: { default: () => annotationChartCustomStyles},
+        annotation: { default: () => annotation },
+        showLegend: { default: () => false },
         dataFormat: { default: () => 'normal' }
        }
       }
