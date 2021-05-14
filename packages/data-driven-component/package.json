@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-data-driven-component",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "main": "module.js",
   "repository": "https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/data-driven-component",
   "publishConfig": {
@@ -11,13 +11,13 @@
     "@dpc-sdp/myvic-addresssearch": "1.8.2",
     "@dpc-sdp/myvic-areasearch": "1.8.2",
     "@dpc-sdp/myvic-autocomplete": "1.8.2",
-    "@dpc-sdp/myvic-bar-chart": "1.9.0",
+    "@dpc-sdp/myvic-bar-chart": "1.9.1",
     "@dpc-sdp/myvic-data-block": "1.8.2",
-    "@dpc-sdp/myvic-line-chart": "1.9.0",
+    "@dpc-sdp/myvic-line-chart": "1.9.1",
     "@dpc-sdp/myvic-map-core": "1.8.2",
-    "@dpc-sdp/myvic-pie-chart": "1.8.2",
+    "@dpc-sdp/myvic-pie-chart": "1.9.1",
     "@dpc-sdp/myvic-toggle-list": "1.8.2",
-    "@dpc-sdp/myvic-treemap": "1.8.2"
+    "@dpc-sdp/myvic-treemap": "1.9.1"
   },
   "peerDependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "1.x"
