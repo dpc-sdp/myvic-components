@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-treemap",
-  "version": "1.8.2",
+  "version": "1.9.1",
   "description": "A tree map chart component.",
   "license": "Apache-2.0",
   "main": "index.js",
