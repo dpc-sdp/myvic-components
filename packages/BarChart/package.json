@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-bar-chart",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "A bar chart component.",
   "license": "Apache-2.0",
   "main": "index.js",
