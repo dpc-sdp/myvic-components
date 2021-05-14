@@ -63,6 +63,13 @@ export default {
       type: Object
     },
     /**
+     * Whether to display data labels next to the bars. This setting is always false with a Stacked Bar Chart
+     */
+    showDataLabels: {
+      type: Boolean,
+      default: true
+    },
+    /**
      * An array of custom styles for each dataset. Refer to the Custom Styling section below
      */
     customDatasetStyles: {
@@ -175,7 +182,7 @@ export default {
           },
           legend: builder.getLegend(this.showLegend),
           tooltips: builder.getTooltips(this.direction, this.dataFormat),
-          plugins: builder.getPlugin(this.dataFormat, this.stacked),
+          plugins: builder.getPlugin(this.dataFormat, this.showDataLabels, this.stacked),
           annotation: this.annotation
         }
         return options

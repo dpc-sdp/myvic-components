@@ -140,11 +140,11 @@ export default {
     }
     return _merge({}, constants.tooltips, labelSettings)
   },
-  getPlugin: (dataFormat, stacked) => {
+  getPlugin: (dataFormat, showDataLabels, stacked) => {
     const dataFormatSettings = {
       datalabels: {
         formatter: (value) => utils.labelValue(value, dataFormat),
-        display: !stacked // no data labels for stacked bar chart
+        display: showDataLabels && !stacked // no data labels for stacked bar chart
       }
     }
     return _merge({}, settings.plugin, dataFormatSettings)
