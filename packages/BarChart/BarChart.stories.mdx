@@ -73,6 +73,9 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
           data: {
             default: () => object('data', chartData)
           },
+          showDataLabels: {
+            default: () => boolean('showDataLabels', true)
+          },
           customDatasetStyles: {
             default: () => object('customDatasetStyles', [])
           },
@@ -285,13 +288,14 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
        components: { BarChart },
        template: `
         <div style="width: 800px; height: 400px">
-          <bar-chart :title="title" :direction="direction" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation" :scaleLimits="scaleLimits" :showLegend="showLegend" :dataFormat="dataFormat" />
+          <bar-chart :title="title" :direction="direction" :data="data" :showDataLabels="showDataLabels" :customDatasetStyles="customDatasetStyles" :annotation="annotation" :scaleLimits="scaleLimits" :showLegend="showLegend" :dataFormat="dataFormat" />
         </div>
       `,
        props: {
         direction: { default: () => 'vertical' },
         title: { default: () => undefined },
         data: { default: () => annotationChartData },
+        showDataLabels: { default: () => false },
         customDatasetStyles: { default: () => annotationChartCustomStyles},
         annotation: { default: () => annotation2 },
         scaleLimits: { default: () => ({ max: 100 }) },
