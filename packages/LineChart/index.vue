@@ -53,6 +53,13 @@ export default {
       type: Object
     },
     /**
+     * Titles for the primary and secondary axes. An Object with optional `primary` and `secondary` keys
+     */
+    axesTitles: {
+      type: Object,
+      default: () => {}
+    },
+    /**
      * An array of custom styles for each dataset. Refer to the Custom Styling section below
      */
     customDatasetStyles: {
@@ -67,7 +74,7 @@ export default {
       default: () => {}
     },
     /**
-     * Custom scale limits for the main data axis. An Object with min and max values. Helpful for expanding the chart for context or for making room for annotations
+     * Custom scale limits for the primary data axis. An Object with optional `min` and `max` keys. Helpful for expanding the chart for context or for making room for annotations
      */
     scaleLimits: {
       type: Object,
@@ -150,8 +157,8 @@ export default {
           responsive: true,
           title: builder.getTitle(this.title),
           scales: {
-            xAxes: builder.getAxes('x', 'vertical', this.data, this.dataFormat, this.scaleLimits),
-            yAxes: builder.getAxes('y', 'vertical', this.data, this.dataFormat, this.scaleLimits)
+            xAxes: builder.getAxes('x', 'vertical', this.data, this.axesTitles, this.dataFormat, this.scaleLimits),
+            yAxes: builder.getAxes('y', 'vertical', this.data, this.axesTitles, this.dataFormat, this.scaleLimits)
           },
           legend: builder.getLegend(this.showLegend),
           tooltips: builder.getTooltips(this.dataFormat),

@@ -57,6 +57,13 @@ export default {
       type: String
     },
     /**
+     * Titles for the primary and secondary axes. An Object with optional `primary` and `secondary` keys
+     */
+    axesTitles: {
+      type: Object,
+      default: () => {}
+    },
+    /**
      * The data to display. Refer to the Data Format section below
      */
     data: {
@@ -84,7 +91,7 @@ export default {
       default: () => {}
     },
     /**
-     * Custom scale limits for the main data axis. An Object with min and max values. Helpful for expanding the chart for context or for making room for annotations
+     * Custom scale limits for the primary data axis. An Object with optional `min` and `max` keys. Helpful for expanding the chart for context or for making room for annotations
      */
     scaleLimits: {
       type: Object,
@@ -177,8 +184,8 @@ export default {
           responsive: true,
           title: builder.getTitle(this.title),
           scales: {
-            xAxes: builder.getAxes('x', this.direction, this.data, this.dataFormat, this.stacked, this.scaleLimits),
-            yAxes: builder.getAxes('y', this.direction, this.data, this.dataFormat, this.stacked, this.scaleLimits)
+            xAxes: builder.getAxes('x', this.direction, this.data, this.axesTitles, this.dataFormat, this.stacked, this.scaleLimits),
+            yAxes: builder.getAxes('y', this.direction, this.data, this.axesTitles, this.dataFormat, this.stacked, this.scaleLimits)
           },
           legend: builder.getLegend(this.showLegend),
           tooltips: builder.getTooltips(this.direction, this.dataFormat),
