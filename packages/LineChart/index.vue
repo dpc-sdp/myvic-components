@@ -57,7 +57,7 @@ export default {
      */
     axesTitles: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     },
     /**
      * An array of custom styles for each dataset. Refer to the Custom Styling section below
