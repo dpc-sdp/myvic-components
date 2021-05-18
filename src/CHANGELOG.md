@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/compare/v1.9.2...v1.9.3) (2021-05-18)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-storybook
+
+
+
+
+
+
 ## [1.9.2](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/compare/v1.9.0...v1.9.2) (2021-05-14)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-storybook
