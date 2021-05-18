@@ -18,6 +18,12 @@ const settings = {
   },
   primaryAxis: {
     id: 'primary',
+    scaleLabel: {
+      display: false,
+      labelString: '',
+      fontFamily: "'Vic-Medium', 'sans-serif'",
+      fontColor: styles.gridLabelColor
+    },
     gridLines: {
       display: true,
       lineWidth: 1,
@@ -36,6 +42,12 @@ const settings = {
   },
   secondaryAxis: {
     id: 'secondary',
+    scaleLabel: {
+      display: false,
+      labelString: '',
+      fontFamily: "'Vic-Medium', 'sans-serif'",
+      fontColor: styles.gridLabelColor
+    },
     gridLines: {
       display: true,
       drawOnChartArea: false,
@@ -77,8 +89,9 @@ const labelAxis = (axis, style) => {
   return _merge({}, axis, { ticks: { callback: (value) => utils.labelValue(value, style) } })
 }
 
-const buildAxes = (isPrimary, data, dataFormat, scaleLimits) => {
+const buildAxes = (isPrimary, data, axesTitles, dataFormat, scaleLimits) => {
   let axis = settings[isPrimary ? 'primaryAxis' : 'secondaryAxis']
+  axis = utils.setAxisTitle(axis, isPrimary, axesTitles)
   if (isPrimary) {
     axis = scaleAxis(axis, data, scaleLimits)
     axis = labelAxis(axis, dataFormat)
@@ -108,14 +121,14 @@ export default {
       text: title
     })
   },
-  getAxes: (dimension, chartDirection, data, dataFormat, scaleLimits) => {
+  getAxes: (dimension, chartDirection, data, axesTitles, dataFormat, scaleLimits) => {
     let isPrimary
     if (chartDirection === 'horizontal') {
       isPrimary = dimension === 'x'
     } else {
       isPrimary = dimension === 'y'
     }
-    return buildAxes(isPrimary, data, dataFormat, scaleLimits)
+    return buildAxes(isPrimary, data, axesTitles, dataFormat, scaleLimits)
   },
   getLegend: (show) => {
     return _merge({}, constants.legend, {

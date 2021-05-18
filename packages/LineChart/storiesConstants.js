@@ -3,7 +3,7 @@ import { getRandomInt, getRandomArray } from '@dpc-sdp/myvic-global/utils/random
 
 export const lineChartTemplate = `
 <div style="width: 400px; height: 400px">
-  <line-chart :title="title" :data="data" :showLegend="showLegend" :dataFormat="dataFormat" />
+  <line-chart :title="title" :data="data" :axesTitles="axesTitles" :showLegend="showLegend" :dataFormat="dataFormat" />
 </div>
 `
 export const chartData = {

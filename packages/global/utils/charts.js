@@ -16,6 +16,18 @@ export default {
         return value
     }
   },
+  setAxisTitle: (axis, isPrimary, axesTitles) => {
+    axis.scaleLabel.display = false // needed for storybook
+    if (axesTitles.primary && isPrimary) {
+      axis.scaleLabel.labelString = axesTitles.primary
+      axis.scaleLabel.display = true
+    }
+    if (axesTitles.secondary && !isPrimary) {
+      axis.scaleLabel.labelString = axesTitles.secondary
+      axis.scaleLabel.display = true
+    }
+    return axis
+  },
   getStyleArray: (styles, varName, length) => {
     const array = []
     for (var i = 1; i <= length; i++) {
