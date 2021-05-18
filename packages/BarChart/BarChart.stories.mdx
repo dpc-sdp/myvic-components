@@ -58,7 +58,7 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
         components: { BarChart },
         template: `
           <div :style="divStyle">
-            <bar-chart :title="title" :direction="direction" :data="data" :customDatasetStyles="customDatasetStyles" :annotation="annotation"
+            <bar-chart :title="title" :direction="direction" :data="data" :axesTitles="axesTitles" :customDatasetStyles="customDatasetStyles" :annotation="annotation"
               :scaleLimits="scaleLimits" :stacked="stacked" :showLegend="showLegend" :dataFormat="dataFormat" :shortDesc="shortDesc" :longDesc="longDesc"
             />
           </div>
@@ -72,6 +72,9 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
           },
           data: {
             default: () => object('data', chartData)
+          },
+          axesTitles: {
+            default: () => object('axesTitles', { primary: "", secondary: "" })
           },
           showDataLabels: {
             default: () => boolean('showDataLabels', true)
@@ -127,6 +130,28 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
         direction: { default: () => 'horizontal' },
         title: { default: () => 'Sample Chart' },
         data: { default: () => chartData },
+        axesTitles: { default: () => ({}) },
+        showLegend: { default: () => true },
+        dataFormat: { default: () => 'normal' }
+       }
+      }
+    }
+  </Story>
+</Preview>
+
+## With axes titles
+
+<Preview>
+  <Story name="With axes titles">
+    {
+      {
+       components: { BarChart },
+       template: barChartTemplate,
+       props: {
+        direction: { default: () => 'horizontal' },
+        title: { default: () => 'Sample Chart' },
+        data: { default: () => chartData },
+        axesTitles: { default: () => ({ primary: 'primary axis title', secondary: 'secondary axis title' }) },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }
@@ -147,6 +172,7 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
         direction: { default: () => 'vertical' },
         title: { default: () => undefined },
         data: { default: () => chartData },
+        axesTitles: { default: () => ({}) },
         showLegend: { default: () => false },
         dataFormat: { default: () => 'normal' }
        }
@@ -167,6 +193,7 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
         direction: { default: () => 'horizontal' },
         title: { default: () => 'Dual Chart' },
         data: { default: () => dualChartData },
+        axesTitles: { default: () => ({}) },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }
@@ -319,6 +346,7 @@ The above colors can be specified as strings in hexadecimal, RGB, or HSL notatio
         direction: { default: () => 'horizontal' },
         title: { default: () => 'Dual Chart' },
         data: { default: () => ({ data: 'invalid data'}) },
+        axesTitles: { default: () => ({}) },
         showLegend: { default: () => true },
         dataFormat: { default: () => 'normal' }
        }
