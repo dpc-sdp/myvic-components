@@ -61,7 +61,7 @@ export default {
      */
     axesTitles: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     },
     /**
      * The data to display. Refer to the Data Format section below

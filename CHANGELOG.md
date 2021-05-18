@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.4](https://github.com/dpc-sdp/myvic-components/compare/v1.9.3...v1.9.4) (2021-05-18)
+
+
+### Bug Fixes
+
+* resolve issue with default props ([aa4b2af](https://github.com/dpc-sdp/myvic-components/commit/aa4b2af480215d45bb2164716aeb8a1f718d1600))
+
+
+
+
+
+
 ## [1.9.3](https://github.com/dpc-sdp/myvic-components/compare/v1.9.2...v1.9.3) (2021-05-18)
 
 **Note:** Version bump only for package myvic-components
