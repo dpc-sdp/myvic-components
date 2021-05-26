@@ -41,9 +41,15 @@
           :features="features"
           dataFormat="GeoJSON"
           :zoomToExtent="true"
-          labelAttribute="name"
           :attributions="attributions"
           :zIndex="4"
+        />
+        <myvic-map-vector-layer
+          :features="labelFeatures"
+          dataFormat="GeoJSON"
+          labelAttribute="name"
+          :labelOnly="true"
+          :zIndex="5"
         />
         <myvic-map-vector-layer
           :visible="showSuburb"
@@ -153,6 +159,7 @@ export default {
         description: 'suburb'
       },
       features: [],
+      labelFeatures: [],
       attributions: [],
       mapboxAttributions: [
         '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
@@ -241,11 +248,13 @@ export default {
             geometry: circle
           }),
           new Feature({
+            geometry: new Point([address.location.x, address.location.y]).transform('EPSG:4326', 'EPSG:3857')
+          })
+        ]
+        this.labelFeatures = [
+          new Feature({
             geometry: new Point(firstCoord),
             name: this.radiusLabel
-          }),
-          new Feature({
-            geometry: new Point([address.location.x, address.location.y]).transform('EPSG:4326', 'EPSG:3857')
           })
         ]
       } catch (e) {
@@ -255,6 +264,7 @@ export default {
     },
     clearAddress: function () {
       this.features = []
+      this.labelFeatures = []
       this.area = {
         id: '',
         description: 'suburb'
