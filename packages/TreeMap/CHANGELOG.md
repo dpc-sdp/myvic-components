@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.5](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/TreeMap/compare/v1.9.4...v1.9.5) (2021-05-27)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-treemap
+
+
+
+
+
 ## [1.9.4](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/TreeMap/compare/v1.9.3...v1.9.4) (2021-05-18)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-treemap

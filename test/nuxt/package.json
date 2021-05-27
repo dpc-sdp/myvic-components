@@ -1,11 +1,11 @@
 {
   "name": "@dpc-sdp/myvic-nuxt",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "description": "Nuxt test.",
   "private": true,
   "dependencies": {
-    "@dpc-sdp/myvic-bar-chart": "1.9.4",
-    "@dpc-sdp/myvic-map-core": "1.9.4",
+    "@dpc-sdp/myvic-bar-chart": "1.9.5",
+    "@dpc-sdp/myvic-map-core": "1.9.5",
     "nuxt": "^2.12.2"
   },
   "devDependencies": {
