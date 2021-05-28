@@ -19,18 +19,18 @@ describe('DataItem', () => {
   })
 
   it('renders a title', () => {
-    expect(wrapper.contains('h3')).toBe(true)
+    expect(wrapper.find('h3').exists()).toBe(true)
   })
 
   it('renders a description', () => {
-    expect(wrapper.contains('p')).toBe(true)
+    expect(wrapper.find('p').exists()).toBe(true)
   })
 
   it('renders a trend', () => {
-    expect(wrapper.contains('span')).toBe(true)
+    expect(wrapper.find('span').exists()).toBe(true)
   })
 
   it('does not render a trend if the trend prop is falsy', () => {
-    expect(noTrendWrapper.contains('span')).toBe(false)
+    expect(noTrendWrapper.find('span').exists()).toBe(false)
   })
 })

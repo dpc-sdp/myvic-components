@@ -22,7 +22,7 @@ describe('MyvicToggleList', () => {
   })
 
   it('renders a div', () => {
-    expect(wrapper.contains('div')).toBe(true)
+    expect(wrapper.find('div').exists()).toBe(true)
   })
 
   it('renders all items', () => {

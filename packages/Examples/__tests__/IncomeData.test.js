@@ -15,26 +15,26 @@ describe('IncomeData', () => {
   })
 
   it('renders the data block components', () => {
-    expect(wrapper.contains(DataBlock)).toBe(true)
+    expect(wrapper.findComponent(DataBlock).exists()).toBe(true)
   })
 
   it('renders the bar chart component', () => {
-    expect(wrapper.contains(BarChart)).toBe(true)
+    expect(wrapper.findComponent(BarChart).exists()).toBe(true)
   })
 
   it('renders the map core component', () => {
-    expect(wrapper.contains(MyvicMapCore)).toBe(true)
+    expect(wrapper.findComponent(MyvicMapCore).exists()).toBe(true)
   })
 
   it('renders the map vector layer component', () => {
-    expect(wrapper.contains(MyvicMapVectorLayer)).toBe(true)
+    expect(wrapper.findComponent(MyvicMapVectorLayer).exists()).toBe(true)
   })
 
   it('renders the map vector tile layer component', () => {
-    expect(wrapper.contains(MyvicMapVectorTileLayer)).toBe(true)
+    expect(wrapper.findComponent(MyvicMapVectorTileLayer).exists()).toBe(true)
   })
 
   it('renders the legend component', () => {
-    expect(wrapper.contains(MyvicMapLegend)).toBe(true)
+    expect(wrapper.findComponent(MyvicMapLegend).exists()).toBe(true)
   })
 })
