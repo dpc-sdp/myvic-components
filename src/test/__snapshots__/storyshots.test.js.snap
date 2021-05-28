@@ -23,7 +23,18 @@ exports[`MyvicStoryshots AddressSearch Default 1`] = `
          
         <!---->
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="myvic-auto-complete__icon rpl-icon rpl-icon--search rpl-icon--color_extra_dark_neutral"
+          overflow="visible"
+          style="width: 16px; height: 16px;"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z"
+          />
+           
+        </svg>
          
         <!---->
       </div>
@@ -84,7 +95,18 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
              
             <!---->
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="myvic-auto-complete__icon rpl-icon rpl-icon--search rpl-icon--color_extra_dark_neutral"
+              overflow="visible"
+              style="width: 16px; height: 16px;"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z"
+              />
+               
+            </svg>
              
             <!---->
           </div>
@@ -128,6 +150,8 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
           role="application"
           tabindex="0"
         >
+          <!---->
+           
           <!---->
            
           <!---->
@@ -199,7 +223,9 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
                   title="Attributions"
                   type="button"
                 >
-                  <span>
+                  <span
+                    class="ol-attribution-expand"
+                  >
                     i
                   </span>
                 </button>
@@ -238,7 +264,18 @@ exports[`MyvicStoryshots AreaSearch Default 1`] = `
          
         <!---->
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="myvic-auto-complete__icon rpl-icon rpl-icon--search rpl-icon--color_extra_dark_neutral"
+          overflow="visible"
+          style="width: 16px; height: 16px;"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z"
+          />
+           
+        </svg>
          
         <!---->
       </div>
@@ -290,7 +327,18 @@ exports[`MyvicStoryshots Autocomplete Default 1`] = `
          
         <!---->
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="myvic-auto-complete__icon rpl-icon rpl-icon--search rpl-icon--color_extra_dark_neutral"
+          overflow="visible"
+          style="width: 16px; height: 16px;"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z"
+          />
+           
+        </svg>
          
         <!---->
       </div>
@@ -357,7 +405,18 @@ exports[`MyvicStoryshots Autocomplete Single line result with tag 1`] = `
          
         <!---->
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="myvic-auto-complete__icon rpl-icon rpl-icon--search rpl-icon--color_extra_dark_neutral"
+          overflow="visible"
+          style="width: 16px; height: 16px;"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z"
+          />
+           
+        </svg>
          
         <!---->
       </div>
@@ -424,7 +483,18 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
          
         <!---->
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="myvic-auto-complete__icon rpl-icon rpl-icon--search rpl-icon--color_extra_dark_neutral"
+          overflow="visible"
+          style="width: 16px; height: 16px;"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M10.99 9.243c1.597-2.45 1.224-5.82-1.133-7.833C7.59-.526 4.137-.46 1.94 1.557a6 6 0 00-.19 8.653c2.043 2.045 5.205 2.293 7.527.757.031-.02.102-.083.198-.173l4.343 4.195a.941.941 0 101.308-1.354l-4.324-4.176c.098-.106.166-.184.188-.216zm-8.023-.25a4.274 4.274 0 010-6.035 4.266 4.266 0 016.03 0 4.274 4.274 0 010 6.034 4.266 4.266 0 01-6.03 0z"
+          />
+           
+        </svg>
          
         <!---->
       </div>
@@ -441,7 +511,18 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
             <div
               class="myvic-double-line-item__icon-container"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="myvic-double-line-item__icon rpl-icon rpl-icon--home"
+                overflow="visible"
+                style="width: 16px; height: 16px;"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9.985 16c-.584 0-.992-.461-.992-1.143L9 11H7.015l-.008 3.857c-.004.676-.41 1.143-.992 1.143H3.037c-.582 0-.988-.467-.993-1.143V9.778l-.926-.04c-.437 0-.902-.123-1.06-.595C-.1 8.668.082 7.94.404 7.597L7.255.322c.404-.43 1.022-.43 1.427-.001l6.912 7.317c.326.343.507 1.03.347 1.505-.16.472-.557.635-.993.635h-.992v5.08c0 .68-.408 1.142-.993 1.142"
+                />
+                 
+              </svg>
             </div>
              
             <div>
@@ -464,7 +545,18 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
             <div
               class="myvic-double-line-item__icon-container"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="myvic-double-line-item__icon rpl-icon rpl-icon--map_marker"
+                overflow="visible"
+                style="width: 12px; height: 16px;"
+                viewBox="0 0 12 16"
+              >
+                <path
+                  d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+                />
+                 
+              </svg>
             </div>
              
             <div>
@@ -491,7 +583,18 @@ exports[`MyvicStoryshots Autocomplete With Icon 1`] = `
             <div
               class="myvic-double-line-item__icon-container"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="myvic-double-line-item__icon rpl-icon rpl-icon--map_marker"
+                overflow="visible"
+                style="width: 12px; height: 16px;"
+                viewBox="0 0 12 16"
+              >
+                <path
+                  d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+                />
+                 
+              </svg>
             </div>
              
             <div>
@@ -839,6 +942,38 @@ exports[`MyvicStoryshots Bar Chart Vertical 1`] = `
 </div>
 `;
 
+exports[`MyvicStoryshots Bar Chart With axes titles 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="myvic-bar-chart"
+  >
+    <div
+      alt=""
+      aria-label="Bar Chart"
+      class=""
+      dataformat="normal"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="horizontalbar-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`MyvicStoryshots Bar Chart With link to long description 1`] = `
 <div
   style="width: 400px; height: 400px;"
@@ -950,7 +1085,18 @@ exports[`MyvicStoryshots Data Block Default 1`] = `
           View chart
         </span>
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="myvic-data-block__icon rpl-icon rpl-icon--arrow_right_secondary"
+          overflow="visible"
+          style="width: 6px; height: 11px;"
+          viewBox="0 0 12 22"
+        >
+          <path
+            d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+          />
+           
+        </svg>
       </span>
     </div>
   </div>
@@ -1012,7 +1158,18 @@ exports[`MyvicStoryshots Data Block Ripple Grid 1`] = `
               View chart
             </span>
              
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="myvic-data-block__icon rpl-icon rpl-icon--arrow_right_secondary"
+              overflow="visible"
+              style="width: 6px; height: 11px;"
+              viewBox="0 0 12 22"
+            >
+              <path
+                d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+              />
+               
+            </svg>
           </span>
         </div>
       </div>
@@ -1055,7 +1212,18 @@ exports[`MyvicStoryshots Data Block With Trend 1`] = `
           <span
             class="myvic-data-item__icon"
           >
-            <!---->
+            <svg
+              aria-hidden="true"
+              class="rpl-icon rpl-icon--arrow_up_primary myvic-data-item__icon-up"
+              overflow="visible"
+              style="width: 12px; height: 13px;"
+              viewBox="0 0 12 13"
+            >
+              <path
+                d="M5.326.26l-5 4.546A1.003 1.003 0 00.259 6.22a1.001 1.001 0 001.413.066l3.327-3.024v7.74a1 1 0 102 0V3.26l3.327 3.024a1.001 1.001 0 001.673-.739 1 1 0 00-.327-.74l-5-4.546a1 1 0 00-1.346 0z"
+              />
+               
+            </svg>
           </span>
         </h3>
          
@@ -1075,7 +1243,18 @@ exports[`MyvicStoryshots Data Block With Trend 1`] = `
           View chart
         </span>
          
-        <!---->
+        <svg
+          aria-hidden="true"
+          class="myvic-data-block__icon rpl-icon rpl-icon--arrow_right_secondary"
+          overflow="visible"
+          style="width: 6px; height: 11px;"
+          viewBox="0 0 12 22"
+        >
+          <path
+            d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+          />
+           
+        </svg>
       </span>
     </div>
   </div>
@@ -1148,7 +1327,18 @@ exports[`MyvicStoryshots Examples/AreaWithData Default 1`] = `
         >
           <!---->
            
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="myvic-button-close__icon rpl-icon rpl-icon--close"
+            overflow="visible"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M14.996.293a1 1 0 00-1.415 0L7.644 6.23 1.707.293A1 1 0 00.293 1.707L6.23 7.644.651 13.223a1 1 0 001.415 1.414l5.578-5.579 5.579 5.58a1 1 0 001.414-1.415L9.058 7.644l5.938-5.937a1 1 0 000-1.414z"
+            />
+             
+          </svg>
         </button>
       </div>
        
@@ -1314,7 +1504,18 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
         >
           <!---->
            
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="myvic-button-close__icon rpl-icon rpl-icon--close"
+            overflow="visible"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M14.996.293a1 1 0 00-1.415 0L7.644 6.23 1.707.293A1 1 0 00.293 1.707L6.23 7.644.651 13.223a1 1 0 001.415 1.414l5.578-5.579 5.579 5.58a1 1 0 001.414-1.415L9.058 7.644l5.938-5.937a1 1 0 000-1.414z"
+            />
+             
+          </svg>
         </button>
       </div>
        
@@ -1422,7 +1623,9 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
                   title="Attributions"
                   type="button"
                 >
-                  <span>
+                  <span
+                    class="ol-attribution-expand"
+                  >
                     i
                   </span>
                 </button>
@@ -1482,7 +1685,18 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
             View chart
           </span>
            
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="myvic-data-block__icon rpl-icon rpl-icon--arrow_right_secondary"
+            overflow="visible"
+            style="width: 6px; height: 11px;"
+            viewBox="0 0 12 22"
+          >
+            <path
+              d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+            />
+             
+          </svg>
         </span>
       </div>
     </div>
@@ -1524,7 +1738,18 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
             View chart
           </span>
            
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="myvic-data-block__icon rpl-icon rpl-icon--arrow_right_secondary"
+            overflow="visible"
+            style="width: 6px; height: 11px;"
+            viewBox="0 0 12 22"
+          >
+            <path
+              d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+            />
+             
+          </svg>
         </span>
       </div>
     </div>
@@ -1566,7 +1791,18 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
             View chart
           </span>
            
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="myvic-data-block__icon rpl-icon rpl-icon--arrow_right_secondary"
+            overflow="visible"
+            style="width: 6px; height: 11px;"
+            viewBox="0 0 12 22"
+          >
+            <path
+              d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+            />
+             
+          </svg>
         </span>
       </div>
     </div>
@@ -1608,7 +1844,18 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
             View chart
           </span>
            
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="myvic-data-block__icon rpl-icon rpl-icon--arrow_right_secondary"
+            overflow="visible"
+            style="width: 6px; height: 11px;"
+            viewBox="0 0 12 22"
+          >
+            <path
+              d="M1.253 2.664a1 1 0 111.494-1.328l8 9a1 1 0 010 1.328l-8 9a1 1 0 01-1.494-1.328L8.662 11l-7.41-8.336z"
+            />
+             
+          </svg>
         </span>
       </div>
     </div>
@@ -1769,7 +2016,9 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
                     title="Attributions"
                     type="button"
                   >
-                    <span>
+                    <span
+                      class="ol-attribution-expand"
+                    >
                       i
                     </span>
                   </button>
@@ -2000,6 +2249,38 @@ exports[`MyvicStoryshots Line Chart Ripple Grid 1`] = `
 </div>
 `;
 
+exports[`MyvicStoryshots Line Chart With axes titles 1`] = `
+<div
+  style="width: 400px; height: 400px;"
+>
+  <div
+    class="myvic-line-chart"
+  >
+    <div
+      alt=""
+      aria-label="Line Chart"
+      class=""
+      dataformat="normal"
+      role="img"
+      style="position: relative; height: inherit; width: inherit; outline: none;"
+      tabindex="0"
+    >
+      <canvas
+        class="chartjs-render-monitor"
+        height="0"
+        id="line-chart"
+        style="display: block;"
+        width="0"
+      />
+    </div>
+     
+    <!---->
+     
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`MyvicStoryshots Line Chart With link to long description 1`] = `
 <div
   style="width: 400px; height: 400px;"
@@ -2184,7 +2465,9 @@ exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -2282,7 +2565,9 @@ exports[`MyvicStoryshots Maps/Core Events 1`] = `
                     title="Attributions"
                     type="button"
                   >
-                    <span>
+                    <span
+                      class="ol-attribution-expand"
+                    >
                       i
                     </span>
                   </button>
@@ -2506,7 +2791,9 @@ exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -2594,7 +2881,9 @@ exports[`MyvicStoryshots Maps/Core Popups 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -2784,7 +3073,9 @@ exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -2910,7 +3201,9 @@ exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -2998,7 +3291,9 @@ exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3086,7 +3381,9 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3188,7 +3485,9 @@ exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3276,7 +3575,9 @@ exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3364,7 +3665,9 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3452,7 +3755,9 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3540,7 +3845,9 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3628,7 +3935,9 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3722,7 +4031,9 @@ exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3812,7 +4123,9 @@ exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -3902,7 +4215,9 @@ exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4002,7 +4317,9 @@ exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4090,7 +4407,9 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4178,7 +4497,9 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File With Clustering 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4268,7 +4589,9 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4358,7 +4681,9 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4448,7 +4773,9 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4536,7 +4863,9 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4642,7 +4971,9 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4730,7 +5061,9 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -4820,7 +5153,9 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
               title="Attributions"
               type="button"
             >
-              <span>
+              <span
+                class="ol-attribution-expand"
+              >
                 i
               </span>
             </button>
@@ -5089,7 +5424,18 @@ exports[`MyvicStoryshots Toggle List Chart Data Toggle 1`] = `
             <div
               class="myvic-toggle-item__icon-right"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </div>
           </li>
           <li
@@ -5197,7 +5543,18 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         <div
           class="myvic-toggle-item__icon-left"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--map_marker rpl-icon--color_primary"
+            overflow="visible"
+            style="width: 12px; height: 16px;"
+            viewBox="0 0 12 16"
+          >
+            <path
+              d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+            />
+             
+          </svg>
         </div>
          
         <h3
@@ -5209,7 +5566,18 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         <div
           class="myvic-toggle-item__icon-right"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--tick"
+            overflow="visible"
+            style="width: 11px; height: 11px;"
+            viewBox="0 0 11 11"
+          >
+            <path
+              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+            />
+             
+          </svg>
         </div>
       </li>
       <li
@@ -5221,7 +5589,23 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         <div
           class="myvic-toggle-item__icon-left"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--instagram rpl-icon--color_mid_neutral_1"
+            overflow="visible"
+            style="width: 16px; height: 17px;"
+            viewBox="0 0 16 17"
+          >
+            <path
+              d="M4.702 8.977a3.274 3.274 0 116.548 0 3.274 3.274 0 01-6.548 0z"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M4.649 16.812h6.683c2.556 0 4.648-2.142 4.648-4.76V4.76C15.98 2.142 13.888 0 11.331 0H4.65C2.092 0 0 2.142 0 4.76v7.292c0 2.618 2.092 4.76 4.649 4.76zM12.5 2.472a1 1 0 110 2 1 1 0 010-2zM8 13.973a5 5 0 100-10 5 5 0 000 10z"
+              fill-rule="evenodd"
+            />
+             
+          </svg>
         </div>
          
         <h3
@@ -5245,7 +5629,18 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         <div
           class="myvic-toggle-item__icon-left"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--home rpl-icon--color_mid_neutral_1"
+            overflow="visible"
+            style="width: 16px; height: 16px;"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M9.985 16c-.584 0-.992-.461-.992-1.143L9 11H7.015l-.008 3.857c-.004.676-.41 1.143-.992 1.143H3.037c-.582 0-.988-.467-.993-1.143V9.778l-.926-.04c-.437 0-.902-.123-1.06-.595C-.1 8.668.082 7.94.404 7.597L7.255.322c.404-.43 1.022-.43 1.427-.001l6.912 7.317c.326.343.507 1.03.347 1.505-.16.472-.557.635-.993.635h-.992v5.08c0 .68-.408 1.142-.993 1.142"
+            />
+             
+          </svg>
         </div>
          
         <h3
@@ -5270,7 +5665,18 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         <div
           class="myvic-toggle-item__icon-left"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--share_alternative rpl-icon--color_secondary"
+            overflow="visible"
+            style="width: 16px; height: 14px;"
+            viewBox="0 0 16 14"
+          >
+            <path
+              d="M0 14l15.992-7L0 0v6l11.992 1L0 8v6z"
+            />
+             
+          </svg>
         </div>
          
         <h3
@@ -5282,7 +5688,18 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         <div
           class="myvic-toggle-item__icon-right"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--tick"
+            overflow="visible"
+            style="width: 11px; height: 11px;"
+            viewBox="0 0 11 11"
+          >
+            <path
+              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+            />
+             
+          </svg>
         </div>
       </li>
       <li
@@ -5294,7 +5711,18 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         <div
           class="myvic-toggle-item__icon-left"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--document rpl-icon--color_mid_neutral_1"
+            overflow="visible"
+            style="width: 21px; height: 20px;"
+            viewBox="0 0 21 20"
+          >
+            <path
+              d="M7 4.25V0H.75A.748.748 0 000 .75v14.5c0 .416.334.75.75.75h10.5c.416 0 .75-.334.75-.75V5H7.75A.752.752 0 017 4.25zm5-.44V4H8V0h.19c.2 0 .391.078.532.219l3.06 3.062c.14.14.218.331.218.528z"
+            />
+             
+          </svg>
         </div>
          
         <h3
@@ -5343,7 +5771,18 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
             <div
               class="myvic-toggle-item__icon-left"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--map_marker rpl-icon--color_success"
+                overflow="visible"
+                style="width: 12px; height: 16px;"
+                viewBox="0 0 12 16"
+              >
+                <path
+                  d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+                />
+                 
+              </svg>
             </div>
              
             <h3
@@ -5355,7 +5794,18 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
             <div
               class="myvic-toggle-item__icon-right"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--tick"
+                overflow="visible"
+                style="width: 11px; height: 11px;"
+                viewBox="0 0 11 11"
+              >
+                <path
+                  d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+                />
+                 
+              </svg>
             </div>
           </li>
           <li
@@ -5367,7 +5817,18 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
             <div
               class="myvic-toggle-item__icon-left"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--map_marker rpl-icon--color_mid_neutral_1"
+                overflow="visible"
+                style="width: 12px; height: 16px;"
+                viewBox="0 0 12 16"
+              >
+                <path
+                  d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+                />
+                 
+              </svg>
             </div>
              
             <h3
@@ -5391,7 +5852,18 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
             <div
               class="myvic-toggle-item__icon-left"
             >
-              <!---->
+              <svg
+                aria-hidden="true"
+                class="rpl-icon rpl-icon--map_marker rpl-icon--color_mid_neutral_1"
+                overflow="visible"
+                style="width: 12px; height: 16px;"
+                viewBox="0 0 12 16"
+              >
+                <path
+                  d="M0 6c0 4.41 6 10 6 10s6-5.59 6-10c0-3.25-2.683-6-6-6S0 2.75 0 6zm3.75 0a2.25 2.25 0 114.502.002A2.25 2.25 0 013.75 6z"
+                />
+                 
+              </svg>
             </div>
              
             <h3
@@ -5494,7 +5966,9 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
                     title="Attributions"
                     type="button"
                   >
-                    <span>
+                    <span
+                      class="ol-attribution-expand"
+                    >
                       i
                     </span>
                   </button>
