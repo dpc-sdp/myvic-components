@@ -40,14 +40,14 @@ describe('MyvicBarChart', () => {
   })
 
   it('renders a canvas', () => {
-    expect(wrapper.contains('canvas')).toBe(true)
+    expect(wrapper.find('canvas').exists()).toBe(true)
   })
 
   it('renders the chart description', () => {
-    expect(wrapper.contains(ChartDescription)).toBe(true)
+    expect(wrapper.findComponent(ChartDescription).exists()).toBe(true)
   })
 
   it('renders an error message with invalid data', () => {
-    expect(errorWrapper.contains(ErrorComponent)).toBe(true)
+    expect(errorWrapper.findComponent(ErrorComponent).exists()).toBe(true)
   })
 })

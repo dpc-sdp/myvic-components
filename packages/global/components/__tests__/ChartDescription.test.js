@@ -9,6 +9,6 @@ describe('ChartDescription', () => {
   })
 
   it('renders a link to the long description', () => {
-    expect(wrapper.contains('a')).toBe(true)
+    expect(wrapper.find('a').exists()).toBe(true)
   })
 })

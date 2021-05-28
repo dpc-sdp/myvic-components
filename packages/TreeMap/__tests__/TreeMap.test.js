@@ -46,14 +46,14 @@ describe('MyvicTreeMap', () => {
   })
 
   it('renders a canvas', () => {
-    expect(wrapper.contains('canvas')).toBe(true)
+    expect(wrapper.find('canvas').exists()).toBe(true)
   })
 
   it('renders the chart description', () => {
-    expect(wrapper.contains(ChartDescription)).toBe(true)
+    expect(wrapper.findComponent(ChartDescription).exists()).toBe(true)
   })
 
   it('renders a link to the long description', () => {
-    expect(wrapper.contains('a')).toBe(true)
+    expect(wrapper.find('a').exists()).toBe(true)
   })
 })
