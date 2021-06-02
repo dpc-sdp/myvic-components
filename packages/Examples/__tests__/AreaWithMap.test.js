@@ -9,14 +9,14 @@ describe('AreaWithMap', () => {
   })
 
   it('renders the area search component', () => {
-    expect(wrapper.contains(AreaSearch)).toBe(true)
+    expect(wrapper.findComponent(AreaSearch).exists()).toBe(true)
   })
 
   it('renders the map core component', () => {
-    expect(wrapper.contains(MyvicMapCore)).toBe(true)
+    expect(wrapper.findComponent(MyvicMapCore).exists()).toBe(true)
   })
 
   it('renders the map vector layer component', () => {
-    expect(wrapper.contains(MyvicMapVectorLayer)).toBe(true)
+    expect(wrapper.findComponent(MyvicMapVectorLayer).exists()).toBe(true)
   })
 })

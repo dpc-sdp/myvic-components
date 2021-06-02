@@ -7,6 +7,6 @@ describe('AddressSearch', () => {
   })
 
   it('renders an AutoComplete', () => {
-    expect(wrapper.contains(AutoComplete)).toBe(true)
+    expect(wrapper.findComponent(AutoComplete).exists()).toBe(true)
   })
 })

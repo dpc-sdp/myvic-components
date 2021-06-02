@@ -12,6 +12,6 @@ describe('DataBlock', () => {
   })
 
   it('renders a DataItem', () => {
-    expect(wrapper.contains(DataItem)).toBe(true)
+    expect(wrapper.findComponent(DataItem).exists()).toBe(true)
   })
 })

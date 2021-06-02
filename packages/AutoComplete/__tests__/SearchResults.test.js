@@ -39,15 +39,15 @@ describe('SearchResults', () => {
   })
 
   it('renders a list', () => {
-    expect(wrapperDouble.contains('ul')).toBe(true)
+    expect(wrapperDouble.find('ul').exists()).toBe(true)
   })
 
   it('renders the proper item style', () => {
-    expect(wrapperDouble.contains(DoubleLineItem)).toBe(true)
-    expect(wrapperSingle.contains(SingleLineItem)).toBe(true)
+    expect(wrapperDouble.findComponent(DoubleLineItem).exists()).toBe(true)
+    expect(wrapperSingle.findComponent(SingleLineItem).exists()).toBe(true)
   })
 
   it('renders a list item with a specific style when no items are found', () => {
-    expect(wrapperNoItems.contains('li.myvic-search-results__item--no-results')).toBe(true)
+    expect(wrapperNoItems.find('li.myvic-search-results__item--no-results').exists()).toBe(true)
   })
 })

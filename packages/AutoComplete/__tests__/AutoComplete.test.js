@@ -21,11 +21,11 @@ describe('AutoComplete', () => {
   })
 
   it('renders an input', () => {
-    expect(wrapper.contains('input')).toBe(true)
+    expect(wrapper.find('input').exists()).toBe(true)
   })
 
   it('renders SearchResults', () => {
-    expect(wrapper.contains(SearchResults)).toBe(true)
+    expect(wrapper.findComponent(SearchResults).exists()).toBe(true)
   })
 
   it('finds an item', async () => {
