@@ -9,7 +9,16 @@
     <span
       class="myvic-single-line-item__item-name"
       v-html="highlight(itemName)" />
-    <span v-if="itemSecondaryText" class="myvic-single-line-item__pill">{{ itemSecondaryText }}</span>
+    <span
+      v-if="itemSecondaryText && typeof itemSecondaryText === 'string'"
+      class="myvic-single-line-item__pill">
+      {{ itemSecondaryText }}
+    </span>
+    <span
+      v-if="itemSecondaryText && typeof itemSecondaryText === 'object'"
+      :class="`myvic-single-line-item__pill ${itemSecondaryText.class}`">
+      {{ itemSecondaryText.text }}
+    </span>
   </div>
 </template>
 
