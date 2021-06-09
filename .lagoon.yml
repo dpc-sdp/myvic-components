@@ -27,7 +27,8 @@ environments:
         - "example.prod-left.visualise.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
-            hsts: max-age=31536000  master:
+            hsts: max-age=31536000  
+  master:
     routes:
       - storybook:
         - "master.visualise.myvictoria.vic.gov.au":
