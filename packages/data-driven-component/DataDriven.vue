@@ -18,7 +18,8 @@
       iconSymbol="alert_information"
       closeIconColor="white"
     >
-      Internet Explorer 11 (and older) is not fully supported for this data driven component, please upgrade to a modern browser.
+      Internet Explorer 11 (and older) is not fully supported for this data driven component, please upgrade to
+      <a class="" href="https://www.microsoft.com/en-us/edge" title="https://www.microsoft.com/en-us/edge">Microsoft Edge</a>.
     </rpl-alert-base>
   </div>
 </template>
