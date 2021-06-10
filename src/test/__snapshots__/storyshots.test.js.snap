@@ -5703,17 +5703,18 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         </div>
       </li>
       <li
+        aria-checked="true"
         aria-label="Item 5"
-        class="myvic-toggle-item"
+        class="myvic-toggle-item is-active"
         role="checkbox"
         tabindex="0"
       >
         <div
-          class="myvic-toggle-item__icon-left"
+          class="myvic-toggle-item__icon-left custom-color"
         >
           <svg
             aria-hidden="true"
-            class="rpl-icon rpl-icon--document rpl-icon--color_mid_neutral_1"
+            class="rpl-icon rpl-icon--document rpl-icon--color_#a242cf"
             overflow="visible"
             style="width: 21px; height: 20px;"
             viewBox="0 0 21 20"
@@ -5734,7 +5735,18 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
         <div
           class="myvic-toggle-item__icon-right"
         >
-          <!---->
+          <svg
+            aria-hidden="true"
+            class="rpl-icon rpl-icon--tick"
+            overflow="visible"
+            style="width: 11px; height: 11px;"
+            viewBox="0 0 11 11"
+          >
+            <path
+              d="M8.152.47a1 1 0 111.696 1.06l-5 8a1 1 0 01-1.555.177l-3-3a1 1 0 011.414-1.414l2.111 2.111L8.152.47z"
+            />
+             
+          </svg>
         </div>
       </li>
     </ul>

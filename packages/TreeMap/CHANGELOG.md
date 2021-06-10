@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.6](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/TreeMap/compare/v1.9.5...v1.9.6) (2021-06-09)
+
+
+### Bug Fixes
+
+* fix broken tests ([#153](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/TreeMap/issues/153)) ([9491a15](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/TreeMap/commit/9491a1515547884617734855087238e548447e2b))
+* node version install issue ([#154](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/TreeMap/issues/154)) ([6d402fc](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/TreeMap/commit/6d402fc2a5eac63c70144d3a276302ff7101ccb1))
+
+
+
+
+
+
 ## [1.9.5](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/TreeMap/compare/v1.9.4...v1.9.5) (2021-05-27)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-treemap
