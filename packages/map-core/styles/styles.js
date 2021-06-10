@@ -1,5 +1,5 @@
 import ol from '../lib/ol'
-import globalStyles from '@dpc-sdp/myvic-global/styles/export.scss'
+import globalStyles from '@dpc-sdp/myvic-global/styles/stylesExport.js'
 
 const defaultStrokeColour = globalStyles.fillSecondaryHover
 const selectedStrokeColour = globalStyles.strokeLine1

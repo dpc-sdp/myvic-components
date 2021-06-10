@@ -12,7 +12,10 @@
     >
     <div
       v-if="!!icon"
-      class="myvic-toggle-item__icon-left">
+      class="myvic-toggle-item__icon-left"
+      :class="{ 'custom-color': customColor }"
+      :style="customColor ? `--customColor: ${color}` : ''"
+    >
       <rpl-icon
         :symbol="icon"
         :color="isSelected ? color : 'mid_neutral_1'"
@@ -50,6 +53,10 @@ export default {
     color: {
       type: String,
       default: 'primary'
+    },
+    customColor: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -123,7 +130,10 @@ export default {
       border-radius: 999px;
       overflow: hidden;
       flex: 0 0 auto;
-      .is-active & {
+      .is-active &.custom-color {
+        > svg {
+          fill: var(--customColor);
+        }
       }
     }
     &__icon-right {

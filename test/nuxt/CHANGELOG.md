@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.6](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/compare/v1.9.5...v1.9.6) (2021-06-09)
+
+
+### Bug Fixes
+
+* node version install issue ([#154](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/issues/154)) ([6d402fc](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/commit/6d402fc2a5eac63c70144d3a276302ff7101ccb1))
+
+
+
+
+
+
 ## [1.9.5](https://github.com/dpc-sdp/myvic-components/compare/v1.9.4...v1.9.5) (2021-05-27)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-nuxt

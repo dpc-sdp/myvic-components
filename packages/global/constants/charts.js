@@ -1,4 +1,4 @@
-import styles from '../styles/export.scss'
+import styles from '../styles/stylesExport.js'
 
 export default {
   title: {
@@ -21,18 +21,18 @@ export default {
     mode: 'nearest',
     displayColors: true,
     backgroundColor: 'white',
-    borderColor: '#53565a88', // styles.tooltipBorder,
+    borderColor: styles.tooltipBorder,
     borderWidth: 1,
     cornerRadius: 2,
     xPadding: 10,
     yPadding: 15,
     titleFontFamily: "'Vic-Regular', 'sans-serif'",
     titleFontSize: 12,
-    titleFontColor: '#011a3c', // styles.tooltipText,
+    titleFontColor: styles.tooltipText,
     titleAlign: 'center',
     bodyFontFamily: "'Vic-Bold', 'sans-serif'",
     bodyFontSize: 12,
-    bodyFontColor: '#011a3c', // styles.tooltipText,
+    bodyFontColor: styles.tooltipText,
     bodyAlign: 'center'
   },
   labelFormats: {

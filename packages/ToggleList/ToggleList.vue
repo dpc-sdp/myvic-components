@@ -7,6 +7,7 @@
         :item="item"
         :icon="item.icon"
         :color="item.color"
+        :customColor="item.customColor"
         :is-selected="selectedItems[item.id]"
         @click="onItemClick(item)" />
     </ul>
@@ -32,7 +33,8 @@ export default {
     /**
      * Array of items to be shown in the toggle list. Each item is an object and should have an ```id``` and
      * ```title```, and optionally an ```icon``` and ```color```. The ```icon``` and ```color``` must be supported by
-     * the Ripple Icon component: https://ripple.sdp.vic.gov.au/?path=/story/atoms-icon--icon-library
+     * the Ripple Icon component: https://ripple.sdp.vic.gov.au/?path=/story/atoms-icon--icon-library.
+     * Custom colors can be supplied as well as long as the ```customColor``` property is set to true
      */
     items: {
       type: Array,
