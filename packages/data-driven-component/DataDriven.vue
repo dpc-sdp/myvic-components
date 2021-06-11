@@ -18,7 +18,7 @@
       iconSymbol="alert_information"
       closeIconColor="white"
     >
-      Internet Explorer 11 (and older) is not fully supported for this data driven component, please upgrade to a modern browser.
+      Internet Explorer 11 (and older) is not fully supported, please upgrade to <rpl-link href="https://www.microsoft.com/en-us/edge">Microsoft Edge</rpl-link>.
     </rpl-alert-base>
   </div>
 </template>
@@ -27,12 +27,14 @@
 import RplMarkup from '@dpc-sdp/ripple-markup'
 import { RplAlertBase } from '@dpc-sdp/ripple-alert'
 import loadComponent from './component-loader'
+import RplLink from '@dpc-sdp/ripple-link'
 
 export default {
   name: 'MyvicDataDriven',
   components: {
     RplMarkup,
-    RplAlertBase
+    RplAlertBase,
+    RplLink
   },
   props: {
     title: String,

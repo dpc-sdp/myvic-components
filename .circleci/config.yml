@@ -60,7 +60,7 @@ jobs:
 
   nuxt:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:14
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
