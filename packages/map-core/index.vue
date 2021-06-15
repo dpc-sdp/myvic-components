@@ -1,6 +1,6 @@
 <template>
   <div class="myvic-map-core" :style="containerStyle">
-    <rpl-alert v-if="!ie11" title="Internet Explorer 11 (and older) is not fully supported, please upgrade to" :link='{"text":"Microsoft Edge.","url":"https://www.microsoft.com/en-us/edge"}'/>
+    <rpl-alert v-if="ie11" title="Internet Explorer 11 (and older) is not fully supported, please upgrade to" :link='{"text":"Microsoft Edge.","url":"https://www.microsoft.com/en-us/edge"}'/>
     <div
       class="myvic-map-core__popup ol-popup"
       ref="mapPopup">
