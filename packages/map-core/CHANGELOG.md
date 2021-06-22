@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.9](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.9.8...v1.9.9) (2021-06-22)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-map-core
+
+
+
+
+
+
 ## [1.9.8](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v1.9.7...v1.9.8) (2021-06-15)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-map-core
