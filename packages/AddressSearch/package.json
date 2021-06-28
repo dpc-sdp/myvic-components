@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-addresssearch",
-  "version": "1.9.9",
+  "version": "1.9.10",
   "description": "An address search component for Victoria.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-autocomplete": "1.9.9",
+    "@dpc-sdp/myvic-autocomplete": "1.9.10",
     "axios": "^0.21.1"
   }
 }

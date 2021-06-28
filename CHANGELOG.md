@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.10](https://github.com/dpc-sdp/myvic-components/compare/v1.9.9...v1.9.10) (2021-06-28)
+
+
+### Bug Fixes
+
+* restore example site ([#166](https://github.com/dpc-sdp/myvic-components/issues/166)) ([4941156](https://github.com/dpc-sdp/myvic-components/commit/49411569509713b9bb3d62e4d0dcf3514dda206c)), closes [PR#90](https://github.com/PR/issues/90)
+
+
+
+
+
+
 ## [1.9.9](https://github.com/dpc-sdp/myvic-components/compare/v1.9.8...v1.9.9) (2021-06-22)
 
 **Note:** Version bump only for package myvic-components
