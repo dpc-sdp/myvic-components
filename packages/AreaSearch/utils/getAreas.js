@@ -9,9 +9,9 @@ const fetchData = async () => {
   return data
 }
 
-export const getAreas = async () => {
+export const getAreas = async (noLgaOrRegion) => {
   const rawData = await fetchData()
-  const areas = rawData.features.filter(f => f.properties.name).map(f => (
+  let areas = rawData.features.filter(f => f.properties.name).map(f => (
     {
       id: f.properties.id,
       name: f.properties.name,
@@ -19,5 +19,8 @@ export const getAreas = async () => {
       postcode: f.properties.postcode
     }
   ))
+  if (noLgaOrRegion) {
+    areas = areas.filter(f => !['lga', 'region'].includes(f.description))
+  }
   return areas
 }

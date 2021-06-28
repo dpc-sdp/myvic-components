@@ -41,6 +41,27 @@ import { AreaSearch } from '@dpc-sdp/myvic-areasearch'
         components: { AreaSearch },
         template: areaSearchTemplate,
         props: {
+          noLgaOrRegion: {
+            default: () => false
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Suburb/postcode only
+
+<Preview>
+  <Story name="Suburb/postcode only">
+    {
+      {
+        components: { AreaSearch },
+        template: areaSearchTemplate,
+        props: {
+          noLgaOrRegion: {
+            default: () => true
+          }
         }
       }
     }
