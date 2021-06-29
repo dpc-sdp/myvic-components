@@ -10,6 +10,7 @@
     :showIcon="true"
     :getIcon="() => 'map_marker'"
     @item-selected="selectArea"
+    @item-cleared="clearArea"
   />
 </template>
 <script>
@@ -56,6 +57,9 @@ export default {
   methods: {
     selectArea (id, item) {
       this.$emit('item-selected', id, item)
+    },
+    clearArea (id) {
+      this.$emit('item-cleared', id)
     }
   }
 }
