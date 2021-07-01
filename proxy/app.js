@@ -12,7 +12,7 @@ const items = {
     }
   },
   address: {
-    target: 'https://api.vic.gov.au:443/delwp/address/v1/suggestions', // target host
+    target: 'https://wovg-shared.gateway.prod.api.vic.gov.au/delwp/address/v1/suggestions', // target host
     changeOrigin: true, // needed for virtual hosted sites
     pathRewrite: {
       '^/api-address-suggestions': ''
