@@ -231,6 +231,72 @@ element to be tied to its width)
   </Story>
 </Preview>
 
+## Select Interaction
+
+The Select interaction can be enabled at the map level for all vector layers. Custom styles can be applied to the
+selected feature by passing a style or style function to the map through ```selectedFeatureStyle```
+
+<Preview>
+  <Story name="Select Interaction">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapVectorLayer },
+        template: `<myvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="1"
+          :enableSelectInteraction="true"
+          :selectedFeatureStyle="selectedStyleFunction"
+        >
+          <myvic-map-vector-layer
+            url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+            dataFormat="GeoJSON"
+            labelAttribute="name"
+          />
+        </myvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        },
+        methods: {
+          selectedStyleFunction: function (feature) {
+            let style = new Style({
+              stroke: new Stroke({
+                color: 'rgba(255,137,18,1)',
+                width: 2
+              }),
+              fill: new Fill({
+                color: 'rgba(255,137,18,0.2)'
+              }),
+              zIndex: 100
+            })
+            let text = new Style({
+              text: new Text({
+                text: feature.get('name'),
+                font: 'normal 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
+                rotateWithView: false,
+                placement: 'point',
+                overflow: true,
+                stroke: new Stroke({
+                  color: 'rgba(1,26,60,1)',
+                  width: 1
+                }),
+                fill: new Fill({
+                  color: 'rgba(1,26,60,1)'
+                })
+              }),
+              zIndex: 200
+            })
+            return [style, text]
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
 ## Popups
 
 Click Popups are controlled at the Map level but must be enabled for each layer with ```enablePopup```.
@@ -307,65 +373,82 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
   </Story>
 </Preview>
 
-## Select Interaction
+## Popups with sticky header and slotted content
 
-The Select interaction can be enabled at the map level for all vector layers. Custom styles can be applied to the
-selected feature by passing a style or style function to the map through ```selectedFeatureStyle```
+The popup header can be made sticky with the ```stickyHeader``` prop. For this to take effect the ```popupContentFunction``` (or 
+the ```featureMapper``` function when overriding that) should return a single feature. You can also slot in the popup content 
+using the ```v-slot:popup``` named slot.
 
 <Preview>
-  <Story name="Select Interaction">
+  <Story name="Popups with sticky header and slotted content">
     {
       {
-        components: { MyvicMapCore, MyvicMapVectorLayer },
+        components: { MyvicMapCore, MyvicMapVectorTileLayer },
         template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
-          :zoom="1"
-          :enableSelectInteraction="true"
-          :selectedFeatureStyle="selectedStyleFunction"
+          :zoom="11"
+          :popupContentFunction="generatePopupContent"
+          :popupProps="popupProps"
         >
-          <myvic-map-vector-layer
-            url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
-            dataFormat="GeoJSON"
-            labelAttribute="name"
+          <template v-slot:popup>
+            <p>{{ popupContent }}</p>
+            <p>This popup's content was passed in using a slot</p>
+          </template>
+          <myvic-map-vector-tile-layer
+            :urlFunction="getVectorTileWmsUrl"
+            dataFormat="MVT"
+            :enablePopup="true"
+            :overlaps="false"
+            mapboxStyleMethod="stylefunction"
+            :mapboxStyle="mapboxStyle"
+            mapboxStyleSource="Pink"
           />
         </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
-            center: [16138405.843820328, -4552817.013522999]
+            center: [16138405.843820328, -4552817.013522999],
+            mapboxStyle: undefined,
+            popupProps: { stickyHeader: true },
+            popupContent: ''
           }
         },
+        async mounted () {
+          this.mapboxStyle = await this.getMapboxStyle()
+        },
         methods: {
-          selectedStyleFunction: function (feature) {
-            let style = new Style({
-              stroke: new Stroke({
-                color: 'rgba(255,137,18,1)',
-                width: 2
-              }),
-              fill: new Fill({
-                color: 'rgba(255,137,18,0.2)'
-              }),
-              zIndex: 100
-            })
-            let text = new Style({
-              text: new Text({
-                text: feature.get('name'),
-                font: 'normal 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
-                rotateWithView: false,
-                placement: 'point',
-                overflow: true,
-                stroke: new Stroke({
-                  color: 'rgba(1,26,60,1)',
-                  width: 1
-                }),
-                fill: new Fill({
-                  color: 'rgba(1,26,60,1)'
-                })
-              }),
-              zIndex: 200
-            })
-            return [style, text]
+          generatePopupContent: function (features) {
+            this.popupContent = 'Population Growth: ' + features[0].get('total_population_growth').toFixed(1) + '%'
+            return {
+              title: features[0].get('ssc_name'),
+              content: 'This content will be ignored because we are using the popup slot. Only the title property will be used.'
+            }
+          },
+          getVectorTileWmsUrl: (tileCoord, pixelRatio, projection, layerSource) => {
+            let path = `https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wms`
+            const tileExtent = layerSource.tileGrid.getTileCoordExtent(tileCoord)
+            const tileSize = layerSource.tileGrid.getTileSize()
+            let queryParams = {
+              SERVICE: 'WMS',
+              VERSION: '1.1.1',
+              REQUEST: 'GetMap',
+              LAYERS: `myvic:population_suburb_map`,
+              BBOX: tileExtent.join(','),
+              WIDTH: tileSize,
+              HEIGHT: tileSize,
+              SRS: projection.getCode(),
+              FORMAT: 'application/x-protobuf;type=mapbox-vector'
+            }
+            let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
+            return `${path}?${queryParamsString}`
+          },
+          getMapboxStyle: async () => {
+            return buildMyVictoriaMapboxStyle(
+              myVictoriaRotatingColours.pink,
+              myVictoriaLayerStops.population_growth_suburb,
+              'total_population_growth',
+              'population_suburb_map')
           }
         }
       }

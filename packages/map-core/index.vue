@@ -5,8 +5,11 @@
       class="myvic-map-core__popup ol-popup"
       ref="mapPopup">
       <map-indicator
+        v-bind="popupProps"
         :selectedFeature="feature"
-        :mapElement="$refs.map" />
+        :mapElement="$refs.map">
+        <slot name="popup"></slot>
+      </map-indicator>
     </div>
     <div
       v-if="!gotError && !ie11"
@@ -192,6 +195,16 @@ export default {
     popupContentFunction: {
       type: Function,
       default: undefined
+    },
+    /**
+     * props to pass to the MapIndicator component. Includes ```stickyHeader``` (Boolean)
+     * and ```position``` (String, one of ```default```, ```float-left```, ```below-feature```)
+     */
+    popupProps: {
+      type: Object,
+      default: function () {
+        return {}
+      }
     },
     /**
      * Set a specific tab index for users interacting with the map via the keyboard
