@@ -150,7 +150,7 @@ const getMarkerStyle = (size, innerIcon, color) => {
         opacity: 1,
         src: 'data:image/svg+xml;utf8,' + encodeURIComponent(outerSvg),
         scale: 1,
-        color: ol.getRgbaFromString(color, 1),
+        color: ol.getRgbaFromString(color, 1)
       }),
       zIndex: 1
     }),
@@ -160,7 +160,7 @@ const getMarkerStyle = (size, innerIcon, color) => {
         opacity: innerOpacity,
         src: 'data:image/svg+xml;utf8,' + encodeURIComponent(innerSvg),
         scale: 1,
-        color: ol.getRgbaFromString('#ffffff', 1),
+        color: ol.getRgbaFromString('#ffffff', 1)
       }),
       zIndex: 2
     })
