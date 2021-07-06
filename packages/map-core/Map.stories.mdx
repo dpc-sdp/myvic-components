@@ -4,19 +4,23 @@ import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { MyvicDataBlock as DataBlock } from '@dpc-sdp/myvic-data-block'
 import {
   MyvicMapCore,
+  MyvicMapTileLayer,
   MyvicMapVectorLayer,
   MyvicMapVectorTileLayer,
   MyvicMapLegend,
   Style,
   Stroke,
   Fill,
-  Text
+  Text,
 } from './index.js'
+import ol from './lib/ol'
+import styles from './styles/styles'
 import {
   myVictoriaRotatingColours,
   myVictoriaLayerStops,
   buildMyVictoriaMapboxStyle
 } from '@dpc-sdp/myvic-global/utils/geoserver_requests'
+import { samplePoints } from './storiesConstants.js'
 
 <Meta title="Maps/Core" component={ MyvicMapCore } decorators={ [withKnobs] } />
 
@@ -449,6 +453,71 @@ using the ```v-slot:popup``` named slot.
               myVictoriaLayerStops.population_growth_suburb,
               'total_population_growth',
               'population_suburb_map')
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Popups floating left
+
+The ```position``` property of the ```popupProps``` prop is set to ```float-left``` here.
+
+<Preview>
+  <Story name="Popups floating left">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `
+          <myvic-map-core
+            :containerStyle="containerStyle"
+            :center="center"
+            :popupContentFunction="generatePopupContent"
+            :popupProps="popupProps"
+          >
+            <myvic-map-tile-layer
+              type="WMS"
+              url="https://base.maps.vic.gov.au/service"
+              :params="{'LAYERS': 'CARTO_WM', 'TILED': true}"
+              :tileSize="[512, 512]"
+              :highDPI="false"
+            />
+            <myvic-map-vector-layer
+              :features="features"
+              dataFormat="GeoJSON"
+              loadingStrategy="bbox"
+              :layerStyle="getPointStyle"
+              :enablePopup="true"
+              :zoomToExtent="true"
+            />
+          </myvic-map-core>
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            features: [],
+            pointStyles: {
+              pedestrian: styles.createStylesFromIcon('pedestrian', '#0052c2'),
+              car: styles.createStylesFromIcon('car', '#023b89'),
+              exclamation: styles.createStylesFromIcon('exclamation', '#ca4c21')
+            },
+            popupProps: { stickyHeader: true, position: 'float-left' }
+          }
+        },
+        async mounted () {
+          this.features = new ol.format.GeoJSON().readFeatures(samplePoints, { featureProjection: 'EPSG:3857' })
+        },
+        methods: {
+          getPointStyle: function (feature) {
+            return this.pointStyles[feature.get('pinType')].mediumMarker
+          },
+          generatePopupContent: function (features) {
+            return {
+              title: features[0].get('name'),
+              value: features[0].get('pinType')
+            }
           }
         }
       }

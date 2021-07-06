@@ -1,5 +1,6 @@
 import ol from '../lib/ol'
 import globalStyles from '@dpc-sdp/myvic-global/styles/stylesExport.js'
+import { getSvg } from '@dpc-sdp/myvic-global/mapIcons/iconLibrary'
 
 const defaultStrokeColour = globalStyles.fillSecondaryHover
 const selectedStrokeColour = globalStyles.strokeLine1
@@ -7,8 +8,6 @@ const defaultFillColour = ol.getRgbaFromString(globalStyles.fillTertiary, 0.2)
 const selectedFillColour = ol.getRgbaFromString(globalStyles.strokeLine1, 0.2)
 const defaultLineColour = globalStyles.fillSecondaryHover
 const selectedLineColour = globalStyles.strokeLine1
-const defaultMarkerColour = ol.getRgbaFromString(globalStyles.fillSecondaryHover, 1)
-const selectedMarkerColour = ol.getRgbaFromString(globalStyles.strokeLine1, 1)
 const defaultTextStrokeColour = 'black'
 const defaultTextFillColour = 'white'
 
@@ -40,32 +39,6 @@ const selectedPointStyle = [
       })
     }),
     zIndex: Infinity
-  })
-]
-
-let markerSvg = `<svg width="24" height="32" viewBox="0 0 12 16"  xmlns="http://www.w3.org/2000/svg">
-  <path fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6ZM3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z" />
-</svg>`
-
-const defaultMarkerStyle = [
-  new ol.style.Style({
-    image: new ol.style.Icon({
-      opacity: 1,
-      src: 'data:image/svg+xml;utf8,' + markerSvg,
-      scale: 0.8,
-      color: defaultMarkerColour
-    })
-  })
-]
-
-const selectedMarkerStyle = [
-  new ol.style.Style({
-    image: new ol.style.Icon({
-      opacity: 1,
-      src: 'data:image/svg+xml;utf8,' + markerSvg,
-      scale: 0.8,
-      color: selectedMarkerColour
-    })
   })
 ]
 
@@ -131,6 +104,72 @@ const defaultTextStyle = [
   })
 ]
 
+const createIePointStyle = (color) => {
+  return [
+    new ol.style.Style({
+      image: new ol.style.Circle({
+        radius: 6,
+        stroke: new ol.style.Stroke({
+          color: color,
+          width: 3
+        }),
+        fill: new ol.style.Fill({
+          color: ol.getRgbaFromString(color, 0.6)
+        })
+      })
+    })
+  ]
+}
+
+const getMarkerStyle = (size, innerIcon, color) => {
+  const innerOpacity = innerIcon === 'markerInner' ? 0.1 : 1
+  const outerSvg = getSvg('markerOuter', size)
+  const innerSvg = getSvg(innerIcon, size)
+  return [
+    // new ol.style.Style({
+    //   image : new ol.style.Circle({
+    //       radius : 5,
+    //       stroke : new ol.style.Stroke({
+    //          color : '#009900',
+    //          width : 3
+    //      })
+    //   })
+    // }),
+    // new ol.style.Style({
+    //   image : new ol.style.Circle({
+    //       radius : 11,
+    //       stroke : new ol.style.Stroke({
+    //          color : '#980000',
+    //          width : 3
+    //      })
+    //   })
+    // }),
+    new ol.style.Style({
+      image: new ol.style.Icon({
+        anchor: [0.5, 1],
+        opacity: 1,
+        src: 'data:image/svg+xml;utf8,' + encodeURIComponent(outerSvg),
+        scale: 1,
+        color: ol.getRgbaFromString(color, 1),
+      }),
+      zIndex: 1
+    }),
+    new ol.style.Style({
+      image: new ol.style.Icon({
+        anchor: [0.5, 2],
+        opacity: innerOpacity,
+        src: 'data:image/svg+xml;utf8,' + encodeURIComponent(innerSvg),
+        scale: 1,
+        color: ol.getRgbaFromString('#ffffff', 1),
+      }),
+      zIndex: 2
+    })
+  ]
+}
+
+const defaultMarkerStyle = getMarkerStyle('s', 'markerInner', globalStyles.fillSecondaryHover)
+const selectedMarkerStyle = getMarkerStyle('s', 'markerInner', globalStyles.strokeLine1)
+
 const createDefaultStyleFunction = (labelAttribute, labelOnly, selected) => {
   return (feature, resolution) => {
     let geomType = feature.getGeometry().getType()
@@ -168,6 +207,17 @@ const createDefaultStyleFunction = (labelAttribute, labelOnly, selected) => {
     }
 
     return styles
+  }
+}
+
+const createStylesFromIcon = (icon, color) => {
+  const ie = createIePointStyle(color)
+  const mediumMarker = getMarkerStyle('m', icon, color)
+  const largeMarker = getMarkerStyle('l', icon, color)
+  return {
+    ie,
+    mediumMarker,
+    largeMarker
   }
 }
 
@@ -232,6 +282,7 @@ const styles = {
   defaultTextStyle,
   createDefaultStyleFunction,
   createSelectedStyleFunction,
+  createStylesFromIcon,
   createDefaultClusteringStyleFunction
 }
 
