@@ -511,7 +511,7 @@ The ```position``` property of the ```popupProps``` prop is set to ```float-left
         },
         methods: {
           getPointStyle: function (feature) {
-            return this.pointStyles[feature.get('pinType')].mediumMarker
+            return this.pointStyles[feature.get('pinType')].normal
           },
           generatePopupContent: function (features) {
             return {

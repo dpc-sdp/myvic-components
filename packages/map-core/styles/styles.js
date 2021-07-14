@@ -121,54 +121,23 @@ const createIePointStyle = (color) => {
   ]
 }
 
-const getMarkerStyle = (size, innerIcon, color) => {
-  const innerOpacity = innerIcon === 'markerInner' ? 0.1 : 1
-  const outerSvg = getSvg('markerOuter', size)
-  const innerSvg = getSvg(innerIcon, size)
+const createIconStyle = (icon, size, color) => {
+  const iconSvg = getSvg(icon, size, color)
+  const anchor = icon.toLowerCase().includes('pin') ? [0.5, 0.92] : [0.5, 0.5]
   return [
-    // new ol.style.Style({
-    //   image : new ol.style.Circle({
-    //       radius : 5,
-    //       stroke : new ol.style.Stroke({
-    //          color : '#009900',
-    //          width : 3
-    //      })
-    //   })
-    // }),
-    // new ol.style.Style({
-    //   image : new ol.style.Circle({
-    //       radius : 11,
-    //       stroke : new ol.style.Stroke({
-    //          color : '#980000',
-    //          width : 3
-    //      })
-    //   })
-    // }),
     new ol.style.Style({
       image: new ol.style.Icon({
-        anchor: [0.5, 1],
+        anchor: anchor,
         opacity: 1,
-        src: 'data:image/svg+xml;utf8,' + encodeURIComponent(outerSvg),
-        scale: 1,
-        color: ol.getRgbaFromString(color, 1)
-      }),
-      zIndex: 1
-    }),
-    new ol.style.Style({
-      image: new ol.style.Icon({
-        anchor: [0.5, 2],
-        opacity: innerOpacity,
-        src: 'data:image/svg+xml;utf8,' + encodeURIComponent(innerSvg),
-        scale: 1,
-        color: ol.getRgbaFromString('#ffffff', 1)
-      }),
-      zIndex: 2
+        src: 'data:image/svg+xml;utf8,' + encodeURIComponent(iconSvg),
+        scale: 1
+      })
     })
   ]
 }
 
-const defaultMarkerStyle = getMarkerStyle('s', 'markerInner', globalStyles.fillSecondaryHover)
-const selectedMarkerStyle = getMarkerStyle('s', 'markerInner', globalStyles.strokeLine1)
+const defaultPinStyle = createIconStyle('pinOuter', 's', globalStyles.fillSecondaryHover)
+const selectedPinStyle = createIconStyle('pinOuter', 's', globalStyles.strokeLine1)
 
 const createDefaultStyleFunction = (labelAttribute, labelOnly, selected) => {
   return (feature, resolution) => {
@@ -181,7 +150,7 @@ const createDefaultStyleFunction = (labelAttribute, labelOnly, selected) => {
       switch (geomType) {
         case ol.geom.GeometryType.POINT:
         case ol.geom.GeometryType.MULTI_POINT:
-          styles = selected ? selectedMarkerStyle : defaultMarkerStyle
+          styles = selected ? selectedPinStyle : defaultPinStyle
           break
         case ol.geom.GeometryType.LINE_STRING:
         case ol.geom.GeometryType.MULTI_LINE_STRING:
@@ -212,12 +181,14 @@ const createDefaultStyleFunction = (labelAttribute, labelOnly, selected) => {
 
 const createStylesFromIcon = (icon, color) => {
   const ie = createIePointStyle(color)
-  const mediumMarker = getMarkerStyle('m', icon, color)
-  const largeMarker = getMarkerStyle('l', icon, color)
+  const normal = createIconStyle(icon + 'Circle', 'm', color)
+  const selectedMedium = createIconStyle(icon + 'Pin', 'm', color)
+  const selectedLarge = createIconStyle(icon + 'Pin', 'l', color)
   return {
     ie,
-    mediumMarker,
-    largeMarker
+    normal,
+    selectedMedium,
+    selectedLarge
   }
 }
 
