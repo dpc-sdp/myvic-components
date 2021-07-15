@@ -11,6 +11,7 @@
     </div>
     <div
       class="myvic-map-core-indicator__inner"
+      :class="{'myvic-map-core-indicator__inner--padded': !this.stickyHeaderEnabled}"
       :ref="'contentElement'"
       :style="{
         maxHeight: this.maxHeight,
@@ -35,17 +36,26 @@
           <hr v-if="index !== selectedFeature.length - 1" />
         </div>
       </template>
-      <div v-else>
-        <h5 class="myvic-map-core-indicator__title">{{ selectedFeature.title }}</h5>
-        <div v-if="selectedFeature.html" v-html="selectedFeature.html"></div>
-        <div v-if="selectedFeature.value" class="myvic-map-core-indicator__value">{{ selectedFeature.value }}</div>
-        <div v-if="selectedFeature.content" class="myvic-map-core-indicator__content">
-          <div class="myvic-map-core-indicator__readmore"
-               @click="readMoreClick"
-               @keyup.enter="readMoreClick"
-               v-html="this.descOpenText"
-               tabIndex="0" />
-          <div class="myvic-map-core-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
+      <div v-else :class="{'myvic-map-core-indicator__inner--flex': this.stickyHeaderEnabled}">
+        <div :class="{'myvic-map-core-indicator__title-container': this.stickyHeaderEnabled}">
+          <h5 class="myvic-map-core-indicator__title">{{ selectedFeature.title }}</h5>
+        </div>
+        <div :class="{'myvic-map-core-indicator__content-container': this.stickyHeaderEnabled}">
+          <div v-if="hasPopupSlotContent">
+            <slot></slot>
+          </div>
+          <div v-else>
+            <div v-if="selectedFeature.html" v-html="selectedFeature.html"></div>
+            <div v-if="selectedFeature.value" class="myvic-map-core-indicator__value">{{ selectedFeature.value }}</div>
+            <div v-if="selectedFeature.content" class="myvic-map-core-indicator__content">
+              <div class="myvic-map-core-indicator__readmore"
+                  @click="readMoreClick"
+                  @keyup.enter="readMoreClick"
+                  v-html="this.descOpenText"
+                  tabIndex="0" />
+              <div class="myvic-map-core-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -68,7 +78,9 @@ export default {
     'selectedFeature',
     'filters',
     // get the parent's map element for checking container size
-    'mapElement'
+    'mapElement',
+    'stickyHeader',
+    'position'
   ],
   data: function () {
     return {
@@ -81,6 +93,17 @@ export default {
       descOpenText: 'Read more',
       maxHeight: DEFAULT_MAX_HEIGHT_PX + 'px',
       width: DEFAULT_WIDTH_PX + 'px'
+    }
+  },
+  computed: {
+    hasPopupSlotContent: function () {
+      return !!this.$slots.default
+    },
+    multiFeature: function () {
+      return this.selectedFeature instanceof Array
+    },
+    stickyHeaderEnabled: function () {
+      return this.stickyHeader && !this.multiFeature
     }
   },
   methods: {
@@ -178,11 +201,20 @@ export default {
     }
 
     &__inner {
-      // big right margin to pad close button
-      padding: 1.25rem 2.7rem 1.25rem 1rem;
-      overflow: auto;
       position: relative;
       box-sizing: border-box;
+
+      &--padded {
+        // big right margin to pad close button
+        padding: 1.25rem 2.7rem 1.25rem 1rem;
+        overflow: auto;
+      }
+    }
+
+    &__inner--flex {
+      display: flex;
+      flex-direction: column;
+      max-height: inherit;
     }
 
     &__close {
@@ -192,11 +224,24 @@ export default {
       z-index: 10;
     }
 
+    &__title-container {
+      padding: 1.25rem 2.7rem 1rem 1.25rem;
+      flex: none;
+      background: rpl-color('light_neutral');
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.14);
+    }
+
     &__title {
       color: rpl-color('primary');
       font-size: rpl-font-size('s');
       margin-top: 0;
-      margin-bottom: $rpl-space-4;
+      margin-bottom: 0;
+    }
+
+    &__content-container {
+      padding: 0.75rem 1.25rem 1.25rem 1.25rem;
+      flex: 1 auto;
+      overflow: auto;
     }
 
     &__value {
