@@ -6,7 +6,7 @@
       :vicmapAddressAPIKey="vicmapAddressAPIKey"
       :minQueryLength="8"
       :showSuburb="false"
-      :showMetroBoundary="true"
+      :showMetroBoundary="false"
       metroBoundaryUrl="https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/ows?service=WFS&version=1.0.0&outputFormat=application%2Fjson&request=GetFeature&typeName=myvic:covid_metro_area_4326"
       :radius="radius"
       :radiusLabel="radiusLabel"
