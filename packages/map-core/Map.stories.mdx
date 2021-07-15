@@ -475,6 +475,8 @@ The ```position``` property of the ```popupProps``` prop is set to ```float-left
             :center="center"
             :popupContentFunction="generatePopupContent"
             :popupProps="popupProps"
+            :enableSelectInteraction="true"
+            :selectedFeatureStyle="selectedStyleFunction"
           >
             <myvic-map-tile-layer
               type="WMS"
@@ -489,7 +491,7 @@ The ```position``` property of the ```popupProps``` prop is set to ```float-left
               loadingStrategy="bbox"
               :layerStyle="getPointStyle"
               :enablePopup="true"
-              :zoomToExtent="true"
+              :zoomToExtent="zoomToExtent"
             />
           </myvic-map-core>
         `,
@@ -497,6 +499,7 @@ The ```position``` property of the ```popupProps``` prop is set to ```float-left
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
             center: [16138405.843820328, -4552817.013522999],
+            zoomToExtent: true,
             features: [],
             pointStyles: {
               pedestrian: styles.createStylesFromIcon('pedestrian', '#0052c2'),
@@ -508,10 +511,14 @@ The ```position``` property of the ```popupProps``` prop is set to ```float-left
         },
         async mounted () {
           this.features = new ol.format.GeoJSON().readFeatures(samplePoints, { featureProjection: 'EPSG:3857' })
+          window.setTimeout(() => { this.zoomToExtent = false }, 500)
         },
         methods: {
           getPointStyle: function (feature) {
             return this.pointStyles[feature.get('pinType')].normal
+          },
+          selectedStyleFunction: function (feature) {
+            return this.pointStyles[feature.get('pinType')].selectedLarge
           },
           generatePopupContent: function (features) {
             return {
