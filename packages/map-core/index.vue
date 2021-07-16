@@ -140,6 +140,13 @@ export default {
       default: true
     },
     /**
+     * Adjust the position of the zoom control. Can be set to 'default' or 'top-right'
+     */
+    zoomControlPosition: {
+      type: String,
+      default: 'default'
+    },
+    /**
      * Enable or disable the attribution control
      */
     enableAttributionControl: {
@@ -300,7 +307,7 @@ export default {
       }
     },
     center (newCenter) {
-      this.map.getView().animate({ center: newCenter, duration: 500 })
+      this.map.getView().animate({ center: newCenter, duration: 250 })
     },
     projection (newProjection) {
       this.createMap()
@@ -321,6 +328,10 @@ export default {
       this.updateBaseMap()
     },
     enableZoomControl () {
+      this.setMapControls()
+    },
+    zoomControlPosition () {
+      this.createMapControls()
       this.setMapControls()
     },
     enableAttributionControl () {
@@ -415,7 +426,9 @@ export default {
       })
     },
     createMapControls () {
-      this.zoomControl = new ol.control.Zoom()
+      this.zoomControl = new ol.control.Zoom({
+        className: this.zoomControlPosition === 'top-right' ? 'myvic-map-core__zoom--right' : undefined
+      })
       this.attributionControl = new ol.control.Attribution({
         collapsible: false
       })
@@ -549,7 +562,7 @@ export default {
     zoomOnAppMounted () {
       // Do something like `this.zoomToArea()`
     },
-    setPopupFeature (features, pixel) {
+    setPopupFeature (features, coordinate) {
       // Hide popup if there are no features (i.e. click on an empty area of the map)
       if (features.length === 0) {
         this.feature = null
@@ -573,7 +586,9 @@ export default {
       // and screen size. With nextTick, the setPosition was running before the
       // overlay changed size.
       setTimeout(() => {
-        let coordinate = this.map.getCoordinateFromPixel(pixel)
+        if (!coordinate) {
+          coordinate = firstFeature.get('geometry').flatCoordinates
+        }
         this.popupOverlay.setPosition(coordinate)
       }, 0)
     },
@@ -623,7 +638,7 @@ export default {
           if (layer.get('enablePopup')) popupFeatures.push(f)
         })
       }
-      this.setPopupFeature(popupFeatures, evt.mapBrowserEvent.pixel)
+      this.setPopupFeature(popupFeatures)
     },
     onMapClick (evt) {
       /**
@@ -644,7 +659,8 @@ export default {
         // Support layers added as child components
         if (layer.get('enablePopup')) features.push(f)
       })
-      this.setPopupFeature(features, evt.pixel)
+      const coordinate = this.map.getCoordinateFromPixel(evt.pixel)
+      this.setPopupFeature(features, coordinate)
     },
     onAppMounted () {
       try {
@@ -775,9 +791,14 @@ export default {
     &__popup--below-feature {
       position: absolute;
       z-index: $rpl-zindex-popover;
-      bottom: $rpl-space-3;
+      top: 8px;
       transform: translateX(-50%);
       cursor: auto;
+    }
+
+    &__zoom--right {
+      top: .5em;
+      right: .5em;
     }
   }
 
