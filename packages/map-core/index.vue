@@ -2,7 +2,8 @@
   <div class="myvic-map-core" :style="containerStyle">
     <rpl-alert v-if="ie11" title="Internet Explorer 11 (and older) is not fully supported, please upgrade to" :link='{"text":"Microsoft Edge.","url":"https://www.microsoft.com/en-us/edge"}'/>
     <div
-      class="myvic-map-core__popup ol-popup"
+      class="ol-popup"
+      :class="`myvic-map-core__popup--${popupProps.position || 'default'}`"
       ref="mapPopup">
       <map-indicator
         v-bind="popupProps"
@@ -273,6 +274,11 @@ export default {
       pinchRotateInteraction: null,
       selectInteraction: null,
       feature: null,
+      positionToOverlayClass: {
+        default: undefined,
+        'float-left': 'myvic-map-core__overlay--float-left',
+        'below-feature': undefined
+      },
       ie11: !!window.MSInputMethodContext && !!document.documentMode
     }
   },
@@ -294,9 +300,7 @@ export default {
       }
     },
     center (newCenter) {
-      this.map.getView().setCenter(newCenter)
-      this.map.getView().setZoom(this.zoom)
-      this.feature = null
+      this.map.getView().animate({ center: newCenter, duration: 500 })
     },
     projection (newProjection) {
       this.createMap()
@@ -510,7 +514,8 @@ export default {
           duration: 250
         },
         positioning: 'bottom-center',
-        position: undefined
+        position: undefined,
+        className: this.positionToOverlayClass[this.popupProps.position]
       })
       this.map.addOverlay(this.popupOverlay)
     },
@@ -544,6 +549,34 @@ export default {
     zoomOnAppMounted () {
       // Do something like `this.zoomToArea()`
     },
+    setPopupFeature (features, pixel) {
+      // Hide popup if there are no features (i.e. click on an empty area of the map)
+      if (features.length === 0) {
+        this.feature = null
+        return
+      }
+
+      // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
+      const firstFeature = features[0]
+      if (this.customMethods && this.customMethods.featureMapper) {
+        this.feature = this.customMethods.featureMapper(firstFeature, features)
+      } else if (this.popupContentFunction) {
+        this.feature = this.popupContentFunction(features)
+      } else {
+        this.feature = this.featureMapper(firstFeature, features)
+      }
+
+      // Wait until popup rendering is complete before positioning the element
+      // this means the popup height is now known, so the map will pan correctly.
+      // Here we use setTimeout instead of Vue's nextTick because it should wait
+      // for the browser to update the size of the popup based on content length
+      // and screen size. With nextTick, the setPosition was running before the
+      // overlay changed size.
+      setTimeout(() => {
+        let coordinate = this.map.getCoordinateFromPixel(pixel)
+        this.popupOverlay.setPosition(coordinate)
+      }, 0)
+    },
     onMapPointerMove (evt) {
       // set the cursor to a pointer when hovering over an icon
       var pixel = this.map.getEventPixel(evt.originalEvent)
@@ -569,6 +602,7 @@ export default {
     },
     onSelect (evt) {
       let selectedFeatures = evt.target.getFeatures()
+      let popupFeatures = []
       if (selectedFeatures.getLength() > 0) {
         /**
          * Emitted when a feature is selected
@@ -577,7 +611,19 @@ export default {
          * @property {object} select event
          */
         this.$emit('select', selectedFeatures, evt)
+        const layer = evt.target.getLayer(selectedFeatures.getArray()[0])
+        selectedFeatures.getArray().forEach(f => {
+          f.layerName = layer.get('name')
+          f.event = 'select'
+
+          // Support layers added via themeLayers
+          if (this.themeLayers.includes(layer)) popupFeatures.push(f)
+
+          // Support layers added as child components
+          if (layer.get('enablePopup')) popupFeatures.push(f)
+        })
       }
+      this.setPopupFeature(popupFeatures, evt.mapBrowserEvent.pixel)
     },
     onMapClick (evt) {
       /**
@@ -586,7 +632,7 @@ export default {
        * @property {event} the map click event
        */
       this.$emit('click', evt)
-
+      if (this.enableSelectInteraction) return
       const features = []
       this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
         f.layerName = layer.get('name')
@@ -598,33 +644,7 @@ export default {
         // Support layers added as child components
         if (layer.get('enablePopup')) features.push(f)
       })
-
-      // Hide popup if there are no features (i.e. click on an empty area of the map)
-      if (features.length === 0) {
-        this.feature = null
-        return
-      }
-
-      // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
-      const firstFeature = features[0]
-      if (this.customMethods && this.customMethods.featureMapper) {
-        this.feature = this.customMethods.featureMapper(firstFeature, features)
-      } else if (this.popupContentFunction) {
-        this.feature = this.popupContentFunction(features)
-      } else {
-        this.feature = this.featureMapper(firstFeature, features)
-      }
-
-      // Wait until popup rendering is complete before positioning the element
-      // this means the popup height is now known, so the map will pan correctly.
-      // Here we use setTimeout instead of Vue's nextTick because it should wait
-      // for the browser to update the size of the popup based on content length
-      // and screen size. With nextTick, the setPosition was running before the
-      // overlay changed size.
-      setTimeout(() => {
-        let coordinate = this.map.getCoordinateFromPixel(evt.pixel)
-        this.popupOverlay.setPosition(coordinate)
-      }, 0)
+      this.setPopupFeature(features, evt.pixel)
     },
     onAppMounted () {
       try {
@@ -729,7 +749,30 @@ export default {
       outline: rpl-color('mid_neutral_1') solid 1px;
     }
 
-    &__popup {
+    &__overlay--float-left {
+      height: calc(100% - 16px);
+      transform: none !important;
+      top: 8px;
+      left: 8px;
+      bottom: 8px;
+    }
+
+    &__popup--default {
+      position: absolute;
+      z-index: $rpl-zindex-popover;
+      bottom: $rpl-space-3;
+      transform: translateX(-50%);
+      cursor: auto;
+    }
+
+    &__popup--float-left {
+      position: absolute;
+      z-index: $rpl-zindex-popover;
+      height: 100%;
+      cursor: auto;
+    }
+
+    &__popup--below-feature {
       position: absolute;
       z-index: $rpl-zindex-popover;
       bottom: $rpl-space-3;
