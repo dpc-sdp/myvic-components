@@ -604,7 +604,7 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
             return this.pointStyles[feature.get('pinType')].selectedMedium
           },
           onSelect: function (features) {
-            this.center = features.getArray()[0].get('geometry').flatCoordinates
+            //this.center = features.getArray()[0].get('geometry').flatCoordinates
           },
           generatePopupContent: function (features) {
             return {
