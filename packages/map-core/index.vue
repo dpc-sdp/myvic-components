@@ -646,8 +646,10 @@ export default {
        * @event click
        * @property {event} the map click event
        */
-      this.$emit('click', evt)
-      if (this.enableSelectInteraction) return
+      if (this.enableSelectInteraction) {
+        this.$emit('click', evt)
+        return
+      }
       const features = []
       this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
         f.layerName = layer.get('name')
@@ -659,6 +661,7 @@ export default {
         // Support layers added as child components
         if (layer.get('enablePopup')) features.push(f)
       })
+      this.$emit('click', evt, features)
       const coordinate = this.map.getCoordinateFromPixel(evt.pixel)
       this.setPopupFeature(features, coordinate)
     },
