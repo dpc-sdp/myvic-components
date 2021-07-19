@@ -833,7 +833,7 @@ export default {
     width: 40px;
     height: 40px;
     margin: 0;
-    background-color: rgba(256,256,256,0.9);
+    background-color: rgba(256,256,256,0.95);
     color: rpl-color('dark_neutral');
     font-weight: normal;
     font-size: 30px;
