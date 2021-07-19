@@ -5,6 +5,11 @@ const icons = {
   pinInner: `<path fill="white" fill-rule="evenodd" clip-rule="evenodd"
     d="M3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z" />`,
   circleOuter: `<circle cx="16.0741" cy="16.2337" r="16" fill="!!!customColor!!!"/>`,
+  hollowCluster: `<circle stroke="!!!customColor!!!" fill="#ffffff" stroke-width="1" cx="4" cy="4" r="3.5"/>
+    <text x="50%" y="50%" dy="1.25" text-anchor="middle" fill="!!!customColor!!!" style="font-size: 3.7px; font-weight: bold; font-family:VIC-Regular, Arial, Helvetica, sans-serif;">!!!customText!!!</text>`,
+  filledCluster: `<circle fill="#53565a44" stroke-width="0" cx="4" cy="4" r="4"/>
+    <circle fill="!!!customColor!!!" stroke-width="0" cx="4" cy="4" r="3.1"/>
+    <text x="50%" y="50%" dy="0.83" text-anchor="middle" fill="#ffffff" style="font-size: 2.4px; font-weight: bold; font-family:VIC-Regular, Arial, Helvetica, sans-serif;">!!!customText!!!</text>`,
 
   carCircle: `<circle cx="16.5499" cy="16.8103" r="16" fill="!!!customColor!!!"/>
     <path d="M25.9043 14.2851H24.6018L23.7615 12.1305C23.3203 11.0273 22.0808 10.2861 20.6732 10.2861H13.2363C11.8287 10.2861 10.5682 11.0273 10.148 12.1305L9.3077 14.2851H8.00518C7.43795 14.2851 6.97577 14.6643 6.97577 15.1297V15.6124C6.97577 16.0778 7.43795 16.457 8.00518 16.457H8.36232C8.15224 17.2327 8.0472 18.0256 8.0472 18.8185V22.8692C8.0472 23.3346 8.50938 23.7138 9.07661 23.7138H10.7993C11.3665 23.7138 11.8287 23.3346 11.8287 22.8692V21.5764H22.1228V22.8692C22.1228 23.3346 22.585 23.7138 23.1522 23.7138H24.8749C25.4422 23.7138 25.9043 23.3346 25.9043 22.8692V18.8012C25.9043 18.0083 25.7993 17.2154 25.5892 16.4397H25.9464C26.5136 16.4397 26.9758 16.0605 26.9758 15.5951V15.1125C26.9338 14.6643 26.4716 14.2851 25.9043 14.2851ZM11.1144 15.147L12.1018 12.6304C12.2699 12.2167 12.7321 11.9409 13.2363 11.9409H20.6732C21.1985 11.9409 21.6606 12.2167 21.8077 12.6304L22.7951 15.147C22.8371 15.2676 22.7321 15.3711 22.585 15.3711H11.3245C11.1774 15.3883 11.0724 15.2676 11.1144 15.147ZM13.2573 19.2666H11.1774C10.8203 19.2666 10.5472 19.0425 10.5472 18.7495V17.9394C10.5472 17.6291 10.9043 17.3705 11.2825 17.4223L13.2153 17.6808C13.4674 17.7153 13.6775 17.8704 13.7405 18.0773L13.8875 18.6288C13.9716 18.9564 13.6775 19.2666 13.2573 19.2666ZM23.3413 18.7495C23.3413 19.0425 23.0682 19.2666 22.7111 19.2666H20.6312C20.2321 19.2666 19.938 18.9564 20.022 18.6461L20.169 18.0945C20.2321 17.8877 20.4211 17.7325 20.6943 17.6981L22.627 17.4395C23.0052 17.3878 23.3623 17.6291 23.3623 17.9566V18.7495H23.3413Z" fill="white"/>`,
@@ -69,6 +74,8 @@ const iconViewboxes = {
   pinOuter: '0 0 12 16',
   pinInner: '0 0 12 16',
   circleOuter: '0 0 33 33',
+  hollowCluster: '0 0 8 8',
+  filledCluster: '0 0 8 8',
   carCircle: '0 0 33 33',
   carPin: '0 0 62 76',
   exclamationCircle: '0 0 33 32',
@@ -91,6 +98,14 @@ const iconSizes = {
   circleOuter: {
     s: { width: 32, height: 32 },
     m: { width: 48, height: 48 }
+  },
+  hollowCluster: {
+    s: { width: 30, height: 30 },
+    m: { width: 48, height: 48 }
+  },
+  filledCluster: {
+    s: { width: 42, height: 42 },
+    m: { width: 58, height: 58 }
   },
   carCircle: {
     m: { width: 33, height: 33 }
@@ -115,9 +130,9 @@ const iconSizes = {
   }
 }
 
-export const getSvg = (icon, size, color) => {
+export const getSvg = (icon, size, color, text) => {
   const { width, height } = iconSizes[icon][size]
   return `<svg width="${width}" height="${height}" viewBox="${iconViewboxes[icon]}" xmlns="http://www.w3.org/2000/svg">
-    ${icons[icon].replace('!!!customColor!!!', color)}
+    ${icons[icon].replaceAll('!!!customColor!!!', color).replaceAll('!!!customText!!!', text)}
   </svg>`
 }
