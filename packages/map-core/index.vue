@@ -816,6 +816,39 @@ export default {
     text-decoration: none;
   }
 
+  .ol-control {
+    border-radius: 4px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 8px 0px #00000033;
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .ol-control button {
+    box-sizing: content-box;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    background-color: rgba(256,256,256,0.9);
+    color: rpl-color('dark_neutral');
+    font-weight: normal;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 0;
+
+    &:hover,&:focus {
+      background-color: rgba(256,256,256,0.9);
+    }
+  }
+
+  .ol-control button ~ button {
+    margin-top: 1px;
+  }
+
   .map-watermark {
     position: absolute;
     display: block;
