@@ -477,7 +477,7 @@ top-right to avoid hiding it with the popup.
         template: `
           <myvic-map-core
             :containerStyle="containerStyle"
-            :center="center"
+            :center.sync="center"
             zoomControlPosition="top-right"
             :popupContentFunction="generatePopupContent"
             :popupProps="popupProps"
@@ -528,7 +528,9 @@ top-right to avoid hiding it with the popup.
             return this.pointStyles[feature.get('pinType')].selectedLarge
           },
           onSelect: function (features) {
-            this.center = features.getArray()[0].get('geometry').flatCoordinates
+            if (features.getLength() > 0) {
+              this.center = features.getArray()[0].get('geometry').flatCoordinates
+            }
           },
           generatePopupContent: function (features) {
             return {
@@ -554,9 +556,10 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
         template: `
           <myvic-map-core
             :containerStyle="containerStyle"
-            :center="center"
+            :center.sync="center"
             :popupContentFunction="generatePopupContent"
             :popupProps="popupProps"
+            :popupDelay="150"
             :enableSelectInteraction="true"
             :selectedFeatureStyle="selectedStyleFunction"
             @select="onSelect"
@@ -604,7 +607,9 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
             return this.pointStyles[feature.get('pinType')].selectedMedium
           },
           onSelect: function (features) {
-            //this.center = features.getArray()[0].get('geometry').flatCoordinates
+            if (features.getLength() > 0) {
+              this.center = features.getArray()[0].get('geometry').flatCoordinates
+            }
           },
           generatePopupContent: function (features) {
             return {

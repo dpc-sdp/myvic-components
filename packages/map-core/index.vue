@@ -215,6 +215,13 @@ export default {
       }
     },
     /**
+     * delay the popup rendering (ms). Useful if the map needs to finish zoom/pan animations first
+     */
+    popupDelay: {
+      type: Number,
+      default: 0
+    },
+    /**
      * Set a specific tab index for users interacting with the map via the keyboard
      */
     tabIndex: {
@@ -307,13 +314,15 @@ export default {
       }
     },
     center (newCenter) {
-      this.map.getView().animate({ center: newCenter, duration: 250 })
+      this.map.getView().animate({ center: newCenter, duration: 100 })
     },
     projection (newProjection) {
       this.createMap()
     },
     zoom (newZoom) {
-      this.map.getView().setZoom(newZoom)
+      if (newZoom !== this.currentZoom) {
+        this.map.getView().setZoom(newZoom)
+      }
     },
     minZoom (newMinZoom) {
       this.map.getView().setMinZoom(newMinZoom)
@@ -592,6 +601,10 @@ export default {
         this.popupOverlay.setPosition(coordinate)
       }, 0)
     },
+    onMoveEnd (evt) {
+      this.$emit('update:center', evt.map.getView().getCenter())
+      this.$emit('update:zoom', evt.map.getView().getZoom())
+    },
     onMapPointerMove (evt) {
       // set the cursor to a pointer when hovering over an icon
       var pixel = this.map.getEventPixel(evt.originalEvent)
@@ -618,14 +631,14 @@ export default {
     onSelect (evt) {
       let selectedFeatures = evt.target.getFeatures()
       let popupFeatures = []
+      /**
+       * Emitted when a feature is selected
+       * @event select
+       * @property {object} selected features
+       * @property {object} select event
+       */
+      this.$emit('select', selectedFeatures, evt)
       if (selectedFeatures.getLength() > 0) {
-        /**
-         * Emitted when a feature is selected
-         * @event select
-         * @property {object} selected features
-         * @property {object} select event
-         */
-        this.$emit('select', selectedFeatures, evt)
         const layer = evt.target.getLayer(selectedFeatures.getArray()[0])
         selectedFeatures.getArray().forEach(f => {
           f.layerName = layer.get('name')
@@ -638,7 +651,11 @@ export default {
           if (layer.get('enablePopup')) popupFeatures.push(f)
         })
       }
-      this.setPopupFeature(popupFeatures)
+      if (this.popupDelay === 0) {
+        this.setPopupFeature(popupFeatures)
+      } else {
+        window.setTimeout(() => { this.setPopupFeature(popupFeatures) }, this.popupDelay)
+      }
     },
     onMapClick (evt) {
       /**
@@ -663,7 +680,11 @@ export default {
       })
       this.$emit('click', evt, features)
       const coordinate = this.map.getCoordinateFromPixel(evt.pixel)
-      this.setPopupFeature(features, coordinate)
+      if (this.popupDelay === 0) {
+        this.setPopupFeature(features, coordinate)
+      } else {
+        window.setTimeout(() => { this.setPopupFeature(features, coordinate) }, this.popupDelay)
+      }
     },
     onAppMounted () {
       try {
@@ -697,6 +718,7 @@ export default {
 
         this.map.on('singleclick', this.onMapClick)
         this.map.on('pointermove', this.onMapPointerMove)
+        this.map.on('moveend', this.onMoveEnd)
 
         if (this.customMethods && this.customMethods.exposeMap) {
           this.customMethods.exposeMap(this.map)
