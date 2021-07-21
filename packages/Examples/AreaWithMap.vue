@@ -53,7 +53,7 @@ export default {
       attributions: [
         '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>',
         ' | ',
-        '<a href="https://example.visualise.myvictoria.vic.gov.au/bundle-2-map" tabindex="0" target="_blank">Accessible Version</a>'
+        '<a href="https://example.visualise.myvictoria.vic.gov.au/demo/bundle-2-map" tabindex="0" target="_blank">Accessible Version</a>'
       ]
     }
   },
