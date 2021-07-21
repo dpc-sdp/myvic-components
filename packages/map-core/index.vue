@@ -222,6 +222,15 @@ export default {
       default: 0
     },
     /**
+     * If the map contains any MapVectorLayer components with clustering, this setting will determine what happens when clicking on
+     * the cluster. The default behavior is to display a popup. If this setting is set to true, the map will zoom to the extent of
+     * the clustered features instead
+     */
+    zoomToClusterOnClick: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Set a specific tab index for users interacting with the map via the keyboard
      */
     tabIndex: {
@@ -601,6 +610,13 @@ export default {
         this.popupOverlay.setPosition(coordinate)
       }, 0)
     },
+    applyPopupFeature (args) {
+      if (this.popupDelay === 0) {
+        this.setPopupFeature.apply(this, args)
+      } else {
+        window.setTimeout(() => { this.setPopupFeature.apply(this, args) }, this.popupDelay)
+      }
+    },
     onMoveEnd (evt) {
       this.$emit('update:center', evt.map.getView().getCenter())
       this.$emit('update:zoom', evt.map.getView().getZoom())
@@ -651,11 +667,7 @@ export default {
           if (layer.get('enablePopup')) popupFeatures.push(f)
         })
       }
-      if (this.popupDelay === 0) {
-        this.setPopupFeature(popupFeatures)
-      } else {
-        window.setTimeout(() => { this.setPopupFeature(popupFeatures) }, this.popupDelay)
-      }
+      this.applyPopupFeature([popupFeatures])
     },
     onMapClick (evt) {
       /**
@@ -680,11 +692,24 @@ export default {
       })
       this.$emit('click', evt, features)
       const coordinate = this.map.getCoordinateFromPixel(evt.pixel)
-      if (this.popupDelay === 0) {
-        this.setPopupFeature(features, coordinate)
+      if (this.zoomToClusterOnClick && features[0].get('features') && features[0].get('features').length > 1) {
+        this.zoomToCluster(features[0].get('features'))
       } else {
-        window.setTimeout(() => { this.setPopupFeature(features, coordinate) }, this.popupDelay)
+        this.applyPopupFeature([features, coordinate])
       }
+    },
+    zoomToCluster (cluster) {
+      // eslint-disable-next-line new-cap
+      const extent = new ol.extent.createEmpty()
+      cluster.forEach(f => {
+        ol.extent.extend(extent, f.getGeometry().getExtent())
+      })
+      this.map.getView().fit(extent, {
+        size: this.map.getSize(),
+        padding: [50, 50, 50, 50],
+        duration: 400,
+        easing: ol.easing.easeOut
+      })
     },
     onAppMounted () {
       try {
