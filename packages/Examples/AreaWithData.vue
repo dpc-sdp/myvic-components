@@ -13,7 +13,7 @@
         :data="chartData" title="Household composition"
         data-format="percentage"
         :shortDesc="'Bar chart showing household composition'"
-        :longDesc="'https://example.visualise.myvictoria.vic.gov.au/bundle-1-bar-chart'"
+        :longDesc="'https://example.visualise.myvictoria.vic.gov.au/demo/bundle-1-bar-chart'"
       />
     </div>
   </div>
