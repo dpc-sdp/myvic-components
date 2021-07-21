@@ -131,6 +131,8 @@ const iconSizes = {
 }
 
 export const getSvg = (icon, size, color, text) => {
+  const iconSvg = icons[icon]
+  if (!iconSvg.replaceAll) return '' // needed for unit tests to work
   const { width, height } = iconSizes[icon][size]
   return `<svg width="${width}" height="${height}" viewBox="${iconViewboxes[icon]}" xmlns="http://www.w3.org/2000/svg">
     ${icons[icon].replaceAll('!!!customColor!!!', color).replaceAll('!!!customText!!!', text)}
