@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-bar-chart",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A bar chart component.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,12 +10,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-global": "2.0.1",
+    "@dpc-sdp/myvic-global": "2.0.2",
     "chart.js": "2.9.3",
     "chartjs-plugin-annotation": "^0.5.7",
     "chartjs-plugin-datalabels": "^0.7.0",
     "lodash.merge": "^4.6.2",
     "vue-chartjs": "^3.5.0"
   },
-  "gitHead": "9a9ad1eba988b0a55c85457b24bf862cdf487701"
+  "gitHead": "911b1e2023024a33a55ba428e27347b9f42ef5e5"
 }

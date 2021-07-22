@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-global",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Core package for My Victoria components",
   "main": "index.js",
   "license": "Apache-2.0",
@@ -13,5 +13,5 @@
     "@dpc-sdp/ripple-global": "^1.8.0",
     "axios": "^0.21.1"
   },
-  "gitHead": "9a9ad1eba988b0a55c85457b24bf862cdf487701"
+  "gitHead": "911b1e2023024a33a55ba428e27347b9f42ef5e5"
 }
