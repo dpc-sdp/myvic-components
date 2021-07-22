@@ -158,6 +158,7 @@ export default {
         border: 2px solid $greyShade;
       }
     }
+
     &--clickable {
       cursor: pointer;
 
