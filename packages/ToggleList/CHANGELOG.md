@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/compare/v2.0.1...v2.0.2) (2021-07-22)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-toggle-list
+
+
+
+
+
+## [2.0.1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/compare/v2.0.0...v2.0.1) (2021-07-22)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-toggle-list
+
+
+
+
+
+# [2.0.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/compare/v1.9.11...v2.0.0) (2021-07-22)
+
+
+### Features
+
+* dummy commit to trigger major version bump ([e23a3b1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/commit/e23a3b1e243afd7e4f86b5e6a68b270e9c1fa4ee))
+* map and popup enhancements ([#168](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/issues/168)) ([0941e77](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/commit/0941e777e4f982ce6787ea423d87affe834a073b))
+
+
+### BREAKING CHANGES
+
+* refer to previous commit for the breaking changes regarding the map 'select' and 'mapclick' events
+
+
+
+
+
+
 ## [1.9.11](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/ToggleList/compare/v1.9.10...v1.9.11) (2021-06-30)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-toggle-list

@@ -54,7 +54,7 @@ import { MyvicToggleList } from '@dpc-sdp/myvic-toggle-list'
       {
         components: { MyvicToggleList },
         template: `
-          <div>
+          <div style="max-width: 600px;">
             <myvic-toggle-list
               :items="items"
               :selectedItems="selectedItems"
@@ -306,6 +306,39 @@ import { MyvicToggleList } from '@dpc-sdp/myvic-toggle-list'
             let newSelectedItems = Object.assign({}, this.selectedItems);
             newSelectedItems[item.id] = !newSelectedItems[item.id]
             this.selectedItems = newSelectedItems
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Icons from the icon library
+
+<Preview>
+  <Story name="Icons from the icon library">
+    {
+      {
+        components: { MyvicToggleList },
+        template: `
+          <div style="max-width: 400px;">
+            <myvic-toggle-list
+              :items="items"
+              :selectedItems="selectedItems"
+              :showCheckboxes="false"
+            />
+          </div>
+        `,
+        props: {
+          items: {
+            default: () => object('items', [
+              {id: 'item1', title: 'Drive-through clinic', icon: 'carCircle', color: '#023b89'},
+              {id: 'item2', title: 'Walk-in clinic', icon: 'pedestrianCircle', color: '#0052c2'},
+              {id: 'item3', title: 'Temporarily closed site', icon: 'exclamationCircle', color: '#ca4c21'},
+            ])
+          },
+          selectedItems: {
+            default: () => object('selectedItems', {})
           }
         }
       }

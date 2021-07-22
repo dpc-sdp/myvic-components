@@ -219,13 +219,13 @@ import ol from '@dpc-sdp/myvic-map-core/lib/ol'
 const startingChartData = { datasets: [], labels: [] }
 const startingBlockData = { title: '', description: '' }
 const longDescriptionUrls = {
-  'arrivals-line-chart': 'sample-site-line-chart-visitors',
-  'pedestrian-map': 'sample-site-map',
-  'labour-force-line-chart': 'sample-site-line-chart-labour',
-  'incoming-population-pie-chart': 'sample-site-pie-chart-increase',
-  'outcoming-population-pie-chart': 'sample-site-pie-chart-decrease',
-  'cpi-tree-map': 'sample-site-tree-map',
-  'property-prices-bar-chart': 'sample-site-bar-chart'
+  'arrivals-line-chart': 'demo/sample-site-line-chart-visitors',
+  'pedestrian-map': 'demo/sample-site-map',
+  'labour-force-line-chart': 'demo/sample-site-line-chart-labour',
+  'incoming-population-pie-chart': 'demo/sample-site-pie-chart-increase',
+  'outcoming-population-pie-chart': 'demo/sample-site-pie-chart-decrease',
+  'cpi-tree-map': 'demo/sample-site-tree-map',
+  'property-prices-bar-chart': 'demo/sample-site-bar-chart'
 }
 
 /**

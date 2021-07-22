@@ -2,11 +2,15 @@
   <div class="myvic-map-core" :style="containerStyle">
     <rpl-alert v-if="ie11" title="Internet Explorer 11 (and older) is not fully supported, please upgrade to" :link='{"text":"Microsoft Edge.","url":"https://www.microsoft.com/en-us/edge"}'/>
     <div
-      class="myvic-map-core__popup ol-popup"
+      class="ol-popup"
+      :class="`myvic-map-core__popup--${popupProps.position || 'default'}`"
       ref="mapPopup">
       <map-indicator
+        v-bind="popupProps"
         :selectedFeature="feature"
-        :mapElement="$refs.map" />
+        :mapElement="$refs.map">
+        <slot name="popup"></slot>
+      </map-indicator>
     </div>
     <div
       v-if="!gotError && !ie11"
@@ -136,6 +140,13 @@ export default {
       default: true
     },
     /**
+     * Adjust the position of the zoom control. Can be set to 'default' or 'top-right'
+     */
+    zoomControlPosition: {
+      type: String,
+      default: 'default'
+    },
+    /**
      * Enable or disable the attribution control
      */
     enableAttributionControl: {
@@ -192,6 +203,32 @@ export default {
     popupContentFunction: {
       type: Function,
       default: undefined
+    },
+    /**
+     * props to pass to the MapIndicator component. Includes ```stickyHeader``` (Boolean)
+     * and ```position``` (String, one of ```default```, ```float-left```, ```below-feature```)
+     */
+    popupProps: {
+      type: Object,
+      default: function () {
+        return {}
+      }
+    },
+    /**
+     * delay the popup rendering (ms). Useful if the map needs to finish zoom/pan animations first
+     */
+    popupDelay: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * If the map contains any MapVectorLayer components with clustering, this setting will determine what happens when clicking on
+     * the cluster. The default behavior is to display a popup. If this setting is set to true, the map will zoom to the extent of
+     * the clustered features instead
+     */
+    zoomToClusterOnClick: {
+      type: Boolean,
+      default: false
     },
     /**
      * Set a specific tab index for users interacting with the map via the keyboard
@@ -260,6 +297,11 @@ export default {
       pinchRotateInteraction: null,
       selectInteraction: null,
       feature: null,
+      positionToOverlayClass: {
+        default: undefined,
+        'float-left': 'myvic-map-core__overlay--float-left',
+        'below-feature': undefined
+      },
       ie11: !!window.MSInputMethodContext && !!document.documentMode
     }
   },
@@ -281,15 +323,15 @@ export default {
       }
     },
     center (newCenter) {
-      this.map.getView().setCenter(newCenter)
-      this.map.getView().setZoom(this.zoom)
-      this.feature = null
+      this.map.getView().animate({ center: newCenter, duration: 100 })
     },
     projection (newProjection) {
       this.createMap()
     },
     zoom (newZoom) {
-      this.map.getView().setZoom(newZoom)
+      if (newZoom !== this.currentZoom) {
+        this.map.getView().setZoom(newZoom)
+      }
     },
     minZoom (newMinZoom) {
       this.map.getView().setMinZoom(newMinZoom)
@@ -304,6 +346,10 @@ export default {
       this.updateBaseMap()
     },
     enableZoomControl () {
+      this.setMapControls()
+    },
+    zoomControlPosition () {
+      this.createMapControls()
       this.setMapControls()
     },
     enableAttributionControl () {
@@ -398,7 +444,9 @@ export default {
       })
     },
     createMapControls () {
-      this.zoomControl = new ol.control.Zoom()
+      this.zoomControl = new ol.control.Zoom({
+        className: this.zoomControlPosition === 'top-right' ? 'myvic-map-core__zoom--right' : undefined
+      })
       this.attributionControl = new ol.control.Attribution({
         collapsible: false
       })
@@ -497,7 +545,8 @@ export default {
           duration: 250
         },
         positioning: 'bottom-center',
-        position: undefined
+        position: undefined,
+        className: this.positionToOverlayClass[this.popupProps.position]
       })
       this.map.addOverlay(this.popupOverlay)
     },
@@ -531,6 +580,47 @@ export default {
     zoomOnAppMounted () {
       // Do something like `this.zoomToArea()`
     },
+    setPopupFeature (features, coordinate) {
+      // Hide popup if there are no features (i.e. click on an empty area of the map)
+      if (features.length === 0) {
+        this.feature = null
+        return
+      }
+
+      // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
+      const firstFeature = features[0]
+      if (this.customMethods && this.customMethods.featureMapper) {
+        this.feature = this.customMethods.featureMapper(firstFeature, features)
+      } else if (this.popupContentFunction) {
+        this.feature = this.popupContentFunction(features)
+      } else {
+        this.feature = this.featureMapper(firstFeature, features)
+      }
+
+      // Wait until popup rendering is complete before positioning the element
+      // this means the popup height is now known, so the map will pan correctly.
+      // Here we use setTimeout instead of Vue's nextTick because it should wait
+      // for the browser to update the size of the popup based on content length
+      // and screen size. With nextTick, the setPosition was running before the
+      // overlay changed size.
+      setTimeout(() => {
+        if (!coordinate) {
+          coordinate = firstFeature.get('geometry').flatCoordinates
+        }
+        this.popupOverlay.setPosition(coordinate)
+      }, 0)
+    },
+    applyPopupFeature (args) {
+      if (this.popupDelay === 0) {
+        this.setPopupFeature.apply(this, args)
+      } else {
+        window.setTimeout(() => { this.setPopupFeature.apply(this, args) }, this.popupDelay)
+      }
+    },
+    onMoveEnd (evt) {
+      this.$emit('update:center', evt.map.getView().getCenter())
+      this.$emit('update:zoom', evt.map.getView().getZoom())
+    },
     onMapPointerMove (evt) {
       // set the cursor to a pointer when hovering over an icon
       var pixel = this.map.getEventPixel(evt.originalEvent)
@@ -556,15 +646,28 @@ export default {
     },
     onSelect (evt) {
       let selectedFeatures = evt.target.getFeatures()
+      let popupFeatures = []
+      /**
+       * Emitted when a feature is selected
+       * @event select
+       * @property {object} selected features
+       * @property {object} select event
+       */
+      this.$emit('select', selectedFeatures, evt)
       if (selectedFeatures.getLength() > 0) {
-        /**
-         * Emitted when a feature is selected
-         * @event select
-         * @property {object} selected features
-         * @property {object} select event
-         */
-        this.$emit('select', selectedFeatures, evt)
+        const layer = evt.target.getLayer(selectedFeatures.getArray()[0])
+        selectedFeatures.getArray().forEach(f => {
+          f.layerName = layer.get('name')
+          f.event = 'select'
+
+          // Support layers added via themeLayers
+          if (this.themeLayers.includes(layer)) popupFeatures.push(f)
+
+          // Support layers added as child components
+          if (layer.get('enablePopup')) popupFeatures.push(f)
+        })
       }
+      this.applyPopupFeature([popupFeatures])
     },
     onMapClick (evt) {
       /**
@@ -572,8 +675,10 @@ export default {
        * @event click
        * @property {event} the map click event
        */
-      this.$emit('click', evt)
-
+      if (this.enableSelectInteraction) {
+        this.$emit('click', evt)
+        return
+      }
       const features = []
       this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
         f.layerName = layer.get('name')
@@ -585,33 +690,26 @@ export default {
         // Support layers added as child components
         if (layer.get('enablePopup')) features.push(f)
       })
-
-      // Hide popup if there are no features (i.e. click on an empty area of the map)
-      if (features.length === 0) {
-        this.feature = null
-        return
-      }
-
-      // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
-      const firstFeature = features[0]
-      if (this.customMethods && this.customMethods.featureMapper) {
-        this.feature = this.customMethods.featureMapper(firstFeature, features)
-      } else if (this.popupContentFunction) {
-        this.feature = this.popupContentFunction(features)
+      this.$emit('click', evt, features)
+      const coordinate = this.map.getCoordinateFromPixel(evt.pixel)
+      if (this.zoomToClusterOnClick && features[0].get('features') && features[0].get('features').length > 1) {
+        this.zoomToCluster(features[0].get('features'))
       } else {
-        this.feature = this.featureMapper(firstFeature, features)
+        this.applyPopupFeature([features, coordinate])
       }
-
-      // Wait until popup rendering is complete before positioning the element
-      // this means the popup height is now known, so the map will pan correctly.
-      // Here we use setTimeout instead of Vue's nextTick because it should wait
-      // for the browser to update the size of the popup based on content length
-      // and screen size. With nextTick, the setPosition was running before the
-      // overlay changed size.
-      setTimeout(() => {
-        let coordinate = this.map.getCoordinateFromPixel(evt.pixel)
-        this.popupOverlay.setPosition(coordinate)
-      }, 0)
+    },
+    zoomToCluster (cluster) {
+      // eslint-disable-next-line new-cap
+      const extent = new ol.extent.createEmpty()
+      cluster.forEach(f => {
+        ol.extent.extend(extent, f.getGeometry().getExtent())
+      })
+      this.map.getView().fit(extent, {
+        size: this.map.getSize(),
+        padding: [50, 50, 50, 50],
+        duration: 400,
+        easing: ol.easing.easeOut
+      })
     },
     onAppMounted () {
       try {
@@ -645,6 +743,7 @@ export default {
 
         this.map.on('singleclick', this.onMapClick)
         this.map.on('pointermove', this.onMapPointerMove)
+        this.map.on('moveend', this.onMoveEnd)
 
         if (this.customMethods && this.customMethods.exposeMap) {
           this.customMethods.exposeMap(this.map)
@@ -716,12 +815,40 @@ export default {
       outline: rpl-color('mid_neutral_1') solid 1px;
     }
 
-    &__popup {
+    &__overlay--float-left {
+      height: calc(100% - 16px);
+      transform: none !important;
+      top: 8px;
+      left: 8px;
+      bottom: 8px;
+    }
+
+    &__popup--default {
       position: absolute;
       z-index: $rpl-zindex-popover;
       bottom: $rpl-space-3;
       transform: translateX(-50%);
       cursor: auto;
+    }
+
+    &__popup--float-left {
+      position: absolute;
+      z-index: $rpl-zindex-popover;
+      height: 100%;
+      cursor: auto;
+    }
+
+    &__popup--below-feature {
+      position: absolute;
+      z-index: $rpl-zindex-popover;
+      top: 8px;
+      transform: translateX(-50%);
+      cursor: auto;
+    }
+
+    &__zoom--right {
+      top: .5em;
+      right: .5em;
     }
   }
 
@@ -734,6 +861,39 @@ export default {
     font-size: .8rem;
     color: #222;
     text-decoration: none;
+  }
+
+  .ol-control {
+    border-radius: 4px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 8px 0px #00000033;
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .ol-control button {
+    box-sizing: content-box;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    background-color: rgba(256,256,256,0.95);
+    color: rpl-color('dark_neutral');
+    font-weight: normal;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 0;
+
+    &:hover,&:focus {
+      background-color: rgba(256,256,256,0.9);
+    }
+  }
+
+  .ol-control button ~ button {
+    margin-top: 1px;
   }
 
   .map-watermark {

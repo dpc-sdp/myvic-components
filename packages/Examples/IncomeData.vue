@@ -38,7 +38,7 @@
           :showLegend="showChartLegend"
           data-format="percentage"
           :shortDesc="chartTitle"
-          :longDesc="'https://example.visualise.myvictoria.vic.gov.au/bundle-3-bar-chart'"
+          :longDesc="'https://example.visualise.myvictoria.vic.gov.au/demo/bundle-3-bar-chart'"
         />
       </div>
       <div class="myvic-examples__map-container">
@@ -121,7 +121,7 @@ export default {
       incomeData: {},
       legendData: { low: '0%', high: '100%' },
       attributions: [
-        '<a href="https://example.visualise.myvictoria.vic.gov.au/bundle-3-map" tabindex="0" target="_blank">Accessible Version</a>'
+        '<a href="https://example.visualise.myvictoria.vic.gov.au/demo/bundle-3-map" tabindex="0" target="_blank">Accessible Version</a>'
       ]
     }
   },

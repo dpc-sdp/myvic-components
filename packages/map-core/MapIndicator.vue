@@ -2,7 +2,8 @@
   <div
     v-if="show"
     id="myvic-map-core-popup-content"
-    class="myvic-map-core-indicator">
+    class="myvic-map-core-indicator"
+    :class="`myvic-map-core-indicator--${position}`">
     <div class="myvic-map-core-indicator__close">
       <button-close
         :id="'tabs-close-button'"
@@ -11,41 +12,59 @@
     </div>
     <div
       class="myvic-map-core-indicator__inner"
+      :class="{'myvic-map-core-indicator__inner--padded': !stickyHeader}"
       :ref="'contentElement'"
       :style="{
-        maxHeight: this.maxHeight,
+        maxHeight: position === 'float-left' ? '100%' : this.maxHeight,
+        height: position === 'float-left' ? '100%' : 'auto',
         width: this.width
       }">
-      <template v-if="(selectedFeature instanceof Array)">
-        <div
-          v-for="(feature, index) in selectedFeature"
-          :key="index"
-          class="myvic-map-core-indicator__feature-multiple">
-          <h5 class="myvic-map-core-indicator__title">{{ feature.title }}</h5>
-          <div v-if="feature.html" v-html="feature.html"></div>
-          <div v-if="feature.value" class="myvic-map-core-indicator__value">{{ feature.value }}</div>
-          <div v-if="feature.content" class="myvic-map-core-indicator__content">
-            <div class="myvic-map-core-indicator__readmore"
-                 @click="readMoreMultiClick(index)"
-                 @keyup.enter="readMoreMultiClick(index)"
-                 v-html="showDescOpenMuliText(index)"
-                 tabIndex="0" />
-            <div class="myvic-map-core-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
-          </div>
-          <hr v-if="index !== selectedFeature.length - 1" />
+      <div :class="{'myvic-map-core-indicator__inner--flex': stickyHeader}">
+        <div :class="{'myvic-map-core-indicator__title-container': stickyHeader}">
+          <template v-if="(selectedFeature instanceof Array)">
+            <h5 class="myvic-map-core-indicator__title--multiple">{{ selectedFeature[0].title }}</h5>
+          </template>
+          <template v-else>
+            <h5 class="myvic-map-core-indicator__title">{{ selectedFeature.title }}</h5>
+          </template>
         </div>
-      </template>
-      <div v-else>
-        <h5 class="myvic-map-core-indicator__title">{{ selectedFeature.title }}</h5>
-        <div v-if="selectedFeature.html" v-html="selectedFeature.html"></div>
-        <div v-if="selectedFeature.value" class="myvic-map-core-indicator__value">{{ selectedFeature.value }}</div>
-        <div v-if="selectedFeature.content" class="myvic-map-core-indicator__content">
-          <div class="myvic-map-core-indicator__readmore"
-               @click="readMoreClick"
-               @keyup.enter="readMoreClick"
-               v-html="this.descOpenText"
-               tabIndex="0" />
-          <div class="myvic-map-core-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
+        <div :class="{'myvic-map-core-indicator__content-container': stickyHeader}">
+          <div v-if="hasPopupSlotContent">
+            <slot></slot>
+          </div>
+          <div v-else>
+            <template v-if="(selectedFeature instanceof Array)">
+              <div
+                v-for="(feature, index) in selectedFeature.slice(1)"
+                :key="index"
+                class="myvic-map-core-indicator__feature-multiple">
+                <hr v-if="!stickyHeader || index !== 0" />
+                <h5 class="myvic-map-core-indicator__title">{{ feature.title }}</h5>
+                <div v-if="feature.html" v-html="feature.html"></div>
+                <div v-if="feature.value" class="myvic-map-core-indicator__value">{{ feature.value }}</div>
+                <div v-if="feature.content" class="myvic-map-core-indicator__content">
+                  <div class="myvic-map-core-indicator__readmore"
+                      @click="readMoreMultiClick(index)"
+                      @keyup.enter="readMoreMultiClick(index)"
+                      v-html="showDescOpenMuliText(index)"
+                      tabIndex="0" />
+                  <div class="myvic-map-core-indicator__description" v-if="descIsOpen(index)" v-html="feature.content" />
+                </div>
+              </div>
+            </template>
+            <template v-else>
+              <div v-if="selectedFeature.html" v-html="selectedFeature.html"></div>
+              <div v-if="selectedFeature.value" class="myvic-map-core-indicator__value">{{ selectedFeature.value }}</div>
+              <div v-if="selectedFeature.content" class="myvic-map-core-indicator__content">
+                <div class="myvic-map-core-indicator__readmore"
+                    @click="readMoreClick"
+                    @keyup.enter="readMoreClick"
+                    v-html="this.descOpenText"
+                    tabIndex="0" />
+                <div class="myvic-map-core-indicator__description" v-if="descOpen" v-html="selectedFeature.content" />
+              </div>
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -64,12 +83,27 @@ export default {
   components: {
     ButtonClose
   },
-  props: [
-    'selectedFeature',
-    'filters',
+  props: {
+    selectedFeature: {
+      type: Object | Array,
+      default: 'default'
+    },
+    filters: {
+      type: undefined
+    },
     // get the parent's map element for checking container size
-    'mapElement'
-  ],
+    mapElement: {
+      type: Element
+    },
+    stickyHeader: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: 'default'
+    }
+  },
   data: function () {
     return {
       defaultReadText: 'Read more',
@@ -81,6 +115,11 @@ export default {
       descOpenText: 'Read more',
       maxHeight: DEFAULT_MAX_HEIGHT_PX + 'px',
       width: DEFAULT_WIDTH_PX + 'px'
+    }
+  },
+  computed: {
+    hasPopupSlotContent: function () {
+      return !!this.$slots.default
     }
   },
   methods: {
@@ -163,7 +202,7 @@ export default {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);
     overflow: hidden;
 
-    &:before {
+    &--default:before {
       $size: rem(12px);
       content: '';
       display: block;
@@ -177,12 +216,25 @@ export default {
       box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
     }
 
+    &--float-left {
+      height: 100%;
+    }
+
     &__inner {
-      // big right margin to pad close button
-      padding: 1.25rem 2.7rem 1.25rem 1rem;
-      overflow: auto;
       position: relative;
       box-sizing: border-box;
+
+      &--padded {
+        // big right margin to pad close button
+        padding: 1.25rem 2.7rem 1.25rem 1rem;
+        overflow: auto;
+      }
+    }
+
+    &__inner--flex {
+      display: flex;
+      flex-direction: column;
+      max-height: inherit;
     }
 
     &__close {
@@ -192,11 +244,31 @@ export default {
       z-index: 10;
     }
 
+    &__title-container {
+      padding: 1.25rem 2.7rem 1rem 1.25rem;
+      flex: none;
+      background: rpl-color('light_neutral');
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.14);
+    }
+
     &__title {
       color: rpl-color('primary');
       font-size: rpl-font-size('s');
       margin-top: 0;
-      margin-bottom: $rpl-space-4;
+      margin-bottom: 0;
+    }
+
+    &__title--multiple {
+      font-size: rpl-font-size('m');
+      color: rpl-color('black');
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &__content-container {
+      padding: 0.75rem 1.25rem 1.25rem 1.25rem;
+      flex: 1 auto;
+      overflow: auto;
     }
 
     &__value {
@@ -229,20 +301,6 @@ export default {
       margin-top: -$rpl-space-2;
       margin-bottom: $rpl-space-4;
       cursor: pointer;
-    }
-
-    // When there are multiple features, style
-    // the first block in the list differently
-    &__feature-multiple:first-child {
-      #{$root}__title {
-      font-size: rpl-font-size('m');
-        color: rpl-color('black');
-      }
-    }
-    &__feature-multiple:first-child {
-      #{$root}__content {
-        display: none;
-      }
     }
   }
 </style>
