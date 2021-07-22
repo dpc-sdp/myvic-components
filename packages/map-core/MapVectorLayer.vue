@@ -270,13 +270,14 @@ export default {
             this.zoomToLayerExtent(60, this.zoomDuration)
           } catch (e) {}
         }
-        // On 'change', zoom to extent
-        this.layerSource.on('change', (event) => {
-          if (this.layerSource.getState() === 'ready') {
-            this.zoomToLayerExtent(60, this.zoomDuration)
-          }
-        })
       }
+
+      // On 'change', zoom to extent
+      this.layerSource.on('change', (event) => {
+        if (this.layerSource.getState() === 'ready' && this.zoomToExtent) {
+          this.zoomToLayerExtent(60, this.zoomDuration)
+        }
+      })
 
       // Add layer to map
       this.map.addLayer(this.layer)

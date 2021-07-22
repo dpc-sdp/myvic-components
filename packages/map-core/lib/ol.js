@@ -62,7 +62,8 @@ import {
 } from 'ol/geom'
 import { circular as circularPolygon } from 'ol/geom/Polygon'
 import * as Color from 'ol/color'
-import { getCenter } from 'ol/extent'
+import { createEmpty, extend, getCenter } from 'ol/extent'
+import { easeOut } from 'ol/easing'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -209,7 +210,12 @@ const ol = {
     circularPolygon
   },
   extent: {
+    createEmpty,
+    extend,
     getCenter
+  },
+  easing: {
+    easeOut
   }
 }
 
