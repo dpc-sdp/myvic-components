@@ -5837,7 +5837,7 @@ exports[`MyvicStoryshots Toggle List Chart Data Toggle 1`] = `
           <li
             aria-checked="true"
             aria-label="Dataset 1"
-            class="myvic-toggle-item is-active"
+            class="myvic-toggle-item myvic-toggle-item--clickable is-active"
             role="checkbox"
             tabindex="0"
           >
@@ -5868,7 +5868,7 @@ exports[`MyvicStoryshots Toggle List Chart Data Toggle 1`] = `
           </li>
           <li
             aria-label="Dataset 2"
-            class="myvic-toggle-item"
+            class="myvic-toggle-item myvic-toggle-item--clickable"
             role="checkbox"
             tabindex="0"
           >
@@ -5888,7 +5888,7 @@ exports[`MyvicStoryshots Toggle List Chart Data Toggle 1`] = `
           </li>
           <li
             aria-label="Dataset 3"
-            class="myvic-toggle-item"
+            class="myvic-toggle-item myvic-toggle-item--clickable"
             role="checkbox"
             tabindex="0"
           >
@@ -5954,7 +5954,9 @@ exports[`MyvicStoryshots Toggle List Chart Data Toggle 1`] = `
 `;
 
 exports[`MyvicStoryshots Toggle List Default 1`] = `
-<div>
+<div
+  style="max-width: 600px;"
+>
   <div
     class="myvic-toggle-list"
   >
@@ -5964,7 +5966,7 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
       <li
         aria-checked="true"
         aria-label="Item 1"
-        class="myvic-toggle-item is-active"
+        class="myvic-toggle-item myvic-toggle-item--clickable is-active"
         role="checkbox"
         tabindex="0"
       >
@@ -6010,7 +6012,7 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
       </li>
       <li
         aria-label="Item 2"
-        class="myvic-toggle-item"
+        class="myvic-toggle-item myvic-toggle-item--clickable"
         role="checkbox"
         tabindex="0"
       >
@@ -6050,7 +6052,7 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
       </li>
       <li
         aria-label="Item 3"
-        class="myvic-toggle-item"
+        class="myvic-toggle-item myvic-toggle-item--clickable"
         role="checkbox"
         tabindex="0"
       >
@@ -6086,7 +6088,7 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
       <li
         aria-checked="true"
         aria-label="Item 4"
-        class="myvic-toggle-item is-active"
+        class="myvic-toggle-item myvic-toggle-item--clickable is-active"
         role="checkbox"
         tabindex="0"
       >
@@ -6133,7 +6135,7 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
       <li
         aria-checked="true"
         aria-label="Item 5"
-        class="myvic-toggle-item is-active"
+        class="myvic-toggle-item myvic-toggle-item--clickable is-active"
         role="checkbox"
         tabindex="0"
       >
@@ -6184,6 +6186,182 @@ exports[`MyvicStoryshots Toggle List Default 1`] = `
 </div>
 `;
 
+exports[`MyvicStoryshots Toggle List Icons from the icon library 1`] = `
+<div
+  style="max-width: 400px;"
+>
+  <div
+    class="myvic-toggle-list"
+  >
+    <ul
+      class="myvic-toggle-list__ul"
+    >
+      <li
+        aria-checked="true"
+        aria-label="Drive-through clinic"
+        class="myvic-toggle-item is-active"
+        role="checkbox"
+        tabindex="0"
+      >
+        <div
+          class="myvic-toggle-item__icon-left"
+        >
+          <div
+            style="display: flex;"
+          >
+            <svg
+              height="24"
+              viewBox="0 0 33 33"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              
+    
+              <circle
+                cx="16.5499"
+                cy="16.8103"
+                fill="#023b89"
+                r="16"
+              />
+              
+    
+              <path
+                d="M25.9043 14.2851H24.6018L23.7615 12.1305C23.3203 11.0273 22.0808 10.2861 20.6732 10.2861H13.2363C11.8287 10.2861 10.5682 11.0273 10.148 12.1305L9.3077 14.2851H8.00518C7.43795 14.2851 6.97577 14.6643 6.97577 15.1297V15.6124C6.97577 16.0778 7.43795 16.457 8.00518 16.457H8.36232C8.15224 17.2327 8.0472 18.0256 8.0472 18.8185V22.8692C8.0472 23.3346 8.50938 23.7138 9.07661 23.7138H10.7993C11.3665 23.7138 11.8287 23.3346 11.8287 22.8692V21.5764H22.1228V22.8692C22.1228 23.3346 22.585 23.7138 23.1522 23.7138H24.8749C25.4422 23.7138 25.9043 23.3346 25.9043 22.8692V18.8012C25.9043 18.0083 25.7993 17.2154 25.5892 16.4397H25.9464C26.5136 16.4397 26.9758 16.0605 26.9758 15.5951V15.1125C26.9338 14.6643 26.4716 14.2851 25.9043 14.2851ZM11.1144 15.147L12.1018 12.6304C12.2699 12.2167 12.7321 11.9409 13.2363 11.9409H20.6732C21.1985 11.9409 21.6606 12.2167 21.8077 12.6304L22.7951 15.147C22.8371 15.2676 22.7321 15.3711 22.585 15.3711H11.3245C11.1774 15.3883 11.0724 15.2676 11.1144 15.147ZM13.2573 19.2666H11.1774C10.8203 19.2666 10.5472 19.0425 10.5472 18.7495V17.9394C10.5472 17.6291 10.9043 17.3705 11.2825 17.4223L13.2153 17.6808C13.4674 17.7153 13.6775 17.8704 13.7405 18.0773L13.8875 18.6288C13.9716 18.9564 13.6775 19.2666 13.2573 19.2666ZM23.3413 18.7495C23.3413 19.0425 23.0682 19.2666 22.7111 19.2666H20.6312C20.2321 19.2666 19.938 18.9564 20.022 18.6461L20.169 18.0945C20.2321 17.8877 20.4211 17.7325 20.6943 17.6981L22.627 17.4395C23.0052 17.3878 23.3623 17.6291 23.3623 17.9566V18.7495H23.3413Z"
+                fill="white"
+              />
+              
+  
+            </svg>
+          </div>
+        </div>
+         
+        <h3
+          class="myvic-toggle-item__title"
+        >
+          Drive-through clinic
+        </h3>
+         
+        <!---->
+      </li>
+      <li
+        aria-checked="true"
+        aria-label="Walk-in clinic"
+        class="myvic-toggle-item is-active"
+        role="checkbox"
+        tabindex="0"
+      >
+        <div
+          class="myvic-toggle-item__icon-left"
+        >
+          <div
+            style="display: flex;"
+          >
+            <svg
+              height="24"
+              viewBox="0 0 33 32"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              
+    
+              <circle
+                cx="16.9753"
+                cy="16"
+                fill="#0052c2"
+                r="16"
+              />
+              
+    
+              <path
+                d="M11.1976 14.9262L12.2337 12.9403C12.5143 12.4222 12.9245 11.9905 13.421 11.6883C15.8171 10.2636 16.1193 10.2852 16.4215 10.3067L18.0405 10.4147C18.537 10.4363 18.8824 10.5658 20.5445 13.0051C20.6093 13.0914 20.6956 13.1562 20.8251 13.1777L22.8111 13.48C23.3508 13.5663 23.7177 14.0628 23.6314 14.6024C23.545 15.1421 23.0485 15.5091 22.5089 15.4227L20.5229 15.1205C19.8753 15.0126 19.2925 14.6672 18.9255 14.1275C18.8392 13.998 18.7744 13.8901 18.6881 13.7822L17.8991 17.6635L19.1846 19.5889C19.4436 19.848 19.6595 20.1933 19.789 20.5387L21.1489 24.5106C21.3648 25.0935 21.041 25.7411 20.4582 25.9353C20.3286 25.9785 20.2207 26.0001 20.0912 26.0001C19.6163 26.0001 19.1846 25.6979 19.0119 25.2446L17.6519 21.2727C17.6303 21.2295 17.6088 21.2079 17.5872 21.1647L14.4355 17.9915C13.9822 17.5382 13.8095 16.9122 13.9391 16.3078L14.6298 13.2425C14.5651 13.2857 14.5003 13.3288 14.414 13.372C14.2197 13.48 14.0686 13.6526 13.9606 13.8469L12.9245 15.8329C12.7518 16.1567 12.4064 16.351 12.061 16.351C11.9099 16.351 11.7588 16.3078 11.6077 16.243C11.1328 15.984 10.9601 15.4011 11.1976 14.9262Z"
+                fill="white"
+              />
+              
+    
+              <path
+                d="M17.5634 9.8208C18.6185 9.8208 19.4738 8.96549 19.4738 7.9104C19.4738 6.85532 18.6185 6 17.5634 6C16.5083 6 15.653 6.85532 15.653 7.9104C15.653 8.96549 16.5083 9.8208 17.5634 9.8208Z"
+                fill="white"
+              />
+              
+    
+              <path
+                d="M13.9534 19.9979L10.7089 22.6616C10.3441 22.9811 10.2124 23.4927 10.3786 23.9374C10.424 24.0583 10.4823 24.1533 10.5686 24.259C10.955 24.7361 11.6738 24.8138 12.1444 24.408L15.3889 21.7442C15.6673 21.5024 15.9156 21.1787 16.0667 20.8462L16.1471 20.3548L14.5072 18.7111L14.0311 19.9007C13.9987 19.9353 13.9879 19.9633 13.9534 19.9979Z"
+                fill="white"
+              />
+              
+  
+            </svg>
+          </div>
+        </div>
+         
+        <h3
+          class="myvic-toggle-item__title"
+        >
+          Walk-in clinic
+        </h3>
+         
+        <!---->
+      </li>
+      <li
+        aria-checked="true"
+        aria-label="Temporarily closed site"
+        class="myvic-toggle-item is-active"
+        role="checkbox"
+        tabindex="0"
+      >
+        <div
+          class="myvic-toggle-item__icon-left"
+        >
+          <div
+            style="display: flex;"
+          >
+            <svg
+              height="24"
+              viewBox="0 0 33 32"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              
+    
+              <circle
+                cx="16.9758"
+                cy="16"
+                fill="#ca4c21"
+                r="16"
+              />
+              
+    
+              <path
+                d="M16.9758 18.5C18.3558 18.5 19.4758 17.38 19.4758 16V8.5C19.4758 7.12 18.3558 6 16.9758 6C15.5958 6 14.4758 7.12 14.4758 8.5V16C14.4758 17.38 15.5958 18.5 16.9758 18.5Z"
+                fill="white"
+              />
+              
+    
+              <path
+                d="M14.4758 23.5C14.4758 24.88 15.5958 26 16.9758 26C18.3558 26 19.4758 24.88 19.4758 23.5C19.4758 22.12 18.3558 21 16.9758 21C15.5958 21 14.4758 22.12 14.4758 23.5Z"
+                fill="white"
+              />
+              
+  
+            </svg>
+          </div>
+        </div>
+         
+        <h3
+          class="myvic-toggle-item__title"
+        >
+          Temporarily closed site
+        </h3>
+         
+        <!---->
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
 <div
   class="rpl-container"
@@ -6204,7 +6382,7 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
           <li
             aria-checked="true"
             aria-label="Basemap"
-            class="myvic-toggle-item is-active"
+            class="myvic-toggle-item myvic-toggle-item--clickable is-active"
             role="checkbox"
             tabindex="0"
           >
@@ -6250,7 +6428,7 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
           </li>
           <li
             aria-label="Population Growth"
-            class="myvic-toggle-item"
+            class="myvic-toggle-item myvic-toggle-item--clickable"
             role="checkbox"
             tabindex="0"
           >
@@ -6285,7 +6463,7 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
           </li>
           <li
             aria-label="Hospitals"
-            class="myvic-toggle-item"
+            class="myvic-toggle-item myvic-toggle-item--clickable"
             role="checkbox"
             tabindex="0"
           >

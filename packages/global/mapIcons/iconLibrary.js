@@ -1,5 +1,5 @@
 // Inner content of SVG icons
-const icons = {
+export const icons = {
   pinOuter: `<path fill="!!!customColor!!!" fill-rule="evenodd" clip-rule="evenodd"
     d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6Z M3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z" />`,
   pinInner: `<path fill="white" fill-rule="evenodd" clip-rule="evenodd"
@@ -108,6 +108,7 @@ const iconSizes = {
     m: { width: 58, height: 58 }
   },
   carCircle: {
+    s: { width: 24, height: 24 },
     m: { width: 33, height: 33 }
   },
   carPin: {
@@ -115,6 +116,7 @@ const iconSizes = {
     l: { width: 62, height: 76 }
   },
   exclamationCircle: {
+    s: { width: 24, height: 24 },
     m: { width: 33, height: 32 }
   },
   exclamationPin: {
@@ -122,6 +124,7 @@ const iconSizes = {
     l: { width: 62, height: 76 }
   },
   pedestrianCircle: {
+    s: { width: 24, height: 24 },
     m: { width: 33, height: 33 }
   },
   pedestrianPin: {
