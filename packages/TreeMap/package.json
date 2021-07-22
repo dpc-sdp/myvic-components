@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-treemap",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A tree map chart component.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,10 +10,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-global": "2.0.0",
+    "@dpc-sdp/myvic-global": "2.0.1",
     "@dpc-sdp/ripple-global": "^1.8.0",
     "chart.js": "2.9.3",
     "chartjs-chart-treemap": "^0.2.3",
     "lodash.merge": "^4.6.2"
-  }
+  },
+  "gitHead": "9a9ad1eba988b0a55c85457b24bf862cdf487701"
 }

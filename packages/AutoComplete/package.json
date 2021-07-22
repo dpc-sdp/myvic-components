@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-autocomplete",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "An autocomplete component.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,8 +10,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-global": "2.0.0",
+    "@dpc-sdp/myvic-global": "2.0.1",
     "@dpc-sdp/ripple-icon": "^1.8.0",
     "lodash.debounce": "^4.0.8"
-  }
+  },
+  "gitHead": "9a9ad1eba988b0a55c85457b24bf862cdf487701"
 }
