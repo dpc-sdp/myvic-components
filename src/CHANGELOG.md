@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/dpc-sdp/myvic-components/compare/v1.9.11...v2.0.0) (2021-07-22)
+
+
+### Features
+
+* map and popup enhancements ([#168](https://github.com/dpc-sdp/myvic-components/issues/168)) ([0941e77](https://github.com/dpc-sdp/myvic-components/commit/0941e777e4f982ce6787ea423d87affe834a073b))
+
+
+
+
+
+
 ## [1.9.11](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/compare/v1.9.10...v1.9.11) (2021-06-30)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-storybook

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/dpc-sdp/myvic-components/compare/v1.9.11...v2.0.0) (2021-07-22)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-nuxt
+
+
+
+
+
+
 ## [1.9.11](https://github.com/dpc-sdp/yourvictoria-vic-gov-au/compare/v1.9.10...v1.9.11) (2021-06-30)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-nuxt
