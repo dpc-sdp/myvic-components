@@ -296,6 +296,7 @@ export default {
       dragRotateInteraction: null,
       pinchRotateInteraction: null,
       selectInteraction: null,
+      popupApplied: false, // helps avoid duplicate popups between select interaction and mapclick event
       feature: null,
       positionToOverlayClass: {
         default: undefined,
@@ -344,6 +345,11 @@ export default {
     },
     baseMapAttributions (newBaseMapUrl) {
       this.updateBaseMap()
+    },
+    popupProps (newPopupProps, oldPopupProps) {
+      if (newPopupProps.position !== oldPopupProps.position) {
+        this.addPopupOverlay()
+      }
     },
     enableZoomControl () {
       this.setMapControls()
@@ -473,6 +479,10 @@ export default {
 
       this.selectInteraction = new ol.interaction.Select({
         condition: ol.events.condition.click,
+        filter: (f) => {
+          const isCluster = f.get('features') && f.get('features').length !== 1
+          return !isCluster
+        },
         style: this.selectedFeatureStyle || styles.createSelectedStyleFunction(this.selectedFeatureStyleLabelAttribute)
       })
       this.selectInteraction.on('select', this.onSelect)
@@ -538,6 +548,9 @@ export default {
       this.themeLayers.push(themeLayer)
     },
     addPopupOverlay () {
+      if (this.popupOverlay) {
+        this.map.removeOverlay(this.popupOverlay)
+      }
       this.popupOverlay = new ol.Overlay({
         element: this.$refs.mapPopup,
         autoPan: true,
@@ -580,7 +593,7 @@ export default {
     zoomOnAppMounted () {
       // Do something like `this.zoomToArea()`
     },
-    setPopupFeature (features, coordinate) {
+    setFeaturePopup (features, pixel) {
       // Hide popup if there are no features (i.e. click on an empty area of the map)
       if (features.length === 0) {
         this.feature = null
@@ -596,7 +609,12 @@ export default {
       } else {
         this.feature = this.featureMapper(firstFeature, features)
       }
-
+      let coordinates
+      if (firstFeature.getGeometry().getType() === 'Point') {
+        coordinates = firstFeature.getGeometry().flatCoordinates
+      } else {
+        coordinates = this.map.getCoordinateFromPixel(pixel)
+      }
       // Wait until popup rendering is complete before positioning the element
       // this means the popup height is now known, so the map will pan correctly.
       // Here we use setTimeout instead of Vue's nextTick because it should wait
@@ -604,17 +622,14 @@ export default {
       // and screen size. With nextTick, the setPosition was running before the
       // overlay changed size.
       setTimeout(() => {
-        if (!coordinate) {
-          coordinate = firstFeature.get('geometry').flatCoordinates
-        }
-        this.popupOverlay.setPosition(coordinate)
+        this.popupOverlay.setPosition(coordinates)
       }, 0)
     },
-    applyPopupFeature (args) {
+    applyFeaturePopup (args) {
       if (this.popupDelay === 0) {
-        this.setPopupFeature.apply(this, args)
+        this.setFeaturePopup.apply(this, args)
       } else {
-        window.setTimeout(() => { this.setPopupFeature.apply(this, args) }, this.popupDelay)
+        window.setTimeout(() => { this.setFeaturePopup.apply(this, args) }, this.popupDelay)
       }
     },
     onMoveEnd (evt) {
@@ -645,15 +660,19 @@ export default {
       }
     },
     onSelect (evt) {
-      let selectedFeatures = evt.target.getFeatures()
-      let popupFeatures = []
       /**
        * Emitted when a feature is selected
        * @event select
        * @property {object} selected features
        * @property {object} select event
        */
+      let selectedFeatures = evt.target.getFeatures()
+      let popupFeatures = []
       this.$emit('select', selectedFeatures, evt)
+
+      // popup needs to be handled here and not on mapclick event
+      // because evt.target.getFeatures() here produces different
+      // features from this.map.forEachFeatureAtPixel which is used there
       if (selectedFeatures.getLength() > 0) {
         const layer = evt.target.getLayer(selectedFeatures.getArray()[0])
         selectedFeatures.getArray().forEach(f => {
@@ -667,7 +686,8 @@ export default {
           if (layer.get('enablePopup')) popupFeatures.push(f)
         })
       }
-      this.applyPopupFeature([popupFeatures])
+      this.applyFeaturePopup([popupFeatures, evt.mapBrowserEvent.pixel])
+      this.popupHandled = true
     },
     onMapClick (evt) {
       /**
@@ -675,10 +695,6 @@ export default {
        * @event click
        * @property {event} the map click event
        */
-      if (this.enableSelectInteraction) {
-        this.$emit('click', evt)
-        return
-      }
       const features = []
       this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
         f.layerName = layer.get('name')
@@ -691,12 +707,18 @@ export default {
         if (layer.get('enablePopup')) features.push(f)
       })
       this.$emit('click', evt, features)
-      const coordinate = this.map.getCoordinateFromPixel(evt.pixel)
-      if (this.zoomToClusterOnClick && features[0].get('features') && features[0].get('features').length > 1) {
+
+      let popupArgs = [features, evt.pixel]
+      const isCluster = features[0] && features[0].get('features') && features[0].get('features').length > 1
+      if (isCluster && this.zoomToClusterOnClick) {
         this.zoomToCluster(features[0].get('features'))
-      } else {
-        this.applyPopupFeature([features, coordinate])
+        popupArgs = [[]]
       }
+      if (!this.popupHandled) {
+        this.applyFeaturePopup(popupArgs)
+      }
+      // reset value to await for next select event
+      this.popupHandled = false
     },
     zoomToCluster (cluster) {
       // eslint-disable-next-line new-cap

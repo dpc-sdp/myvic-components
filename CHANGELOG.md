@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/dpc-sdp/myvic-components/compare/v2.0.3...v2.0.4) (2021-07-23)
+
+**Note:** Version bump only for package myvic-components
+
+
+
+
+
+## [2.0.3](https://github.com/dpc-sdp/myvic-components/compare/v2.0.2...v2.0.3) (2021-07-23)
+
+
+### Bug Fixes
+
+* bug fixes with new popup features and map events ([5937302](https://github.com/dpc-sdp/myvic-components/commit/5937302b282e65b891a41b8de96706eb77d21fd9))
+
+
+
+
+
+
 ## [2.0.2](https://github.com/dpc-sdp/myvic-components/compare/v2.0.1...v2.0.2) (2021-07-22)
 
 **Note:** Version bump only for package myvic-components
