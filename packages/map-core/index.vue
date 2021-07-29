@@ -8,7 +8,8 @@
       <map-indicator
         v-bind="popupProps"
         :selectedFeature="feature"
-        :mapElement="$refs.map">
+        :mapElement="$refs.map"
+        @popup-close="onPopupClose">>
         <slot name="popup"></slot>
       </map-indicator>
     </div>
@@ -719,6 +720,9 @@ export default {
       }
       // reset value to await for next select event
       this.popupHandled = false
+    },
+    onPopupClose () {
+      this.$emit('popup-close')
     },
     zoomToCluster (cluster) {
       // eslint-disable-next-line new-cap

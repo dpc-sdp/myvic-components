@@ -139,6 +139,7 @@ export default {
     close () {
       this.show = false
       this.resetPopup()
+      this.$emit('popup-close')
     },
     readMoreMultiClick: function (index) {
       if (this.descMultiOpen[index] === undefined) {
