@@ -331,7 +331,7 @@ export default {
     },
     zoom (newZoom) {
       if (newZoom !== this.currentZoom) {
-        this.map.getView().setZoom(newZoom)
+        this.map.getView().animate({ zoom: newZoom, duration: 100 })
       }
     },
     minZoom (newMinZoom) {
