@@ -272,8 +272,8 @@ export default {
           otherMatches.push(x)
         }
       })
-      firstCharMatches.sort(this.sortByLength)
-      otherMatches.sort(this.sortByLength)
+      firstCharMatches.sort(this.sortByNameAndWordNumber)
+      otherMatches.sort(this.sortByNameAndWordNumber)
       return firstCharMatches.concat(otherMatches)
     },
     selectResult (item) {
@@ -283,8 +283,25 @@ export default {
       this.query = item.name
       this.$emit('item-selected', this.id, item)
     },
+    isSingleWord (name) {
+      return !/[^,]\s/.test(name)
+    },
     sortByLength (item1, item2) {
       return this.getItemName(item1).length - this.getItemName(item2).length
+    },
+    sortByName (item1, item2) {
+      return this.getItemName(item1).localeCompare(this.getItemName(item2))
+    },
+    sortByNameAndWordNumber (item1, item2) {
+      const name1 = this.getItemName(item1)
+      const name2 = this.getItemName(item2)
+      if (this.isSingleWord(name1) && !this.isSingleWord(name2)) {
+        return -1
+      }
+      if (!this.isSingleWord(name1) && this.isSingleWord(name2)) {
+        return 1
+      }
+      return this.sortByName(item1, item2)
     },
     async updateResults () {
       let results = this.filter(this.items, this.validQuery)
