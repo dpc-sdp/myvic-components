@@ -21,12 +21,12 @@
         <slot></slot>
         <div
           class="ol-control myvic-map-core__geolocation"
-          :class="{'ol-control-hidden': !enableGeolocationControl, 'myvic-map-core__geolocation--right':controlPositions === 'top-right'}"
+          :class="{'ol-control--hidden': !enableGeolocationControl, 'myvic-map-core__geolocation--right':controlPositions === 'top-right'}"
           ref="geolocation">
           <button
           class="myvic-map-core__geolocation-button"
-          :class="{'myvic-map-core__geolocation-button--active': geolocationActive}"
-          @click="toggleGeolocation">
+          :class="{'myvic-map-core__geolocation-button--active': geolocationCentered}"
+          @click="enableGeolocation">
             <svg width="17" height="16" viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"/>
             </svg>
@@ -326,8 +326,8 @@ export default {
         'below-feature': undefined
       },
       geolocation: null,
-      geolocationActive: false,
-      geolocationFeature: new ol.Feature(),
+      geolocationCentered: false,
+      geolocationPosition: null,
       ie11: !!window.MSInputMethodContext && !!document.documentMode
     }
   },
@@ -474,7 +474,24 @@ export default {
         projection: this.map.getView().getProjection()
       })
       this.geolocation.on('change:position', () => {
-        this.$emit('geolocation-change', this.geolocation.getPosition())
+        if (this.geolocationPosition) {
+          /**
+           * Emitted when geolocation position changes
+           * @event geolocation-change
+           * @property {array} position geolocation position
+           * @property {number} accuracy accuracy in meters
+           */
+          this.$emit('geolocation-change', this.geolocation.getPosition(), this.geolocation.get('accuracy'))
+        } else {
+          /**
+           * Emitted when geolocation position is requested or is initially set
+           * @event geolocation-request
+           * @property {array} position geolocation position
+           * @property {number} accuracy accuracy in meters
+           */
+          this.$emit('geolocation-request', this.geolocation.getPosition(), this.geolocation.get('accuracy'))
+        }
+        this.geolocationPosition = this.geolocation.getPosition()
       })
       if (this.focus) this.$refs.map.focus()
     },
@@ -678,8 +695,12 @@ export default {
       }
     },
     onMoveEnd (evt) {
-      this.$emit('update:center', evt.map.getView().getCenter())
+      const center = evt.map.getView().getCenter()
+      this.$emit('update:center', center)
       this.$emit('update:zoom', evt.map.getView().getZoom())
+      if (this.geolocationPosition) {
+        this.geolocationCentered = center[0] === this.geolocationPosition[0] && center[1] === this.geolocationPosition[1]
+      }
     },
     onMapPointerMove (evt) {
       // set the cursor to a pointer when hovering over an icon
@@ -705,14 +726,14 @@ export default {
       }
     },
     onSelect (evt) {
+      let selectedFeatures = evt.target.getFeatures()
+      let popupFeatures = []
       /**
        * Emitted when a feature is selected
        * @event select
        * @property {object} selected features
        * @property {object} select event
        */
-      let selectedFeatures = evt.target.getFeatures()
-      let popupFeatures = []
       this.$emit('select', selectedFeatures, evt)
 
       // popup needs to be handled here and not on mapclick event
@@ -735,11 +756,6 @@ export default {
       this.popupHandled = true
     },
     onMapClick (evt) {
-      /**
-       * Emitted when the map is clicked
-       * @event click
-       * @property {event} the map click event
-       */
       const features = []
       this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
         f.layerName = layer.get('name')
@@ -751,6 +767,12 @@ export default {
         // Support layers added as child components
         if (layer.get('enablePopup')) features.push(f)
       })
+      /**
+       * Emitted when the map is clicked
+       * @event click
+       * @property {event} the map click event
+       * @property {object} selected features
+       */
       this.$emit('click', evt, features)
 
       let popupArgs = [features, evt.pixel]
@@ -766,6 +788,10 @@ export default {
       this.popupHandled = false
     },
     onPopupClose () {
+      /**
+       * Emitted when the popup is closed
+       * @event popup-close
+       */
       this.$emit('popup-close')
     },
     zoomToCluster (cluster) {
@@ -851,11 +877,11 @@ export default {
         checkForMap()
       })
     },
-    toggleGeolocation: function () {
-      this.geolocation.setTracking(!this.geolocation.get('tracking'))
-      this.geolocationActive = !this.geolocationActive
-      if (!this.geolocationActive) {
-        this.$emit('geolocation-change', null)
+    enableGeolocation: function () {
+      if (!this.geolocation.get('tracking')) {
+        this.geolocation.setTracking(true)
+      } else {
+        this.$emit('geolocation-request', this.geolocation.getPosition(), this.geolocation.get('accuracy'))
       }
     }
   }
@@ -932,6 +958,7 @@ export default {
       }
       &-button--active {
         color: rpl-color('primary') !important;
+        background-color: rgba(246,246,246,0.9) !important;
       }
     }
 
@@ -962,7 +989,7 @@ export default {
     top: 150px;
   }
 
-  .ol-control-hidden {
+  .ol-control--hidden {
     display: none;
   }
 
@@ -1000,9 +1027,11 @@ export default {
     font-size: 30px;
     cursor: pointer;
     border-radius: 0;
-
+    overflow: hidden;
+    
     &:hover,&:focus {
-      background-color: rgba(256,256,256,0.9);
+      color: rpl-color('primary');
+      background-color: rgba(246,246,246,0.9);
     }
   }
 

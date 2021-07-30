@@ -685,6 +685,8 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
 
 ## Geolocation
 
+The Geolocation control is used here to display a point when the position is accurate and a wider area when it's not.
+
 <Preview>
   <Story name="Geolocation">
     {
@@ -697,12 +699,13 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
           :zoom.sync="zoom"
           :enableGeolocationControl="true"
           @geolocation-change="onGeolocationChange"
+          @geolocation-request="onGeolocationRequest"
         >
           <myvic-map-vector-layer
             :features="features"
             dataFormat="GeoJSON"
             loadingStrategy="bbox"
-            :visible="!!geolocationPosition"
+            :visible="geolocationAccuracy && accuracyCheck()"
           />
         </myvic-map-core>`,
         data: () => {
@@ -711,17 +714,32 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
             center: [16138405.843820328, -4552817.013522999],
             zoom: 11,
             features: [ new ol.Feature() ],
-            geolocationPosition: null
+            geolocationPosition: null,
+            geolocationAccuracy: null
           }
         },
         methods: {
-          onGeolocationChange (newPosition) {
-            this.geolocationPosition = newPosition
-            if (newPosition) {
-              this.features[0].setGeometry(new ol.geom.Point(newPosition))
-              this.center = newPosition
-              this.zoom = 14
+          accuracyCheck () {
+            return this.geolocationAccuracy < 5000
+          },
+          updateGeolocation (position, accuracy) {
+            this.geolocationPosition = position
+            this.features[0].setGeometry(new ol.geom.Point(position))
+            this.geolocationAccuracy = accuracy
+          },
+          moveToLocation () {
+            this.center = this.geolocationPosition
+            const zoomLevel = this.accuracyCheck() ? 14 : 11
+            if (this.zoom < zoomLevel) {
+              this.zoom = zoomLevel
             }
+          },
+          onGeolocationRequest (position, accuracy) {
+            this.updateGeolocation(position, accuracy)
+            this.moveToLocation()
+          },
+          onGeolocationChange (position, accuracy) {
+            this.updateGeolocation(position, accuracy)
           }
         }
       }
