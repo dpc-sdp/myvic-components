@@ -74,9 +74,10 @@ This example shows how to create an interactive map that fills it's parent conta
           :minZoom="minZoom"
           :maxZoom="maxZoom"
           :enableZoomControl="enableZoomControl"
-          :zoomControlPosition="zoomControlPosition"
           :enableAttributionControl="enableAttributionControl"
           :enableFullScreenControl="enableFullScreenControl"
+          :enableGeolocationControl="enableGeolocationControl"
+          :controlPositions="controlPositions"
           :enablePanInteraction="enablePanInteraction"
           :enableZoomInteraction="enableZoomInteraction"
           :enableRotateInteraction="enableRotateInteraction"
@@ -136,14 +137,17 @@ This example shows how to create an interactive map that fills it's parent conta
           enableZoomControl: {
             default: boolean('Enable Zoom Control', true)
           },
-          zoomControlPosition: {
-            default: select('Zoom Control Position', { default: 'default', 'top-right': 'top-right'})
-          },
           enableAttributionControl: {
             default: boolean('Enable Attribution Control', true)
           },
           enableFullScreenControl: {
             default: boolean('Enable Full Screen Control', false)
+          },
+          enableGeolocationControl: {
+            default: boolean('Enable Geolocation Control', false)
+          },
+          controlPositions: {
+            default: select('Control Positions', { default: 'default', 'top-right': 'top-right'})
           },
           enablePanInteraction: {
             default: boolean('Enable Pan Interaction', true)
@@ -478,7 +482,7 @@ top-right to avoid hiding it with the popup.
           <myvic-map-core
             :containerStyle="containerStyle"
             :center.sync="center"
-            zoomControlPosition="top-right"
+            controlPositions="top-right"
             :popupContentFunction="generatePopupContent"
             :popupProps="popupProps"
             :enableSelectInteraction="true"
@@ -672,6 +676,52 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
           onClick: function (event) {
             let coordinate = event.map.getCoordinateFromPixel(event.pixel)
             this.clickDataBlock =  { title: coordinate.join(','), description: '@click' }
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Geolocation
+
+<Preview>
+  <Story name="Geolocation">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapVectorLayer },
+        template: `<myvic-map-core
+          :containerStyle="containerStyle"
+          baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+          :center.sync="center"
+          :zoom.sync="zoom"
+          :enableGeolocationControl="true"
+          @geolocation-change="onGeolocationChange"
+        >
+          <myvic-map-vector-layer
+            :features="features"
+            dataFormat="GeoJSON"
+            loadingStrategy="bbox"
+            :visible="!!geolocationPosition"
+          />
+        </myvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            zoom: 11,
+            features: [ new ol.Feature() ],
+            geolocationPosition: null
+          }
+        },
+        methods: {
+          onGeolocationChange (newPosition) {
+            this.geolocationPosition = newPosition
+            if (newPosition) {
+              this.features[0].setGeometry(new ol.geom.Point(newPosition))
+              this.center = newPosition
+              this.zoom = 14
+            }
           }
         }
       }
