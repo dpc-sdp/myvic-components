@@ -1028,7 +1028,7 @@ export default {
     cursor: pointer;
     border-radius: 0;
     overflow: hidden;
-    
+
     &:hover,&:focus {
       color: rpl-color('primary');
       background-color: rgba(246,246,246,0.9);
