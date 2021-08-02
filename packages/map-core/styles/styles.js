@@ -138,6 +138,7 @@ const createIconStyle = (icon, size, color, text) => {
 
 const defaultPinStyle = createIconStyle('pinOuter', 's', globalStyles.fillSecondaryHover)
 const selectedPinStyle = createIconStyle('pinOuter', 's', globalStyles.strokeLine1)
+const defaultGeolocationStyle = createIconStyle('geolocationCircle', 'm', '#0052c2')
 
 const createDefaultStyleFunction = (labelAttribute, labelOnly, selected) => {
   return (feature, resolution) => {
@@ -208,7 +209,7 @@ const hollowCluster = (features) => {
 const filledCluster = (features) => {
   const fontSize = 2.4
   const clusterSizeText = features.length > 99 ? `99<tspan style="font-size:${fontSize * 0.75}px">+</tspan>` : features.length.toString()
-  const iconSvg = getSvg('filledCluster', 'm', '#0052c2', clusterSizeText)
+  const iconSvg = getSvg('filledCluster', 'm', '#465870', clusterSizeText)
 
   // NOTE: the whitespace in the <text> element is
   // important: `>${clusterSizeText}</text>`
@@ -239,6 +240,7 @@ const styles = {
   defaultPolygonStyle,
   selectedPolygonStyle,
   defaultTextStyle,
+  defaultGeolocationStyle,
   createDefaultStyleFunction,
   createSelectedStyleFunction,
   createStylesFromIcon,

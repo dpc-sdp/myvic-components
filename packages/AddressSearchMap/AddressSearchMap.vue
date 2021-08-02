@@ -280,9 +280,6 @@ export default {
 </script>
 
 <style lang="scss">
-  .ol-full-screen {
-    top: 65px
-  }
   .myvic-address-search-map {
     &__container {
       position: absolute;
