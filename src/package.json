@@ -1,14 +1,14 @@
 {
   "name": "@dpc-sdp/myvic-storybook",
   "description": "Storybook instance for myvictoria component testing",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "start": "start-storybook -p 6006 -s ./static",
     "build-storybook": "NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-map-core": "2.0.4",
+    "@dpc-sdp/myvic-map-core": "2.1.0",
     "@dpc-sdp/ripple-global": "^1.8.0",
     "@dpc-sdp/ripple-grid": "^1.8.0",
     "@dpc-sdp/ripple-markup": "^1.8.0",

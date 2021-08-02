@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-line-chart",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "A line chart component.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-global": "2.0.4",
+    "@dpc-sdp/myvic-global": "2.1.0",
     "chart.js": "2.9.3",
     "chartjs-plugin-annotation": "^0.5.7",
     "lodash.merge": "^4.6.2",

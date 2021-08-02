@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AutoComplete/compare/v2.0.4...v2.1.0) (2021-08-02)
+
+
+### Features
+
+* coronavirus additional features ([#173](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AutoComplete/issues/173)) ([39933be](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AutoComplete/commit/39933be997ac235efc4e92bb933917866e895622))
+
+
+
+
+
+
 ## [2.0.4](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/AutoComplete/compare/v2.0.3...v2.0.4) (2021-07-23)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-autocomplete
