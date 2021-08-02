@@ -5,6 +5,8 @@ export const icons = {
   pinInner: `<path fill="white" fill-rule="evenodd" clip-rule="evenodd"
     d="M3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z" />`,
   circleOuter: `<circle cx="16.0741" cy="16.2337" r="16" fill="!!!customColor!!!"/>`,
+  geolocationCircle: `<circle fill="#53565a4f" stroke-width="0" cx="14" cy="14" r="14"/>
+  <circle fill="!!!customColor!!!" stroke-width="0" cx="14" cy="14" r="6"/>`,
   hollowCluster: `<circle stroke="!!!customColor!!!" fill="#ffffff" stroke-width="1" cx="4" cy="4" r="3.5"/>
     <text x="50%" y="50%" dy="1.25" text-anchor="middle" fill="!!!customColor!!!" style="font-size: 3.7px; font-weight: bold; font-family:VIC-Regular, Arial, Helvetica, sans-serif;">!!!customText!!!</text>`,
   filledCluster: `<circle fill="#53565a44" stroke-width="0" cx="4" cy="4" r="4"/>
@@ -74,6 +76,7 @@ const iconViewboxes = {
   pinOuter: '0 0 12 16',
   pinInner: '0 0 12 16',
   circleOuter: '0 0 33 33',
+  geolocationCircle: '0 0 44 44',
   hollowCluster: '0 0 8 8',
   filledCluster: '0 0 8 8',
   carCircle: '0 0 33 33',
@@ -98,6 +101,9 @@ const iconSizes = {
   circleOuter: {
     s: { width: 32, height: 32 },
     m: { width: 48, height: 48 }
+  },
+  geolocationCircle: {
+    m: { width: 44, height: 44 }
   },
   hollowCluster: {
     s: { width: 30, height: 30 },

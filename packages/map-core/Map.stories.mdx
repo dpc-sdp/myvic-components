@@ -74,9 +74,10 @@ This example shows how to create an interactive map that fills it's parent conta
           :minZoom="minZoom"
           :maxZoom="maxZoom"
           :enableZoomControl="enableZoomControl"
-          :zoomControlPosition="zoomControlPosition"
           :enableAttributionControl="enableAttributionControl"
           :enableFullScreenControl="enableFullScreenControl"
+          :enableGeolocationControl="enableGeolocationControl"
+          :controlPositions="controlPositions"
           :enablePanInteraction="enablePanInteraction"
           :enableZoomInteraction="enableZoomInteraction"
           :enableRotateInteraction="enableRotateInteraction"
@@ -136,14 +137,17 @@ This example shows how to create an interactive map that fills it's parent conta
           enableZoomControl: {
             default: boolean('Enable Zoom Control', true)
           },
-          zoomControlPosition: {
-            default: select('Zoom Control Position', { default: 'default', 'top-right': 'top-right'})
-          },
           enableAttributionControl: {
             default: boolean('Enable Attribution Control', true)
           },
           enableFullScreenControl: {
             default: boolean('Enable Full Screen Control', false)
+          },
+          enableGeolocationControl: {
+            default: boolean('Enable Geolocation Control', false)
+          },
+          controlPositions: {
+            default: select('Control Positions', { default: 'default', 'top-right': 'top-right'})
           },
           enablePanInteraction: {
             default: boolean('Enable Pan Interaction', true)
@@ -478,7 +482,7 @@ top-right to avoid hiding it with the popup.
           <myvic-map-core
             :containerStyle="containerStyle"
             :center.sync="center"
-            zoomControlPosition="top-right"
+            controlPositions="top-right"
             :popupContentFunction="generatePopupContent"
             :popupProps="popupProps"
             :enableSelectInteraction="true"
@@ -672,6 +676,72 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
           onClick: function (event) {
             let coordinate = event.map.getCoordinateFromPixel(event.pixel)
             this.clickDataBlock =  { title: coordinate.join(','), description: '@click' }
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Geolocation
+
+The Geolocation control is used here to display a point when the position is accurate and a wider area when it's not.
+
+<Preview>
+  <Story name="Geolocation">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapVectorLayer },
+        template: `<myvic-map-core
+          :containerStyle="containerStyle"
+          baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+          :center.sync="center"
+          :zoom.sync="zoom"
+          :enableGeolocationControl="true"
+          @geolocation-change="onGeolocationChange"
+          @geolocation-request="onGeolocationRequest"
+        >
+          <myvic-map-vector-layer
+            :features="features"
+            dataFormat="GeoJSON"
+            loadingStrategy="bbox"
+            :layerStyle="geolocationStyle"
+            :visible="geolocationAccuracy && accuracyCheck()"
+          />
+        </myvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            zoom: 11,
+            features: [ new ol.Feature() ],
+            geolocationPosition: null,
+            geolocationAccuracy: null,
+            geolocationStyle: styles.defaultGeolocationStyle
+          }
+        },
+        methods: {
+          accuracyCheck () {
+            return this.geolocationAccuracy < 5000
+          },
+          updateGeolocation (position, accuracy) {
+            this.geolocationPosition = position
+            this.features[0].setGeometry(new ol.geom.Point(position))
+            this.geolocationAccuracy = accuracy
+          },
+          moveToLocation () {
+            this.center = this.geolocationPosition
+            const zoomLevel = this.accuracyCheck() ? 14 : 11
+            if (this.zoom < zoomLevel) {
+              this.zoom = zoomLevel
+            }
+          },
+          onGeolocationRequest (position, accuracy) {
+            this.updateGeolocation(position, accuracy)
+            this.moveToLocation()
+          },
+          onGeolocationChange (position, accuracy) {
+            this.updateGeolocation(position, accuracy)
           }
         }
       }
