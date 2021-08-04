@@ -1029,7 +1029,11 @@ export default {
     border-radius: 0;
     overflow: hidden;
 
-    &:hover,&:focus {
+    &:focus {
+      color: rpl-color('dark_neutral');
+      background-color: rgba(256,256,256,0.95);
+    }
+    &:hover,&:active {
       color: rpl-color('primary');
       background-color: rgba(246,246,246,0.9);
     }

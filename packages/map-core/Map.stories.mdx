@@ -726,7 +726,9 @@ The Geolocation control is used here to display a point when the position is acc
           },
           updateGeolocation (position, accuracy) {
             this.geolocationPosition = position
-            this.features[0].setGeometry(new ol.geom.Point(position))
+            if (position) {
+              this.features[0].setGeometry(new ol.geom.Point(position))
+            }
             this.geolocationAccuracy = accuracy
           },
           moveToLocation () {
