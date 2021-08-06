@@ -1,6 +1,6 @@
 <template>
   <div class="myvic-data-driven">
-    <h2 v-if="title" class="myvic-data-driven__title">{{ title }}</h2>
+    <h2 v-if="title" class="myvic-data-driven__title" style="color: #011A3C;">{{ title }}</h2>
     <rpl-markup v-if="description" :html="description" class="myvic-data-driven__description" />
     <component
       v-if="dataDrivenComp"
