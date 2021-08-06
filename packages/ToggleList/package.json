@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-toggle-list",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A toggle list component.",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-global": "2.1.0"
+    "@dpc-sdp/myvic-global": "2.2.0"
   },
   "gitHead": "c87172a1c27cd4abc90fd5d3362ac0f96edee108"
 }
