@@ -923,78 +923,78 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dpc-sdp/myvic-address-search-map@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-address-search-map/-/myvic-address-search-map-1.9.5.tgz#6eed5ccb10bb7f079b0195212c5e441fee971386"
-  integrity sha512-ovySynYN7UYYP5Hs/xyl5C7F+UZOT0cHMjVthOG0NGxiskghsTO3/sEAT7/9Y4HcSVLBR8oy9/9GqtwswGjZeg==
+"@dpc-sdp/myvic-address-search-map@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-address-search-map/-/myvic-address-search-map-1.9.9.tgz#b6b8f4c88b84b088a80ee67d61df6c0f8b4c7986"
+  integrity sha512-c76kiqdgKq8UyFKiHmC7EJ+VULRt31ZGkpp+GN3zJJzB+Y/c5akBzlzUzR6S6SOgaE0/YivVY2kSYuafdFUzTw==
   dependencies:
-    "@dpc-sdp/myvic-addresssearch" "1.9.5"
-    "@dpc-sdp/myvic-global" "1.9.5"
-    "@dpc-sdp/myvic-map-core" "1.9.5"
+    "@dpc-sdp/myvic-addresssearch" "1.9.9"
+    "@dpc-sdp/myvic-global" "1.9.9"
+    "@dpc-sdp/myvic-map-core" "1.9.9"
     node-fetch "^2.6.0"
 
-"@dpc-sdp/myvic-addresssearch@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-addresssearch/-/myvic-addresssearch-1.9.5.tgz#df3fad058e80d4c1158dc43a1e7414710b1e054e"
-  integrity sha512-8PdcfZE/urheHYbmPQTIcATfdeasuesLPJDFNTvshto628/qw/3gz+EJVO3GlnBHHTThH8Gq4SlYF0Vf+SVNoA==
+"@dpc-sdp/myvic-addresssearch@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-addresssearch/-/myvic-addresssearch-1.9.9.tgz#58fb3a229747f1272521825eb80291f3a86f801f"
+  integrity sha512-j1fwCGhcRSlJ870PhAZZzxz6A9ueOeQpdBy3VuZJY/Feg0GtYkX23F5sMNbC8OmmMoi4L06oKv9Mf3xcjpbiqQ==
   dependencies:
-    "@dpc-sdp/myvic-autocomplete" "1.9.5"
+    "@dpc-sdp/myvic-autocomplete" "1.9.9"
     axios "^0.21.1"
 
-"@dpc-sdp/myvic-autocomplete@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-autocomplete/-/myvic-autocomplete-1.9.5.tgz#7829a8ab883b4053fb7b04f9ebf287b190f84470"
-  integrity sha512-AvbFzRmR4CY5jO+Q9IOkYl0fRD2FFOfG6UeWxNytmkEddCn+CopIwFHWxt4s1sHfBDR8KbyU6fGWAeDJP6CbfA==
+"@dpc-sdp/myvic-autocomplete@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-autocomplete/-/myvic-autocomplete-1.9.9.tgz#295bf4f8592825332458c6505b21f14c207676c1"
+  integrity sha512-h1tW22SrUFzNFPGDjpjKepgP4il/FrbDiTQVMpvs+cz0aJsx24+Wn0dUlkPgn57e77ElqMovQKkZT5zi5S6/5Q==
   dependencies:
-    "@dpc-sdp/myvic-global" "1.9.5"
+    "@dpc-sdp/myvic-global" "1.9.9"
     "@dpc-sdp/ripple-icon" "^1.8.0"
     lodash.debounce "^4.0.8"
 
-"@dpc-sdp/myvic-bar-chart@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-bar-chart/-/myvic-bar-chart-1.9.5.tgz#84a8a09a4389fb7d0c3d087d3f42892c0fe1793e"
-  integrity sha512-Gx/tfl0guJU6c0W3175hWJ+GS6oKax7cLCkd67ieVDws2YeqHXtq6kXcDWVoi22utV3MVepbwPhGL5Yt31iEOw==
+"@dpc-sdp/myvic-bar-chart@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-bar-chart/-/myvic-bar-chart-1.9.9.tgz#268bf37fc2d7d3adf14d245de45a4e5050cdd54d"
+  integrity sha512-12RsgxbmDbWKSdrqYF8xe0xZ9xAOKPlD4X1LqiS9aLD8euiB+fHMUuJ+KoiLp8nW6htpvpvWl+vKw69GSvfg8Q==
   dependencies:
-    "@dpc-sdp/myvic-global" "1.9.5"
+    "@dpc-sdp/myvic-global" "1.9.9"
     chart.js "2.9.3"
     chartjs-plugin-annotation "^0.5.7"
     chartjs-plugin-datalabels "^0.7.0"
     lodash.merge "^4.6.2"
     vue-chartjs "^3.5.0"
 
-"@dpc-sdp/myvic-data-block@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-data-block/-/myvic-data-block-1.9.5.tgz#46a0a4563b677656679e6d5c3dec420278fd98af"
-  integrity sha512-A2eydqyeaY2FnteZl43bFkoSda2rgq2AgHuKH2USj/Ibg+eh/XF3eE7JotJXiSO9932xn5YpyXFp//8g07qUOw==
+"@dpc-sdp/myvic-data-block@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-data-block/-/myvic-data-block-1.9.9.tgz#dd147d9898c7a9bbce5510b8309de1ec339cf534"
+  integrity sha512-aC3BoodtC9oDElXwt3AbynV8MU4fBXMVW8cyQT89vzzge1jTqQMpd2hDHUg5GT+50E6aUZmT9qlxXGqzX48FZA==
   dependencies:
-    "@dpc-sdp/myvic-global" "1.9.5"
+    "@dpc-sdp/myvic-global" "1.9.9"
     "@dpc-sdp/ripple-icon" "^1.8.0"
 
-"@dpc-sdp/myvic-global@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-global/-/myvic-global-1.9.5.tgz#d94b0d5e58c1820f2f5a03f9c317c796158aaf25"
-  integrity sha512-rE1uXfmmP7y1qdB/J2sGmkfa61cfe/hLfarkV7Zf0IVOzb96JAcDxCcSSjRMEGyA9rCVHzeaRM1mPh3IJ41fAg==
+"@dpc-sdp/myvic-global@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-global/-/myvic-global-1.9.9.tgz#4571c333691f31dedab8e81429c1a716a8044789"
+  integrity sha512-kzkIHFnQRiYEOz6cxEWrW/U0HOJj1I4GGWfJfCXuf5BlSNknPzV2OQH5QB0PSzZnYNk/a12r7S9+8l1TGz4IXw==
   dependencies:
     "@dpc-sdp/ripple-global" "^1.8.0"
     axios "^0.21.1"
 
-"@dpc-sdp/myvic-line-chart@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-line-chart/-/myvic-line-chart-1.9.5.tgz#8d082b9a75c9f8101f1c221889a0f006421eadae"
-  integrity sha512-EORpA3DM7epVvgJg8s3YbQuD+FmiDwzLhE/5/SUswZGl1TXfcMfXpAVVQPgvhDEg9aGwyaceaAQOU+k72exsFQ==
+"@dpc-sdp/myvic-line-chart@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-line-chart/-/myvic-line-chart-1.9.9.tgz#278e06d2a59aa35e5e1a1028bed37e152cf579d1"
+  integrity sha512-H3IeKZ2VLHvVskyQWLhmLYNjOaznwFGUdd+vtDMpZyTzuUZBrcjTNtx9Z9RGgnsfKFmwyvhNWkAstRP7qJUF0g==
   dependencies:
-    "@dpc-sdp/myvic-global" "1.9.5"
+    "@dpc-sdp/myvic-global" "1.9.9"
     chart.js "2.9.3"
     chartjs-plugin-annotation "^0.5.7"
     lodash.merge "^4.6.2"
     vue-chartjs "^3.5.0"
 
-"@dpc-sdp/myvic-map-core@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-map-core/-/myvic-map-core-1.9.5.tgz#bd6b8d918b56e63787325a783125cb50b59f30f2"
-  integrity sha512-TwI9EKLalqJBf8Avpi1KcwFp74l7/3/s8X1ttcoJ1LaDUeeAprJnEr+/L2RGaSyMXNjSu4iitl9GriZCmAwEkQ==
+"@dpc-sdp/myvic-map-core@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-map-core/-/myvic-map-core-1.9.9.tgz#618de5e7d82827609eac8a511187d84bc6d4ac7d"
+  integrity sha512-Zjc/VvyYenmHg2Y6x8C6JzM9B/KeYP37bthPQYe8iwLAR3IzuP0B6Jw7UeFfcdBvWxTIyeIvPBXAbOoZTg8S4w==
   dependencies:
-    "@dpc-sdp/myvic-global" "1.9.5"
+    "@dpc-sdp/myvic-global" "1.9.9"
     "@dpc-sdp/ripple-alert" "^1.8.0"
     "@dpc-sdp/ripple-global" "^1.8.0"
     ol "^6.4.3"
@@ -1002,23 +1002,23 @@
     ol-mapbox-style "^6.1.4"
     proj4 "^2.6.2"
 
-"@dpc-sdp/myvic-pie-chart@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-pie-chart/-/myvic-pie-chart-1.9.5.tgz#c7012fb80664dc0b6421f1aec478bff6ebbf0cc0"
-  integrity sha512-9zanjsEfathR2in3fAjXjVRG2V75Hh4FTxIVHOMjYNBvQGX1jNnjiAPs8Y41ZfkQA33hju4dDIutQdv+TT91jQ==
+"@dpc-sdp/myvic-pie-chart@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-pie-chart/-/myvic-pie-chart-1.9.9.tgz#5e3f9d5b9a087129344004c2729e5ab9e71876dc"
+  integrity sha512-KDkOq4lp1ASS/N5RM9ZttiliQ60vBNZlTEehI1y6HuwBIss9ewN5XEtyJIsoi2PmuyhoKj/HpWa8ZzrrHDcQuA==
   dependencies:
-    "@dpc-sdp/myvic-global" "1.9.5"
+    "@dpc-sdp/myvic-global" "1.9.9"
     chart.js "2.9.3"
     chartjs-plugin-datalabels "^0.7.0"
     lodash.merge "^4.6.2"
     vue-chartjs "^3.5.0"
 
-"@dpc-sdp/myvic-treemap@1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-treemap/-/myvic-treemap-1.9.5.tgz#6d4efe5344dc1c37f0207b39ea9e4620b2988f44"
-  integrity sha512-MAJMsbTXd56IU3RFoc5VPZMnylxe+KVGU1ZW+afjtrXuyb6G/H+WXdS0MIpihrOo7qmEXV7gLhYvcNg8oqTWrQ==
+"@dpc-sdp/myvic-treemap@1.9.9":
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/myvic-treemap/-/myvic-treemap-1.9.9.tgz#ba4b9db671a22563c7907c2893fd20186fd7bb96"
+  integrity sha512-NUD51ifL04TJ9w8RrEIKAp76wrncSgnvCZ3EZAhzmUKfHMAtdFJ0lLgZaeuuNZlRQmsbXNu6eY3sadkACDNHwA==
   dependencies:
-    "@dpc-sdp/myvic-global" "1.9.5"
+    "@dpc-sdp/myvic-global" "1.9.9"
     "@dpc-sdp/ripple-global" "^1.8.0"
     chart.js "2.9.3"
     chartjs-chart-treemap "^0.2.3"
@@ -1032,6 +1032,42 @@
     "@dpc-sdp/ripple-global" "1.21.2"
     "@dpc-sdp/ripple-icon" "1.21.2"
     "@dpc-sdp/ripple-link" "1.21.2"
+
+"@dpc-sdp/ripple-button@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-button/-/ripple-button-1.22.0.tgz#6e4199583b54255742fd1b85350b1837c340045d"
+  integrity sha512-6gewlX6E1mA+kiCJLUN5EVN511/LCH8wNbF+Qwlt31Pns6swuFi1cYeHSQNMzvOkRGAsK65aMxN00G7XERbU9Q==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-link" "1.22.0"
+
+"@dpc-sdp/ripple-card@^1.8.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-card/-/ripple-card-1.22.0.tgz#c3a5eeb1a2c42d854727676b62912b7fb37ddde2"
+  integrity sha512-W3bItaO4PqQ2Ln3QhzsvSwqM81b8Dqr/5WmR0PejWfVejeL+2FOuPMZiCWiaMPB3lkfhKRuaM8n+nPlY4F+U1g==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-icon" "1.22.0"
+    "@dpc-sdp/ripple-link" "1.22.0"
+    fontfaceobserver "^2.0.13"
+    vue-carousel "^0.18.0"
+
+"@dpc-sdp/ripple-document-link@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-document-link/-/ripple-document-link-1.22.0.tgz#85da2758161b028f4f20836879a472e01f2afff9"
+  integrity sha512-ozYel08nFP26k8jeA36Aq9gw3Wf8TjkgldYF0bXadtgdwjcx5BGq0E7ShgI/U0KVb2OsF0awfY8iM1FItPW4/g==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-icon" "1.22.0"
+
+"@dpc-sdp/ripple-embedded-video@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-embedded-video/-/ripple-embedded-video-1.22.0.tgz#c6632de6535f164f793262208273258487b58d84"
+  integrity sha512-CIDNdoyJlLgluT+9/oeGvt+zy9x4LXRQGLNB3CETKyYjNm2CVyYdaKUo2r7veuHBvEvj+11TfYqqkhL6Dww2QQ==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-icon" "1.22.0"
+    "@dpc-sdp/ripple-link" "1.22.0"
 
 "@dpc-sdp/ripple-form@1.11.0":
   version "1.11.0"
@@ -1066,6 +1102,28 @@
     object-fit-images "^3.2.3"
     vue-focus "^2.1.0"
 
+"@dpc-sdp/ripple-global@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-global/-/ripple-global-1.22.0.tgz#495a38d4e8e4bc4b14d4bacd3cad0c81fca11238"
+  integrity sha512-AM/Hcj5nKtoblIEOW1xSVje8Nlsb3Lrf7BVQ8/5EvLWf+gSLBpwOj3orPAQH9nYVqWgWmY4Qk9gX0nZLl9jkqg==
+  dependencies:
+    masonry-layout "^4.2.1"
+    moment "^2.29.1"
+    object-fit-images "^3.2.3"
+    vue-focus "^2.1.0"
+
+"@dpc-sdp/ripple-grants@^1.8.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grants/-/ripple-grants-1.22.0.tgz#e168f325e76b990de5309e9895044e3c6fb50756"
+  integrity sha512-/2Jr9GzqiYLbR49KQ5Na+SCuYFo5PAHp7LI5GcITlBklCxygGzCcQ/10TO+3ALvvMp8pJtjbh/DDtUSQeknh/w==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.22.0"
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-list" "1.22.0"
+    "@dpc-sdp/ripple-markup" "1.22.0"
+    "@dpc-sdp/ripple-meta-tag" "1.22.0"
+    moment "^2.29.1"
+
 "@dpc-sdp/ripple-grid@1.11.0", "@dpc-sdp/ripple-grid@^1.8.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-grid/-/ripple-grid-1.11.0.tgz#2a832e5c1da9b75a90bff168e0b50fd2bf1d6791"
@@ -1084,6 +1142,13 @@
   integrity sha512-1MkPPJZc82Qlxn7rKNEM5AGJspSVvPMHLjpgZFhLBdPfHvrqd45GcUW442gJVeg8nwSmq2YmUiiQMnRQ2iPESg==
   dependencies:
     "@dpc-sdp/ripple-global" "1.21.2"
+
+"@dpc-sdp/ripple-icon@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-icon/-/ripple-icon-1.22.0.tgz#b50883763e7fb84da71c3e017b996e03bdfe24bf"
+  integrity sha512-2fXD/hWjYuNDrPIeyw2l6vPBwDjxk/mHsCcsOCEANK/wxbMIYhEjXV8e5yMqgtTB+b95HWjam6BTOW4HPBBuHg==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
 
 "@dpc-sdp/ripple-layout@^1.8.0":
   version "1.11.0"
@@ -1111,6 +1176,35 @@
     "@dpc-sdp/ripple-global" "1.21.2"
     "@dpc-sdp/ripple-icon" "1.21.2"
 
+"@dpc-sdp/ripple-link@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-link/-/ripple-link-1.22.0.tgz#10fcded530fc271087eff53fbe4eb32c7ab8442e"
+  integrity sha512-qqGuQVZYpDpnx2RjcMrLDJ87zXSXAaIe9489sf9LaTE6ZHmul3MzjhwD0w3G1zIMvS15TwTPhVhDwcSfpYmvDg==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-icon" "1.22.0"
+
+"@dpc-sdp/ripple-list@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-list/-/ripple-list-1.22.0.tgz#6b5b2bea4a7d270d28fc70c156f69712ad8d3ea2"
+  integrity sha512-1IpfsUSfdzLWMYBL3SEvSkav5ihbG7k9iAAB9SKmOjxnERviTmNx/8t6I8WtMde/5jVxlt8XAtxKa5MOVec5jg==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-icon" "1.22.0"
+    "@dpc-sdp/ripple-link" "1.22.0"
+
+"@dpc-sdp/ripple-markup@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-markup/-/ripple-markup-1.22.0.tgz#e9de6365dd8f827ab4f439a65b96229e6b6cbe81"
+  integrity sha512-WsCscYvSAXezVVL0GOlSwwklaZa50AHur8doLCSRHarNMPrUCxwYUVdhrLMuX7DARObPv2IJBwc862znN9a2WA==
+  dependencies:
+    "@dpc-sdp/ripple-button" "1.22.0"
+    "@dpc-sdp/ripple-document-link" "1.22.0"
+    "@dpc-sdp/ripple-embedded-video" "1.22.0"
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-link" "1.22.0"
+    cheerio "1.0.0-rc.2"
+
 "@dpc-sdp/ripple-meta-tag@1.11.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-meta-tag/-/ripple-meta-tag-1.11.0.tgz#9decbdc8598dde72020a9cf2b8682fe6d9930dc3"
@@ -1119,6 +1213,14 @@
     "@dpc-sdp/ripple-global" "1.11.0"
     "@dpc-sdp/ripple-link" "1.11.0"
 
+"@dpc-sdp/ripple-meta-tag@1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-meta-tag/-/ripple-meta-tag-1.22.0.tgz#b408d3e69a4960db37b586a7b8836b8175e79e3b"
+  integrity sha512-djlyEke2DVrXP7M07PS8/2J44u5rvPh1QGBny2zARPxqa1DUz7uY6m1bphtKjhE5lbkhotuYt+WJe6ZjP8b/kA==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
+    "@dpc-sdp/ripple-link" "1.22.0"
+
 "@dpc-sdp/ripple-pagination@1.11.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-pagination/-/ripple-pagination-1.11.0.tgz#7a158e6b43e13335656b09f5b75b08ae779b2459"
@@ -1126,6 +1228,13 @@
   dependencies:
     "@dpc-sdp/ripple-global" "1.11.0"
     "@dpc-sdp/ripple-icon" "1.11.0"
+
+"@dpc-sdp/ripple-responsive-img@^1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@dpc-sdp/ripple-responsive-img/-/ripple-responsive-img-1.22.0.tgz#10eab6fd48a8057854962533b8a569501ac2dd26"
+  integrity sha512-4IVj80xZ9mPmVtOrue3FUHeSWkq8Bdz1LdLmZE1GVbUlhHcdQhWquqUVD2fmtnjK6IpY5/9wo6Ws7DG3337WIw==
+  dependencies:
+    "@dpc-sdp/ripple-global" "1.22.0"
 
 "@dpc-sdp/ripple-search@1.11.0":
   version "1.11.0"
@@ -1460,7 +1569,7 @@
     webpack "^4.0.0"
     yorkie "^2.0.0"
 
-"@vue/cli-plugin-router@^4.4.6":
+"@vue/cli-plugin-router@^4.4.6", "@vue/cli-plugin-router@~4.4.0":
   version "4.4.6"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-router/-/cli-plugin-router-4.4.6.tgz#db5bb1c92afd2046376e4faa90270d6363d4b9b8"
   integrity sha512-TkLdn0ZYo3zgn78Rk8doPlR+4UkGjGW2R1eGEaZEkue/mw2VhUWtTk9cKLZaYrw0eY8Ro/j+OV6mD+scyrairg==
@@ -2657,6 +2766,18 @@ check-types@^8.0.3:
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-8.0.3.tgz#3356cca19c889544f2d7a95ed49ce508a0ecf552"
   integrity sha512-YpeKZngUmG65rLudJ4taU7VLkOCTMhNl/u4ctNC56LQS/zJTyNH0Lrtwm1tfTsbLlwvlfsA2d1c8vCf/Kh2KwQ==
 
+cheerio@1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-1.0.0-rc.2.tgz#4b9f53a81b27e4d5dac31c0ffd0cfa03cc6830db"
+  integrity sha1-S59TqBsn5NXawxwP/Qz6A8xoMNs=
+  dependencies:
+    css-select "~1.2.0"
+    dom-serializer "~0.1.0"
+    entities "~1.1.1"
+    htmlparser2 "^3.9.1"
+    lodash "^4.15.0"
+    parse5 "^3.0.1"
+
 chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
@@ -3252,7 +3373,7 @@ css-select-base-adapter@^0.1.1:
   resolved "https://registry.yarnpkg.com/css-select-base-adapter/-/css-select-base-adapter-0.1.1.tgz#3b2ff4972cc362ab88561507a95408a1432135d7"
   integrity sha512-jQVeeRG70QI08vSTwf1jHxp74JoZsr2XSgETae8/xC8ovSnL2WF87GTLO86Sbwdt2lK4Umg4HnnwMO4YF3Ce7w==
 
-css-select@^1.1.0:
+css-select@^1.1.0, css-select@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/css-select/-/css-select-1.2.0.tgz#2b3a110539c5355f1cd8d314623e870b121ec858"
   integrity sha1-KzoRBTnFNV8c2NMUYj6HCxIeyFg=
@@ -3680,12 +3801,25 @@ dom-serializer@0:
     domelementtype "^2.0.1"
     entities "^2.0.0"
 
+dom-serializer@~0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.1.1.tgz#1ec4059e284babed36eec2941d4a970a189ce7c0"
+  integrity sha512-l0IU0pPzLWSHBcieZbpOKgkIn3ts3vAh7ZuFyXNwJxJXk/c4Gwj9xaTJwIDVQCXawWD0qb3IzMGH5rglQaO0XA==
+  dependencies:
+    domelementtype "^1.3.0"
+    entities "^1.1.1"
+
+dom-walk@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.2.tgz#0c548bef048f4d1f2a97249002236060daa3fd84"
+  integrity sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==
+
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
   integrity sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==
 
-domelementtype@1, domelementtype@^1.3.1:
+domelementtype@1, domelementtype@^1.3.0, domelementtype@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-1.3.1.tgz#d048c44b37b0d10a7f2a3d5fee3f4333d790481f"
   integrity sha512-BSKB+TSpMpFI/HOxCNr1O8aMOTZ8hT3pM3GQ0w/mWRmkhEDSFJkkyzz4XQsBV44BChwGkrDfMyjVD0eA2aFV3w==
@@ -3842,7 +3976,7 @@ enhanced-resolve@^4.3.0:
     memory-fs "^0.5.0"
     tapable "^1.0.0"
 
-entities@^1.1.1:
+entities@^1.1.1, entities@~1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
@@ -4496,6 +4630,11 @@ follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
   integrity sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==
 
+fontfaceobserver@^2.0.13:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/fontfaceobserver/-/fontfaceobserver-2.1.0.tgz#e2705d293e2c585a6531c2a722905657317a2991"
+  integrity sha512-ReOsO2F66jUa0jmv2nlM/s1MiutJx/srhAe2+TE8dJCMi02ZZOcCTxTCQFr3Yet+uODUtnr4Mewg+tNQ+4V1Ng==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -4740,6 +4879,14 @@ global-dirs@^2.0.1:
   integrity sha512-5HqUqdhkEovj2Of/ms3IeS/EekcO54ytHRLV4PEY2rhRwrHXLQjeVEES0Lhka0xwNDtGYn58wyC4s5+MHsOO6A==
   dependencies:
     ini "^1.3.5"
+
+global@^4.3.2:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
+  integrity sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==
+  dependencies:
+    min-document "^2.19.0"
+    process "^0.11.10"
 
 globals@^11.1.0, globals@^11.7.0:
   version "11.12.0"
@@ -5015,7 +5162,7 @@ html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-htmlparser2@^3.3.0, htmlparser2@^3.8.3:
+htmlparser2@^3.3.0, htmlparser2@^3.8.3, htmlparser2@^3.9.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
   integrity sha512-IgieNijUMbkDovyoKObU1DUhm1iwNYE/fuifEoEHfd1oZKZDaONBSkal7Y01shxsM49R4XaMdGez3WnF9UfiCQ==
@@ -6024,6 +6171,11 @@ lodash@4.17.19, lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
+lodash@^4.15.0:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 log-symbols@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-3.0.0.tgz#f3a08516a5dea893336a7dee14d18a1cfdab77c4"
@@ -6316,6 +6468,13 @@ mimic-fn@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
+
+min-document@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/min-document/-/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
+  integrity sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
+  dependencies:
+    dom-walk "^0.1.0"
 
 mini-css-extract-plugin@^0.9.0:
   version "0.9.0"
@@ -7102,6 +7261,13 @@ parse5-htmlparser2-tree-adapter@^5.1.1:
   integrity sha512-CF+TKjXqoqyDwHqBhFQ+3l5t83xYi6fVT1tQNg+Ye0JRLnTxWvIroCjEp1A0k4lneHNBGnICUf0cfYVYGEazqw==
   dependencies:
     parse5 "^5.1.1"
+
+parse5@^3.0.1:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/parse5/-/parse5-3.0.3.tgz#042f792ffdd36851551cf4e9e066b3874ab45b5c"
+  integrity sha512-rgO9Zg5LLLkfJF9E6CCmXlSE4UVceloys8JrFqCcHloC3usd/kJCyPDwH2SOlzix2j3xaP9sUX3e8+kvkuleAA==
+  dependencies:
+    "@types/node" "*"
 
 parse5@^5.1.1:
   version "5.1.1"
@@ -8008,6 +8174,11 @@ regenerate@^1.4.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.1.tgz#cad92ad8e6b591773485fbe05a485caf4f457e6f"
   integrity sha512-j2+C8+NtXQgEKWk49MMP5P/u2GhnahTtVkRIHr5R5lVRlbKvmQ+oS+A5aLKWp2ma5VkT8sh6v+v4hbH0YHR66A==
+
+regenerator-runtime@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
+  integrity sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
 
 regenerator-runtime@^0.13.4:
   version "0.13.7"
@@ -9637,6 +9808,15 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
+vue-carousel@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/vue-carousel/-/vue-carousel-0.18.0.tgz#478dfcad3abe2ee44c227020b6e60fb8484dc9f1"
+  integrity sha512-a2zxh7QJioDxNMguqcuJ7TPbfgK5bGDaAXIia7NWxPAWsEvNE4ZtHgsGu40L5Aha4uyjmNKXvleB14QAXFoKig==
+  dependencies:
+    global "^4.3.2"
+    regenerator-runtime "^0.12.1"
+    vue "^2.5.17"
+
 vue-chartjs@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.5.0.tgz#edd0c2be94c521bcbc5357c24afb9f3560855f84"
@@ -9694,6 +9874,11 @@ vue-multiselect@^2.1.3:
   resolved "https://registry.yarnpkg.com/vue-multiselect/-/vue-multiselect-2.1.6.tgz#5be5d811a224804a15c43a4edbb7485028a89c7f"
   integrity sha512-s7jmZPlm9FeueJg1RwJtnE9KNPtME/7C8uRWSfp9/yEN4M8XcS/d+bddoyVwVnvFyRh9msFo0HWeW0vTL8Qv+w==
 
+vue-router@^3.3.4:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.5.2.tgz#5f55e3f251970e36c3e8d88a7cd2d67a350ade5c"
+  integrity sha512-807gn82hTnjCYGrnF3eNmIw/dk7/GE4B5h69BlyCK9KHASwSloD1Sjcn06zg9fVG4fYH2DrsNBZkpLtb25WtaQ==
+
 vue-scrollto@^2.13.0:
   version "2.18.2"
   resolved "https://registry.yarnpkg.com/vue-scrollto/-/vue-scrollto-2.18.2.tgz#113a3548341974d3a2560145f39fcc0378533821"
@@ -9721,6 +9906,11 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue@^2.5.17:
+  version "2.6.14"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
+  integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
 
 vue@^2.6.10:
   version "2.6.11"

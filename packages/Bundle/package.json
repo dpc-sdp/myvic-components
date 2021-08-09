@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-bundle",
-  "version": "1.9.5",
+  "version": "2.1.0",
   "description": "Bundle (UMD) of MyVictoria components",
   "license": "Apache-2.0",
   "main": "dist/myvic-bundle.js",
@@ -14,18 +14,18 @@
     "build-analyze": "cross-env BUNDLE_ANALYZE=1 webpack"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-addresssearch": "1.9.5",
-    "@dpc-sdp/myvic-areasearch": "1.9.5",
-    "@dpc-sdp/myvic-autocomplete": "1.9.5",
-    "@dpc-sdp/myvic-bar-chart": "1.9.5",
-    "@dpc-sdp/myvic-data-block": "1.9.5",
-    "@dpc-sdp/myvic-examples": "1.9.5",
-    "@dpc-sdp/myvic-global": "1.9.5",
-    "@dpc-sdp/myvic-line-chart": "1.9.5",
-    "@dpc-sdp/myvic-map-core": "1.9.5",
-    "@dpc-sdp/myvic-pie-chart": "1.9.5",
-    "@dpc-sdp/myvic-toggle-list": "1.9.5",
-    "@dpc-sdp/myvic-treemap": "1.9.5",
+    "@dpc-sdp/myvic-addresssearch": "2.1.0",
+    "@dpc-sdp/myvic-areasearch": "2.1.0",
+    "@dpc-sdp/myvic-autocomplete": "2.1.0",
+    "@dpc-sdp/myvic-bar-chart": "2.1.0",
+    "@dpc-sdp/myvic-data-block": "2.1.0",
+    "@dpc-sdp/myvic-examples": "2.1.0",
+    "@dpc-sdp/myvic-global": "2.1.0",
+    "@dpc-sdp/myvic-line-chart": "2.1.0",
+    "@dpc-sdp/myvic-map-core": "2.1.0",
+    "@dpc-sdp/myvic-pie-chart": "2.1.0",
+    "@dpc-sdp/myvic-toggle-list": "2.1.0",
+    "@dpc-sdp/myvic-treemap": "2.1.0",
     "@dpc-sdp/ripple-global": "^1.8.0",
     "babel-polyfill": "6.26.0",
     "whatwg-fetch": "3.2.0"
@@ -39,5 +39,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "gitHead": "c87172a1c27cd4abc90fd5d3362ac0f96edee108"
 }

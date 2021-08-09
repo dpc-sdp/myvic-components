@@ -109,7 +109,8 @@ export default {
     background-color: rgba(255, 255, 255, 0.95);
     right: 1rem;
     bottom: 2rem;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 0px 6px 0px #00000033;
+    border-radius: 4px;
     max-width: 20rem;
 
     &--isLeftAligned {

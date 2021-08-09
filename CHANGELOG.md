@@ -3,6 +3,133 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/dpc-sdp/myvic-components/compare/v2.0.4...v2.1.0) (2021-08-02)
+
+
+### Features
+
+* coronavirus additional features ([#173](https://github.com/dpc-sdp/myvic-components/issues/173)) ([39933be](https://github.com/dpc-sdp/myvic-components/commit/39933be997ac235efc4e92bb933917866e895622))
+
+
+
+
+
+
+## [2.0.4](https://github.com/dpc-sdp/myvic-components/compare/v2.0.3...v2.0.4) (2021-07-23)
+
+**Note:** Version bump only for package myvic-components
+
+
+
+
+
+## [2.0.3](https://github.com/dpc-sdp/myvic-components/compare/v2.0.2...v2.0.3) (2021-07-23)
+
+
+### Bug Fixes
+
+* bug fixes with new popup features and map events ([5937302](https://github.com/dpc-sdp/myvic-components/commit/5937302b282e65b891a41b8de96706eb77d21fd9))
+
+
+
+
+
+
+## [2.0.2](https://github.com/dpc-sdp/myvic-components/compare/v2.0.1...v2.0.2) (2021-07-22)
+
+**Note:** Version bump only for package myvic-components
+
+
+
+
+
+## [2.0.1](https://github.com/dpc-sdp/myvic-components/compare/v2.0.0...v2.0.1) (2021-07-22)
+
+**Note:** Version bump only for package myvic-components
+
+
+
+
+
+# [2.0.0](https://github.com/dpc-sdp/myvic-components/compare/v1.9.11...v2.0.0) (2021-07-22)
+
+
+### Features
+
+* dummy commit to trigger major version bump ([e23a3b1](https://github.com/dpc-sdp/myvic-components/commit/e23a3b1e243afd7e4f86b5e6a68b270e9c1fa4ee))
+* map and popup enhancements ([#168](https://github.com/dpc-sdp/myvic-components/issues/168)) ([0941e77](https://github.com/dpc-sdp/myvic-components/commit/0941e777e4f982ce6787ea423d87affe834a073b))
+
+
+### BREAKING CHANGES
+
+* refer to previous commit for the breaking changes regarding the map 'select' and 'mapclick' events
+
+
+
+
+
+
+## [1.9.11](https://github.com/dpc-sdp/myvic-components/compare/v1.9.10...v1.9.11) (2021-06-30)
+
+**Note:** Version bump only for package myvic-components
+
+
+
+
+
+
+## [1.9.10](https://github.com/dpc-sdp/myvic-components/compare/v1.9.9...v1.9.10) (2021-06-28)
+
+
+### Bug Fixes
+
+* restore example site ([#166](https://github.com/dpc-sdp/myvic-components/issues/166)) ([4941156](https://github.com/dpc-sdp/myvic-components/commit/49411569509713b9bb3d62e4d0dcf3514dda206c)), closes [PR#90](https://github.com/PR/issues/90)
+
+
+
+
+
+
+## [1.9.9](https://github.com/dpc-sdp/myvic-components/compare/v1.9.8...v1.9.9) (2021-06-22)
+
+**Note:** Version bump only for package myvic-components
+
+
+
+
+
+
+## [1.9.8](https://github.com/dpc-sdp/myvic-components/compare/v1.9.7...v1.9.8) (2021-06-15)
+
+**Note:** Version bump only for package myvic-components
+
+
+
+
+
+
+## [1.9.7](https://github.com/dpc-sdp/myvic-components/compare/v1.9.6...v1.9.7) (2021-06-15)
+
+**Note:** Version bump only for package myvic-components
+
+
+
+
+
+
+## [1.9.6](https://github.com/dpc-sdp/myvic-components/compare/v1.9.5...v1.9.6) (2021-06-09)
+
+
+### Bug Fixes
+
+* fix broken tests ([#153](https://github.com/dpc-sdp/myvic-components/issues/153)) ([9491a15](https://github.com/dpc-sdp/myvic-components/commit/9491a1515547884617734855087238e548447e2b))
+* node version install issue ([#154](https://github.com/dpc-sdp/myvic-components/issues/154)) ([6d402fc](https://github.com/dpc-sdp/myvic-components/commit/6d402fc2a5eac63c70144d3a276302ff7101ccb1))
+
+
+
+
+
+
 ## [1.9.5](https://github.com/dpc-sdp/myvic-components/compare/v1.9.4...v1.9.5) (2021-05-27)
 
 

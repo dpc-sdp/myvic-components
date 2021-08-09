@@ -7,7 +7,9 @@
         :item="item"
         :icon="item.icon"
         :color="item.color"
-        :is-selected="selectedItems[item.id]"
+        :customColor="item.customColor"
+        :is-selected="selectedItems[item.id] || !showCheckboxes"
+        :show-checkbox="showCheckboxes"
         @click="onItemClick(item)" />
     </ul>
     <error v-if="gotError" :message="error.toString()" class="myvic-toggle-list__error"/>
@@ -32,7 +34,9 @@ export default {
     /**
      * Array of items to be shown in the toggle list. Each item is an object and should have an ```id``` and
      * ```title```, and optionally an ```icon``` and ```color```. The ```icon``` and ```color``` must be supported by
-     * the Ripple Icon component: https://ripple.sdp.vic.gov.au/?path=/story/atoms-icon--icon-library
+     * the Ripple Icon component: https://ripple.sdp.vic.gov.au/?path=/story/atoms-icon--icon-library.
+     * Icons from the icon library in the global package are supported as well.
+     * For Ripple icons, custom colors can be specified as well as long as the ```customColor``` property is set to true
      */
     items: {
       type: Array,
@@ -45,6 +49,14 @@ export default {
     selectedItems: {
       type: Object,
       default: () => {}
+    },
+    /**
+     * The checkboxes can be hidden turning this component into simple list. The selected style is then applied to all items regardless
+     * of their selected status
+     */
+    showCheckboxes: {
+      type: Boolean,
+      default: true
     }
   },
   data () {

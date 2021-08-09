@@ -3,6 +3,7 @@
     <div class="myvic-address-search-map__map-container">
       <div class="myvic-address-search-map__address-search-container">
         <address-search
+          v-if="!ie11"
           class="myvic-address-search-map__address-search"
           :provider="geocodeProvider"
           :minQueryLength="minQueryLength"
@@ -189,7 +190,8 @@ export default {
             })
           })
         })
-      ]
+      ],
+      ie11: !!window.MSInputMethodContext && !!document.documentMode
     }
   },
   created: async function () {
@@ -278,9 +280,6 @@ export default {
 </script>
 
 <style lang="scss">
-  .ol-full-screen {
-    top: 65px
-  }
   .myvic-address-search-map {
     &__container {
       position: absolute;

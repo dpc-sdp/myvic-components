@@ -1,22 +1,26 @@
 import { Meta, Preview, Story, Props, Source, Description } from '@storybook/addon-docs/blocks';
-import { withKnobs, object, number, boolean, text } from '@storybook/addon-knobs'
+import { withKnobs, object, number, boolean, text, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
 import { MyvicDataBlock as DataBlock } from '@dpc-sdp/myvic-data-block'
 import {
   MyvicMapCore,
+  MyvicMapTileLayer,
   MyvicMapVectorLayer,
   MyvicMapVectorTileLayer,
   MyvicMapLegend,
   Style,
   Stroke,
   Fill,
-  Text
+  Text,
 } from './index.js'
+import ol from './lib/ol'
+import styles from './styles/styles'
 import {
   myVictoriaRotatingColours,
   myVictoriaLayerStops,
   buildMyVictoriaMapboxStyle
 } from '@dpc-sdp/myvic-global/utils/geoserver_requests'
+import { samplePoints } from './storiesConstants.js'
 
 <Meta title="Maps/Core" component={ MyvicMapCore } decorators={ [withKnobs] } />
 
@@ -72,6 +76,8 @@ This example shows how to create an interactive map that fills it's parent conta
           :enableZoomControl="enableZoomControl"
           :enableAttributionControl="enableAttributionControl"
           :enableFullScreenControl="enableFullScreenControl"
+          :enableGeolocationControl="enableGeolocationControl"
+          :controlPositions="controlPositions"
           :enablePanInteraction="enablePanInteraction"
           :enableZoomInteraction="enableZoomInteraction"
           :enableRotateInteraction="enableRotateInteraction"
@@ -136,6 +142,12 @@ This example shows how to create an interactive map that fills it's parent conta
           },
           enableFullScreenControl: {
             default: boolean('Enable Full Screen Control', false)
+          },
+          enableGeolocationControl: {
+            default: boolean('Enable Geolocation Control', false)
+          },
+          controlPositions: {
+            default: select('Control Positions', { default: 'default', 'top-right': 'top-right'})
           },
           enablePanInteraction: {
             default: boolean('Enable Pan Interaction', true)
@@ -231,6 +243,72 @@ element to be tied to its width)
   </Story>
 </Preview>
 
+## Select Interaction
+
+The Select interaction can be enabled at the map level for all vector layers. Custom styles can be applied to the
+selected feature by passing a style or style function to the map through ```selectedFeatureStyle```
+
+<Preview>
+  <Story name="Select Interaction">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapVectorLayer },
+        template: `<myvic-map-core
+          :containerStyle="containerStyle"
+          :center="center"
+          :zoom="1"
+          :enableSelectInteraction="true"
+          :selectedFeatureStyle="selectedStyleFunction"
+        >
+          <myvic-map-vector-layer
+            url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+            dataFormat="GeoJSON"
+            labelAttribute="name"
+          />
+        </myvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999]
+          }
+        },
+        methods: {
+          selectedStyleFunction: function (feature) {
+            let style = new Style({
+              stroke: new Stroke({
+                color: 'rgba(255,137,18,1)',
+                width: 2
+              }),
+              fill: new Fill({
+                color: 'rgba(255,137,18,0.2)'
+              }),
+              zIndex: 100
+            })
+            let text = new Style({
+              text: new Text({
+                text: feature.get('name'),
+                font: 'normal 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
+                rotateWithView: false,
+                placement: 'point',
+                overflow: true,
+                stroke: new Stroke({
+                  color: 'rgba(1,26,60,1)',
+                  width: 1
+                }),
+                fill: new Fill({
+                  color: 'rgba(1,26,60,1)'
+                })
+              }),
+              zIndex: 200
+            })
+            return [style, text]
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
 ## Popups
 
 Click Popups are controlled at the Map level but must be enabled for each layer with ```enablePopup```.
@@ -307,65 +385,241 @@ Click Popups are controlled at the Map level but must be enabled for each layer 
   </Story>
 </Preview>
 
-## Select Interaction
+## Popups with sticky header and slotted content
 
-The Select interaction can be enabled at the map level for all vector layers. Custom styles can be applied to the
-selected feature by passing a style or style function to the map through ```selectedFeatureStyle```
+The popup header can be made sticky with the ```stickyHeader``` prop. For this to take effect the ```popupContentFunction``` (or 
+the ```featureMapper``` function when overriding that) should return a single feature. You can also slot in the popup content 
+using the ```v-slot:popup``` named slot.
 
 <Preview>
-  <Story name="Select Interaction">
+  <Story name="Popups with sticky header and slotted content">
     {
       {
-        components: { MyvicMapCore, MyvicMapVectorLayer },
+        components: { MyvicMapCore, MyvicMapVectorTileLayer },
         template: `<myvic-map-core
           :containerStyle="containerStyle"
           :center="center"
-          :zoom="1"
-          :enableSelectInteraction="true"
-          :selectedFeatureStyle="selectedStyleFunction"
+          :zoom="11"
+          :popupContentFunction="generatePopupContent"
+          :popupProps="popupProps"
         >
-          <myvic-map-vector-layer
-            url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
-            dataFormat="GeoJSON"
-            labelAttribute="name"
+          <template v-slot:popup>
+            <p>{{ popupContent }}</p>
+            <p>This popup's content was passed in using a slot</p>
+          </template>
+          <myvic-map-vector-tile-layer
+            :urlFunction="getVectorTileWmsUrl"
+            dataFormat="MVT"
+            :enablePopup="true"
+            :overlaps="false"
+            mapboxStyleMethod="stylefunction"
+            :mapboxStyle="mapboxStyle"
+            mapboxStyleSource="Pink"
           />
         </myvic-map-core>`,
         data: () => {
           return {
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
-            center: [16138405.843820328, -4552817.013522999]
+            center: [16138405.843820328, -4552817.013522999],
+            mapboxStyle: undefined,
+            popupProps: { stickyHeader: true },
+            popupContent: ''
           }
         },
+        async mounted () {
+          this.mapboxStyle = await this.getMapboxStyle()
+        },
         methods: {
+          generatePopupContent: function (features) {
+            this.popupContent = 'Population Growth: ' + features[0].get('total_population_growth').toFixed(1) + '%'
+            return {
+              title: features[0].get('ssc_name'),
+              content: 'This content will be ignored because we are using the popup slot. Only the title property will be used.'
+            }
+          },
+          getVectorTileWmsUrl: (tileCoord, pixelRatio, projection, layerSource) => {
+            let path = `https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/wms`
+            const tileExtent = layerSource.tileGrid.getTileCoordExtent(tileCoord)
+            const tileSize = layerSource.tileGrid.getTileSize()
+            let queryParams = {
+              SERVICE: 'WMS',
+              VERSION: '1.1.1',
+              REQUEST: 'GetMap',
+              LAYERS: `myvic:population_suburb_map`,
+              BBOX: tileExtent.join(','),
+              WIDTH: tileSize,
+              HEIGHT: tileSize,
+              SRS: projection.getCode(),
+              FORMAT: 'application/x-protobuf;type=mapbox-vector'
+            }
+            let queryParamsString = Object.keys(queryParams).map(key => `${key}=${queryParams[key]}`).join('&')
+            return `${path}?${queryParamsString}`
+          },
+          getMapboxStyle: async () => {
+            return buildMyVictoriaMapboxStyle(
+              myVictoriaRotatingColours.pink,
+              myVictoriaLayerStops.population_growth_suburb,
+              'total_population_growth',
+              'population_suburb_map')
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Popups floating left
+
+The ```position``` property of the ```popupProps``` prop is set to ```float-left``` here. The zoom control is placed
+top-right to avoid hiding it with the popup.
+
+<Preview>
+  <Story name="Popups floating left">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `
+          <myvic-map-core
+            :containerStyle="containerStyle"
+            :center.sync="center"
+            controlPositions="top-right"
+            :popupContentFunction="generatePopupContent"
+            :popupProps="popupProps"
+            :enableSelectInteraction="true"
+            :selectedFeatureStyle="selectedStyleFunction"
+            @select="onSelect"
+          >
+            <myvic-map-tile-layer
+              type="WMS"
+              url="https://base.maps.vic.gov.au/service"
+              :params="{'LAYERS': 'CARTO_WM', 'TILED': true}"
+              :tileSize="[512, 512]"
+              :highDPI="false"
+            />
+            <myvic-map-vector-layer
+              :features="features"
+              dataFormat="GeoJSON"
+              loadingStrategy="bbox"
+              :layerStyle="getPointStyle"
+              :enablePopup="true"
+              :zoomToExtent="zoomToExtent"
+            />
+          </myvic-map-core>
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            zoomToExtent: true,
+            features: [],
+            pointStyles: {
+              pedestrian: styles.createStylesFromIcon('pedestrian', '#0052c2'),
+              car: styles.createStylesFromIcon('car', '#023b89'),
+              exclamation: styles.createStylesFromIcon('exclamation', '#ca4c21')
+            },
+            popupProps: { stickyHeader: true, position: 'float-left' }
+          }
+        },
+        async mounted () {
+          this.features = new ol.format.GeoJSON().readFeatures(samplePoints, { featureProjection: 'EPSG:3857' })
+          window.setTimeout(() => { this.zoomToExtent = false }, 500)
+        },
+        methods: {
+          getPointStyle: function (feature) {
+            return this.pointStyles[feature.get('pinType')].normal
+          },
           selectedStyleFunction: function (feature) {
-            let style = new Style({
-              stroke: new Stroke({
-                color: 'rgba(255,137,18,1)',
-                width: 2
-              }),
-              fill: new Fill({
-                color: 'rgba(255,137,18,0.2)'
-              }),
-              zIndex: 100
-            })
-            let text = new Style({
-              text: new Text({
-                text: feature.get('name'),
-                font: 'normal 0.8rem "VIC-Regular", "Arial", "Helvetica", "sans-serif"',
-                rotateWithView: false,
-                placement: 'point',
-                overflow: true,
-                stroke: new Stroke({
-                  color: 'rgba(1,26,60,1)',
-                  width: 1
-                }),
-                fill: new Fill({
-                  color: 'rgba(1,26,60,1)'
-                })
-              }),
-              zIndex: 200
-            })
-            return [style, text]
+            return this.pointStyles[feature.get('pinType')].selectedLarge
+          },
+          onSelect: function (features) {
+            if (features.getLength() > 0) {
+              this.center = features.getArray()[0].get('geometry').flatCoordinates
+            }
+          },
+          generatePopupContent: function (features) {
+            return {
+              title: features[0].get('name'),
+              value: features[0].get('pinType')
+            }
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Popups below map pins
+
+The ```position``` property of the ```popupProps``` prop is set to ```below-feature``` here.
+
+<Preview>
+  <Story name="Popups below map pins">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapTileLayer, MyvicMapVectorLayer },
+        template: `
+          <myvic-map-core
+            :containerStyle="containerStyle"
+            :center.sync="center"
+            :popupContentFunction="generatePopupContent"
+            :popupProps="popupProps"
+            :popupDelay="150"
+            :enableSelectInteraction="true"
+            :selectedFeatureStyle="selectedStyleFunction"
+            @select="onSelect"
+          >
+            <myvic-map-tile-layer
+              type="WMS"
+              url="https://base.maps.vic.gov.au/service"
+              :params="{'LAYERS': 'CARTO_WM', 'TILED': true}"
+              :tileSize="[512, 512]"
+              :highDPI="false"
+            />
+            <myvic-map-vector-layer
+              :features="features"
+              dataFormat="GeoJSON"
+              loadingStrategy="bbox"
+              :layerStyle="getPointStyle"
+              :enablePopup="true"
+              :zoomToExtent="zoomToExtent"
+            />
+          </myvic-map-core>
+        `,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            zoomToExtent: true,
+            features: [],
+            pointStyles: {
+              pedestrian: styles.createStylesFromIcon('pedestrian', '#0052c2'),
+              car: styles.createStylesFromIcon('car', '#023b89'),
+              exclamation: styles.createStylesFromIcon('exclamation', '#ca4c21')
+            },
+            popupProps: { stickyHeader: true, position: 'below-feature' }
+          }
+        },
+        async mounted () {
+          this.features = new ol.format.GeoJSON().readFeatures(samplePoints, { featureProjection: 'EPSG:3857' })
+          window.setTimeout(() => { this.zoomToExtent = false }, 500)
+        },
+        methods: {
+          getPointStyle: function (feature) {
+            return this.pointStyles[feature.get('pinType')].normal
+          },
+          selectedStyleFunction: function (feature) {
+            return this.pointStyles[feature.get('pinType')].selectedMedium
+          },
+          onSelect: function (features) {
+            if (features.getLength() > 0) {
+              this.center = features.getArray()[0].get('geometry').flatCoordinates
+            }
+          },
+          generatePopupContent: function (features) {
+            return {
+              title: features[0].get('name'),
+              value: features[0].get('pinType')
+            }
           }
         }
       }
@@ -422,6 +676,72 @@ selected feature by passing a style or style function to the map through ```sele
           onClick: function (event) {
             let coordinate = event.map.getCoordinateFromPixel(event.pixel)
             this.clickDataBlock =  { title: coordinate.join(','), description: '@click' }
+          }
+        }
+      }
+    }
+  </Story>
+</Preview>
+
+## Geolocation
+
+The Geolocation control is used here to display a point when the position is accurate and a wider area when it's not.
+
+<Preview>
+  <Story name="Geolocation">
+    {
+      {
+        components: { MyvicMapCore, MyvicMapVectorLayer },
+        template: `<myvic-map-core
+          :containerStyle="containerStyle"
+          baseMapUrl="https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g"
+          :center.sync="center"
+          :zoom.sync="zoom"
+          :enableGeolocationControl="true"
+          @geolocation-change="onGeolocationChange"
+          @geolocation-request="onGeolocationRequest"
+        >
+          <myvic-map-vector-layer
+            :features="features"
+            dataFormat="GeoJSON"
+            loadingStrategy="bbox"
+            :layerStyle="geolocationStyle"
+            :visible="geolocationAccuracy && accuracyCheck()"
+          />
+        </myvic-map-core>`,
+        data: () => {
+          return {
+            containerStyle: { position: 'relative', width: '100%', height:'100vh' },
+            center: [16138405.843820328, -4552817.013522999],
+            zoom: 11,
+            features: [ new ol.Feature() ],
+            geolocationPosition: null,
+            geolocationAccuracy: null,
+            geolocationStyle: styles.defaultGeolocationStyle
+          }
+        },
+        methods: {
+          accuracyCheck () {
+            return this.geolocationAccuracy < 5000
+          },
+          updateGeolocation (position, accuracy) {
+            this.geolocationPosition = position
+            this.features[0].setGeometry(new ol.geom.Point(position))
+            this.geolocationAccuracy = accuracy
+          },
+          moveToLocation () {
+            this.center = this.geolocationPosition
+            const zoomLevel = this.accuracyCheck() ? 14 : 11
+            if (this.zoom < zoomLevel) {
+              this.zoom = zoomLevel
+            }
+          },
+          onGeolocationRequest (position, accuracy) {
+            this.updateGeolocation(position, accuracy)
+            this.moveToLocation()
+          },
+          onGeolocationChange (position, accuracy) {
+            this.updateGeolocation(position, accuracy)
           }
         }
       }

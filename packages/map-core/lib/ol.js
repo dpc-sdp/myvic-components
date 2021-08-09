@@ -44,7 +44,8 @@ import {
   defaults as DefaultControls,
   Zoom,
   Attribution,
-  FullScreen
+  FullScreen,
+  Control
 } from 'ol/control'
 import proj4 from 'proj4'
 import { get as getProjection } from 'ol/proj'
@@ -62,7 +63,9 @@ import {
 } from 'ol/geom'
 import { circular as circularPolygon } from 'ol/geom/Polygon'
 import * as Color from 'ol/color'
-import { getCenter } from 'ol/extent'
+import { createEmpty, extend, getCenter } from 'ol/extent'
+import { easeOut } from 'ol/easing'
+import Geolocation from 'ol/Geolocation'
 
 const doFeaturesShareSameLocation = features => {
   if (features.length <= 1) return true
@@ -135,7 +138,8 @@ const ol = {
     defaults: DefaultControls,
     Zoom,
     Attribution,
-    FullScreen
+    FullScreen,
+    Control
   },
   layer: {
     Tile: TileLayer,
@@ -209,8 +213,14 @@ const ol = {
     circularPolygon
   },
   extent: {
+    createEmpty,
+    extend,
     getCenter
-  }
+  },
+  easing: {
+    easeOut
+  },
+  Geolocation
 }
 
 export default ol

@@ -84,8 +84,8 @@ export default {
         console.log('Error selecting address: ' + e)
       }
     },
-    clearAddress () {
-      this.$emit('item-cleared', this.id)
+    clearAddress (id) {
+      this.$emit('item-cleared', id)
     }
   }
 }
