@@ -1,5 +1,8 @@
 // Inner content of SVG icons
 export const icons = {
+  plus: `<path d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z" fill="currentColor"/>
+    <path d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z" fill="currentColor"/>`,
+  minus: `<rect width="16" height="2" rx="1" fill="currentColor"/>`,
   pinOuter: `<path fill="!!!customColor!!!" fill-rule="evenodd" clip-rule="evenodd"
     d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6Z M3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z" />`,
   pinInner: `<path fill="white" fill-rule="evenodd" clip-rule="evenodd"
@@ -121,6 +124,8 @@ export const icons = {
 }
 
 const iconViewboxes = {
+  plus: '0 0 16 16',
+  minus: '0 0 16 2',
   pinOuter: '0 0 12 16',
   pinInner: '0 0 12 16',
   circleOuter: '0 0 33 33',
@@ -139,6 +144,12 @@ const iconViewboxes = {
 }
 
 const iconSizes = {
+  plus: {
+    s: { width: 16, height: 16 }
+  },
+  minus: {
+    s: { width: 16, height: 16 }
+  },
   pinOuter: {
     s: { width: 24, height: 32 },
     m: { width: 45, height: 60 },

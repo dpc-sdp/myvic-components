@@ -49,6 +49,8 @@ import ol from './lib/ol'
 import styles from './styles/styles'
 import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
 import Error from '@dpc-sdp/myvic-global/components/Error'
+import { getSvg } from '@dpc-sdp/myvic-global/mapIcons/iconLibrary'
+import { createHTMLElementFromString } from '@dpc-sdp/myvic-global/utils/misc'
 import { RplAlert } from '@dpc-sdp/ripple-alert'
 
 /**
@@ -518,7 +520,9 @@ export default {
     },
     createMapControls () {
       this.zoomControl = new ol.control.Zoom({
-        className: this.controlPositions === 'top-right' ? 'myvic-map-core__zoom--right' : undefined
+        className: this.controlPositions === 'top-right' ? 'myvic-map-core__zoom--right' : undefined,
+        zoomInLabel: createHTMLElementFromString(getSvg('plus', 's')),
+        zoomOutLabel: createHTMLElementFromString(getSvg('minus', 's'))
       })
       this.attributionControl = new ol.control.Attribution({
         collapsible: false
