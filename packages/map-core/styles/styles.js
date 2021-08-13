@@ -184,7 +184,7 @@ const createStylesFromIcon = (icon, color) => {
   const ie = createIePointStyle(color)
   const normal = createIconStyle(icon + 'Circle', 'm', color)
   const selectedMedium = createIconStyle(icon + 'Pin', 'm', color)
-  const selectedLarge = createIconStyle(icon + 'Pin', 'l', color)
+  const selectedLarge = createIconStyle(icon + 'PinLarge', 'm', color)
   return {
     ie,
     normal,
