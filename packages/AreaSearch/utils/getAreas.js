@@ -9,6 +9,15 @@ const fetchData = async () => {
   return data
 }
 
+const patchAreas = (areas) => {
+  areas.forEach(x => {
+    if (x.name === 'Rosebud West') {
+      x.name = 'Capel Sound'
+    }
+  })
+  return areas
+}
+
 export const getAreas = async (noLgaOrRegion) => {
   const rawData = await fetchData()
   let areas = rawData.features.filter(f => f.properties.name).map(f => (
@@ -22,5 +31,5 @@ export const getAreas = async (noLgaOrRegion) => {
   if (noLgaOrRegion) {
     areas = areas.filter(f => !['lga', 'region'].includes(f.description))
   }
-  return areas
+  return patchAreas(areas)
 }

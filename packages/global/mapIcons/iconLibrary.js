@@ -1,5 +1,8 @@
 // Inner content of SVG icons
 export const icons = {
+  plus: `<path d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z" fill="currentColor"/>
+    <path d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z" fill="currentColor"/>`,
+  minus: `<rect width="16" height="2" rx="1" fill="currentColor"/>`,
   pinOuter: `<path fill="!!!customColor!!!" fill-rule="evenodd" clip-rule="evenodd"
     d="M0 6C0 10.41 6 16 6 16C6 16 12 10.41 12 6C12 2.7492 9.31714 0 6 0C2.68286 0 0 2.7492 0 6Z M3.75 6C3.75 4.758 4.758 3.75 6 3.75C7.242 3.75 8.25 4.758 8.25 6C8.25 7.242 7.242 8.25 6 8.25C4.758 8.25 3.75 7.242 3.75 6Z" />`,
   pinInner: `<path fill="white" fill-rule="evenodd" clip-rule="evenodd"
@@ -22,10 +25,25 @@ export const icons = {
     <defs>
     <filter id="filter_car" x="-7" y="0" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
     <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
     <feOffset/>
     <feGaussianBlur stdDeviation="4"/>
     <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    </defs>`,
+  carPinLarge: `<g filter="url(#filter_carL)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 40.5C12.5 61.4475 41 88 41 88C41 88 69.5 61.4475 69.5 40.5C69.5 25.0587 56.7564 12 41 12C25.2436 12 12.5 25.0587 12.5 40.5Z" fill="!!!customColor!!!"/>
+    <path d="M56.8334 35.0525H54.5236L53.0334 31.2316C52.251 29.2753 50.053 27.9609 47.5569 27.9609H34.3687C31.8726 27.9609 29.6373 29.2753 28.8922 31.2316L27.402 35.0525H25.0922C24.0863 35.0525 23.2667 35.7249 23.2667 36.5503V37.4061C23.2667 38.2314 24.0863 38.9039 25.0922 38.9039H25.7255C25.353 40.2794 25.1667 41.6855 25.1667 43.0916V50.2748C25.1667 51.1001 25.9863 51.7726 26.9922 51.7726H30.0471C31.053 51.7726 31.8726 51.1001 31.8726 50.2748V47.9823H50.1275V50.2748C50.1275 51.1001 50.9471 51.7726 51.953 51.7726H55.0079C56.0138 51.7726 56.8334 51.1001 56.8334 50.2748V43.061C56.8334 41.6549 56.6471 40.2489 56.2746 38.8733H56.9079C57.9138 38.8733 58.7334 38.2009 58.7334 37.3756V36.5197C58.6589 35.7249 57.8393 35.0525 56.8334 35.0525ZM30.6059 36.5808L32.3569 32.118C32.655 31.3844 33.4746 30.8954 34.3687 30.8954H47.5569C48.4883 30.8954 49.3079 31.3844 49.5687 32.118L51.3197 36.5808C51.3942 36.7948 51.2079 36.9782 50.9471 36.9782H30.9785C30.7177 37.0088 30.5314 36.7948 30.6059 36.5808ZM34.4059 43.8863H30.7177C30.0844 43.8863 29.6001 43.489 29.6001 42.9693V41.5327C29.6001 40.9825 30.2334 40.524 30.904 40.6157L34.3314 41.0742C34.7785 41.1353 35.151 41.4104 35.2628 41.7772L35.5236 42.7554C35.6726 43.3361 35.151 43.8863 34.4059 43.8863ZM52.2883 42.9693C52.2883 43.489 51.804 43.8863 51.1706 43.8863H47.4824C46.7746 43.8863 46.253 43.3361 46.402 42.7859L46.6628 41.8078C46.7746 41.441 47.1099 41.1659 47.5942 41.1047L51.0216 40.6462C51.6922 40.5545 52.3255 40.9825 52.3255 41.5632V42.9693H52.2883Z" fill="white"/>
+    </g>
+    <defs>
+    <filter id="filter_carL" x="-9" y="0" width="100" height="100" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset/>
+    <feGaussianBlur stdDeviation="6"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/>
     <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
     </filter>
@@ -41,10 +59,26 @@ export const icons = {
     <defs>
     <filter id="filter_exc" x="-7" y="0" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
     <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
     <feOffset/>
     <feGaussianBlur stdDeviation="4"/>
     <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    </defs>`,
+  exclamationPinLarge: `<g filter="url(#filter_excL)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 40.5C12.5 61.4475 41 88 41 88C41 88 69.5 61.4475 69.5 40.5C69.5 25.0587 56.7564 12 41 12C25.2436 12 12.5 25.0587 12.5 40.5Z" fill="!!!customColor!!!"/>
+    <path d="M41 48.5C43.484 48.5 45.5 46.484 45.5 44V30.5C45.5 28.016 43.484 26 41 26C38.516 26 36.5 28.016 36.5 30.5V44C36.5 46.484 38.516 48.5 41 48.5Z" fill="white"/>
+    <path d="M36.5 57.5C36.5 59.984 38.516 62 41 62C43.484 62 45.5 59.984 45.5 57.5C45.5 55.016 43.484 53 41 53C38.516 53 36.5 55.016 36.5 57.5Z" fill="white"/>
+    </g>
+    <defs>
+    <filter id="filter_excL" x="-7" y="0" width="100" height="100" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset/>
+    <feGaussianBlur stdDeviation="6"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/>
     <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
     </filter>
@@ -62,10 +96,27 @@ export const icons = {
     <defs>
     <filter id="filter_ped" x="-7.5" y="0" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
     <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
     <feOffset/>
     <feGaussianBlur stdDeviation="4"/>
     <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    </defs>`,
+  pedestrianPinLarge: `<g filter="url(#filter_pedL)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 40.5C12.5 61.4475 41 88 41 88C41 88 69.5 61.4475 69.5 40.5C69.5 25.0587 56.7564 12 41 12C25.2436 12 12.5 25.0587 12.5 40.5Z" fill="!!!customColor!!!"/>
+    <path d="M31.7551 41.2819L33.413 38.1044C33.862 37.2755 34.5182 36.5847 35.3126 36.1012C39.1463 33.8217 39.6298 33.8562 40.1134 33.8908L42.7037 34.0634C43.4981 34.098 44.0507 34.3052 46.7102 38.208C46.8138 38.3462 46.9519 38.4498 47.1592 38.4843L50.3367 38.9679C51.2001 39.106 51.7873 39.9004 51.6491 40.7638C51.511 41.6273 50.7166 42.2144 49.8531 42.0763L46.6756 41.5928C45.6395 41.4201 44.707 40.8675 44.1198 40.004C43.9817 39.7968 43.878 39.6241 43.7399 39.4514L42.4776 45.6614L44.5343 48.7422C44.9487 49.1566 45.2941 49.7092 45.5013 50.2618L47.6772 56.6169C48.0226 57.5494 47.5045 58.5855 46.572 58.8964C46.3648 58.9655 46.1921 59 45.9849 59C45.225 59 44.5343 58.5165 44.258 57.7912L42.0821 51.4361C42.0475 51.3671 42.013 51.3325 41.9784 51.2634L36.9359 46.1863C36.2106 45.461 35.9343 44.4594 36.1415 43.4924L37.2467 38.5879C37.1431 38.657 37.0395 38.7261 36.9013 38.7952C36.5905 38.9679 36.3487 39.2442 36.176 39.555L34.5182 42.7325C34.2419 43.2506 33.6893 43.5614 33.1367 43.5614C32.8949 43.5614 32.6531 43.4924 32.4114 43.3887C31.6515 42.9743 31.3752 42.0418 31.7551 41.2819Z" fill="white"/>
+    <path d="M41.9408 33.1133C43.6289 33.1133 44.9974 31.7448 44.9974 30.0566C44.9974 28.3685 43.6289 27 41.9408 27C40.2526 27 38.8841 28.3685 38.8841 30.0566C38.8841 31.7448 40.2526 33.1133 41.9408 33.1133Z" fill="white"/>
+    <path d="M36.1642 49.3965L30.9731 53.6585C30.3894 54.1696 30.1788 54.9882 30.4447 55.6997C30.5172 55.8931 30.6105 56.0451 30.7486 56.2143C31.3669 56.9776 32.517 57.1019 33.2699 56.4526L38.461 52.1906C38.9066 51.8038 39.3037 51.2857 39.5455 50.7538L39.6741 49.9675L37.0504 47.3377L36.2886 49.241C36.2368 49.2963 36.2195 49.3412 36.1642 49.3965Z" fill="white"/>
+    </g>
+    <defs>
+    <filter id="filter_pedL" x="-9" y="0" width="100" height="100" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+    <feOffset/>
+    <feGaussianBlur stdDeviation="6"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/>
     <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
     </filter>
@@ -73,6 +124,8 @@ export const icons = {
 }
 
 const iconViewboxes = {
+  plus: '0 0 16 16',
+  minus: '0 0 16 2',
   pinOuter: '0 0 12 16',
   pinInner: '0 0 12 16',
   circleOuter: '0 0 33 33',
@@ -81,13 +134,22 @@ const iconViewboxes = {
   filledCluster: '0 0 8 8',
   carCircle: '0 0 33 33',
   carPin: '0 0 62 76',
+  carPinLarge: '0 0 82 100',
   exclamationCircle: '0 0 33 32',
   exclamationPin: '0 0 62 76',
+  exclamationPinLarge: '0 0 82 100',
   pedestrianCircle: '0 0 33 32',
-  pedestrianPin: '0 0 61 76'
+  pedestrianPin: '0 0 61 76',
+  pedestrianPinLarge: '0 0 82 100'
 }
 
 const iconSizes = {
+  plus: {
+    s: { width: 16, height: 16 }
+  },
+  minus: {
+    s: { width: 16, height: 16 }
+  },
   pinOuter: {
     s: { width: 24, height: 32 },
     m: { width: 45, height: 60 },
@@ -118,24 +180,30 @@ const iconSizes = {
     m: { width: 33, height: 33 }
   },
   carPin: {
-    m: { width: 49, height: 60 },
-    l: { width: 62, height: 76 }
+    m: { width: 62, height: 76 }
+  },
+  carPinLarge: {
+    m: { width: 82, height: 100 }
   },
   exclamationCircle: {
     s: { width: 24, height: 24 },
     m: { width: 33, height: 32 }
   },
   exclamationPin: {
-    m: { width: 49, height: 60 },
-    l: { width: 62, height: 76 }
+    m: { width: 62, height: 76 }
+  },
+  exclamationPinLarge: {
+    m: { width: 82, height: 100 }
   },
   pedestrianCircle: {
     s: { width: 24, height: 24 },
     m: { width: 33, height: 33 }
   },
   pedestrianPin: {
-    m: { width: 49, height: 60 },
-    l: { width: 61, height: 76 }
+    m: { width: 61, height: 76 }
+  },
+  pedestrianPinLarge: {
+    m: { width: 82, height: 100 }
   }
 }
 
