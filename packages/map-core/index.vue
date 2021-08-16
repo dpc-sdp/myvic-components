@@ -27,6 +27,7 @@
           class="myvic-map-core__geolocation-button"
           :class="{'myvic-map-core__geolocation-button--active': geolocationCentered}"
           @click="enableGeolocation">
+            <span class="rpl-visually-hidden">Click to locate current location on map</span>
             <svg width="17" height="16" viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"/>
             </svg>
