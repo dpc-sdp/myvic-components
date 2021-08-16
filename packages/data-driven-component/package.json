@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-data-driven-component",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "main": "module.js",
   "repository": "https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/data-driven-component",
   "publishConfig": {
@@ -8,16 +8,16 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@dpc-sdp/myvic-addresssearch": "2.2.0",
-    "@dpc-sdp/myvic-areasearch": "2.2.0",
-    "@dpc-sdp/myvic-autocomplete": "2.2.0",
-    "@dpc-sdp/myvic-bar-chart": "2.2.0",
-    "@dpc-sdp/myvic-data-block": "2.2.0",
-    "@dpc-sdp/myvic-line-chart": "2.2.0",
-    "@dpc-sdp/myvic-map-core": "2.2.0",
-    "@dpc-sdp/myvic-pie-chart": "2.2.0",
-    "@dpc-sdp/myvic-toggle-list": "2.2.0",
-    "@dpc-sdp/myvic-treemap": "2.2.0"
+    "@dpc-sdp/myvic-addresssearch": "2.2.1",
+    "@dpc-sdp/myvic-areasearch": "2.2.1",
+    "@dpc-sdp/myvic-autocomplete": "2.2.1",
+    "@dpc-sdp/myvic-bar-chart": "2.2.1",
+    "@dpc-sdp/myvic-data-block": "2.2.1",
+    "@dpc-sdp/myvic-line-chart": "2.2.1",
+    "@dpc-sdp/myvic-map-core": "2.2.1",
+    "@dpc-sdp/myvic-pie-chart": "2.2.1",
+    "@dpc-sdp/myvic-toggle-list": "2.2.1",
+    "@dpc-sdp/myvic-treemap": "2.2.1"
   },
   "peerDependencies": {
     "@dpc-sdp/ripple-nuxt-tide": "1.x"

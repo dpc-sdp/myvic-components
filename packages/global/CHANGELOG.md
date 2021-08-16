@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v2.2.0...v2.2.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* covid designer updates ([#177](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/issues/177)) ([6e4898f](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/commit/6e4898f2355966bdb394181b7d82bf953a3ba4b2))
+
+
+
+
+
+
 # [2.2.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v2.1.0...v2.2.0) (2021-08-06)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-global
