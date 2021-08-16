@@ -162,6 +162,27 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
            
           <!---->
            
+          <div
+            class="ol-control myvic-map-core__geolocation ol-control--hidden"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="myvic-map-core__geolocation-button"
+            >
+              <svg
+                fill="currentColor"
+                height="16"
+                viewBox="0 0 17 16"
+                width="17"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+                />
+              </svg>
+            </button>
+          </div>
+           
           <a
             class="map-watermark"
             href="http://mapbox.com/about/maps"
@@ -204,14 +225,50 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
                   title="Zoom in"
                   type="button"
                 >
-                  +
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    
+    
+                    <path
+                      d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                      fill="currentColor"
+                    />
+                    
+    
+                    <path
+                      d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                      fill="currentColor"
+                    />
+                    
+  
+                  </svg>
                 </button>
                 <button
                   class="ol-zoom-out"
                   title="Zoom out"
                   type="button"
                 >
-                  −
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 2"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    
+    
+                    <rect
+                      fill="currentColor"
+                      height="2"
+                      rx="1"
+                      width="16"
+                    />
+                    
+  
+                  </svg>
                 </button>
               </div>
               <div
@@ -1625,6 +1682,27 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
         >
           <!---->
            
+          <div
+            class="ol-control myvic-map-core__geolocation ol-control--hidden"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="myvic-map-core__geolocation-button"
+            >
+              <svg
+                fill="currentColor"
+                height="16"
+                viewBox="0 0 17 16"
+                width="17"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+                />
+              </svg>
+            </button>
+          </div>
+           
           <a
             class="map-watermark"
             href="http://mapbox.com/about/maps"
@@ -1667,14 +1745,50 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
                   title="Zoom in"
                   type="button"
                 >
-                  +
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    
+    
+                    <path
+                      d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                      fill="currentColor"
+                    />
+                    
+    
+                    <path
+                      d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                      fill="currentColor"
+                    />
+                    
+  
+                  </svg>
                 </button>
                 <button
                   class="ol-zoom-out"
                   title="Zoom out"
                   type="button"
                 >
-                  −
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 2"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    
+    
+                    <rect
+                      fill="currentColor"
+                      height="2"
+                      rx="1"
+                      width="16"
+                    />
+                    
+  
+                  </svg>
                 </button>
               </div>
               <div
@@ -2024,6 +2138,27 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
               <!---->
             </div>
              
+            <div
+              class="ol-control myvic-map-core__geolocation ol-control--hidden"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="myvic-map-core__geolocation-button"
+              >
+                <svg
+                  fill="currentColor"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  width="17"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+                  />
+                </svg>
+              </button>
+            </div>
+             
             <!---->
             <div
               class="ol-viewport"
@@ -2060,14 +2195,50 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
                     title="Zoom in"
                     type="button"
                   >
-                    +
+                    <svg
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      
+    
+                      <path
+                        d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                        fill="currentColor"
+                      />
+                      
+    
+                      <path
+                        d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                        fill="currentColor"
+                      />
+                      
+  
+                    </svg>
                   </button>
                   <button
                     class="ol-zoom-out"
                     title="Zoom out"
                     type="button"
                   >
-                    −
+                    <svg
+                      height="16"
+                      viewBox="0 0 16 2"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      
+    
+                      <rect
+                        fill="currentColor"
+                        height="2"
+                        rx="1"
+                        width="16"
+                      />
+                      
+  
+                    </svg>
                   </button>
                 </div>
                 <div
@@ -2473,6 +2644,27 @@ exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
         <!---->
       </div>
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -2509,14 +2701,50 @@ exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -2573,6 +2801,27 @@ exports[`MyvicStoryshots Maps/Core Events 1`] = `
           >
             <!---->
              
+            <div
+              class="ol-control myvic-map-core__geolocation ol-control--hidden"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="myvic-map-core__geolocation-button"
+              >
+                <svg
+                  fill="currentColor"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  width="17"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+                  />
+                </svg>
+              </button>
+            </div>
+             
             <!---->
             <div
               class="ol-viewport"
@@ -2609,14 +2858,50 @@ exports[`MyvicStoryshots Maps/Core Events 1`] = `
                     title="Zoom in"
                     type="button"
                   >
-                    +
+                    <svg
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      
+    
+                      <path
+                        d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                        fill="currentColor"
+                      />
+                      
+    
+                      <path
+                        d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                        fill="currentColor"
+                      />
+                      
+  
+                    </svg>
                   </button>
                   <button
                     class="ol-zoom-out"
                     title="Zoom out"
                     type="button"
                   >
-                    −
+                    <svg
+                      height="16"
+                      viewBox="0 0 16 2"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      
+    
+                      <rect
+                        fill="currentColor"
+                        height="2"
+                        rx="1"
+                        width="16"
+                      />
+                      
+  
+                    </svg>
                   </button>
                 </div>
                 <div
@@ -2739,6 +3024,27 @@ exports[`MyvicStoryshots Maps/Core Fixed Map 1`] = `
       tabindex="0"
     >
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -2775,6 +3081,153 @@ exports[`MyvicStoryshots Maps/Core Fixed Map 1`] = `
 </div>
 `;
 
+exports[`MyvicStoryshots Maps/Core Geolocation 1`] = `
+<div
+  class="myvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+  <!---->
+   
+   
+  <div
+    class="myvic-map-core__container"
+  >
+    <div
+      aria-label="Interactive Map"
+      class="myvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; pointer-events: auto; display: none;"
+          >
+            <div
+              class="ol-popup myvic-map-core__popup--default"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span
+                class="ol-attribution-expand"
+              >
+                i
+              </span>
+            </button>
+          </div>
+          <div
+            class="ol-control myvic-map-core__geolocation"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="myvic-map-core__geolocation-button"
+            >
+              <svg
+                fill="currentColor"
+                height="16"
+                viewBox="0 0 17 16"
+                width="17"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
 exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
 <div
   class="myvic-map-core"
@@ -2792,6 +3245,27 @@ exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
       role="application"
       tabindex="0"
     >
+       
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
        
       <a
         class="map-watermark"
@@ -2835,14 +3309,50 @@ exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -2889,6 +3399,27 @@ exports[`MyvicStoryshots Maps/Core Popups 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -2925,14 +3456,50 @@ exports[`MyvicStoryshots Maps/Core Popups 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -2981,6 +3548,27 @@ exports[`MyvicStoryshots Maps/Core Popups below map pins 1`] = `
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3017,14 +3605,50 @@ exports[`MyvicStoryshots Maps/Core Popups below map pins 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3073,6 +3697,27 @@ exports[`MyvicStoryshots Maps/Core Popups floating left 1`] = `
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden myvic-map-core__geolocation--right"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3109,14 +3754,50 @@ exports[`MyvicStoryshots Maps/Core Popups floating left 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="myvic-map-core__zoom--right-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3164,6 +3845,27 @@ exports[`MyvicStoryshots Maps/Core Popups with sticky header and slotted content
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3200,14 +3902,50 @@ exports[`MyvicStoryshots Maps/Core Popups with sticky header and slotted content
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3270,6 +4008,27 @@ exports[`MyvicStoryshots Maps/Core Ripple Grid 1`] = `
             tabindex="0"
           >
              
+            <div
+              class="ol-control myvic-map-core__geolocation ol-control--hidden"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="myvic-map-core__geolocation-button"
+              >
+                <svg
+                  fill="currentColor"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  width="17"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+                  />
+                </svg>
+              </button>
+            </div>
+             
             <!---->
             <div
               class="ol-viewport"
@@ -3306,14 +4065,50 @@ exports[`MyvicStoryshots Maps/Core Ripple Grid 1`] = `
                     title="Zoom in"
                     type="button"
                   >
-                    +
+                    <svg
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      
+    
+                      <path
+                        d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                        fill="currentColor"
+                      />
+                      
+    
+                      <path
+                        d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                        fill="currentColor"
+                      />
+                      
+  
+                    </svg>
                   </button>
                   <button
                     class="ol-zoom-out"
                     title="Zoom out"
                     type="button"
                   >
-                    −
+                    <svg
+                      height="16"
+                      viewBox="0 0 16 2"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      
+    
+                      <rect
+                        fill="currentColor"
+                        height="2"
+                        rx="1"
+                        width="16"
+                      />
+                      
+  
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -3356,6 +4151,27 @@ exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3392,14 +4208,50 @@ exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3484,6 +4336,27 @@ exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
         <!---->
       </div>
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3520,14 +4393,50 @@ exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3574,6 +4483,27 @@ exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3610,14 +4540,50 @@ exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3664,6 +4630,27 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3700,14 +4687,50 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3727,11 +4750,11 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
             </button>
           </div>
           <div
-            class="ol-full-screen ol-unselectable ol-control ol-unsupported"
+            class="ol-full-screen--left ol-unselectable ol-control ol-unsupported"
             style="pointer-events: auto;"
           >
             <button
-              class="ol-full-screen-false"
+              class="ol-full-screen--left-false"
               title="Toggle full-screen"
               type="button"
             >
@@ -3768,6 +4791,27 @@ exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3804,14 +4848,50 @@ exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3858,6 +4938,27 @@ exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3894,14 +4995,50 @@ exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -3948,6 +5085,27 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -3984,14 +5142,50 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4038,6 +5232,27 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -4074,14 +5289,50 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4128,6 +5379,27 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -4164,14 +5436,50 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4218,6 +5526,27 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -4254,14 +5583,50 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4308,6 +5673,27 @@ exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <a
         class="map-watermark"
         href="http://mapbox.com/about/maps"
@@ -4350,14 +5736,50 @@ exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4404,6 +5826,27 @@ exports[`MyvicStoryshots Maps/Vector Layer Alternative cluster style and behavio
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -4440,14 +5883,50 @@ exports[`MyvicStoryshots Maps/Vector Layer Alternative cluster style and behavio
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4496,6 +5975,27 @@ exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -4532,14 +6032,50 @@ exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4588,107 +6124,26 @@ exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
        
       <!---->
        
-      <!---->
       <div
-        class="ol-viewport"
-        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
       >
-        <div
-          class="ol-unselectable ol-layers"
-          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
-        />
-        <div
-          class="ol-overlaycontainer"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
-        />
-        <div
-          class="ol-overlaycontainer-stopevent"
-          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        <button
+          class="myvic-map-core__geolocation-button"
         >
-          <div
-            class="ol-overlay-container ol-selectable"
-            style="position: absolute; pointer-events: auto; display: none;"
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <div
-              class="ol-popup myvic-map-core__popup--default"
-            >
-              <!---->
-            </div>
-          </div>
-          <div
-            class="ol-zoom ol-unselectable ol-control"
-            style="pointer-events: auto;"
-          >
-            <button
-              class="ol-zoom-in"
-              title="Zoom in"
-              type="button"
-            >
-              +
-            </button>
-            <button
-              class="ol-zoom-out"
-              title="Zoom out"
-              type="button"
-            >
-              −
-            </button>
-          </div>
-          <div
-            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
-            style="pointer-events: auto;"
-          >
-            <ul />
-            <button
-              title="Attributions"
-              type="button"
-            >
-              <span
-                class="ol-attribution-expand"
-              >
-                i
-              </span>
-            </button>
-          </div>
-          <div
-            class="ol-full-screen ol-unselectable ol-control ol-unsupported"
-            style="pointer-events: auto;"
-          >
-            <button
-              class="ol-full-screen-false"
-              title="Toggle full-screen"
-              type="button"
-            >
-              ⤢
-            </button>
-          </div>
-        </div>
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
       </div>
-    </div>
-  </div>
-   
-  <!---->
-</div>
-`;
-
-exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
-<div
-  class="myvic-map-core"
-  style="position: relative; width: 100%; height: 100vh;"
->
-  <!---->
-   
-   
-  <div
-    class="myvic-map-core__container"
-  >
-    <div
-      aria-label="Interactive Map"
-      class="myvic-map-core__map"
-      role="application"
-      tabindex="0"
-    >
-      <!---->
        
       <!---->
       <div
@@ -4726,14 +6181,209 @@ exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-uncollapsible"
+            style="pointer-events: auto;"
+          >
+            <ul />
+            <button
+              title="Attributions"
+              type="button"
+            >
+              <span
+                class="ol-attribution-expand"
+              >
+                i
+              </span>
+            </button>
+          </div>
+          <div
+            class="ol-full-screen--left ol-unselectable ol-control ol-unsupported"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-full-screen--left-false"
+              title="Toggle full-screen"
+              type="button"
+            >
+              ⤢
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
+<div
+  class="myvic-map-core"
+  style="position: relative; width: 100%; height: 100vh;"
+>
+  <!---->
+   
+   
+  <div
+    class="myvic-map-core__container"
+  >
+    <div
+      aria-label="Interactive Map"
+      class="myvic-map-core__map"
+      role="application"
+      tabindex="0"
+    >
+      <!---->
+       
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
+      <!---->
+      <div
+        class="ol-viewport"
+        style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+      >
+        <div
+          class="ol-unselectable ol-layers"
+          style="position: absolute; width: 100%; height: 100%; z-index: 0;"
+        />
+        <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        />
+        <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; pointer-events: auto; display: none;"
+          >
+            <div
+              class="ol-popup myvic-map-core__popup--default"
+            >
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4780,6 +6430,27 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -4816,14 +6487,50 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4870,6 +6577,27 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File With Clustering 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -4906,14 +6634,50 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File With Clustering 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -4962,6 +6726,27 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -4998,14 +6783,50 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -5054,6 +6875,27 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -5090,14 +6932,50 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -5146,6 +7024,27 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -5182,14 +7081,50 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -5236,6 +7171,27 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -5272,14 +7228,50 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -5299,11 +7291,11 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
             </button>
           </div>
           <div
-            class="ol-full-screen ol-unselectable ol-control ol-unsupported"
+            class="ol-full-screen--left ol-unselectable ol-control ol-unsupported"
             style="pointer-events: auto;"
           >
             <button
-              class="ol-full-screen-false"
+              class="ol-full-screen--left-false"
               title="Toggle full-screen"
               type="button"
             >
@@ -5337,6 +7329,27 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
       tabindex="0"
     >
       <!---->
+       
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
        
       <a
         class="map-watermark"
@@ -5380,14 +7393,50 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -5434,6 +7483,27 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
     >
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -5470,14 +7540,50 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -5526,6 +7632,27 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
        
       <!---->
        
+      <div
+        class="ol-control myvic-map-core__geolocation ol-control--hidden"
+        style="pointer-events: auto;"
+      >
+        <button
+          class="myvic-map-core__geolocation-button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            viewBox="0 0 17 16"
+            width="17"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+            />
+          </svg>
+        </button>
+      </div>
+       
       <!---->
       <div
         class="ol-viewport"
@@ -5562,14 +7689,50 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
               title="Zoom in"
               type="button"
             >
-              +
+              <svg
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <path
+                  d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                  fill="currentColor"
+                />
+                
+    
+                <path
+                  d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                  fill="currentColor"
+                />
+                
+  
+              </svg>
             </button>
             <button
               class="ol-zoom-out"
               title="Zoom out"
               type="button"
             >
-              −
+              <svg
+                height="16"
+                viewBox="0 0 16 2"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                
+    
+                <rect
+                  fill="currentColor"
+                  height="2"
+                  rx="1"
+                  width="16"
+                />
+                
+  
+              </svg>
             </button>
           </div>
           <div
@@ -6529,6 +8692,27 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
              
             <!---->
              
+            <div
+              class="ol-control myvic-map-core__geolocation ol-control--hidden"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="myvic-map-core__geolocation-button"
+              >
+                <svg
+                  fill="currentColor"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  width="17"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"
+                  />
+                </svg>
+              </button>
+            </div>
+             
             <!---->
             <div
               class="ol-viewport"
@@ -6565,14 +8749,50 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
                     title="Zoom in"
                     type="button"
                   >
-                    +
+                    <svg
+                      height="16"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      
+    
+                      <path
+                        d="M8 0C8.55228 2.41411e-08 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447715 7.44772 -2.41411e-08 8 0Z"
+                        fill="currentColor"
+                      />
+                      
+    
+                      <path
+                        d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z"
+                        fill="currentColor"
+                      />
+                      
+  
+                    </svg>
                   </button>
                   <button
                     class="ol-zoom-out"
                     title="Zoom out"
                     type="button"
                   >
-                    −
+                    <svg
+                      height="16"
+                      viewBox="0 0 16 2"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      
+    
+                      <rect
+                        fill="currentColor"
+                        height="2"
+                        rx="1"
+                        width="16"
+                      />
+                      
+  
+                    </svg>
                   </button>
                 </div>
                 <div

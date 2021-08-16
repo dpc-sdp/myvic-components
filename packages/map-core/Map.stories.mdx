@@ -531,9 +531,12 @@ top-right to avoid hiding it with the popup.
           selectedStyleFunction: function (feature) {
             return this.pointStyles[feature.get('pinType')].selectedLarge
           },
-          onSelect: function (features) {
+          onSelect: function (features, evt) {
+            const pixel = evt.mapBrowserEvent.pixel
+            // to center pin next to the popup move the center of the map half the popup width to the left
+            const shiftedPixel = [pixel[0] - 150, pixel[1]]
             if (features.getLength() > 0) {
-              this.center = features.getArray()[0].get('geometry').flatCoordinates
+              this.center = evt.mapBrowserEvent.map.getCoordinateFromPixel(shiftedPixel)
             }
           },
           generatePopupContent: function (features) {
@@ -726,7 +729,9 @@ The Geolocation control is used here to display a point when the position is acc
           },
           updateGeolocation (position, accuracy) {
             this.geolocationPosition = position
-            this.features[0].setGeometry(new ol.geom.Point(position))
+            if (position) {
+              this.features[0].setGeometry(new ol.geom.Point(position))
+            }
             this.geolocationAccuracy = accuracy
           },
           moveToLocation () {
