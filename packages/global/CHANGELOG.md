@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v2.0.4...v2.1.0) (2021-08-02)
+
+
+### Features
+
+* coronavirus additional features ([#173](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/issues/173)) ([39933be](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/commit/39933be997ac235efc4e92bb933917866e895622))
+
+
+
+
+
+
+## [2.0.4](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v2.0.3...v2.0.4) (2021-07-23)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+## [2.0.3](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v2.0.2...v2.0.3) (2021-07-23)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+
+## [2.0.2](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v2.0.1...v2.0.2) (2021-07-22)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+## [2.0.1](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v2.0.0...v2.0.1) (2021-07-22)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+# [2.0.0](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v1.9.11...v2.0.0) (2021-07-22)
+
+
+### Features
+
+* map and popup enhancements ([#168](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/issues/168)) ([0941e77](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/commit/0941e777e4f982ce6787ea423d87affe834a073b))
+
+
+
+
+
+
+## [1.9.11](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v1.9.10...v1.9.11) (2021-06-30)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+
+## [1.9.10](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v1.9.9...v1.9.10) (2021-06-28)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+
+## [1.9.9](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v1.9.8...v1.9.9) (2021-06-22)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+
+## [1.9.8](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v1.9.7...v1.9.8) (2021-06-15)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+
+## [1.9.7](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v1.9.6...v1.9.7) (2021-06-15)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-global
+
+
+
+
+
+
+## [1.9.6](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v1.9.5...v1.9.6) (2021-06-09)
+
+
+### Bug Fixes
+
+* fix broken tests ([#153](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/issues/153)) ([9491a15](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/commit/9491a1515547884617734855087238e548447e2b))
+* node version install issue ([#154](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/issues/154)) ([6d402fc](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/commit/6d402fc2a5eac63c70144d3a276302ff7101ccb1))
+
+
+
+
+
+
 ## [1.9.5](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/global/compare/v1.9.4...v1.9.5) (2021-05-27)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-global

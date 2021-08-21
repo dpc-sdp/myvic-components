@@ -1,7 +1,7 @@
 <template>
   <li
-    :class="{ 'is-active': isSelected }"
     class="myvic-toggle-item"
+    :class="{ 'myvic-toggle-item--clickable': showCheckbox, 'is-active': isSelected }"
     @click="onClick"
     @keyup.enter="$emit('click')"
     tabindex="0"
@@ -12,14 +12,18 @@
     >
     <div
       v-if="!!icon"
-      class="myvic-toggle-item__icon-left">
-      <rpl-icon
+      class="myvic-toggle-item__icon-left"
+      :class="{ 'custom-color': customColor }"
+      :style="customColor ? `--customColor: ${color}` : ''"
+    >
+      <div v-if="iconInLibrary" v-html="iconHtml" style="display: flex;"/>
+      <rpl-icon v-else
         :symbol="icon"
         :color="isSelected ? color : 'mid_neutral_1'"
         size="m" />
     </div>
     <h3 class="myvic-toggle-item__title">{{ item.title }}</h3>
-    <div class="myvic-toggle-item__icon-right">
+    <div v-if="showCheckbox" class="myvic-toggle-item__icon-right">
       <rpl-icon
         :symbol="isSelected ? 'tick' : null"
         size="m" />
@@ -28,6 +32,7 @@
 </template>
 <script>
 import { RplIcon } from '@dpc-sdp/ripple-icon'
+import { icons, getSvg } from '@dpc-sdp/myvic-global/mapIcons/iconLibrary'
 
 export default {
   name: 'ToggleItem',
@@ -50,10 +55,26 @@ export default {
     color: {
       type: String,
       default: 'primary'
+    },
+    customColor: {
+      type: Boolean,
+      default: false
+    },
+    showCheckbox: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
     return {
+    }
+  },
+  computed: {
+    iconInLibrary () {
+      return Object.keys(icons).includes(this.icon)
+    },
+    iconHtml () {
+      return getSvg(this.icon, 's', this.color)
     }
   },
   methods: {
@@ -73,7 +94,6 @@ export default {
   $lightGrey: #546A7C;
 
   .myvic-toggle-item {
-    cursor: pointer;
     background-color: white;
     display: flex;
     align-items: center;
@@ -93,14 +113,9 @@ export default {
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
     }
-    &:hover {
-      background-color: $greyTint5;
-    }
-    &:focus {
-      background-color: $greyTint5;
-      outline: none;
-    }
+
     &__title {
+      font-family: "VIC-Regular", "Arial", "Helvetica", "sans-serif";
       font-size: rem-calc(13);
       font-weight: 500;
       flex-grow: 1;
@@ -117,13 +132,15 @@ export default {
       color: $greyTint;
       height: 21px;
       width: 21px;
-      display: block;
-      text-align: center;
+      display: flex;
+      align-items: center;
       justify-items: center;
       border-radius: 999px;
-      overflow: hidden;
       flex: 0 0 auto;
-      .is-active & {
+      .is-active &.custom-color {
+        > svg {
+          fill: var(--customColor);
+        }
       }
     }
     &__icon-right {
@@ -139,6 +156,22 @@ export default {
       .is-active & {
         fill: $greyShade;
         border: 2px solid $greyShade;
+      }
+    }
+
+    &--clickable {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $greyTint5;
+      }
+      &:focus {
+        background-color: $greyTint5;
+        outline: none;
+      }
+
+      & h3.myvic-toggle-item__title {
+        font-family: "VIC-Bold", "Arial", "Helvetica", "sans-serif";
       }
     }
   }

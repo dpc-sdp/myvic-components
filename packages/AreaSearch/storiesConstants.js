@@ -1,5 +1,5 @@
 export const areaSearchTemplate = `
 <form>
-  <area-search />
+  <area-search :noLgaOrRegion="noLgaOrRegion" />
 </form>
 `

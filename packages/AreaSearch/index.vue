@@ -5,11 +5,12 @@
     :filter="filterFunction"
     :getItemName="getItemName"
     resultItemLineStyle="single"
-    placeholder="Search by postcode, suburb, Local Government Area or Region..."
+    :placeholder="placeholderText"
     :initialValue="initialValue"
     :showIcon="true"
     :getIcon="() => 'map_marker'"
     @item-selected="selectArea"
+    @item-cleared="clearArea"
   />
 </template>
 <script>
@@ -25,6 +26,10 @@ export default {
     AutoComplete
   },
   props: {
+    noLgaOrRegion: {
+      type: Boolean,
+      default: false
+    },
     initialValue: {
       type: String,
       default: ''
@@ -32,6 +37,8 @@ export default {
   },
   data () {
     return {
+      placeholderTextDefault: 'Search by postcode, suburb, Local Government Area or Region...',
+      placeholderTextNoLgaOrRegion: 'Search by postcode or suburb...',
       areas: [],
       filterFunction: (items, query) => items.filter(
         x => x.name.toLowerCase().includes(query.toLowerCase()) || x.postcode.includes(query)
@@ -40,11 +47,19 @@ export default {
     }
   },
   created: async function () {
-    this.areas = await getAreas()
+    this.areas = await getAreas(this.noLgaOrRegion)
+  },
+  computed: {
+    placeholderText: function () {
+      return this.noLgaOrRegion ? this.placeholderTextNoLgaOrRegion : this.placeholderTextDefault
+    }
   },
   methods: {
     selectArea (id, item) {
       this.$emit('item-selected', id, item)
+    },
+    clearArea (id) {
+      this.$emit('item-cleared', id)
     }
   }
 }

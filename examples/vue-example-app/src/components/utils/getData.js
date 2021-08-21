@@ -1,7 +1,7 @@
 import axios from 'axios'
 import sensors from './sensors'
 
-const ABS_DATA_BASE_URL = 'https://proxy-myvic-components-production.lagoon.vicsdp.amazee.io/abs/sdmx-json/data/'
+const ABS_DATA_BASE_URL = 'https://proxy.production.myvic-components.sdp2.sdp.vic.gov.au/abs/sdmx-json/data/'
 const ARRIVALS_DATA_URL = ABS_DATA_BASE_URL + 'ABS_OAD_COUNTRY/06.TOTAL.10.M/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2017'
 const POPULATION_IN_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK_FY/1+3+6.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions'
 const POPULATION_OUT_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK_FY/2+4+7.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions'

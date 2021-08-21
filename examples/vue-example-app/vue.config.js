@@ -20,10 +20,16 @@ module.exports = {
     })
 
     // Add this to load Ripple svg icons
-    const svgRule = config.module.rule('svg')
     const rippleIconPath = path.dirname(require.resolve('@dpc-sdp/ripple-icon/package.json'))
-    svgRule.uses.clear()
+    const svgRule = config.module.rule('svg')
     svgRule
+      .exclude
+        .add(resolve(__dirname, rippleIconPath))
+      .end()
+
+    config.module
+      .rule('rplicon')
+      .test(/\.svg$/)
       .include
         .add(resolve(__dirname, rippleIconPath))
         .end()

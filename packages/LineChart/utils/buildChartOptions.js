@@ -1,4 +1,4 @@
-import styles from '@dpc-sdp/myvic-global/styles/export.scss'
+import styles from '@dpc-sdp/myvic-global/styles/stylesExport.js'
 import _merge from 'lodash.merge'
 import constants from '@dpc-sdp/myvic-global/constants/charts'
 import utils from '@dpc-sdp/myvic-global/utils/charts'

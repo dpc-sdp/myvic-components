@@ -1,12 +1,17 @@
 <template>
   <div class="myvic-map-core" :style="containerStyle">
-    <rpl-alert v-if="ie11" title="Internet Explorer 11 (and older) is not fully supported, please upgrade to a modern browser."/>
+    <rpl-alert v-if="ie11" title="Internet Explorer 11 (and older) is not fully supported, please upgrade to" :link='{"text":"Microsoft Edge.","url":"https://www.microsoft.com/en-us/edge"}'/>
     <div
-      class="myvic-map-core__popup ol-popup"
+      class="ol-popup"
+      :class="`myvic-map-core__popup--${popupProps.position || 'default'}`"
       ref="mapPopup">
       <map-indicator
+        v-bind="popupProps"
         :selectedFeature="feature"
-        :mapElement="$refs.map" />
+        :mapElement="$refs.map"
+        @popup-close="onPopupClose">
+        <slot name="popup"></slot>
+      </map-indicator>
     </div>
     <div
       v-if="!gotError && !ie11"
@@ -14,6 +19,19 @@
       <div class="myvic-map-core__map" ref="map" :tabindex="tabIndex" role="application" :aria-label="ariaLabel">
         <!-- @slot Default slot for child layers -->
         <slot></slot>
+        <div
+          class="ol-control myvic-map-core__geolocation"
+          :class="{'ol-control--hidden': !enableGeolocationControl, 'myvic-map-core__geolocation--right':controlPositions === 'top-right'}"
+          ref="geolocation">
+          <button
+          class="myvic-map-core__geolocation-button"
+          :class="{'myvic-map-core__geolocation-button--active': geolocationCentered}"
+          @click="enableGeolocation">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"/>
+            </svg>
+          </button>
+        </div>
         <a
           v-if="enableMapboxWatermark"
           href="http://mapbox.com/about/maps"
@@ -150,6 +168,20 @@ export default {
       default: false
     },
     /**
+     * Enable or disable the Geolocation control (button)
+     */
+    enableGeolocationControl: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Adjust the position of the zoom, full screen and geolocation controls. Can be set to 'default' or 'top-right'
+     */
+    controlPositions: {
+      type: String,
+      default: 'default'
+    },
+    /**
      * Enable or disable the ability for users to pan the map
      */
     enablePanInteraction: {
@@ -192,6 +224,32 @@ export default {
     popupContentFunction: {
       type: Function,
       default: undefined
+    },
+    /**
+     * props to pass to the MapIndicator component. Includes ```stickyHeader``` (Boolean)
+     * and ```position``` (String, one of ```default```, ```float-left```, ```below-feature```)
+     */
+    popupProps: {
+      type: Object,
+      default: function () {
+        return {}
+      }
+    },
+    /**
+     * delay the popup rendering (ms). Useful if the map needs to finish zoom/pan animations first
+     */
+    popupDelay: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * If the map contains any MapVectorLayer components with clustering, this setting will determine what happens when clicking on
+     * the cluster. The default behavior is to display a popup. If this setting is set to true, the map will zoom to the extent of
+     * the clustered features instead
+     */
+    zoomToClusterOnClick: {
+      type: Boolean,
+      default: false
     },
     /**
      * Set a specific tab index for users interacting with the map via the keyboard
@@ -249,6 +307,7 @@ export default {
       zoomControl: null,
       attributionControl: null,
       fullScreenControl: null,
+      geolocationControl: null,
       dragPanInteraction: null,
       keyboardPanInteraction: null,
       doubleClickZoomInteraction: null,
@@ -259,7 +318,16 @@ export default {
       dragRotateInteraction: null,
       pinchRotateInteraction: null,
       selectInteraction: null,
+      popupApplied: false, // helps avoid duplicate popups between select interaction and mapclick event
       feature: null,
+      positionToOverlayClass: {
+        default: undefined,
+        'float-left': 'myvic-map-core__overlay--float-left',
+        'below-feature': undefined
+      },
+      geolocation: null,
+      geolocationCentered: false,
+      geolocationPosition: null,
       ie11: !!window.MSInputMethodContext && !!document.documentMode
     }
   },
@@ -281,15 +349,15 @@ export default {
       }
     },
     center (newCenter) {
-      this.map.getView().setCenter(newCenter)
-      this.map.getView().setZoom(this.zoom)
-      this.feature = null
+      this.map.getView().animate({ center: newCenter, duration: 100 })
     },
     projection (newProjection) {
       this.createMap()
     },
     zoom (newZoom) {
-      this.map.getView().setZoom(newZoom)
+      if (newZoom !== this.currentZoom) {
+        this.map.getView().animate({ zoom: newZoom, duration: 100 })
+      }
     },
     minZoom (newMinZoom) {
       this.map.getView().setMinZoom(newMinZoom)
@@ -303,13 +371,25 @@ export default {
     baseMapAttributions (newBaseMapUrl) {
       this.updateBaseMap()
     },
+    popupProps (newPopupProps, oldPopupProps) {
+      if (newPopupProps.position !== oldPopupProps.position) {
+        this.addPopupOverlay()
+      }
+    },
     enableZoomControl () {
+      this.setMapControls()
+    },
+    controlPositions () {
+      this.createMapControls()
       this.setMapControls()
     },
     enableAttributionControl () {
       this.setMapControls()
     },
     enableFullScreenControl () {
+      this.setMapControls()
+    },
+    enableGeolocationControl () {
       this.setMapControls()
     },
     enablePanInteraction () {
@@ -385,6 +465,34 @@ export default {
           minZoom: this.minZoom
         })
       })
+      this.geolocation = new ol.Geolocation({
+        trackingOptions: {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        },
+        projection: this.map.getView().getProjection()
+      })
+      this.geolocation.on('change:position', () => {
+        if (this.geolocationPosition) {
+          /**
+           * Emitted when geolocation position changes
+           * @event geolocation-change
+           * @property {array} position geolocation position
+           * @property {number} accuracy accuracy in meters
+           */
+          this.$emit('geolocation-change', this.geolocation.getPosition(), this.geolocation.get('accuracy'))
+        } else {
+          /**
+           * Emitted when geolocation position is requested or is initially set
+           * @event geolocation-request
+           * @property {array} position geolocation position
+           * @property {number} accuracy accuracy in meters
+           */
+          this.$emit('geolocation-request', this.geolocation.getPosition(), this.geolocation.get('accuracy'))
+        }
+        this.geolocationPosition = this.geolocation.getPosition()
+      })
       if (this.focus) this.$refs.map.focus()
     },
     createBaseLayer () {
@@ -398,17 +506,25 @@ export default {
       })
     },
     createMapControls () {
-      this.zoomControl = new ol.control.Zoom()
+      this.zoomControl = new ol.control.Zoom({
+        className: this.controlPositions === 'top-right' ? 'myvic-map-core__zoom--right' : undefined
+      })
       this.attributionControl = new ol.control.Attribution({
         collapsible: false
       })
-      this.fullScreenControl = new ol.control.FullScreen()
+      this.fullScreenControl = new ol.control.FullScreen({
+        className: this.controlPositions === 'top-right' ? 'ol-full-screen--right' : 'ol-full-screen--left'
+      })
+      this.geolocationControl = new ol.control.Control({
+        element: this.$refs.geolocation
+      })
     },
     setMapControls () {
       this.map.getControls().clear()
       if (this.enableZoomControl) this.map.addControl(this.zoomControl)
       if (this.enableAttributionControl) this.map.addControl(this.attributionControl)
       if (this.enableFullScreenControl) this.map.addControl(this.fullScreenControl)
+      if (this.enableGeolocationControl) this.map.addControl(this.geolocationControl)
     },
     createMapInteractions () {
       this.dragPanInteraction = new ol.interaction.DragPan()
@@ -425,6 +541,10 @@ export default {
 
       this.selectInteraction = new ol.interaction.Select({
         condition: ol.events.condition.click,
+        filter: (f) => {
+          const isCluster = f.get('features') && f.get('features').length !== 1
+          return !isCluster
+        },
         style: this.selectedFeatureStyle || styles.createSelectedStyleFunction(this.selectedFeatureStyleLabelAttribute)
       })
       this.selectInteraction.on('select', this.onSelect)
@@ -490,6 +610,9 @@ export default {
       this.themeLayers.push(themeLayer)
     },
     addPopupOverlay () {
+      if (this.popupOverlay) {
+        this.map.removeOverlay(this.popupOverlay)
+      }
       this.popupOverlay = new ol.Overlay({
         element: this.$refs.mapPopup,
         autoPan: true,
@@ -497,7 +620,8 @@ export default {
           duration: 250
         },
         positioning: 'bottom-center',
-        position: undefined
+        position: undefined,
+        className: this.positionToOverlayClass[this.popupProps.position]
       })
       this.map.addOverlay(this.popupOverlay)
     },
@@ -531,6 +655,53 @@ export default {
     zoomOnAppMounted () {
       // Do something like `this.zoomToArea()`
     },
+    setFeaturePopup (features, pixel) {
+      // Hide popup if there are no features (i.e. click on an empty area of the map)
+      if (features.length === 0) {
+        this.feature = null
+        return
+      }
+
+      // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
+      const firstFeature = features[0]
+      if (this.customMethods && this.customMethods.featureMapper) {
+        this.feature = this.customMethods.featureMapper(firstFeature, features)
+      } else if (this.popupContentFunction) {
+        this.feature = this.popupContentFunction(features)
+      } else {
+        this.feature = this.featureMapper(firstFeature, features)
+      }
+      let coordinates
+      if (firstFeature.getGeometry().getType() === 'Point') {
+        coordinates = firstFeature.getGeometry().flatCoordinates
+      } else {
+        coordinates = this.map.getCoordinateFromPixel(pixel)
+      }
+      // Wait until popup rendering is complete before positioning the element
+      // this means the popup height is now known, so the map will pan correctly.
+      // Here we use setTimeout instead of Vue's nextTick because it should wait
+      // for the browser to update the size of the popup based on content length
+      // and screen size. With nextTick, the setPosition was running before the
+      // overlay changed size.
+      setTimeout(() => {
+        this.popupOverlay.setPosition(coordinates)
+      }, 0)
+    },
+    applyFeaturePopup (args) {
+      if (this.popupDelay === 0) {
+        this.setFeaturePopup.apply(this, args)
+      } else {
+        window.setTimeout(() => { this.setFeaturePopup.apply(this, args) }, this.popupDelay)
+      }
+    },
+    onMoveEnd (evt) {
+      const center = evt.map.getView().getCenter()
+      this.$emit('update:center', center)
+      this.$emit('update:zoom', evt.map.getView().getZoom())
+      if (this.geolocationPosition) {
+        this.geolocationCentered = center[0] === this.geolocationPosition[0] && center[1] === this.geolocationPosition[1]
+      }
+    },
     onMapPointerMove (evt) {
       // set the cursor to a pointer when hovering over an icon
       var pixel = this.map.getEventPixel(evt.originalEvent)
@@ -556,24 +727,35 @@ export default {
     },
     onSelect (evt) {
       let selectedFeatures = evt.target.getFeatures()
+      let popupFeatures = []
+      /**
+       * Emitted when a feature is selected
+       * @event select
+       * @property {object} selected features
+       * @property {object} select event
+       */
+      this.$emit('select', selectedFeatures, evt)
+
+      // popup needs to be handled here and not on mapclick event
+      // because evt.target.getFeatures() here produces different
+      // features from this.map.forEachFeatureAtPixel which is used there
       if (selectedFeatures.getLength() > 0) {
-        /**
-         * Emitted when a feature is selected
-         * @event select
-         * @property {object} selected features
-         * @property {object} select event
-         */
-        this.$emit('select', selectedFeatures, evt)
+        const layer = evt.target.getLayer(selectedFeatures.getArray()[0])
+        selectedFeatures.getArray().forEach(f => {
+          f.layerName = layer.get('name')
+          f.event = 'select'
+
+          // Support layers added via themeLayers
+          if (this.themeLayers.includes(layer)) popupFeatures.push(f)
+
+          // Support layers added as child components
+          if (layer.get('enablePopup')) popupFeatures.push(f)
+        })
       }
+      this.applyFeaturePopup([popupFeatures, evt.mapBrowserEvent.pixel])
+      this.popupHandled = true
     },
     onMapClick (evt) {
-      /**
-       * Emitted when the map is clicked
-       * @event click
-       * @property {event} the map click event
-       */
-      this.$emit('click', evt)
-
       const features = []
       this.map.forEachFeatureAtPixel(evt.pixel, (f, layer) => {
         f.layerName = layer.get('name')
@@ -585,33 +767,45 @@ export default {
         // Support layers added as child components
         if (layer.get('enablePopup')) features.push(f)
       })
+      /**
+       * Emitted when the map is clicked
+       * @event click
+       * @property {event} the map click event
+       * @property {object} selected features
+       */
+      this.$emit('click', evt, features)
 
-      // Hide popup if there are no features (i.e. click on an empty area of the map)
-      if (features.length === 0) {
-        this.feature = null
-        return
+      let popupArgs = [features, evt.pixel]
+      const isCluster = features[0] && features[0].get('features') && features[0].get('features').length > 1
+      if (isCluster && this.zoomToClusterOnClick) {
+        this.zoomToCluster(features[0].get('features'))
+        popupArgs = [[]]
       }
-
-      // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
-      const firstFeature = features[0]
-      if (this.customMethods && this.customMethods.featureMapper) {
-        this.feature = this.customMethods.featureMapper(firstFeature, features)
-      } else if (this.popupContentFunction) {
-        this.feature = this.popupContentFunction(features)
-      } else {
-        this.feature = this.featureMapper(firstFeature, features)
+      if (!this.popupHandled) {
+        this.applyFeaturePopup(popupArgs)
       }
-
-      // Wait until popup rendering is complete before positioning the element
-      // this means the popup height is now known, so the map will pan correctly.
-      // Here we use setTimeout instead of Vue's nextTick because it should wait
-      // for the browser to update the size of the popup based on content length
-      // and screen size. With nextTick, the setPosition was running before the
-      // overlay changed size.
-      setTimeout(() => {
-        let coordinate = this.map.getCoordinateFromPixel(evt.pixel)
-        this.popupOverlay.setPosition(coordinate)
-      }, 0)
+      // reset value to await for next select event
+      this.popupHandled = false
+    },
+    onPopupClose () {
+      /**
+       * Emitted when the popup is closed
+       * @event popup-close
+       */
+      this.$emit('popup-close')
+    },
+    zoomToCluster (cluster) {
+      // eslint-disable-next-line new-cap
+      const extent = new ol.extent.createEmpty()
+      cluster.forEach(f => {
+        ol.extent.extend(extent, f.getGeometry().getExtent())
+      })
+      this.map.getView().fit(extent, {
+        size: this.map.getSize(),
+        padding: [50, 50, 50, 50],
+        duration: 400,
+        easing: ol.easing.easeOut
+      })
     },
     onAppMounted () {
       try {
@@ -645,6 +839,7 @@ export default {
 
         this.map.on('singleclick', this.onMapClick)
         this.map.on('pointermove', this.onMapPointerMove)
+        this.map.on('moveend', this.onMoveEnd)
 
         if (this.customMethods && this.customMethods.exposeMap) {
           this.customMethods.exposeMap(this.map)
@@ -681,6 +876,13 @@ export default {
         }
         checkForMap()
       })
+    },
+    enableGeolocation: function () {
+      if (!this.geolocation.get('tracking')) {
+        this.geolocation.setTracking(true)
+      } else {
+        this.$emit('geolocation-request', this.geolocation.getPosition(), this.geolocation.get('accuracy'))
+      }
     }
   }
 }
@@ -716,13 +918,79 @@ export default {
       outline: rpl-color('mid_neutral_1') solid 1px;
     }
 
-    &__popup {
+    &__overlay--float-left {
+      height: calc(100% - 16px);
+      transform: none !important;
+      top: 8px;
+      left: 8px;
+      bottom: 8px;
+    }
+
+    &__popup--default {
       position: absolute;
       z-index: $rpl-zindex-popover;
       bottom: $rpl-space-3;
       transform: translateX(-50%);
       cursor: auto;
     }
+
+    &__popup--float-left {
+      position: absolute;
+      z-index: $rpl-zindex-popover;
+      height: 100%;
+      cursor: auto;
+    }
+
+    &__popup--below-feature {
+      position: absolute;
+      z-index: $rpl-zindex-popover;
+      top: 8px;
+      transform: translateX(-50%);
+      cursor: auto;
+    }
+
+    &__geolocation {
+      left: .5em;
+      top: 100px;
+      &--right {
+        left: auto;
+        right: .5em
+      }
+      &-button--active {
+        color: rpl-color('primary') !important;
+        background-color: rgba(246,246,246,0.9) !important;
+      }
+    }
+
+    &__zoom--right {
+      top: .5em;
+      right: .5em;
+    }
+  }
+
+  .ol-full-screen {
+    &--left {
+      top: 100px;
+      right: auto;
+      left: .5em;
+    }
+    &--right {
+      top: 100px;
+      right: .5em;
+      left: auto;
+    }
+  }
+
+  .ol-full-screen--right + .ol-control {
+    top: 150px;
+  }
+
+  .ol-full-screen--left + .ol-control {
+    top: 150px;
+  }
+
+  .ol-control--hidden {
+    display: none;
   }
 
   .ol-attribution {
@@ -734,6 +1002,41 @@ export default {
     font-size: .8rem;
     color: #222;
     text-decoration: none;
+  }
+
+  .ol-control {
+    border-radius: 4px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 8px 0px #00000033;
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  .ol-control button {
+    box-sizing: content-box;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    background-color: rgba(256,256,256,0.95);
+    color: rpl-color('dark_neutral');
+    font-weight: normal;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 0;
+    overflow: hidden;
+
+    &:hover,&:focus {
+      color: rpl-color('primary');
+      background-color: rgba(246,246,246,0.9);
+    }
+  }
+
+  .ol-control button ~ button {
+    margin-top: 1px;
   }
 
   .map-watermark {
