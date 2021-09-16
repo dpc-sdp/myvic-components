@@ -7,7 +7,7 @@
       :minQueryLength="8"
       :showSuburb="false"
       :showMetroBoundary="true"
-      metroBoundaryUrl="https://gis-app.prod.myvictoria.vic.gov.au/geoserver/myvic/ows?service=WFS&version=1.0.0&outputFormat=application%2Fjson&request=GetFeature&typeName=myvic:covid_metro_area2_4326"
+      metroBoundaryUrl="https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/ows?service=WFS&version=1.0.0&outputFormat=application%2Fjson&request=GetFeature&typeName=myvic:covid_metro_area2_4326"
       :radius="radius"
       :radiusLabel="radiusLabel"
       :label="label"
