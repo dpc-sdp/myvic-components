@@ -7,15 +7,27 @@ environments:
   production:
     routes:
       - storybook:
-        - "visualise.myvictoria.vic.gov.au":
+        - "production.visualise.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
       - example:
-        - "example.visualise.myvictoria.vic.gov.au":
+        - "example.production.visualise.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
+  prod-left:
+    routes:
+      - storybook:
+        - "prod-left.visualise.myvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+      - example:
+        - "example.prod-left.visualise.myvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000  
   master:
     routes:
       - storybook:
@@ -37,6 +49,31 @@ environments:
             hsts: max-age=31536000
       - example:
         - "example.develop.visualise.myvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+production_routes:
+  active:
+    routes:
+      - storybook:
+        - "visualise.myvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+      - example:
+        - "example.visualise.myvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+  standby:
+    routes:
+      - storybook:
+        - "standby.visualise.myvictoria.vic.gov.au":
+            tls-acme: 'false'
+            insecure: Allow
+            hsts: max-age=31536000
+      - example:
+        - "example.standby.visualise.myvictoria.vic.gov.au":
             tls-acme: 'false'
             insecure: Allow
             hsts: max-age=31536000
