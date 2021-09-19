@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/dpc-sdp/myvic-components/compare/v2.2.0...v2.2.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* covid designer updates ([#177](https://github.com/dpc-sdp/myvic-components/issues/177)) ([6e4898f](https://github.com/dpc-sdp/myvic-components/commit/6e4898f2355966bdb394181b7d82bf953a3ba4b2))
+
+
+
+
+
+
+# [2.2.0](https://github.com/dpc-sdp/myvic-components/compare/v2.1.0...v2.2.0) (2021-08-06)
+
+
+### Features
+
+* coronavirus more enhancements and fixes ([#174](https://github.com/dpc-sdp/myvic-components/issues/174)) ([a01c9bb](https://github.com/dpc-sdp/myvic-components/commit/a01c9bb78486dcd8b28337f60fafa0fcc4723a42))
+
+
+
+
+
+
 # [2.1.0](https://github.com/dpc-sdp/myvic-components/compare/v2.0.4...v2.1.0) (2021-08-02)
 
 

@@ -7,7 +7,7 @@
       ref="mapPopup">
       <map-indicator
         v-bind="popupProps"
-        :selectedFeature="feature"
+        :selectedFeature="isPopupFeatureBoundToParent() ? popupFeature : localPopupFeature"
         :mapElement="$refs.map"
         @popup-close="onPopupClose">
         <slot name="popup"></slot>
@@ -27,6 +27,7 @@
           class="myvic-map-core__geolocation-button"
           :class="{'myvic-map-core__geolocation-button--active': geolocationCentered}"
           @click="enableGeolocation">
+            <span class="rpl-visually-hidden">Click to locate current location on map</span>
             <svg width="17" height="16" viewBox="0 0 17 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M0.926636 7.21044L8.13002 8.87L9.73002 16L17 0L0.926636 7.21044Z"/>
             </svg>
@@ -49,6 +50,8 @@ import ol from './lib/ol'
 import styles from './styles/styles'
 import catchError from '@dpc-sdp/myvic-global/mixins/catchError'
 import Error from '@dpc-sdp/myvic-global/components/Error'
+import { getSvg } from '@dpc-sdp/myvic-global/mapIcons/iconLibrary'
+import { createHTMLElementFromString } from '@dpc-sdp/myvic-global/utils/misc'
 import { RplAlert } from '@dpc-sdp/ripple-alert'
 
 /**
@@ -73,7 +76,7 @@ export default {
     },
     /**
      * Coordinates to center the map on as an array of numbers. Must match the map projection, in the form ```[x, y]```
-     * or ```[lon, lat]```.
+     * or ```[lon, lat]``` (two-way binding).
      */
     center: {
       type: Array,
@@ -89,7 +92,7 @@ export default {
       default: undefined
     },
     /**
-     * Initial map zoom level
+     * Map zoom level (two-way binding)
      */
     zoom: {
       type: Number,
@@ -218,6 +221,17 @@ export default {
       default: undefined
     },
     /**
+     * Feature that the popup displays information for (two-way binding). If not supplied then this component will
+     * use a local objecct (localPopupFeature) to manage this. Supplying this prop lets the parent set or clear
+     * the popup feature ad hoc
+     */
+    popupFeature: {
+      type: Object,
+      default: function () {
+        return null
+      }
+    },
+    /**
      * Function used to generate content for the map popups (enabled per layer). Accepts an array of Features and
      * should return an object with ```title``` and ```content``` properties
      */
@@ -319,7 +333,7 @@ export default {
       pinchRotateInteraction: null,
       selectInteraction: null,
       popupApplied: false, // helps avoid duplicate popups between select interaction and mapclick event
-      feature: null,
+      localPopupFeature: null,
       positionToOverlayClass: {
         default: undefined,
         'float-left': 'myvic-map-core__overlay--float-left',
@@ -507,7 +521,9 @@ export default {
     },
     createMapControls () {
       this.zoomControl = new ol.control.Zoom({
-        className: this.controlPositions === 'top-right' ? 'myvic-map-core__zoom--right' : undefined
+        className: this.controlPositions === 'top-right' ? 'myvic-map-core__zoom--right' : undefined,
+        zoomInLabel: createHTMLElementFromString(getSvg('plus', 's')),
+        zoomOutLabel: createHTMLElementFromString(getSvg('minus', 's'))
       })
       this.attributionControl = new ol.control.Attribution({
         collapsible: false
@@ -655,22 +671,34 @@ export default {
     zoomOnAppMounted () {
       // Do something like `this.zoomToArea()`
     },
+    isPopupFeatureBoundToParent () {
+      return 'popupFeature' in this.$options.propsData
+    },
+    updatePopupFeature (newFeature) {
+      if (this.isPopupFeatureBoundToParent()) {
+        this.$emit('update:popupFeature', newFeature)
+      } else {
+        this.localPopupFeature = newFeature
+      }
+    },
     setFeaturePopup (features, pixel) {
       // Hide popup if there are no features (i.e. click on an empty area of the map)
       if (features.length === 0) {
-        this.feature = null
+        this.updatePopupFeature(null)
         return
       }
 
       // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
       const firstFeature = features[0]
+      let newFeature
       if (this.customMethods && this.customMethods.featureMapper) {
-        this.feature = this.customMethods.featureMapper(firstFeature, features)
+        newFeature = this.customMethods.featureMapper(firstFeature, features)
       } else if (this.popupContentFunction) {
-        this.feature = this.popupContentFunction(features)
+        newFeature = this.popupContentFunction(features)
       } else {
-        this.feature = this.featureMapper(firstFeature, features)
+        newFeature = this.featureMapper(firstFeature, features)
       }
+      this.updatePopupFeature(newFeature)
       let coordinates
       if (firstFeature.getGeometry().getType() === 'Point') {
         coordinates = firstFeature.getGeometry().flatCoordinates
@@ -1029,7 +1057,11 @@ export default {
     border-radius: 0;
     overflow: hidden;
 
-    &:hover,&:focus {
+    &:focus {
+      color: rpl-color('dark_neutral');
+      background-color: rgba(256,256,256,0.95);
+    }
+    &:hover,&:active {
       color: rpl-color('primary');
       background-color: rgba(246,246,246,0.9);
     }
