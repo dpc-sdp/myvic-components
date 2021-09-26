@@ -169,6 +169,12 @@ exports[`MyvicStoryshots AddressSearchMap Default 1`] = `
             <button
               class="myvic-map-core__geolocation-button"
             >
+              <span
+                class="rpl-visually-hidden"
+              >
+                Click to locate current location on map
+              </span>
+               
               <svg
                 fill="currentColor"
                 height="16"
@@ -1689,6 +1695,12 @@ exports[`MyvicStoryshots Examples/AreaWithMap Default 1`] = `
             <button
               class="myvic-map-core__geolocation-button"
             >
+              <span
+                class="rpl-visually-hidden"
+              >
+                Click to locate current location on map
+              </span>
+               
               <svg
                 fill="currentColor"
                 height="16"
@@ -2145,6 +2157,12 @@ exports[`MyvicStoryshots Examples/IncomeData Default 1`] = `
               <button
                 class="myvic-map-core__geolocation-button"
               >
+                <span
+                  class="rpl-visually-hidden"
+                >
+                  Click to locate current location on map
+                </span>
+                 
                 <svg
                   fill="currentColor"
                   height="16"
@@ -2651,6 +2669,12 @@ exports[`MyvicStoryshots Maps/Core Accessibility 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -2808,6 +2832,12 @@ exports[`MyvicStoryshots Maps/Core Events 1`] = `
               <button
                 class="myvic-map-core__geolocation-button"
               >
+                <span
+                  class="rpl-visually-hidden"
+                >
+                  Click to locate current location on map
+                </span>
+                 
                 <svg
                   fill="currentColor"
                   height="16"
@@ -3031,6 +3061,12 @@ exports[`MyvicStoryshots Maps/Core Fixed Map 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -3206,6 +3242,12 @@ exports[`MyvicStoryshots Maps/Core Geolocation 1`] = `
             <button
               class="myvic-map-core__geolocation-button"
             >
+              <span
+                class="rpl-visually-hidden"
+              >
+                Click to locate current location on map
+              </span>
+               
               <svg
                 fill="currentColor"
                 height="16"
@@ -3253,6 +3295,12 @@ exports[`MyvicStoryshots Maps/Core Interactive Map 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -3406,6 +3454,12 @@ exports[`MyvicStoryshots Maps/Core Popups 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -3555,6 +3609,12 @@ exports[`MyvicStoryshots Maps/Core Popups below map pins 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -3704,6 +3764,12 @@ exports[`MyvicStoryshots Maps/Core Popups floating left 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -3852,6 +3918,12 @@ exports[`MyvicStoryshots Maps/Core Popups with sticky header and slotted content
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -4015,6 +4087,12 @@ exports[`MyvicStoryshots Maps/Core Ripple Grid 1`] = `
               <button
                 class="myvic-map-core__geolocation-button"
               >
+                <span
+                  class="rpl-visually-hidden"
+                >
+                  Click to locate current location on map
+                </span>
+                 
                 <svg
                   fill="currentColor"
                   height="16"
@@ -4158,6 +4236,12 @@ exports[`MyvicStoryshots Maps/Core Select Interaction 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -4343,6 +4427,12 @@ exports[`MyvicStoryshots Maps/Legend Map with Legend 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -4490,6 +4580,12 @@ exports[`MyvicStoryshots Maps/Tile Layer ArcGIS - MapShare 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -4637,6 +4733,12 @@ exports[`MyvicStoryshots Maps/Tile Layer Configurable Layer 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -4798,6 +4900,12 @@ exports[`MyvicStoryshots Maps/Tile Layer Multiple Layers 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -4945,6 +5053,12 @@ exports[`MyvicStoryshots Maps/Tile Layer Open Street Map 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -5092,6 +5206,12 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - GDA94 Projection 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -5239,6 +5359,12 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - MyVictoria 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -5386,6 +5512,12 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Aerial + Overlay 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -5533,6 +5665,12 @@ exports[`MyvicStoryshots Maps/Tile Layer WMS - VicMap Basemap 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -5680,6 +5818,12 @@ exports[`MyvicStoryshots Maps/Tile Layer XYZ - Mapbox 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -5833,6 +5977,12 @@ exports[`MyvicStoryshots Maps/Vector Layer Alternative cluster style and behavio
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -5982,6 +6132,12 @@ exports[`MyvicStoryshots Maps/Vector Layer ArcGIS Feature Server 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -6131,6 +6287,12 @@ exports[`MyvicStoryshots Maps/Vector Layer Configurable Layer 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -6290,6 +6452,12 @@ exports[`MyvicStoryshots Maps/Vector Layer Custom Styles 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -6437,6 +6605,12 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -6584,6 +6758,12 @@ exports[`MyvicStoryshots Maps/Vector Layer GeoJSON File With Clustering 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -6733,6 +6913,12 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS BBOX Load Strategy 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -6882,6 +7068,12 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS Tile Load Strategy 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -7031,6 +7223,12 @@ exports[`MyvicStoryshots Maps/Vector Layer WFS with Filter 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -7178,6 +7376,12 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Configurable Layer 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -7337,6 +7541,12 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer Mapbox Bright 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -7490,6 +7700,12 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMS 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -7639,6 +7855,12 @@ exports[`MyvicStoryshots Maps/Vector Tile Layer MyVictoria WMTS 1`] = `
         <button
           class="myvic-map-core__geolocation-button"
         >
+          <span
+            class="rpl-visually-hidden"
+          >
+            Click to locate current location on map
+          </span>
+           
           <svg
             fill="currentColor"
             height="16"
@@ -8699,6 +8921,12 @@ exports[`MyvicStoryshots Toggle List Map Layer Toggle 1`] = `
               <button
                 class="myvic-map-core__geolocation-button"
               >
+                <span
+                  class="rpl-visually-hidden"
+                >
+                  Click to locate current location on map
+                </span>
+                 
                 <svg
                   fill="currentColor"
                   height="16"
