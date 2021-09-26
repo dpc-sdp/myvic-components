@@ -7,7 +7,7 @@
       :minQueryLength="8"
       :showSuburb="false"
       :showMetroBoundary="true"
-      metroBoundaryUrl="https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/ows?service=WFS&version=1.0.0&outputFormat=application%2Fjson&request=GetFeature&typeName=myvic:covid_metro_area_4326"
+      :metroBoundaryUrl="`https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver/myvic/ows?service=WFS&version=1.0.0&outputFormat=application%2Fjson&request=GetFeature&typeName=${mapFeatureURL}`"
       :radius="radius"
       :radiusLabel="radiusLabel"
       :label="label"
@@ -34,6 +34,7 @@
         radiusLabel = `Approx. ${radiusKm}km radius`
       }
       return {
+        mapFeatureURL: process.env.VUE_APP_COVID_MAP_FEATURE_URL,
         radius: isNaN(radius) ? null : radius,
         radiusLabel,
         label: process.env.VUE_APP_COVID_MAP_LABEL,
