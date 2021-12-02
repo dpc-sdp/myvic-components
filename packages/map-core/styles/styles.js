@@ -208,7 +208,7 @@ const hollowCluster = (features) => {
 
 const filledCluster = (features, clusterColor, labelLimit) => {
   const fontSize = 2.4
-  const maxTextNumber = labelLimit ? labelLimit : 99
+  const maxTextNumber = labelLimit || 99
   const clusterSizeText = features.length > maxTextNumber ? `${maxTextNumber}<tspan style="font-size:${fontSize * 0.75}px">+</tspan>` : features.length.toString()
   const iconSvg = getSvg('filledCluster', 'm', clusterColor || '#465870', clusterSizeText)
 
