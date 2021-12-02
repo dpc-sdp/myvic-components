@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-map-core",
-  "version": "2.2.1",
+  "version": "2.2.5",
   "description": "Core functions of map for myvictoria.vic.gov.au",
   "main": "index.js",
   "repository": "https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core",
