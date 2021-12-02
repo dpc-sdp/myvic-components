@@ -29,7 +29,7 @@
     "@dpc-sdp/ripple-layout": "^1.8.0",
     "@dpc-sdp/ripple-responsive-img": "^1.22.0",
     "@dpc-sdp/ripple-site-header": "^1.8.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.10",
     "vue-router": "^3.3.4"
