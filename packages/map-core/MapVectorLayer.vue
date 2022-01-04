@@ -171,6 +171,11 @@ export default {
       await this.configureLayer()
     }
   },
+  data () {
+    return {
+      clusterIconCache: {}
+    }
+  },
   computed: {
     format: function () {
       switch (this.dataFormat) {
@@ -307,7 +312,13 @@ export default {
       return (feature) => {
         const features = feature.get('features')
         if (features.length > 1) {
-          return this.callIfFunction(this.clusterPointStyle, features) || styles.createDefaultClusteringStyleFunction(features)
+          const cachedStyle = this.clusterIconCache[features]
+          if (cachedStyle) {
+            return cachedStyle
+          } else {
+            this.clusterIconCache[features] = this.callIfFunction(this.clusterPointStyle, features) || styles.createDefaultClusteringStyleFunction(features)
+            return this.clusterIconCache[features]
+          }
         } else {
           return this.callIfFunction(unclusteredStyle, features[0])
         }
