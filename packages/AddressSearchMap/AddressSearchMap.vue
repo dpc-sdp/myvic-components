@@ -28,7 +28,7 @@
           :visible="basemapProvider === 'Vicmap'"
           type="WMS"
           url="https://base.maps.vic.gov.au/service"
-          :params="{'LAYERS': 'CARTO_WM', 'TILED': false}"
+          :params="{'LAYERS': 'CARTO_WM_256', 'TILED': false}"
           :highDPI="false"
           :zIndex="1"
         />
