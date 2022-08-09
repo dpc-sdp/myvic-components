@@ -3,7 +3,7 @@ version: 2.0
 jobs:
   install:
     docker:
-      - image: cypress/base:16.16.0
+      - image: cypress/base:16
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -30,7 +30,7 @@ jobs:
 
   test:
     docker:
-      - image: cypress/base:16.16.0
+      - image: cypress/base:16
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -60,7 +60,7 @@ jobs:
 
   nuxt:
     docker:
-      - image: cypress/base:16.16.0
+      - image: cypress/base:16
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
@@ -87,7 +87,7 @@ jobs:
 
   proxy:
     docker:
-      - image: cypress/base:16.16.0
+      - image: cypress/base:16
         environment:
           TERM: xterm
           CIRCLE_TEST_REPORTS: test-results
