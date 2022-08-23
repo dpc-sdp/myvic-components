@@ -2,6 +2,7 @@
 import ol from './lib/ol'
 import styles from './styles/styles'
 import layer from './mixin/layer'
+import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 
 /**
  * MyvicMapVectorLayer provides support for vector sources such as WFS, ArcGIS Feature Server and GeoJSON files for
@@ -10,7 +11,7 @@ import layer from './mixin/layer'
  */
 export default {
   name: 'MyvicMapVectorLayer',
-  mixins: [layer],
+  mixins: [layer, breakpoint],
   props: {
     /**
      * The url of the vector layer as a string. This property takes precedence if both url and urlFunction are provided.
@@ -256,7 +257,7 @@ export default {
         extent: this.extent,
         zIndex: this.zIndex,
         style: this.getLayerStyle(),
-        animationDuration: this.clustering ? 600 : undefined,
+        animationDuration: this.clustering ? this.getClusteringAnimationDuration() : undefined,
         declutter: this.declutter,
         visible: this.visible
       })
@@ -286,6 +287,9 @@ export default {
 
       // Add layer to map
       this.map.addLayer(this.layer)
+    },
+    getClusteringAnimationDuration: function () {
+      return this.$breakpoint.m ? 600 : 0
     },
     zoomToLayerExtent: function (padding, duration) {
       let extent = this.layerSource.getExtent()

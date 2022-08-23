@@ -54,7 +54,6 @@ import TileGrid from 'ol/tilegrid/TileGrid'
 import {
   createXYZ
 } from 'ol/tilegrid'
-import GeometryType from 'ol/geom/GeometryType'
 import {
   Point,
   Polygon,
@@ -205,7 +204,6 @@ const ol = {
     createXYZ
   },
   geom: {
-    GeometryType,
     Point,
     Polygon,
     MultiPolygon,

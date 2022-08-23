@@ -222,7 +222,7 @@ export default {
     },
     /**
      * Feature that the popup displays information for (two-way binding). If not supplied then this component will
-     * use a local objecct (localPopupFeature) to manage this. Supplying this prop lets the parent set or clear
+     * use a local object (localPopupFeature) to manage this. Supplying this prop lets the parent set or clear
      * the popup feature ad hoc
      */
     popupFeature: {
