@@ -1,4 +1,4 @@
-FROM amazeeio/node:10-builder as builder
+FROM amazeeio/node:14-builder as builder
 
 COPY packages /app/packages
 COPY src /app/src
@@ -7,7 +7,7 @@ RUN yarn install
 WORKDIR /app/src
 RUN yarn run build-storybook
 
-FROM amazeeio/node:10
+FROM amazeeio/node:14-latest
 COPY --from=builder /app/src/public /app
 #COPY scripts/jira-post-comment-storybook.sh /app/scripts/jira-post-comment.sh
 
