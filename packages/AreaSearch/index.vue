@@ -9,6 +9,7 @@
     :initialValue="initialValue"
     :showIcon="true"
     :getIcon="() => 'map_marker'"
+    :debounceSearch="debounceSearch"
     @item-selected="selectArea"
     @item-cleared="clearArea"
   />
@@ -33,6 +34,10 @@ export default {
     initialValue: {
       type: String,
       default: ''
+    },
+    debounceSearch: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
