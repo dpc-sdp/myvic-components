@@ -232,6 +232,13 @@ export default {
       }
     },
     /**
+     * Enable filtering of features that will be shown in the popup. If the filter returns no features then the popup will not be shown
+     */
+    filterFeaturesForPopup: {
+      type: Function,
+      default: undefined
+    },
+    /**
      * Function used to generate content for the map popups (enabled per layer). Accepts an array of Features and
      * should return an object with ```title``` and ```content``` properties
      */
@@ -683,21 +690,25 @@ export default {
       }
     },
     setFeaturePopup (features, pixel) {
+      let filteredFeatures = features
+      if (this.filterFeaturesForPopup) {
+        filteredFeatures = this.filterFeaturesForPopup(features)
+      }
       // Hide popup if there are no features (i.e. click on an empty area of the map)
-      if (features.length === 0) {
+      if (filteredFeatures.length === 0) {
         this.updatePopupFeature(null)
         return
       }
 
       // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
-      const firstFeature = features[0]
+      const firstFeature = filteredFeatures[0]
       let newFeature
       if (this.customMethods && this.customMethods.featureMapper) {
-        newFeature = this.customMethods.featureMapper(firstFeature, features)
+        newFeature = this.customMethods.featureMapper(firstFeature, filteredFeatures)
       } else if (this.popupContentFunction) {
-        newFeature = this.popupContentFunction(features)
+        newFeature = this.popupContentFunction(filteredFeatures)
       } else {
-        newFeature = this.featureMapper(firstFeature, features)
+        newFeature = this.featureMapper(firstFeature, filteredFeatures)
       }
       this.updatePopupFeature(newFeature)
       let coordinates
