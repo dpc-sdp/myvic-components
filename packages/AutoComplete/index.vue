@@ -109,7 +109,7 @@ export default {
       default: ({ name }) => name
     },
     /**
-     * A function to get the secondary text for an item. The secondary text is either the description in the `double` item line style or the tag in the `single` style
+     * A function to get the secondary text for an item. The secondary text is either the descriptive subtitle in the `double` item line style or the tag in the `single` style
      */
     getItemSecondaryText: {
       type: Function,
