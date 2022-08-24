@@ -87,6 +87,7 @@ export default {
       await this.configureLayer()
     },
     async visible (newValue) {
+      if (!newValue || !this.layer) return
       await this.layer.setVisible(newValue)
     }
   },
