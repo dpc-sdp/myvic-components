@@ -2,6 +2,7 @@
 import ol from './lib/ol'
 import styles from './styles/styles'
 import layer from './mixin/layer'
+import { callIfFunction } from '@dpc-sdp/myvic-global/utils/misc'
 import breakpoint from '@dpc-sdp/ripple-global/mixins/breakpoint'
 
 /**
@@ -304,10 +305,6 @@ export default {
         )
       }
     },
-    callIfFunction: function (thing, parameters) {
-      if (typeof thing === 'function') return thing(parameters)
-      return thing
-    },
     getLayerStyle: function () {
       const unclusteredStyle = this.layerStyle || styles.createDefaultStyleFunction(this.labelAttribute, this.labelOnly, false)
       return this.clustering ? this.getClusteringStyle(unclusteredStyle) : unclusteredStyle
@@ -320,11 +317,11 @@ export default {
           if (cachedStyle) {
             return cachedStyle
           } else {
-            this.clusterIconCache[features] = this.callIfFunction(this.clusterPointStyle, features) || styles.createDefaultClusteringStyleFunction(features)
+            this.clusterIconCache[features] = callIfFunction(this.clusterPointStyle, features) || styles.createDefaultClusteringStyleFunction(features)
             return this.clusterIconCache[features]
           }
         } else {
-          return this.callIfFunction(unclusteredStyle, features[0])
+          return callIfFunction(unclusteredStyle, features[0])
         }
       }
     }

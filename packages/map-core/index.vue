@@ -240,8 +240,9 @@ export default {
       default: undefined
     },
     /**
-     * props to pass to the MapIndicator component. Includes ```stickyHeader``` (Boolean)
-     * and ```position``` (String, one of ```default```, ```float-left```, ```below-feature```)
+     * props to pass to the MapIndicator component. Includes ```stickyHeader``` (Boolean),
+     * ```position``` (String, one of ```default```, ```float-left```, ```below-feature```)
+     * and ```preferredWidth``` (Number or Function of the MapIndicator instance that returns a Number)
      */
     popupProps: {
       type: Object,
@@ -250,7 +251,7 @@ export default {
       }
     },
     /**
-     * delay the popup rendering (ms). Useful if the map needs to finish zoom/pan animations first
+     * Delay the popup rendering (ms). Useful if the map needs to finish zoom/pan animations first
      */
     popupDelay: {
       type: Number,
