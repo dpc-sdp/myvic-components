@@ -42,7 +42,7 @@ One or more ```myvic-map-vector-layer``` components can be declared as children 
   :center="[16138405.843820328, -4552817.013522999]"
 >
   <myvic-map-vector-layer
-    url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+    url="countries.geojson"
     dataFormat="GeoJSON"
   />
 </myvic-map-core>
@@ -189,7 +189,7 @@ GeoJSON files can be loaded directly from a URL. This example uses the default s
           selectedFeatureStyleLabelAttribute="name"
         >
           <myvic-map-vector-layer
-            url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+            url="countries.geojson"
             dataFormat="GeoJSON"
             labelAttribute="name"
           />
@@ -205,12 +205,12 @@ GeoJSON files can be loaded directly from a URL. This example uses the default s
   </Story>
 </Preview>
 
-## GeoJSON File With Clustering
+## GeoJSON With Clustering
 
-This example showcases client-side clustering with a GeoJSON file loaded from a URL.
+This example showcases client-side clustering with GeoJSON loaded from a URL.
 
 <Preview>
-  <Story name="GeoJSON File With Clustering">
+  <Story name="GeoJSON With Clustering">
     {
       {
         components: { MyvicMapCore, MyvicMapVectorLayer },
