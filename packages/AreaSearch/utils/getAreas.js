@@ -4,8 +4,8 @@ const GEOSERVER_URL = 'https://gis-app-cdn.prod.myvictoria.vic.gov.au/geoserver'
 const SERVICE_REQUEST = 'myvic/ows?service=WFS&version=1.0.0&outputFormat=application%2Fjson&request=GetFeature&typeName=myvic:site_search'
 const REQUEST = `${GEOSERVER_URL}/${SERVICE_REQUEST}`
 
-const fetchData = async () => {
-  const { data } = await axios.get(REQUEST)
+const fetchData = async (cqlFilter) => {
+  const { data } = await axios.get(REQUEST + '&' + cqlFilter)
   return data
 }
 
@@ -18,8 +18,9 @@ const patchAreas = (areas) => {
   return areas
 }
 
-export const getAreas = async (noLgaOrRegion) => {
-  const rawData = await fetchData()
+export const getAreas = async (areaTypes) => {
+  const cqlFilter = `CQL_FILTER=type+IN+('${areaTypes.join("','")}')`
+  const rawData = await fetchData(cqlFilter)
   let areas = rawData.features.filter(f => f.properties.name).map(f => (
     {
       id: f.properties.id,
@@ -28,8 +29,5 @@ export const getAreas = async (noLgaOrRegion) => {
       postcode: f.properties.postcode
     }
   ))
-  if (noLgaOrRegion) {
-    areas = areas.filter(f => !['lga', 'region'].includes(f.description))
-  }
   return patchAreas(areas)
 }

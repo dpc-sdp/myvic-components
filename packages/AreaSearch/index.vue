@@ -28,9 +28,9 @@ export default {
     AutoComplete
   },
   props: {
-    noLgaOrRegion: {
-      type: Boolean,
-      default: false
+    areaTypes: {
+      type: Array,
+      default: () => ['suburb', 'lga', 'region']
     },
     initialValue: {
       type: String,
@@ -39,7 +39,7 @@ export default {
     placeholder: {
       type: String,
       default: function () {
-        return this.noLgaOrRegion ? 'Search by postcode or suburb...' : 'Search by postcode, suburb, Local Government Area or Region...'
+        return this.areaTypes.length === 3 ? 'Search by postcode, suburb, Local Government Area or Region...' : 'Search'
       }
     },
     showSecondaryText: {
@@ -61,7 +61,7 @@ export default {
     }
   },
   created: async function () {
-    this.areas = await getAreas(this.noLgaOrRegion)
+    this.areas = await getAreas(this.areaTypes.join ? this.areaTypes : [])
   },
   computed: {
   },
