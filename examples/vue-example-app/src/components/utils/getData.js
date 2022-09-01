@@ -1,24 +1,36 @@
 import axios from 'axios'
 import sensors from './sensors'
 
-const ABS_DATA_BASE_URL = 'https://proxy.production.myvic-components.sdp2.sdp.vic.gov.au/abs/sdmx-json/data/'
-const ARRIVALS_DATA_URL = ABS_DATA_BASE_URL + 'ABS_OAD_COUNTRY/06.TOTAL.10.M/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2017'
-const POPULATION_IN_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK_FY/1+3+6.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions'
-const POPULATION_OUT_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK_FY/2+4+7.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions'
-const PROPERTY_PRICES_URL = ABS_DATA_BASE_URL + 'RES_PROP_INDEX/1.2+1.2GMEL.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2017'
-const CPI_URL = ABS_DATA_BASE_URL + 'CPI/1.2.10001+40089+40088+40087+30027.10.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
-const EPI_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093697.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
-const EPI_MEAT_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093911.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
-const EPI_CEREAL_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093912.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
-const EPI_METAL_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093918.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
-const EPI_CCB_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093916.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
-const EPI_TRANSPORT_URL = ABS_DATA_BASE_URL + 'ITPI_EXPORT/1+2.8093920.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2020'
+// const ABS_DATA_BASE_URL = 'https://proxy.production.myvic-components.sdp2.sdp.vic.gov.au/abs/data/'
+// const ARRIVALS_DATA_URL = ABS_DATA_BASE_URL + 'OAD_COUNTRY/06.TOT.10.M?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2017'
+// const POPULATION_IN_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK/1+3+6.2.Q.NUM?startPeriod=2022-Q4&detail=Full&dimensionAtObservation=AllDimensions'
+// const POPULATION_OUT_URL = ABS_DATA_BASE_URL + 'POPULATION_CLOCK/2+4+7.2.Q.NUM?startPeriod=2022-Q4&detail=Full&dimensionAtObservation=AllDimensions'
+// const CPI_URL = ABS_DATA_BASE_URL + 'CPI/2.20001+20006+20002+20003+20004+115486+20005+115488+115489+115493+126670.10.2.Q.NUM?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2021'
+// const PROPERTY_PRICES_URL = ABS_DATA_BASE_URL + 'RPPI/1.2+1.2GMEL.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2019'
+// const EPI_URL = ABS_DATA_BASE_URL + 'ITPI_EXP/1+2.8093697.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2022'
+// const EPI_MEAT_URL = ABS_DATA_BASE_URL + 'ITPI_EXP/1+2.8093911.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2022'
+// const EPI_CEREAL_URL = ABS_DATA_BASE_URL + 'ITPI_EXP/1+2.8093912.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2022'
+// const EPI_METAL_URL = ABS_DATA_BASE_URL + 'ITPI_EXP/1+2.8093918.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2022'
+// const EPI_CCB_URL = ABS_DATA_BASE_URL + 'ITPI_EXP/1+2.8093916.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2022'
+// const EPI_TRANSPORT_URL = ABS_DATA_BASE_URL + 'ITPI_EXP/1+2.8093920.Q/all?detail=Full&dimensionAtObservation=AllDimensions&startPeriod=2022'
 
-const PEDESTRIAN_URL = 'https://data.melbourne.vic.gov.au/resource/d6mv-s43h.json'
-const LABOUR_FORCE_URL = 'https://api.vic.gov.au/abs/v1.0/labour-force-statistics?region=VICTORIA&data_item=LABOUR_FORCE&age=15_AND_OVER&adjustment_type=ORIGINAL&start_period=2009-01'
-const DEVELOPER_VIC_API_KEY = 'e06367ba-4e38-4843-91ad-b81d51c84057'
+const ARRIVALS_DATA_URL = '/arrivals.json'
+const POPULATION_IN_URL = '/population_in.json'
+const POPULATION_OUT_URL = '/population_out.json'
+const CPI_URL = '/cpi.json'
+const PROPERTY_PRICES_URL = '/residential_property.json'
+const EPI_URL = '/export_1.json'
+const EPI_MEAT_URL = '/export_2.json'
+const EPI_CEREAL_URL = '/export_3.json'
+const EPI_METAL_URL = '/export_4.json'
+const EPI_CCB_URL = '/export_5.json'
+const EPI_TRANSPORT_URL = '/export_6.json'
 
-const LABOUR_FORCE_SLICE_START = 108
+// const PEDESTRIAN_URL = 'https://data.melbourne.vic.gov.au/resource/d6mv-s43h.json'
+const PEDESTRIAN_URL = 'pedestrian.json'
+// const LABOUR_FORCE_URL = 'https://wovg-community.gateway.prod.api.vic.gov.au/abs/v1.0/labour-force-statistics?region=VICTORIA&data_item=LABOUR_FORCE&age=15_AND_OVER&adjustment_type=ORIGINAL&start_period=2009-01'
+const LABOUR_FORCE_URL = '/labour_force.json'
+const DEVELOPER_VIC_API_KEY = 'e6522f3d-88f5-41b4-b016-baae0570c530'
 
 const fetchData = async (request, apiKey) => {
   const options = {}
@@ -106,7 +118,7 @@ export const getArrivalsData = async () => {
 
 export const getCpiData = async () => {
   const chartData = await buildChartDataFromSdmxJson(
-    CPI_URL, 2, 'name', sortByXPosition(2), 0, ''
+    CPI_URL, 1, 'name', sortByXPosition(1), 0, ''
   )
   const treeMapData = convertChartToTreeMap(chartData)
   return treeMapData
@@ -225,24 +237,20 @@ export const getPedestrianData = async () => {
   return data
 }
 
-const sliceData = (data) => {
-  return data.slice(LABOUR_FORCE_SLICE_START, -1)
-}
-
 export const getLabourForceData = async () => {
   const rawData = await fetchData(LABOUR_FORCE_URL, DEVELOPER_VIC_API_KEY)
   let data = {}
   const maleData = rawData.labour_force_statistics.filter(x => x['sex_description'] === 'Males')
   const femaleData = rawData.labour_force_statistics.filter(x => x['sex_description'] === 'Females')
-  const labels = sliceData(maleData.map(x => x['observation_month']))
+  const labels = maleData.map(x => x['observation_month'])
 
   const maleDataset = {
     label: 'Males',
-    data: sliceData(maleData.map(x => Math.floor(Number(x['observation_value']))))
+    data: maleData.map(x => Math.floor(Number(x['observation_value'])))
   }
   const femaleDataset = {
     label: 'Females',
-    data: sliceData(femaleData.map(x => Math.floor(Number(x['observation_value']))))
+    data: femaleData.map(x => Math.floor(Number(x['observation_value'])))
   }
 
   data = {

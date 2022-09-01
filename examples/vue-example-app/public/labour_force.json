@@ -1,0 +1,1511 @@
+{
+  "_meta": {
+    "response_time": "0.52 seconds",
+    "response_time_ms": 520,
+    "total_records": 165,
+    "page": 1,
+    "limit": 1000,
+    "count": 165
+  },
+  "_links": [
+    {
+      "rel": "self",
+      "href": "/abs/v1.0/labour-force-statistics?adjustment_type=ORIGINAL&age=15_AND_OVER&data_item=LABOUR_FORCE&region=VICTORIA&start_period=2018-01&page=1&limit=1000"
+    },
+    {
+      "rel": "first",
+      "href": "/abs/v1.0/labour-force-statistics?adjustment_type=ORIGINAL&age=15_AND_OVER&data_item=LABOUR_FORCE&region=VICTORIA&start_period=2018-01&page=1&limit=1000"
+    },
+    {
+      "rel": "last",
+      "href": "/abs/v1.0/labour-force-statistics?adjustment_type=ORIGINAL&age=15_AND_OVER&data_item=LABOUR_FORCE&region=VICTORIA&start_period=2018-01&page=1&limit=1000"
+    }
+  ],
+  "labour_force_statistics": [
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-01",
+      "observation_value": "1594.39824133"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-02",
+      "observation_value": "1622.99291297"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-03",
+      "observation_value": "1614.32307564"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-04",
+      "observation_value": "1600.49717342"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-05",
+      "observation_value": "1614.80889932"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-06",
+      "observation_value": "1613.69787041"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-07",
+      "observation_value": "1608.00453416"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-08",
+      "observation_value": "1589.81885225"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-09",
+      "observation_value": "1606.89908024"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-10",
+      "observation_value": "1613.43274951"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-11",
+      "observation_value": "1640.60362048"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-12",
+      "observation_value": "1660.02032887"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-01",
+      "observation_value": "1629.2105556"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-02",
+      "observation_value": "1671.97196679"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-03",
+      "observation_value": "1653.6367435"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-04",
+      "observation_value": "1672.96079961"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-05",
+      "observation_value": "1669.65456899"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-06",
+      "observation_value": "1671.2490764"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-07",
+      "observation_value": "1671.63496057"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-08",
+      "observation_value": "1687.70831546"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-09",
+      "observation_value": "1684.44555128"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-10",
+      "observation_value": "1698.74628011"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-11",
+      "observation_value": "1704.87974103"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-12",
+      "observation_value": "1735.32343489"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-01",
+      "observation_value": "1714.70850389"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-02",
+      "observation_value": "1732.70846714"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-03",
+      "observation_value": "1721.55234942"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-04",
+      "observation_value": "1646.93421359"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-05",
+      "observation_value": "1630.59207215"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-06",
+      "observation_value": "1651.65787774"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-07",
+      "observation_value": "1647.06500983"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-08",
+      "observation_value": "1625.29961843"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-09",
+      "observation_value": "1591.47157926"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-10",
+      "observation_value": "1633.05954743"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-11",
+      "observation_value": "1693.25769629"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-12",
+      "observation_value": "1703.19497767"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-01",
+      "observation_value": "1692.34190218"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-02",
+      "observation_value": "1732.1627029"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-03",
+      "observation_value": "1727.88200413"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-04",
+      "observation_value": "1713.34174374"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-05",
+      "observation_value": "1721.93727889"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-06",
+      "observation_value": "1694.68465905"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-07",
+      "observation_value": "1707.79597356"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-08",
+      "observation_value": "1712.39837305"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-09",
+      "observation_value": "1648.52901327"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-10",
+      "observation_value": "1641.57871134"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-11",
+      "observation_value": "1727.01283537"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-12",
+      "observation_value": "1746.18062666"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-01",
+      "observation_value": "1724.67582718"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-02",
+      "observation_value": "1754.34376002"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-03",
+      "observation_value": "1735.69438219"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-04",
+      "observation_value": "1739.91891278"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-05",
+      "observation_value": "1731.72435953"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-06",
+      "observation_value": "1732.84201767"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Females",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-07",
+      "observation_value": "1717.52417101"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-01",
+      "observation_value": "3423.02277452"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-02",
+      "observation_value": "3469.53358547"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-03",
+      "observation_value": "3455.22196345"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-04",
+      "observation_value": "3431.99714287"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-05",
+      "observation_value": "3459.4443517"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-06",
+      "observation_value": "3460.88521454"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-07",
+      "observation_value": "3466.39320382"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-08",
+      "observation_value": "3440.40569203"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-09",
+      "observation_value": "3463.51246591"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-10",
+      "observation_value": "3463.85999494"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-11",
+      "observation_value": "3511.83269041"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-12",
+      "observation_value": "3543.70201982"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-01",
+      "observation_value": "3509.64066854"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-02",
+      "observation_value": "3578.43703072"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-03",
+      "observation_value": "3556.60169054"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-04",
+      "observation_value": "3543.15280454"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-05",
+      "observation_value": "3569.89797896"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-06",
+      "observation_value": "3562.22067671"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-07",
+      "observation_value": "3558.78569807"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-08",
+      "observation_value": "3569.04602856"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-09",
+      "observation_value": "3576.02968969"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-10",
+      "observation_value": "3582.75322459"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-11",
+      "observation_value": "3604.92012352"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-12",
+      "observation_value": "3663.07054152"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-01",
+      "observation_value": "3627.04601688"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-02",
+      "observation_value": "3665.41624815"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-03",
+      "observation_value": "3644.7144912"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-04",
+      "observation_value": "3527.66608614"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-05",
+      "observation_value": "3490.65042654"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-06",
+      "observation_value": "3530.05381981"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-07",
+      "observation_value": "3518.042366"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-08",
+      "observation_value": "3470.28005815"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-09",
+      "observation_value": "3410.1039921"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-10",
+      "observation_value": "3511.6264878"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-11",
+      "observation_value": "3597.24995747"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-12",
+      "observation_value": "3623.26170896"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-01",
+      "observation_value": "3610.22050514"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-02",
+      "observation_value": "3663.61629166"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-03",
+      "observation_value": "3656.45664333"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-04",
+      "observation_value": "3622.11800544"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-05",
+      "observation_value": "3638.12402326"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-06",
+      "observation_value": "3603.34696477"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-07",
+      "observation_value": "3616.13053639"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-08",
+      "observation_value": "3619.2238737"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-09",
+      "observation_value": "3517.52782714"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-10",
+      "observation_value": "3494.88748452"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-11",
+      "observation_value": "3645.65115959"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-12",
+      "observation_value": "3697.84613974"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-01",
+      "observation_value": "3627.82417763"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-02",
+      "observation_value": "3706.50407066"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-03",
+      "observation_value": "3678.23605641"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-04",
+      "observation_value": "3682.67897255"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-05",
+      "observation_value": "3668.43797398"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-06",
+      "observation_value": "3663.56987894"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Persons",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-07",
+      "observation_value": "3630.86288465"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-01",
+      "observation_value": "1828.62453319"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-02",
+      "observation_value": "1846.5406725"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-03",
+      "observation_value": "1840.8988878"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-04",
+      "observation_value": "1831.49996946"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-05",
+      "observation_value": "1844.63545238"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-06",
+      "observation_value": "1847.18734413"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-07",
+      "observation_value": "1858.38866966"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-08",
+      "observation_value": "1850.58683977"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-09",
+      "observation_value": "1856.61338566"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-10",
+      "observation_value": "1850.42724543"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-11",
+      "observation_value": "1871.22906993"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2018-12",
+      "observation_value": "1883.68169096"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-01",
+      "observation_value": "1880.43011294"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-02",
+      "observation_value": "1906.46506393"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-03",
+      "observation_value": "1902.96494704"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-04",
+      "observation_value": "1870.19200494"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-05",
+      "observation_value": "1900.24340997"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-06",
+      "observation_value": "1890.97160031"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-07",
+      "observation_value": "1887.1507375"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-08",
+      "observation_value": "1881.3377131"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-09",
+      "observation_value": "1891.58413841"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-10",
+      "observation_value": "1884.00694448"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-11",
+      "observation_value": "1900.04038249"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2019-12",
+      "observation_value": "1927.74710663"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-01",
+      "observation_value": "1912.33751299"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-02",
+      "observation_value": "1932.70778101"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-03",
+      "observation_value": "1923.16214178"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-04",
+      "observation_value": "1880.73187255"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-05",
+      "observation_value": "1860.05835439"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-06",
+      "observation_value": "1878.39594206"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-07",
+      "observation_value": "1870.97735617"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-08",
+      "observation_value": "1844.98043972"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-09",
+      "observation_value": "1818.63241284"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-10",
+      "observation_value": "1878.56694036"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-11",
+      "observation_value": "1903.99226119"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2020-12",
+      "observation_value": "1920.06673129"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-01",
+      "observation_value": "1917.87860296"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-02",
+      "observation_value": "1931.45358875"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-03",
+      "observation_value": "1928.5746392"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-04",
+      "observation_value": "1908.7762617"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-05",
+      "observation_value": "1916.18674437"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-06",
+      "observation_value": "1908.66230572"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-07",
+      "observation_value": "1908.33456283"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-08",
+      "observation_value": "1906.82550064"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-09",
+      "observation_value": "1868.99881387"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-10",
+      "observation_value": "1853.30877318"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-11",
+      "observation_value": "1918.63832422"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2021-12",
+      "observation_value": "1951.66551308"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-01",
+      "observation_value": "1903.14835045"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-02",
+      "observation_value": "1952.16031065"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-03",
+      "observation_value": "1942.54167423"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-04",
+      "observation_value": "1942.76005977"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-05",
+      "observation_value": "1936.71361445"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-06",
+      "observation_value": "1930.72786127"
+    },
+    {
+      "region_description": "Victoria",
+      "data_item_description": "Labour Force ('000)",
+      "sex_description": "Males",
+      "age_description": "15 and over",
+      "adjustment_type_description": "Original",
+      "observation_month": "2022-07",
+      "observation_value": "1913.33871364"
+    }
+  ]
+}
