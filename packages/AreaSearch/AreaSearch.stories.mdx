@@ -2,7 +2,7 @@ import { Meta, Preview, Story, Props, Source, Description } from '@storybook/add
 import AreaSearch from './index.vue'
 import { withKnobs, object, boolean, select } from '@storybook/addon-knobs'
 import { RplContainer, RplRow, RplCol } from '@dpc-sdp/ripple-grid'
-import { areaSearchTemplate } from './storiesConstants.js'
+import { areaSearchSimpleTemplate, areaSearchFullTemplate } from './storiesConstants.js'
 
 <Meta title="AreaSearch" component={ AreaSearch } decorators={ [withKnobs] } />
 
@@ -39,12 +39,8 @@ import { AreaSearch } from '@dpc-sdp/myvic-areasearch'
     {
       {
         components: { AreaSearch },
-        template: areaSearchTemplate,
-        props: {
-          noLgaOrRegion: {
-            default: () => false
-          }
-        }
+        template: areaSearchSimpleTemplate,
+        props: {}
       }
     }
   </Story>
@@ -57,10 +53,16 @@ import { AreaSearch } from '@dpc-sdp/myvic-areasearch'
     {
       {
         components: { AreaSearch },
-        template: areaSearchTemplate,
+        template: areaSearchFullTemplate,
         props: {
-          noLgaOrRegion: {
-            default: () => true
+          areaTypes: {
+            default: () => ['suburb']
+          },
+          showSecondaryText: {
+            default: () => false
+          },
+          placeholder: {
+            default: () => 'Search by postcode or suburb...'
           }
         }
       }

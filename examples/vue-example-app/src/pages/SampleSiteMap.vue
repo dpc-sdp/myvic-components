@@ -2,7 +2,7 @@
   <div id="long-description">
     <h2>Sample Site - Map</h2>
     <p>
-      This component is a map showing the pedestrian counts for sensor locations within the City of Melbourne, this is a live data feed.
+      This component is a map showing the pedestrian counts for sensor locations within the City of Melbourne.
     </p>
     <p>
       The map has a grey base with cased roads in varying colours demonstrating road hierarchy. Rivers, major waterbodies and bays are shown in blue. Parklands and ovals are shown in green. Major community infrastructure like schools/universities and hospitals are coloured in tan and pink, respectively. At certain zoomed in scales in specific areas dark grey polygons will appear that signify building envelopes. You can move around the map by panning it with the mouse and zoom in and out either by the scroll wheel of the mouse or the “+” or “-“ buttons in the top left hand corner of the map. Clicking on the data points will show the discrete pedestrian count and a description of the street location of the sensor.

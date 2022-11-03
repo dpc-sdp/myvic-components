@@ -74,9 +74,11 @@
 <script>
 import ButtonClose from './ButtonClose'
 import Vue from 'vue'
+import { callIfFunction } from '@dpc-sdp/myvic-global/utils/misc'
 
 const DEFAULT_MAX_HEIGHT_PX = 300
 const DEFAULT_WIDTH_PX = 300
+const MAX_WIDTH_MARGIN = 16
 
 export default {
   name: 'MapIndicator',
@@ -102,6 +104,10 @@ export default {
     position: {
       type: String,
       default: 'default'
+    },
+    preferredWidth: {
+      type: Number | Function,
+      default: undefined
     }
   },
   data: function () {
@@ -167,6 +173,9 @@ export default {
     },
     showDescOpenMuliText: function (index) {
       return (this.descMultiOpenText[index] === undefined) ? this.defaultReadText : this.descMultiOpenText[index]
+    },
+    getReadOnlyInstance: function () {
+      return { ...this._data, ...this._props }
     }
   },
   watch: {
@@ -184,7 +193,8 @@ export default {
           // Update the popup's size to fit the content & browser
           const mapSize = this.mapElement.getBoundingClientRect()
           this.maxHeight = Math.min(mapSize.height * 0.8, DEFAULT_MAX_HEIGHT_PX) + 'px'
-          this.width = Math.min(mapSize.width - 40, DEFAULT_WIDTH_PX) + 'px'
+          const preferredWidth = this.preferredWidth ? callIfFunction(this.preferredWidth, this.getReadOnlyInstance()) : DEFAULT_WIDTH_PX
+          this.width = Math.min(mapSize.width - MAX_WIDTH_MARGIN, preferredWidth) + 'px'
         }
       })
     }

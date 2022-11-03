@@ -109,7 +109,7 @@ export default {
       default: ({ name }) => name
     },
     /**
-     * A function to get the secondary text for an item. The secondary text is either the description in the `double` item line style or the tag in the `single` style
+     * A function to get the secondary text for an item. The secondary text is either the descriptive subtitle in the `double` item line style or the tag in the `single` style
      */
     getItemSecondaryText: {
       type: Function,
@@ -166,6 +166,13 @@ export default {
       default: 3
     },
     /**
+     * Option to disable debouncing of the results update when the input changes. Disabling this will make the update quicker if there are few items to search against
+    */
+    debounceSearch: {
+      type: Boolean,
+      default: true
+    },
+    /**
      * If set to true all of the items will be shown on first render. Useful only for debugging
      */
     debugMode: {
@@ -186,7 +193,11 @@ export default {
   },
   watch: {
     query () {
-      this.debouncedOnChange()
+      if (this.debounceSearch) {
+        this.debouncedOnChange()
+      } else {
+        this.onChange()
+      }
     },
     initialValue () {
       this.onInitialValueChange()

@@ -4,11 +4,13 @@
     :items="areas"
     :filter="filterFunction"
     :getItemName="getItemName"
+    :getItemSecondaryText="showSecondaryText ? ({ description }) => description : () => null"
     resultItemLineStyle="single"
-    :placeholder="placeholderText"
+    :placeholder="placeholder"
     :initialValue="initialValue"
     :showIcon="true"
     :getIcon="() => 'map_marker'"
+    :debounceSearch="debounceSearch"
     @item-selected="selectArea"
     @item-cleared="clearArea"
   />
@@ -26,19 +28,31 @@ export default {
     AutoComplete
   },
   props: {
-    noLgaOrRegion: {
-      type: Boolean,
-      default: false
+    areaTypes: {
+      type: Array,
+      default: () => ['suburb', 'lga', 'region']
     },
     initialValue: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: function () {
+        return this.areaTypes.length === 3 ? 'Search by postcode, suburb, Local Government Area or Region...' : 'Search'
+      }
+    },
+    showSecondaryText: {
+      type: Boolean,
+      default: true
+    },
+    debounceSearch: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
     return {
-      placeholderTextDefault: 'Search by postcode, suburb, Local Government Area or Region...',
-      placeholderTextNoLgaOrRegion: 'Search by postcode or suburb...',
       areas: [],
       filterFunction: (items, query) => items.filter(
         x => x.name.toLowerCase().includes(query.toLowerCase()) || x.postcode.includes(query)
@@ -47,12 +61,9 @@ export default {
     }
   },
   created: async function () {
-    this.areas = await getAreas(this.noLgaOrRegion)
+    this.areas = await getAreas(this.areaTypes.join ? this.areaTypes : [])
   },
   computed: {
-    placeholderText: function () {
-      return this.noLgaOrRegion ? this.placeholderTextNoLgaOrRegion : this.placeholderTextDefault
-    }
   },
   methods: {
     selectArea (id, item) {

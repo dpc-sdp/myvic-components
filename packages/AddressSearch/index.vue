@@ -8,6 +8,7 @@
     :showIcon="showIcon"
     :getIcon="() => 'map_marker'"
     :minQueryLength="minQueryLength"
+    :debounceSearch="false"
     @item-selected="selectAddress"
     @item-cleared="clearAddress"
   />
@@ -59,6 +60,10 @@ export default {
     vicmapAddressAPIKey: {
       type: String,
       default: ''
+    },
+    debounceSearch: {
+      type: Boolean,
+      default: true
     }
   },
   data () {

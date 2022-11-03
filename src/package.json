@@ -1,14 +1,14 @@
 {
   "name": "@dpc-sdp/myvic-storybook",
   "description": "Storybook instance for myvictoria component testing",
-  "version": "2.2.1",
+  "version": "2.2.10",
   "private": true,
   "scripts": {
     "start": "start-storybook -p 6006 -s ./static",
     "build-storybook": "NODE_ENV=production build-storybook -c .storybook -s ./static -o ./public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-map-core": "2.2.1",
+    "@dpc-sdp/myvic-map-core": "2.2.10",
     "@dpc-sdp/ripple-global": "^1.8.0",
     "@dpc-sdp/ripple-grid": "^1.8.0",
     "@dpc-sdp/ripple-markup": "^1.8.0",
@@ -32,9 +32,9 @@
     "eslint-loader": "^2.1.2",
     "file-loader": "^4.0.0",
     "glob-fs": "^0.1.7",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7",
     "sass-lint": "^1.12.1",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^10",
     "style-loader": "^1.2.1",
     "svg-sprite-loader": "^3.7.3",
     "svgo": "^1.2.2",

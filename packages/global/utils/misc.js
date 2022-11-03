@@ -3,3 +3,8 @@ export const createHTMLElementFromString = (text) => {
   div.innerHTML = text.trim()
   return div.firstElementChild
 }
+
+export const callIfFunction = (thing, parameters) => {
+  if (typeof thing === 'function') return thing(parameters)
+  return thing
+}

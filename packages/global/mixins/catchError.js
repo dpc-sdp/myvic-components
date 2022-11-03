@@ -15,6 +15,7 @@ const catchError = {
     interceptError (error) {
       this.gotError = true
       this.error = error
+      console.error(error)
     }
   },
   errorCaptured (error) {

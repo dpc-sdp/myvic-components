@@ -222,7 +222,7 @@ export default {
     },
     /**
      * Feature that the popup displays information for (two-way binding). If not supplied then this component will
-     * use a local objecct (localPopupFeature) to manage this. Supplying this prop lets the parent set or clear
+     * use a local object (localPopupFeature) to manage this. Supplying this prop lets the parent set or clear
      * the popup feature ad hoc
      */
     popupFeature: {
@@ -230,6 +230,13 @@ export default {
       default: function () {
         return null
       }
+    },
+    /**
+     * Enable filtering of features that will be shown in the popup. If the filter returns no features then the popup will not be shown
+     */
+    filterFeaturesForPopup: {
+      type: Function,
+      default: undefined
     },
     /**
      * Function used to generate content for the map popups (enabled per layer). Accepts an array of Features and
@@ -240,8 +247,9 @@ export default {
       default: undefined
     },
     /**
-     * props to pass to the MapIndicator component. Includes ```stickyHeader``` (Boolean)
-     * and ```position``` (String, one of ```default```, ```float-left```, ```below-feature```)
+     * props to pass to the MapIndicator component. Includes ```stickyHeader``` (Boolean),
+     * ```position``` (String, one of ```default```, ```float-left```, ```below-feature```)
+     * and ```preferredWidth``` (Number or Function of the MapIndicator instance that returns a Number)
      */
     popupProps: {
       type: Object,
@@ -250,7 +258,7 @@ export default {
       }
     },
     /**
-     * delay the popup rendering (ms). Useful if the map needs to finish zoom/pan animations first
+     * Delay the popup rendering (ms). Useful if the map needs to finish zoom/pan animations first
      */
     popupDelay: {
       type: Number,
@@ -682,21 +690,25 @@ export default {
       }
     },
     setFeaturePopup (features, pixel) {
+      let filteredFeatures = features
+      if (this.filterFeaturesForPopup) {
+        filteredFeatures = this.filterFeaturesForPopup(features)
+      }
       // Hide popup if there are no features (i.e. click on an empty area of the map)
-      if (features.length === 0) {
+      if (filteredFeatures.length === 0) {
         this.updatePopupFeature(null)
         return
       }
 
       // Set feature content used to render popup - either by customMethods, popupContentFunction or default featureMapper
-      const firstFeature = features[0]
+      const firstFeature = filteredFeatures[0]
       let newFeature
       if (this.customMethods && this.customMethods.featureMapper) {
-        newFeature = this.customMethods.featureMapper(firstFeature, features)
+        newFeature = this.customMethods.featureMapper(firstFeature, filteredFeatures)
       } else if (this.popupContentFunction) {
-        newFeature = this.popupContentFunction(features)
+        newFeature = this.popupContentFunction(filteredFeatures)
       } else {
-        newFeature = this.featureMapper(firstFeature, features)
+        newFeature = this.featureMapper(firstFeature, filteredFeatures)
       }
       this.updatePopupFeature(newFeature)
       let coordinates

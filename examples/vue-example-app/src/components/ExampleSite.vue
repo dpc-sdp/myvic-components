@@ -14,8 +14,7 @@
       data by way of graphs and maps.
     </p>
     <p class="myvic-example-site__text-block">
-      The first such is a line chart demonstrating the ABS dataset showing monthly visitors to Australia. This is
-      a live feed of a data updated monthly by the ABS.
+      The first such is a line chart demonstrating the ABS dataset showing monthly visitors to Australia.
     </p>
     <div class="myvic-example-site__chart-container">
       <line-chart class="myvic-example-site__arrivals-line-chart"
@@ -26,8 +25,7 @@
       />
     </div>
     <p class="myvic-example-site__text-block">
-      The next data demonstration component is a map of the City of Melbourne’s pedestrian sensor counts for the last
-      minute of the past hour. Once again this is a live feed of data updated every hour by the City of Melbourne.
+      The next data demonstration component is a map of the City of Melbourne’s pedestrian sensor counts.
     </p>
     <div class="myvic-example-site__map-container">
       <myvic-map-core
@@ -77,8 +75,7 @@
       </myvic-map-core>
     </div>
     <p class="myvic-example-site__text-block">
-      The next chart is showing the ABS dataset of the monthly labour force by sex in Victoria. This is a live feed of
-      a data updated monthly by the ABS ingested and pushed out by the API gateway.
+      The next chart is showing the ABS dataset of the monthly labour force by sex in Victoria. This data is updated monthly by the ABS.
     </p>
     <div class="myvic-example-site__chart-container">
       <line-chart class="myvic-example-site__labour-force-line-chart"
@@ -86,13 +83,14 @@
         :data="labourForceData"
         :showLegend="true"
         dataFormat="thousand"
+        :scaleLimits="{ min: 1500, max: 2000 }"
         :shortDesc="'Labour Force by Sex'"
         :longDesc="longDescriptionUrls['labour-force-line-chart']"
       />
     </div>
     <p class="myvic-example-site__text-block">
       The following two pie charts are showing the ABS data of increasing and decreasing sources to Victoria’s
-      population clock for the past quarter. Once again this is a live feed of a data updated quarterly by the ABS.
+      population clock for the past quarter.
     </p>
     <div class="myvic-example-site__chart-container">
       <pie-chart class="myvic-example-site__population-pie-chart"
@@ -112,12 +110,11 @@
     </div>
     <p class="myvic-example-site__text-block">
       The next chart is a tree map showing the ABS data for the differences in the consumer price index in Melbourne
-      for a range of goods and services for the past quarter. Once again this is a live feed of a data updated
-      quarterly by the ABS.
+      for a range of goods and services for the past quarter.
     </p>
     <div class="myvic-example-site__chart-container">
       <tree-map class="myvic-example-site__cpi-tree-map"
-        :title="'CPI for a range of goods and services'"
+        :title="'CPI change for a range of goods and services'"
         :data="cpiData"
         :valueAttr="'value'"
         :labelAttr="'label'"
@@ -127,7 +124,7 @@
     </div>
     <p class="myvic-example-site__text-block">
       The following bar chart is showing the ABS data for quarterly residential property price index value for
-      greater Melbourne. Once again this is a live feed of a data updated quarterly by the ABS.
+      greater Melbourne.
     </p>
     <div class="myvic-example-site__chart-container">
       <bar-chart class="myvic-example-site__property-prices-bar-chart"
@@ -141,7 +138,7 @@
     </div>
     <p class="myvic-example-site__text-block">
       Finally, the range of data blocks with trend icons below are showing the ABS data for the past quarter’s export
-      price indices for a range of goods. Once again this is a live feed of a data updated quarterly by the ABS.
+      price indices for a range of goods.
     </p>
     <div class="myvic-example-site__data-block-container">
       <data-block

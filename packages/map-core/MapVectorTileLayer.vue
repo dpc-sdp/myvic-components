@@ -2,8 +2,7 @@
 import ol from './lib/ol'
 import styles from './styles/styles'
 import layer from './mixin/layer'
-import { apply } from 'ol-mapbox-style'
-import stylefunction from 'ol-mapbox-style/dist/stylefunction'
+import { apply, stylefunction } from 'ol-mapbox-style'
 
 /**
  * MyvicMapVectorTileLayer provides support for Mapbox Vector Tile sources. It offers a declarative API for

@@ -1,15 +1,15 @@
 {
   "name": "@dpc-sdp/myvic-nuxt",
-  "version": "2.2.1",
+  "version": "2.2.10",
   "description": "Nuxt test.",
   "private": true,
   "dependencies": {
-    "@dpc-sdp/myvic-bar-chart": "2.2.1",
-    "@dpc-sdp/myvic-map-core": "2.2.1",
+    "@dpc-sdp/myvic-bar-chart": "2.2.10",
+    "@dpc-sdp/myvic-map-core": "2.2.10",
     "nuxt": "^2.12.2"
   },
   "devDependencies": {
-    "node-sass": "^4.12.0",
-    "sass-loader": "^6.0.7"
+    "node-sass": "^7",
+    "sass-loader": "^10"
   }
 }

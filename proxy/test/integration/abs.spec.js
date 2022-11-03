@@ -2,10 +2,14 @@
 /// <reference types="cypress" />
 
 describe('Proxy server', () => {
-  it('Should able to proxy "/abs/" to "stat.data.abs.gov.au" site', () => {
-    cy.request('/abs/sdmx-json/data/POPULATION_CLOCK_FY/1+3+6.2.Q/all?detail=Full&dimensionAtObservation=AllDimensions').as('data')
-    cy.get('@data').should((response) => {
-      expect(response.body.dataSets).to.exist
+  it('Should able to proxy "/abs/" to "api.data.abs.gov.au" site', () => {
+    const requestOptions = {
+      url: '/abs/data/POPULATION_CLOCK/1+3+6.2.Q.NUM?startPeriod=2022-Q4&detail=Full&dimensionAtObservation=AllDimensions',
+      headers: { accept: 'application/vnd.sdmx.data+json' }
+    }
+    cy.request(requestOptions).then((response) => {
+      expect(response.status).to.eq(200)
+      expect(response.body.data.dataSets).to.exist
     })
   })
 })

@@ -261,7 +261,7 @@ selected feature by passing a style or style function to the map through ```sele
           :selectedFeatureStyle="selectedStyleFunction"
         >
           <myvic-map-vector-layer
-            url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+            url="countries.geojson"
             dataFormat="GeoJSON"
             labelAttribute="name"
           />
@@ -492,8 +492,8 @@ top-right to avoid hiding it with the popup.
             <myvic-map-tile-layer
               type="WMS"
               url="https://base.maps.vic.gov.au/service"
-              :params="{'LAYERS': 'CARTO_WM', 'TILED': true}"
-              :tileSize="[512, 512]"
+              :params="{'LAYERS': 'CARTO_WM_256', 'TILED': true}"
+              :tileSize="[256, 256]"
               :highDPI="false"
             />
             <myvic-map-vector-layer
@@ -574,8 +574,8 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
             <myvic-map-tile-layer
               type="WMS"
               url="https://base.maps.vic.gov.au/service"
-              :params="{'LAYERS': 'CARTO_WM', 'TILED': true}"
-              :tileSize="[512, 512]"
+              :params="{'LAYERS': 'CARTO_WM_256', 'TILED': true}"
+              :tileSize="[256, 256]"
               :highDPI="false"
             />
             <myvic-map-vector-layer
@@ -651,7 +651,7 @@ The ```position``` property of the ```popupProps``` prop is set to ```below-feat
                   @click="onClick"
                 >
                   <myvic-map-vector-layer
-                    url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+                    url="countries.geojson"
                     dataFormat="GeoJSON"
                     labelAttribute="name"
                   />

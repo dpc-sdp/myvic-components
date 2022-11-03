@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-map-core",
-  "version": "2.2.1",
+  "version": "2.2.10",
   "description": "Core functions of map for myvictoria.vic.gov.au",
   "main": "index.js",
   "repository": "https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core",
@@ -9,12 +9,12 @@
     "access": "public"
   },
   "dependencies": {
-    "@dpc-sdp/myvic-global": "2.2.1",
+    "@dpc-sdp/myvic-global": "2.2.10",
     "@dpc-sdp/ripple-alert": "^1.8.0",
     "@dpc-sdp/ripple-global": "^1.8.0",
-    "ol": "^6.4.3",
-    "ol-ext": "^3.1.16",
-    "ol-mapbox-style": "^6.1.4",
+    "ol": "6.15.1",
+    "ol-ext": "3.2.29",
+    "ol-mapbox-style": "9.1.0",
     "proj4": "^2.6.2"
   },
   "gitHead": "c87172a1c27cd4abc90fd5d3362ac0f96edee108"

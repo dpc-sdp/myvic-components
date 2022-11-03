@@ -42,7 +42,7 @@ One or more ```myvic-map-vector-layer``` components can be declared as children 
   :center="[16138405.843820328, -4552817.013522999]"
 >
   <myvic-map-vector-layer
-    url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+    url="countries.geojson"
     dataFormat="GeoJSON"
   />
 </myvic-map-core>
@@ -189,7 +189,7 @@ GeoJSON files can be loaded directly from a URL. This example uses the default s
           selectedFeatureStyleLabelAttribute="name"
         >
           <myvic-map-vector-layer
-            url="https://openlayers.org/en/latest/examples/data/geojson/countries.geojson"
+            url="countries.geojson"
             dataFormat="GeoJSON"
             labelAttribute="name"
           />
@@ -205,12 +205,12 @@ GeoJSON files can be loaded directly from a URL. This example uses the default s
   </Story>
 </Preview>
 
-## GeoJSON File With Clustering
+## GeoJSON With Clustering
 
-This example showcases client-side clustering with a GeoJSON file loaded from a URL.
+This example showcases client-side clustering with GeoJSON loaded from a URL.
 
 <Preview>
-  <Story name="GeoJSON File With Clustering">
+  <Story name="GeoJSON With Clustering">
     {
       {
         components: { MyvicMapCore, MyvicMapVectorLayer },
@@ -220,6 +220,7 @@ This example showcases client-side clustering with a GeoJSON file loaded from a 
           :zoom="14"
           :baseMapUrl="baseMapUrl"
           :popupContentFunction="generatePopupContent"
+          :popupProps="popupProps"
         >
           <myvic-map-vector-layer
             :urlFunction="buildUrl"
@@ -234,6 +235,9 @@ This example showcases client-side clustering with a GeoJSON file loaded from a 
             containerStyle: { position: 'relative', width: '100%', height:'100vh' },
             center: [16136905.843820328, -4553057.013522999],
             baseMapUrl: 'https://api.mapbox.com/styles/v1/myvictoira/cjio5h4do0g412smmef4qpsq5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibXl2aWN0b2lyYSIsImEiOiJjamlvMDgxbnIwNGwwM2t0OWh3ZDJhMGo5In0.w_xKPPd39cwrS1F4_yy39g',
+            popupProps: {
+              preferredWidth: 350
+            }
           }
         },
         methods: {
@@ -277,6 +281,7 @@ This example showcases clusters that break up when interacted with
             :layerStyle="getLayerStyle"
             :clustering="true"
             :clusterPointStyle="clusterPointStyle"
+            :declutter="false"
             :enablePopup="true"
           />
         </myvic-map-core>`,
@@ -299,7 +304,7 @@ This example showcases clusters that break up when interacted with
           },
           clusterPointStyle: function (features) {
             return [ol.createImageIconStyle(
-              styles.filledCluster(features),
+              styles.filledCluster(features, '#53565A', 999),
               'anonymous'
             )]
           },
