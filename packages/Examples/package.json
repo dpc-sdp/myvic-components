@@ -1,6 +1,6 @@
 {
   "name": "@dpc-sdp/myvic-examples",
-  "version": "2.2.11",
+  "version": "2.2.12-alpha.0",
   "description": "Examples showcasing the map, area search, data block and bar chart components",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "@dpc-sdp/myvic-bar-chart": "2.2.11",
     "@dpc-sdp/myvic-data-block": "2.2.11",
     "@dpc-sdp/myvic-global": "2.2.11",
-    "@dpc-sdp/myvic-map-core": "2.2.11",
+    "@dpc-sdp/myvic-map-core": "2.2.12-alpha.0",
     "node-fetch": "^2.6.0"
   },
   "gitHead": "c87172a1c27cd4abc90fd5d3362ac0f96edee108"
