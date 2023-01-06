@@ -247,18 +247,14 @@ export default {
           distance: this.clusterDistance
         })
       }
-      const isIE = (navigator.appName === 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)))
-
-      const LayerConstructor = this.clustering && !isIE ? ol.source.AnimatedCluster : ol.layer.Vector
 
       // Create layer
-      this.layer = new LayerConstructor({
+      this.layer = new ol.layer.Vector({
         source: this.clustering ? this.clusterSource : this.layerSource,
         opacity: this.opacity,
         extent: this.extent,
         zIndex: this.zIndex,
         style: this.getLayerStyle(),
-        animationDuration: this.clustering ? this.getClusteringAnimationDuration() : undefined,
         declutter: this.declutter,
         visible: this.visible
       })
@@ -288,9 +284,6 @@ export default {
 
       // Add layer to map
       this.map.addLayer(this.layer)
-    },
-    getClusteringAnimationDuration: function () {
-      return this.$breakpoint.m ? 600 : 0
     },
     zoomToLayerExtent: function (padding, duration) {
       let extent = this.layerSource.getExtent()
