@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.13](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v2.2.11...v2.2.13) (2023-01-06)
+
+
+### Bug Fixes
+
+* remove animation from clusters ([#209](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/issues/209)) ([1488999](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/commit/148899934518dd5d92ff0688e8861436dacb011b))
+
+
+
+
+
 ## [2.2.11](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/map-core/compare/v2.2.10...v2.2.11) (2022-11-03)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-map-core
