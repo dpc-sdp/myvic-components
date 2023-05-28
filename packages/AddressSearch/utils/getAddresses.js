@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const ARCGIS_SERVER_URL = 'https://geo.mapshare.vic.gov.au/arcgis'
+const ARCGIS_SERVER_URL = 'https://corp-geo.mapshare.vic.gov.au/arcgis'
 const SERVICE_PATH = 'rest/services/Geocoder/VMAddressEZIAdd/GeocodeServer'
 const SUGGEST_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/suggest?f=json&text=`
 const ADDRESS_REQUEST = `${ARCGIS_SERVER_URL}/${SERVICE_PATH}/findAddressCandidates?f=json&outSR=4326&magicKey=`
