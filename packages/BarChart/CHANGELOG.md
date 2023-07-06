@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.13](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/BarChart/compare/v2.2.11...v2.2.13) (2023-01-06)
+
+**Note:** Version bump only for package @dpc-sdp/myvic-bar-chart
+
+
+
+
+
 ## [2.2.11](https://github.com/dpc-sdp/myvictoria-vic-gov-au/tree/master/packages/BarChart/compare/v2.2.10...v2.2.11) (2022-11-03)
 
 **Note:** Version bump only for package @dpc-sdp/myvic-bar-chart
